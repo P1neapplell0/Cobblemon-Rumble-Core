@@ -1,0 +1,16 @@
+{
+  "block.maxrepel.creative_sprayer": "创造模式喷洒器",
+  "block.maxrepel.repel_sprayer": "除虫喷雾喷洒器",
+  "effect.maxrepel.max_repel": "黄金喷雾",
+  "effect.maxrepel.max_repel.description": "使附近的野生宝可梦不会出现。",
+  "effect.maxrepel.repel": "除虫喷雾",
+  "effect.maxrepel.repel.description": "使附近的野生宝可梦不会出现。",
+  "effect.maxrepel.super_repel": "白银喷雾",
+  "effect.maxrepel.super_repel.description": "使附近的野生宝可梦不会出现。",
+  "item.maxrepel.max_repel": "黄金喷雾",
+  "item.maxrepel.max_repel.tooltip": "一种能驱赶野生宝可梦的道具，使用后你不会再遇到它们。效果比白银喷雾更持久。",
+  "item.maxrepel.repel": "除虫喷雾",
+  "item.maxrepel.repel.tooltip": "一种能驱赶野生宝可梦的道具，使用后短时间内你不会遇到它们。",
+  "item.maxrepel.super_repel": "白银喷雾",
+  "item.maxrepel.super_repel.tooltip": "一种能驱赶野生宝可梦的道具，使用后你不会再遇到它们。效果比除虫喷雾更持久。"
+}

@@ -1,0 +1,12 @@
+{
+  "advancements.quark.tatami_gaeshi.description": "用竹席击打某个东西",
+  "advancements.quark.tatami_gaeshi.title": "TATAMI GAESHI!",
+  "config.jade.plugin_quark.oretoise_eating_cooldown": "矿石龟进食冷却",
+  "entity.quark.torch_arrow": "火把箭",
+  "item.quark.backpack.warning.line_1": "警告",
+  "item.quark.backpack.warning.line_2": "此背包中装有物品；若在生存模式下没有装备它，里面的物品将被清除。",
+  "item.quark.smithing_template_rune": "锻造模板",
+  "quark.jade.eating_cooldown": "进食冷却：%d秒",
+  "quark.misc.totem_darksouls": "当先前的持有图腾碎裂时，你感到一阵恐惧",
+  "quark.pack.emote_icon_pack": "Quark 表情图标包"
+}

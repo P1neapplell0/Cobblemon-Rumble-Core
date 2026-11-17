@@ -1,0 +1,17 @@
+{
+  "fml.menu.mods.info.description.wildfire_gender": "允许玩家选择自己想要成为的性别。",
+  "fml.menu.mods.info.displayname.wildfire_gender": "Wildfire's Female Gender Mod",
+  "toast.wildfire_gender.get_started": "按 '%s' 键开始！",
+  "wildfire_gender.breast_customization.presets.add_new": "新增...",
+  "wildfire_gender.breast_customization.presets.delete": "删除",
+  "wildfire_gender.breast_customization.presets.none": "未找到预设",
+  "wildfire_gender.breast_customization.tab_customization": "自定义",
+  "wildfire_gender.breast_customization.tab_presets": "预设",
+  "wildfire_gender.char_settings.override_armor_physics": "护甲物理：%s",
+  "wildfire_gender.coming_soon": "即将推出",
+  "wildfire_gender.config.client": "客户端配置。此配置仅存在于客户端。",
+  "wildfire_gender.config.client.disable_rendering": "全局覆盖：禁用本模组的所有渲染（包括性别菜单中的渲染）。",
+  "wildfire_gender.config.client.disable_sound_replacement": "全局覆盖：禁用将玩家声音替换为女性声音的功能。",
+  "wildfire_gender.tooltip.override_armor_physics.line1": "启用后，胸部物理将不再因你所装备的护甲而被削弱或抑制。",
+  "wildfire_gender.tooltip.override_armor_physics.line2": "此选项适用于隐藏护甲的资源包，或任何类似的极简护甲资源包。"
+}

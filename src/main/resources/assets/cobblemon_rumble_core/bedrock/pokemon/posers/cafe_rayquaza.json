@@ -1,0 +1,19 @@
+{
+  "rootBone": "rayquaza",
+  "portraitScale": 1.11,
+  "portraitTranslation": [-1.66, 4.48, 0],
+  "profileScale": 0.25,
+  "profileTranslation": [0, 1.5, -10],
+  "poses": {
+    "idle": {
+      "poseTypes": ["STAND", "NONE", "PORTRAIT", "PROFILE", "FLOAT", "HOVER", "SLEEP"],
+      "animations": ["q.look('head_ai')", "q.bedrock('rumble_cafe_rayquaza', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('rumble_cafe_rayquaza', 'blink')"]
+    },
+    "moving": {
+      "poseTypes": ["WALK", "SWIM", "FLY"],
+      "animations": ["q.look('head_ai')", "q.bedrock('rumble_cafe_rayquaza', 'ground_idle')"],
+      "quirks": ["q.bedrock_quirk('rumble_cafe_rayquaza', 'blink')"]
+    }
+  }
+}

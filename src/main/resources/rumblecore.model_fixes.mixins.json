@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "com.p1nero.cobblemon.rumblecore.mixin.cobblemon.models",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["LegacyModelLayers", "MegaSalamenceResolver", "ModelAnimationRepairs"]
+}

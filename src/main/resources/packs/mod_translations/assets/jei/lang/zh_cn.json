@@ -1,0 +1,5 @@
+{
+  "jei.config.client.advanced.recipeSyncWarningEnabled": "配方同步警告",
+  "jei.config.client.advanced.recipeSyncWarningEnabled.description": "当服务器未向 JEI 提供同步配方时（例如原版服务器，或未安装 JEI 的服务器），在聊天中显示警告。",
+  "key.jei.recipeForward": "下一个配方"
+}

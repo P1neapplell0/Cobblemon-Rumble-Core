@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "com.p1nero.cobblemon.rumblecore.mixin.cobbledollars",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "BankScreenMixin",
+    "CobbleDollarsOverlayMixin",
+    "OfferListWidgetMixin",
+    "ShopScreenMixin"
+  ]
+}

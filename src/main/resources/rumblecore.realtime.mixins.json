@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "GlideRenderAccess",
+    "SquashRenderAccess",
+    "combat.BattleCameraInterpolation",
+    "combat.SubpixelBattleReticle"
+  ],
+  "mixins": [
+    "combat.RealtimeKnockout"
+  ]
+}

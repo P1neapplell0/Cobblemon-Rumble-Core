@@ -1,0 +1,12 @@
+{
+  "parcool.action.StartSwimByCrawl": "匍匐游泳",
+  "parcool.command.message.hookNotFound": "在 %s 处未找到滑索挂钩",
+  "parcool.command.message.hookTooFar": "两个滑索挂钩距离过远",
+  "parcool.command.message.invalidStaminaType": "不存在该体力类型：%s",
+  "parcool.command.message.success.setStaminaType": "已将 %d 名玩家的强制体力类型设置为 %s",
+  "parcool.command.message.success.setZipline": "已在 %s 与 %s 之间设置滑索",
+  "parcool.command.message.ziplineTooSteep": "这条滑索过于陡峭",
+  "parcool.config.c.enable_stamina_exhaustion_penalty": "启用体力消耗减缓",
+  "parcool.config.c.lowest_fall_distance_for_breakfall": "启用精准时机受身的效果",
+  "parcool.config.c.show_light_hud_always": "始终显示轻量体力 HUD"
+}

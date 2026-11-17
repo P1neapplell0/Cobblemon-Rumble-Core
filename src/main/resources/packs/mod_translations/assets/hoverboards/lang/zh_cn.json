@@ -1,0 +1,23 @@
+{
+  "item.hoverboards.hoverboard": "悬浮滑板",
+  "item.hoverboards.hoverboard_white": "白色悬浮滑板",
+  "item.hoverboards.hoverboard_orange": "橙色悬浮滑板",
+  "item.hoverboards.hoverboard_magenta": "品红色悬浮滑板",
+  "item.hoverboards.hoverboard_light_blue": "淡蓝色悬浮滑板",
+  "item.hoverboards.hoverboard_yellow": "黄色悬浮滑板",
+  "item.hoverboards.hoverboard_lime": "黄绿色悬浮滑板",
+  "item.hoverboards.hoverboard_pink": "粉红色悬浮滑板",
+  "item.hoverboards.hoverboard_gray": "灰色悬浮滑板",
+  "item.hoverboards.hoverboard_light_gray": "淡灰色悬浮滑板",
+  "item.hoverboards.hoverboard_cyan": "青色悬浮滑板",
+  "item.hoverboards.hoverboard_purple": "紫色悬浮滑板",
+  "item.hoverboards.hoverboard_blue": "蓝色悬浮滑板",
+  "item.hoverboards.hoverboard_brown": "棕色悬浮滑板",
+  "item.hoverboards.hoverboard_green": "绿色悬浮滑板",
+  "item.hoverboards.hoverboard_red": "红色悬浮滑板",
+  "item.hoverboards.hoverboard_black": "黑色悬浮滑板",
+  "subtitles.hoverboards.hoverboard_mount": "悬浮滑板启动",
+  "subtitles.hoverboards.hoverboard_dismount": "悬浮滑板停止",
+  "subtitles.hoverboards.hoverboard_idle": "悬浮滑板嗡嗡作响",
+  "entity.hoverboards.hoverboard": "悬浮滑板"
+}

@@ -1,0 +1,12 @@
+{
+  "cobblemonbuffs.aura.gained": "%s 散发出 %s 气场！",
+  "cobblemonbuffs.aura.lost": "%s 气场渐渐消散……",
+  "cobblemonbuffs.aura.awakened": "%s 的气场燃烧得更加明亮！",
+  "cobblemonbuffs.synergy.discovered": "发现协同效应：%s！",
+  "cobblemonbuffs.harmony.gained": "队伍和谐已激活！",
+  "cobblemonbuffs.harmony.lost": "队伍和谐已消退。",
+  "cobblemonbuffs.mono.gained": "单属性精通：%s 已激活！",
+  "cobblemonbuffs.mono.lost": "单属性精通已消退。",
+  "cobblemonbuffs.aura.tier_up": "%s 气场达到第 %s 阶！",
+  "cobblemonbuffs.aura.tier_down": "%s 气场降至第 %s 阶。"
+}

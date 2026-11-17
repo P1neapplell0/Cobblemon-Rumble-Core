@@ -1,0 +1,16 @@
+{
+  "accessories.slot.exp_all": "学习装置",
+  "curios.identifier.exp_all": "学习装置",
+  "item.cobblemonexpall.exp_all": "学习装置",
+  "item.cobblemonexpall.exp_all.desc": "由训练师装备后，将对战获得的经验值和努力值分享给符合条件的同行宝可梦。",
+  "itemGroup.cobblemonexpall": "Cobblemon 学习装置",
+  "key.categories.cobblemonexpall": "Cobblemon 学习装置",
+  "key.cobblemonexpall.toggle_ev_share": "切换努力值共享",
+  "key.cobblemonexpall.toggle_exp_share": "切换经验值共享",
+  "message.cobblemonexpall.ev_sharing.disabled": "努力值共享已禁用",
+  "message.cobblemonexpall.ev_sharing.enabled": "努力值共享已启用",
+  "message.cobblemonexpall.exp_sharing.disabled": "经验值共享已禁用",
+  "message.cobblemonexpall.exp_sharing.enabled": "经验值共享已启用",
+  "tag.item.accessories.exp_all": "学习装置槽物品",
+  "tag.item.curios.exp_all": "学习装置槽物品"
+}
