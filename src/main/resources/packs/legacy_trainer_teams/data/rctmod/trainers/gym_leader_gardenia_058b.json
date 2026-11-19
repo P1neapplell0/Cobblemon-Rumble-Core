@@ -1,0 +1,210 @@
+{
+  "name": "菜种",
+  "identity": "道馆馆主·菜种",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "jumpluff",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gigadrain",
+        "sleeppowder",
+        "leechseed",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heat_rock"
+      ]
+    },
+    {
+      "species": "sunflora",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "timid",
+      "ability": "solarpower",
+      "moveset": [
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "cherrim",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "mild",
+      "ability": "flowergift",
+      "moveset": [
+        "petalblizzard",
+        "solarbeam",
+        "growth",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "poisonheal",
+      "moveset": [
+        "focuspunch",
+        "leechseed",
+        "substitute",
+        "spore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "adamant",
+      "ability": "overgrow",
+      "moveset": [
+        "woodhammer",
+        "earthquake",
+        "stoneedge",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "solarbeam",
+        "sludgebomb",
+        "grassyterrain",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    }
+  ]
+}

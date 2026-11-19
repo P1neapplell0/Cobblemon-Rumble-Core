@@ -1,0 +1,121 @@
+{
+  "name": "忍者少年·乔尔",
+  "team": [
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "hasty",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "astonish",
+        "meanlook",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "skorupi",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "naive",
+      "ability": "battlearmor",
+      "moveset": [
+        "honeclaws",
+        "poisonfang",
+        "venoshock",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "hasty",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "astonish",
+        "meanlook",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "hasty",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "absorb",
+        "astonish",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

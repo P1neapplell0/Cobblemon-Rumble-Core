@@ -1,0 +1,93 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（12）",
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "hardy",
+      "ability": "limber",
+      "moveset": [
+        "growl",
+        "aerialace",
+        "furyswipes",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "docile",
+      "ability": "aftermath",
+      "moveset": [
+        "poisongas",
+        "bite",
+        "venoshock",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "serious",
+      "ability": "limber",
+      "moveset": [
+        "growl",
+        "aerialace",
+        "furyswipes",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

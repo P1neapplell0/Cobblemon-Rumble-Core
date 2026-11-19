@@ -1,0 +1,34 @@
+{
+  "name": "泳圈族·霍莉",
+  "team": [
+    {
+      "species": "remoraid",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "quirky",
+      "ability": "hustle",
+      "moveset": [
+        "lockon",
+        "bulletseed",
+        "icebeam",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

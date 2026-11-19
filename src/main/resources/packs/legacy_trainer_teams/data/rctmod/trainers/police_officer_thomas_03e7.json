@@ -1,0 +1,63 @@
+{
+  "name": "警察·托马斯",
+  "team": [
+    {
+      "species": "noctowl",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "sassy",
+      "ability": "keeneye",
+      "moveset": [
+        "peck",
+        "reflect",
+        "psychoshift",
+        "uproar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machoke",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "lowsweep",
+        "knockoff",
+        "dualchop",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

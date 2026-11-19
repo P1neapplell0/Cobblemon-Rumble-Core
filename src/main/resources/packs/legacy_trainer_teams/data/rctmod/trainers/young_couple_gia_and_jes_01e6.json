@@ -1,0 +1,67 @@
+{
+  "name": "年轻情侣·吉娅＆杰斯",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "toxtricity",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "lonely",
+      "ability": "plus",
+      "moveset": [
+        "screech",
+        "swagger",
+        "toxic",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "toxtricity",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "naive",
+      "ability": "minus",
+      "moveset": [
+        "screech",
+        "swagger",
+        "toxic",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "low_key"
+      ]
+    }
+  ]
+}

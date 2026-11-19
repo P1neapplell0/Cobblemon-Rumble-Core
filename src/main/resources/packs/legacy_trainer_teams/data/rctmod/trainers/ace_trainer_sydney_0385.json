@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·西德尼",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "clefable",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "cutecharm",
+      "moveset": [
+        "moonlight",
+        "meteormash",
+        "cosmicpower",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "impish",
+      "ability": "overgrow",
+      "moveset": [
+        "earthquake",
+        "woodhammer",
+        "crunch",
+        "synthesis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

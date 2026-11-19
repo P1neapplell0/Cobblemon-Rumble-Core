@@ -1,0 +1,63 @@
+{
+  "name": "渔夫·克劳德",
+  "team": [
+    {
+      "species": "basculin",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "hardy",
+      "ability": "reckless",
+      "moveset": [
+        "finalgambit",
+        "liquidation",
+        "headsmash",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dhelmise",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "sassy",
+      "ability": "steelworker",
+      "moveset": [
+        "heavyslam",
+        "phantomforce",
+        "powerwhip",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

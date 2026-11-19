@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·玛西",
+  "team": [
+    {
+      "species": "paras",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "careful",
+      "ability": "dryskin",
+      "moveset": [
+        "swordsdance",
+        "seedbomb",
+        "bodyslam",
+        "aromatherapy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "paras",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "gentle",
+      "ability": "dryskin",
+      "moveset": [
+        "swordsdance",
+        "seedbomb",
+        "bodyslam",
+        "aromatherapy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "parasect",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "rash",
+      "ability": "dryskin",
+      "moveset": [
+        "leechlife",
+        "swordsdance",
+        "seedbomb",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

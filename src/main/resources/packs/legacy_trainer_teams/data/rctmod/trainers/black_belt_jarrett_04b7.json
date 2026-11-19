@@ -1,0 +1,34 @@
+{
+  "name": "空手道王·贾勒特",
+  "team": [
+    {
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "careful",
+      "ability": "noguard",
+      "moveset": [
+        "dynamicpunch",
+        "bulkup",
+        "knockoff",
+        "focusenergy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

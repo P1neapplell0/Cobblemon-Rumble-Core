@@ -1,0 +1,34 @@
+{
+  "name": "泳者·库尔特",
+  "team": [
+    {
+      "species": "crawdaunt",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "relaxed",
+      "ability": "hypercutter",
+      "moveset": [
+        "taunt",
+        "nightslash",
+        "crabhammer",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

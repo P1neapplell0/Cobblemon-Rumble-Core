@@ -1,0 +1,217 @@
+{
+  "name": "四天王·科拿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "politoed",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "timid",
+      "ability": "drizzle",
+      "moveset": [
+        "muddywater",
+        "raindance",
+        "haze",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "poliwrath",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "waterabsorb",
+      "moveset": [
+        "dive",
+        "closecombat",
+        "icepunch",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "torrent",
+      "moveset": [
+        "poweruppunch",
+        "earthquake",
+        "icepunch",
+        "liquidation"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:swampertite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "kingdra",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "muddywater",
+        "dragonpulse",
+        "icebeam",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "kyogre",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "drizzle",
+      "moveset": [
+        "hydropump",
+        "originpulse",
+        "thunder",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:blue_orb"
+      ],
+      "aspects": [
+        "primal"
+      ]
+    },
+    {
+      "species": "dracovish",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "strongjaw",
+      "moveset": [
+        "fishiousrend",
+        "outrage",
+        "psychicfangs",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    }
+  ]
+}

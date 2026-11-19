@@ -1,0 +1,64 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（30）",
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "docile",
+      "ability": "aftermath",
+      "moveset": [
+        "venoshock",
+        "toxic",
+        "memento",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "serious",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "astonish",
+        "poisonfang",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

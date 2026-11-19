@@ -1,0 +1,63 @@
+{
+  "name": "科学家·乔舒亚",
+  "team": [
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "lonely",
+      "ability": "soundproof",
+      "moveset": [
+        "lightscreen",
+        "magnetrise",
+        "discharge",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "muk",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "regenerator",
+      "moveset": [
+        "poisonjab",
+        "screech",
+        "gunkshot",
+        "acidarmor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

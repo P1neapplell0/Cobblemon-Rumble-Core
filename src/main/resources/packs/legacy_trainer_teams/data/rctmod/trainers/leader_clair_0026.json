@@ -1,0 +1,217 @@
+{
+  "name": "小椿",
+  "identity": "馆主·小椿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "hasty",
+      "ability": "clearbody",
+      "moveset": [
+        "dragondarts",
+        "phantomforce",
+        "uturn",
+        "dracometeor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "dialga",
+      "gender": "GENDERLESS",
+      "level": 96,
+      "nature": "modest",
+      "ability": "pressure",
+      "moveset": [
+        "roaroftime",
+        "flamethrower",
+        "flashcannon",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:adamant_orb",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "dragonite",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "lonely",
+      "ability": "multiscale",
+      "moveset": [
+        "aerialace",
+        "fireblast",
+        "dragonclaw",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "flapple",
+      "gender": "MALE",
+      "level": 96,
+      "nature": "naive",
+      "ability": "ripen",
+      "moveset": [
+        "dracometeor",
+        "energyball",
+        "suckerpunch",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eject_pack"
+      ]
+    },
+    {
+      "species": "kyurem",
+      "gender": "GENDERLESS",
+      "level": 96,
+      "nature": "jolly",
+      "ability": "teravolt",
+      "moveset": [
+        "dragondance",
+        "dragonclaw",
+        "stoneedge",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ],
+      "aspects": [
+        "black"
+      ]
+    },
+    {
+      "species": "genesect",
+      "gender": "GENDERLESS",
+      "level": 97,
+      "nature": "hasty",
+      "ability": "download",
+      "moveset": [
+        "uturn",
+        "facade",
+        "icebeam",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

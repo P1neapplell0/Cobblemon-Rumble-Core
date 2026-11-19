@@ -1,0 +1,148 @@
+{
+  "name": "阿笔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "ariados",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "adamant",
+      "ability": "swarm",
+      "moveset": [
+        "shadowsneak",
+        "fellstinger",
+        "bugbite",
+        "crosspoison"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "poison_barb"
+      ]
+    },
+    {
+      "species": "ledian",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "bashful",
+      "ability": "ironfist",
+      "moveset": [
+        "drainpunch",
+        "icepunch",
+        "machpunch",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "scyther",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "bashful",
+      "ability": "technician",
+      "moveset": [
+        "bugbite",
+        "aerialace",
+        "brickbreak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charti_berry"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "bashful",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "uturn",
+        "aerialace",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

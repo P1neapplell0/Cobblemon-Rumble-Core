@@ -1,0 +1,213 @@
+{
+  "name": "电次",
+  "identity": "道馆馆主·电次",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "drizzle",
+      "moveset": [
+        "hydropump",
+        "hurricane",
+        "icebeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "timid",
+      "ability": "lightningrod",
+      "moveset": [
+        "thunder",
+        "surf",
+        "focusblast",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "luxray",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "icefang",
+        "playrough",
+        "voltswitch",
+        "electricterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "lanturn",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "modest",
+      "ability": "voltabsorb",
+      "moveset": [
+        "thunder",
+        "surf",
+        "icebeam",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "jolteon",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "modest",
+      "ability": "quickfeet",
+      "moveset": [
+        "thunder",
+        "agility",
+        "shadowball",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "mild",
+      "ability": "motordrive",
+      "moveset": [
+        "thunder",
+        "flamethrower",
+        "crosschop",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

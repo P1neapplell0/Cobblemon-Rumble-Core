@@ -1,0 +1,210 @@
+{
+  "name": "馆主·泰茜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "toxapex",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "toxicspikes",
+        "bite",
+        "haze",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "armaldo",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "aquatail",
+        "xscissor",
+        "stompingtantrum",
+        "smackdown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kingdra",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "scald",
+        "dragonpulse",
+        "icebeam",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "seismitoad",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "liquidation",
+        "earthquake",
+        "drainpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "waterfall",
+        "dragondance",
+        "earthquake",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gyaradosite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "waterfall",
+        "smartstrike",
+        "poisonjab",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

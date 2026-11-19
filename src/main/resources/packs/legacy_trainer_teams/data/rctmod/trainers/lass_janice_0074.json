@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·珍妮丝",
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "MALE",
+      "level": 10,
+      "nature": "quirky",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "attract",
+        "scratch",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoranf",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "quiet",
+      "ability": "poisontouch",
+      "moveset": [
+        "growl",
+        "scratch",
+        "tailwhip",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

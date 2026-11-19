@@ -1,0 +1,49 @@
+{
+  "name": "宝可梦训练家·雪莉",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "timid",
+      "ability": "healer",
+      "moveset": [
+        "sweetkiss",
+        "disarmingvoice",
+        "tailwhip",
+        "lifedew"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

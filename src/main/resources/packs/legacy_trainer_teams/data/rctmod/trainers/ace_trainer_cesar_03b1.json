@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·塞萨尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "skorupi",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "relaxed",
+      "ability": "battlearmor",
+      "moveset": [
+        "bite",
+        "pinmissile",
+        "toxic",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "thunderfang",
+        "icefang",
+        "curse",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

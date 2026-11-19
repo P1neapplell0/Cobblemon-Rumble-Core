@@ -1,0 +1,146 @@
+{
+  "name": "钓客·卢克",
+  "team": [
+    {
+      "species": "magikarp",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magikarp",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magikarp",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "leer",
+        "icefang",
+        "waterfall",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magikarp",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

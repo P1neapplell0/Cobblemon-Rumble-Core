@@ -1,0 +1,34 @@
+{
+  "name": "露营少年·安东尼",
+  "team": [
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "hasty",
+      "ability": "runaway",
+      "moveset": [
+        "tackle",
+        "growl",
+        "tailwhip",
+        "flamecharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

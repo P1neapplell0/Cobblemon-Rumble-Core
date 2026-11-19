@@ -1,0 +1,110 @@
+{
+  "name": "干部·土星",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "kinesis",
+        "reflect",
+        "psychic",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 38,
+      "nature": "relaxed",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "payback",
+        "gyroball",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "toxicroak",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "dryskin",
+      "moveset": [
+        "mudslap",
+        "toxic",
+        "thief",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

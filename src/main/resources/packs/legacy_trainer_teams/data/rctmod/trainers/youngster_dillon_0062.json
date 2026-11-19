@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·迪伦",
+  "team": [
+    {
+      "species": "phanpy",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "calm",
+      "ability": "pickup",
+      "moveset": [
+        "rollout",
+        "stompingtantrum",
+        "endure",
+        "slam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "woobat",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "quirky",
+      "ability": "unaware",
+      "moveset": [
+        "heartstamp",
+        "imprison",
+        "aircutter",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

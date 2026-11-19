@@ -1,0 +1,127 @@
+{
+  "name": "神奥馆主·小菘",
+  "team": [
+    {
+      "species": "sneasel",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "adamant",
+      "ability": "innerfocus",
+      "moveset": [
+        "feintattack",
+        "iceshard",
+        "aerialace",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "piloswine",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "snowcloak",
+      "moveset": [
+        "icefang",
+        "bulldoze",
+        "rocktomb",
+        "hail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "icy_rock"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "frostbreath",
+        "shadowball",
+        "waterpulse",
+        "storedpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "modest",
+      "ability": "snowcloak",
+      "moveset": [
+        "icywind",
+        "ominouswind",
+        "waterpulse",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

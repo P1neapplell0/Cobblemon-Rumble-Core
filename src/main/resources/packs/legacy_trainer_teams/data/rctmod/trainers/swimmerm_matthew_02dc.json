@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·马修",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "naive",
+      "ability": "damp",
+      "moveset": [
+        "mudshot",
+        "encore",
+        "wakeupslap",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwrath",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "lonely",
+      "ability": "damp",
+      "moveset": [
+        "bubblebeam",
+        "hypnosis",
+        "doubleslap",
+        "dynamicpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

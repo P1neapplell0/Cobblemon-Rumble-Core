@@ -1,0 +1,149 @@
+{
+  "name": "精英训练家·威尔顿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dragapult",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "shadowball",
+        "thunder",
+        "dracometeor",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "kabutops",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "waterfall",
+        "rocktomb",
+        "brickbreak",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "hypercutter",
+      "moveset": [
+        "xscissor",
+        "thrash",
+        "quickattack",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "omastar",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "shellsmash",
+        "hydropump",
+        "icebeam",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    }
+  ]
+}

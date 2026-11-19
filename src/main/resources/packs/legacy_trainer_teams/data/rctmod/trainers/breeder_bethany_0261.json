@@ -1,0 +1,34 @@
+{
+  "name": "培育家·贝瑟妮",
+  "team": [
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "careful",
+      "ability": "serenegrace",
+      "moveset": [
+        "fling",
+        "healpulse",
+        "eggbomb",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

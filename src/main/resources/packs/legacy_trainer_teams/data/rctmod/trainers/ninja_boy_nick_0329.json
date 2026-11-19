@@ -1,0 +1,63 @@
+{
+  "name": "忍者少年·尼克",
+  "team": [
+    {
+      "species": "skorupi",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "naive",
+      "ability": "battlearmor",
+      "moveset": [
+        "honeclaws",
+        "poisonfang",
+        "bugbite",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "hasty",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "absorb",
+        "poisonfang",
+        "aircutter"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

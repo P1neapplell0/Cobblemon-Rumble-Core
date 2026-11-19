@@ -1,0 +1,143 @@
+{
+  "name": "馆主·维加",
+  "identity": "毁灭队成员·维加",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "liepard",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "jolly",
+      "ability": "unburden",
+      "moveset": [
+        "thief",
+        "playrough",
+        "fakeout",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "impish",
+      "ability": "pressure",
+      "moveset": [
+        "knockoff",
+        "psychocut",
+        "feint",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "impish",
+      "ability": "pressure",
+      "moveset": [
+        "punishment",
+        "iceshard",
+        "batonpass",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "dark_gem"
+      ]
+    },
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "naughty",
+      "ability": "superluck",
+      "moveset": [
+        "beatup",
+        "aircutter",
+        "nightshade",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

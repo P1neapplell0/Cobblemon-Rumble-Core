@@ -1,0 +1,87 @@
+{
+  "name": "捕虫少年·查理",
+  "team": [
+    {
+      "species": "nincada",
+      "gender": "FEMALE",
+      "level": 6,
+      "nature": "timid",
+      "ability": "compoundeyes",
+      "moveset": [
+        "scratch",
+        "harden",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "spewpa",
+      "gender": "FEMALE",
+      "level": 9,
+      "nature": "hardy",
+      "ability": "shedskin",
+      "moveset": [
+        "irondefense",
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "metapod",
+      "gender": "FEMALE",
+      "level": 8,
+      "nature": "quiet",
+      "ability": "shedskin",
+      "moveset": [
+        "harden",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

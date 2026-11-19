@@ -1,0 +1,198 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "uturn",
+        "bravebird",
+        "doubleedge",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "supercellslam",
+        "focuspunch",
+        "poweruppunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "kartana",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "beastboost",
+      "moveset": [
+        "leafblade",
+        "sacredsword",
+        "smartstrike",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "barbaracle",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "toughclaws",
+      "moveset": [
+        "shellsmash",
+        "liquidation",
+        "stoneedge",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "hatterene",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "modest",
+      "ability": "magicbounce",
+      "moveset": [
+        "calmmind",
+        "drainingkiss",
+        "psychic",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "blaze",
+      "moveset": [
+        "dragondance",
+        "earthquake",
+        "flareblitz",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x",
+        "life_orb"
+      ]
+    }
+  ]
+}

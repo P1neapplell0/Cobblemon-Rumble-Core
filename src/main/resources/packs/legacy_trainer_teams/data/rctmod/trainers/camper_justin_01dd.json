@@ -1,0 +1,139 @@
+{
+  "name": "露营少年·贾斯汀",
+  "team": [
+    {
+      "species": "darmanitan",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "zenmode",
+      "moveset": [
+        "uturn",
+        "flareblitz",
+        "bodyslam",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charti_berry"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "slushrush",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "gyroball",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "MALE",
+      "level": 88,
+      "nature": "careful",
+      "ability": "ironfist",
+      "moveset": [
+        "drainpunch",
+        "machpunch",
+        "knockoff",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "nastyplot",
+        "shadowball",
+        "focusblast",
+        "sludgewave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "spell_tag"
+      ]
+    }
+  ]
+}

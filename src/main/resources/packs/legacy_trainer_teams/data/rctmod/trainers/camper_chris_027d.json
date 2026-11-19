@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·克里斯",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "modest",
+      "ability": "flashfire",
+      "moveset": [
+        "flamewheel",
+        "reversal",
+        "firefang",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "charmander",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "ancientpower",
+        "firefang",
+        "scaryface",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

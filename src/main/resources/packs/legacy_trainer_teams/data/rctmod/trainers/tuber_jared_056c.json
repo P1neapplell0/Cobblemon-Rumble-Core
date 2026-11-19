@@ -1,0 +1,98 @@
+{
+  "name": "泳圈族·贾里德",
+  "team": [
+    {
+      "species": "gastrodon",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "mudslap",
+        "recover",
+        "waterpulse",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "east_sea"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "recover",
+        "ancientpower",
+        "muddywater",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "east_sea"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "recover",
+        "bodyslam",
+        "muddywater",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

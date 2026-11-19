@@ -1,0 +1,139 @@
+{
+  "name": "空手道王·谢伊",
+  "team": [
+    {
+      "species": "decidueye",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "reckless",
+      "moveset": [
+        "solarblade",
+        "lowkick",
+        "bravebird",
+        "smackdown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "probopass",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "thunderwave",
+        "voltswitch",
+        "flashcannon",
+        "powergem"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "facade",
+        "drainpunch",
+        "knockoff",
+        "machpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "doubleedge",
+        "drillrun",
+        "lunge",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    }
+  ]
+}

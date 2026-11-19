@@ -1,0 +1,35 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（21）",
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "poisonfang",
+        "aircutter",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

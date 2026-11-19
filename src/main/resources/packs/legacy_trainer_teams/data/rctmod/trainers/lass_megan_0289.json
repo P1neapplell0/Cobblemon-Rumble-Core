@@ -1,0 +1,149 @@
+{
+  "name": "短裤少女·梅根",
+  "team": [
+    {
+      "species": "pidgeot",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "careful",
+      "ability": "tangledfeet",
+      "moveset": [
+        "roost",
+        "agility",
+        "airslash",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "quirky",
+      "ability": "guts",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "quiet",
+      "ability": "rivalry",
+      "moveset": [
+        "poisonjab",
+        "toxicspikes",
+        "honeclaws"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "persian",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "technician",
+      "moveset": [
+        "shockwave",
+        "powergem",
+        "slash",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "modest",
+      "ability": "static",
+      "moveset": [
+        "tailwhip",
+        "quickattack",
+        "thunderbolt",
+        "megapunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

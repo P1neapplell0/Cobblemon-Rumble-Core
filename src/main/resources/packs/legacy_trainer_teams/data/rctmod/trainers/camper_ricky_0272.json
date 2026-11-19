@@ -1,0 +1,34 @@
+{
+  "name": "露营少年·瑞奇",
+  "team": [
+    {
+      "species": "wartortle",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "lax",
+      "ability": "torrent",
+      "moveset": [
+        "skullbash",
+        "irondefense",
+        "raindance",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

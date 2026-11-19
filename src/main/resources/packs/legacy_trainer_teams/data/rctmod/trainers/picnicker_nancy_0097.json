@@ -1,0 +1,66 @@
+{
+  "name": "野餐少女·南希",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "modest",
+      "ability": "flashfire",
+      "moveset": [
+        "flamewheel",
+        "reversal",
+        "firefang",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vulpix",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "hasty",
+      "ability": "serenegrace",
+      "moveset": [
+        "confuseray",
+        "snarl",
+        "darkpulse",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

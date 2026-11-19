@@ -1,0 +1,136 @@
+{
+  "name": "超级书呆·米格尔",
+  "team": [
+    {
+      "species": "thwackey",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "bashful",
+      "ability": "grassysurge",
+      "moveset": [
+        "fakeout",
+        "razorleaf",
+        "knockoff",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 88,
+      "nature": "naive",
+      "ability": "reckless",
+      "moveset": [
+        "shockwave",
+        "selfdestruct",
+        "voltswitch",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "bibarel",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "careful",
+      "ability": "simple",
+      "moveset": [
+        "headbutt",
+        "aquajet",
+        "curse",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "grassy_seed"
+      ]
+    },
+    {
+      "species": "sableye",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "careful",
+      "ability": "prankster",
+      "moveset": [
+        "willowisp",
+        "recover",
+        "protect",
+        "foulplay"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

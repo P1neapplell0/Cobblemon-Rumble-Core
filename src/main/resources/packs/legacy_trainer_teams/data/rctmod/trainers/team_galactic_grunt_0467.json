@@ -1,0 +1,64 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（25）",
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "hardy",
+      "ability": "heatproof",
+      "moveset": [
+        "confuseray",
+        "gyroball",
+        "extrasensory",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "docile",
+      "ability": "aftermath",
+      "moveset": [
+        "bite",
+        "venoshock",
+        "toxic",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·卡罗尔",
+  "team": [
+    {
+      "species": "mimejr",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "solidrock",
+      "moveset": [
+        "reflect",
+        "psybeam",
+        "substitute",
+        "recycle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "gentle",
+      "ability": "technician",
+      "moveset": [
+        "mirrormove",
+        "assurance",
+        "agility",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

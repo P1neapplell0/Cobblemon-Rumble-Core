@@ -1,0 +1,49 @@
+{
+  "name": "驯龙师·帕特里克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "gabite",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "sandtomb",
+        "bulldoze",
+        "bite",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "icefang",
+        "bulldoze",
+        "iceshard",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "toucannon",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "pluck",
+        "furyattack",
+        "rockblast",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "waterpulse",
+        "aurorabeam",
+        "quickattack",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "fraxure",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "dualchop",
+        "crunch",
+        "rocktomb",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pupitar",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "adamant",
+      "ability": "shedskin",
+      "moveset": [
+        "stoneedge",
+        "crunch",
+        "earthquake",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:tyranitarite",
+        "leftovers"
+      ]
+    }
+  ]
+}

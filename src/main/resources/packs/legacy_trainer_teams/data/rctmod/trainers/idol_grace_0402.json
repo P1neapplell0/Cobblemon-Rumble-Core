@@ -1,0 +1,63 @@
+{
+  "name": "偶像·格蕾丝",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "careful",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "charm",
+        "thundershock",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "calm",
+      "ability": "cutecharm",
+      "moveset": [
+        "sing",
+        "disarmingvoice",
+        "encore",
+        "charm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

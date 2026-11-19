@@ -1,0 +1,181 @@
+{
+  "name": "精英训练家·罗兰多",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "stealthrock",
+        "powerwhip",
+        "thunderwave",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "leavanny",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "sharpness",
+      "moveset": [
+        "fellstinger",
+        "leafblade",
+        "knockoff",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "mudsdale",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "impish",
+      "ability": "stamina",
+      "moveset": [
+        "earthquake",
+        "endure",
+        "curse",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "clawitzer",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "timid",
+      "ability": "megalauncher",
+      "moveset": [
+        "waterpulse",
+        "icebeam",
+        "darkpulse",
+        "aurasphere"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "modest",
+      "ability": "static",
+      "moveset": [
+        "dragonpulse",
+        "discharge",
+        "voltswitch",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:ampharosite",
+        "life_orb"
+      ]
+    }
+  ]
+}

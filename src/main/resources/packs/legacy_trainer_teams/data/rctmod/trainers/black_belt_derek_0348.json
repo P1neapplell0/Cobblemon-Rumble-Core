@@ -1,0 +1,34 @@
+{
+  "name": "空手道王·德里克",
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "hardy",
+      "ability": "anticipation",
+      "moveset": [
+        "mudslap",
+        "taunt",
+        "revenge",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

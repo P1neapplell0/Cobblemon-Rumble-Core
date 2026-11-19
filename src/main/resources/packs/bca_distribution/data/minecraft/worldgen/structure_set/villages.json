@@ -1,0 +1,43 @@
+{
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spread_type": "triangular",
+      "salt": 11451419,
+      "separation": 10,
+      "spacing": 22
+    },
+    "structures": [
+      {
+        "structure": "bca:village/default_mid",
+        "weight": 11
+      },
+      {
+        "structure": "bca:village/default_large",
+        "weight": 5
+      },
+      {
+        "structure": "bca:village/dark_mid",
+        "weight": 11
+      },
+      {
+        "structure": "bca:village/fairy_mid",
+        "weight": 11
+      },
+      {
+        "structure": "bca:village/fighting_mid",
+        "weight": 11
+      },
+      {
+        "structure": "bca:village/fighting_large",
+        "weight": 5
+      },
+      {
+        "structure": "bca:village/ice_mid",
+        "weight": 11
+      },
+      {
+        "structure": "bca:village/ice_large",
+        "weight": 5
+      }
+    ]
+  }

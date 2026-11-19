@@ -1,0 +1,64 @@
+{
+  "name": "姐弟·莉亚＆卢克",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "vaporeon",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "relaxed",
+      "ability": "waterabsorb",
+      "moveset": [
+        "haze",
+        "muddywater",
+        "lastresort",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mantine",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "quirky",
+      "ability": "waterabsorb",
+      "moveset": [
+        "airslash",
+        "aquaring",
+        "bounce",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

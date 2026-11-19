@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·阿丽莎",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "careful",
+      "ability": "runaway",
+      "moveset": [
+        "growl",
+        "tailwhip",
+        "ember",
+        "flamewheel"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grotle",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "impish",
+      "ability": "overgrow",
+      "moveset": [
+        "razorleaf",
+        "curse",
+        "bite",
+        "megadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·奥马尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "smartstrike",
+        "poisonjab",
+        "tailwhip",
+        "flamewheel"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "carnivine",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "bind",
+        "growth",
+        "leaftornado",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rampardos",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "relaxed",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headbutt",
+        "zenheadbutt",
+        "assurance",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

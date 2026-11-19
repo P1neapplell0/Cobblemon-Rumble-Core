@@ -1,0 +1,64 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（27）",
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "quirky",
+      "ability": "battlearmor",
+      "moveset": [
+        "falseswipe",
+        "doubleedge",
+        "fling",
+        "stompingtantrum"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grapploct",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "careful",
+      "ability": "limber",
+      "moveset": [
+        "submission",
+        "taunt",
+        "reversal",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

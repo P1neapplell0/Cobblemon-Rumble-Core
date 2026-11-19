@@ -1,0 +1,101 @@
+{
+  "name": "空手道王·迈克",
+  "team": [
+    {
+      "species": "hariyama",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "thickfat",
+      "moveset": [
+        "seismictoss",
+        "wakeupslap",
+        "endure",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "poliwrath",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "timid",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bubblebeam",
+        "hypnosis",
+        "doubleslap",
+        "dynamicpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "primeape",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "vitalspirit",
+      "moveset": [
+        "thrash",
+        "screech",
+        "stompingtantrum",
+        "outrage"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

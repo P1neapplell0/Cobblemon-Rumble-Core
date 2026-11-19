@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·赫尔曼",
+  "team": [
+    {
+      "species": "lickitung",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hardy",
+      "ability": "owntempo",
+      "moveset": [
+        "stomp",
+        "disable",
+        "megapunch",
+        "rollout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raboot",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "relaxed",
+      "ability": "blaze",
+      "moveset": [
+        "suckerpunch",
+        "mudshot",
+        "agility",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

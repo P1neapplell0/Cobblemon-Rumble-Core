@@ -1,0 +1,63 @@
+{
+  "name": "大姐姐·奥莉维亚",
+  "team": [
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "sassy",
+      "ability": "overgrow",
+      "moveset": [
+        "sludgebomb",
+        "synthesis",
+        "petalblizzard",
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "torterra",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "mild",
+      "ability": "overgrow",
+      "moveset": [
+        "synthesis",
+        "crunch",
+        "gigadrain",
+        "leafstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

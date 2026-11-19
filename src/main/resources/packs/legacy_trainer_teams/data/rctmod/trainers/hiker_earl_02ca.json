@@ -1,0 +1,63 @@
+{
+  "name": "登山男·厄尔",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "quiet",
+      "ability": "rockhead",
+      "moveset": [
+        "dig",
+        "stoneedge",
+        "doubleedge",
+        "sandstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "bashful",
+      "ability": "guts",
+      "moveset": [
+        "submission",
+        "bulkup",
+        "dynamicpunch",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

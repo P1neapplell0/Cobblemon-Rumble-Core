@@ -1,0 +1,92 @@
+{
+  "name": "宝可梦培育家·阿尔伯特",
+  "team": [
+    {
+      "species": "sudowoodo",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "impish",
+      "ability": "sturdy",
+      "moveset": [
+        "flail",
+        "tearfullook",
+        "suckerpunch",
+        "lowkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "bold",
+      "ability": "poisonpoint",
+      "moveset": [
+        "leechseed",
+        "magicalleaf",
+        "gigadrain",
+        "synthesis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "bold",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "charm",
+        "spark",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "登山男·富兰克林",
+  "team": [
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "quiet",
+      "ability": "guts",
+      "moveset": [
+        "lowkick",
+        "revenge",
+        "knockoff",
+        "vitalthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "calm",
+      "ability": "rockhead",
+      "moveset": [
+        "rockthrow",
+        "smackdown",
+        "bulldoze",
+        "selfdestruct"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

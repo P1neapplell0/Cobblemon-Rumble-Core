@@ -1,0 +1,219 @@
+{
+  "name": "阿松",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "jolly",
+      "ability": "disguise",
+      "moveset": [
+        "playrough",
+        "shadowclaw",
+        "shadowsneak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "hustle",
+      "moveset": [
+        "shadowpunch",
+        "shadowsneak",
+        "brickbreak",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "reaper_cloth"
+      ]
+    },
+    {
+      "species": "zoroark",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "timid",
+      "ability": "illusion",
+      "moveset": [
+        "hypervoice",
+        "shadowball",
+        "flamethrower",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "colbur_berry"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "typhlosion",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "timid",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "shadowball",
+        "focusblast",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "sludgewave",
+        "shadowball",
+        "focusblast",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gengarite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "infiltrator",
+      "moveset": [
+        "knockoff",
+        "tripleaxel",
+        "iceshard",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

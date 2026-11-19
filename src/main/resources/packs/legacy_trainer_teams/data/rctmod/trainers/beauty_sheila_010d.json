@@ -1,0 +1,101 @@
+{
+  "name": "大姐姐·希拉",
+  "team": [
+    {
+      "species": "goodra",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "adamant",
+      "ability": "sapsipper",
+      "moveset": [
+        "dragonclaw",
+        "firepunch",
+        "bodypress",
+        "powerwhip"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "bouffalant",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "sapsipper",
+      "moveset": [
+        "headcharge",
+        "highhorsepower",
+        "zenheadbutt",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "normal_gem"
+      ]
+    },
+    {
+      "species": "zebstrika",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "jolly",
+      "ability": "sapsipper",
+      "moveset": [
+        "supercellslam",
+        "flamecharge",
+        "lowkick",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    }
+  ]
+}

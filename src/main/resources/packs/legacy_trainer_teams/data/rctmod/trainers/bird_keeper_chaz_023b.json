@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·查兹",
+  "team": [
+    {
+      "species": "spearow",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "bold",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "focusenergy",
+        "roost",
+        "drillpeck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "quirky",
+      "ability": "frisk",
+      "moveset": [
+        "roost",
+        "drillpeck",
+        "drillrun",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

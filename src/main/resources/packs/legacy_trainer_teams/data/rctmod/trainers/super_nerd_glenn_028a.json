@@ -1,0 +1,92 @@
+{
+  "name": "超级书呆·格伦",
+  "team": [
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "gentle",
+      "ability": "stickyhold",
+      "moveset": [
+        "disable",
+        "sludge",
+        "mudbomb",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "quiet",
+      "ability": "stickyhold",
+      "moveset": [
+        "disable",
+        "sludge",
+        "mudbomb",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grimer",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "naughty",
+      "ability": "stickyhold",
+      "moveset": [
+        "disable",
+        "sludge",
+        "mudbomb",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "name": "柳伯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "vanilluxe",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "blizzard",
+        "freezedry",
+        "iceshard",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "pressure",
+      "moveset": [
+        "tripleaxel",
+        "knockoff",
+        "lowkick",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "impish",
+      "ability": "icescales",
+      "moveset": [
+        "rest",
+        "sleeptalk",
+        "surf",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "arctovish",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "slushrush",
+      "moveset": [
+        "fishiousrend",
+        "icefang",
+        "psychicfangs",
+        "iciclespear"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "crabominable",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "careful",
+      "ability": "ironfist",
+      "moveset": [
+        "poweruppunch",
+        "avalanche",
+        "drainpunch",
+        "icehammer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "glalie",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "icebody",
+      "moveset": [
+        "gigaimpact",
+        "earthquake",
+        "iceshard",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:glalitite",
+        "leftovers"
+      ]
+    }
+  ]
+}

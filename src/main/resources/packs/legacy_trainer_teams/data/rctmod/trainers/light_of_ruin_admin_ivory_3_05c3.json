@@ -1,0 +1,192 @@
+{
+  "name": "毁灭队干部·艾沃里",
+  "team": [
+    {
+      "species": "toxicroak",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "poisontouch",
+      "moveset": [
+        "poisonjab",
+        "drainpunch",
+        "icepunch",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "mismagius",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "mysticalfire",
+        "dazzlinggleam",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "incineroar",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "flareblitz",
+        "darkestlariat",
+        "drainpunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "timid",
+      "ability": "trace",
+      "moveset": [
+        "psyshock",
+        "shadowball",
+        "energyball",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:alakazite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "mandibuzz",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "bold",
+      "ability": "overcoat",
+      "moveset": [
+        "foulplay",
+        "attract",
+        "toxic",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "eelektross",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "voltswitch",
+        "gigadrain",
+        "flamethrower",
+        "acidspray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

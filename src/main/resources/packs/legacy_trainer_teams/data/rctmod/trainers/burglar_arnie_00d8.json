@@ -1,0 +1,63 @@
+{
+  "name": "盗贼·阿尼",
+  "team": [
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 67,
+      "nature": "docile",
+      "ability": "blaze",
+      "moveset": [
+        "slash",
+        "flamethrower",
+        "firespin",
+        "inferno"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "delphox",
+      "gender": "FEMALE",
+      "level": 69,
+      "nature": "rash",
+      "ability": "blaze",
+      "moveset": [
+        "wish",
+        "psychic",
+        "sunnyday",
+        "magicroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

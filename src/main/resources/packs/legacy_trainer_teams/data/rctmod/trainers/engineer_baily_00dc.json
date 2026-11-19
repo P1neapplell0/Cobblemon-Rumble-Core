@@ -1,0 +1,63 @@
+{
+  "name": "工程师·贝莉",
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 28,
+      "nature": "calm",
+      "ability": "static",
+      "moveset": [
+        "chargebeam",
+        "swift",
+        "electroball",
+        "selfdestruct"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "emolga",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "serious",
+      "ability": "motordrive",
+      "moveset": [
+        "pursuit",
+        "airslash",
+        "shockwave",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

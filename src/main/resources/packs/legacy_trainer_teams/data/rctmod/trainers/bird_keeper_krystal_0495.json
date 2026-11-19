@@ -1,0 +1,92 @@
+{
+  "name": "养鸟人·克丽丝托",
+  "team": [
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "impish",
+      "ability": "earlybird",
+      "moveset": [
+        "drillpeck",
+        "lunge",
+        "quickattack",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "hardy",
+      "ability": "keeneye",
+      "moveset": [
+        "drillrun",
+        "drillpeck",
+        "roost",
+        "assurance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "docile",
+      "ability": "insomnia",
+      "moveset": [
+        "nightslash",
+        "swagger",
+        "foulplay",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

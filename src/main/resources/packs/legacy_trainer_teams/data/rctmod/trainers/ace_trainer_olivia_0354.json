@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·奥莉维亚",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "calm",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "leechseed",
+        "gigadrain",
+        "synthesis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "waterveil",
+      "moveset": [
+        "peck",
+        "supersonic",
+        "flail",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

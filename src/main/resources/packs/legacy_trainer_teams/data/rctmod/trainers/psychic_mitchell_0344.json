@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·米切尔",
+  "team": [
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "lick",
+        "confuseray",
+        "meanlook",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "kinesis",
+        "disable",
+        "psybeam",
+        "psychocut"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

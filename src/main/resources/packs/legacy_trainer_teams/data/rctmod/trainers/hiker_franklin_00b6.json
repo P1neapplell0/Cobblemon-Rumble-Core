@@ -1,0 +1,66 @@
+{
+  "name": "登山男·富兰克林",
+  "team": [
+    {
+      "species": "timburr",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "serious",
+      "ability": "guts",
+      "moveset": [
+        "focusenergy",
+        "bide",
+        "lowkick",
+        "rockthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "docile",
+      "ability": "rockhead",
+      "moveset": [
+        "rollout",
+        "thunderpunch",
+        "rockthrow",
+        "smackdown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

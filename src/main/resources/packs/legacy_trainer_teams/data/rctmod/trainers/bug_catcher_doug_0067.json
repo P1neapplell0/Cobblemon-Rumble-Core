@@ -1,0 +1,88 @@
+{
+  "name": "捕虫少年·道格",
+  "team": [
+    {
+      "species": "kakuna",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "lax",
+      "ability": "shedskin",
+      "moveset": [
+        "harden",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "spinarak",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "brave",
+      "ability": "swarm",
+      "moveset": [
+        "poisonsting",
+        "stringshot",
+        "constrict",
+        "absorb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ledyba",
+      "gender": "MALE",
+      "level": 7,
+      "nature": "calm",
+      "ability": "swarm",
+      "moveset": [
+        "tackle",
+        "supersonic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

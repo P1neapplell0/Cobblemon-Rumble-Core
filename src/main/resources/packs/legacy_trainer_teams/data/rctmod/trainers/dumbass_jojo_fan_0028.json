@@ -1,0 +1,205 @@
+{
+  "name": "搞笑乔乔·粉丝",
+  "team": [
+    {
+      "species": "galvantula",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "compoundeyes",
+      "moveset": [
+        "stickyweb",
+        "voltswitch",
+        "thunder",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "rockslide",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:garchompite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "huntail",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "shellsmash",
+        "aquatail",
+        "crunch",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "necrozma",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "prismarmor",
+      "moveset": [
+        "dragondance",
+        "photongeyser",
+        "earthquake",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "aspects": [
+        "dusk_mane"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "poweruppunch",
+        "brickbreak",
+        "icepunch",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "hoopa",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "magician",
+      "moveset": [
+        "nastyplot",
+        "darkpulse",
+        "psychic",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:fightinium_z",
+        "fighting_gem"
+      ],
+      "aspects": [
+        "unbound"
+      ]
+    }
+  ]
+}

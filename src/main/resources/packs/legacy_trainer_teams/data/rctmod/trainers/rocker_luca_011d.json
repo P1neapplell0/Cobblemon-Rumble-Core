@@ -1,0 +1,201 @@
+{
+  "name": "摇滚乐手·卢卡",
+  "team": [
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "thunder",
+        "voltswitch",
+        "thunderwave",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "never_melt_ice"
+      ],
+      "aspects": [
+        "frost-appliance"
+      ]
+    },
+    {
+      "species": "heliolisk",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "timid",
+      "ability": "dryskin",
+      "moveset": [
+        "hyperbeam",
+        "surf",
+        "weatherball",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "earthpower",
+        "blizzard",
+        "fireblast",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "tintedlens",
+      "moveset": [
+        "bugbuzz",
+        "airslash",
+        "uturn",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "timid",
+      "ability": "raindish",
+      "moveset": [
+        "shellsmash",
+        "blizzard",
+        "aurasphere",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:blastoisinite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "walrein",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "icebody",
+      "moveset": [
+        "blizzard",
+        "substitute",
+        "protect",
+        "babydolleyes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

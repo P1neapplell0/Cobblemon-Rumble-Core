@@ -1,0 +1,92 @@
+{
+  "name": "渔夫·巴尼",
+  "team": [
+    {
+      "species": "tentacool",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "hasty",
+      "ability": "liquidooze",
+      "moveset": [
+        "waterpulse",
+        "acidspray",
+        "venoshock",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arrokuda",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "naughty",
+      "ability": "swiftswim",
+      "moveset": [
+        "furyattack",
+        "bite",
+        "agility",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mantyke",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "mild",
+      "ability": "waterabsorb",
+      "moveset": [
+        "wingattack",
+        "headbutt",
+        "waterpulse",
+        "wideguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

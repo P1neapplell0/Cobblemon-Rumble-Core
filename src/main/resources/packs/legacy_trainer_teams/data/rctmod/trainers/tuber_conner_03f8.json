@@ -1,0 +1,34 @@
+{
+  "name": "泳圈族·康纳",
+  "team": [
+    {
+      "species": "remoraid",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "docile",
+      "ability": "sniper",
+      "moveset": [
+        "focusenergy",
+        "bulletseed",
+        "hydropump",
+        "soak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

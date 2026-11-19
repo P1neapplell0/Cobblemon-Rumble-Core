@@ -1,0 +1,33 @@
+[quest_notifications]
+	#Show the quest accepted notification.
+	quest_accepted = false
+	#Show the quest completed notification.
+	quest_completed = true
+	#Show the quest failed notification.
+	quest_failed = true
+	#Show the phase advanced notification.
+	phase_advanced = false
+	#Show the objective completed notification.
+	objective_complete = true
+
+[collection_notifications]
+	#Show collection entry discovery notifications.
+	entry_discovered = true
+	#Show collection entry completion notifications.
+	entry_completed = true
+	#Show collection reward unlock notifications.
+	reward_unlocked = true
+	#Show collection reward claimed notifications.
+	reward_claimed = true
+
+[tracked_quest_notifications]
+	#Show the tracked quest phase added toast.
+	phase_added = true
+	#Show the tracked quest phase switched toast.
+	phase_switched = true
+	#Show the tracked quest phase completed toast.
+	phase_completed = true
+	#Show the manual phase confirmation toast.
+	phase_pending_confirm = true
+	#Show the tracked quest branch choice toast.
+	branch_choice = true

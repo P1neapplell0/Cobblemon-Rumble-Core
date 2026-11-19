@@ -1,0 +1,214 @@
+{
+  "name": "首领·坂木",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "scrafty",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "modest",
+      "ability": "moxie",
+      "moveset": [
+        "roar",
+        "knockoff",
+        "drainpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "psychic_seed"
+      ]
+    },
+    {
+      "species": "tapulele",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "moonblast",
+        "psychic",
+        "thunderbolt",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "highhorsepower",
+        "ironhead",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "tyranitar",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "careful",
+      "ability": "sandstream",
+      "moveset": [
+        "crunch",
+        "rockslide",
+        "highhorsepower",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "celesteela",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "modest",
+      "ability": "beastboost",
+      "moveset": [
+        "autotomize",
+        "meteorbeam",
+        "flamethrower",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "mewtwo",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "expandingforce",
+        "psystrike",
+        "aurasphere",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:mewtwonite_y",
+        "expert_belt"
+      ]
+    }
+  ]
+}

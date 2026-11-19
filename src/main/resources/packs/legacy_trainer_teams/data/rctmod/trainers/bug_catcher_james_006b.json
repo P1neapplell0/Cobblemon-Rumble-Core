@@ -1,0 +1,63 @@
+{
+  "name": "捕虫少年·詹姆斯",
+  "team": [
+    {
+      "species": "ledyba",
+      "gender": "MALE",
+      "level": 13,
+      "nature": "serious",
+      "ability": "earlybird",
+      "moveset": [
+        "swift",
+        "lightscreen",
+        "reflect",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "surskit",
+      "gender": "MALE",
+      "level": 13,
+      "nature": "naughty",
+      "ability": "swiftswim",
+      "moveset": [
+        "bubble",
+        "signalbeam",
+        "quickattack",
+        "sweetscent"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "暴走族·里卡多",
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "modest",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludge",
+        "explosion",
+        "tackle",
+        "poisongas"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "adamant",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludge",
+        "smog",
+        "explosion",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "salazzle",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "corrosion",
+      "moveset": [
+        "captivate",
+        "venoshock",
+        "disable",
+        "flameburst"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

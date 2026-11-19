@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·布里安娜",
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "reflect",
+        "airslash",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "noctowl",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "skyattack",
+        "peck",
+        "echoedvoice",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

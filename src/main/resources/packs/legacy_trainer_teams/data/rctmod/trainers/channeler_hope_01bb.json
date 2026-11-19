@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·霍普",
+  "team": [
+    {
+      "species": "shuppet",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "hasty",
+      "ability": "insomnia",
+      "moveset": [
+        "hex",
+        "curse",
+        "shadowball",
+        "embargo"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

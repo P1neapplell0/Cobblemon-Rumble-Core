@@ -1,0 +1,69 @@
+{
+  "name": "暴走族·打手",
+  "team": [
+    {
+      "species": "overqwil",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bite",
+        "gunkshot",
+        "waterfall",
+        "acupressure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "dark_gem"
+      ]
+    },
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "pressure",
+      "moveset": [
+        "shadowpunch",
+        "brickbreak",
+        "shadowsneak",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "reaper_cloth"
+      ]
+    }
+  ]
+}

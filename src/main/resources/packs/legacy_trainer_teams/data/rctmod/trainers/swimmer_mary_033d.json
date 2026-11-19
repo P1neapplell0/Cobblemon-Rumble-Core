@@ -1,0 +1,63 @@
+{
+  "name": "泳者·玛丽",
+  "team": [
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "bashful",
+      "ability": "thickfat",
+      "moveset": [
+        "tailwhip",
+        "bubblebeam",
+        "playrough",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "bold",
+      "ability": "drizzle",
+      "moveset": [
+        "airslash",
+        "growl",
+        "wingattack",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

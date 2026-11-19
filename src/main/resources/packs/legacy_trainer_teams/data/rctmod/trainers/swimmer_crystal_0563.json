@@ -1,0 +1,63 @@
+{
+  "name": "泳者·克丽丝",
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "drizzle",
+      "moveset": [
+        "tailwind",
+        "growl",
+        "waterpulse",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seaking",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "peck",
+        "waterfall",
+        "megahorn",
+        "horndrill"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

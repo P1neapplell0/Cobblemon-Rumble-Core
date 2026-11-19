@@ -1,0 +1,92 @@
+{
+  "name": "收藏家·布雷迪",
+  "team": [
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "growl",
+        "tailwhip",
+        "flamecharge",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "tackle",
+        "growl",
+        "flamecharge",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "tackle",
+        "growl",
+        "ember",
+        "flamecharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

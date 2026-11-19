@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·阿什莉",
+  "team": [
+    {
+      "species": "zigzagoon",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "flail",
+        "rest",
+        "bellydrum",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "skarmory",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "impish",
+      "ability": "keeneye",
+      "moveset": [
+        "steelwing",
+        "bravebird",
+        "slash",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

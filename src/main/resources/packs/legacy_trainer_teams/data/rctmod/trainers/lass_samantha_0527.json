@@ -1,0 +1,34 @@
+{
+  "name": "短裤少女·萨曼莎",
+  "team": [
+    {
+      "species": "budew",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "absorb",
+        "growth",
+        "stunspore",
+        "worryseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "老练训练家·特雷尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "sing",
+        "nightslash",
+        "stickyweb",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "quagsire",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "relaxed",
+      "ability": "waterabsorb",
+      "moveset": [
+        "yawn",
+        "muddywater",
+        "toxic",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "sassy",
+      "ability": "cursedbody",
+      "moveset": [
+        "confuseray",
+        "curse",
+        "darkpulse",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

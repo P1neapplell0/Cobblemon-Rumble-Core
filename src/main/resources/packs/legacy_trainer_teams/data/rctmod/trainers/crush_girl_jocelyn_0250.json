@@ -1,0 +1,133 @@
+{
+  "name": "空手道少女·乔斯林",
+  "team": [
+    {
+      "species": "dunsparce",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "serenegrace",
+      "moveset": [
+        "bodyslam",
+        "glare",
+        "headbutt",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "archeops",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "defeatist",
+      "moveset": [
+        "rockslide",
+        "skyattack",
+        "uturn",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "serenegrace",
+      "moveset": [
+        "thunderwave",
+        "airslash",
+        "extrasensory",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "huntail",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "naughty",
+      "ability": "intimidate",
+      "moveset": [
+        "shellsmash",
+        "waterfall",
+        "bodyslam",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    }
+  ]
+}

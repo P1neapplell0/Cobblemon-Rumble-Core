@@ -1,0 +1,63 @@
+{
+  "name": "艺术家·凯文",
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "filter",
+      "moveset": [
+        "mimic",
+        "lightscreen",
+        "dazzlinggleam",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "woodhammer",
+        "tearfullook",
+        "doubleedge",
+        "headsmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

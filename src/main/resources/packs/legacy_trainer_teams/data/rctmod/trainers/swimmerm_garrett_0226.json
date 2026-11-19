@@ -1,0 +1,133 @@
+{
+  "name": "男泳者·加勒特",
+  "team": [
+    {
+      "species": "mantine",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "stormdrain",
+      "moveset": [
+        "blizzard",
+        "gunkshot",
+        "waterpulse",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "timid",
+      "ability": "competitive",
+      "moveset": [
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "protean",
+      "moveset": [
+        "surf",
+        "icebeam",
+        "darkpulse",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hyperbeam",
+        "blizzard",
+        "dragonpulse",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

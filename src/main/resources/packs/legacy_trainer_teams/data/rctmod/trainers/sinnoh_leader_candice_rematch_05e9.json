@@ -1,0 +1,198 @@
+{
+  "name": "神奥馆主·小菘",
+  "team": [
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "modest",
+      "ability": "snowwarning",
+      "moveset": [
+        "blizzard",
+        "gigadrain",
+        "earthquake",
+        "auroraveil"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:abomasite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "blizzard",
+        "shadowball",
+        "hail",
+        "auroraveil"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "pressure",
+      "moveset": [
+        "tripleaxel",
+        "nightslash",
+        "brickbreak",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "snowcloak",
+      "moveset": [
+        "blizzard",
+        "shadowball",
+        "signalbeam",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "mamoswine",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "adamant",
+      "ability": "snowcloak",
+      "moveset": [
+        "iciclecrash",
+        "earthquake",
+        "superpower",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "salac_berry"
+      ]
+    },
+    {
+      "species": "jynx",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "timid",
+      "ability": "icescales",
+      "moveset": [
+        "blizzard",
+        "psychic",
+        "focusblast",
+        "lovelykiss"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "科学家·埃德",
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "lax",
+      "ability": "hydration",
+      "moveset": [
+        "bugbuzz",
+        "gigadrain",
+        "sludgebomb",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "heliolisk",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "bashful",
+      "ability": "dryskin",
+      "moveset": [
+        "thunderbolt",
+        "hypervoice",
+        "grassknot",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "archeops",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "quirky",
+      "ability": "defeatist",
+      "moveset": [
+        "acrobatics",
+        "rockslide",
+        "doubleteam",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

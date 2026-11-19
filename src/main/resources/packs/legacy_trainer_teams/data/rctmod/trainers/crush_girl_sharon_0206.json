@@ -1,0 +1,137 @@
+{
+  "name": "空手道少女·莎伦",
+  "team": [
+    {
+      "species": "grapploct",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "brutalswing",
+        "dive",
+        "poweruppunch",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "steadfast",
+      "moveset": [
+        "psychocut",
+        "sacredsword",
+        "swordsdance",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:galladite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "darmanitan",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "zenmode",
+      "moveset": [
+        "flareblitz",
+        "bodyslam",
+        "uturn",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "earthpower",
+        "sludgewave",
+        "icebeam",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

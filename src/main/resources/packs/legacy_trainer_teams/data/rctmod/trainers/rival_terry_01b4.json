@@ -1,0 +1,198 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bravebird",
+        "doubleedge",
+        "uturn",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "supercellslam",
+        "focuspunch",
+        "icepunch",
+        "poweruppunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "aquajet",
+        "icepunch",
+        "playrough",
+        "liquidation"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "darmanitan",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "flareblitz",
+        "earthquake",
+        "uturn",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "kartana",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "beastboost",
+      "moveset": [
+        "leafblade",
+        "smartstrike",
+        "sacredsword",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "modest",
+      "ability": "overgrow",
+      "moveset": [
+        "gigadrain",
+        "sludgebomb",
+        "sleeppowder",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:venusaurite",
+        "leftovers"
+      ]
+    }
+  ]
+}

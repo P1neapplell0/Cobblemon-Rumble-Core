@@ -1,0 +1,200 @@
+{
+  "name": "搞笑乔乔·粉丝",
+  "team": [
+    {
+      "species": "aegislash",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "stancechange",
+      "moveset": [
+        "shadowball",
+        "kingsshield",
+        "shadowsneak",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "impish",
+      "ability": "ironbarbs",
+      "moveset": [
+        "leechseed",
+        "powerwhip",
+        "thunderwave",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "simisear",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "gluttony",
+      "moveset": [
+        "flamethrower",
+        "swift",
+        "focusblast",
+        "scorchingsands"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "celebi",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "nastyplot",
+        "gigadrain",
+        "psychic",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "poweruppunch",
+        "bulletpunch",
+        "icepunch",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "hoopa",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "magician",
+      "moveset": [
+        "foulplay",
+        "drainpunch",
+        "firepunch",
+        "gunkshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "unbound"
+      ]
+    }
+  ]
+}

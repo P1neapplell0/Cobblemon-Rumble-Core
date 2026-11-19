@@ -1,0 +1,113 @@
+{
+  "name": "道馆馆主·东钢",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "relaxed",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "sandstorm",
+        "trickroom",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "brave",
+      "ability": "sturdy",
+      "moveset": [
+        "thunderfang",
+        "earthquake",
+        "sandstorm",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    },
+    {
+      "species": "bastiodon",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "irondefense",
+        "thunderbolt",
+        "stoneedge",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

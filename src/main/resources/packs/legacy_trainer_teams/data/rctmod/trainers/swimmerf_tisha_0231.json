@@ -1,0 +1,166 @@
+{
+  "name": "女泳者·蒂莎",
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "drizzle",
+      "moveset": [
+        "muddywater",
+        "hurricane",
+        "icebeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "hydropump",
+        "nastyplot",
+        "synchronoise",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:psychium_z",
+        "psychic_gem"
+      ]
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "modest",
+      "ability": "hydration",
+      "moveset": [
+        "acidarmor",
+        "icebeam",
+        "rest",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "jolteon",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "voltabsorb",
+      "moveset": [
+        "thunder",
+        "weatherball",
+        "swift",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "ice_gem"
+      ]
+    },
+    {
+      "species": "noivern",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "infiltrator",
+      "moveset": [
+        "hurricane",
+        "boomburst",
+        "focusblast",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

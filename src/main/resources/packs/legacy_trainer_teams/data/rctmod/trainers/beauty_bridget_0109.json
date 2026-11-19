@@ -1,0 +1,121 @@
+{
+  "name": "大姐姐·布丽奇特",
+  "team": [
+    {
+      "species": "oddish",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "venoshock",
+        "moonlight",
+        "gigadrain",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bellsprout",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "serious",
+      "ability": "chlorophyll",
+      "moveset": [
+        "venoshock",
+        "magicalleaf",
+        "knockoff",
+        "gastroacid"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cherubi",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sunnyday",
+        "worryseed",
+        "takedown",
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "roselia",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "naughty",
+      "ability": "poisontouch",
+      "moveset": [
+        "toxicspikes",
+        "sleeppowder",
+        "grasswhistle",
+        "petalblizzard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

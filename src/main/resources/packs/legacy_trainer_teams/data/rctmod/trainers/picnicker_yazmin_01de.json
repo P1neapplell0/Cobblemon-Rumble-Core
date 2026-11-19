@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·亚兹敏",
+  "team": [
+    {
+      "species": "weepinbell",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gastroacid",
+        "razorleaf",
+        "poisonjab",
+        "slam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "leavanny",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "mild",
+      "ability": "swarm",
+      "moveset": [
+        "entrainment",
+        "swordsdance",
+        "leafstorm",
+        "lowkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alcremie",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "calm",
+      "ability": "sweetveil",
+      "moveset": [
+        "dazzlinggleam",
+        "recover",
+        "mistyterrain",
+        "entrainment"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

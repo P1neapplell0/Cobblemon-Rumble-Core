@@ -1,0 +1,34 @@
+{
+  "name": "大姐姐·妮可拉",
+  "team": [
+    {
+      "species": "lopunny",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "careful",
+      "ability": "cutecharm",
+      "moveset": [
+        "mirrorcoat",
+        "doublekick",
+        "charm",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

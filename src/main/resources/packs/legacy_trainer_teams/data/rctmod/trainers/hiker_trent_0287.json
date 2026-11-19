@@ -1,0 +1,63 @@
+{
+  "name": "登山男·特伦特",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "calm",
+      "ability": "sturdy",
+      "moveset": [
+        "smackdown",
+        "dragonbreath",
+        "strength",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "lax",
+      "ability": "sturdy",
+      "moveset": [
+        "smackdown",
+        "bulldoze",
+        "selfdestruct",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

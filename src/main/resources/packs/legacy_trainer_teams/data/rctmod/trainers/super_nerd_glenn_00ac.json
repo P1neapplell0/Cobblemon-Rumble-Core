@@ -1,0 +1,98 @@
+{
+  "name": "超级书呆·格伦",
+  "team": [
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "serious",
+      "ability": "stickyhold",
+      "moveset": [
+        "mudbomb",
+        "poisonjab",
+        "fling",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "quirky",
+      "ability": "gluttony",
+      "moveset": [
+        "poisonjab",
+        "fling",
+        "assurance",
+        "brutalswing"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "grimer",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hasty",
+      "ability": "gluttony",
+      "moveset": [
+        "poisonjab",
+        "fling",
+        "assurance",
+        "brutalswing"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

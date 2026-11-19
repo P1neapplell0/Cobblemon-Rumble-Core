@@ -1,0 +1,166 @@
+{
+  "name": "超级训练家·阿洛伊修斯",
+  "team": [
+    {
+      "species": "politoed",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "bold",
+      "ability": "drizzle",
+      "moveset": [
+        "muddywater",
+        "icebeam",
+        "perishsong",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "blissey",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "mudbomb",
+        "allyswitch",
+        "minimize",
+        "softboiled"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "braviary",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "bravebird",
+        "crushclaw",
+        "superpower",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wacan_berry"
+      ]
+    },
+    {
+      "species": "reuniclus",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "psychic",
+        "thunder",
+        "shadowball",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "colbur_berry"
+      ]
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "modest",
+      "ability": "moldbreaker",
+      "moveset": [
+        "thunder",
+        "dragonpulse",
+        "swift",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:ampharosite",
+        "life_orb"
+      ]
+    }
+  ]
+}

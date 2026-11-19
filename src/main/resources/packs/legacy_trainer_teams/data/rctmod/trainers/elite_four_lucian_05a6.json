@@ -1,0 +1,213 @@
+{
+  "name": "悟松",
+  "identity": "四天王·悟松",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "bold",
+      "ability": "filter",
+      "moveset": [
+        "lightscreen",
+        "reflect",
+        "psychic",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "espeon",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "timid",
+      "ability": "magicbounce",
+      "moveset": [
+        "psychic",
+        "dazzlinggleam",
+        "shadowball",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mental_herb"
+      ]
+    },
+    {
+      "species": "bronzong",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "brave",
+      "ability": "levitate",
+      "moveset": [
+        "gyroball",
+        "earthquake",
+        "payback",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "muscle_band"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "timid",
+      "ability": "magicguard",
+      "moveset": [
+        "nastyplot",
+        "psychic",
+        "dazzlinggleam",
+        "shockwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "slowbro",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "scald",
+        "psychic",
+        "flamethrower",
+        "slackoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "justified",
+      "moveset": [
+        "closecombat",
+        "psychocut",
+        "poisonjab",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

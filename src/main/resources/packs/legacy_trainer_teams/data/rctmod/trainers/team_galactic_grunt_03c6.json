@@ -1,0 +1,62 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（4）",
+  "team": [
+    {
+      "species": "wurmple",
+      "gender": "FEMALE",
+      "level": 10,
+      "nature": "docile",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 10,
+      "nature": "serious",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "scratch",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

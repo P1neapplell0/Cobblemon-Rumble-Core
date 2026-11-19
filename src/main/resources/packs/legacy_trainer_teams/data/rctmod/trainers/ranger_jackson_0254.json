@@ -1,0 +1,92 @@
+{
+  "name": "保育家·杰克逊",
+  "team": [
+    {
+      "species": "tangela",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "gentle",
+      "ability": "leafguard",
+      "moveset": [
+        "slam",
+        "megadrain",
+        "bind",
+        "grassyterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "exeggcute",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "docile",
+      "ability": "chlorophyll",
+      "moveset": [
+        "confusion",
+        "poisonpowder",
+        "barrage",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "relaxed",
+      "ability": "chlorophyll",
+      "moveset": [
+        "confusion",
+        "eggbomb",
+        "sleeppowder",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

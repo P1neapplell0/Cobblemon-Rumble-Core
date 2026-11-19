@@ -1,0 +1,63 @@
+{
+  "name": "科学家·肖恩",
+  "team": [
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "kinesis",
+        "teleport",
+        "reflect",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "disable",
+        "recover",
+        "psyshock",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

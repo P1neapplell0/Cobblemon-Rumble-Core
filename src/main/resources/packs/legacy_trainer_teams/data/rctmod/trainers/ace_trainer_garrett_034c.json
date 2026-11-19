@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·加勒特",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "sassy",
+      "ability": "filter",
+      "moveset": [
+        "copycat",
+        "batonpass",
+        "encore",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machoke",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "leer",
+        "lowsweep",
+        "knockoff",
+        "strength"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "sassy",
+      "ability": "innerfocus",
+      "moveset": [
+        "leer",
+        "metalclaw",
+        "icywind",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

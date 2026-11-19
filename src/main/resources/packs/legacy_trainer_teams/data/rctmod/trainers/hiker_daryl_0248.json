@@ -1,0 +1,34 @@
+{
+  "name": "登山男·达里尔",
+  "team": [
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "quiet",
+      "ability": "rockhead",
+      "moveset": [
+        "suckerpunch",
+        "doubleedge",
+        "stoneedge",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

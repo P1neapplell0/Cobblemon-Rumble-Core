@@ -1,0 +1,63 @@
+{
+  "name": "登山男·雷金纳德",
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "defensecurl",
+        "sandstorm",
+        "rockpolish",
+        "rollout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "lowkick",
+        "leer",
+        "revenge",
+        "lowsweep"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

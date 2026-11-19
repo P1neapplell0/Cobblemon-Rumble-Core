@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·迈卡",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bibarel",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "simple",
+      "moveset": [
+        "aquajet",
+        "crunch",
+        "swordsdance",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "smartstrike",
+        "flamewheel",
+        "firespin",
+        "inferno"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beautifly",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "stunspore",
+        "aircutter",
+        "bugbuzz",
+        "quiverdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

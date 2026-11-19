@@ -1,0 +1,92 @@
+{
+  "name": "短裤少女·阿里",
+  "team": [
+    {
+      "species": "snubbull",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "adamant",
+      "ability": "strongjaw",
+      "moveset": [
+        "thunderfang",
+        "charm",
+        "bite",
+        "covet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "teddiursa",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "bashful",
+      "ability": "quickfeet",
+      "moveset": [
+        "lick",
+        "faketears",
+        "furyswipes",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "smoochum",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "jolly",
+      "ability": "forewarn",
+      "moveset": [
+        "charm",
+        "icywind",
+        "confusion",
+        "captivate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

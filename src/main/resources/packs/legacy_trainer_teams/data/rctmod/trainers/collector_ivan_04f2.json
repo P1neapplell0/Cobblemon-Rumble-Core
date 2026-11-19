@@ -1,0 +1,92 @@
+{
+  "name": "收藏家·伊凡",
+  "team": [
+    {
+      "species": "hippopotas",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "impish",
+      "ability": "sandstream",
+      "moveset": [
+        "yawn",
+        "sandtomb",
+        "crunch",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hippopotas",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "jolly",
+      "ability": "sandstream",
+      "moveset": [
+        "crunch",
+        "doubleedge",
+        "fissure",
+        "slackoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hippopotas",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "sandstream",
+      "moveset": [
+        "crunch",
+        "doubleedge",
+        "earthquake",
+        "slackoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

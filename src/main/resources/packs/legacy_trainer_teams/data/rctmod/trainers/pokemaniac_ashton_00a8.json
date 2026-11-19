@@ -1,0 +1,69 @@
+{
+  "name": "宝可梦狂·阿什顿",
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "naive",
+      "ability": "screencleaner",
+      "moveset": [
+        "icywind",
+        "poweruppunch",
+        "psybeam",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "hardy",
+      "ability": "steadfast",
+      "moveset": [
+        "revenge",
+        "brutalswing",
+        "agility",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "galarian"
+      ]
+    }
+  ]
+}

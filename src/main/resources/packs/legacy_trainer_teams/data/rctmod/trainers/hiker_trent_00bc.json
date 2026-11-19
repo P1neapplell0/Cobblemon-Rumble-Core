@@ -1,0 +1,63 @@
+{
+  "name": "登山男·特伦特",
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "hardy",
+      "ability": "rockhead",
+      "moveset": [
+        "bulldoze",
+        "chipaway",
+        "rockblast",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "quagsire",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "bashful",
+      "ability": "waterabsorb",
+      "moveset": [
+        "slam",
+        "mudbomb",
+        "amnesia",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

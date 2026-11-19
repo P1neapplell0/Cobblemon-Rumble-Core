@@ -1,0 +1,166 @@
+{
+  "name": "超级训练家·特拉文",
+  "team": [
+    {
+      "species": "claydol",
+      "gender": "GENDERLESS",
+      "level": 57,
+      "nature": "bold",
+      "ability": "multiscale",
+      "moveset": [
+        "psychic",
+        "reflect",
+        "lightscreen",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "ironhead",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "cradily",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "bold",
+      "ability": "stormdrain",
+      "moveset": [
+        "gigadrain",
+        "gastroacid",
+        "recover",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "hippowdon",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "sandforce",
+      "moveset": [
+        "earthquake",
+        "thunderfang",
+        "icefang",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "xscissor",
+        "bulletpunch",
+        "brickbreak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:scizorite",
+        "life_orb"
+      ]
+    }
+  ]
+}

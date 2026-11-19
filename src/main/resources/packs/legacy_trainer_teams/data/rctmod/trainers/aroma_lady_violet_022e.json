@@ -1,0 +1,167 @@
+{
+  "name": "香氛小姐·维奥莱特",
+  "team": [
+    {
+      "species": "flapple",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "naive",
+      "ability": "gluttony",
+      "moveset": [
+        "dracometeor",
+        "gravapple",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eject_pack"
+      ]
+    },
+    {
+      "species": "arcanine",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "gigaimpact",
+        "flareblitz",
+        "rocksmash",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rock_gem"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "ironhead",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "chandelure",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "shadowtag",
+      "moveset": [
+        "flamethrower",
+        "shadowball",
+        "energyball",
+        "burningjealousy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "primarina",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bold",
+      "ability": "liquidvoice",
+      "moveset": [
+        "calmmind",
+        "substitute",
+        "drainingkiss",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

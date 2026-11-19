@@ -1,0 +1,153 @@
+{
+  "name": "首领·恶棍",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "snowwarning",
+      "moveset": [
+        "icespinner",
+        "woodhammer",
+        "iceshard",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "landorus",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "earthquake",
+        "uturn",
+        "stoneedge",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ],
+      "aspects": [
+        "therian"
+      ]
+    },
+    {
+      "species": "porygonz",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "conversion",
+        "triattack",
+        "thunderbolt",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:normalium_z",
+        "normal_gem"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "hugepower",
+      "moveset": [
+        "fakeout",
+        "closecombat",
+        "icepunch",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:medichamite",
+        "choice_scarf"
+      ]
+    }
+  ]
+}

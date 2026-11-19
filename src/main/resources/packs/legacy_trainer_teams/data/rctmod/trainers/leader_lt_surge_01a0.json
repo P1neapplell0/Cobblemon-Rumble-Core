@@ -1,0 +1,184 @@
+{
+  "name": "馆主马志士",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "pincurchin",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "modest",
+      "ability": "electricsurge",
+      "moveset": [
+        "electroball",
+        "scald",
+        "risingvoltage",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "electric_seed"
+      ]
+    },
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "modest",
+      "ability": "surgesurfer",
+      "moveset": [
+        "alluringvoice",
+        "voltswitch",
+        "nastyplot",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "twisted_spoon"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "vikavolt",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "voltswitch",
+        "bugbuzz",
+        "energyball",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "occa_berry"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "modest",
+      "ability": "intimidate",
+      "moveset": [
+        "chargebeam",
+        "flameburst",
+        "voltswitch",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:manectite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "boltund",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "jolly",
+      "ability": "strongjaw",
+      "moveset": [
+        "thunderfang",
+        "firefang",
+        "spark",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

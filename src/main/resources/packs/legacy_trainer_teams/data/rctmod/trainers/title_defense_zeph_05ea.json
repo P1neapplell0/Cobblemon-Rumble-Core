@@ -1,0 +1,203 @@
+{
+  "name": "冠军防卫战·泽夫",
+  "identity": "首领·泽夫",
+  "team": [
+    {
+      "species": "silvally",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "rkssystem",
+      "moveset": [
+        "multiattack",
+        "flamethrower",
+        "partingshot",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:steel_memory"
+      ],
+      "aspects": [
+        "steel-memory"
+      ]
+    },
+    {
+      "species": "zebstrika",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "supercellslam",
+        "flamecharge",
+        "lowkick",
+        "overheat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "umbreon",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "bold",
+      "ability": "synchronize",
+      "moveset": [
+        "foulplay",
+        "toxic",
+        "wish",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "exploud",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "modest",
+      "ability": "scrappy",
+      "moveset": [
+        "boomburst",
+        "icebeam",
+        "flamethrower",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "decidueye",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "longreach",
+      "moveset": [
+        "leafblade",
+        "spiritshackle",
+        "psychocut",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:decidium_z",
+        "ghost_gem"
+      ]
+    },
+    {
+      "species": "houndoom",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "timid",
+      "ability": "solarpower",
+      "moveset": [
+        "fireblast",
+        "darkpulse",
+        "sludgebomb",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:houndoominite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "双人组·阿尔",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "relaxed",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "quickattack",
+        "doubleteam",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

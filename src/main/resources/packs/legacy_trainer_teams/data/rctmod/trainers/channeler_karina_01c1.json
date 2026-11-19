@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·卡丽娜",
+  "team": [
+    {
+      "species": "frillish",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "quirky",
+      "ability": "waterabsorb",
+      "moveset": [
+        "waterpulse",
+        "ominouswind",
+        "brine",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

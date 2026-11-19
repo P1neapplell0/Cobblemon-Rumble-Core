@@ -1,0 +1,63 @@
+{
+  "name": "泳者·乔安娜",
+  "team": [
+    {
+      "species": "luvdisc",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "calm",
+      "ability": "swiftswim",
+      "moveset": [
+        "aquaring",
+        "flail",
+        "brine",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "waterabsorb",
+      "moveset": [
+        "icebeam",
+        "hydropump",
+        "confuseray",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

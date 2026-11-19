@@ -1,0 +1,166 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bravebird",
+        "closecombat",
+        "uturn",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sharp_beak"
+      ]
+    },
+    {
+      "species": "darmanitan",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "flareblitz",
+        "rockslide",
+        "earthquake",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "liquidation",
+        "aquajet",
+        "playrough",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "supercellslam",
+        "focuspunch",
+        "poweruppunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "overgrow",
+      "moveset": [
+        "sleeppowder",
+        "gigadrain",
+        "sludgebomb",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:venusaurite",
+        "leftovers"
+      ]
+    }
+  ]
+}

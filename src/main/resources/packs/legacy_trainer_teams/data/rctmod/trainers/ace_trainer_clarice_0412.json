@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·克拉丽丝",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "calm",
+      "ability": "cutecharm",
+      "moveset": [
+        "charm",
+        "batonpass",
+        "headbutt",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "bold",
+      "ability": "drizzle",
+      "moveset": [
+        "tailwind",
+        "wingattack",
+        "waterpulse",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "quagsire",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "impish",
+      "ability": "waterabsorb",
+      "moveset": [
+        "raindance",
+        "muddywater",
+        "toxic",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

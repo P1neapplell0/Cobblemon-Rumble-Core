@@ -1,0 +1,181 @@
+{
+  "name": "精英训练家·卡罗琳",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bellossom",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sleeppowder",
+        "quiverdance",
+        "strengthsap",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "parasect",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "adamant",
+      "ability": "dryskin",
+      "moveset": [
+        "spore",
+        "seedbomb",
+        "leechlife",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "vileplume",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sludgebomb",
+        "gigadrain",
+        "sleeppowder",
+        "strengthsap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "amoonguss",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "impish",
+      "ability": "regenerator",
+      "moveset": [
+        "spore",
+        "foulplay",
+        "gigadrain",
+        "clearsmog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "klutz",
+      "moveset": [
+        "closecombat",
+        "fakeout",
+        "frustration",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    }
+  ]
+}

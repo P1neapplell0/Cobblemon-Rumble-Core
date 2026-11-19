@@ -1,0 +1,63 @@
+{
+  "name": "警察·丹尼",
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "psychoshift",
+        "airslash",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machoke",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "jolly",
+      "ability": "noguard",
+      "moveset": [
+        "lowkick",
+        "leer",
+        "lowsweep",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

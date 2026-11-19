@@ -1,0 +1,33 @@
+{
+  "name": "短裤少女·萨曼莎",
+  "team": [
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "magicalleaf",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

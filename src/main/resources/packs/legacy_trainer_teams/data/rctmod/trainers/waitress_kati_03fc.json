@@ -1,0 +1,34 @@
+{
+  "name": "女服务生·凯蒂",
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "calm",
+      "ability": "cutecharm",
+      "moveset": [
+        "sweetkiss",
+        "charm",
+        "growl",
+        "metronome"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

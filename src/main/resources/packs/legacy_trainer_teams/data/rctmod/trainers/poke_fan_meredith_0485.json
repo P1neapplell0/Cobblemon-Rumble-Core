@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦迷·梅雷迪斯",
+  "team": [
+    {
+      "species": "marill",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "bashful",
+      "ability": "thickfat",
+      "moveset": [
+        "tailwhip",
+        "helpinghand",
+        "aquatail",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "aipom",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "bashful",
+      "ability": "pickup",
+      "moveset": [
+        "tailwhip",
+        "sandattack",
+        "tickle",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

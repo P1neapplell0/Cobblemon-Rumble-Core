@@ -1,0 +1,101 @@
+{
+  "name": "绅士·布鲁克斯",
+  "team": [
+    {
+      "species": "dartrix",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "modest",
+      "ability": "tintedlens",
+      "moveset": [
+        "shadowsneak",
+        "grasspledge",
+        "airslash",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "miracle_seed"
+      ]
+    },
+    {
+      "species": "simisage",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "gluttony",
+      "moveset": [
+        "grasspledge",
+        "focusblast",
+        "swift",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "miracle_seed"
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "modest",
+      "ability": "sheerforce",
+      "moveset": [
+        "drainingkiss",
+        "shockwave",
+        "round",
+        "incinerate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

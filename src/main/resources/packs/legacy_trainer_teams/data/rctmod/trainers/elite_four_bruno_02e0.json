@@ -1,0 +1,169 @@
+{
+  "name": "布鲁诺",
+  "identity": "四天王·布鲁诺",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "hasty",
+      "ability": "sturdy",
+      "moveset": [
+        "earthquake",
+        "irontail",
+        "crunch",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hitmonchan",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "naughty",
+      "ability": "ironfist",
+      "moveset": [
+        "skyuppercut",
+        "machpunch",
+        "rockslide",
+        "counter"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hitmonlee",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "quiet",
+      "ability": "reckless",
+      "moveset": [
+        "megakick",
+        "foresight",
+        "earthquake",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "serious",
+      "ability": "sturdy",
+      "moveset": [
+        "earthquake",
+        "irontail",
+        "crunch",
+        "dragonbreath"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "naive",
+      "ability": "noguard",
+      "moveset": [
+        "crosschop",
+        "earthquake",
+        "brickbreak",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "persim_berry"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "忍者少年·布鲁斯",
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "naive",
+      "ability": "stench",
+      "moveset": [
+        "furyswipes",
+        "bite",
+        "venoshock",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

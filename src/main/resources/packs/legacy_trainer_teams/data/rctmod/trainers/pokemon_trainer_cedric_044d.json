@@ -1,0 +1,177 @@
+{
+  "name": "宝可梦训练家·塞德里克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "quickattack",
+        "doubleteam",
+        "endeavor",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "growth",
+        "stunspore",
+        "leechseed",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "leer",
+        "aerialace",
+        "brickbreak",
+        "thief"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "growl",
+        "agility",
+        "flamewheel",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "shell_bell"
+      ]
+    },
+    {
+      "species": "prinplup",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "timid",
+      "ability": "torrent",
+      "moveset": [
+        "metalclaw",
+        "charm",
+        "grassknot",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    }
+  ]
+}

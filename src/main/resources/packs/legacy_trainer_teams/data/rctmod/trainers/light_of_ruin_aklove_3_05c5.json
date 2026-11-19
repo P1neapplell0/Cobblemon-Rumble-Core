@@ -1,0 +1,199 @@
+{
+  "name": "毁灭队首领·阿克莱夫",
+  "team": [
+    {
+      "species": "meloetta",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "timid",
+      "ability": "serenegrace",
+      "moveset": [
+        "psyshock",
+        "shadowball",
+        "round",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:adrenaline_orb",
+        "salac_berry"
+      ]
+    },
+    {
+      "species": "tapulele",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "storedpower",
+        "dazzlinggleam",
+        "thunderbolt",
+        "psychicterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "red_card"
+      ]
+    },
+    {
+      "species": "manaphy",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "timid",
+      "ability": "soulheart",
+      "moveset": [
+        "scald",
+        "icebeam",
+        "energyball",
+        "tailglow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "tapukoko",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "jolly",
+      "ability": "electricsurge",
+      "moveset": [
+        "bravebird",
+        "wildcharge",
+        "acrobatics",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "electric_seed"
+      ]
+    },
+    {
+      "species": "melmetal",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "gyroball",
+        "highhorsepower",
+        "icepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "diancie",
+      "gender": "GENDERLESS",
+      "level": 84,
+      "nature": "naive",
+      "ability": "magicbounce",
+      "moveset": [
+        "diamondstorm",
+        "moonblast",
+        "earthpower",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:diancite",
+        "leftovers"
+      ]
+    }
+  ]
+}

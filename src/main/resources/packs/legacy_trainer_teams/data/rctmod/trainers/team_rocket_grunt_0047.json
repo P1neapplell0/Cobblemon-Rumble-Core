@@ -1,0 +1,64 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（2）",
+  "team": [
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "rash",
+      "ability": "pressure",
+      "moveset": [
+        "nightslash",
+        "snatch",
+        "punishment",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "obstagoon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "bashful",
+      "ability": "guts",
+      "moveset": [
+        "counter",
+        "taunt",
+        "doubleedge",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

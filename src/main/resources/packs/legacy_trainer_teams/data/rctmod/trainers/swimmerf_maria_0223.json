@@ -1,0 +1,136 @@
+{
+  "name": "女泳者·玛丽亚",
+  "team": [
+    {
+      "species": "inteleon",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sniper",
+      "moveset": [
+        "snipeshot",
+        "icebeam",
+        "uturn",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "dragalge",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "modest",
+      "ability": "adaptability",
+      "moveset": [
+        "dracometeor",
+        "sludgewave",
+        "flipturn",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "timid",
+      "ability": "illuminate",
+      "moveset": [
+        "hydropump",
+        "thunder",
+        "blizzard",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "basculegion",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "adaptability",
+      "moveset": [
+        "hydropump",
+        "shadowball",
+        "icebeam",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "f"
+      ]
+    }
+  ]
+}

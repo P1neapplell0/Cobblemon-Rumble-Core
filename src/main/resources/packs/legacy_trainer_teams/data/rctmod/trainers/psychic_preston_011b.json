@@ -1,0 +1,34 @@
+{
+  "name": "超能力者·普雷斯顿",
+  "team": [
+    {
+      "species": "bronzong",
+      "gender": "GENDERLESS",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "heatproof",
+      "moveset": [
+        "gyroball",
+        "extrasensory",
+        "payback",
+        "healblock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

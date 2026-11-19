@@ -1,0 +1,122 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（25）",
+  "team": [
+    {
+      "species": "seviper",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "gentle",
+      "ability": "shedskin",
+      "moveset": [
+        "haze",
+        "swordsdance",
+        "crunch",
+        "belch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gumshoos",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "brave",
+      "ability": "strongjaw",
+      "moveset": [
+        "takedown",
+        "scaryface",
+        "crunch",
+        "hyperfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "scolipede",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "sassy",
+      "ability": "swarm",
+      "moveset": [
+        "bugbite",
+        "venoshock",
+        "agility",
+        "steamroller"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "brave",
+      "ability": "cursedbody",
+      "moveset": [
+        "miracleeye",
+        "reflect",
+        "psychic",
+        "roleplay"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

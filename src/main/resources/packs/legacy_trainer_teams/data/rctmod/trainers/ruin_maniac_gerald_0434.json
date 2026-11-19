@@ -1,0 +1,63 @@
+{
+  "name": "遗迹狂·杰拉德",
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "defensecurl",
+        "sandstorm",
+        "rockpolish",
+        "rollout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 17,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "payback",
+        "imprison",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "登山男·埃里克",
+  "team": [
+    {
+      "species": "hariyama",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "impish",
+      "ability": "thickfat",
+      "moveset": [
+        "knockoff",
+        "vitalthrow",
+        "bellydrum",
+        "smellingsalts"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gligar",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hardy",
+      "ability": "hypercutter",
+      "moveset": [
+        "feintattack",
+        "acrobatics",
+        "slash",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Only play the badge award cinematic.
+[battleIntro]
+trainerEnabled = false
+wildPokemonWhitelist = []
+wildPokemonBlacklist = ['*']
+delayPokemonSounds = false
+
+[battleCamera]
+enabled = false
+attackFocus = false
+hint = false
+
+[battleOcclusion]
+enabled = false
+
+[megaShowdown]
+megaEvolution = false
+dynamax = false
+zMove = false
+terastalization = false
+
+[badges]
+enabled = true
+oncePerType = true
+sound = true

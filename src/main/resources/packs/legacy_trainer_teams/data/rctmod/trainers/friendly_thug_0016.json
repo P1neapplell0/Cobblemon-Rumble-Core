@@ -1,0 +1,70 @@
+{
+  "name": "友善恶棍",
+  "team": [
+    {
+      "species": "salamence",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "headbutt",
+        "facade",
+        "flamethrower",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "aggron",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "heavyslam",
+        "rockslide",
+        "dragonclaw",
+        "dragontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:aggronite",
+        "iron_ball"
+      ]
+    }
+  ]
+}

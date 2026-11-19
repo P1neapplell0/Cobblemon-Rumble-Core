@@ -1,0 +1,93 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（42）",
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "brave",
+      "ability": "sniper",
+      "moveset": [
+        "leechlife",
+        "dualwingbeat",
+        "haze",
+        "venoshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sharpedo",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "roughskin",
+      "moveset": [
+        "icefang",
+        "poisonfang",
+        "crunch",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hypno",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "rash",
+      "ability": "forewarn",
+      "moveset": [
+        "psychup",
+        "synchronoise",
+        "psychic",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

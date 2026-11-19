@@ -1,0 +1,148 @@
+{
+  "name": "道馆馆主·电次",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "voltswitch",
+        "surf",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "ambipom",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "naive",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "thunderbolt",
+        "doublehit",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "octillery",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "modest",
+      "ability": "sniper",
+      "moveset": [
+        "octazooka",
+        "focusenergy",
+        "aurorabeam",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "luxray",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "thunderfang",
+        "icefang",
+        "crunch",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

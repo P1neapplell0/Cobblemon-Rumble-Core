@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.phone;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.prologue.TrialWaystones;
 import com.nbp.cobblemon_smartphone.item.SmartphoneItem;
 import com.nbp.cobblemon_smartphone.util.SmartphoneHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -35,7 +36,7 @@ public final class PhoneState {
             return false;
         }
         CompoundTag data = root(player);
-        if (data.getBoolean(app.key())) {
+        if (unlocked(player, app)) {
             player.displayClientMessage(Component.translatable("rumble.phone.already", app.title()), true);
             return false;
         }
@@ -52,10 +53,11 @@ public final class PhoneState {
     }
 
     public static boolean unlocked(ServerPlayer player, PhoneApp app) {
-        return app.available() && root(player).getBoolean(app.key());
+        return app.available() && (app == PhoneApp.WAYSTONE || app == PhoneApp.CLOUD && StarterStorage.granted(player)
+                || root(player).getBoolean(app.key()));
     }
 
-    private static boolean hasPhone(ServerPlayer player) {
+    public static boolean hasPhone(ServerPlayer player) {
         // Query the server player's own slots; the smartphone right-click context is client-global.
         if (player.getOffhandItem().getItem() instanceof SmartphoneItem
                 || player.getInventory().items.stream().anyMatch(stack -> stack.getItem() instanceof SmartphoneItem)) return true;
@@ -71,6 +73,7 @@ public final class PhoneState {
             player.getInventory().placeItemBackInInventory(new ItemStack(BuiltInRegistries.ITEM.get(PHONE_ITEM)));
             data.putBoolean("starter_phone", true);
         }
+        StarterStorage.grant(player);
         sync(player);
     }
 
@@ -78,10 +81,14 @@ public final class PhoneState {
         if (event.getEntity() instanceof ServerPlayer player) sync(player);
     }
 
-    private static void sync(ServerPlayer player) {
-        CompoundTag data = root(player);
-        int mask = 0;
-        for (PhoneApp app : PhoneApp.values()) if (data.getBoolean(app.key())) mask |= app.bit();
+    public static void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) sync(player);
+    }
+
+    public static void sync(ServerPlayer player) {
+        int mask = (TrialWaystones.travelUnlocked(player) ? TrialWaystones.STORY_TRAVEL_BIT : 0)
+                | com.p1nero.cobblemon.rumblecore.prologue.PersonalDimension.travelBits(player);
+        for (PhoneApp app : PhoneApp.values()) if (unlocked(player, app)) mask |= app.bit();
         PacketDistributor.sendToPlayer(player, new PhoneSync(mask));
     }
 }

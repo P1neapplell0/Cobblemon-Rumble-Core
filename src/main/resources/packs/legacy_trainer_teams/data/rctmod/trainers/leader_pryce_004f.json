@@ -1,0 +1,220 @@
+{
+  "name": "柳伯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "quiet",
+      "ability": "soundproof",
+      "moveset": [
+        "earthpower",
+        "blizzard",
+        "woodhammer",
+        "weatherball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "brave",
+      "ability": "unnerve",
+      "moveset": [
+        "trickroom",
+        "solarblade",
+        "zenheadbutt",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "aspects": [
+        "ice"
+      ]
+    },
+    {
+      "species": "kyurem",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "quiet",
+      "ability": "pressure",
+      "moveset": [
+        "blizzard",
+        "dracometeor",
+        "earthpower",
+        "freezedry"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:icium_z",
+        "ice_gem"
+      ]
+    },
+    {
+      "species": "wishiwashi",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "quiet",
+      "ability": "schooling",
+      "moveset": [
+        "scald",
+        "scaleshot",
+        "icebeam",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "donphan",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "brave",
+      "ability": "technician",
+      "moveset": [
+        "iceshard",
+        "rocktomb",
+        "bulldoze",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "brave",
+      "ability": "moxie",
+      "moveset": [
+        "armthrust",
+        "bulletseed",
+        "pinmissile",
+        "rockblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:heracronite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

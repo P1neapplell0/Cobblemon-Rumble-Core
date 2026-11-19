@@ -1,0 +1,92 @@
+{
+  "name": "泳者·奥斯卡",
+  "team": [
+    {
+      "species": "mantyke",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "sassy",
+      "ability": "waterabsorb",
+      "moveset": [
+        "supersonic",
+        "bubblebeam",
+        "airslash",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "remoraid",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "hardy",
+      "ability": "hustle",
+      "moveset": [
+        "lockon",
+        "bulletseed",
+        "icebeam",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mantine",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "sassy",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bulletseed",
+        "bubblebeam",
+        "aquaring",
+        "bounce"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "name": "水手·埃德蒙",
+  "team": [
+    {
+      "species": "lileep",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "stormdrain",
+      "moveset": [
+        "ancientpower",
+        "gigadrain",
+        "earthpower",
+        "spitup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "lumineon",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "stormdrain",
+      "moveset": [
+        "surf",
+        "icebeam",
+        "swift",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "stormdrain",
+      "moveset": [
+        "muddywater",
+        "earthpower",
+        "protect",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    }
+  ]
+}

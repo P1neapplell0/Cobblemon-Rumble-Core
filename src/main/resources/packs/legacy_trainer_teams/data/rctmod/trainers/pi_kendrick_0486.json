@@ -1,0 +1,63 @@
+{
+  "name": "侦探·肯德里克",
+  "team": [
+    {
+      "species": "goldeen",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "peck",
+        "tailwhip",
+        "waterpulse",
+        "hornattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "goldeen",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "peck",
+        "tailwhip",
+        "waterpulse",
+        "hornattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

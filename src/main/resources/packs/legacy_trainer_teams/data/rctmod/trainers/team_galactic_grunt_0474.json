@@ -1,0 +1,64 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（38）",
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 38,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "hypnosis",
+        "safeguard",
+        "extrasensory",
+        "heavyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "docile",
+      "ability": "owntempo",
+      "moveset": [
+        "aerialace",
+        "charm",
+        "taunt",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

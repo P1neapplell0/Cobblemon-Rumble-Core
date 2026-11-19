@@ -1,0 +1,92 @@
+{
+  "name": "登山男·布莱斯",
+  "team": [
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "naughty",
+      "ability": "rockhead",
+      "moveset": [
+        "feintattack",
+        "tearfullook",
+        "rocktomb",
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "carbink",
+      "gender": "GENDERLESS",
+      "level": 30,
+      "nature": "lonely",
+      "ability": "clearbody",
+      "moveset": [
+        "smackdown",
+        "reflect",
+        "stealthrock",
+        "guardsplit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "minior",
+      "gender": "GENDERLESS",
+      "level": 30,
+      "nature": "serious",
+      "ability": "shieldsdown",
+      "moveset": [
+        "ancientpower",
+        "selfdestruct",
+        "stealthrock",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

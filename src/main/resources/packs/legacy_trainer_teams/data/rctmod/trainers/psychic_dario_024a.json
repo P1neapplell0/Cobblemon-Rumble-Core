@@ -1,0 +1,34 @@
+{
+  "name": "超能力者·达里奥",
+  "team": [
+    {
+      "species": "girafarig",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "lax",
+      "ability": "earlybird",
+      "moveset": [
+        "crunch",
+        "psybeam",
+        "odorsleuth",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

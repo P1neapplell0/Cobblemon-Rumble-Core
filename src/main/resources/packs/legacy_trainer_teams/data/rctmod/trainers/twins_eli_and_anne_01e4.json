@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·伊莱＆安妮",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "swinub",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "docile",
+      "ability": "oblivious",
+      "moveset": [
+        "icywind",
+        "icefang",
+        "takedown",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "espurr",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "hasty",
+      "ability": "frisk",
+      "moveset": [
+        "psybeam",
+        "fakeout",
+        "disarmingvoice",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

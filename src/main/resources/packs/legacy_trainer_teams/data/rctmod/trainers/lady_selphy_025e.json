@@ -1,0 +1,69 @@
+{
+  "name": "大小姐·赛尔菲",
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "bashful",
+      "ability": "limber",
+      "moveset": [
+        "payday",
+        "bite",
+        "taunt",
+        "torment"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "minecraft:gold_nugget"
+      ]
+    },
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "rash",
+      "ability": "limber",
+      "moveset": [
+        "payday",
+        "scratch",
+        "torment",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "minecraft:gold_nugget"
+      ]
+    }
+  ]
+}

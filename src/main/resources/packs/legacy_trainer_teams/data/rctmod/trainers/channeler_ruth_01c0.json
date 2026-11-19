@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·露丝",
+  "team": [
+    {
+      "species": "doublade",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "adamant",
+      "ability": "sharpness",
+      "moveset": [
+        "retaliate",
+        "slash",
+        "irondefense",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

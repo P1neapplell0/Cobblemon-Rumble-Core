@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·卡莉",
+  "team": [
+    {
+      "species": "litwick",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "quiet",
+      "ability": "flamebody",
+      "moveset": [
+        "imprison",
+        "hex",
+        "embargo",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

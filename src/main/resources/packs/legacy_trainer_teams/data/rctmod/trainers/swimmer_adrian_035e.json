@@ -1,0 +1,92 @@
+{
+  "name": "泳者·阿德里安",
+  "team": [
+    {
+      "species": "mantyke",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "sassy",
+      "ability": "waterabsorb",
+      "moveset": [
+        "tackle",
+        "supersonic",
+        "wingattack",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "remoraid",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "hardy",
+      "ability": "sniper",
+      "moveset": [
+        "focusenergy",
+        "aurorabeam",
+        "bubblebeam",
+        "bulletseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tentacool",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "sassy",
+      "ability": "clearbody",
+      "moveset": [
+        "poisonsting",
+        "acid",
+        "waterpulse",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

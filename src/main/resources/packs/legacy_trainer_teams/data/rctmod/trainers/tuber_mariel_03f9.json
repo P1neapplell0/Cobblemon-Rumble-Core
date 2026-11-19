@@ -1,0 +1,63 @@
+{
+  "name": "泳圈族·玛丽尔",
+  "team": [
+    {
+      "species": "marill",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "quirky",
+      "ability": "thickfat",
+      "moveset": [
+        "charm",
+        "aquatail",
+        "aquaring",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "quirky",
+      "ability": "thickfat",
+      "moveset": [
+        "slam",
+        "bounce",
+        "aquatail",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

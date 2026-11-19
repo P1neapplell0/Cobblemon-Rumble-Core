@@ -1,0 +1,63 @@
+{
+  "name": "大姐姐·格蕾丝",
+  "team": [
+    {
+      "species": "pidgeot",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "serious",
+      "ability": "tangledfeet",
+      "moveset": [
+        "roost",
+        "agility",
+        "airslash",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wigglytuff",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "hardy",
+      "ability": "competitive",
+      "moveset": [
+        "playrough",
+        "sing",
+        "disable",
+        "covet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

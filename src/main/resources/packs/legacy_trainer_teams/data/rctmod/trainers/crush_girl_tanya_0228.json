@@ -1,0 +1,136 @@
+{
+  "name": "空手道少女·塔尼娅",
+  "team": [
+    {
+      "species": "pangoro",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "scrappy",
+      "moveset": [
+        "lashout",
+        "closecombat",
+        "partingshot",
+        "beatup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "bewear",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "fluffy",
+      "moveset": [
+        "closecombat",
+        "doubleedge",
+        "darkestlariat",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "ursaring",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "brickbreak",
+        "shadowclaw",
+        "lick",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "doubleedge",
+        "ironhead",
+        "closecombat",
+        "throatchop"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

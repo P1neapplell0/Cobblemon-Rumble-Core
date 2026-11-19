@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·肖恩",
+  "team": [
+    {
+      "species": "skiddo",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "lax",
+      "ability": "sapsipper",
+      "moveset": [
+        "tailwhip",
+        "leechseed",
+        "razorleaf",
+        "worryseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "yamper",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "naive",
+      "ability": "pickup",
+      "moveset": [
+        "nuzzle",
+        "bite",
+        "roar",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

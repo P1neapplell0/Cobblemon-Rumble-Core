@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·奥特姆",
+  "team": [
+    {
+      "species": "murkrow",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "bashful",
+      "ability": "insomnia",
+      "moveset": [
+        "assurance",
+        "taunt",
+        "aircutter",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "honchkrow",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bashful",
+      "ability": "insomnia",
+      "moveset": [
+        "astonish",
+        "wingattack",
+        "swagger",
+        "foulplay"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

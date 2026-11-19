@@ -1,0 +1,64 @@
+{
+  "name": "年轻情侣·伊芙＆乔恩",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "modest",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychic",
+        "psychup",
+        "nastyplot",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "psyduck",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "careful",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychup",
+        "amnesia",
+        "hydropump",
+        "wonderroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

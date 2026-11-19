@@ -1,0 +1,92 @@
+{
+  "name": "驯兽师·埃德加",
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "hardy",
+      "ability": "shedskin",
+      "moveset": [
+        "coil",
+        "crunch",
+        "belch",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "relaxed",
+      "ability": "rivalry",
+      "moveset": [
+        "chipaway",
+        "thrash",
+        "earthpower",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bewear",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "serious",
+      "ability": "klutz",
+      "moveset": [
+        "thrash",
+        "painsplit",
+        "doubleedge",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

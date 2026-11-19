@@ -1,0 +1,216 @@
+{
+  "name": "四天王·布鲁诺",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "taunt",
+        "flareblitz",
+        "stealthrock",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "careful",
+      "ability": "ironfist",
+      "moveset": [
+        "drainpunch",
+        "machpunch",
+        "knockoff",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "urshifu",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "unseenfist",
+      "moveset": [
+        "uturn",
+        "closecombat",
+        "wickedblow",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "kommoo",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "overcoat",
+      "moveset": [
+        "clangingscales",
+        "clangoroussoul",
+        "aurasphere",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "throat_spray"
+      ]
+    },
+    {
+      "species": "zacian",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "intrepidsword",
+      "moveset": [
+        "swordsdance",
+        "irontail",
+        "closecombat",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:rusted_sword"
+      ],
+      "aspects": [
+        "crowned"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "bulletpunch",
+        "meteormash",
+        "closecombat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lucarionite",
+        "life_orb"
+      ]
+    }
+  ]
+}

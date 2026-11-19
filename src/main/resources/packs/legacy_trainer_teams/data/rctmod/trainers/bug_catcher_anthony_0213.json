@@ -1,0 +1,60 @@
+{
+  "name": "捕虫少年·安东尼",
+  "team": [
+    {
+      "species": "cascoon",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "hardy",
+      "ability": "shedskin",
+      "moveset": [
+        "harden",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "surskit",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "bold",
+      "ability": "swiftswim",
+      "moveset": [
+        "bubble",
+        "signalbeam",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

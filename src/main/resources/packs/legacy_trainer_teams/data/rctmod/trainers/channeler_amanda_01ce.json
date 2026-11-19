@@ -1,0 +1,63 @@
+{
+  "name": "灵媒·阿曼达",
+  "team": [
+    {
+      "species": "dusclops",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "gentle",
+      "ability": "pressure",
+      "moveset": [
+        "curse",
+        "hex",
+        "shadowball",
+        "meanlook"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cofagrigus",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "lonely",
+      "ability": "mummy",
+      "moveset": [
+        "allyswitch",
+        "shadowball",
+        "grudge",
+        "meanlook"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

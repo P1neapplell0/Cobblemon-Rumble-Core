@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·哈娜",
+  "team": [
+    {
+      "species": "noctowl",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "keeneye",
+      "moveset": [
+        "skyattack",
+        "takedown",
+        "roost",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "impish",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "quickattack",
+        "endeavor",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

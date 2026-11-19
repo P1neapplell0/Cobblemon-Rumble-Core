@@ -1,0 +1,92 @@
+{
+  "name": "男泳者·大卫",
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "naughty",
+      "ability": "intimidate",
+      "moveset": [
+        "dragondance",
+        "hurricane",
+        "raindance",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dewgong",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "gentle",
+      "ability": "icescales",
+      "moveset": [
+        "takedown",
+        "dive",
+        "aquatail",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lanturn",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "naughty",
+      "ability": "illuminate",
+      "moveset": [
+        "hydropump",
+        "iondeluge",
+        "electroball",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

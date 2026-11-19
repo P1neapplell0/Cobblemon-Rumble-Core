@@ -1,0 +1,118 @@
+{
+  "name": "暴走族·卢卡斯",
+  "team": [
+    {
+      "species": "toxicroak",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "lonely",
+      "ability": "dryskin",
+      "moveset": [
+        "batonpass",
+        "drainpunch",
+        "poisonjab",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dragalge",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "naive",
+      "ability": "poisontouch",
+      "moveset": [
+        "smokescreen",
+        "sludgebomb",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swalot",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "lax",
+      "ability": "stickyhold",
+      "moveset": [
+        "block",
+        "sludgebomb",
+        "gigadrain",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "smokescreen",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

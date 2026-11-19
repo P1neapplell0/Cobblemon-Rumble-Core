@@ -1,0 +1,63 @@
+{
+  "name": "捕虫少年·万斯",
+  "team": [
+    {
+      "species": "venonat",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "bashful",
+      "ability": "tintedlens",
+      "moveset": [
+        "leechlife",
+        "zenheadbutt",
+        "poisonfang",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "venomoth",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "lax",
+      "ability": "tintedlens",
+      "moveset": [
+        "sleeppowder",
+        "leechlife",
+        "zenheadbutt",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

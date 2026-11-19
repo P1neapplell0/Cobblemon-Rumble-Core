@@ -1,0 +1,64 @@
+{
+  "name": "盗贼",
+  "identity": "盗贼（3）",
+  "team": [
+    {
+      "species": "charmander",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "scaryface",
+        "thunderpunch",
+        "flameburst",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "charmeleon",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "firefang",
+        "scaryface",
+        "thunderpunch",
+        "flameburst"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

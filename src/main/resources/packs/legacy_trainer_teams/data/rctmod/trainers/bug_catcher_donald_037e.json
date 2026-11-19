@@ -1,0 +1,60 @@
+{
+  "name": "捕虫少年·唐纳德",
+  "team": [
+    {
+      "species": "burmy",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "docile",
+      "ability": "shedskin",
+      "moveset": [
+        "stringshot",
+        "tackle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kricketune",
+      "gender": "FEMALE",
+      "level": 12,
+      "nature": "docile",
+      "ability": "swarm",
+      "moveset": [
+        "furycutter",
+        "growl",
+        "pound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

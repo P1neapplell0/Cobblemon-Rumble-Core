@@ -1,0 +1,214 @@
+{
+  "name": "冠军·泰瑞",
+  "identity": "劲敌·泰瑞",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pheromosa",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "beastboost",
+      "moveset": [
+        "uturn",
+        "closecombat",
+        "tripleaxel",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "moveset": [
+        "bulletpunch",
+        "zenheadbutt",
+        "brickbreak",
+        "meteormash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "groudon",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "careful",
+      "ability": "drought",
+      "moveset": [
+        "firepunch",
+        "precipiceblades",
+        "thunderwave",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:red_orb"
+      ],
+      "aspects": [
+        "primal"
+      ]
+    },
+    {
+      "species": "yveltal",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "modest",
+      "ability": "darkaura",
+      "moveset": [
+        "oblivionwing",
+        "darkpulse",
+        "heatwave",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "eternatus",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "meteorbeam",
+        "sludgebomb",
+        "flamethrower",
+        "dynamaxcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "ditto",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "imposter",
+      "moveset": [
+        "transform"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "name": "科拿",
+  "identity": "四天王·科拿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "naughty",
+      "ability": "icescales",
+      "moveset": [
+        "icebeam",
+        "surf",
+        "hail",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 51,
+      "nature": "bold",
+      "ability": "skilllink",
+      "moveset": [
+        "spikes",
+        "protect",
+        "hail",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "sassy",
+      "ability": "owntempo",
+      "moveset": [
+        "icebeam",
+        "surf",
+        "amnesia",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "jynx",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "bold",
+      "ability": "forewarn",
+      "moveset": [
+        "icepunch",
+        "doubleslap",
+        "lovelykiss",
+        "captivate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "serious",
+      "ability": "hydration",
+      "moveset": [
+        "confuseray",
+        "icebeam",
+        "surf",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

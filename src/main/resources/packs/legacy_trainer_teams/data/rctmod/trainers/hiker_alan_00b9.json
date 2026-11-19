@@ -1,0 +1,62 @@
+{
+  "name": "登山男·艾伦",
+  "team": [
+    {
+      "species": "larvitar",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "stompingtantrum",
+        "sandstorm",
+        "screech",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "carkol",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "brave",
+      "ability": "steamengine",
+      "moveset": [
+        "block",
+        "flamecharge",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

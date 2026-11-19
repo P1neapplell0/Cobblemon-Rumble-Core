@@ -1,0 +1,214 @@
+{
+  "name": "小霞",
+  "identity": "馆主·小霞",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "politoed",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "drizzle",
+      "moveset": [
+        "muddywater",
+        "icebeam",
+        "hypnosis",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "protean",
+      "moveset": [
+        "darkpulse",
+        "watershuriken",
+        "icebeam",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "gorebyss",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "shellsmash",
+        "surf",
+        "drainingkiss",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "kingdra",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "dragonpulse",
+        "surf",
+        "hurricane",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "inteleon",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "sniper",
+      "moveset": [
+        "snipeshot",
+        "darkpulse",
+        "icebeam",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "crunch",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gyaradosite",
+        "life_orb"
+      ]
+    }
+  ]
+}

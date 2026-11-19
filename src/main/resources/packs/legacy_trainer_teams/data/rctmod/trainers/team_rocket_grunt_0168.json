@@ -1,0 +1,92 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（14）",
+  "team": [
+    {
+      "species": "ariados",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "lax",
+      "ability": "noguard",
+      "moveset": [
+        "poisonjab",
+        "nightshade",
+        "leechlife",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "hardy",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "selfdestruct",
+        "sludge",
+        "smokescreen",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "centiskorch",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "clearbody",
+      "moveset": [
+        "heatcrash",
+        "lunge",
+        "flamewheel"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

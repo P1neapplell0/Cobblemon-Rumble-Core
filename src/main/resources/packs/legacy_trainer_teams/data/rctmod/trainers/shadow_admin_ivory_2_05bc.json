@@ -1,0 +1,93 @@
+{
+  "name": "暗影干部·艾沃里",
+  "identity": "暗影干部·艾沃里",
+  "team": [
+    {
+      "species": "incineroar",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "impish",
+      "ability": "blaze",
+      "moveset": [
+        "firepunch",
+        "darkestlariat",
+        "thunderpunch",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mismagius",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "impish",
+      "ability": "magicbounce",
+      "moveset": [
+        "ominouswind",
+        "mysticalfire",
+        "powergem",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "modest",
+      "ability": "synchronize",
+      "moveset": [
+        "psyshock",
+        "shadowball",
+        "dazzlinggleam",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

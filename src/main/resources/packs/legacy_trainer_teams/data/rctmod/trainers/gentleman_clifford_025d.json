@@ -1,0 +1,63 @@
+{
+  "name": "绅士·克利福德",
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "lonely",
+      "ability": "rockhead",
+      "moveset": [
+        "doubleedge",
+        "fling",
+        "stompingtantrum",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "calm",
+      "ability": "swiftswim",
+      "moveset": [
+        "psychic",
+        "psychup",
+        "nastyplot",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

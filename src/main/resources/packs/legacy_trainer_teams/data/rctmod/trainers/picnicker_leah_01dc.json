@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·莉亚",
+  "team": [
+    {
+      "species": "doduo",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hasty",
+      "ability": "runaway",
+      "moveset": [
+        "pluck",
+        "doublehit",
+        "agility",
+        "uproar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "careful",
+      "ability": "waterabsorb",
+      "moveset": [
+        "raindance",
+        "bodyslam",
+        "bubblebeam",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

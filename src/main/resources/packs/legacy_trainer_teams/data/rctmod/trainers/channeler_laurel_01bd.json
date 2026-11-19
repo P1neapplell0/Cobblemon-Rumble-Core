@@ -1,0 +1,63 @@
+{
+  "name": "灵媒·劳蕾尔",
+  "team": [
+    {
+      "species": "haunter",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "brave",
+      "ability": "levitate",
+      "moveset": [
+        "nightshade",
+        "confuseray",
+        "suckerpunch",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "misdreavus",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "quiet",
+      "ability": "levitate",
+      "moveset": [
+        "hex",
+        "psybeam",
+        "painsplit",
+        "payback"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

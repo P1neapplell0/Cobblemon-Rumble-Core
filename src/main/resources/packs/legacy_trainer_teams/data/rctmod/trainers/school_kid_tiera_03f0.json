@@ -1,0 +1,34 @@
+{
+  "name": "学生·蒂埃拉",
+  "team": [
+    {
+      "species": "pachirisu",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "charm",
+        "spark",
+        "nuzzle",
+        "dig"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

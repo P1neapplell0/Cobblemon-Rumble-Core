@@ -1,0 +1,92 @@
+{
+  "name": "捕虫少年·康纳",
+  "team": [
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "swarm",
+      "moveset": [
+        "chipaway",
+        "counter",
+        "furyattack",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "trapinch",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "careful",
+      "ability": "levitate",
+      "moveset": [
+        "rockslide",
+        "endure",
+        "focusenergy",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "venonat",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "mild",
+      "ability": "compoundeyes",
+      "moveset": [
+        "psybeam",
+        "stunspore",
+        "signalbeam",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

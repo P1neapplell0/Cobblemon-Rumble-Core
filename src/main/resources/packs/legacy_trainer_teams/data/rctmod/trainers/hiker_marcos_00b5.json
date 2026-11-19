@@ -1,0 +1,92 @@
+{
+  "name": "登山男·马科斯",
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 14,
+      "nature": "gentle",
+      "ability": "rockhead",
+      "moveset": [
+        "mudsport",
+        "rockpolish",
+        "rollout",
+        "magnitude"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "drilbur",
+      "gender": "FEMALE",
+      "level": 16,
+      "nature": "jolly",
+      "ability": "sandrush",
+      "moveset": [
+        "rapidspin",
+        "mudslap",
+        "furyswipes",
+        "metalclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nosepass",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "bold",
+      "ability": "sturdy",
+      "moveset": [
+        "harden",
+        "block",
+        "bulldoze",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

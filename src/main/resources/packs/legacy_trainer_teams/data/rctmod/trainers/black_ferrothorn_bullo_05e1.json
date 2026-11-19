@@ -1,0 +1,63 @@
+{
+  "name": "黑色坚果哑铃·布洛",
+  "team": [
+    {
+      "species": "bastiodon",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "careful",
+      "ability": "sturdy",
+      "moveset": [
+        "metalburst",
+        "swagger",
+        "irondefense",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bisharp",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "defiant",
+      "moveset": [
+        "ironhead",
+        "suckerpunch",
+        "poisonjab",
+        "assurance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

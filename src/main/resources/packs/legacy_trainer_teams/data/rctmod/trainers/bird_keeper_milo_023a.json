@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·米洛",
+  "team": [
+    {
+      "species": "pidgey",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "jolly",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "fly",
+        "tailwind",
+        "mirrormove"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "sassy",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "airslash",
+        "defog",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

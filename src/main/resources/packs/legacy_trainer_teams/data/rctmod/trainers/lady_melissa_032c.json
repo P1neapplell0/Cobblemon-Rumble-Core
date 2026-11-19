@@ -1,0 +1,34 @@
+{
+  "name": "大小姐·梅丽莎",
+  "team": [
+    {
+      "species": "buneary",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "jolly",
+      "ability": "klutz",
+      "moveset": [
+        "pound",
+        "defensecurl",
+        "babydolleyes",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（11）",
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hardy",
+      "ability": "anticipation",
+      "moveset": [
+        "taunt",
+        "revenge",
+        "suckerpunch",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "docile",
+      "ability": "shielddust",
+      "moveset": [
+        "poisonpowder",
+        "venoshock",
+        "skittersmack",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beautifly",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "serious",
+      "ability": "swarm",
+      "moveset": [
+        "aircutter",
+        "megadrain",
+        "skittersmack",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

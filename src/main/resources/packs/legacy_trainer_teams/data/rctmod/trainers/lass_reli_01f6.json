@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·雷利",
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "rash",
+      "ability": "frisk",
+      "moveset": [
+        "facade",
+        "whirlwind",
+        "quickattack",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "naive",
+      "ability": "poisontouch",
+      "moveset": [
+        "poisonsting",
+        "furyswipes",
+        "thief",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

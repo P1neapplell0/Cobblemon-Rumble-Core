@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·凯勒",
+  "team": [
+    {
+      "species": "exeggcute",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "worryseed",
+        "leechseed",
+        "gigadrain",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ursaring",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "scaryface",
+        "rest",
+        "snore",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

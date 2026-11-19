@@ -1,0 +1,63 @@
+{
+  "name": "自行车手·约翰",
+  "team": [
+    {
+      "species": "starly",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "wingattack",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "staravia",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "wingattack",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

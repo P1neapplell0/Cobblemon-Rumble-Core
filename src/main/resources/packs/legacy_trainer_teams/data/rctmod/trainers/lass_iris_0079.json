@@ -1,0 +1,34 @@
+{
+  "name": "短裤少女·艾莉丝",
+  "team": [
+    {
+      "species": "milcery",
+      "gender": "FEMALE",
+      "level": 16,
+      "nature": "timid",
+      "ability": "sweetveil",
+      "moveset": [
+        "facade",
+        "sweetkiss",
+        "sweetscent",
+        "drainingkiss"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

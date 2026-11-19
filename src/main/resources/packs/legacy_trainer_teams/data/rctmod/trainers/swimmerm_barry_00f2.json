@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·巴里",
+  "team": [
+    {
+      "species": "shellder",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "docile",
+      "ability": "skilllink",
+      "moveset": [
+        "irondefense",
+        "icebeam",
+        "shellsmash",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cloyster",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "mild",
+      "ability": "skilllink",
+      "moveset": [
+        "spikecannon",
+        "iceshard",
+        "spikes",
+        "iciclecrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

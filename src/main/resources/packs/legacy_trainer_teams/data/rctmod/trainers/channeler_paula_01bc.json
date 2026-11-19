@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·宝拉",
+  "team": [
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "lax",
+      "ability": "snowcloak",
+      "moveset": [
+        "drainingkiss",
+        "willowisp",
+        "confuseray",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

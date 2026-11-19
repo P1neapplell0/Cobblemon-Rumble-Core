@@ -1,0 +1,34 @@
+{
+  "name": "贵妇·蕾娜",
+  "team": [
+    {
+      "species": "roselia",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "gigadrain",
+        "toxic",
+        "ingrain",
+        "petaldance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "battle.wild": {"sounds": [{"name": "cobblemon_rumble_core:battle/wild", "stream": true}]},
+  "battle.trainer": {"sounds": [{"name": "cobblemon_rumble_core:battle/trainer", "stream": true}]}
+}

@@ -1,0 +1,34 @@
+{
+  "name": "短裤少女·罗宾",
+  "team": [
+    {
+      "species": "mareep",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "quiet",
+      "ability": "static",
+      "moveset": [
+        "afteryou",
+        "thunderwave",
+        "flash",
+        "cottonspore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

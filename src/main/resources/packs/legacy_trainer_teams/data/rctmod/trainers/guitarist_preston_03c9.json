@@ -1,0 +1,63 @@
+{
+  "name": "吉他手·普雷斯顿",
+  "team": [
+    {
+      "species": "luxio",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bite",
+        "voltswitch",
+        "thunderwave",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bibarel",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "simple",
+      "moveset": [
+        "yawn",
+        "thunderbolt",
+        "bulldoze",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

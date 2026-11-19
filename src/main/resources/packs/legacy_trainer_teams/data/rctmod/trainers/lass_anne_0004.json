@@ -1,0 +1,92 @@
+{
+  "name": "短裤少女·安妮",
+  "team": [
+    {
+      "species": "togepi",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "bashful",
+      "ability": "serenegrace",
+      "moveset": [
+        "metronome"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "magicguard",
+      "moveset": [
+        "metronome"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "klutz",
+      "moveset": [
+        "afteryou",
+        "protect",
+        "wish",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "超能力者·罗黛特",
+  "team": [
+    {
+      "species": "natu",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "modest",
+      "ability": "earlybird",
+      "moveset": [
+        "nightshade",
+        "confuseray",
+        "wish",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "drowzee",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "lax",
+      "ability": "forewarn",
+      "moveset": [
+        "psychic",
+        "disable",
+        "psychup",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hypno",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "quiet",
+      "ability": "forewarn",
+      "moveset": [
+        "psychic",
+        "hypnosis",
+        "psychup",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

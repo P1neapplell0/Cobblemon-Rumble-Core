@@ -1,0 +1,212 @@
+{
+  "name": "训练家·海莉",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "timid",
+      "ability": "sturdy",
+      "moveset": [
+        "voltswitch",
+        "flashcannon",
+        "swift",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "hawlucha",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "unburden",
+      "moveset": [
+        "skyattack",
+        "acrobatics",
+        "closecombat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "magmortar",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "flamebody",
+      "moveset": [
+        "rockslide",
+        "flamethrower",
+        "fireblast",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "cursola",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "unburden",
+      "moveset": [
+        "meteorbeam",
+        "shadowball",
+        "icebeam",
+        "burningjealousy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "timid",
+      "ability": "analytic",
+      "moveset": [
+        "meteorbeam",
+        "surf",
+        "icebeam",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "sandaconda",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "careful",
+      "ability": "shedskin",
+      "moveset": [
+        "bodyslam",
+        "rest",
+        "sleeptalk",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

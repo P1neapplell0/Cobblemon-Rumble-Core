@@ -1,0 +1,121 @@
+{
+  "name": "杂耍艺人·纳尔逊",
+  "team": [
+    {
+      "species": "hypno",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "naive",
+      "ability": "insomnia",
+      "moveset": [
+        "swagger",
+        "nastyplot",
+        "psyshock",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "soundproof",
+      "moveset": [
+        "explosion",
+        "gyroball",
+        "mirrorcoat",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "quirky",
+      "ability": "prankster",
+      "moveset": [
+        "imprison",
+        "suckerpunch",
+        "mistyterrain",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gothitelle",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "relaxed",
+      "ability": "frisk",
+      "moveset": [
+        "psychic",
+        "charm",
+        "magicroom",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

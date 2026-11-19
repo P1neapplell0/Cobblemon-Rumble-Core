@@ -1,0 +1,223 @@
+{
+  "name": "四天王·科拿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "fireblast",
+        "agility",
+        "burningjealousy",
+        "babydolleyes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "modest",
+      "ability": "slushrush",
+      "moveset": [
+        "blizzard",
+        "mudshot",
+        "freezedry",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "voltswitch",
+        "darkpulse",
+        "allyswitch",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wiki_berry"
+      ],
+      "aspects": [
+        "wash-appliance"
+      ]
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "aquajet",
+        "liquidation",
+        "playrough",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "unnerve",
+      "moveset": [
+        "solarblade",
+        "mudshot",
+        "zenheadbutt",
+        "seedbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "ice"
+      ]
+    },
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "blizzard",
+        "focusblast",
+        "weatherball",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:abomasite",
+        "assault_vest"
+      ]
+    }
+  ]
+}

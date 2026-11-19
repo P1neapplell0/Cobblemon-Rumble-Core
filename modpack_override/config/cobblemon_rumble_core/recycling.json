@@ -1,0 +1,498 @@
+[
+  {
+    "item": "cobblemon:relic_coin",
+    "price": "40"
+  },
+  {
+    "item": "cobblemon:relic_coin_pouch",
+    "price": "360"
+  },
+  {
+    "item": "cobblemon:aguav_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:apicot_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:apricorn_boat",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:apricorn_chest_boat",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:aspear_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:babiri_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:belue_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:berry_juice",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:berry_sweet",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:black_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:black_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:blue_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:blue_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:blue_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:bluk_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:candied_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:charti_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:cheri_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:chesto_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:chilan_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:chople_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:coba_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:colbur_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:cornn_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:custap_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:cyan_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:durin_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:eggant_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:enigma_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:figy_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:ganlon_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:green_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:green_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:green_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:grepa_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:haban_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:hondew_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:hopo_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:iapapa_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:jaboca_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:kasib_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:kebia_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:kee_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:kelpsy_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:lansat_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:leppa_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:liechi_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:lum_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:mago_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:magost_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:maranga_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:micle_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:nanab_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:nomel_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:occa_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:oran_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:pamtre_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:passho_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:payapa_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:pecha_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:persim_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:petaya_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:pinap_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:pink_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:pink_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:pink_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:pomeg_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:qualot_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:rabuta_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:rawst_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:razz_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:red_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:red_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:red_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:rindo_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:roseli_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:rowap_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:salac_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:shuca_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:sitrus_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:spelon_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:starf_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:strawberry_sweet",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:tamato_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:tanga_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:touga_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:wacan_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:watmel_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:wepear_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:white_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:white_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:white_mint_leaf",
+    "price": "172"
+  },
+  {
+    "item": "cobblemon:wiki_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:yache_berry",
+    "price": "128"
+  },
+  {
+    "item": "cobblemon:yellow_apricorn",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:yellow_apricorn_seed",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:tumblestone",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:black_tumblestone",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:sky_tumblestone",
+    "price": "64"
+  },
+  {
+    "item": "cobblemon:sky_tumblestone_block",
+    "price": "256"
+  },
+  {
+    "item": "cobblemon:tumblestone_block",
+    "price": "256"
+  },
+  {
+    "item": "cobblemon:black_tumblestone_block",
+    "price": "256"
+  },
+  {
+    "item": "legendarymonuments:galar_particle",
+    "price": "64"
+  },
+  {
+    "item": "legendarymonuments:galar_particle_block",
+    "price": "576"
+  },
+  {
+    "item": "cobblesafari:sphere_prism_s",
+    "price": "512"
+  },
+  {
+    "item": "cobblesafari:sphere_pale_s",
+    "price": "512"
+  },
+  {
+    "item": "cobblesafari:sphere_red_s",
+    "price": "512"
+  },
+  {
+    "item": "cobblesafari:sphere_blue_s",
+    "price": "512"
+  },
+  {
+    "item": "cobblesafari:sphere_green_s",
+    "price": "512"
+  },
+  {
+    "item": "cobblesafari:sphere_blue_l",
+    "price": "1024"
+  },
+  {
+    "item": "cobblesafari:sphere_red_l",
+    "price": "1024"
+  },
+  {
+    "item": "cobblesafari:sphere_green_l",
+    "price": "1024"
+  },
+  {
+    "item": "cobblesafari:sphere_prism_l",
+    "price": "1024"
+  },
+  {
+    "item": "cobblesafari:sphere_pale_l",
+    "price": "1024"
+  },
+  {
+    "item": "cobblesafari:heartscale",
+    "price": "1024"
+  },
+  {
+    "item": "create:zinc_block",
+    "price": "32"
+  },
+  {
+    "item": "create:zinc_ingot",
+    "price": "288"
+  },
+  {
+    "item": "create:brass_block",
+    "price": "32"
+  },
+  {
+    "item": "create:brass_ingot",
+    "price": "288"
+  },
+  {
+    "item": "create:experience_nugget",
+    "price": "64"
+  },
+  {
+    "item": "create:experience_block",
+    "price": "576"
+  },
+  {
+    "item": "cobblemonminigames:arcade_coin",
+    "price": "1"
+  }
+]

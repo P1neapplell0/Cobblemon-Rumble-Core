@@ -1,0 +1,104 @@
+{
+  "name": "道馆馆主·瓢太",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "stealthrock",
+        "defensecurl",
+        "rollout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 12,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "rockthrow",
+        "bind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cranidos",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headbutt",
+        "bulldoze",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

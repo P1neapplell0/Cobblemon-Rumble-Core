@@ -1,0 +1,63 @@
+{
+  "name": "超级书呆·扎克",
+  "team": [
+    {
+      "species": "arcanine",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "careful",
+      "ability": "flashfire",
+      "moveset": [
+        "firefang",
+        "flareblitz",
+        "helpinghand",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "darkpulse",
+        "nastyplot",
+        "inferno"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

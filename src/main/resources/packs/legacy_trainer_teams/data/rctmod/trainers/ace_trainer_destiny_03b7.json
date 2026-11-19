@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·德斯蒂妮",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "reflect",
+        "psychic",
+        "shockwave",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "thunderpunch",
+        "thunderbolt",
+        "lightscreen",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

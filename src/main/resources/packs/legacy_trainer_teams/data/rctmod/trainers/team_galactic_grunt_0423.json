@@ -1,0 +1,34 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（7）",
+  "team": [
+    {
+      "species": "zubat",
+      "gender": "FEMALE",
+      "level": 9,
+      "nature": "hardy",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "supersonic",
+        "astonish"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "登山男·杰瑞米",
+  "team": [
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "hasty",
+      "ability": "guts",
+      "moveset": [
+        "revenge",
+        "knockoff",
+        "vitalthrow",
+        "wakeupslap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunfisk",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "brave",
+      "ability": "static",
+      "moveset": [
+        "camouflage",
+        "mudbomb",
+        "thunderbolt",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

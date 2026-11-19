@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·戴夫",
+  "team": [
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "sassy",
+      "ability": "poisontouch",
+      "moveset": [
+        "rocksmash",
+        "poisonsting",
+        "furyattack",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golett",
+      "gender": "GENDERLESS",
+      "level": 25,
+      "nature": "gentle",
+      "ability": "ironfist",
+      "moveset": [
+        "shadowpunch",
+        "irondefense",
+        "stompingtantrum",
+        "megapunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（31）",
+  "team": [
+    {
+      "species": "skuntank",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "calm",
+      "ability": "aftermath",
+      "moveset": [
+        "venomdrench",
+        "suckerpunch",
+        "belch",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "crobat",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "lax",
+      "ability": "sniper",
+      "moveset": [
+        "leechlife",
+        "dualwingbeat",
+        "haze",
+        "venoshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stoutland",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "relaxed",
+      "ability": "sandrush",
+      "moveset": [
+        "retaliate",
+        "crunch",
+        "roar",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

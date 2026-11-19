@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·马克",
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "naive",
+      "ability": "lightningrod",
+      "moveset": [
+        "bulldoze",
+        "chipaway",
+        "rockblast",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickitung",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "relaxed",
+      "ability": "owntempo",
+      "moveset": [
+        "stomp",
+        "disable",
+        "megapunch",
+        "rollout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

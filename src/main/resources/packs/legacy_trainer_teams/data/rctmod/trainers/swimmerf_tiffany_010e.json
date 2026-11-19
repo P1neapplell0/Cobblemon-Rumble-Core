@@ -1,0 +1,34 @@
+{
+  "name": "女泳者·蒂法妮",
+  "team": [
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "naive",
+      "ability": "hydration",
+      "moveset": [
+        "hydropump",
+        "dragonpulse",
+        "block",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

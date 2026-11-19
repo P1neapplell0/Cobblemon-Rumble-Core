@@ -1,0 +1,93 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（44）",
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "hardy",
+      "ability": "limber",
+      "moveset": [
+        "growl",
+        "aerialace",
+        "furyswipes",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "serious",
+      "ability": "aftermath",
+      "moveset": [
+        "poisongas",
+        "bite",
+        "venoshock",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "docile",
+      "ability": "anticipation",
+      "moveset": [
+        "taunt",
+        "venoshock",
+        "suckerpunch",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

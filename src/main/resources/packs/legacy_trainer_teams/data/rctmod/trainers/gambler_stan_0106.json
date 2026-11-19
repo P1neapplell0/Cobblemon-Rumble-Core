@@ -1,0 +1,92 @@
+{
+  "name": "赌徒·斯坦",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "raindance",
+        "bodyslam",
+        "bubblebeam",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "careful",
+      "ability": "runaway",
+      "moveset": [
+        "flamecharge",
+        "firespin",
+        "takedown",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "numel",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "relaxed",
+      "ability": "oblivious",
+      "moveset": [
+        "earthpower",
+        "curse",
+        "takedown",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

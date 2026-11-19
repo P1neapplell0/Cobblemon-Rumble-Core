@@ -1,0 +1,78 @@
+{
+  "name": "驯龙师·海登",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragonpulse",
+        "moonblast",
+        "round",
+        "perishsong"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "altaria",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragondance",
+        "skyattack",
+        "takedown",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

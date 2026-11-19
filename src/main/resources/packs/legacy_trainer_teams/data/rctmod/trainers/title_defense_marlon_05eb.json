@@ -1,0 +1,199 @@
+{
+  "name": "冠军防卫战·玛隆",
+  "identity": "暗影干部·玛隆",
+  "team": [
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "poltergeist",
+        "poweruppunch",
+        "icepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "dynamicpunch",
+        "knockoff",
+        "stoneedge",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "highhorsepower",
+        "darkestlariat",
+        "rockslide",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "beedrill",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "uturn",
+        "poisonjab",
+        "drillrun",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:beedrillite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "nihilego",
+      "gender": "GENDERLESS",
+      "level": 79,
+      "nature": "timid",
+      "ability": "beastboost",
+      "moveset": [
+        "meteorbeam",
+        "sludgewave",
+        "thunderbolt",
+        "echoedvoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "zapdos",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "heatwave",
+        "thunderbolt",
+        "discharge",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    }
+  ]
+}

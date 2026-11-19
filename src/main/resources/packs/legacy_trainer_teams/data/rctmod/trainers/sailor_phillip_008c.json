@@ -1,0 +1,34 @@
+{
+  "name": "水手·菲利普",
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "sassy",
+      "ability": "hugepower",
+      "moveset": [
+        "bulletpunch",
+        "calmmind",
+        "mindreader",
+        "highjumpkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

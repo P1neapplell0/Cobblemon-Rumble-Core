@@ -1,0 +1,149 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "adamant",
+      "ability": "tangledfeet",
+      "moveset": [
+        "quickattack",
+        "facade",
+        "whirlwind",
+        "tackle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "impish",
+      "ability": "intimidate",
+      "moveset": [
+        "bite",
+        "doubleedge",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "helpinghand",
+        "flamewheel",
+        "reversal",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "teleport",
+        "confusion",
+        "swift",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ivysaur",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "lonely",
+      "ability": "overgrow",
+      "moveset": [
+        "sleeppowder",
+        "sludge",
+        "magicalleaf",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

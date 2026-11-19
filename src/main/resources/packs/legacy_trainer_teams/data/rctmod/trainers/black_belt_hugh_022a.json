@@ -1,0 +1,102 @@
+{
+  "name": "空手道王·休",
+  "team": [
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "megahorn",
+        "closecombat",
+        "earthquake",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "hugepower",
+      "moveset": [
+        "closecombat",
+        "zenheadbutt",
+        "fakeout",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:medichamite",
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "tyrantrum",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dragondance",
+        "headsmash",
+        "dragonclaw",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

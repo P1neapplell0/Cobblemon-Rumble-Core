@@ -1,0 +1,208 @@
+{
+  "name": "馆主·阿桔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "swellow",
+      "gender": "FEMALE",
+      "level": 67,
+      "nature": "timid",
+      "ability": "aerilate",
+      "moveset": [
+        "boomburst",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "accelgor",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "bugbuzz",
+        "uturn",
+        "focusblast",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "battlebond",
+      "moveset": [
+        "surf",
+        "watershuriken",
+        "darkpulse",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "sniper",
+      "moveset": [
+        "lashout",
+        "crosspoison"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "dragapult",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "infiltrator",
+      "moveset": [
+        "shadowball",
+        "flamethrower",
+        "dragonpulse",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "toxtricity",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "plus",
+      "moveset": [
+        "voltswitch",
+        "boomburst",
+        "sludgebomb",
+        "overdrive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "遗迹狂·布兰登",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "serious",
+      "ability": "sturdy",
+      "moveset": [
+        "irontail",
+        "dig",
+        "stoneedge",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

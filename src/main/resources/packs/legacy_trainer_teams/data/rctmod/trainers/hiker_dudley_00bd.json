@@ -1,0 +1,91 @@
+{
+  "name": "登山男·达德利",
+  "team": [
+    {
+      "species": "lairon",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "lax",
+      "ability": "sturdy",
+      "moveset": [
+        "stompingtantrum",
+        "metalclaw",
+        "irondefense",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ferroseed",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "endeavor",
+        "spikes",
+        "bulletseed",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dwebble",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "sturdy",
+      "moveset": [
+        "bulldoze",
+        "rockslide",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

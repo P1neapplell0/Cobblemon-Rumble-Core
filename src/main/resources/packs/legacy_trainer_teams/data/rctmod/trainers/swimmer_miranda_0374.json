@@ -1,0 +1,34 @@
+{
+  "name": "泳者·米兰达",
+  "team": [
+    {
+      "species": "lumineon",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "attract",
+        "raindance",
+        "aquaring",
+        "whirlpool"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

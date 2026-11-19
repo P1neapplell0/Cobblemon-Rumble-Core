@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·杰夫",
+  "team": [
+    {
+      "species": "spearow",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "naive",
+      "ability": "frisk",
+      "moveset": [
+        "pursuit",
+        "pluck",
+        "furyattack",
+        "mirrormove"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "modest",
+      "ability": "runaway",
+      "moveset": [
+        "focusenergy",
+        "hyperfang",
+        "pursuit",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

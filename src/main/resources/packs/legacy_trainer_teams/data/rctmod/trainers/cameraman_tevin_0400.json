@@ -1,0 +1,34 @@
+{
+  "name": "摄影师·特文",
+  "team": [
+    {
+      "species": "pachirisu",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "sassy",
+      "ability": "pickup",
+      "moveset": [
+        "charm",
+        "quickattack",
+        "spark",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

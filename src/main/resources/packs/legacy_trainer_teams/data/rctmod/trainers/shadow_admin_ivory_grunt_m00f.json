@@ -1,0 +1,164 @@
+{
+  "name": "暗影干部·艾沃里＆手下",
+  "identity": "暗影干部·艾沃里",
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "incineroar",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "impish",
+      "ability": "blaze",
+      "moveset": [
+        "firepunch",
+        "darkestlariat",
+        "thunderpunch",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "bold",
+      "ability": "prankster",
+      "moveset": [
+        "psyshock",
+        "helpinghand",
+        "reflect",
+        "psychicterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "mismagius",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "impish",
+      "ability": "magicbounce",
+      "moveset": [
+        "ominouswind",
+        "mysticalfire",
+        "powergem",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "oranguru",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "calm",
+      "ability": "innerfocus",
+      "moveset": [
+        "zenheadbutt",
+        "allyswitch",
+        "lightscreen",
+        "psychicterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "modest",
+      "ability": "synchronize",
+      "moveset": [
+        "psyshock",
+        "shadowball",
+        "dazzlinggleam",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

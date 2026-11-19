@@ -1,0 +1,63 @@
+{
+  "name": "光头党·以赛亚",
+  "team": [
+    {
+      "species": "zangoose",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "relaxed",
+      "ability": "toughclaws",
+      "moveset": [
+        "falseswipe",
+        "taunt",
+        "swordsdance",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seviper",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "brave",
+      "ability": "merciless",
+      "moveset": [
+        "belch",
+        "coil",
+        "wringout",
+        "gunkshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

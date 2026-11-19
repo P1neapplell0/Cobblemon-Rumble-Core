@@ -1,0 +1,34 @@
+{
+  "name": "学生·埃斯特班",
+  "team": [
+    {
+      "species": "wooper",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "naive",
+      "ability": "damp",
+      "moveset": [
+        "tailwhip",
+        "mudshot",
+        "slam",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

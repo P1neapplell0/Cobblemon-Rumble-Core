@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·科德尔",
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "serious",
+      "ability": "innerfocus",
+      "moveset": [
+        "nightslash",
+        "acrobatics",
+        "feint",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "sassy",
+      "ability": "innerfocus",
+      "moveset": [
+        "nightslash",
+        "acrobatics",
+        "feint",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

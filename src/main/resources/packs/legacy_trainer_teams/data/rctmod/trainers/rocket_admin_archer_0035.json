@@ -1,0 +1,117 @@
+{
+  "name": "火箭队干部·阿切尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gothitelle",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "competitive",
+      "moveset": [
+        "psychic",
+        "shadowball",
+        "swift",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "colbur_berry"
+      ]
+    },
+    {
+      "species": "aegislash",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "stancechange",
+      "moveset": [
+        "ironhead",
+        "shadowclaw",
+        "shadowsneak",
+        "kingsshield"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "unnerve",
+      "moveset": [
+        "heatwave",
+        "darkpulse",
+        "mudshot",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:houndoominite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

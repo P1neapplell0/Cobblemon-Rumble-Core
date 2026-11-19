@@ -1,0 +1,208 @@
+{
+  "name": "四天王·潘妮",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "goodra",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "bold",
+      "ability": "gooey",
+      "moveset": [
+        "flamethrower",
+        "muddywater",
+        "thunderbolt",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    },
+    {
+      "species": "tyrantrum",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonclaw",
+        "headsmash",
+        "highhorsepower",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "kommoo",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "overcoat",
+      "moveset": [
+        "clangingscales",
+        "aurasphere",
+        "flashcannon",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "dragon_gem"
+      ]
+    },
+    {
+      "species": "hydreigon",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "dragonbreath",
+        "darkpulse",
+        "shockwave",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sceptile",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "modest",
+      "ability": "technician",
+      "moveset": [
+        "dragonpulse",
+        "gigadrain",
+        "rockslide",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "latias",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "dragonbreath",
+        "mistball",
+        "airslash",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

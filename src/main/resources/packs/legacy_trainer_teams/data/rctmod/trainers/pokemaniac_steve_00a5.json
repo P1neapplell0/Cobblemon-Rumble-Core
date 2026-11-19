@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·史蒂夫",
+  "team": [
+    {
+      "species": "braixen",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "mild",
+      "ability": "blaze",
+      "moveset": [
+        "psybeam",
+        "firespin",
+        "luckychant",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cubone",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "battlearmor",
+      "moveset": [
+        "rage",
+        "falseswipe",
+        "doubleedge",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

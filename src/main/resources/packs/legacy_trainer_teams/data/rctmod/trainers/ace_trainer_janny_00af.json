@@ -1,0 +1,216 @@
+{
+  "name": "精英训练家·珍妮",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "calm",
+      "ability": "drizzle",
+      "moveset": [
+        "muddywater",
+        "roost",
+        "uturn",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "impish",
+      "ability": "ironbarbs",
+      "moveset": [
+        "powerwhip",
+        "bodypress",
+        "knockoff",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "seismitoad",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "weatherball",
+        "earthpower",
+        "focusblast",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "articuno",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "timid",
+      "ability": "competitive",
+      "moveset": [
+        "hurricane",
+        "icebeam",
+        "weatherball",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "barraskewda",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "liquidation",
+        "closecombat",
+        "aquajet",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:waterium_z",
+        "water_gem"
+      ]
+    },
+    {
+      "species": "raikou",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "calmmind",
+        "thunder",
+        "weatherball",
+        "aurasphere"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

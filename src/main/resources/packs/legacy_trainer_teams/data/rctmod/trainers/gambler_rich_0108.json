@@ -1,0 +1,63 @@
+{
+  "name": "赌徒·里奇",
+  "team": [
+    {
+      "species": "houndour",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "mild",
+      "ability": "earlybird",
+      "moveset": [
+        "suckerpunch",
+        "beatup",
+        "darkpulse",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "litleo",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "modest",
+      "ability": "rivalry",
+      "moveset": [
+        "takedown",
+        "firefang",
+        "endeavor",
+        "echoedvoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

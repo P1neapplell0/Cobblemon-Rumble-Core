@@ -1,0 +1,63 @@
+{
+  "name": "绅士·莱昂纳多",
+  "team": [
+    {
+      "species": "starly",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "hardy",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "wingattack",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoothoot",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "sassy",
+      "ability": "insomnia",
+      "moveset": [
+        "reflect",
+        "psychoshift",
+        "airslash",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·马克",
+  "team": [
+    {
+      "species": "rhydon",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "lightningrod",
+      "moveset": [
+        "drillrun",
+        "takedown",
+        "stoneedge",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickitung",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "owntempo",
+      "moveset": [
+        "mefirst",
+        "refresh",
+        "screech",
+        "powerwhip"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

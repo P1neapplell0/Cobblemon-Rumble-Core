@@ -1,0 +1,105 @@
+{
+  "name": "超级训练家·波西娅",
+  "team": [
+    {
+      "species": "typhlosion",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "solarbeam",
+        "scorchingsands",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 77,
+      "nature": "timid",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "airslash",
+        "scorchingsands",
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_y",
+        "expert_belt"
+      ],
+      "aspects": [
+        "mega_y"
+      ]
+    },
+    {
+      "species": "torkoal",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "relaxed",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "bodypress",
+        "eruption",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

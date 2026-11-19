@@ -1,0 +1,63 @@
+{
+  "name": "泳者·索菲亚",
+  "team": [
+    {
+      "species": "mantyke",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hydropump",
+        "aquaring",
+        "supersonic",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mantine",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hydropump",
+        "bounce",
+        "aquaring",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

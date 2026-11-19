@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·艾莉森",
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "dualchop",
+        "tickle",
+        "doublehit",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "bubblebeam",
+        "bounce",
+        "playrough",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

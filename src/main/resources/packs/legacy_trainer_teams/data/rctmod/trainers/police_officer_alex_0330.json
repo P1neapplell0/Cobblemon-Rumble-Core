@@ -1,0 +1,63 @@
+{
+  "name": "警察·亚历克斯",
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "sassy",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "confusion",
+        "reflect",
+        "psychoshift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "leer",
+        "revenge",
+        "lowsweep",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

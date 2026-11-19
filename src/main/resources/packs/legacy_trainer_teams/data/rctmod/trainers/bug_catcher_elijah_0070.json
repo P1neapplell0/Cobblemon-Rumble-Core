@@ -1,0 +1,34 @@
+{
+  "name": "捕虫少年·伊莱贾",
+  "team": [
+    {
+      "species": "masquerain",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "timid",
+      "ability": "intimidate",
+      "moveset": [
+        "watersport",
+        "aircutter",
+        "scaryface",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

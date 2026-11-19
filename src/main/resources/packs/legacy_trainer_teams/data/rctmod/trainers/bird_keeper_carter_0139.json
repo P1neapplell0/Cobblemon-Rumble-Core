@@ -1,0 +1,92 @@
+{
+  "name": "养鸟人·卡特",
+  "team": [
+    {
+      "species": "vibrava",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "docile",
+      "ability": "levitate",
+      "moveset": [
+        "sandstorm",
+        "aerialace",
+        "hyperbeam",
+        "uproar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cramorant",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "relaxed",
+      "ability": "gulpmissile",
+      "moveset": [
+        "drillpeck",
+        "amnesia",
+        "surf",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "talonflame",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "flamebody",
+      "moveset": [
+        "acrobatics",
+        "dualwingbeat",
+        "mefirst",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "rumble_prologue",
+  "name": "{rumble.prologue.arena}",
+  "description": "{rumble.prologue.arena.description}",
+  "icon": "cobblemon:poke_ball",
+  "timeLimitSeconds": 0,
+  "maxDeaths": 0,
+  "allowLateJoin": false,
+  "maxPlayers": 1,
+  "spawn": { "x": -18, "y": 50, "z": 0 },
+  "victoryType": "custom",
+  "target": "rumble_prologue",
+  "chunkSource": "prologue_plaza",
+  "dimensionSettings": {
+    "dayTime": 6000,
+    "fixedTime": true,
+    "ambientLight": 0.0,
+    "weather": "clear",
+    "hasSkylight": true,
+    "hasCeiling": false,
+    "ultraWarm": false,
+    "natural": true,
+    "piglinSafe": false,
+    "bedWorks": false,
+    "respawnAnchorWorks": false,
+    "hasRaids": false,
+    "effects": "overworld",
+    "monsterBlockLightLimit": 0,
+    "monsterLightLimit": 0,
+    "forceAdventure": true,
+    "allowNaturalMonsters": false
+  }
+}

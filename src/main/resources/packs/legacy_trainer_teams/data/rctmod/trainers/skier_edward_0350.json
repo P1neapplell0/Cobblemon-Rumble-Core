@@ -1,0 +1,34 @@
+{
+  "name": "滑雪者·爱德华",
+  "team": [
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "leer",
+        "taunt",
+        "icywind",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "name": "短裤少女·梅根",
+  "team": [
+    {
+      "species": "magby",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "hasty",
+      "ability": "magmaarmor",
+      "moveset": [
+        "flameburst",
+        "confuseray",
+        "firepunch",
+        "lavaplume"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "smoochum",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "quiet",
+      "ability": "forewarn",
+      "moveset": [
+        "captivate",
+        "faketears",
+        "luckychant",
+        "avalanche"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "comfey",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "bold",
+      "ability": "triage",
+      "moveset": [
+        "petalblizzard",
+        "synthesis",
+        "afteryou",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "elekid",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "lightscreen",
+        "thunderpunch",
+        "discharge",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kirlia",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "modest",
+      "ability": "trace",
+      "moveset": [
+        "drainingkiss",
+        "calmmind",
+        "psychic",
+        "imprison"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

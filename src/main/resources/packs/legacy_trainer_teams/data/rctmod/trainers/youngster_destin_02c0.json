@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·德斯汀",
+  "team": [
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "lonely",
+      "ability": "runaway",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeot",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "relaxed",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "airslash",
+        "defog",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

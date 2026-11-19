@@ -1,0 +1,63 @@
+{
+  "name": "泳者·韦斯利",
+  "team": [
+    {
+      "species": "floatzel",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "icefang",
+        "crunch",
+        "aquajet",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tentacruel",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "liquidooze",
+      "moveset": [
+        "acidarmor",
+        "poisonjab",
+        "sludgewave",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

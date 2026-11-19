@@ -1,0 +1,121 @@
+{
+  "name": "男泳者·达林",
+  "team": [
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "mild",
+      "ability": "poisontouch",
+      "moveset": [
+        "brine",
+        "agility",
+        "dragonpulse",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "modest",
+      "ability": "poisontouch",
+      "moveset": [
+        "brine",
+        "agility",
+        "dragonpulse",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "careful",
+      "ability": "poisontouch",
+      "moveset": [
+        "brine",
+        "agility",
+        "dragonpulse",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "poisontouch",
+      "moveset": [
+        "brine",
+        "agility",
+        "dragonpulse",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

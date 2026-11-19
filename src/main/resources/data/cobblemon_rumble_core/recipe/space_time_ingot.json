@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["##", "##"],
+  "key": {
+    "#": {"item": "beyonddimensions:shattered_space_time_crystallization"}
+  },
+  "result": {"id": "cobblemon_rumble_core:space_time_ingot", "count": 1}
+}

@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·珍妮丝",
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "frisk",
+      "moveset": [
+        "facade",
+        "whirlwind",
+        "quickattack",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "naive",
+      "ability": "frisk",
+      "moveset": [
+        "facade",
+        "whirlwind",
+        "quickattack",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

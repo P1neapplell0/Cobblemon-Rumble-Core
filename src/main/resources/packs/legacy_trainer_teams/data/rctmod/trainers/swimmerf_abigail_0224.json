@@ -1,0 +1,133 @@
+{
+  "name": "女泳者·阿比盖尔",
+  "team": [
+    {
+      "species": "azumarill",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "waterfall",
+        "playrough",
+        "superpower",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "octillery",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "modest",
+      "ability": "megalauncher",
+      "moveset": [
+        "scald",
+        "flashcannon",
+        "icebeam",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "golisopod",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "emergencyexit",
+      "moveset": [
+        "firstimpression",
+        "liquidation",
+        "knockoff",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "wishiwashi",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "schooling",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "uturn",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

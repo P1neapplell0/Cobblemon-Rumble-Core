@@ -1,0 +1,92 @@
+{
+  "name": "摇滚乐手·兰德尔",
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "rash",
+      "ability": "static",
+      "moveset": [
+        "rollout",
+        "screech",
+        "chargebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "magnetbomb",
+        "lightscreen",
+        "sonicboom",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "rollout",
+        "screech",
+        "chargebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

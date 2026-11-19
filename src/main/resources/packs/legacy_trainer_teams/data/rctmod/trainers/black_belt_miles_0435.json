@@ -1,0 +1,34 @@
+{
+  "name": "空手道王·迈尔斯",
+  "team": [
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "lowsweep",
+        "knockoff",
+        "dualchop",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

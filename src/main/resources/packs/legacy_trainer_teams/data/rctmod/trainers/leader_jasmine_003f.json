@@ -1,0 +1,213 @@
+{
+  "name": "阿蜜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bronzong",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "impish",
+      "ability": "levitate",
+      "moveset": [
+        "ironhead",
+        "earthquake",
+        "stealthrock",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "melmetal",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "gyroball",
+        "earthquake",
+        "thunderpunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "sandforce",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "ironhead",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "modest",
+      "ability": "magnetpull",
+      "moveset": [
+        "thunderbolt",
+        "voltswitch",
+        "flashcannon",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "uturn",
+        "dualwingbeat",
+        "bulletpunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "aggron",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "rockhead",
+      "moveset": [
+        "heavyslam",
+        "firepunch",
+        "earthquake",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:aggronite",
+        "iron_ball"
+      ]
+    }
+  ]
+}

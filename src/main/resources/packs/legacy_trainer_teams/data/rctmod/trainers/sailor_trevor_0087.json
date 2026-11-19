@@ -1,0 +1,66 @@
+{
+  "name": "水手·特雷弗",
+  "team": [
+    {
+      "species": "cramorant",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "timid",
+      "ability": "gulpmissile",
+      "moveset": [
+        "surf",
+        "pounce",
+        "airslash",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "surf",
+        "scorchingsands",
+        "venoshock",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

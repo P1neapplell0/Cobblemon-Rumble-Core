@@ -1,0 +1,63 @@
+{
+  "name": "赌徒·达里安",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "rash",
+      "ability": "intimidate",
+      "moveset": [
+        "reversal",
+        "firefang",
+        "takedown",
+        "flameburst"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vulpix",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "brave",
+      "ability": "flashfire",
+      "moveset": [
+        "willowisp",
+        "feintattack",
+        "hex",
+        "flameburst"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

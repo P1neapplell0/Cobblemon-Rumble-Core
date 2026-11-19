@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦培育家·凯莉",
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "impish",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "acidspray",
+        "furyswipes",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "buizel",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "impish",
+      "ability": "swiftswim",
+      "moveset": [
+        "growl",
+        "watergun",
+        "bite",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "泰",
+  "battleFormat": "GEN_9_SINGLES",
+  "team": [
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "impish",
+      "ability": "noguard",
+      "moveset": [
+        "leer",
+        "focusenergy",
+        "lowsweep",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

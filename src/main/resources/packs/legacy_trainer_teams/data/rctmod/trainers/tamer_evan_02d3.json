@@ -1,0 +1,92 @@
+{
+  "name": "驯兽师·埃文",
+  "team": [
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "careful",
+      "ability": "sandveil",
+      "moveset": [
+        "dig",
+        "gyroball",
+        "swordsdance",
+        "sandstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickitung",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "timid",
+      "ability": "owntempo",
+      "moveset": [
+        "chipaway",
+        "mefirst",
+        "refresh",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ursaring",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "guts",
+      "moveset": [
+        "scaryface",
+        "rest",
+        "doubleedge",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

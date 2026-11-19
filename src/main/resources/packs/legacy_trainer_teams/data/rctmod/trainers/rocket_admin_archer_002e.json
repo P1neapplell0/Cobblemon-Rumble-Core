@@ -1,0 +1,116 @@
+{
+  "name": "火箭队干部·阿切尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "impidimp",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "bashful",
+      "ability": "prankster",
+      "moveset": [
+        "fakeout",
+        "bite",
+        "thunderwave",
+        "drainingkiss"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "oran_berry"
+      ]
+    },
+    {
+      "species": "houndour",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "modest",
+      "ability": "earlybird",
+      "moveset": [
+        "snarl",
+        "incinerate",
+        "terablast",
+        "thunderfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wise_glasses"
+      ]
+    },
+    {
+      "species": "mightyena",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "bashful",
+      "ability": "strongjaw",
+      "moveset": [
+        "bite",
+        "icefang",
+        "howl",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "berry_juice"
+      ]
+    }
+  ]
+}

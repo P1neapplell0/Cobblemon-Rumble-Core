@@ -1,0 +1,70 @@
+{
+  "name": "空手道兄妹·罗恩＆玛雅",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "grapploct",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "lax",
+      "ability": "limber",
+      "moveset": [
+        "reversal",
+        "superpower",
+        "topsyturvy",
+        "brutalswing"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "sirfetchd",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "naive",
+      "ability": "sharpness",
+      "moveset": [
+        "brickbreak",
+        "swordsdance",
+        "slam",
+        "leafblade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

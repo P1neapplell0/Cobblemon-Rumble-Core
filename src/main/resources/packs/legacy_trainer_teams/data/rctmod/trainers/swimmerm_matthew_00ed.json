@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·马修",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "naive",
+      "ability": "damp",
+      "moveset": [
+        "bellydrum",
+        "wakeupslap",
+        "hydropump",
+        "mudbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "quirky",
+      "ability": "owntempo",
+      "moveset": [
+        "amnesia",
+        "psychic",
+        "raindance",
+        "psychup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

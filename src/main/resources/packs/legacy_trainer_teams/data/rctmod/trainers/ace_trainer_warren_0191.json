@@ -1,0 +1,165 @@
+{
+  "name": "精英训练家·沃伦",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "bulldoze",
+        "headbutt",
+        "leer",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "sassy",
+      "ability": "rockhead",
+      "moveset": [
+        "bulldoze",
+        "headbutt",
+        "leer",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rhyhorn",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "modest",
+      "ability": "lightningrod",
+      "moveset": [
+        "takedown",
+        "rockblast",
+        "furyattack",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "bold",
+      "ability": "poisontouch",
+      "moveset": [
+        "furyswipes",
+        "bite",
+        "poisonsting",
+        "doublekick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "gentle",
+      "ability": "poisontouch",
+      "moveset": [
+        "bodyslam",
+        "bite",
+        "poisonsting",
+        "doublekick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

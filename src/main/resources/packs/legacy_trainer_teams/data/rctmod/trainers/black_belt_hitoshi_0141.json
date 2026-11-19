@@ -1,0 +1,101 @@
+{
+  "name": "空手道王·仁志",
+  "team": [
+    {
+      "species": "sawk",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "lax",
+      "ability": "innerfocus",
+      "moveset": [
+        "retaliate",
+        "endure",
+        "quickguard",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "throh",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "knockoff",
+        "wideguard",
+        "superpower",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "falinks",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "hardy",
+      "ability": "battlearmor",
+      "moveset": [
+        "reversal",
+        "firstimpression",
+        "noretreat",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

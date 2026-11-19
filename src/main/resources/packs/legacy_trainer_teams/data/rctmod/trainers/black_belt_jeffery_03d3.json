@@ -1,0 +1,63 @@
+{
+  "name": "空手道王·杰弗里",
+  "team": [
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "leer",
+        "lowsweep",
+        "knockoff",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meditite",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "adamant",
+      "ability": "purepower",
+      "moveset": [
+        "detect",
+        "feint",
+        "forcepalm",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+package com.p1nero.cobblemon.rumblecore.combat.arena;
+
+import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import java.util.List;
+import java.util.UUID;
+import net.minecraft.core.UUIDUtil;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentSerialization;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+
+public final class ArenaPackets {
+    private ArenaPackets() {}
+
+    public record Reply(UUID invitation, boolean accept) implements CustomPacketPayload {
+        static final Type<Reply> TYPE = new Type<>(PrologueWorld.id("arena_reply"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Reply> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Reply::invitation, ByteBufCodecs.BOOL, Reply::accept, Reply::new);
+        @Override public Type<Reply> type() { return TYPE; }
+    }
+
+    public record Invite(UUID invitation, Component challenger) implements CustomPacketPayload {
+        static final Type<Invite> TYPE = new Type<>(PrologueWorld.id("arena_invite"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Invite> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Invite::invitation, ComponentSerialization.STREAM_CODEC, Invite::challenger, Invite::new);
+        @Override public Type<Invite> type() { return TYPE; }
+    }
+
+    public record Pick(UUID match, int round, int index) implements CustomPacketPayload {
+        static final Type<Pick> TYPE = new Type<>(PrologueWorld.id("arena_pick"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Pick> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Pick::match, ByteBufCodecs.VAR_INT, Pick::round, ByteBufCodecs.VAR_INT, Pick::index, Pick::new);
+        @Override public Type<Pick> type() { return TYPE; }
+    }
+
+    public record Prepare(ResourceLocation dimension) implements CustomPacketPayload {
+        static final Type<Prepare> TYPE = new Type<>(PrologueWorld.id("arena_prepare"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Prepare> CODEC = StreamCodec.composite(
+                ResourceLocation.STREAM_CODEC, Prepare::dimension, Prepare::new);
+        @Override public Type<Prepare> type() { return TYPE; }
+    }
+
+    public record Option(int index, Pokemon pokemon) {
+        static final StreamCodec<RegistryFriendlyByteBuf, Option> CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_INT, Option::index, Pokemon.Companion.getS2C_CODEC(), Option::pokemon, Option::new);
+    }
+
+    /** An empty roster closes only the switch screen for the named match. */
+    public record Switch(UUID match, int round, List<Option> roster) implements CustomPacketPayload {
+        static final Type<Switch> TYPE = new Type<>(PrologueWorld.id("arena_switch"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Switch> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Switch::match, ByteBufCodecs.VAR_INT, Switch::round,
+                Option.CODEC.apply(ByteBufCodecs.list(6)), Switch::roster, Switch::new);
+        @Override public Type<Switch> type() { return TYPE; }
+    }
+
+    public static void register(RegisterPayloadHandlersEvent event) {
+        var net = event.registrar("2");
+        net.playToServer(UseTera.TYPE, UseTera.CODEC, (p, ctx) -> TeraCombat.use((ServerPlayer) ctx.player()));
+        net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.teraUsed(p.used()));
+        net.playToServer(UseHeld.TYPE, UseHeld.CODEC, (p, ctx) -> ArenaMatch.useHeld((ServerPlayer) ctx.player()));
+        net.playToServer(Reply.TYPE, Reply.CODEC, (p, ctx) -> ArenaMatch.reply((ServerPlayer) ctx.player(), p));
+        net.playToServer(Pick.TYPE, Pick.CODEC, (p, ctx) -> ArenaMatch.pick((ServerPlayer) ctx.player(), p));
+        net.playToClient(Invite.TYPE, Invite.CODEC, (p, ctx) -> ArenaClient.invite(p));
+        net.playToClient(Prepare.TYPE, Prepare.CODEC, (p, ctx) -> ArenaClient.prepare(p));
+        net.playToClient(Switch.TYPE, Switch.CODEC, (p, ctx) -> ArenaClient.roster(p));
+    }
+
+    public record UseTera() implements CustomPacketPayload {
+        static final Type<UseTera> TYPE = new Type<>(PrologueWorld.id("arena_use_tera"));
+        static final StreamCodec<RegistryFriendlyByteBuf, UseTera> CODEC = StreamCodec.unit(new UseTera());
+        @Override public Type<UseTera> type() { return TYPE; }
+    }
+
+    public record TeraUsed(boolean used) implements CustomPacketPayload {
+        static final Type<TeraUsed> TYPE = new Type<>(PrologueWorld.id("arena_tera_used"));
+        static final StreamCodec<RegistryFriendlyByteBuf, TeraUsed> CODEC = StreamCodec.composite(
+                ByteBufCodecs.BOOL, TeraUsed::used, TeraUsed::new);
+        @Override public Type<TeraUsed> type() { return TYPE; }
+    }
+
+    public record UseHeld() implements CustomPacketPayload {
+        static final Type<UseHeld> TYPE = new Type<>(PrologueWorld.id("arena_use_held"));
+        static final StreamCodec<RegistryFriendlyByteBuf, UseHeld> CODEC = StreamCodec.unit(new UseHeld());
+        @Override public Type<UseHeld> type() { return TYPE; }
+    }
+}

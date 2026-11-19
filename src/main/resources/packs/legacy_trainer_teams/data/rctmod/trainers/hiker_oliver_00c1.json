@@ -1,0 +1,92 @@
+{
+  "name": "登山男·奥利弗",
+  "team": [
+    {
+      "species": "nosepass",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "sassy",
+      "ability": "sturdy",
+      "moveset": [
+        "rockslide",
+        "earthpower",
+        "voltswitch",
+        "sandstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shuckle",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "docile",
+      "ability": "sturdy",
+      "moveset": [
+        "rockthrow",
+        "gastroacid",
+        "guardsplit",
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "baltoy",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "adamant",
+      "ability": "levitate",
+      "moveset": [
+        "selfdestruct",
+        "extrasensory",
+        "allyswitch",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

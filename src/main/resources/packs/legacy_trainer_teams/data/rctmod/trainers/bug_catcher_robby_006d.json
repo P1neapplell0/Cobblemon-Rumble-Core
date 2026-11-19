@@ -1,0 +1,88 @@
+{
+  "name": "捕虫少年·罗比",
+  "team": [
+    {
+      "species": "caterpie",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "impish",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "karrablast",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "mild",
+      "ability": "shedskin",
+      "moveset": [
+        "peck",
+        "leer",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 10,
+      "nature": "quiet",
+      "ability": "compoundeyes",
+      "moveset": [
+        "gust",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

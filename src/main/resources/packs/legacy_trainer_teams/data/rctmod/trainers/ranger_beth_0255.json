@@ -1,0 +1,134 @@
+{
+  "name": "保育家·贝丝",
+  "team": [
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "uturn",
+        "rocksmash",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "haxorus",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "swordsdance",
+        "scaleshot",
+        "poisonjab",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "golem",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "suckerpunch",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "intimidate",
+      "moveset": [
+        "voltswitch",
+        "swift",
+        "flamethrower",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:manectite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

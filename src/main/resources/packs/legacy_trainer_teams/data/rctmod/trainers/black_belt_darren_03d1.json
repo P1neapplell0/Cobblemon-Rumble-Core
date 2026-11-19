@@ -1,0 +1,92 @@
+{
+  "name": "空手道王·达伦",
+  "team": [
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "leer",
+        "scaryface",
+        "vitalthrow",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "lowkick",
+        "vitalthrow",
+        "thief",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "lowkick",
+        "leer",
+        "vitalthrow",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

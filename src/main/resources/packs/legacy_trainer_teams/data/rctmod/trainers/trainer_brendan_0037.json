@@ -1,0 +1,117 @@
+{
+  "name": "训练家·布伦丹",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "masquerain",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "intimidate",
+      "moveset": [
+        "bugbuzz",
+        "surf",
+        "gigadrain",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "iapapa_berry"
+      ]
+    },
+    {
+      "species": "exploud",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "punkrock",
+      "moveset": [
+        "flamethrower",
+        "surf",
+        "focusblast",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    },
+    {
+      "species": "sceptile",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "unburden",
+      "moveset": [
+        "megadrain",
+        "dragonbreath",
+        "focusblast",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

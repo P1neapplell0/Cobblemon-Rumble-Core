@@ -1,0 +1,92 @@
+{
+  "name": "工人·杰克逊",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "smackdown",
+        "sandtomb",
+        "irontail",
+        "sandstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "screech",
+        "irontail",
+        "rocktomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "screech",
+        "irontail",
+        "rocktomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

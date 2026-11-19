@@ -1,0 +1,207 @@
+{
+  "name": "四天王·伊莱亚斯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "jolly",
+      "ability": "disguise",
+      "moveset": [
+        "shadowclaw",
+        "playrough",
+        "shadowsneak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "aegislash",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "bold",
+      "ability": "stancechange",
+      "moveset": [
+        "shadowball",
+        "afteryou",
+        "substitute",
+        "kingsshield"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "trevenant",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "impish",
+      "ability": "harvest",
+      "moveset": [
+        "poltergeist",
+        "hornleech",
+        "leechseed",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "cofagrigus",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "bold",
+      "ability": "mummy",
+      "moveset": [
+        "nightshade",
+        "bodypress",
+        "irondefense",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "colbur_berry"
+      ]
+    },
+    {
+      "species": "banette",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "impish",
+      "ability": "prankster",
+      "moveset": [
+        "poltergeist",
+        "suckerpunch",
+        "willowisp",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:banettite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "blacephalon",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "timid",
+      "ability": "beastboost",
+      "moveset": [
+        "flamethrower",
+        "shadowball",
+        "confuseray",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

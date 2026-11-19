@@ -1,0 +1,61 @@
+{
+  "name": "捕虫少年·布兰登",
+  "team": [
+    {
+      "species": "kricketot",
+      "gender": "MALE",
+      "level": 7,
+      "nature": "timid",
+      "ability": "shedskin",
+      "moveset": [
+        "growl",
+        "pound",
+        "strugglebug"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wurmple",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "timid",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

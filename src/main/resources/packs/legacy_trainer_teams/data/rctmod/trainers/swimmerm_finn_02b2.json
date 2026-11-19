@@ -1,0 +1,34 @@
+{
+  "name": "男泳者·芬恩",
+  "team": [
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 50,
+      "nature": "jolly",
+      "ability": "naturalcure",
+      "moveset": [
+        "rapidspin",
+        "recover",
+        "psybeam",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

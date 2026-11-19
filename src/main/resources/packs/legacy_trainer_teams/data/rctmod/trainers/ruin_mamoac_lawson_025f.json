@@ -1,0 +1,92 @@
+{
+  "name": "遗迹狂·劳森",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "lonely",
+      "ability": "rockhead",
+      "moveset": [
+        "sandtomb",
+        "irontail",
+        "dig",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "naughty",
+      "ability": "rockhead",
+      "moveset": [
+        "stealthrock",
+        "rockblast",
+        "earthquake",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marowak",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "doubleedge",
+        "fling",
+        "stompingtantrum",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "宝可梦狂·库珀",
+  "team": [
+    {
+      "species": "mightyena",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "rash",
+      "ability": "intimidate",
+      "moveset": [
+        "poisonfang",
+        "assurance",
+        "scaryface",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "flareon",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "mild",
+      "ability": "flashfire",
+      "moveset": [
+        "firefang",
+        "firespin",
+        "scaryface",
+        "smog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "porygon",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "docile",
+      "ability": "trace",
+      "moveset": [
+        "recover",
+        "magnetrise",
+        "signalbeam",
+        "recycle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

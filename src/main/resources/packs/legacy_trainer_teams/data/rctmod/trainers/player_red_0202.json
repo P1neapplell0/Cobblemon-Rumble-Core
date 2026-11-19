@@ -1,0 +1,34 @@
+{
+  "name": "玩家·赤红",
+  "identity": "训练家·赤红",
+  "team": [
+    {
+      "species": "ekans",
+      "gender": "MALE",
+      "level": 5,
+      "nature": "quirky",
+      "ability": "shedskin",
+      "moveset": [
+        "wrap",
+        "leer",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

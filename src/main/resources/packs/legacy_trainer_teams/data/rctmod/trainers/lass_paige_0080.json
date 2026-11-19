@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·佩姬",
+  "team": [
+    {
+      "species": "nidoranf",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "sassy",
+      "ability": "rivalry",
+      "moveset": [
+        "helpinghand",
+        "toxicspikes",
+        "honeclaws",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lopunny",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "naughty",
+      "ability": "klutz",
+      "moveset": [
+        "jumpkick",
+        "poweruppunch",
+        "agility",
+        "dizzypunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "工程师·伯尼",
+  "team": [
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 25,
+      "nature": "hardy",
+      "ability": "magnetpull",
+      "moveset": [
+        "sonicboom",
+        "spark",
+        "mirrorshot",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "elekid",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "swift",
+        "shockwave",
+        "thunderwave",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tynamo",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "mild",
+      "ability": "levitate",
+      "moveset": [
+        "tackle",
+        "thunderwave",
+        "spark",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

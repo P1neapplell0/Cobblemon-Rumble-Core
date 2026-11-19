@@ -1,0 +1,69 @@
+{
+  "name": "空手道王·阿津",
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "mild",
+      "ability": "noguard",
+      "moveset": [
+        "vitalthrow",
+        "wakeupslap",
+        "dualchop",
+        "submission"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "crabrawler",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "mild",
+      "ability": "ironfist",
+      "moveset": [
+        "dizzypunch",
+        "payback",
+        "reversal",
+        "crabhammer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

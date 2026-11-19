@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·杰罗姆",
+  "team": [
+    {
+      "species": "simipour",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "naughty",
+      "ability": "gluttony",
+      "moveset": [
+        "scald",
+        "leer",
+        "lick",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "blastoise",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "bold",
+      "ability": "torrent",
+      "moveset": [
+        "icebeam",
+        "irondefense",
+        "raindance",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

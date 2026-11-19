@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·艾琳",
+  "team": [
+    {
+      "species": "tentacruel",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "liquidooze",
+      "moveset": [
+        "hex",
+        "sludgewave",
+        "hydropump",
+        "wringout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swanna",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "docile",
+      "ability": "frisk",
+      "moveset": [
+        "raindance",
+        "tailwind",
+        "hydropump",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "bold",
+      "ability": "icescales",
+      "moveset": [
+        "takedown",
+        "dive",
+        "aquatail",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

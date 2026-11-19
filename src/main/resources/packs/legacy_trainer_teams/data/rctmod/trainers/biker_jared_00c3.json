@@ -1,0 +1,166 @@
+{
+  "name": "暴走族·贾里德",
+  "team": [
+    {
+      "species": "crustle",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "spikes",
+        "stoneedge",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "leavanny",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "leafblade",
+        "swordsdance",
+        "xscissor",
+        "lowkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "camerupt",
+      "gender": "MALE",
+      "level": 88,
+      "nature": "modest",
+      "ability": "solidrock",
+      "moveset": [
+        "fireblast",
+        "earthpower",
+        "solarbeam",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:cameruptite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "eelektross",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "thunderbolt",
+        "flamethrower",
+        "gigadrain",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "earthquake",
+        "iciclecrash",
+        "iceshard",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    }
+  ]
+}

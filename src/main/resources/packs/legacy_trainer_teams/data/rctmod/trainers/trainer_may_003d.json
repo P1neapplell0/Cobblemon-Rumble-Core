@@ -1,0 +1,213 @@
+{
+  "name": "训练家·小遥",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "solrock",
+      "gender": "GENDERLESS",
+      "level": 71,
+      "nature": "jolly",
+      "ability": "levitate",
+      "moveset": [
+        "stealthrock",
+        "dreameater",
+        "explosion",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "MALE",
+      "level": 71,
+      "nature": "jolly",
+      "ability": "poisonheal",
+      "moveset": [
+        "spore",
+        "substitute",
+        "focuspunch",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "timid",
+      "ability": "lightningrod",
+      "moveset": [
+        "voltswitch",
+        "thunderbolt",
+        "overheat",
+        "switcheroo"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "relicanth",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "rockhead",
+      "moveset": [
+        "waterfall",
+        "headsmash",
+        "earthquake",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "flygon",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "hasty",
+      "ability": "tintedlens",
+      "moveset": [
+        "earthquake",
+        "dracometeor",
+        "fireblast",
+        "outrage"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "blaziken",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "adamant",
+      "ability": "speedboost",
+      "moveset": [
+        "swordsdance",
+        "closecombat",
+        "flareblitz",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:blazikenite",
+        "life_orb"
+      ]
+    }
+  ]
+}

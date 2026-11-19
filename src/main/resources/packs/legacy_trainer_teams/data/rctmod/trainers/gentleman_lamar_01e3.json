@@ -1,0 +1,63 @@
+{
+  "name": "绅士·拉马尔",
+  "team": [
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "gentle",
+      "ability": "flashfire",
+      "moveset": [
+        "lowkick",
+        "willowisp",
+        "flamecharge",
+        "firespin"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "herdier",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "calm",
+      "ability": "sandrush",
+      "moveset": [
+        "takedown",
+        "workup",
+        "retaliate",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "科学家·杰瑞",
+  "team": [
+    {
+      "species": "magneton",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "naive",
+      "ability": "sturdy",
+      "moveset": [
+        "electroball",
+        "flashcannon",
+        "screech",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 47,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "magnetrise",
+        "discharge",
+        "explosion",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "porygon",
+      "gender": "GENDERLESS",
+      "level": 48,
+      "nature": "sassy",
+      "ability": "download",
+      "moveset": [
+        "signalbeam",
+        "recycle",
+        "discharge",
+        "conversion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

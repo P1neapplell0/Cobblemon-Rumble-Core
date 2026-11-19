@@ -1,0 +1,64 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（5）",
+  "team": [
+    {
+      "species": "rattata",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "bashful",
+      "ability": "guts",
+      "moveset": [
+        "quickattack",
+        "focusenergy",
+        "bodyslam",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "lonely",
+      "ability": "sniper",
+      "moveset": [
+        "supersonic",
+        "astonish",
+        "assurance",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

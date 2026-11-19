@@ -1,0 +1,121 @@
+{
+  "name": "暴走族·卢卡斯",
+  "team": [
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "rash",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "explosion",
+        "curse",
+        "belch",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "jolly",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "explosion",
+        "curse",
+        "belch",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "muk",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "stickyhold",
+      "moveset": [
+        "poisonjab",
+        "screech",
+        "gunkshot",
+        "acidarmor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "lonely",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "gyroball",
+        "sludgebomb",
+        "explosion",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

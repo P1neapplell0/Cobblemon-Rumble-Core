@@ -1,0 +1,34 @@
+{
+  "name": "宝可梦狂·温斯顿",
+  "team": [
+    {
+      "species": "magneton",
+      "gender": "GENDERLESS",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "sturdy",
+      "moveset": [
+        "mirrorshot",
+        "metalsound",
+        "electroball",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

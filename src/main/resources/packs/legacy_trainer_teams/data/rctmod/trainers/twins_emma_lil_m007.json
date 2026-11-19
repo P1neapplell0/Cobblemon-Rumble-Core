@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·艾玛＆莉莉",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "bonsly",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "faketears",
+        "copycat",
+        "flail",
+        "rockthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mimejr",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "timid",
+      "ability": "filter",
+      "moveset": [
+        "pound",
+        "copycat",
+        "encore",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

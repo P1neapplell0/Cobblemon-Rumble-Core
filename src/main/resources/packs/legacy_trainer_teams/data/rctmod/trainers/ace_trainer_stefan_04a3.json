@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·斯特凡",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "larvitar",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "guts",
+      "moveset": [
+        "stoneedge",
+        "earthquake",
+        "crunch",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magcargo",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "relaxed",
+      "ability": "flamebody",
+      "moveset": [
+        "flamethrower",
+        "ancientpower",
+        "clearsmog",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

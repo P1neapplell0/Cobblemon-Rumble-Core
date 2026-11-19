@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·阿丽亚娜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "doublehit",
+        "astonish",
+        "agility",
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rapidash",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "adamant",
+      "ability": "flashfire",
+      "moveset": [
+        "flamewheel",
+        "poisonjab",
+        "smartstrike",
+        "flamecharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "charm",
+        "softboiled",
+        "disarmingvoice",
+        "covet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

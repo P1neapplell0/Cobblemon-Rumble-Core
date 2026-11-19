@@ -1,0 +1,34 @@
+{
+  "name": "登山男·尼古拉斯",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 14,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "tackle",
+        "harden",
+        "bind",
+        "rockthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

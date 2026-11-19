@@ -1,0 +1,121 @@
+{
+  "name": "捕虫少年·乔纳",
+  "team": [
+    {
+      "species": "yanma",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "calm",
+      "ability": "compoundeyes",
+      "moveset": [
+        "pursuit",
+        "ancientpower",
+        "hypnosis",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "lax",
+      "ability": "swarm",
+      "moveset": [
+        "poisonjab",
+        "agility",
+        "endeavor",
+        "fellstinger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "yanma",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "compoundeyes",
+      "moveset": [
+        "ancientpower",
+        "hypnosis",
+        "wingattack",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bashful",
+      "ability": "swarm",
+      "moveset": [
+        "poisonjab",
+        "agility",
+        "endeavor",
+        "fellstinger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

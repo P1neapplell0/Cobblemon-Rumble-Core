@@ -1,0 +1,53 @@
+{
+  "name": "首领·泽夫",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "adamant",
+      "ability": "solarpower",
+      "moveset": [
+        "firefang",
+        "thunderfang",
+        "suckerpunch",
+        "howl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:houndoominite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

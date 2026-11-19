@@ -1,0 +1,67 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（37）",
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "quirky",
+      "ability": "lightningrod",
+      "moveset": [
+        "bodyslam",
+        "doubleedge",
+        "fling",
+        "stompingtantrum"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "naughty",
+      "ability": "sandveil",
+      "moveset": [
+        "nightslash",
+        "uturn",
+        "xscissor",
+        "skyuppercut"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

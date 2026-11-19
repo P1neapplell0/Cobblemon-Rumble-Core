@@ -1,0 +1,175 @@
+{
+  "name": "首领·泽夫",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mightyena",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "strongjaw",
+      "moveset": [
+        "suckerpunch",
+        "icefang",
+        "psychicfangs",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "timid",
+      "ability": "shadowtag",
+      "moveset": [
+        "shadowball",
+        "venoshock",
+        "dazzlinggleam",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gengarite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "umbreon",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "bold",
+      "ability": "synchronize",
+      "moveset": [
+        "foulplay",
+        "toxic",
+        "confuseray",
+        "moonlight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "exploud",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "modest",
+      "ability": "punkrock",
+      "moveset": [
+        "hypervoice",
+        "flamethrower",
+        "icebeam",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "throat_spray"
+      ]
+    },
+    {
+      "species": "decidueye",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "jolly",
+      "ability": "longreach",
+      "moveset": [
+        "leafblade",
+        "spiritshackle",
+        "lowsweep",
+        "acrobatics"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

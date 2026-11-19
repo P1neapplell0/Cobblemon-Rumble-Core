@@ -1,0 +1,63 @@
+{
+  "name": "空手道王·威利",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "sandtomb",
+        "dig",
+        "irontail",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "relaxed",
+      "ability": "noguard",
+      "moveset": [
+        "knockoff",
+        "dualchop",
+        "bulkup",
+        "dynamicpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

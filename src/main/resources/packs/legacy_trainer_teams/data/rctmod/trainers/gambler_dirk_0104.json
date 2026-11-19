@@ -1,0 +1,63 @@
+{
+  "name": "赌徒·德克",
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 25,
+      "nature": "gentle",
+      "ability": "soundproof",
+      "moveset": [
+        "screech",
+        "chargebeam",
+        "swift",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrike",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "hardy",
+      "ability": "static",
+      "moveset": [
+        "spark",
+        "odorsleuth",
+        "thunderfang",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

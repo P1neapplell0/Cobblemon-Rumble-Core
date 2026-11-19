@@ -1,0 +1,116 @@
+{
+  "name": "训练家·山姆",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "luvdisc",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "soulheart",
+      "moveset": [
+        "attract",
+        "drainingkiss",
+        "hydropump",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "flapple",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "lonely",
+      "ability": "hustle",
+      "moveset": [
+        "dragonrush",
+        "gravapple",
+        "dracometeor",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eject_pack"
+      ]
+    },
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "sharpness",
+      "moveset": [
+        "bravebird",
+        "closecombat",
+        "leafblade",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "medicinal_leek"
+      ]
+    }
+  ]
+}

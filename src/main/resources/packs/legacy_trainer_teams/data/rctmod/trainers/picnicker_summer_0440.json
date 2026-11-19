@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·萨默",
+  "team": [
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "endeavor",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cherrim",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "timid",
+      "ability": "flowergift",
+      "moveset": [
+        "morningsun",
+        "growth",
+        "magicalleaf",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

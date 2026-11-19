@@ -1,0 +1,92 @@
+{
+  "name": "盗贼·奎恩",
+  "team": [
+    {
+      "species": "incineroar",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "naughty",
+      "ability": "blaze",
+      "moveset": [
+        "scaryface",
+        "flareblitz",
+        "outrage",
+        "crosschop"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "delphox",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "wish",
+        "psychic",
+        "sunnyday",
+        "magicroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "emboar",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "bold",
+      "ability": "reckless",
+      "moveset": [
+        "flamethrower",
+        "headsmash",
+        "hammerarm",
+        "flareblitz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

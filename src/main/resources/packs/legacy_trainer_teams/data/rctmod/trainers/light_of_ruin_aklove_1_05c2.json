@@ -1,0 +1,198 @@
+{
+  "name": "毁灭队首领·阿克莱夫",
+  "team": [
+    {
+      "species": "klefki",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "bold",
+      "ability": "prankster",
+      "moveset": [
+        "playrough",
+        "reflect",
+        "lightscreen",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "bold",
+      "ability": "technician",
+      "moveset": [
+        "gigadrain",
+        "swift",
+        "leechseed",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "primarina",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "torrent",
+      "moveset": [
+        "surf",
+        "moonblast",
+        "icebeam",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "kebia_berry"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "dazzlinggleam",
+        "aurasphere",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "babiri_berry"
+      ]
+    },
+    {
+      "species": "hoopa",
+      "gender": "GENDERLESS",
+      "level": 53,
+      "nature": "jolly",
+      "ability": "magician",
+      "moveset": [
+        "zenheadbutt",
+        "foulplay",
+        "dualchop",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "unbound"
+      ]
+    },
+    {
+      "species": "gardevoir",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "timid",
+      "ability": "pixilate",
+      "moveset": [
+        "psyshock",
+        "dazzlinggleam",
+        "mysticalfire",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gardevoirite",
+        "leftovers"
+      ]
+    }
+  ]
+}

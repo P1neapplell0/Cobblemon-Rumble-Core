@@ -1,0 +1,64 @@
+{
+  "name": "年轻情侣·吉娅＆杰斯",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "impish",
+      "ability": "rivalry",
+      "moveset": [
+        "poisonsting",
+        "furyswipes",
+        "thief",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "serious",
+      "ability": "rivalry",
+      "moveset": [
+        "poisonsting",
+        "furyattack",
+        "facade",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "馆主·莉佳",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "rillaboom",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "jolly",
+      "ability": "grassysurge",
+      "moveset": [
+        "grassyglide",
+        "uturn",
+        "highhorsepower",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "serperior",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "timid",
+      "ability": "contrary",
+      "moveset": [
+        "leafstorm",
+        "gigadrain",
+        "swift",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "modest",
+      "ability": "overgrow",
+      "moveset": [
+        "gigadrain",
+        "sludgebomb",
+        "sleeppowder",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:venusaurite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "meganium",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "modest",
+      "ability": "triage",
+      "moveset": [
+        "ancientpower",
+        "gigadrain",
+        "grasspledge",
+        "weatherball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "grassy_seed"
+      ]
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "naive",
+      "ability": "reckless",
+      "moveset": [
+        "thunderbolt",
+        "hyperbeam",
+        "swift",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    }
+  ]
+}

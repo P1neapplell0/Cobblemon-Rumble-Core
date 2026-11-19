@@ -1,0 +1,199 @@
+{
+  "name": "大木博士",
+  "team": [
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 99,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "doubleedge",
+        "closecombat",
+        "throatchop",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "exeggutor",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "modest",
+      "ability": "harvest",
+      "moveset": [
+        "leafstorm",
+        "sleeppowder",
+        "psyshock",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 99,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "dragondance",
+        "flareblitz",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 98,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "earthquake",
+        "powerwhip"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "water_gem"
+      ]
+    },
+    {
+      "species": "mew",
+      "gender": "GENDERLESS",
+      "level": 99,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "nastyplot",
+        "psyshock",
+        "aurasphere",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "fighting_gem"
+      ]
+    },
+    {
+      "species": "jolteon",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "timid",
+      "ability": "voltabsorb",
+      "moveset": [
+        "lastresort",
+        "thunderbolt",
+        "shadowball",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:eevium_z",
+        "normal_gem"
+      ]
+    }
+  ]
+}

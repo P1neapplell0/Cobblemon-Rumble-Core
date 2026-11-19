@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·杰夫",
+  "team": [
+    {
+      "species": "doduo",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "quiet",
+      "ability": "runaway",
+      "moveset": [
+        "furyattack",
+        "pursuit",
+        "pluck",
+        "doublehit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrike",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "docile",
+      "ability": "static",
+      "moveset": [
+        "spark",
+        "odorsleuth",
+        "thunderfang",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

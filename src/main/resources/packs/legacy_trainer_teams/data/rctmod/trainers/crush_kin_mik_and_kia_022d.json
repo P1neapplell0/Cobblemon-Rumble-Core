@@ -1,0 +1,135 @@
+{
+  "name": "空手道兄妹·米克＆琪亚",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "fakeout",
+        "flareblitz",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "grapploct",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "poweruppunch",
+        "liquidation",
+        "rocksmash",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "moveset": [
+        "meteormash",
+        "zenheadbutt",
+        "icepunch",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "lycanroc",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "stoneedge",
+        "closecombat",
+        "accelerock",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

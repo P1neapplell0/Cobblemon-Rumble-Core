@@ -1,0 +1,34 @@
+{
+  "name": "杂耍艺人·凯登",
+  "team": [
+    {
+      "species": "salazzle",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "timid",
+      "ability": "corrosion",
+      "moveset": [
+        "venoshock",
+        "flamethrower",
+        "venomdrench",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

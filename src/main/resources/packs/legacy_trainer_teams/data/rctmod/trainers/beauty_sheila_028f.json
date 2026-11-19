@@ -1,0 +1,63 @@
+{
+  "name": "大姐姐·希拉",
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "hasty",
+      "ability": "cutecharm",
+      "moveset": [
+        "bodyslam",
+        "afteryou",
+        "moonblast",
+        "gravity"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "lonely",
+      "ability": "limber",
+      "moveset": [
+        "powergem",
+        "slash",
+        "nastyplot",
+        "assurance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

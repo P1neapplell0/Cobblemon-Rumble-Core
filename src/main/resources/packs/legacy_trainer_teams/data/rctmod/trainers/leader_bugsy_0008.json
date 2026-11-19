@@ -1,0 +1,213 @@
+{
+  "name": "阿笔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "kleavor",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "stealthrock",
+        "rockblast",
+        "uturn",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "careful",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "dualwingbeat",
+        "uturn",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:scizorite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "scyther",
+      "gender": "MALE",
+      "level": 96,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "swordsdance",
+        "dualwingbeat",
+        "bugbite",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "megahorn",
+        "closecombat",
+        "stoneedge",
+        "bulletseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "araquanid",
+      "gender": "MALE",
+      "level": 94,
+      "nature": "impish",
+      "ability": "waterbubble",
+      "moveset": [
+        "xscissor",
+        "liquidation",
+        "protect",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "vikavolt",
+      "gender": "MALE",
+      "level": 96,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "thunder",
+        "bugbuzz",
+        "voltswitch",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    }
+  ]
+}

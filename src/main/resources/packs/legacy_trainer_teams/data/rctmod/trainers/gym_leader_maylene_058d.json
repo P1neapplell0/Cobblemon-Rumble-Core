@@ -1,0 +1,213 @@
+{
+  "name": "阿李",
+  "identity": "道馆馆主·阿李",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "hitmontop",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "stoneedge",
+        "suckerpunch",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulletseed",
+        "machpunch",
+        "rocktomb",
+        "forcepalm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "megahorn",
+        "closecombat",
+        "facade",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "lonely",
+      "ability": "blaze",
+      "moveset": [
+        "flareblitz",
+        "closecombat",
+        "acrobatics",
+        "overheat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "purepower",
+      "moveset": [
+        "highjumpkick",
+        "zenheadbutt",
+        "firepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "modest",
+      "ability": "justified",
+      "moveset": [
+        "aurasphere",
+        "flashcannon",
+        "waterpulse",
+        "vacuumwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

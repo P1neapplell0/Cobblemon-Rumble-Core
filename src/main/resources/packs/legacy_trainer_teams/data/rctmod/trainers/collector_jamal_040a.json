@@ -1,0 +1,92 @@
+{
+  "name": "收藏家·贾马尔",
+  "team": [
+    {
+      "species": "buizel",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "growl",
+        "tailwhip",
+        "watergun",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "buizel",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "tailwhip",
+        "watergun",
+        "bite",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "buizel",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "tailwhip",
+        "bite",
+        "swift",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（45）",
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "bashful",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "scratch",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

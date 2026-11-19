@@ -1,0 +1,34 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "larvitar",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "bite",
+        "scaryface",
+        "rocktomb",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

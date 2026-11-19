@@ -1,0 +1,63 @@
+{
+  "name": "空手道王·格里芬",
+  "team": [
+    {
+      "species": "cacturne",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bashful",
+      "ability": "sandveil",
+      "moveset": [
+        "spikyshield",
+        "leechseed",
+        "suckerpunch",
+        "pinmissile"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "sassy",
+      "ability": "noguard",
+      "moveset": [
+        "dynamicpunch",
+        "knockoff",
+        "strength",
+        "lowsweep"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

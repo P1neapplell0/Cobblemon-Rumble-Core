@@ -1,0 +1,28 @@
+WORLD MAP ASSET LICENSE
+
+Copyright (c) 2026 WorldBlocks Team. All Rights Reserved.
+
+The map assets contained in this directory are original works created by the
+WorldBlocks Team. The WorldBlocks Team has authorized the P1nero Team to modify,
+adapt, and integrate these assets into this project. The detailed terms of the
+authorization between the WorldBlocks Team and the P1nero Team are private and
+are not reproduced in this notice.
+
+ALL RIGHTS RESERVED (ARR)
+
+Except for the WorldBlocks Team and the P1nero Team acting within the scope of
+the authorization above, no person or organization may, without prior written
+permission from the applicable rights holder:
+
+- copy, extract, reproduce, publish, upload, or redistribute these assets;
+- modify, adapt, translate, convert, or create derivative works from them;
+- use them in another map, mod, modpack, game, server, product, or project;
+- sell, sublicense, repackage, or otherwise exploit them in whole or in part;
+- remove or alter this copyright and license notice.
+
+Receiving or accessing this project does not grant any license to the map assets.
+Unauthorized distribution, appropriation, modification, or other use is strictly
+prohibited. The rights holders reserve the right to pursue all available legal
+remedies against infringement.
+
+The assets are provided "AS IS", without warranties of any kind.

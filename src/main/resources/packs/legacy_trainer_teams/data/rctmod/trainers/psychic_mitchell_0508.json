@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·米切尔",
+  "team": [
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "confuseray",
+        "meanlook",
+        "curse",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "psychocut",
+        "recover",
+        "futuresight",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

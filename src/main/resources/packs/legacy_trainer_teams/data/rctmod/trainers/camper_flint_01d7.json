@@ -1,0 +1,66 @@
+{
+  "name": "露营少年·大叶",
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "bashful",
+      "ability": "steadfast",
+      "moveset": [
+        "peck",
+        "leer",
+        "furycutter",
+        "revenge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "skwovet",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "lonely",
+      "ability": "cheekpouch",
+      "moveset": [
+        "swallow",
+        "spitup",
+        "tailslap",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

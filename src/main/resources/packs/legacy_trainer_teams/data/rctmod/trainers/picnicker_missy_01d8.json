@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·米西",
+  "team": [
+    {
+      "species": "palpitoad",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "calm",
+      "ability": "hydration",
+      "moveset": [
+        "flail",
+        "echoedvoice",
+        "hydropump",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "naughty",
+      "ability": "stormdrain",
+      "moveset": [
+        "raindance",
+        "bodyslam",
+        "muddywater",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "水手·德韦恩",
+  "team": [
+    {
+      "species": "plusle",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "hasty",
+      "ability": "plus",
+      "moveset": [
+        "electroball",
+        "copycat",
+        "charm",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "minun",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "quirky",
+      "ability": "minus",
+      "moveset": [
+        "electroball",
+        "copycat",
+        "faketears",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

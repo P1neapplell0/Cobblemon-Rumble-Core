@@ -1,0 +1,34 @@
+{
+  "name": "驯兽师·杰森",
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "quiet",
+      "ability": "rockhead",
+      "moveset": [
+        "rockblast",
+        "drillrun",
+        "takedown",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·瓦伦西亚",
+  "team": [
+    {
+      "species": "chingling",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "bashful",
+      "ability": "levitate",
+      "moveset": [
+        "wrap",
+        "astonish",
+        "confusion",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "chimecho",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "wrap",
+        "yawn",
+        "extrasensory",
+        "healpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

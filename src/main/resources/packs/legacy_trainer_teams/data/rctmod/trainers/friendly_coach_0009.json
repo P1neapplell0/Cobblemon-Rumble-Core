@@ -1,0 +1,170 @@
+{
+  "name": "友善教练（速度）",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "statusMoveBias": 1,
+      "switchBias": 0,
+      "itemBias": 0
+    }
+  },
+  "team": [
+    {
+      "species": "hoppip",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "lax",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoppip",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "bashful",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoppip",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "bashful",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoppip",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "hasty",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoppip",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "calm",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hoppip",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "calm",
+      "ability": "leafguard",
+      "moveset": [
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

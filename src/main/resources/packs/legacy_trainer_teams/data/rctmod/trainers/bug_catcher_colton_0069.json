@@ -1,0 +1,88 @@
+{
+  "name": "捕虫少年·科尔顿",
+  "team": [
+    {
+      "species": "dottler",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "naughty",
+      "ability": "swarm",
+      "moveset": [
+        "strugglebug",
+        "confusion",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "spewpa",
+      "gender": "FEMALE",
+      "level": 10,
+      "nature": "timid",
+      "ability": "shedskin",
+      "moveset": [
+        "irondefense",
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "snom",
+      "gender": "MALE",
+      "level": 11,
+      "nature": "quiet",
+      "ability": "shielddust",
+      "moveset": [
+        "powdersnow",
+        "strugglebug"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

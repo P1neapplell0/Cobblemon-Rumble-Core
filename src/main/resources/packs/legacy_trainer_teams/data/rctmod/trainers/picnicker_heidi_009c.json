@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·海蒂",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "lonely",
+      "ability": "static",
+      "moveset": [
+        "thunderwave",
+        "feint",
+        "spark",
+        "nuzzle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefable",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "hasty",
+      "ability": "magicguard",
+      "moveset": [
+        "sing",
+        "doubleslap",
+        "metronome",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

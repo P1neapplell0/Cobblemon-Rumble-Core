@@ -1,0 +1,172 @@
+{
+  "name": "精英训练家·布鲁克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "tangela",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "bind",
+        "megadrain",
+        "grassyterrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "hyper_potion"
+      ]
+    },
+    {
+      "species": "gloom",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "stench",
+      "moveset": [
+        "charm",
+        "sleeppowder",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vileplume",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "effectspore",
+      "moveset": [
+        "acid",
+        "stunspore",
+        "aromatherapy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "ability_capsule"
+      ]
+    },
+    {
+      "species": "ivysaur",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sweetscent",
+        "growl",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "x_attack"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "growth",
+        "sleeppowder",
+        "poisonpowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "x_attack"
+      ]
+    }
+  ]
+}

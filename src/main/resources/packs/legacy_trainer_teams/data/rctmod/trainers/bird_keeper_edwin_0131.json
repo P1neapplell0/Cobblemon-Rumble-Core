@@ -1,0 +1,124 @@
+{
+  "name": "养鸟人·埃德温",
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "quiet",
+      "ability": "tangledfeet",
+      "moveset": [
+        "agility",
+        "airslash",
+        "mirrormove",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "farfetchd",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "quirky",
+      "ability": "steadfast",
+      "moveset": [
+        "revenge",
+        "swordsdance",
+        "bodyslam",
+        "leafblade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "swoobat",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "quiet",
+      "ability": "klutz",
+      "moveset": [
+        "futuresight",
+        "psychic",
+        "endeavor",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeot",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "naive",
+      "ability": "tangledfeet",
+      "moveset": [
+        "agility",
+        "airslash",
+        "mirrormove",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

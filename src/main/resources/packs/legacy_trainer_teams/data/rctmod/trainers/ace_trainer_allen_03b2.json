@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·艾伦",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "meanlook",
+        "payback",
+        "hex",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "haunter",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "meanlook",
+        "shadowpunch",
+        "hex",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "meanlook",
+        "nightshade",
+        "hex",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

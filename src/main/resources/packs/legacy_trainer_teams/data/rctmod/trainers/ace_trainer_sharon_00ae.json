@@ -1,0 +1,185 @@
+{
+  "name": "精英训练家·莎伦",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "serperior",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "contrary",
+      "moveset": [
+        "glare",
+        "leafstorm",
+        "substitute",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "volcarona",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "timid",
+      "ability": "flamebody",
+      "moveset": [
+        "quiverdance",
+        "fierydance",
+        "bugbuzz",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "dugtrio",
+      "gender": "MALE",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "arenatrap",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "suckerpunch",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:groundium_z",
+        "ground_gem"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "superluck",
+      "moveset": [
+        "nightslash",
+        "psychocut",
+        "closecombat",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "mantine",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "stormdrain",
+      "moveset": [
+        "icebeam",
+        "gunkshot",
+        "airslash",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    }
+  ]
+}

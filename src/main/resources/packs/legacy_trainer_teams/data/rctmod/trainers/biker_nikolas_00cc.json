@@ -1,0 +1,63 @@
+{
+  "name": "暴走族·尼古拉斯",
+  "team": [
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "hardy",
+      "ability": "static",
+      "moveset": [
+        "spark",
+        "explosion",
+        "thunderbolt",
+        "terablast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "probopass",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "brave",
+      "ability": "magnetpull",
+      "moveset": [
+        "spark",
+        "earthpower",
+        "powergem",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

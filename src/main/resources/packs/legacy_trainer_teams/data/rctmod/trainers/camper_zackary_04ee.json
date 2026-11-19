@@ -1,0 +1,34 @@
+{
+  "name": "露营少年·扎卡里",
+  "team": [
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "sandstorm",
+        "rockthrow",
+        "smackdown",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "养鸟人·切斯特",
+  "team": [
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "lax",
+      "ability": "earlybird",
+      "moveset": [
+        "jumpkick",
+        "doubleedge",
+        "endeavor",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "doduo",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "earlybird",
+      "moveset": [
+        "jumpkick",
+        "drillpeck",
+        "endeavor",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "togekiss",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "skyattack",
+        "extremespeed",
+        "aurasphere",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "name": "钓客·特拉维斯",
+  "team": [
+    {
+      "species": "barboach",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "relaxed",
+      "ability": "oblivious",
+      "moveset": [
+        "mudslap",
+        "rest",
+        "snore",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "barboach",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "relaxed",
+      "ability": "oblivious",
+      "moveset": [
+        "mudslap",
+        "rest",
+        "snore",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shellos",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "sassy",
+      "ability": "stormdrain",
+      "moveset": [
+        "mudslap",
+        "harden",
+        "recover",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "barboach",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "relaxed",
+      "ability": "oblivious",
+      "moveset": [
+        "mudslap",
+        "rest",
+        "snore",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

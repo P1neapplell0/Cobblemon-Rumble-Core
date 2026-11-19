@@ -1,0 +1,168 @@
+{
+  "name": "野餐少女·苏西",
+  "team": [
+    {
+      "species": "shiftry",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "fakeout",
+        "solarblade",
+        "knockoff",
+        "embargo"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "goodra",
+      "gender": "MALE",
+      "level": 89,
+      "nature": "modest",
+      "ability": "sapsipper",
+      "moveset": [
+        "fireblast",
+        "dracometeor",
+        "sludgebomb",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "espeon",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "timid",
+      "ability": "magicbounce",
+      "moveset": [
+        "calmmind",
+        "psychic",
+        "weatherball",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "twisted_spoon"
+      ]
+    },
+    {
+      "species": "arcanine",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "rockhead",
+      "moveset": [
+        "gigaimpact",
+        "solarbeam",
+        "flareblitz",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "alcremie",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bold",
+      "ability": "sweetveil",
+      "moveset": [
+        "alluringvoice",
+        "mysticalfire",
+        "mistyexplosion",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

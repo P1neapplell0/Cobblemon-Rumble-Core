@@ -1,0 +1,181 @@
+{
+  "name": "首领·坂木",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "hippowdon",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "sandstream",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "stealthrock",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "smooth_rock"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "ironhead",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "poweruppunch",
+        "bodyslam",
+        "crunch",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:kangaskhanite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "earthquake",
+        "scaleshot",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "yache_berry"
+      ]
+    },
+    {
+      "species": "polteageist",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "modest",
+      "ability": "weakarmor",
+      "moveset": [
+        "batonpass",
+        "shadowball",
+        "gigadrain",
+        "storedpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    }
+  ]
+}

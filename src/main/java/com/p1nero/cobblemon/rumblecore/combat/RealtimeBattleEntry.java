@@ -6,6 +6,7 @@ import com.cobblemon.mod.common.net.messages.server.BattleChallengePacket;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.util.PlayerExtensionsKt;
 import com.johnn.realtimecobblemon.Smash;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import com.johnn.realtimecobblemon.duel.Duels;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -23,7 +24,14 @@ public final class RealtimeBattleEntry {
 
     public static void challenge(ServerPlayer player, BattleChallengePacket packet) {
         var level = player.serverLevel();
-        if (!(level.getEntity(packet.getTargetedEntityId()) instanceof PokemonEntity target)
+        var targeted = level.getEntity(packet.getTargetedEntityId());
+        var opponent = targeted instanceof PokemonEntity pokemon ? pokemon.getOwner() : targeted;
+        if (opponent instanceof ServerPlayer other) {
+            com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.challenge(player, other, packet.getSelectedPokemonId());
+            return;
+        }
+        if (com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.inArena(player) != null) return;
+        if (!(targeted instanceof PokemonEntity target)
                 || !validTarget(player, target) || Smash.active(player) || Duels.groupOf(player) != null
                 || !player.isAlive() || player.isPassenger() || player.isSleeping()) return;
         Pokemon selected = Cobblemon.INSTANCE.getStorage().getParty(player).get(packet.getSelectedPokemonId());
@@ -46,7 +54,7 @@ public final class RealtimeBattleEntry {
     }
 
     private static boolean validTarget(ServerPlayer player, PokemonEntity target) {
-        return target.level() == player.level() && target.getPokemon().isWild() && target.canBattle(player)
+        return PrologueTraining.allowChallenge(player, target) && target.level() == player.level() && target.getPokemon().isWild() && target.canBattle(player)
                 && player.distanceToSqr(target) <= Math.pow(Cobblemon.INSTANCE.getConfig().getBattleWildMaxDistance(), 2)
                 && player.hasLineOfSight(target) && !player.isSpectator();
     }
@@ -61,5 +69,9 @@ public final class RealtimeBattleEntry {
                 || !validTarget(player, target) || Duels.groupOf(player) != null || Smash.active(player)) return;
         var failure = Smash.start(player, out);
         if (failure != null) player.displayClientMessage(failure, true);
+        else {
+            PrologueTraining.challenged(player, target);
+            if (!PrologueTraining.isTrainingLevel(level)) BattleMusic.engage(Smash.session(player), target, true);
+        }
     }
 }

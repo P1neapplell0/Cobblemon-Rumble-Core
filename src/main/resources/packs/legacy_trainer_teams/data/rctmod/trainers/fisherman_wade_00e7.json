@@ -1,0 +1,177 @@
+{
+  "name": "渔夫·韦德",
+  "team": [
+    {
+      "species": "magikarp",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "gentle",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "feebas",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "bold",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "naughty",
+      "ability": "intimidate",
+      "moveset": [
+        "dragondance",
+        "hurricane",
+        "raindance",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "milotic",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "lax",
+      "ability": "marvelscale",
+      "moveset": [
+        "safeguard",
+        "coil",
+        "hydropump",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alomomola",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "healer",
+      "moveset": [
+        "whirlpool",
+        "helpinghand",
+        "healingwish",
+        "wideguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "luvdisc",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "attract",
+        "soak",
+        "hydropump",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

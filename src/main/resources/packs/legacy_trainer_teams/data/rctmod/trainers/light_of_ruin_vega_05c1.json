@@ -1,0 +1,193 @@
+{
+  "name": "毁灭之光·维加",
+  "identity": "毁灭队成员·维加",
+  "team": [
+    {
+      "species": "liepard",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "modest",
+      "ability": "unburden",
+      "moveset": [
+        "darkpulse",
+        "grassknot",
+        "burningjealousy",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "superluck",
+      "moveset": [
+        "darkpulse",
+        "aircutter",
+        "heatwave",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "jolly",
+      "ability": "magicbounce",
+      "moveset": [
+        "nightslash",
+        "psychocut",
+        "xscissor",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "pressure",
+      "moveset": [
+        "knockoff",
+        "icepunch",
+        "brickbreak",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "spiritomb",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bold",
+      "ability": "pressure",
+      "moveset": [
+        "hex",
+        "painsplit",
+        "willowisp",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "pawniard",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "adamant",
+      "ability": "defiant",
+      "moveset": [
+        "ironhead",
+        "suckerpunch",
+        "lowsweep",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

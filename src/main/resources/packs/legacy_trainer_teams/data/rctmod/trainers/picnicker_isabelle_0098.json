@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·伊莎贝尔",
+  "team": [
+    {
+      "species": "sinistea",
+      "gender": "GENDERLESS",
+      "level": 23,
+      "nature": "lax",
+      "ability": "weakarmor",
+      "moveset": [
+        "aromaticmist",
+        "megadrain",
+        "willowisp",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swadloon",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "relaxed",
+      "ability": "leafguard",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "bugbite",
+        "razorleaf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lombre",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "quiet",
+      "ability": "swiftswim",
+      "moveset": [
+        "icywind",
+        "fakeout",
+        "watersport",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

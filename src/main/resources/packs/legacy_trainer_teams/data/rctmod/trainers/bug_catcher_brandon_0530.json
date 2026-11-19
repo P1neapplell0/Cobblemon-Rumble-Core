@@ -1,0 +1,60 @@
+{
+  "name": "捕虫少年·布兰登",
+  "team": [
+    {
+      "species": "kricketot",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "timid",
+      "ability": "shedskin",
+      "moveset": [
+        "growl",
+        "pound",
+        "strugglebug",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "silcoon",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "timid",
+      "ability": "shedskin",
+      "moveset": [
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

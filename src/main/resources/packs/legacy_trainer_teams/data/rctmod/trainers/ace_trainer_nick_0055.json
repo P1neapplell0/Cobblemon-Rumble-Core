@@ -1,0 +1,220 @@
+{
+  "name": "精英训练家·尼克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "burningjealousy",
+        "heatwave",
+        "agility",
+        "incinerate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "scaleshot",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:garchompite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "moveset": [
+        "dragondance",
+        "phantomforce",
+        "dragondarts",
+        "fireblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "heatran",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "flashfire",
+      "moveset": [
+        "magmastorm",
+        "earthpower",
+        "flashcannon",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "arctozolt",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "naive",
+      "ability": "slushrush",
+      "moveset": [
+        "boltbeak",
+        "blizzard",
+        "freezedry",
+        "lowkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "ice_gem"
+      ]
+    },
+    {
+      "species": "zapdos",
+      "gender": "GENDERLESS",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "defiant",
+      "moveset": [
+        "rocksmash",
+        "bravebird",
+        "uturn",
+        "drillpeck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:flyinium_z",
+        "flying_gem"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    }
+  ]
+}

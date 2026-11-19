@@ -1,0 +1,92 @@
+{
+  "name": "露营少年·德鲁",
+  "team": [
+    {
+      "species": "gastly",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "hypnosis",
+        "meanlook",
+        "curse",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "hypnosis",
+        "meanlook",
+        "curse",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "hypnosis",
+        "meanlook",
+        "curse",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

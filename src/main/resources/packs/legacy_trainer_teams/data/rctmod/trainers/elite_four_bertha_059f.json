@@ -1,0 +1,181 @@
+{
+  "name": "贝尔莎",
+  "identity": "四天王·贝尔莎",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "whiscash",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "brave",
+      "ability": "hydration",
+      "moveset": [
+        "earthquake",
+        "icebeam",
+        "muddywater",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "hypercutter",
+      "moveset": [
+        "earthquake",
+        "thunderfang",
+        "guillotine",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "golem",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "sturdy",
+      "moveset": [
+        "rockpolish",
+        "heavyslam",
+        "earthquake",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    },
+    {
+      "species": "hippowdon",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "adamant",
+      "ability": "sandstream",
+      "moveset": [
+        "icefang",
+        "earthquake",
+        "crunch",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chesto_berry"
+      ]
+    },
+    {
+      "species": "rhyperior",
+      "gender": "MALE",
+      "level": 71,
+      "nature": "adamant",
+      "ability": "solidrock",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "megahorn",
+        "thunderfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "muscle_band"
+      ]
+    }
+  ]
+}

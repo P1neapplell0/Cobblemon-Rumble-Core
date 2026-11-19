@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·玛莎",
+  "team": [
+    {
+      "species": "togetic",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "docile",
+      "ability": "hustle",
+      "moveset": [
+        "afteryou",
+        "bestow",
+        "aircutter",
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ivysaur",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "hasty",
+      "ability": "overgrow",
+      "moveset": [
+        "magicalleaf",
+        "takedown",
+        "growth",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

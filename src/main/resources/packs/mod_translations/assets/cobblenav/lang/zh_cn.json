@@ -68,7 +68,7 @@
   "gui.cobblenav.species": "种类",
   "gui.cobblenav.strict_aspect_check": "严格特征检查",
   "gui.cobblenav.strict_label_check": "严格标签检查",
-  "item.cobblenav.fishingnav_item.tooltip": "钓鱼时按 SHIFT + 右键以打开",
+  "item.cobblenav.fishingnav_item.tooltip": "钓鱼时，潜行并使用钓竿即可打开",
   "item.cobblenav.pokenav_item.wanderer": "漫游者",
   "tag.item.cobblenav.pokefinder": "宝可梦探测器"
 }

@@ -1,0 +1,92 @@
+{
+  "name": "男泳者·罗兰",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "lonely",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bellydrum",
+        "wakeupslap",
+        "hydropump",
+        "mudbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ludicolo",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "brave",
+      "ability": "swiftswim",
+      "moveset": [
+        "astonish",
+        "growl",
+        "megadrain",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seismitoad",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "rash",
+      "ability": "swiftswim",
+      "moveset": [
+        "drainpunch",
+        "echoedvoice",
+        "hydropump",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

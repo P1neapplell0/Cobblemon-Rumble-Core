@@ -1,0 +1,63 @@
+{
+  "name": "香氛小姐·罗丝",
+  "team": [
+    {
+      "species": "sunkern",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "quirky",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "doubleedge",
+        "sunnyday",
+        "seedbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sunflora",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "naughty",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "doubleedge",
+        "sunnyday",
+        "leafstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

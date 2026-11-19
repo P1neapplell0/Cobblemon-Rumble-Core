@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·泰瑞＆蒂娅",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "growl",
+        "quickattack",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "timid",
+      "ability": "magicguard",
+      "moveset": [
+        "disarmingvoice",
+        "encore",
+        "defensecurl",
+        "lifedew"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

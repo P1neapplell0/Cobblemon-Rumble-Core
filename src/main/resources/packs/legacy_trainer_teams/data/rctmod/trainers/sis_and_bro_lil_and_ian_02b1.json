@@ -1,0 +1,64 @@
+{
+  "name": "姐弟·莉莉＆伊恩",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "seadra",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "lax",
+      "ability": "sniper",
+      "moveset": [
+        "brine",
+        "agility",
+        "dragonpulse",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "quirky",
+      "ability": "illuminate",
+      "moveset": [
+        "rapidspin",
+        "recover",
+        "psybeam",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

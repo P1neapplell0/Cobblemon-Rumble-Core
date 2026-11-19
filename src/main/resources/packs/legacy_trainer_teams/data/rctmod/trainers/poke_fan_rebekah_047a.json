@@ -1,0 +1,34 @@
+{
+  "name": "宝可梦迷·丽贝卡",
+  "team": [
+    {
+      "species": "bonsly",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "impish",
+      "ability": "sturdy",
+      "moveset": [
+        "faketears",
+        "copycat",
+        "flail",
+        "rockthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

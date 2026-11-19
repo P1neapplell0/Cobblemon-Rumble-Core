@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·本",
+  "team": [
+    {
+      "species": "rattata",
+      "gender": "MALE",
+      "level": 11,
+      "nature": "bashful",
+      "ability": "guts",
+      "moveset": [
+        "tailwhip",
+        "quickattack",
+        "focusenergy",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "modest",
+      "ability": "aftermath",
+      "moveset": [
+        "focusenergy",
+        "poisongas",
+        "screech",
+        "poisontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

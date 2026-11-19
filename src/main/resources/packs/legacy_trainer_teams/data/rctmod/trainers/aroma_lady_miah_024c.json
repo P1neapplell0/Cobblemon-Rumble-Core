@@ -1,0 +1,63 @@
+{
+  "name": "香氛小姐·米娅",
+  "team": [
+    {
+      "species": "bellossom",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "sassy",
+      "ability": "chlorophyll",
+      "moveset": [
+        "stunspore",
+        "sunnyday",
+        "petalblizzard",
+        "petaldance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bellossom",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "naughty",
+      "ability": "chlorophyll",
+      "moveset": [
+        "stunspore",
+        "sunnyday",
+        "petalblizzard",
+        "petaldance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

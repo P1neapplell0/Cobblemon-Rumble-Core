@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·杰弗里",
+  "team": [
+    {
+      "species": "prinplup",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "sassy",
+      "ability": "torrent",
+      "moveset": [
+        "metalclaw",
+        "charm",
+        "peck",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "prinplup",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "sassy",
+      "ability": "torrent",
+      "moveset": [
+        "metalclaw",
+        "tackle",
+        "peck",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

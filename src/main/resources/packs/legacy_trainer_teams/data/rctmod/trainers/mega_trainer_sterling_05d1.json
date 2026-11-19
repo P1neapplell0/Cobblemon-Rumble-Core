@@ -1,0 +1,102 @@
+{
+  "name": "超级训练家·斯特林",
+  "team": [
+    {
+      "species": "meganium",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "calm",
+      "ability": "grassysurge",
+      "moveset": [
+        "solarbeam",
+        "mudslap",
+        "gigadrain",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 77,
+      "nature": "modest",
+      "ability": "thickfat",
+      "moveset": [
+        "solarbeam",
+        "earthpower",
+        "naturepower",
+        "weatherball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:venusaurite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "shiftry",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "mild",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "darkpulse",
+        "heatwave",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "name": "暗影干部·艾沃里",
+  "identity": "暗影干部·艾沃里",
+  "team": [
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "hex",
+        "willowisp",
+        "meanlook",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "psybeam",
+        "knockoff",
+        "thunderwave",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "persian",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "adamant",
+      "ability": "furcoat",
+      "moveset": [
+        "punishment",
+        "aerialace",
+        "hypnosis",
+        "captivate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wide_lens"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

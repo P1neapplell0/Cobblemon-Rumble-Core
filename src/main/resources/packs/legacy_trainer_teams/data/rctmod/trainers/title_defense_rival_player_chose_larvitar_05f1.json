@@ -1,0 +1,202 @@
+{
+  "name": "冠军防卫战·劲敌韦恩",
+  "identity": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "mamoswine",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "iciclecrash",
+        "earthquake",
+        "iceshard",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 78,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "thunder",
+        "thunderbolt",
+        "voltswitch",
+        "trick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ],
+      "aspects": [
+        "mow-appliance"
+      ]
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "scald",
+        "haze",
+        "wish",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "haxorus",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "outrage",
+        "earthquake",
+        "crunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "meteormash",
+        "zenheadbutt",
+        "icepunch",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "volcanion",
+      "gender": "GENDERLESS",
+      "level": 79,
+      "nature": "calm",
+      "ability": "steamengine",
+      "moveset": [
+        "steameruption",
+        "flamethrower",
+        "earthpower",
+        "substitute"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

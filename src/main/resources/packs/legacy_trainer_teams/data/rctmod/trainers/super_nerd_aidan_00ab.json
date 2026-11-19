@@ -1,0 +1,120 @@
+{
+  "name": "超级书呆·艾丹",
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "static",
+      "moveset": [
+        "sonicboom",
+        "screech",
+        "swift",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "lax",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludge",
+        "smog",
+        "selfdestruct",
+        "venoshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tynamo",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "gentle",
+      "ability": "levitate",
+      "moveset": [
+        "terablast",
+        "risingvoltage",
+        "knockoff",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "elgyem",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "hasty",
+      "ability": "synchronize",
+      "moveset": [
+        "terablast",
+        "psybeam",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

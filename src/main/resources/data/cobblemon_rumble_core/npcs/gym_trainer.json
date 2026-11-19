@@ -1,0 +1,13 @@
+{
+  "hitbox": "player",
+  "battleConfiguration": {
+    "canChallenge": false
+  },
+  "canDespawn": false,
+  "autoHealParty": false,
+  "isMovable": false,
+  "isInvulnerable": true,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "hideNameTag": true
+}

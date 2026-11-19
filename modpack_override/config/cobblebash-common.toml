@@ -1,0 +1,18 @@
+#Items players cannot use while inside CobbleBash gym instances.
+gymItemBlacklist = ["minecraft:ender_pearl", "minecraft:chorus_fruit", "minecraft:firework_rocket"]
+#Bonus Cobble Dollars awarded only for defeating a non-boss CobbleBash gym trainer in an already-completed gym when Cobble Dollars is installed.
+# Default: 500
+# Range: > 0
+cobbleDollarsRepeatTrainerReward = 500
+#Bonus Cobble Dollars awarded only for defeating a CobbleBash gym leader in an already-completed gym when Cobble Dollars is installed.
+# Default: 1500
+# Range: > 0
+cobbleDollarsRepeatBossReward = 2000
+#Multiplier applied to Cobblemon battle XP earned from non-boss CobbleBash trainers on repeat clears.
+# Default: 1.2
+# Range: 1.0 ~ 100.0
+repeatClearTrainerXpMultiplier = 1.2
+#Multiplier applied to Cobblemon battle XP earned from CobbleBash gym leaders, Elite Four members, and the Champion on repeat clears.
+# Default: 1.5
+# Range: 1.0 ~ 100.0
+repeatClearBossXpMultiplier = 1.5

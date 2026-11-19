@@ -1,0 +1,166 @@
+{
+  "name": "暴走族·鲁本",
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "uturn",
+        "bugbuzz",
+        "focusblast",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "ironhead",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "gigalith",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "careful",
+      "ability": "sandforce",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "explosion",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "technician",
+      "moveset": [
+        "gigadrain",
+        "weatherball",
+        "swift",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "return",
+        "closecombat",
+        "tripleaxel"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    }
+  ]
+}

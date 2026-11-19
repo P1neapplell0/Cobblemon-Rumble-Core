@@ -1,0 +1,214 @@
+{
+  "name": "四天王·渡",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "garchomp",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "stealthrock",
+        "earthquake",
+        "stoneedge",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "multiscale",
+      "moveset": [
+        "dragondance",
+        "extremespeed",
+        "earthquake",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "dracozolt",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "hustle",
+      "moveset": [
+        "boltbeak",
+        "dragonclaw",
+        "earthquake",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "melmetal",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "gyroball",
+        "earthquake",
+        "thunderpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "dialga",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "bold",
+      "ability": "pressure",
+      "moveset": [
+        "dracometeor",
+        "rest",
+        "sleeptalk",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:adamant_orb",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "salamence",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "dragondance",
+        "doubleedge",
+        "firefang",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:salamencite",
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "贵妇·丽贝卡",
+  "team": [
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "careful",
+      "ability": "cutecharm",
+      "moveset": [
+        "mirrorcoat",
+        "magiccoat",
+        "babydolleyes",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "impish",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "growl",
+        "aerialace",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "空手道王·肯德尔",
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "anticipation",
+      "moveset": [
+        "mudslap",
+        "revenge",
+        "suckerpunch",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

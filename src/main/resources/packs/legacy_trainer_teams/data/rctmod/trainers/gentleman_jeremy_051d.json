@@ -1,0 +1,34 @@
+{
+  "name": "绅士·杰瑞米",
+  "team": [
+    {
+      "species": "chatot",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "tangledfeet",
+      "moveset": [
+        "hypervoice",
+        "chatter",
+        "confide",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

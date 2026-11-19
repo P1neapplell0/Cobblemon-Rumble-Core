@@ -1,0 +1,92 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "toucannon",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "pluck",
+        "furyattack",
+        "rockblast",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swinub",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "iceshard",
+        "mudbomb",
+        "flail",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pupitar",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "rocktomb",
+        "darkpulse",
+        "bulldoze",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

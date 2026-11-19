@@ -1,0 +1,92 @@
+{
+  "name": "女泳者·雪莉",
+  "team": [
+    {
+      "species": "poliwrath",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "hardy",
+      "ability": "damp",
+      "moveset": [
+        "hypnosis",
+        "doubleslap",
+        "dynamicpunch",
+        "circlethrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "politoed",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "perishsong",
+        "swagger",
+        "bounce",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "lax",
+      "ability": "damp",
+      "moveset": [
+        "bellydrum",
+        "wakeupslap",
+        "hydropump",
+        "mudbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

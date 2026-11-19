@@ -1,0 +1,64 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（34）",
+  "team": [
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "quirky",
+      "ability": "shielddust",
+      "moveset": [
+        "lightscreen",
+        "toxic",
+        "bugbuzz",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "hardy",
+      "ability": "anticipation",
+      "moveset": [
+        "revenge",
+        "venoshock",
+        "suckerpunch",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

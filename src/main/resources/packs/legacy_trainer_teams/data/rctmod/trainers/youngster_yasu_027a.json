@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·安",
+  "team": [
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "hardy",
+      "ability": "runaway",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "runaway",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "naughty",
+      "ability": "runaway",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

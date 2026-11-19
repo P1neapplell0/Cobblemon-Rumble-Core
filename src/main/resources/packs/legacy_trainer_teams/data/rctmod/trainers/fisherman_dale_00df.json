@@ -1,0 +1,92 @@
+{
+  "name": "渔夫·戴尔",
+  "team": [
+    {
+      "species": "tentacool",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "lonely",
+      "ability": "clearbody",
+      "moveset": [
+        "waterpulse",
+        "acidspray",
+        "venoshock",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clobbopus",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "serious",
+      "ability": "limber",
+      "moveset": [
+        "bind",
+        "detect",
+        "revenge",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "corphish",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "docile",
+      "ability": "hypercutter",
+      "moveset": [
+        "doublehit",
+        "aquajet",
+        "knockoff",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

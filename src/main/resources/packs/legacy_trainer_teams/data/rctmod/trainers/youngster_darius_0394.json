@@ -1,0 +1,61 @@
+{
+  "name": "短裤小子·达里乌斯",
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 8,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "tackle",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 8,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "tackle",
+        "harden",
+        "bind",
+        "smackdown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

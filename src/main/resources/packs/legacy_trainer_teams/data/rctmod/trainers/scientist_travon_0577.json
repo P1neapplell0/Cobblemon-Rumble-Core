@@ -1,0 +1,34 @@
+{
+  "name": "科学家·特拉文",
+  "team": [
+    {
+      "species": "abra",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "sassy",
+      "ability": "synchronize",
+      "moveset": [
+        "allyswitch",
+        "encore",
+        "psyshock",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

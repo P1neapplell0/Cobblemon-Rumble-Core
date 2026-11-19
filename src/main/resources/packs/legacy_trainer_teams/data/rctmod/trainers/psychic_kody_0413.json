@@ -1,0 +1,34 @@
+{
+  "name": "超能力者·科迪",
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "hardy",
+      "ability": "purepower",
+      "moveset": [
+        "lowkick",
+        "confusion",
+        "detect",
+        "feint"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

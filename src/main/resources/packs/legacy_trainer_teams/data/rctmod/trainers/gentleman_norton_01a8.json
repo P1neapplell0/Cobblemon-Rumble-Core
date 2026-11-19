@@ -1,0 +1,34 @@
+{
+  "name": "绅士·诺顿",
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "lax",
+      "ability": "limber",
+      "moveset": [
+        "shockwave",
+        "powergem",
+        "slash",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

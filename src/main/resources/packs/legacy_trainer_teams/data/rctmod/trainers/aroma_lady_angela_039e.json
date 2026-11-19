@@ -1,0 +1,33 @@
+{
+  "name": "香氛小姐·安吉拉",
+  "team": [
+    {
+      "species": "turtwig",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "adamant",
+      "ability": "overgrow",
+      "moveset": [
+        "tackle",
+        "irontail",
+        "bulletseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

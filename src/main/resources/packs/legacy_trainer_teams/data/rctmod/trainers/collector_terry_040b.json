@@ -1,0 +1,92 @@
+{
+  "name": "收藏家·泰瑞",
+  "team": [
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "lick",
+        "confuseray",
+        "meanlook",
+        "payback"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastly",
+      "gender": "FEMALE",
+      "level": 13,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "lick",
+        "confuseray",
+        "meanlook",
+        "payback"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gastly",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "lick",
+        "confuseray",
+        "payback",
+        "spite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

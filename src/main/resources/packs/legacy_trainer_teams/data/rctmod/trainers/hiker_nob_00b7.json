@@ -1,0 +1,121 @@
+{
+  "name": "登山男·诺布",
+  "team": [
+    {
+      "species": "phanpy",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "hardy",
+      "ability": "pickup",
+      "moveset": [
+        "flail",
+        "iceshard",
+        "rollout",
+        "stompingtantrum"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sandile",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "adamant",
+      "ability": "moxie",
+      "moveset": [
+        "rocktomb",
+        "torment",
+        "sandtomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "brave",
+      "ability": "noguard",
+      "moveset": [
+        "rocktomb",
+        "lowsweep",
+        "lowkick",
+        "revenge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "makuhita",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "docile",
+      "ability": "guts",
+      "moveset": [
+        "fakeout",
+        "forcepalm",
+        "whirlwind",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

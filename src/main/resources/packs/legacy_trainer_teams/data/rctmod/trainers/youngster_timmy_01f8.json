@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·蒂米",
+  "team": [
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "hyperfang",
+        "pursuit",
+        "zenheadbutt",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ekans",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "naughty",
+      "ability": "shedskin",
+      "moveset": [
+        "suckerpunch",
+        "stockpile",
+        "swallow",
+        "spitup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "sassy",
+      "ability": "sniper",
+      "moveset": [
+        "confuseray",
+        "aircutter",
+        "meanlook",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

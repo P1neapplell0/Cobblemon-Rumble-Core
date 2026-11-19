@@ -1,0 +1,166 @@
+{
+  "name": "养鸟人·塞巴斯蒂安",
+  "team": [
+    {
+      "species": "gliscor",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "poisonheal",
+      "moveset": [
+        "uturn",
+        "earthquake",
+        "stealthrock",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "dragondance",
+        "flareblitz",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "fireblast",
+        "thunderwave",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "blaziken",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "adamant",
+      "ability": "speedboost",
+      "moveset": [
+        "swordsdance",
+        "flareblitz",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "tropius",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "growth",
+        "gigadrain",
+        "terablast",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "绅士·托马斯",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "bashful",
+      "ability": "intimidate",
+      "moveset": [
+        "flamewheel",
+        "reversal",
+        "firefang",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "litleo",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "naive",
+      "ability": "rivalry",
+      "moveset": [
+        "headbutt",
+        "nobleroar",
+        "takedown",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

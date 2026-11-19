@@ -1,0 +1,63 @@
+{
+  "name": "登山男·克拉克",
+  "team": [
+    {
+      "species": "boldore",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "careful",
+      "ability": "weakarmor",
+      "moveset": [
+        "magnitude",
+        "rocktomb",
+        "stealthrock",
+        "smackdown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mawile",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "lonely",
+      "ability": "intimidate",
+      "moveset": [
+        "batonpass",
+        "sweetscent",
+        "visegrip",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

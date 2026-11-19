@@ -1,0 +1,35 @@
+{
+  "name": "灵媒",
+  "identity": "灵媒（3）",
+  "team": [
+    {
+      "species": "gastly",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "mild",
+      "ability": "levitate",
+      "moveset": [
+        "nightshade",
+        "venoshock",
+        "confuseray",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

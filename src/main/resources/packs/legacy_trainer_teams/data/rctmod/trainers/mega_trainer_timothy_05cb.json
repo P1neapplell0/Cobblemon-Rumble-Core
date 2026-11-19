@@ -1,0 +1,166 @@
+{
+  "name": "超级训练家·蒂莫西",
+  "team": [
+    {
+      "species": "musharna",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "bold",
+      "ability": "synchronize",
+      "moveset": [
+        "psychic",
+        "hypnosis",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "sludgebomb",
+        "gigadrain",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "kasib_berry"
+      ]
+    },
+    {
+      "species": "bellossom",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gigadrain",
+        "moonblast",
+        "quiverdance",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "swampert",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "impish",
+      "ability": "torrent",
+      "moveset": [
+        "flipturn",
+        "earthquake",
+        "counter",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "trace",
+      "moveset": [
+        "psychic",
+        "shadowball",
+        "dazzlinggleam",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:alakazite",
+        "life_orb"
+      ]
+    }
+  ]
+}

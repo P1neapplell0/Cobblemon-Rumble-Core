@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·贝克",
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "hardy",
+      "ability": "frisk",
+      "moveset": [
+        "roost",
+        "tailwind",
+        "hydropump",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "staravia",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "quirky",
+      "ability": "intimidate",
+      "moveset": [
+        "takedown",
+        "agility",
+        "bravebird",
+        "finalgambit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

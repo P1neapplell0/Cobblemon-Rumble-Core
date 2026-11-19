@@ -1,0 +1,169 @@
+{
+  "name": "阿加莎",
+  "identity": "四天王·阿加莎",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "lax",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "confuseray",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "bashful",
+      "ability": "infiltrator",
+      "moveset": [
+        "sludgebomb",
+        "aircutter",
+        "shadowball",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "docile",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "thunderbolt",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "serious",
+      "ability": "intimidate",
+      "moveset": [
+        "sludgebomb",
+        "earthquake",
+        "gigadrain",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "naughty",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "thunderbolt",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chesto_berry"
+      ]
+    }
+  ]
+}

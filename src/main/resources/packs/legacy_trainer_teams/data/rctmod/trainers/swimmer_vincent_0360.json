@@ -1,0 +1,63 @@
+{
+  "name": "泳者·文森特",
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "relaxed",
+      "ability": "drizzle",
+      "moveset": [
+        "airslash",
+        "waterpulse",
+        "stockpile",
+        "swallow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "barboach",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "relaxed",
+      "ability": "oblivious",
+      "moveset": [
+        "endure",
+        "rest",
+        "snore",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

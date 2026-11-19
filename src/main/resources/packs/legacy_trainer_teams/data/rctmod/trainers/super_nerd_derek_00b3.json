@@ -1,0 +1,34 @@
+{
+  "name": "超级书呆·德里克",
+  "team": [
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "fireblast",
+        "bounce",
+        "flareblitz",
+        "lowkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

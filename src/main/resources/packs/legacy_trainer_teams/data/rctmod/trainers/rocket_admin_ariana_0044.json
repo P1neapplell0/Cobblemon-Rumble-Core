@@ -1,0 +1,149 @@
+{
+  "name": "火箭队干部·阿丽亚娜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "hatterene",
+      "gender": "FEMALE",
+      "level": 77,
+      "nature": "modest",
+      "ability": "magicbounce",
+      "moveset": [
+        "trickroom",
+        "psychic",
+        "dazzlinggleam",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "rhyperior",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "solidrock",
+      "moveset": [
+        "earthquake",
+        "rockblast",
+        "icepunch",
+        "heatcrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "honchkrow",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "jolly",
+      "ability": "superluck",
+      "moveset": [
+        "suckerpunch",
+        "nightslash",
+        "drillpeck",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "mawile",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "suckerpunch",
+        "ironhead",
+        "playrough",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:mawilite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

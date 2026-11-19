@@ -1,0 +1,78 @@
+{
+  "name": "驯龙师·杰弗里",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dragonair",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "adamant",
+      "ability": "shedskin",
+      "moveset": [
+        "dragonrush",
+        "dragondance",
+        "outrage",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dragonair",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "shedskin",
+      "moveset": [
+        "dragonrush",
+        "dragondance",
+        "aquatail",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

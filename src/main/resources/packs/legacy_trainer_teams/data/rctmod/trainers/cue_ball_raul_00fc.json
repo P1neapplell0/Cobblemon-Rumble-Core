@@ -1,0 +1,63 @@
+{
+  "name": "光头党·劳尔",
+  "team": [
+    {
+      "species": "poliwrath",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "impish",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hypnosis",
+        "doubleslap",
+        "dynamicpunch",
+        "circlethrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "bold",
+      "ability": "guts",
+      "moveset": [
+        "submission",
+        "bulkup",
+        "dynamicpunch",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

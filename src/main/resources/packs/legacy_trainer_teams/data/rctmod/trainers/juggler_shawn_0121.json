@@ -1,0 +1,63 @@
+{
+  "name": "杂耍艺人·肖恩",
+  "team": [
+    {
+      "species": "magmortar",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "sassy",
+      "ability": "magmaarmor",
+      "moveset": [
+        "sunnyday",
+        "flamethrower",
+        "fireblast",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "jolly",
+      "ability": "forewarn",
+      "moveset": [
+        "swagger",
+        "nastyplot",
+        "psyshock",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

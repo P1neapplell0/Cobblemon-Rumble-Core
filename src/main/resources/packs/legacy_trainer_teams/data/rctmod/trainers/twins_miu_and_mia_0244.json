@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·米乌＆米娅",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "megapunch",
+        "thunderbolt",
+        "agility",
+        "wildcharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "megapunch",
+        "thunderbolt",
+        "agility",
+        "wildcharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

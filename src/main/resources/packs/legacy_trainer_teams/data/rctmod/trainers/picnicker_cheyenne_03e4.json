@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·夏延",
+  "team": [
+    {
+      "species": "drifloon",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "calm",
+      "ability": "aftermath",
+      "moveset": [
+        "gust",
+        "stockpile",
+        "swallow",
+        "spitup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "meanlook",
+        "hex",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

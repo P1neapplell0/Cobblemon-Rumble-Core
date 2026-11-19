@@ -1,0 +1,33 @@
+{
+  "name": "露营少年·柯蒂斯",
+  "team": [
+    {
+      "species": "shinx",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "docile",
+      "ability": "intimidate",
+      "moveset": [
+        "tackle",
+        "leer",
+        "thundershock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

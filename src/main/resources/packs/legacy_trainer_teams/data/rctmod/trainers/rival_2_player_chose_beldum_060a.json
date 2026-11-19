@@ -1,0 +1,63 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "swinub",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "hardy",
+      "ability": "oblivious",
+      "moveset": [
+        "mudslap",
+        "iceshard",
+        "powdersnow",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gible",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "sandattack",
+        "metalclaw",
+        "sandstorm",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

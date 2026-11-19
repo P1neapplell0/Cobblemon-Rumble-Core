@@ -1,0 +1,124 @@
+{
+  "name": "野餐少女·嘉德丽雅",
+  "team": [
+    {
+      "species": "smeargle",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "owntempo",
+      "moveset": [
+        "sketch",
+        "dragonascent",
+        "trick",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "spinda",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "contrary",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sneasel",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "liepard",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "prankster",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

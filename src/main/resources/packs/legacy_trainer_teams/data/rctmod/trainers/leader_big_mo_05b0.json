@@ -1,0 +1,180 @@
+{
+  "name": "馆主·大莫",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mudsdale",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "stamina",
+      "moveset": [
+        "earthquake",
+        "smackdown",
+        "heavyslam",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    },
+    {
+      "species": "pangoro",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "lashout",
+        "drainpunch",
+        "rockslide",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "fighting_gem"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "bodyslam",
+        "crunch",
+        "highhorsepower",
+        "heavyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rawst_berry"
+      ]
+    },
+    {
+      "species": "hariyama",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "forcepalm",
+        "knockoff",
+        "heavyslam",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "wailord",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "surf",
+        "clearsmog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    }
+  ]
+}

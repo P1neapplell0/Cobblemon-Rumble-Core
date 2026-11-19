@@ -1,0 +1,33 @@
+{
+  "name": "杂耍艺人·格雷戈里",
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "naughty",
+      "ability": "solidrock",
+      "moveset": [
+        "psychic",
+        "dazzlinggleam",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

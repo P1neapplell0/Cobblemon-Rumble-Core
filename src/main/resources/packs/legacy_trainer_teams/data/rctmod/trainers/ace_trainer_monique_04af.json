@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·莫妮克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bashful",
+      "ability": "scrappy",
+      "moveset": [
+        "fakeout",
+        "suckerpunch",
+        "outrage",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ursaring",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "quickfeet",
+      "moveset": [
+        "rest",
+        "snore",
+        "slash",
+        "payback"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

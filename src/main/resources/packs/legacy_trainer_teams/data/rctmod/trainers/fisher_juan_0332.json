@@ -1,0 +1,34 @@
+{
+  "name": "钓客·胡安",
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "twister",
+        "icefang",
+        "scaryface",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

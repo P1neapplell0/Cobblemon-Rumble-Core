@@ -1,0 +1,63 @@
+{
+  "name": "暴走族·贾克森",
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "calm",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "gyroball",
+        "sludgebomb",
+        "explosion",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "jolly",
+      "ability": "stickyhold",
+      "moveset": [
+        "poisonjab",
+        "screech",
+        "gunkshot",
+        "acidarmor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "暴走族·贾克森",
+  "team": [
+    {
+      "species": "swalot",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "naughty",
+      "ability": "stickyhold",
+      "moveset": [
+        "sludge",
+        "sludgebomb",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "qwilfish",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "swiftswim",
+      "moveset": [
+        "acupressure",
+        "waterfall",
+        "poisonjab",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

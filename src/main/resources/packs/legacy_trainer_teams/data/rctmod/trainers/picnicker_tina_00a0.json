@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·蒂娜",
+  "team": [
+    {
+      "species": "breloom",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "naive",
+      "ability": "effectspore",
+      "moveset": [
+        "feint",
+        "counter",
+        "forcepalm",
+        "mindreader"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "quilladin",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "gentle",
+      "ability": "bulletproof",
+      "moveset": [
+        "leechseed",
+        "pinmissile",
+        "takedown",
+        "seedbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

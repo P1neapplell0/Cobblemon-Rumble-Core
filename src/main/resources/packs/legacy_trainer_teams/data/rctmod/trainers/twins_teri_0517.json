@@ -1,0 +1,35 @@
+{
+  "name": "双胞胎·泰瑞",
+  "battleFormat": "GEN_9_SINGLES",
+  "team": [
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "thunderbolt",
+        "lightscreen",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

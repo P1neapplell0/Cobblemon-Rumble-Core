@@ -1,0 +1,70 @@
+{
+  "name": "超级训练家·薇薇安",
+  "team": [
+    {
+      "species": "hitmonlee",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "limber",
+      "moveset": [
+        "closecombat",
+        "blazekick",
+        "rockslide",
+        "wideguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "adamant",
+      "ability": "scrappy",
+      "moveset": [
+        "dizzypunch",
+        "jumpkick",
+        "thunderpunch",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    }
+  ]
+}

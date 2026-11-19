@@ -1,0 +1,34 @@
+{
+  "name": "宝可梦儿童·丹妮尔",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "sweetkiss",
+        "charm",
+        "quickattack",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·路易斯",
+  "team": [
+    {
+      "species": "shellder",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "docile",
+      "ability": "battlearmor",
+      "moveset": [
+        "withdraw",
+        "endure",
+        "iciclespear",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tirtouga",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "modest",
+      "ability": "solidrock",
+      "moveset": [
+        "bite",
+        "block",
+        "aquajet",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

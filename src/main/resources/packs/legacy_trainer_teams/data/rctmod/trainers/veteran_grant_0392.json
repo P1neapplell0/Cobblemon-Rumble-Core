@@ -1,0 +1,107 @@
+{
+  "name": "老练训练家·格兰特",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "riolu",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "hardy",
+      "ability": "innerfocus",
+      "moveset": [
+        "feint",
+        "metalclaw",
+        "workup",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "intimidate",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "whirlwind",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "sandstorm",
+        "smackdown",
+        "bulldoze",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

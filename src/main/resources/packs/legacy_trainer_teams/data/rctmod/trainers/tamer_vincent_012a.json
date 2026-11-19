@@ -1,0 +1,63 @@
+{
+  "name": "驯兽师·文森特",
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "serious",
+      "ability": "technician",
+      "moveset": [
+        "assurance",
+        "captivate",
+        "nightslash",
+        "feint"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "bashful",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychup",
+        "nastyplot",
+        "hydropump",
+        "wonderroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

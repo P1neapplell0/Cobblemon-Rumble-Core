@@ -1,0 +1,150 @@
+{
+  "name": "野餐少女·汉娜",
+  "team": [
+    {
+      "species": "pidgey",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "mild",
+      "ability": "frisk",
+      "moveset": [
+        "facade",
+        "whirlwind",
+        "quickattack",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowth",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "careful",
+      "ability": "pickup",
+      "moveset": [
+        "trailblaze",
+        "feint",
+        "screech",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rattata",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "bashful",
+      "ability": "runaway",
+      "moveset": [
+        "hyperfang",
+        "pursuit",
+        "assurance",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "careful",
+      "ability": "static",
+      "moveset": [
+        "quickattack",
+        "electroball",
+        "thunderwave",
+        "feint"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowth",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "bold",
+      "ability": "pickup",
+      "moveset": [
+        "trailblaze",
+        "feint",
+        "screech",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

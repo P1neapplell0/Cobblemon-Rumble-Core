@@ -1,0 +1,64 @@
+{
+  "name": "双人组·乔＆帕特",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "icefang",
+        "waterfall",
+        "crunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "medicham",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bashful",
+      "ability": "purepower",
+      "moveset": [
+        "zenheadbutt",
+        "firepunch",
+        "forcepalm",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

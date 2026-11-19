@@ -1,0 +1,69 @@
+{
+  "name": "空手道王·秀树",
+  "team": [
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "lax",
+      "ability": "guts",
+      "moveset": [
+        "rockslide",
+        "dynamicpunch",
+        "scaryface",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "naive",
+      "ability": "effectspore",
+      "moveset": [
+        "forcepalm",
+        "mindreader",
+        "skyuppercut",
+        "seedbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

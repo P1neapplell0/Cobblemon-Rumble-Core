@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·奥利弗",
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "naive",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "acidspray",
+        "furyswipes",
+        "focusenergy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "docile",
+      "ability": "swarm",
+      "moveset": [
+        "furycutter",
+        "growl",
+        "pound",
+        "absorb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shellos",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "hasty",
+      "ability": "stormdrain",
+      "moveset": [
+        "mudslap",
+        "harden",
+        "recover",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

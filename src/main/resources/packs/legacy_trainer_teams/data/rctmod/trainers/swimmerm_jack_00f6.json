@@ -1,0 +1,34 @@
+{
+  "name": "男泳者·杰克",
+  "team": [
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "recover",
+        "psybeam",
+        "confuseray",
+        "meteorbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

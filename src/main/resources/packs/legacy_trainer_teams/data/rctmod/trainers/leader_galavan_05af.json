@@ -1,0 +1,182 @@
+{
+  "name": "馆主·加拉万",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bronzong",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "impish",
+      "ability": "heatproof",
+      "moveset": [
+        "heavyslam",
+        "bodypress",
+        "trickroom",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mental_herb"
+      ]
+    },
+    {
+      "species": "golem",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "adamant",
+      "ability": "galvanize",
+      "moveset": [
+        "facade",
+        "rockslide",
+        "firepunch",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "lanturn",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "thunderbolt",
+        "scald",
+        "icebeam",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "modest",
+      "ability": "moldbreaker",
+      "moveset": [
+        "thunderbolt",
+        "dragonpulse",
+        "swift",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:ampharosite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "escavalier",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "adamant",
+      "ability": "overcoat",
+      "moveset": [
+        "xscissor",
+        "ironhead",
+        "drillrun",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

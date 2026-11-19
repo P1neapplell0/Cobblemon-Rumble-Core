@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·卡珊德拉",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "stantler",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "docile",
+      "ability": "intimidate",
+      "moveset": [
+        "doubleedge",
+        "lunge",
+        "zenheadbutt",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "carnivine",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "serious",
+      "ability": "levitate",
+      "moveset": [
+        "powerwhip",
+        "crunch",
+        "stockpile",
+        "growth"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "暴走族·杰伦",
+  "team": [
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "sassy",
+      "ability": "stickyhold",
+      "moveset": [
+        "mudbomb",
+        "fling",
+        "sludgebomb",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "trubbish",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "weakarmor",
+      "moveset": [
+        "swallow",
+        "takedown",
+        "sludgebomb",
+        "clearsmog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

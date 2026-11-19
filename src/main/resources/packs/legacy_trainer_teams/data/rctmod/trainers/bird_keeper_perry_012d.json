@@ -1,0 +1,165 @@
+{
+  "name": "养鸟人·佩里",
+  "team": [
+    {
+      "species": "rhyperior",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "careful",
+      "ability": "solidrock",
+      "moveset": [
+        "stealthrock",
+        "stoneedge",
+        "earthquake",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    },
+    {
+      "species": "sunflora",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "calm",
+      "ability": "solarpower",
+      "moveset": [
+        "solarbeam",
+        "dazzlinggleam",
+        "earthpower",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "gardevoir",
+      "gender": "MALE",
+      "level": 89,
+      "nature": "timid",
+      "ability": "trace",
+      "moveset": [
+        "calmmind",
+        "psychic",
+        "moonblast",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "rapidash",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "flamewheel",
+        "solarblade",
+        "lowkick",
+        "highhorsepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "dragapult",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "naive",
+      "ability": "cursedbody",
+      "moveset": [
+        "shadowball",
+        "dragondarts",
+        "fireblast",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "spell_tag"
+      ]
+    }
+  ]
+}

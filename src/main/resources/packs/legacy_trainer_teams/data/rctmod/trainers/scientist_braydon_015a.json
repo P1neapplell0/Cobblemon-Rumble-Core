@@ -1,0 +1,92 @@
+{
+  "name": "科学家·布雷登",
+  "team": [
+    {
+      "species": "magneton",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "lockon",
+        "magnetrise",
+        "gyroball",
+        "zapcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "probopass",
+      "gender": "FEMALE",
+      "level": 69,
+      "nature": "bashful",
+      "ability": "magnetpull",
+      "moveset": [
+        "earthpower",
+        "stoneedge",
+        "lockon",
+        "zapcannon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "jolteon",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "hardy",
+      "ability": "voltabsorb",
+      "moveset": [
+        "thunderwave",
+        "discharge",
+        "lastresort",
+        "thunder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

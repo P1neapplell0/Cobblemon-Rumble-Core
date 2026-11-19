@@ -1,0 +1,63 @@
+{
+  "name": "登山男·西奥多",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "impish",
+      "ability": "sturdy",
+      "moveset": [
+        "smackdown",
+        "curse",
+        "screech",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "tackle",
+        "smackdown",
+        "curse",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

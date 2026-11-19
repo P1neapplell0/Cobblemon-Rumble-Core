@@ -1,0 +1,34 @@
+{
+  "name": "对战女孩·泰勒",
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "quirky",
+      "ability": "purepower",
+      "moveset": [
+        "thunderpunch",
+        "icepunch",
+        "psybeam",
+        "acupressure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

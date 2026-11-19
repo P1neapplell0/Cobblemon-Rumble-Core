@@ -1,0 +1,34 @@
+{
+  "name": "大姐姐·加布里埃拉",
+  "team": [
+    {
+      "species": "finneon",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "bashful",
+      "ability": "swiftswim",
+      "moveset": [
+        "attract",
+        "raindance",
+        "gust",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

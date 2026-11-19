@@ -1,0 +1,69 @@
+{
+  "name": "光头党·卢克",
+  "team": [
+    {
+      "species": "dugtrio",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "arenatrap",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "assurance",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "hariyama",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "careful",
+      "ability": "thickfat",
+      "moveset": [
+        "fakeout",
+        "knockoff",
+        "drainpunch",
+        "heavyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·哈罗德",
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "relaxed",
+      "ability": "tintedlens",
+      "moveset": [
+        "roost",
+        "moonblast",
+        "synchronoise",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "noctowl",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "mild",
+      "ability": "tintedlens",
+      "moveset": [
+        "reflect",
+        "uproar",
+        "roost",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

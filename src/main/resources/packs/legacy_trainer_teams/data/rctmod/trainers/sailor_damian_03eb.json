@@ -1,0 +1,63 @@
+{
+  "name": "水手·达米安",
+  "team": [
+    {
+      "species": "wingull",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "waterpulse",
+        "roost",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wingull",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "adamant",
+      "ability": "keeneye",
+      "moveset": [
+        "quickattack",
+        "waterpulse",
+        "steelwing",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

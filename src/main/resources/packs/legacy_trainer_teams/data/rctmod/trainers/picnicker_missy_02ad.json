@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·米西",
+  "team": [
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "impish",
+      "ability": "waterveil",
+      "moveset": [
+        "agility",
+        "waterfall",
+        "soak",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "mild",
+      "ability": "waterveil",
+      "moveset": [
+        "agility",
+        "waterfall",
+        "soak",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

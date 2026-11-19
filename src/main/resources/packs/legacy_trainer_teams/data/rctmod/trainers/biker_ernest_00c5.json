@@ -1,0 +1,150 @@
+{
+  "name": "暴走族·欧内斯特",
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "hasty",
+      "ability": "levitate",
+      "moveset": [
+        "smokescreen",
+        "explosion",
+        "smog",
+        "painsplit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "smokescreen",
+        "sludgebomb",
+        "flamethrower",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "levitate",
+      "moveset": [
+        "smokescreen",
+        "sludgebomb",
+        "thunderbolt",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "salazzle",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bashful",
+      "ability": "corrosion",
+      "moveset": [
+        "captivate",
+        "sludgebomb",
+        "flamethrower",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "bashful",
+      "ability": "levitate",
+      "moveset": [
+        "encore",
+        "sludgebomb",
+        "shadowball",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

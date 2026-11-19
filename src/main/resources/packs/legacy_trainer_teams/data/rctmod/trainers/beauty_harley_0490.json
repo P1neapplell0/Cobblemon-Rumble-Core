@@ -1,0 +1,34 @@
+{
+  "name": "大姐姐·哈利",
+  "team": [
+    {
+      "species": "psyduck",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "tailwhip",
+        "furyswipes",
+        "waterpulse",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

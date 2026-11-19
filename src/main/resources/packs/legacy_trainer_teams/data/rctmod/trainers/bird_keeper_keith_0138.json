@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·基思",
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "calm",
+      "ability": "innerfocus",
+      "moveset": [
+        "swordsdance",
+        "agility",
+        "nightslash",
+        "acrobatics"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "lonely",
+      "ability": "technician",
+      "moveset": [
+        "assurance",
+        "agility",
+        "dualwingbeat",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

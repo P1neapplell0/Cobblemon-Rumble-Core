@@ -1,0 +1,92 @@
+{
+  "name": "泳圈族·阿米拉",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bold",
+      "ability": "damp",
+      "moveset": [
+        "bubblebeam",
+        "mudshot",
+        "encore",
+        "wakeupslap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "damp",
+      "moveset": [
+        "bubblebeam",
+        "mudshot",
+        "encore",
+        "wakeupslap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "docile",
+      "ability": "damp",
+      "moveset": [
+        "bubblebeam",
+        "mudshot",
+        "encore",
+        "wakeupslap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

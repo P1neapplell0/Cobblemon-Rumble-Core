@@ -1,0 +1,92 @@
+{
+  "name": "工程师·伯尼",
+  "team": [
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 28,
+      "nature": "modest",
+      "ability": "magnetpull",
+      "moveset": [
+        "sonicboom",
+        "spark",
+        "mirrorshot",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 28,
+      "nature": "jolly",
+      "ability": "magnetpull",
+      "moveset": [
+        "sonicboom",
+        "spark",
+        "mirrorshot",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 28,
+      "nature": "calm",
+      "ability": "magnetpull",
+      "moveset": [
+        "sonicboom",
+        "spark",
+        "mirrorshot",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

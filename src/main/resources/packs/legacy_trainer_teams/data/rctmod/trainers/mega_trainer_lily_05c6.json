@@ -1,0 +1,105 @@
+{
+  "name": "超级训练家·莉莉",
+  "team": [
+    {
+      "species": "abomasnow",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "snowwarning",
+      "moveset": [
+        "blizzard",
+        "gigadrain",
+        "earthquake",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "ice_gem"
+      ]
+    },
+    {
+      "species": "ninetales",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "fireblast",
+        "darkpulse",
+        "quickattack",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "glalie",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "refrigerate",
+      "moveset": [
+        "blizzard",
+        "waterpulse",
+        "shadowball",
+        "signalbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:glalitite",
+        "leftovers"
+      ]
+    }
+  ]
+}

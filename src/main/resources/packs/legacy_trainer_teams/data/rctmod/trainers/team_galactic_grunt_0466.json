@@ -1,0 +1,93 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（24）",
+  "team": [
+    {
+      "species": "wurmple",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "serious",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cascoon",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "bashful",
+      "ability": "shedskin",
+      "moveset": [
+        "stringshot",
+        "poisonsting",
+        "bugbite",
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "quirky",
+      "ability": "shielddust",
+      "moveset": [
+        "psybeam",
+        "skittersmack",
+        "toxic",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

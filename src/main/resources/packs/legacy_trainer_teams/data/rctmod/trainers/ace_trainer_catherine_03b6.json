@@ -1,0 +1,78 @@
+{
+  "name": "精英训练家·凯瑟琳",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "misdreavus",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "growl",
+        "confuseray",
+        "hex",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "drifblim",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "jolly",
+      "ability": "flareboost",
+      "moveset": [
+        "phantomforce",
+        "strengthsap",
+        "minimize",
+        "fly"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

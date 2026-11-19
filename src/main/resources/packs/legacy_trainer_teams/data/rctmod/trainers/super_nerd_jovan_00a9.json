@@ -1,0 +1,63 @@
+{
+  "name": "超级书呆·乔万",
+  "team": [
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 13,
+      "nature": "modest",
+      "ability": "sturdy",
+      "moveset": [
+        "shockwave",
+        "thunderwave",
+        "magnetbomb",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "toxel",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "lonely",
+      "ability": "static",
+      "moveset": [
+        "acid",
+        "growl",
+        "tearfullook",
+        "nuzzle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "name": "捕虫少年·格雷格",
+  "team": [
+    {
+      "species": "nincada",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "bashful",
+      "ability": "compoundeyes",
+      "moveset": [
+        "scratch",
+        "harden",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sizzlipede",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "sassy",
+      "ability": "flashfire",
+      "moveset": [
+        "ember",
+        "wrap",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 10,
+      "nature": "naughty",
+      "ability": "shielddust",
+      "moveset": [
+        "gust"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "joltik",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "serious",
+      "ability": "compoundeyes",
+      "moveset": [
+        "absorb",
+        "spiderweb",
+        "thunderwave",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

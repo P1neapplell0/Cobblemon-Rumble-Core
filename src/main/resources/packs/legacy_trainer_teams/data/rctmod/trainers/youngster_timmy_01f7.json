@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·蒂米",
+  "team": [
+    {
+      "species": "rattata",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "focusenergy",
+        "hyperfang",
+        "pursuit",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ekans",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "naughty",
+      "ability": "shedskin",
+      "moveset": [
+        "bite",
+        "glare",
+        "poisontail",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "zubat",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "adamant",
+      "ability": "sniper",
+      "moveset": [
+        "assurance",
+        "wingattack",
+        "confuseray",
+        "aircutter"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "驯兽师·菲尔",
+  "team": [
+    {
+      "species": "copperajah",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "naive",
+      "ability": "heavymetal",
+      "moveset": [
+        "strength",
+        "ironhead",
+        "playrough",
+        "highhorsepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seviper",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "adamant",
+      "ability": "merciless",
+      "moveset": [
+        "belch",
+        "coil",
+        "wringout",
+        "gunkshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

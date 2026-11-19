@@ -1,0 +1,199 @@
+{
+  "name": "双胞胎·乔伊＆梅格",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "empoleon",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "competitive",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "flashcannon",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "granbull",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "playrough",
+        "firepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "volbeat",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "illuminate",
+      "moveset": [
+        "thunder",
+        "bugbuzz",
+        "waterpulse",
+        "tailglow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:electrium_z",
+        "electric_gem"
+      ]
+    },
+    {
+      "species": "illumise",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "tintedlens",
+      "moveset": [
+        "playrough",
+        "skittersmack",
+        "brickbreak",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "minun",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "galvanize",
+      "moveset": [
+        "megapunch",
+        "fling",
+        "facade",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    },
+    {
+      "species": "plusle",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "transistor",
+      "moveset": [
+        "thunderbolt",
+        "uproar",
+        "swift",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

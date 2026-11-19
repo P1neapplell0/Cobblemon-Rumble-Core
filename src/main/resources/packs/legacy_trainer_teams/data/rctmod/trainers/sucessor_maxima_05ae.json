@@ -1,0 +1,163 @@
+{
+  "name": "继承者·玛克西玛",
+  "team": [
+    {
+      "species": "azumarill",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "aquatail",
+        "playrough",
+        "aquajet",
+        "bellydrum"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "serperior",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "adamant",
+      "ability": "overgrow",
+      "moveset": [
+        "leafblade",
+        "aquatail",
+        "leechseed",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "empoleon",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "adamant",
+      "ability": "defiant",
+      "moveset": [
+        "aquajet",
+        "bulldoze",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ninetales",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "bold",
+      "ability": "snowcloak",
+      "moveset": [
+        "energyball",
+        "darkpulse",
+        "psyshock",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "bold",
+      "ability": "pixilate",
+      "moveset": [
+        "dragonpulse",
+        "hypervoice",
+        "flamethrower",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:altarianite",
+        "life_orb"
+      ]
+    }
+  ]
+}

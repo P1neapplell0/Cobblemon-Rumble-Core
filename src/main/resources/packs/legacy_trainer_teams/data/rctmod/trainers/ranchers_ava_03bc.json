@@ -1,0 +1,34 @@
+{
+  "name": "牧场主·艾娃",
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "relaxed",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "smokescreen",
+        "acidspray",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "帅气情侣·莱克斯＆妮雅",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "miltank",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "quiet",
+      "ability": "scrappy",
+      "moveset": [
+        "bodyslam",
+        "milkdrink",
+        "growl",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "impish",
+      "ability": "angerpoint",
+      "moveset": [
+        "thrash",
+        "hornattack",
+        "pursuit",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

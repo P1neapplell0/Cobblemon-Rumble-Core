@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·德肖恩",
+  "team": [
+    {
+      "species": "spinda",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "bashful",
+      "ability": "owntempo",
+      "moveset": [
+        "psychup",
+        "doubleedge",
+        "flail",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kecleon",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "serious",
+      "ability": "colorchange",
+      "moveset": [
+        "screech",
+        "substitute",
+        "suckerpunch",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "mamoswine",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "icefang",
+        "bulldoze",
+        "iceshard",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 61,
+      "nature": "timid",
+      "ability": "motordrive",
+      "moveset": [
+        "discharge",
+        "signalbeam",
+        "hex",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ],
+      "aspects": [
+        "fan-appliance"
+      ]
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "acidarmor",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "aggron",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "ironhead",
+        "rockslide",
+        "earthquake",
+        "heavyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "chandelure",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "timid",
+      "ability": "shadowtag",
+      "moveset": [
+        "flamethrower",
+        "shadowball",
+        "energyball",
+        "minimize"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "bright_powder"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "sandforce",
+      "moveset": [
+        "dragonclaw",
+        "stompingtantrum",
+        "crunch",
+        "sandstorm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:garchompite",
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·黛西",
+  "team": [
+    {
+      "species": "slowpoke",
+      "gender": "FEMALE",
+      "level": 51,
+      "nature": "bold",
+      "ability": "owntempo",
+      "moveset": [
+        "psychic",
+        "amnesia",
+        "slackoff",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "oblivious",
+      "moveset": [
+        "psychic",
+        "amnesia",
+        "slackoff",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

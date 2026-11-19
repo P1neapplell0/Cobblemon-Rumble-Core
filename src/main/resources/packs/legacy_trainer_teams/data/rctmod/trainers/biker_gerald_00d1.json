@@ -1,0 +1,62 @@
+{
+  "name": "暴走族·杰拉德",
+  "team": [
+    {
+      "species": "breloom",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "effectspore",
+      "moveset": [
+        "endure",
+        "machpunch",
+        "spore",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "copperajah",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "heavymetal",
+      "moveset": [
+        "screech",
+        "hardpress",
+        "highhorsepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

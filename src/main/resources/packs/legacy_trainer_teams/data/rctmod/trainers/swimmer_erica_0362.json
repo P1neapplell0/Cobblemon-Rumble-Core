@@ -1,0 +1,63 @@
+{
+  "name": "泳者·艾丽卡",
+  "team": [
+    {
+      "species": "remoraid",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "bashful",
+      "ability": "hustle",
+      "moveset": [
+        "psybeam",
+        "aurorabeam",
+        "bubblebeam",
+        "lockon"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "psyduck",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "tailwhip",
+        "furyswipes",
+        "zenheadbutt",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

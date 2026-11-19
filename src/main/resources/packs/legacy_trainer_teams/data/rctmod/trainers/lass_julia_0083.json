@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·茱莉亚",
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "mild",
+      "ability": "magicguard",
+      "moveset": [
+        "wish",
+        "storedpower",
+        "metronome",
+        "cosmicpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "munna",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "calm",
+      "ability": "synchronize",
+      "moveset": [
+        "zenheadbutt",
+        "synchronoise",
+        "nightmare",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

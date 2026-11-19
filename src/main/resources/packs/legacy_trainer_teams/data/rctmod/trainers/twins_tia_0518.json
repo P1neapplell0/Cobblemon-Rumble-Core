@@ -1,0 +1,35 @@
+{
+  "name": "双胞胎·蒂娅",
+  "battleFormat": "GEN_9_SINGLES",
+  "team": [
+    {
+      "species": "clefable",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "magicguard",
+      "moveset": [
+        "lifedew",
+        "followme",
+        "cosmicpower",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

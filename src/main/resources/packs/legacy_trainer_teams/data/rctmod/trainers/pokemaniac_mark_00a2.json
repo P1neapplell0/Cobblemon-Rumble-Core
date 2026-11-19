@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·马克",
+  "team": [
+    {
+      "species": "rhyperior",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "naive",
+      "ability": "lightningrod",
+      "moveset": [
+        "takedown",
+        "stoneedge",
+        "earthquake",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickilicky",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "quiet",
+      "ability": "owntempo",
+      "moveset": [
+        "screech",
+        "powerwhip",
+        "wringout",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

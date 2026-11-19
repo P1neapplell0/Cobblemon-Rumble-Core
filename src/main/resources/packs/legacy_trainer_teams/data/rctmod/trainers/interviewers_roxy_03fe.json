@@ -1,0 +1,34 @@
+{
+  "name": "采访者·萝克西",
+  "team": [
+    {
+      "species": "wooper",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "impish",
+      "ability": "waterabsorb",
+      "moveset": [
+        "watergun",
+        "raindance",
+        "mudshot",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

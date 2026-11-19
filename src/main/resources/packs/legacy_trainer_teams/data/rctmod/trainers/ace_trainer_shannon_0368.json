@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·香农",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "cherrim",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "timid",
+      "ability": "flowergift",
+      "moveset": [
+        "morningsun",
+        "growth",
+        "magicalleaf",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "slam",
+        "bounce",
+        "aquatail",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "cutecharm",
+      "moveset": [
+        "mirrorcoat",
+        "doublekick",
+        "charm",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

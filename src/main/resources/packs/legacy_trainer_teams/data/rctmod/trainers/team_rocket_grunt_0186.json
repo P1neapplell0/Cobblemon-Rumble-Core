@@ -1,0 +1,151 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（44）",
+  "team": [
+    {
+      "species": "copperajah",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "docile",
+      "ability": "heavymetal",
+      "moveset": [
+        "irondefense",
+        "dig",
+        "strength",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swoobat",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "impish",
+      "ability": "klutz",
+      "moveset": [
+        "calmmind",
+        "airslash",
+        "futuresight",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "purugly",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "owntempo",
+      "moveset": [
+        "assist",
+        "captivate",
+        "bodyslam",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "rivalry",
+      "moveset": [
+        "venoshock",
+        "chipaway",
+        "bodyslam",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bold",
+      "ability": "shedskin",
+      "moveset": [
+        "spitup",
+        "poisonfang",
+        "gastroacid",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

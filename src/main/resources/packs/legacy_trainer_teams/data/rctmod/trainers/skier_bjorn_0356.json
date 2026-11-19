@@ -1,0 +1,63 @@
+{
+  "name": "滑雪者·比约恩",
+  "team": [
+    {
+      "species": "mantyke",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "timid",
+      "ability": "waterabsorb",
+      "moveset": [
+        "supersonic",
+        "bubblebeam",
+        "headbutt",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "quickattack",
+        "metalclaw",
+        "icywind",
+        "honeclaws"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

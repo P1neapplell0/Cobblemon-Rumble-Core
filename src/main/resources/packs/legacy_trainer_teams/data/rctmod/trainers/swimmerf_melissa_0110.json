@@ -1,0 +1,63 @@
+{
+  "name": "女泳者·梅丽莎",
+  "team": [
+    {
+      "species": "slowking",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "careful",
+      "ability": "owntempo",
+      "moveset": [
+        "psychic",
+        "trumpcard",
+        "psychup",
+        "healpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gorebyss",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "rash",
+      "ability": "dazzling",
+      "moveset": [
+        "coil",
+        "drainingkiss",
+        "hydropump",
+        "shellsmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

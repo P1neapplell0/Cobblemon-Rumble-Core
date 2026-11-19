@@ -1,0 +1,224 @@
+{
+  "name": "阿笔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pheromosa",
+      "gender": "GENDERLESS",
+      "level": 97,
+      "nature": "hasty",
+      "ability": "beastboost",
+      "moveset": [
+        "closecombat",
+        "icebeam",
+        "uturn",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "clawitzer",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "megalauncher",
+      "moveset": [
+        "waterpulse",
+        "darkpulse",
+        "aurasphere",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "genesect",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "naive",
+      "ability": "download",
+      "moveset": [
+        "uturn",
+        "technoblast",
+        "thunderbolt",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:douse_drive",
+        "expert_belt"
+      ],
+      "aspects": [
+        "douse"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "timid",
+      "ability": "magnetpull",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "voltswitch",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "arceus",
+      "gender": "GENDERLESS",
+      "level": 96,
+      "nature": "jolly",
+      "ability": "multitype",
+      "moveset": [
+        "xscissor",
+        "earthquake",
+        "ironhead",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:buginium_z",
+        "bug_gem"
+      ],
+      "aspects": [
+        "bug"
+      ]
+    },
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "jolly",
+      "ability": "hypercutter",
+      "moveset": [
+        "xscissor",
+        "strength",
+        "closecombat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    }
+  ]
+}

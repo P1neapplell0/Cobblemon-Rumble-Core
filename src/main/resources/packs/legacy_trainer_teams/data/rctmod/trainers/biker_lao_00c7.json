@@ -1,0 +1,104 @@
+{
+  "name": "暴走族·劳",
+  "team": [
+    {
+      "species": "mienshao",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "fakeout",
+        "closecombat",
+        "knockoff",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "heliolisk",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "timid",
+      "ability": "sandveil",
+      "moveset": [
+        "voltswitch",
+        "hyperbeam",
+        "weatherball",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "dugtrio",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "naive",
+      "ability": "sandforce",
+      "moveset": [
+        "earthquake",
+        "dig",
+        "suckerpunch",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

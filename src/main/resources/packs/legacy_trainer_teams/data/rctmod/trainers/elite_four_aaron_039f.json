@@ -1,0 +1,180 @@
+{
+  "name": "四天王·阿龙",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dustox",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "bold",
+      "ability": "shielddust",
+      "moveset": [
+        "toxic",
+        "bugbuzz",
+        "moonlight",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "beautifly",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "swarm",
+      "moveset": [
+        "bugbuzz",
+        "shadowball",
+        "psychic",
+        "quiverdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wise_glasses"
+      ]
+    },
+    {
+      "species": "vespiquen",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "unnerve",
+      "moveset": [
+        "acrobatics",
+        "attackorder",
+        "aerialace",
+        "defendorder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "facade",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "sniper",
+      "moveset": [
+        "crosspoison",
+        "nightslash",
+        "earthquake",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    }
+  ]
+}

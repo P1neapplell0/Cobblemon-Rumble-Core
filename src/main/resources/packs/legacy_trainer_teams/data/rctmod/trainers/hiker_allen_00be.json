@@ -1,0 +1,33 @@
+{
+  "name": "登山男·艾伦",
+  "team": [
+    {
+      "species": "golett",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "bashful",
+      "ability": "klutz",
+      "moveset": [
+        "magnitude",
+        "shadowpunch",
+        "stompingtantrum"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

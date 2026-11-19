@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·娜塔莎",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dunsparce",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "serious",
+      "ability": "serenegrace",
+      "moveset": [
+        "glare",
+        "doubleedge",
+        "coil",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "scyther",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "careful",
+      "ability": "swarm",
+      "moveset": [
+        "xscissor",
+        "slash",
+        "wingattack",
+        "furycutter"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marowak",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "serious",
+      "ability": "rockhead",
+      "moveset": [
+        "thrash",
+        "bonemerang",
+        "bonerush",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

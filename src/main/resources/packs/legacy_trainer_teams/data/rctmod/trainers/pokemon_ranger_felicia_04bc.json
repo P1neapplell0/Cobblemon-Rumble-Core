@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·菲丽西亚",
+  "team": [
+    {
+      "species": "lickitung",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "hardy",
+      "ability": "owntempo",
+      "moveset": [
+        "stomp",
+        "knockoff",
+        "powerwhip",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vigoroth",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "relaxed",
+      "ability": "vitalspirit",
+      "moveset": [
+        "reversal",
+        "counter",
+        "uproar",
+        "encore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

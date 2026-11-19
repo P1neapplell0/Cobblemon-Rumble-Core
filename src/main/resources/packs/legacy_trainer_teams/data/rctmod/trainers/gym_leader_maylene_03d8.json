@@ -1,0 +1,116 @@
+{
+  "name": "道馆馆主·阿李",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "naive",
+      "ability": "purepower",
+      "moveset": [
+        "drainpunch",
+        "lightscreen",
+        "flash",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "lowsweep",
+        "knockoff",
+        "rocktomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "steadfast",
+      "moveset": [
+        "drainpunch",
+        "screech",
+        "metalclaw",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    }
+  ]
+}

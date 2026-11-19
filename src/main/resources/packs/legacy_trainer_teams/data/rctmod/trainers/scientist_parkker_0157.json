@@ -1,0 +1,63 @@
+{
+  "name": "科学家·帕克",
+  "team": [
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "brave",
+      "ability": "skilllink",
+      "moveset": [
+        "aurorabeam",
+        "spikecannon",
+        "iceshard",
+        "spikes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickilicky",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "bashful",
+      "ability": "unaware",
+      "moveset": [
+        "rollout",
+        "chipaway",
+        "mefirst",
+        "refresh"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·奥黛丽",
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "slash",
+        "falseswipe",
+        "knockoff",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swellow",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "quickattack",
+        "endeavor",
+        "bravebird",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

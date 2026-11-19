@@ -1,0 +1,151 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（28）",
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "brave",
+      "ability": "sniper",
+      "moveset": [
+        "leechlife",
+        "dualwingbeat",
+        "haze",
+        "venoshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "purugly",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "naughty",
+      "ability": "owntempo",
+      "moveset": [
+        "assist",
+        "captivate",
+        "bodyslam",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lunatone",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "hasty",
+      "ability": "levitate",
+      "moveset": [
+        "futuresight",
+        "stoneedge",
+        "dreameater",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stonjourner",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "docile",
+      "ability": "powerspot",
+      "moveset": [
+        "stomp",
+        "stealthrock",
+        "rockslide",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bruxish",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "rash",
+      "ability": "strongjaw",
+      "moveset": [
+        "crunch",
+        "aquatail",
+        "screech",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

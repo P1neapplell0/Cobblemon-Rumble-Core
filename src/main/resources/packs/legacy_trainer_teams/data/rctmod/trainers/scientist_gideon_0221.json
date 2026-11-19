@@ -1,0 +1,150 @@
+{
+  "name": "科学家·吉迪恩",
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "naive",
+      "ability": "soundproof",
+      "moveset": [
+        "swift",
+        "screech",
+        "spark",
+        "sonicboom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "soundproof",
+      "moveset": [
+        "spark",
+        "sonicboom",
+        "screech",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "magnetpull",
+      "moveset": [
+        "screech",
+        "swift",
+        "spark",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "magneton",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "gentle",
+      "ability": "magnetpull",
+      "moveset": [
+        "triattack",
+        "spark",
+        "thunderwave",
+        "sonicboom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "porygon",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "naughty",
+      "ability": "trace",
+      "moveset": [
+        "triattack",
+        "shadowball",
+        "recover",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

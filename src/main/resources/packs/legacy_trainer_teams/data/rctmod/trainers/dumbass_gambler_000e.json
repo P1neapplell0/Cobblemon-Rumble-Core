@@ -1,0 +1,34 @@
+{
+  "name": "搞笑·赌徒",
+  "team": [
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 38,
+      "nature": "docile",
+      "ability": "illuminate",
+      "moveset": [
+        "watergun",
+        "rapidspin",
+        "recover",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "捕虫少年·圭吾",
+  "team": [
+    {
+      "species": "ledian",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "relaxed",
+      "ability": "ironfist",
+      "moveset": [
+        "reflect",
+        "safeguard",
+        "machpunch",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mothim",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "serious",
+      "ability": "swarm",
+      "moveset": [
+        "aircutter",
+        "defog",
+        "bugbite",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "karrablast",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "gentle",
+      "ability": "shedskin",
+      "moveset": [
+        "endure",
+        "furycutter",
+        "bugbite",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

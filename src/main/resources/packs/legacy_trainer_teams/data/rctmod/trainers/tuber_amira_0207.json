@@ -1,0 +1,169 @@
+{
+  "name": "泳圈族·阿米拉",
+  "team": [
+    {
+      "species": "palossand",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "watercompaction",
+      "moveset": [
+        "scorchingsands",
+        "shadowball",
+        "shoreup",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "crawdaunt",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "dragondance",
+        "crabhammer",
+        "knockoff",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "mantine",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "hydration",
+      "moveset": [
+        "surf",
+        "gunkshot",
+        "icebeam",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:poisonium_z",
+        "poison_gem"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "swanna",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "naive",
+      "ability": "noguard",
+      "moveset": [
+        "hydropump",
+        "hurricane",
+        "icebeam",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flying_gem"
+      ]
+    },
+    {
+      "species": "whiscash",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "waterbubble",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "earthquake",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    }
+  ]
+}

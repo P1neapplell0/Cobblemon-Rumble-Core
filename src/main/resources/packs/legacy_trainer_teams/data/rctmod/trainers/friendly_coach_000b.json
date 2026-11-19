@@ -1,0 +1,170 @@
+{
+  "name": "友善教练（物防）",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "statusMoveBias": 1,
+      "switchBias": 0,
+      "itemBias": 0
+    }
+  },
+  "team": [
+    {
+      "species": "rolycoly",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "impish",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rolycoly",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "mild",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rolycoly",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "modest",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rolycoly",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "relaxed",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rolycoly",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "modest",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rolycoly",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "naive",
+      "ability": "flamebody",
+      "moveset": [
+        "block"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

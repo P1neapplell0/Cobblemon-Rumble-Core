@@ -1,0 +1,127 @@
+{
+  "name": "恐怖布鲁·格拉夫",
+  "team": [
+    {
+      "species": "ariados",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "insomnia",
+      "moveset": [
+        "leechlife",
+        "suckerpunch",
+        "smartstrike",
+        "spiderweb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "granbull",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "jolly",
+      "ability": "strongjaw",
+      "moveset": [
+        "playrough",
+        "crunch",
+        "icefang",
+        "thunderfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "fairy_gem"
+      ]
+    },
+    {
+      "species": "probopass",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "analytic",
+      "moveset": [
+        "powergem",
+        "flashcannon",
+        "discharge",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "crawdaunt",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "aquajet",
+        "knockoff",
+        "metalclaw",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

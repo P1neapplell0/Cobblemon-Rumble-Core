@@ -1,0 +1,120 @@
+{
+  "name": "科学家·波",
+  "team": [
+    {
+      "species": "electabuzz",
+      "gender": "FEMALE",
+      "level": 41,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "voltswitch",
+        "icepunch",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kecleon",
+      "gender": "FEMALE",
+      "level": 41,
+      "nature": "bold",
+      "ability": "colorchange",
+      "moveset": [
+        "drainpunch",
+        "suckerpunch",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gardevoir",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "docile",
+      "ability": "synchronize",
+      "moveset": [
+        "dazzlinggleam",
+        "psychic",
+        "signalbeam",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arcanine",
+      "gender": "FEMALE",
+      "level": 41,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "flamethrower",
+        "wildcharge",
+        "extremespeed",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

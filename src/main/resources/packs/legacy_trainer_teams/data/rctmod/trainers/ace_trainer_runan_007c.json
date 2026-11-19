@@ -1,0 +1,214 @@
+{
+  "name": "精英训练家·鲁南",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "highhorsepower",
+        "stoneedge",
+        "closecombat",
+        "lashout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "enamorus",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "hasty",
+      "ability": "contrary",
+      "moveset": [
+        "mistyexplosion",
+        "psychic",
+        "superpower",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "salamence",
+      "gender": "MALE",
+      "level": 94,
+      "nature": "naive",
+      "ability": "intimidate",
+      "moveset": [
+        "doubleedge",
+        "dragonrush",
+        "hypervoice",
+        "fireblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:salamencite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "aegislash",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "quiet",
+      "ability": "stancechange",
+      "moveset": [
+        "kingsshield",
+        "shadowball",
+        "flashcannon",
+        "sacredsword"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:ghostium_z",
+        "ghost_gem"
+      ]
+    },
+    {
+      "species": "victini",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "hasty",
+      "ability": "victorystar",
+      "moveset": [
+        "vcreate",
+        "wildcharge",
+        "finalgambit",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "keldeo",
+      "gender": "GENDERLESS",
+      "level": 94,
+      "nature": "timid",
+      "ability": "sharpness",
+      "moveset": [
+        "hydropump",
+        "sacredsword",
+        "icywind",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "water_gem"
+      ]
+    }
+  ]
+}

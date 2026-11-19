@@ -1,0 +1,63 @@
+{
+  "name": "泳者·埃文",
+  "team": [
+    {
+      "species": "psyduck",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "sassy",
+      "ability": "damp",
+      "moveset": [
+        "flipturn",
+        "tailwhip",
+        "zenheadbutt",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "psyduck",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "sassy",
+      "ability": "damp",
+      "moveset": [
+        "furyswipes",
+        "waterpulse",
+        "zenheadbutt",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

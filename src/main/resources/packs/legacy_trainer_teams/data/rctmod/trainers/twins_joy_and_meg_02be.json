@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·乔伊＆梅格",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "sassy",
+      "ability": "magicguard",
+      "moveset": [
+        "bodyslam",
+        "afteryou",
+        "moonblast",
+        "gravity"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "docile",
+      "ability": "magicguard",
+      "moveset": [
+        "bodyslam",
+        "afteryou",
+        "moonblast",
+        "gravity"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

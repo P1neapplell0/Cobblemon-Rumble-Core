@@ -1,0 +1,62 @@
+{
+  "name": "登山男·卢卡斯",
+  "team": [
+    {
+      "species": "honedge",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hasty",
+      "ability": "sharpness",
+      "moveset": [
+        "facade",
+        "gyroball",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "teddiursa",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "quirky",
+      "ability": "quickfeet",
+      "moveset": [
+        "bulldoze",
+        "furyswipes",
+        "faketears",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

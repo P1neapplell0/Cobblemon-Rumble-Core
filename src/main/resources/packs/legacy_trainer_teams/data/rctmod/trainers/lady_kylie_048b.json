@@ -1,0 +1,63 @@
+{
+  "name": "大小姐·凯莉",
+  "team": [
+    {
+      "species": "bonsly",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "jolly",
+      "ability": "sturdy",
+      "moveset": [
+        "copycat",
+        "flail",
+        "rockthrow",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pichu",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "thundershock",
+        "tailwhip",
+        "nuzzle",
+        "charm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

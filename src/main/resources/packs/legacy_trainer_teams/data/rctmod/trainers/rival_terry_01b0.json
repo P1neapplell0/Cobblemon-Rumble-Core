@@ -1,0 +1,166 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bravebird",
+        "quickattack",
+        "closecombat",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sharp_beak"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "voltswitch",
+        "poweruppunch",
+        "focuspunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "darmanitan",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "flareblitz",
+        "rockslide",
+        "uturn",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "jumpluff",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "aerilate",
+      "moveset": [
+        "sleeppowder",
+        "doubleedge",
+        "seedbomb",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sharp_beak"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "torrent",
+      "moveset": [
+        "shellsmash",
+        "waterpulse",
+        "aurasphere",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:blastoisinite",
+        "leftovers"
+      ]
+    }
+  ]
+}

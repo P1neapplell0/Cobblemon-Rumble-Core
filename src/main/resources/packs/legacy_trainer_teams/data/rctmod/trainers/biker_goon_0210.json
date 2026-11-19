@@ -1,0 +1,102 @@
+{
+  "name": "暴走族·打手",
+  "team": [
+    {
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "impish",
+      "ability": "prankster",
+      "moveset": [
+        "reflect",
+        "lightscreen",
+        "thunderwave",
+        "spiritbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "flygon",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "tintedlens",
+      "moveset": [
+        "earthquake",
+        "dragonclaw",
+        "uturn",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:groundium_z",
+        "ground_gem"
+      ]
+    },
+    {
+      "species": "kleavor",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "smackdown",
+        "uturn",
+        "closecombat",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rock_gem"
+      ]
+    }
+  ]
+}

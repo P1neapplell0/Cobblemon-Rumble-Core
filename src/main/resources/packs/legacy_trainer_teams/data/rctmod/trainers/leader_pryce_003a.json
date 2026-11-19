@@ -1,0 +1,219 @@
+{
+  "name": "柳伯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "agility",
+        "burningjealousy",
+        "fireblast",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "icy_rock"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "arctozolt",
+      "gender": "GENDERLESS",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "slushrush",
+      "moveset": [
+        "wildcharge",
+        "icefang",
+        "stompingtantrum",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "frosmoth",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "modest",
+      "ability": "icescales",
+      "moveset": [
+        "quiverdance",
+        "icebeam",
+        "bugbuzz",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "adamant",
+      "ability": "icescales",
+      "moveset": [
+        "earthquake",
+        "bodyslam",
+        "gyroball",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "beartic",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "slushrush",
+      "moveset": [
+        "playrough",
+        "iciclespear",
+        "superpower",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "glalie",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "icebody",
+      "moveset": [
+        "gigaimpact",
+        "earthquake",
+        "crunch",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:glalitite",
+        "leftovers"
+      ]
+    }
+  ]
+}

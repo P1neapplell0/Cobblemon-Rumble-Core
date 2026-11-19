@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·珍妮弗",
+  "team": [
+    {
+      "species": "chimecho",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "jolly",
+      "ability": "levitate",
+      "moveset": [
+        "extrasensory",
+        "healbell",
+        "uproar",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "name": "馆主·小霞",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "frogadier",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "bashful",
+      "ability": "protean",
+      "moveset": [
+        "icepunch",
+        "rocktomb",
+        "dive",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "buizel",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "timid",
+      "ability": "technician",
+      "moveset": [
+        "waterpulse",
+        "flipturn",
+        "icywind",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 27,
+      "nature": "timid",
+      "ability": "analytic",
+      "moveset": [
+        "psyshock",
+        "scald",
+        "recover",
+        "icywind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "chinchou",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "bold",
+      "ability": "voltabsorb",
+      "moveset": [
+        "scald",
+        "electroball",
+        "icywind",
+        "terablast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "iapapa_berry"
+      ]
+    }
+  ]
+}

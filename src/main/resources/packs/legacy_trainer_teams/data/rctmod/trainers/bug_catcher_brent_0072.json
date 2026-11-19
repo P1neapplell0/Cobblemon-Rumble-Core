@@ -1,0 +1,63 @@
+{
+  "name": "捕虫少年·布伦特",
+  "team": [
+    {
+      "species": "dottler",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "calm",
+      "ability": "frisk",
+      "moveset": [
+        "confusion",
+        "allyswitch",
+        "skillswap",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vivillon",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "jolly",
+      "ability": "compoundeyes",
+      "moveset": [
+        "psybeam",
+        "airslash",
+        "drainingkiss",
+        "signalbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·本尼",
+  "team": [
+    {
+      "species": "empoleon",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "naughty",
+      "ability": "torrent",
+      "moveset": [
+        "whirlpool",
+        "flashcannon",
+        "mist",
+        "drillpeck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "brave",
+      "ability": "technician",
+      "moveset": [
+        "roost",
+        "drillpeck",
+        "drillrun",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

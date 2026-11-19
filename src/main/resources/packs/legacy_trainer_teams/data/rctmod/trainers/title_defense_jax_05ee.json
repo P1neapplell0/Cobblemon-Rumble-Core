@@ -1,0 +1,199 @@
+{
+  "name": "冠军防卫战·贾克斯",
+  "identity": "冠军·贾克斯",
+  "team": [
+    {
+      "species": "naganadel",
+      "gender": "GENDERLESS",
+      "level": 79,
+      "nature": "timid",
+      "ability": "beastboost",
+      "moveset": [
+        "dragonpulse",
+        "sludgebomb",
+        "heatwave",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "hitmontop",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "impish",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "suckerpunch",
+        "fakeout",
+        "helpinghand"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 78,
+      "nature": "modest",
+      "ability": "sturdy",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "swift",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "earthpower",
+        "icebeam",
+        "recover",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "aguav_berry"
+      ]
+    },
+    {
+      "species": "salamence",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "aerilate",
+      "moveset": [
+        "doubleedge",
+        "brickbreak",
+        "rockslide",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:salamencite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "moltres",
+      "gender": "GENDERLESS",
+      "level": 79,
+      "nature": "timid",
+      "ability": "berserk",
+      "moveset": [
+        "heatwave",
+        "hurricane",
+        "scorchingsands",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charti_berry"
+      ]
+    }
+  ]
+}

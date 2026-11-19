@@ -1,0 +1,64 @@
+{
+  "name": "双胞胎·琪莉＆简",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "cinderace",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "headbutt",
+        "counter",
+        "bounce",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "inteleon",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "mild",
+      "ability": "torrent",
+      "moveset": [
+        "uturn",
+        "liquidation",
+        "soak",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

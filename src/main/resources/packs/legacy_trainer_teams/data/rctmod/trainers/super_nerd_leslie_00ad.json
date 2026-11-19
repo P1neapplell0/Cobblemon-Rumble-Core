@@ -1,0 +1,34 @@
+{
+  "name": "超级书呆·莱斯利",
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "sludge",
+        "selfdestruct",
+        "venoshock",
+        "smokescreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "name": "柳伯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "jynx",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "timid",
+      "ability": "dryskin",
+      "moveset": [
+        "lovelykiss",
+        "frostbreath",
+        "dreameater",
+        "substitute"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "earthquake",
+        "iceshard",
+        "iciclecrash",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "walrein",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "calm",
+      "ability": "furcoat",
+      "moveset": [
+        "rest",
+        "sleeptalk",
+        "surf",
+        "babydolleyes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "arctovish",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "waterabsorb",
+      "moveset": [
+        "liquidation",
+        "psychicfangs",
+        "icefang",
+        "iciclespear"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "mrrime",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "screencleaner",
+      "moveset": [
+        "freezedry",
+        "psychic",
+        "icebeam",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "glalie",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "icebody",
+      "moveset": [
+        "gigaimpact",
+        "earthquake",
+        "iceshard",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:glalitite",
+        "leftovers"
+      ]
+    }
+  ]
+}

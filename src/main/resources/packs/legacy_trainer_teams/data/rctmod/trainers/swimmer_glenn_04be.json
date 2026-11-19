@@ -1,0 +1,63 @@
+{
+  "name": "泳者·格伦",
+  "team": [
+    {
+      "species": "seel",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "calm",
+      "ability": "thickfat",
+      "moveset": [
+        "dive",
+        "aquatail",
+        "icebeam",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 51,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "hydropump",
+        "psychic",
+        "swift",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

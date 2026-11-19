@@ -1,0 +1,165 @@
+{
+  "name": "精英训练家·雄二",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "hasty",
+      "ability": "sandveil",
+      "moveset": [
+        "slash",
+        "swift",
+        "sandattack",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "docile",
+      "ability": "rockhead",
+      "moveset": [
+        "rockblast",
+        "magnitude",
+        "mudsport",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "mild",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonbreath",
+        "sandstorm",
+        "rockthrow",
+        "bind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "brave",
+      "ability": "rockhead",
+      "moveset": [
+        "rockblast",
+        "magnitude",
+        "rollout",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "bulldoze",
+        "headbutt",
+        "leer",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

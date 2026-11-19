@@ -1,0 +1,199 @@
+{
+  "name": "大木博士",
+  "team": [
+    {
+      "species": "pidgeot",
+      "gender": "FEMALE",
+      "level": 98,
+      "nature": "timid",
+      "ability": "frisk",
+      "moveset": [
+        "hurricane",
+        "heatwave",
+        "hyperbeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pidgeotite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "FEMALE",
+      "level": 99,
+      "nature": "timid",
+      "ability": "torrent",
+      "moveset": [
+        "shellsmash",
+        "waterpulse",
+        "darkpulse",
+        "aurasphere"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "FEMALE",
+      "level": 98,
+      "nature": "jolly",
+      "ability": "toxicboost",
+      "moveset": [
+        "flareblitz",
+        "lastresort",
+        "takedown",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:eevium_z",
+        "normal_gem"
+      ]
+    },
+    {
+      "species": "zapdos",
+      "gender": "GENDERLESS",
+      "level": 97,
+      "nature": "hasty",
+      "ability": "pressure",
+      "moveset": [
+        "wildcharge",
+        "bravebird",
+        "uturn",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flying_gem"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 99,
+      "nature": "adamant",
+      "ability": "noguard",
+      "moveset": [
+        "dynamicpunch",
+        "poweruppunch",
+        "stoneedge",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 99,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "sludgewave",
+        "earthpower",
+        "flamethrower",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

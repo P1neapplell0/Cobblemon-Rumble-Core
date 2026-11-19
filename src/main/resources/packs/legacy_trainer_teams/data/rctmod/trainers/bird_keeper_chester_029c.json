@@ -1,0 +1,92 @@
+{
+  "name": "养鸟人·切斯特",
+  "team": [
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "lax",
+      "ability": "earlybird",
+      "moveset": [
+        "uproar",
+        "swordsdance",
+        "jumpkick",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "mild",
+      "ability": "earlybird",
+      "moveset": [
+        "uproar",
+        "swordsdance",
+        "jumpkick",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "naive",
+      "ability": "earlybird",
+      "moveset": [
+        "uproar",
+        "swordsdance",
+        "jumpkick",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

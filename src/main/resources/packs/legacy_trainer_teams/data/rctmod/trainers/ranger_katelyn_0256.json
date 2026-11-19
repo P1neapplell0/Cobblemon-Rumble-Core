@@ -1,0 +1,34 @@
+{
+  "name": "保育家·凯特琳",
+  "team": [
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "lonely",
+      "ability": "serenegrace",
+      "moveset": [
+        "eggbomb",
+        "defensecurl",
+        "minimize",
+        "softboiled"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

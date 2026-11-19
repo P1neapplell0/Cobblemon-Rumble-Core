@@ -1,0 +1,63 @@
+{
+  "name": "驯兽师·科尔",
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "bashful",
+      "ability": "intimidate",
+      "moveset": [
+        "swallow",
+        "spitup",
+        "poisonfang",
+        "gastroacid"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "hardy",
+      "ability": "intimidate",
+      "moveset": [
+        "rest",
+        "payback",
+        "workup",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

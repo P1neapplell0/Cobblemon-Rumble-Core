@@ -1,0 +1,34 @@
+{
+  "name": "香氛小姐·伊丽莎白",
+  "team": [
+    {
+      "species": "budew",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "calm",
+      "ability": "poisonpoint",
+      "moveset": [
+        "absorb",
+        "growth",
+        "stunspore",
+        "worryseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

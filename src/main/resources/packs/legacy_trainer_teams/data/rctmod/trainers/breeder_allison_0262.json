@@ -1,0 +1,92 @@
+{
+  "name": "培育家·艾莉森",
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "hasty",
+      "ability": "magicguard",
+      "moveset": [
+        "luckychant",
+        "bodyslam",
+        "afteryou",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "calm",
+      "ability": "magicguard",
+      "moveset": [
+        "luckychant",
+        "bodyslam",
+        "afteryou",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefable",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "sassy",
+      "ability": "magicguard",
+      "moveset": [
+        "sing",
+        "doubleslap",
+        "metronome",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

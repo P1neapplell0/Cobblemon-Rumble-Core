@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·贾奈",
+  "team": [
+    {
+      "species": "golett",
+      "gender": "GENDERLESS",
+      "level": 38,
+      "nature": "modest",
+      "ability": "klutz",
+      "moveset": [
+        "megapunch",
+        "magnitude",
+        "superpower",
+        "astonish"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

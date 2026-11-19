@@ -1,0 +1,165 @@
+{
+  "name": "精英训练家·勒罗伊",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "rhydon",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "lax",
+      "ability": "rockhead",
+      "moveset": [
+        "takedown",
+        "chipaway",
+        "rockblast",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "timid",
+      "ability": "owntempo",
+      "moveset": [
+        "psychic",
+        "headbutt",
+        "amnesia",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "mild",
+      "ability": "scrappy",
+      "moveset": [
+        "dizzypunch",
+        "bite",
+        "endure",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "jolly",
+      "ability": "noguard",
+      "moveset": [
+        "closecombat",
+        "vitalthrow",
+        "revenge",
+        "seismictoss"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ursaring",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "naughty",
+      "ability": "quickfeet",
+      "moveset": [
+        "slash",
+        "feintattack",
+        "snore",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

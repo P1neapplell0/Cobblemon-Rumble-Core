@@ -1,0 +1,34 @@
+{
+  "name": "绅士·塔克",
+  "team": [
+    {
+      "species": "elekid",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "lonely",
+      "ability": "static",
+      "moveset": [
+        "shockwave",
+        "thunderwave",
+        "electroball",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

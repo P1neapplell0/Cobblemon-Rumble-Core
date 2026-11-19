@@ -1,0 +1,104 @@
+{
+  "name": "女泳者·阿玛拉",
+  "team": [
+    {
+      "species": "milotic",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "competitive",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "swift",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "mudshot",
+        "alluringvoice",
+        "scald",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "calm",
+      "ability": "icescales",
+      "moveset": [
+        "muddywater",
+        "icebeam",
+        "rest",
+        "sleeptalk"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

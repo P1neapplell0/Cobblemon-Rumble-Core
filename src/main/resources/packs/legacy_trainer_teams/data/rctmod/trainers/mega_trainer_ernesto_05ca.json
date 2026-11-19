@@ -1,0 +1,163 @@
+{
+  "name": "超级训练家·埃内斯托",
+  "team": [
+    {
+      "species": "archeops",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "klutz",
+      "moveset": [
+        "rockslide",
+        "acrobatics",
+        "crunch",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "walrein",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "calm",
+      "ability": "regenerator",
+      "moveset": [
+        "frostbreath",
+        "surf",
+        "aquaring",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "vileplume",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "sunnyday",
+        "moonlight",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "leavanny",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "leafblade",
+        "xscissor",
+        "throatchop",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "occa_berry"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "highjumpkick",
+        "zenheadbutt",
+        "firepunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:medichamite",
+        "choice_scarf"
+      ]
+    }
+  ]
+}

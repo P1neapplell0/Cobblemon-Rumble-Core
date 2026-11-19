@@ -1,0 +1,63 @@
+{
+  "name": "空手道王·卡尔",
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "hardy",
+      "ability": "dryskin",
+      "moveset": [
+        "poisonjab",
+        "suckerpunch",
+        "revenge",
+        "flatter"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "sassy",
+      "ability": "noguard",
+      "moveset": [
+        "knockoff",
+        "dynamicpunch",
+        "seismictoss",
+        "focusenergy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

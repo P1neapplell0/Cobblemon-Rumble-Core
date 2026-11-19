@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·泰勒",
+  "team": [
+    {
+      "species": "luxio",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "leer",
+        "bite",
+        "spark",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "buizel",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "bite",
+        "swift",
+        "aquajet",
+        "whirlpool"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

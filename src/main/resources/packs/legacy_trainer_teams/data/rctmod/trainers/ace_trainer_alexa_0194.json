@@ -1,0 +1,181 @@
+{
+  "name": "精英训练家·亚历克莎",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "clefable",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "modest",
+      "ability": "magicguard",
+      "moveset": [
+        "moonblast",
+        "fireblast",
+        "thunderbolt",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "wigglytuff",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "bashful",
+      "ability": "sheerforce",
+      "moveset": [
+        "mistyexplosion",
+        "flamethrower",
+        "thunderbolt",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "bestow",
+        "allyswitch",
+        "seismictoss",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "komala",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "adamant",
+      "ability": "comatose",
+      "moveset": [
+        "endeavor",
+        "knockoff",
+        "uturn",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "bold",
+      "ability": "healer",
+      "moveset": [
+        "dazzlinggleam",
+        "wish",
+        "protect",
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:audinite",
+        "leftovers"
+      ]
+    }
+  ]
+}

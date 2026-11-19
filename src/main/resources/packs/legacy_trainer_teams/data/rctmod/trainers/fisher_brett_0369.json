@@ -1,0 +1,90 @@
+{
+  "name": "钓客·布雷特",
+  "team": [
+    {
+      "species": "magikarp",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "finneon",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "sassy",
+      "ability": "stormdrain",
+      "moveset": [
+        "raindance",
+        "aquaring",
+        "whirlpool",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "feebas",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "sassy",
+      "ability": "oblivious",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

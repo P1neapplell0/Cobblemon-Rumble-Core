@@ -1,0 +1,63 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "starly",
+      "gender": "MALE",
+      "level": 9,
+      "nature": "mild",
+      "ability": "frisk",
+      "moveset": [
+        "tackle",
+        "growl",
+        "quickattack",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "charmander",
+      "gender": "FEMALE",
+      "level": 9,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "growl",
+        "falseswipe",
+        "ember",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

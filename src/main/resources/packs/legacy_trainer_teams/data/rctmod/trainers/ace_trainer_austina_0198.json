@@ -1,0 +1,165 @@
+{
+  "name": "精英训练家·奥斯汀娜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "rash",
+      "ability": "rockhead",
+      "moveset": [
+        "chipaway",
+        "rockblast",
+        "scaryface",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "lonely",
+      "ability": "rivalry",
+      "moveset": [
+        "doublekick",
+        "furyswipes",
+        "bite",
+        "honeclaws"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "rivalry",
+      "moveset": [
+        "bodyslam",
+        "doublekick",
+        "bite",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "rivalry",
+      "moveset": [
+        "hornattack",
+        "poisonsting",
+        "focusenergy",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "quiet",
+      "ability": "rivalry",
+      "moveset": [
+        "thrash",
+        "doublekick",
+        "poisonsting",
+        "peck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

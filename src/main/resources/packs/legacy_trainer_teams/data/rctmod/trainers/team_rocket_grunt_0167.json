@@ -1,0 +1,67 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（13）",
+  "team": [
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "crunch",
+        "endeavor",
+        "superfang",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "relaxed",
+      "ability": "hustle",
+      "moveset": [
+        "crunch",
+        "suckerpunch",
+        "superfang",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

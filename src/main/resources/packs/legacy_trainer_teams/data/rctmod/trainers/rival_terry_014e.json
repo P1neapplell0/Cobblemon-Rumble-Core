@@ -1,0 +1,118 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "ralts",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "bashful",
+      "ability": "trace",
+      "moveset": [
+        "confusion",
+        "disarmingvoice",
+        "magicalleaf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "bashful",
+      "ability": "intimidate",
+      "moveset": [
+        "wingattack",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rockruff",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "bashful",
+      "ability": "frisk",
+      "moveset": [
+        "rocktomb",
+        "bite",
+        "howl"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "charmeleon",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "adamant",
+      "ability": "blaze",
+      "moveset": [
+        "scratch",
+        "ember"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

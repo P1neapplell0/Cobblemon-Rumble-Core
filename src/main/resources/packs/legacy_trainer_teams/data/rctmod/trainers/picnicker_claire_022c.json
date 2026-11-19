@@ -1,0 +1,134 @@
+{
+  "name": "野餐少女·克莱尔",
+  "team": [
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "expandingforce",
+        "shadowball",
+        "nastyplot",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:alakazite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "indeedee",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "expandingforce",
+        "afteryou",
+        "fakeout",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "tanga_berry"
+      ]
+    },
+    {
+      "species": "dugtrio",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "arenatrap",
+      "moveset": [
+        "earthquake",
+        "stompingtantrum",
+        "reversal",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "justified",
+      "moveset": [
+        "crunch",
+        "closecombat",
+        "meteormash",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

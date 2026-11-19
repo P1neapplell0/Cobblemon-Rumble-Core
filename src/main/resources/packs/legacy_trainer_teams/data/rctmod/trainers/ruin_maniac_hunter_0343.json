@@ -1,0 +1,34 @@
+{
+  "name": "遗迹狂·亨特",
+  "team": [
+    {
+      "species": "shieldon",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "tackle",
+        "taunt",
+        "takedown",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

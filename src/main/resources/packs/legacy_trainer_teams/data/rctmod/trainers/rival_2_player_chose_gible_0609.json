@@ -1,0 +1,63 @@
+{
+  "name": "劲敌·韦恩",
+  "team": [
+    {
+      "species": "swinub",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "hardy",
+      "ability": "oblivious",
+      "moveset": [
+        "mudslap",
+        "iceshard",
+        "powdersnow",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "larvitar",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "bite",
+        "scaryface",
+        "rocktomb",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

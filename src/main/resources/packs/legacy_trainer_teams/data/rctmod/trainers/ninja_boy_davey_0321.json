@@ -1,0 +1,34 @@
+{
+  "name": "忍者少年·戴维",
+  "team": [
+    {
+      "species": "dustox",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "hasty",
+      "ability": "shielddust",
+      "moveset": [
+        "poisonpowder",
+        "venoshock",
+        "skittersmack",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

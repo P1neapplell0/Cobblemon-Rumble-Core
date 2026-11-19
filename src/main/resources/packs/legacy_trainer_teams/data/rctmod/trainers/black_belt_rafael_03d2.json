@@ -1,0 +1,34 @@
+{
+  "name": "空手道王·拉斐尔",
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "lowkick",
+        "forcepalm",
+        "mindreader",
+        "highjumpkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

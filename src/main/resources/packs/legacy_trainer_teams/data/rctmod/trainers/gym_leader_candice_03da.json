@@ -1,0 +1,148 @@
+{
+  "name": "道馆馆主·小菘",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "relaxed",
+      "ability": "snowwarning",
+      "moveset": [
+        "mist",
+        "razorleaf",
+        "waterpulse",
+        "avalanche"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "icy_rock"
+      ]
+    },
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "jolly",
+      "ability": "pickpocket",
+      "moveset": [
+        "metalclaw",
+        "honeclaws",
+        "dig",
+        "avalanche"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "icepunch",
+        "bulkup",
+        "brickbreak",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "quiet",
+      "ability": "snowwarning",
+      "moveset": [
+        "auroraveil",
+        "gigadrain",
+        "earthquake",
+        "blizzard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

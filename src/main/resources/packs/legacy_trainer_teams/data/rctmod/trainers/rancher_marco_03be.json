@@ -1,0 +1,92 @@
+{
+  "name": "牧场主·马尔科",
+  "team": [
+    {
+      "species": "aipom",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "sandattack",
+        "astonish",
+        "tickle",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "psyduck",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "hasty",
+      "ability": "cloudnine",
+      "moveset": [
+        "scratch",
+        "tailwhip",
+        "confusion",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "girafarig",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "naive",
+      "ability": "innerfocus",
+      "moveset": [
+        "growl",
+        "confusion",
+        "assurance",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "银河队手下",
+  "identity": "银河队手下（37）",
+  "team": [
+    {
+      "species": "wurmple",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "serious",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "silcoon",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "bashful",
+      "ability": "shedskin",
+      "moveset": [
+        "tackle",
+        "poisonsting",
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beautifly",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "quirky",
+      "ability": "swarm",
+      "moveset": [
+        "aircutter",
+        "skittersmack",
+        "attract",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

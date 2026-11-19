@@ -1,0 +1,63 @@
+{
+  "name": "赌徒·贾斯珀",
+  "team": [
+    {
+      "species": "weepinbell",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "naive",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sleeppowder",
+        "poisonpowder",
+        "stunspore",
+        "venoshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "morelull",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "sassy",
+      "ability": "effectspore",
+      "moveset": [
+        "megadrain",
+        "sleeppowder",
+        "ingrain",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

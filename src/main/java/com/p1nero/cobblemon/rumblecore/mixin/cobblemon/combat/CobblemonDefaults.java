@@ -27,7 +27,7 @@ abstract class CobblemonDefaults {
         infiniteHealerCharge = true;
         defaultBoxCount = 100;
         experienceShareMultiplier = 1.0;
-        pokemonPerChunk = 1.5F;
+        pokemonPerChunk = 1.0F;
         rememberRidingCamera = true;
         maxPokedexScanningDetectionRange = 16.0;
         disableRoll = true;

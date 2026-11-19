@@ -1,0 +1,220 @@
+{
+  "name": "训练家·青绿",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "empoleon",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "defiant",
+      "moveset": [
+        "liquidation",
+        "drillpeck",
+        "rockslide",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "togedemaru",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sturdy",
+      "moveset": [
+        "nuzzle",
+        "fakeout",
+        "electroweb",
+        "superfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "red_card"
+      ]
+    },
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "surgesurfer",
+      "moveset": [
+        "thunderbolt",
+        "alluringvoice",
+        "grassknot",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:aloraichium_z",
+        "electric_gem"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 94,
+      "nature": "modest",
+      "ability": "motordrive",
+      "moveset": [
+        "thunderbolt",
+        "thunder",
+        "swift",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "aspects": [
+        "mow-appliance"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "timid",
+      "ability": "intimidate",
+      "moveset": [
+        "thunderbolt",
+        "flamethrower",
+        "snarl",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:manectite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "melmetal",
+      "gender": "GENDERLESS",
+      "level": 94,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "doubleironbash",
+        "thunderpunch",
+        "icepunch",
+        "highhorsepower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

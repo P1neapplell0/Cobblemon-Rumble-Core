@@ -1,0 +1,63 @@
+{
+  "name": "女泳者·爱丽丝",
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "rash",
+      "ability": "intimidate",
+      "moveset": [
+        "dragondance",
+        "hurricane",
+        "raindance",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wishiwashi",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "schooling",
+      "moveset": [
+        "aquatail",
+        "doubleedge",
+        "endeavor",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

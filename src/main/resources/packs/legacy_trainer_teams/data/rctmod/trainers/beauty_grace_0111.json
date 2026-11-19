@@ -1,0 +1,63 @@
+{
+  "name": "大姐姐·格蕾丝",
+  "team": [
+    {
+      "species": "clefable",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "naughty",
+      "ability": "magicguard",
+      "moveset": [
+        "doubleslap",
+        "metronome",
+        "allyswitch",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wigglytuff",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "quiet",
+      "ability": "competitive",
+      "moveset": [
+        "sing",
+        "disable",
+        "covet",
+        "mistyexplosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

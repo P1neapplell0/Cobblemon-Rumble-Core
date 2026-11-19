@@ -1,0 +1,34 @@
+{
+  "name": "野餐少女·艾丽西亚",
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "bashful",
+      "ability": "limber",
+      "moveset": [
+        "screech",
+        "headbutt",
+        "taunt",
+        "shockwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·纳什",
+  "team": [
+    {
+      "species": "weepinbell",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "docile",
+      "ability": "chlorophyll",
+      "moveset": [
+        "knockoff",
+        "gastroacid",
+        "razorleaf",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "weepinbell",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "chlorophyll",
+      "moveset": [
+        "knockoff",
+        "gastroacid",
+        "razorleaf",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "victreebel",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "poisonjab",
+        "leafstorm",
+        "leafblade",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

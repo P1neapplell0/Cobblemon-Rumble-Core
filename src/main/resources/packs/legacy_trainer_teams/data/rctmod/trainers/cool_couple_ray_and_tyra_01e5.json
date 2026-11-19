@@ -1,0 +1,70 @@
+{
+  "name": "帅气情侣·雷＆泰拉",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "sheerforce",
+      "moveset": [
+        "icebeam",
+        "earthpower",
+        "sludgebomb",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "icebeam",
+        "earthpower",
+        "sludgebomb",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

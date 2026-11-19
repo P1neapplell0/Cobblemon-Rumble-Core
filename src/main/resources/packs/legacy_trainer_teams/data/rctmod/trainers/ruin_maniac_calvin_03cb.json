@@ -1,0 +1,63 @@
+{
+  "name": "遗迹狂·卡尔文",
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 21,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "confusion",
+        "confuseray",
+        "payback",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shieldon",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "taunt",
+        "metalsound",
+        "takedown",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

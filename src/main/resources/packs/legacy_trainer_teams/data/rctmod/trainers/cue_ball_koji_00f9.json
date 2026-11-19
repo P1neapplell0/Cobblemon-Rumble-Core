@@ -1,0 +1,69 @@
+{
+  "name": "光头党·浩二",
+  "team": [
+    {
+      "species": "kingler",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "liquidation",
+        "metalclaw",
+        "superpower",
+        "razorshell"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "dracozolt",
+      "gender": "GENDERLESS",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "sandrush",
+      "moveset": [
+        "boltbeak",
+        "dragonclaw",
+        "earthquake",
+        "fireblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    }
+  ]
+}

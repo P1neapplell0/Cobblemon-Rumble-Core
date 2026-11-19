@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·科尔宾",
+  "team": [
+    {
+      "species": "banette",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "adamant",
+      "ability": "insomnia",
+      "moveset": [
+        "poltergeist",
+        "suckerpunch",
+        "shadowsneak",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dusclops",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "impish",
+      "ability": "pressure",
+      "moveset": [
+        "curse",
+        "willowisp",
+        "payback",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

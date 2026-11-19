@@ -1,0 +1,101 @@
+{
+  "name": "空手道王·隆",
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "careful",
+      "ability": "noguard",
+      "moveset": [
+        "vitalthrow",
+        "wakeupslap",
+        "dualchop",
+        "submission"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "sassy",
+      "ability": "noguard",
+      "moveset": [
+        "wakeupslap",
+        "dualchop",
+        "submission",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "lax",
+      "ability": "noguard",
+      "moveset": [
+        "vitalthrow",
+        "wakeupslap",
+        "dualchop",
+        "submission"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "绅士·沃尔特",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "hasty",
+      "ability": "intimidate",
+      "moveset": [
+        "leer",
+        "odorsleuth",
+        "helpinghand",
+        "flamewheel"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "impish",
+      "ability": "runaway",
+      "moveset": [
+        "tailwhip",
+        "flamecharge",
+        "lowkick",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

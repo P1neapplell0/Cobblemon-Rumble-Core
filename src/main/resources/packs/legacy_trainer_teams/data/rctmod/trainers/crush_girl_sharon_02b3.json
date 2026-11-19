@@ -1,0 +1,69 @@
+{
+  "name": "空手道少女·莎伦",
+  "team": [
+    {
+      "species": "mankey",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "impish",
+      "ability": "vitalspirit",
+      "moveset": [
+        "stompingtantrum",
+        "outrage",
+        "crosschop",
+        "finalgambit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "primeape",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "brave",
+      "ability": "vitalspirit",
+      "moveset": [
+        "thrash",
+        "screech",
+        "stompingtantrum",
+        "outrage"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

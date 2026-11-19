@@ -1,0 +1,127 @@
+{
+  "name": "黑色炎武王·詹姆斯",
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "modest",
+      "ability": "hydration",
+      "moveset": [
+        "strugglebug",
+        "acidspray",
+        "megadrain",
+        "toxicspikes"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "poisontouch",
+      "moveset": [
+        "poisonjab",
+        "assurance",
+        "icepunch",
+        "minimize"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "pignite",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "blaze",
+      "moveset": [
+        "flamecharge",
+        "lowsweep",
+        "rocktomb",
+        "assurance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "sludge",
+        "assurance",
+        "painsplit",
+        "poisongas"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

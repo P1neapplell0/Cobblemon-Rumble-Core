@@ -1,0 +1,34 @@
+{
+  "name": "小丑·李",
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "sassy",
+      "ability": "filter",
+      "moveset": [
+        "powerswap",
+        "pound",
+        "encore",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "name": "训练家·科尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "frisk",
+      "moveset": [
+        "airslash",
+        "bugbuzz",
+        "gigadrain",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "tyrantrum",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dragondance",
+        "stoneedge",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "bold",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludgebomb",
+        "thunderbolt",
+        "flamethrower",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "impish",
+      "ability": "ironbarbs",
+      "moveset": [
+        "leechseed",
+        "powerwhip",
+        "gyroball",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "muddywater",
+        "recover",
+        "earthpower",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "centiskorch",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "adamant",
+      "ability": "flashfire",
+      "moveset": [
+        "coil",
+        "leechlife",
+        "heatcrash",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

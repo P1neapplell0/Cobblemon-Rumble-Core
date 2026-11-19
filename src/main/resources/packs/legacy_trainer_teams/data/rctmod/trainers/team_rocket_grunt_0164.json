@@ -1,0 +1,132 @@
+{
+  "name": "火箭队手下",
+  "identity": "火箭队手下（10）",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "careful",
+      "ability": "intimidate",
+      "moveset": [
+        "outrage",
+        "firefang",
+        "thunderfang",
+        "dig"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "gabite",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "impish",
+      "ability": "roughskin",
+      "moveset": [
+        "bodyslam",
+        "rockslide",
+        "dualchop",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "togedemaru",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "uturn",
+        "electroball",
+        "ironhead",
+        "nuzzle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "komala",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "adamant",
+      "ability": "comatose",
+      "moveset": [
+        "protect",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    }
+  ]
+}

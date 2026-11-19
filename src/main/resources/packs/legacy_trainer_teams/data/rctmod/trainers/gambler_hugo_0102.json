@@ -1,0 +1,63 @@
+{
+  "name": "赌徒·雨果",
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "brave",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bubble",
+        "doubleslap",
+        "raindance",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "falinks",
+      "gender": "GENDERLESS",
+      "level": 26,
+      "nature": "calm",
+      "ability": "battlearmor",
+      "moveset": [
+        "focusenergy",
+        "headbutt",
+        "bulkup",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

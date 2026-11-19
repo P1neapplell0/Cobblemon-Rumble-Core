@@ -1,0 +1,101 @@
+{
+  "name": "渔夫·安德鲁",
+  "team": [
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "auroraveil",
+        "blizzard",
+        "shadowball",
+        "frostbreath"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "barbaracle",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "shellsmash",
+        "liquidation",
+        "superpower",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "arctozolt",
+      "gender": "GENDERLESS",
+      "level": 89,
+      "nature": "naive",
+      "ability": "slushrush",
+      "moveset": [
+        "boltbeak",
+        "blizzard",
+        "lowkick",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    }
+  ]
+}

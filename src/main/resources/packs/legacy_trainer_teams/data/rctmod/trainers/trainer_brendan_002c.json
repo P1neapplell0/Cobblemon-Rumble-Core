@@ -1,0 +1,77 @@
+{
+  "name": "训练家·布伦丹",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "corphish",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "rash",
+      "ability": "battlearmor",
+      "moveset": [
+        "bubble",
+        "harden",
+        "visegrip",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "treecko",
+      "gender": "FEMALE",
+      "level": 8,
+      "nature": "hardy",
+      "ability": "overgrow",
+      "moveset": [
+        "pound",
+        "leer",
+        "absorb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

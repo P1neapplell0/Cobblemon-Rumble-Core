@@ -1,0 +1,188 @@
+{
+  "name": "友善教练（体力）",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "statusMoveBias": 1,
+      "switchBias": 0,
+      "itemBias": 0
+    }
+  },
+  "team": [
+    {
+      "species": "audino",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "healer",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "regenerator",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "healer",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "regenerator",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "healer",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "jolly",
+      "ability": "healer",
+      "moveset": [
+        "snatch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    }
+  ]
+}

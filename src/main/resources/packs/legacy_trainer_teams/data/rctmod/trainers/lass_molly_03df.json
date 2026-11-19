@@ -1,0 +1,34 @@
+{
+  "name": "短裤少女·莫莉",
+  "team": [
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "meanlook",
+        "shadowball",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

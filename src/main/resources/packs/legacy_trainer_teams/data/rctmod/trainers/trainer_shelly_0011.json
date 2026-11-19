@@ -1,0 +1,148 @@
+{
+  "name": "训练家·雪莉",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "pursuit",
+        "bravebird",
+        "doubleedge",
+        "jumpkick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "granbull",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "playrough",
+        "thunderwave",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "appletun",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "modest",
+      "ability": "thickfat",
+      "moveset": [
+        "dracometeor",
+        "superpower",
+        "leafstorm",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eject_pack"
+      ]
+    },
+    {
+      "species": "cinccino",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "tailslap",
+        "tripleaxel",
+        "rockblast",
+        "bulletseed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

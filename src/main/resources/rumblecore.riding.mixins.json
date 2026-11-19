@@ -1,9 +1,0 @@
-{
-  "required": true,
-  "minVersion": "0.8.7",
-  "package": "com.p1nero.cobblemon.rumblecore.mixin.cobblemon.riding",
-  "compatibilityLevel": "JAVA_21",
-  "injectors": {"defaultRequire": 1},
-  "mixins": ["LegacyRidingDefinitions"],
-  "client": ["RidingModelLocators"]
-}

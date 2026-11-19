@@ -1,0 +1,64 @@
+{
+  "name": "年轻情侣·莉亚＆杰德",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "lonely",
+      "ability": "flashfire",
+      "moveset": [
+        "firespin",
+        "takedown",
+        "heatwave",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "quirky",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "quickattack",
+        "confuseray",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

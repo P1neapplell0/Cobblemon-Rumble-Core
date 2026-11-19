@@ -15,6 +15,10 @@ public final class ClientPhoneState {
     }
 
     public static boolean unlocked(Player player, PhoneApp app) {
-        return player != null && owner.get() == player && (mask & app.bit()) != 0;
+        return hasBit(player, app.bit());
+    }
+
+    public static boolean hasBit(Player player, int bit) {
+        return player != null && owner.get() == player && (mask & bit) != 0;
     }
 }

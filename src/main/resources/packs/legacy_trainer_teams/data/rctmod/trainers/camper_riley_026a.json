@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·亚玄",
+  "team": [
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "naughty",
+      "ability": "moldbreaker",
+      "moveset": [
+        "stormthrow",
+        "swordsdance",
+        "thrash",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "hardy",
+      "ability": "guts",
+      "moveset": [
+        "takedown",
+        "megahorn",
+        "closecombat",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

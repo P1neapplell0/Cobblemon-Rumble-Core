@@ -1,0 +1,166 @@
+{
+  "name": "野餐少女·阿尔玛",
+  "team": [
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "stealthrock",
+        "lashout",
+        "earthquake",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "tangrowth",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "wringout",
+        "sludgebomb",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "thunderwave",
+        "seismictoss",
+        "allyswitch",
+        "softboiled"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "chandelure",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "shadowtag",
+      "moveset": [
+        "fireblast",
+        "solarbeam",
+        "shadowball",
+        "trick"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 89,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "fireblast",
+        "hypervoice",
+        "roost",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:altarianite",
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "name": "光头党·卡梅伦",
+  "team": [
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "sassy",
+      "ability": "damp",
+      "moveset": [
+        "stealthrock",
+        "flipturn",
+        "earthquake",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "aerodactyl",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dualwingbeat",
+        "stoneedge",
+        "earthquake",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "swarm",
+      "moveset": [
+        "uturn",
+        "bulletpunch",
+        "rocksmash",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:scizorite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "stoneedge",
+        "scaleshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "cacturne",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "sandrush",
+      "moveset": [
+        "needlearm",
+        "suckerpunch",
+        "knockoff",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

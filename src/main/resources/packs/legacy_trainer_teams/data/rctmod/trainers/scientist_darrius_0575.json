@@ -1,0 +1,34 @@
+{
+  "name": "科学家·达里乌斯",
+  "team": [
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "sassy",
+      "ability": "synchronize",
+      "moveset": [
+        "kinesis",
+        "reflect",
+        "psyshock",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

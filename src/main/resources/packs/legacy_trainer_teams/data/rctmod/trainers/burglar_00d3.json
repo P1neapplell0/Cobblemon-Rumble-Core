@@ -1,0 +1,35 @@
+{
+  "name": "盗贼",
+  "identity": "盗贼（1）",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "bold",
+      "ability": "intimidate",
+      "moveset": [
+        "takedown",
+        "flameburst",
+        "agility",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

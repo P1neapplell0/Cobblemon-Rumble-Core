@@ -1,0 +1,70 @@
+{
+  "name": "超级训练家·马蒂斯",
+  "team": [
+    {
+      "species": "hawlucha",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "limber",
+      "moveset": [
+        "flyingpress",
+        "skydrop",
+        "rockslide",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "adamant",
+      "ability": "scrappy",
+      "moveset": [
+        "dizzypunch",
+        "jumpkick",
+        "brutalswing",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    }
+  ]
+}

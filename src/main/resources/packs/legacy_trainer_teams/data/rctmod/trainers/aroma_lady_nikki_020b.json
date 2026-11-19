@@ -1,0 +1,198 @@
+{
+  "name": "香氛小姐·妮基",
+  "team": [
+    {
+      "species": "sableye",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "calm",
+      "ability": "prankster",
+      "moveset": [
+        "recover",
+        "allyswitch",
+        "foulplay",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:sablenite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "tangrowth",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "regenerator",
+      "moveset": [
+        "gigadrain",
+        "earthquake",
+        "knockoff",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "blissey",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "allyswitch",
+        "softboiled",
+        "seismictoss",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "toxapex",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "impish",
+      "ability": "regenerator",
+      "moveset": [
+        "toxicspikes",
+        "muddywater",
+        "bite",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "reuniclus",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "futuresight",
+        "psyshock",
+        "focusblast",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "sniper",
+      "moveset": [
+        "lashout",
+        "poisonjab",
+        "earthquake",
+        "leechlife"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    }
+  ]
+}

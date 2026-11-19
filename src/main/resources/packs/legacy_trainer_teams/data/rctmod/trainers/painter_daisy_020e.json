@@ -1,0 +1,34 @@
+{
+  "name": "画家·黛西",
+  "team": [
+    {
+      "species": "smeargle",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "brave",
+      "ability": "technician",
+      "moveset": [
+        "sketch",
+        "dizzypunch",
+        "focuspunch",
+        "megapunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

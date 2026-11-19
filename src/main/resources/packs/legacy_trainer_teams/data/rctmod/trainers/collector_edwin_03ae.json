@@ -1,0 +1,92 @@
+{
+  "name": "收藏家·埃德温",
+  "team": [
+    {
+      "species": "sudowoodo",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "block",
+        "stoneedge",
+        "hammerarm",
+        "woodhammer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "stoneedge",
+        "hammerarm",
+        "woodhammer",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "slam",
+        "stoneedge",
+        "hammerarm",
+        "woodhammer"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

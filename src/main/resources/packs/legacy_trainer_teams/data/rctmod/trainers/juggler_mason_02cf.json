@@ -1,0 +1,121 @@
+{
+  "name": "杂耍艺人·梅森",
+  "team": [
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 52,
+      "nature": "modest",
+      "ability": "static",
+      "moveset": [
+        "magnetrise",
+        "discharge",
+        "explosion",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pineco",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "naive",
+      "ability": "sturdy",
+      "moveset": [
+        "explosion",
+        "irondefense",
+        "gyroball",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 52,
+      "nature": "calm",
+      "ability": "static",
+      "moveset": [
+        "magnetrise",
+        "discharge",
+        "explosion",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pineco",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "explosion",
+        "irondefense",
+        "gyroball",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

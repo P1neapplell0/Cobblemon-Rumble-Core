@@ -1,0 +1,215 @@
+{
+  "name": "宝可梦训练家·卢卡斯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "brave",
+      "ability": "pressure",
+      "moveset": [
+        "brickbreak",
+        "earthquake",
+        "trickroom",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "flareblitz",
+        "facade",
+        "irontail",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "rampardos",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "adamant",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headsmash",
+        "earthquake",
+        "irontail",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "thunder",
+        "thunderbolt",
+        "voltswitch",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "wash-appliance"
+      ]
+    },
+    {
+      "species": "dunsparce",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "jolly",
+      "ability": "serenegrace",
+      "moveset": [
+        "rockslide",
+        "roost",
+        "coil",
+        "glare"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "kings_rock"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "brave",
+      "ability": "overgrow",
+      "moveset": [
+        "earthquake",
+        "synthesis",
+        "leechseed",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

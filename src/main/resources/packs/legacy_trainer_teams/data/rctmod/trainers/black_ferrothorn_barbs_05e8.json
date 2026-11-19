@@ -1,0 +1,131 @@
+{
+  "name": "黑色坚果哑铃·芭布斯",
+  "team": [
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "timid",
+      "ability": "superluck",
+      "moveset": [
+        "darkpulse",
+        "aircutter",
+        "heatwave",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "pinmissile",
+        "brickbreak",
+        "rockblast",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:heracronite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "adamant",
+      "ability": "poisontouch",
+      "moveset": [
+        "gunkshot",
+        "lashout",
+        "icepunch",
+        "minimize"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "powerwhip",
+        "gyroball",
+        "leechseed",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    }
+  ]
+}

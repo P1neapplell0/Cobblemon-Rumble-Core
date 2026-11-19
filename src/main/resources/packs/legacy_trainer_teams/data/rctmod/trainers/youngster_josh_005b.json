@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·乔什",
+  "team": [
+    {
+      "species": "wooloo",
+      "gender": "FEMALE",
+      "level": 13,
+      "nature": "bold",
+      "ability": "fluffy",
+      "moveset": [
+        "tackle",
+        "defensecurl",
+        "copycat",
+        "guardsplit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "rockruff",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "relaxed",
+      "ability": "frisk",
+      "moveset": [
+        "leer",
+        "suckerpunch",
+        "doubleteam",
+        "rockthrow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "noibat",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "brave",
+      "ability": "frisk",
+      "moveset": [
+        "absorb",
+        "leechlife",
+        "dragonpulse",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "name": "马志士",
+  "identity": "馆主马志士",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pachirisu",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "impish",
+      "ability": "prankster",
+      "moveset": [
+        "agility",
+        "lightscreen",
+        "nuzzle",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "dracozolt",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "hustle",
+      "moveset": [
+        "wildcharge",
+        "dragonclaw",
+        "brutalswing",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "dedenne",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "electricsurge",
+      "moveset": [
+        "risingvoltage",
+        "voltswitch",
+        "dazzlinggleam",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "intimidate",
+      "moveset": [
+        "voltswitch",
+        "risingvoltage",
+        "flamethrower",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:manectite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "泳者·弗朗西斯科",
+  "team": [
+    {
+      "species": "tentacool",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "clearbody",
+      "moveset": [
+        "waterpulse",
+        "hex",
+        "acidarmor",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "damp",
+      "moveset": [
+        "furyswipes",
+        "zenheadbutt",
+        "aquatail",
+        "psychup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

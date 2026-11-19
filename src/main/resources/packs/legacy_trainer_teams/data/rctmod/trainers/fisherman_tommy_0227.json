@@ -1,0 +1,137 @@
+{
+  "name": "渔夫·汤米",
+  "team": [
+    {
+      "species": "basculegion",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "waterfall",
+        "phantomforce",
+        "aquajet",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "earthquake",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wacan_berry"
+      ]
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "scald",
+        "psychic",
+        "calmmind",
+        "slackoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:slowbronite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "slowbro",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "muddywater",
+        "psyshock",
+        "icebeam",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    }
+  ]
+}

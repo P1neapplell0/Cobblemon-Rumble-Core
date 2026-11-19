@@ -1,0 +1,199 @@
+{
+  "name": "冠军防卫战·索伦克",
+  "identity": "冠军防卫战·索伦克",
+  "team": [
+    {
+      "species": "claydol",
+      "gender": "GENDERLESS",
+      "level": 77,
+      "nature": "calm",
+      "ability": "multiscale",
+      "moveset": [
+        "icebeam",
+        "allyswitch",
+        "stealthrock",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mental_herb"
+      ]
+    },
+    {
+      "species": "talonflame",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "galewings",
+      "moveset": [
+        "bravebird",
+        "flareblitz",
+        "uturn",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    },
+    {
+      "species": "serperior",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "timid",
+      "ability": "contrary",
+      "moveset": [
+        "leafstorm",
+        "swift",
+        "gigadrain",
+        "glare"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "primarina",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "calm",
+      "ability": "torrent",
+      "moveset": [
+        "waterpledge",
+        "moonblast",
+        "icebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "dragonite",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "careful",
+      "ability": "multiscale",
+      "moveset": [
+        "aerialace",
+        "earthquake",
+        "dragondance",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "careful",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "knockoff",
+        "swordsdance",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:scizorite",
+        "life_orb"
+      ]
+    }
+  ]
+}

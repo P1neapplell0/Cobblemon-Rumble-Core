@@ -1,0 +1,101 @@
+{
+  "name": "空手道王·大辅",
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "naughty",
+      "ability": "noguard",
+      "moveset": [
+        "bulkup",
+        "crosschop",
+        "scaryface",
+        "dynamicpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "serious",
+      "ability": "sheerforce",
+      "moveset": [
+        "hammerarm",
+        "stoneedge",
+        "focuspunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "passimian",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "rash",
+      "ability": "receiver",
+      "moveset": [
+        "closecombat",
+        "reversal",
+        "beatup",
+        "batonpass"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

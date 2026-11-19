@@ -1,0 +1,169 @@
+{
+  "name": "暴走族·秀夫",
+  "team": [
+    {
+      "species": "stunfisk",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "calm",
+      "ability": "sandveil",
+      "moveset": [
+        "stealthrock",
+        "thunderwave",
+        "earthpower",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "dracovish",
+      "gender": "GENDERLESS",
+      "level": 88,
+      "nature": "jolly",
+      "ability": "sandrush",
+      "moveset": [
+        "fishiousrend",
+        "dragonrush",
+        "psychicfangs",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "uturn",
+        "drillrun",
+        "poisonjab",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:beedrillite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 92,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "thunderbolt",
+        "hypervoice",
+        "nastyplot",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charti_berry"
+      ],
+      "aspects": [
+        "heat-appliance"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "naive",
+      "ability": "protean",
+      "moveset": [
+        "uturn",
+        "hydropump",
+        "gunkshot",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

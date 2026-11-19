@@ -1,0 +1,166 @@
+{
+  "name": "劲敌·泰瑞",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bravebird",
+        "uturn",
+        "quickattack",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sharp_beak"
+      ]
+    },
+    {
+      "species": "jumpluff",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "aerilate",
+      "moveset": [
+        "sleeppowder",
+        "swordsdance",
+        "doubleedge",
+        "seedbomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sharp_beak"
+      ]
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "playrough",
+        "liquidation",
+        "aquajet",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "electivire",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "supercellslam",
+        "focuspunch",
+        "icepunch",
+        "poweruppunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "flamethrower",
+        "solarbeam",
+        "airslash",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_y",
+        "expert_belt"
+      ]
+    }
+  ]
+}

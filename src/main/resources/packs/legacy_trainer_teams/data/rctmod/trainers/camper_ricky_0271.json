@@ -1,0 +1,34 @@
+{
+  "name": "露营少年·瑞奇",
+  "team": [
+    {
+      "species": "wartortle",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "lax",
+      "ability": "torrent",
+      "moveset": [
+        "waterpulse",
+        "bite",
+        "fakeout",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

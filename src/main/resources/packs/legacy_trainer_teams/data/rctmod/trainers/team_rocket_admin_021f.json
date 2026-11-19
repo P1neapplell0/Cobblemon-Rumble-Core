@@ -1,0 +1,99 @@
+{
+  "name": "火箭队干部",
+  "identity": "火箭队干部（1）",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.25
+    }
+  },
+  "team": [
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "bold",
+      "ability": "stickyhold",
+      "moveset": [
+        "sludgebomb",
+        "screech",
+        "minimize",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "mild",
+      "ability": "shedskin",
+      "moveset": [
+        "sludgebomb",
+        "bite",
+        "earthquake",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "vileplume",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "naive",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sludgebomb",
+        "gigadrain",
+        "sleeppowder",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

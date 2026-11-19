@@ -1,0 +1,121 @@
+{
+  "name": "养鸟人·米奇",
+  "team": [
+    {
+      "species": "blaziken",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "sassy",
+      "ability": "reckless",
+      "moveset": [
+        "brickbreak",
+        "bravebird",
+        "skyuppercut",
+        "flareblitz"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "braviary",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "modest",
+      "ability": "sheerforce",
+      "moveset": [
+        "crushclaw",
+        "skydrop",
+        "whirlwind",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "altaria",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "careful",
+      "ability": "naturalcure",
+      "moveset": [
+        "cottonguard",
+        "dragonclaw",
+        "perishsong",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dartrix",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "mild",
+      "ability": "overgrow",
+      "moveset": [
+        "leafblade",
+        "featherdance",
+        "bravebird",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

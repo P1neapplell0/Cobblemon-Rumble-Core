@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·赫尔曼",
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "serious",
+      "ability": "rockhead",
+      "moveset": [
+        "focusenergy",
+        "bulldoze",
+        "rage",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowpoke",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "naive",
+      "ability": "oblivious",
+      "moveset": [
+        "disable",
+        "headbutt",
+        "icywind",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

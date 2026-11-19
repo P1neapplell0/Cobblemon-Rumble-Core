@@ -1,0 +1,217 @@
+{
+  "name": "阿速",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pidgeot",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "timid",
+      "ability": "tangledfeet",
+      "moveset": [
+        "hurricane",
+        "heatwave",
+        "hyperbeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pidgeotite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "timid",
+      "ability": "frisk",
+      "moveset": [
+        "bugbuzz",
+        "airslash",
+        "gigadrain",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "shaymin",
+      "gender": "GENDERLESS",
+      "level": 96,
+      "nature": "timid",
+      "ability": "serenegrace",
+      "moveset": [
+        "solarbeam",
+        "airslash",
+        "earthpower",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "sky"
+      ]
+    },
+    {
+      "species": "enamorus",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "contrary",
+      "moveset": [
+        "superpower",
+        "fly",
+        "playrough",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flying_gem"
+      ]
+    },
+    {
+      "species": "hooh",
+      "gender": "GENDERLESS",
+      "level": 97,
+      "nature": "jolly",
+      "ability": "regenerator",
+      "moveset": [
+        "bravebird",
+        "sacredfire",
+        "earthquake",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "earthquake",
+        "bounce"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:flyinium_z",
+        "flying_gem"
+      ]
+    }
+  ]
+}

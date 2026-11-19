@@ -1,0 +1,78 @@
+{
+  "name": "驯龙师·海登",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "swablu",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragonbreath",
+        "moonblast",
+        "round",
+        "perishsong"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragondance",
+        "skyattack",
+        "takedown",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

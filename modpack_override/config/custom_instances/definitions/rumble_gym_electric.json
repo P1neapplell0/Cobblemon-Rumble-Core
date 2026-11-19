@@ -1,0 +1,37 @@
+{
+  "id": "rumble_gym_electric",
+  "name": "{rumble.gym.electric.title}",
+  "description": "{rumble.arena.description}",
+  "icon": "cobblemon:poke_ball",
+  "timeLimitSeconds": 0,
+  "maxDeaths": 1,
+  "allowLateJoin": false,
+  "maxPlayers": 0,
+  "spawn": {
+    "x": -24,
+    "y": 64,
+    "z": 0
+  },
+  "victoryType": "custom",
+  "target": "rumble_gym_electric",
+  "chunkSource": "rumble_arena_electric",
+  "dimensionSettings": {
+    "dayTime": 6000,
+    "fixedTime": true,
+    "ambientLight": 0.0,
+    "weather": "clear",
+    "hasSkylight": true,
+    "hasCeiling": false,
+    "ultraWarm": false,
+    "natural": true,
+    "piglinSafe": false,
+    "bedWorks": false,
+    "respawnAnchorWorks": false,
+    "hasRaids": false,
+    "effects": "overworld",
+    "monsterBlockLightLimit": 0,
+    "monsterLightLimit": 0,
+    "forceAdventure": true,
+    "allowNaturalMonsters": false
+  }
+}

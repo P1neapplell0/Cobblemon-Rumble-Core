@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦狂·赫克托",
+  "team": [
+    {
+      "species": "rhydon",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "serious",
+      "ability": "lightningrod",
+      "moveset": [
+        "takedown",
+        "stoneedge",
+        "earthquake",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "earlybird",
+      "moveset": [
+        "endure",
+        "outrage",
+        "suckerpunch",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

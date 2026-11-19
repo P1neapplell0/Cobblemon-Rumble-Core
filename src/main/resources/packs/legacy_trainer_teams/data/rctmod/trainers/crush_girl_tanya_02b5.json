@@ -1,0 +1,69 @@
+{
+  "name": "空手道少女·塔尼娅",
+  "team": [
+    {
+      "species": "hitmonlee",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "bashful",
+      "ability": "reckless",
+      "moveset": [
+        "foresight",
+        "wideguard",
+        "blazekick",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "hitmonchan",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "relaxed",
+      "ability": "ironfist",
+      "moveset": [
+        "firepunch",
+        "skyuppercut",
+        "megapunch",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

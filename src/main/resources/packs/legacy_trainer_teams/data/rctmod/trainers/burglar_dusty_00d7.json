@@ -1,0 +1,63 @@
+{
+  "name": "盗贼·达斯提",
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 73,
+      "nature": "quirky",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "quickattack",
+        "confuseray",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pyroar",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "gentle",
+      "ability": "unnerve",
+      "moveset": [
+        "crunch",
+        "hypervoice",
+        "incinerate",
+        "overheat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

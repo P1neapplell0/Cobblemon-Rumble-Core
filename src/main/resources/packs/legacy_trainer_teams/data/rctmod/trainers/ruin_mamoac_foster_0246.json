@@ -1,0 +1,34 @@
+{
+  "name": "遗迹狂·福斯特",
+  "team": [
+    {
+      "species": "golem",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "earthquake",
+        "explosion",
+        "highhorsepower",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·凯尔西",
+  "team": [
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "jolly",
+      "ability": "poisontouch",
+      "moveset": [
+        "peck",
+        "focusenergy",
+        "rocksmash",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cherubi",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "grassyterrain",
+        "helpinghand",
+        "synthesis",
+        "magicalleaf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

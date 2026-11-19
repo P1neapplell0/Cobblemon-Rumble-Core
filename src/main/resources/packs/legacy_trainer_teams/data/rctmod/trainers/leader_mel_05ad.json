@@ -1,0 +1,175 @@
+{
+  "name": "馆主·梅尔",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "bewear",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "fluffy",
+      "moveset": [
+        "facade",
+        "hammerarm",
+        "payback",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "normal_gem"
+      ]
+    },
+    {
+      "species": "porygonz",
+      "gender": "GENDERLESS",
+      "level": 37,
+      "nature": "timid",
+      "ability": "adaptability",
+      "moveset": [
+        "swift",
+        "signalbeam",
+        "psybeam",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "miltank",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "scrappy",
+      "moveset": [
+        "bodyslam",
+        "icepunch",
+        "poweruppunch",
+        "milkdrink"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "scrappy",
+      "moveset": [
+        "facade",
+        "drainpunch",
+        "poweruppunch",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "heliolisk",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "modest",
+      "ability": "sandveil",
+      "moveset": [
+        "swift",
+        "paraboliccharge",
+        "grassknot",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

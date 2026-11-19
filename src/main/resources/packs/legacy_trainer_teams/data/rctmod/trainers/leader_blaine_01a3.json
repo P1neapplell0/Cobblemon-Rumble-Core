@@ -1,0 +1,213 @@
+{
+  "name": "馆主·夏伯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "torkoal",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "quiet",
+      "ability": "drought",
+      "moveset": [
+        "stealthrock",
+        "explosion",
+        "lavaplume",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heat_rock"
+      ]
+    },
+    {
+      "species": "cinderace",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "protean",
+      "moveset": [
+        "pyroball",
+        "suckerpunch",
+        "highjumpkick",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "exeggutor",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "harvest",
+      "moveset": [
+        "growth",
+        "gigadrain",
+        "psyshock",
+        "terrainpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "typhlosion",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "modest",
+      "ability": "flashfire",
+      "moveset": [
+        "eruption",
+        "flamethrower",
+        "swift",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    },
+    {
+      "species": "sunflora",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "petaldance",
+        "energyball",
+        "earthpower",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "flamethrower",
+        "airslash",
+        "solarbeam",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_y",
+        "expert_belt"
+      ]
+    }
+  ]
+}

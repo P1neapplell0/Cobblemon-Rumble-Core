@@ -1,0 +1,166 @@
+{
+  "name": "超级训练家·丽娜",
+  "team": [
+    {
+      "species": "tsareena",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "queenlymajesty",
+      "moveset": [
+        "powerwhip",
+        "highjumpkick",
+        "rapidspin",
+        "teeterdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "multiscale",
+      "moveset": [
+        "dragonclaw",
+        "firepunch",
+        "thunderpunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "yache_berry"
+      ]
+    },
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "flareblitz",
+        "poisonjab",
+        "playrough",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "multiscale",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "mirrorcoat",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "blunder_policy"
+      ]
+    },
+    {
+      "species": "sableye",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "calm",
+      "ability": "magicbounce",
+      "moveset": [
+        "foulplay",
+        "willowisp",
+        "recover",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:sablenite",
+        "leftovers"
+      ]
+    }
+  ]
+}

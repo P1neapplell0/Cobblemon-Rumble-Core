@@ -1,0 +1,63 @@
+{
+  "name": "养鸟人·哈罗德",
+  "team": [
+    {
+      "species": "noctowl",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "lonely",
+      "ability": "tintedlens",
+      "moveset": [
+        "uproar",
+        "roost",
+        "moonblast",
+        "synchronoise"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "noctowl",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "tintedlens",
+      "moveset": [
+        "uproar",
+        "roost",
+        "moonblast",
+        "synchronoise"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

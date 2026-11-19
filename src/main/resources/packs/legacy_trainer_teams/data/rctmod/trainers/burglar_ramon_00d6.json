@@ -1,0 +1,34 @@
+{
+  "name": "盗贼·拉蒙",
+  "team": [
+    {
+      "species": "salazzle",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "brave",
+      "ability": "corrosion",
+      "moveset": [
+        "venoshock",
+        "flamethrower",
+        "venomdrench",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

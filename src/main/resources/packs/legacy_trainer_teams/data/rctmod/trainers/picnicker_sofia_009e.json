@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·索菲亚",
+  "team": [
+    {
+      "species": "carbink",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "clearbody",
+      "moveset": [
+        "stealthrock",
+        "guardsplit",
+        "ancientpower",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "snorunt",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "adamant",
+      "ability": "icebody",
+      "moveset": [
+        "crunch",
+        "icefang",
+        "headbutt",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "swinub",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "brave",
+      "ability": "snowcloak",
+      "moveset": [
+        "icywind",
+        "icefang",
+        "takedown",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

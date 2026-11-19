@@ -1,0 +1,167 @@
+{
+  "name": "泳圈族·亚历克西斯",
+  "team": [
+    {
+      "species": "carracosta",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "sturdy",
+      "moveset": [
+        "shellsmash",
+        "aquajet",
+        "waterfall",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "salac_berry"
+      ]
+    },
+    {
+      "species": "kingler",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "liquidation",
+        "swordsdance",
+        "superpower",
+        "razorshell"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "slowbro",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "irondefense",
+        "calmmind",
+        "bodypress",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:slowbronite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "lanturn",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "illuminate",
+      "moveset": [
+        "hydropump",
+        "blizzard",
+        "thunder",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "hydreigon",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "fireblast",
+        "surf",
+        "darkpulse",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:waterium_z",
+        "water_gem"
+      ]
+    }
+  ]
+}

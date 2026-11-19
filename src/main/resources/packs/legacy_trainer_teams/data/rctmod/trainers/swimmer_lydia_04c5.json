@@ -1,0 +1,92 @@
+{
+  "name": "泳者·莉迪亚",
+  "team": [
+    {
+      "species": "bibarel",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "careful",
+      "ability": "simple",
+      "moveset": [
+        "superfang",
+        "takedown",
+        "amnesia",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "impish",
+      "ability": "thickfat",
+      "moveset": [
+        "superpower",
+        "aquatail",
+        "doubleedge",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sealeo",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "bold",
+      "ability": "thickfat",
+      "moveset": [
+        "surf",
+        "blizzard",
+        "rest",
+        "snore"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

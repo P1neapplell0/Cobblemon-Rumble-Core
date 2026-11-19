@@ -1,0 +1,92 @@
+{
+  "name": "牧场主·马尔科",
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "sandattack",
+        "screech",
+        "doublehit",
+        "fling"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "hasty",
+      "ability": "cloudnine",
+      "moveset": [
+        "aquajet",
+        "confusion",
+        "waterpulse",
+        "soak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "girafarig",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "naive",
+      "ability": "innerfocus",
+      "moveset": [
+        "growl",
+        "stomp",
+        "crunch",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

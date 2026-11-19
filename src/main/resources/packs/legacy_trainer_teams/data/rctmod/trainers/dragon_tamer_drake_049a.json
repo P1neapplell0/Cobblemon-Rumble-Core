@@ -1,0 +1,107 @@
+{
+  "name": "驯龙师·德雷克",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "vibrava",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bashful",
+      "ability": "levitate",
+      "moveset": [
+        "dragonrush",
+        "earthquake",
+        "superpower",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "poisonpoint",
+      "moveset": [
+        "agility",
+        "hydropump",
+        "dragonpulse",
+        "twister"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dragonair",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "serious",
+      "ability": "shedskin",
+      "moveset": [
+        "thunderwave",
+        "raindance",
+        "aquatail",
+        "dragonrush"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "宝可梦狂·道森",
+  "team": [
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "brave",
+      "ability": "waterabsorb",
+      "moveset": [
+        "dragonpulse",
+        "block",
+        "hyperbeam",
+        "outrage"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lickilicky",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "sassy",
+      "ability": "owntempo",
+      "moveset": [
+        "screech",
+        "powerwhip",
+        "wringout",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "flareon",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "serious",
+      "ability": "flashfire",
+      "moveset": [
+        "lavaplume",
+        "lastresort",
+        "flareblitz",
+        "temperflare"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

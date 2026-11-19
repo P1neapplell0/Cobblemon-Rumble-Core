@@ -1,0 +1,192 @@
+{
+  "name": "毁灭队首领·阿克莱夫",
+  "team": [
+    {
+      "species": "togedemaru",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "sturdy",
+      "moveset": [
+        "zingzap",
+        "ironhead",
+        "nuzzle",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "gardevoir",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "timid",
+      "ability": "pixilate",
+      "moveset": [
+        "psychic",
+        "moonblast",
+        "mysticalfire",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:gardevoirite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "comfey",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "bold",
+      "ability": "triage",
+      "moveset": [
+        "drainingkiss",
+        "gigadrain",
+        "floralhealing",
+        "helpinghand"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "babiri_berry"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "leafstorm",
+        "dazzlinggleam",
+        "shadowball",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    },
+    {
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "multiscale",
+      "moveset": [
+        "dragonclaw",
+        "aerialace",
+        "firepunch",
+        "extremespeed"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "primarina",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "modest",
+      "ability": "liquidvoice",
+      "moveset": [
+        "hypervoice",
+        "moonblast",
+        "energyball",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

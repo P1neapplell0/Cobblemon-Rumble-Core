@@ -1,0 +1,200 @@
+{
+  "name": "对战殿堂泰茜",
+  "identity": "馆主·泰茜",
+  "team": [
+    {
+      "species": "kingdra",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "hydropump",
+        "hurricane",
+        "dracometeor",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:waterium_z",
+        "water_gem"
+      ]
+    },
+    {
+      "species": "toxapex",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "impish",
+      "ability": "regenerator",
+      "moveset": [
+        "bite",
+        "toxic",
+        "recover",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "aguav_berry"
+      ]
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "aquatail",
+        "smartstrike",
+        "drillrun",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "goodra",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "hydration",
+      "moveset": [
+        "powerwhip",
+        "irontail",
+        "earthquake",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "liquidation",
+        "earthquake",
+        "icepunch",
+        "poweruppunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:swampertite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "latias",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "surf",
+        "thunder",
+        "icebeam",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

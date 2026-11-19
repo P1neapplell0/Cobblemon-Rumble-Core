@@ -1,0 +1,121 @@
+{
+  "name": "科学家·康纳",
+  "team": [
+    {
+      "species": "muk",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "sassy",
+      "ability": "poisontouch",
+      "moveset": [
+        "lashout",
+        "poisonjab",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "naughty",
+      "ability": "levitate",
+      "moveset": [
+        "explosion",
+        "sludgebomb",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "klang",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "lonely",
+      "ability": "clearbody",
+      "moveset": [
+        "shiftgear",
+        "geargrind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "metal_coat"
+      ]
+    },
+    {
+      "species": "beheeyem",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "analytic",
+      "moveset": [
+        "psychic",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

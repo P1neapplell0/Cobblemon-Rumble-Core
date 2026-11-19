@@ -1,0 +1,219 @@
+{
+  "name": "训练家·布伦丹",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "deoxys",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "naive",
+      "ability": "pressure",
+      "moveset": [
+        "psychic",
+        "icebeam",
+        "superpower",
+        "megapunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "attack"
+      ]
+    },
+    {
+      "species": "jirachi",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "serenegrace",
+      "moveset": [
+        "ironhead",
+        "uturn",
+        "thunderpunch",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "landorus",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "timid",
+      "ability": "sandforce",
+      "moveset": [
+        "earthpower",
+        "rockslide",
+        "sludgewave",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "zapdos",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "defiant",
+      "moveset": [
+        "bravebird",
+        "rocksmash",
+        "uturn",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "huntail",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "shellsmash",
+        "aquatail",
+        "crunch",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "sceptile",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "overgrow",
+      "moveset": [
+        "swordsdance",
+        "scaleshot",
+        "bulletseed",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

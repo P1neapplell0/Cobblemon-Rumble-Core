@@ -1,0 +1,63 @@
+{
+  "name": "科学家·泰德",
+  "team": [
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 67,
+      "nature": "gentle",
+      "ability": "static",
+      "moveset": [
+        "explosion",
+        "gyroball",
+        "mirrorcoat",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "porygon2",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "mild",
+      "ability": "download",
+      "moveset": [
+        "triattack",
+        "magiccoat",
+        "zapcannon",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

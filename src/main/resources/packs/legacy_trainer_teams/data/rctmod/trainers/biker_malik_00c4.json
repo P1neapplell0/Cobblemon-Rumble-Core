@@ -1,0 +1,63 @@
+{
+  "name": "暴走族·马利克",
+  "team": [
+    {
+      "species": "seviper",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "quiet",
+      "ability": "shedskin",
+      "moveset": [
+        "endure",
+        "sludgebomb",
+        "flamethrower",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "brave",
+      "ability": "poisontouch",
+      "moveset": [
+        "endure",
+        "gigadrain",
+        "sludgebomb",
+        "flash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

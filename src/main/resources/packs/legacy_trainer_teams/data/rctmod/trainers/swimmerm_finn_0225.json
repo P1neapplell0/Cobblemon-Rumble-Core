@@ -1,0 +1,133 @@
+{
+  "name": "男泳者·芬恩",
+  "team": [
+    {
+      "species": "overqwil",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "poisonjab",
+        "throatchop",
+        "toxicspikes",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "barraskewda",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "waterfall",
+        "flipturn",
+        "closecombat",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "shellsmash",
+        "waterfall",
+        "iciclespear",
+        "rockblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "drednaw",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "strongjaw",
+      "moveset": [
+        "liquidation",
+        "jawlock",
+        "icefang",
+        "rockpolish"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "艺术家·威廉",
+  "team": [
+    {
+      "species": "mimejr",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "bold",
+      "ability": "filter",
+      "moveset": [
+        "copycat",
+        "encore",
+        "confusion",
+        "roleplay"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "bonsly",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "faketears",
+        "copycat",
+        "flail",
+        "mimic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

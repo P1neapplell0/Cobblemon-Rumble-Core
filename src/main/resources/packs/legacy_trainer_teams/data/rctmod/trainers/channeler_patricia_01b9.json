@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·帕特里夏",
+  "team": [
+    {
+      "species": "haunter",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "nightshade",
+        "confuseray",
+        "suckerpunch",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

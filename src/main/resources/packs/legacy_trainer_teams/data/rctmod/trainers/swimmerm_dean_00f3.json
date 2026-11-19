@@ -1,0 +1,34 @@
+{
+  "name": "男泳者·迪恩",
+  "team": [
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "lonely",
+      "ability": "torrent",
+      "moveset": [
+        "muddywater",
+        "takedown",
+        "earthquake",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "超级训练家·拉沃娜",
+  "team": [
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "parentalbond",
+      "moveset": [
+        "doubleedge",
+        "retaliate",
+        "drainpunch",
+        "sleeptalk"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:kangaskhanite",
+        "leftovers"
+      ]
+    }
+  ]
+}

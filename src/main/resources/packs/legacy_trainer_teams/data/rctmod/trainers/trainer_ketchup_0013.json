@@ -1,0 +1,216 @@
+{
+  "name": "训练家·番茄酱",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "shellsmash",
+        "iciclespear",
+        "liquidation",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "chandelure",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "shadowtag",
+      "moveset": [
+        "flamethrower",
+        "shadowball",
+        "energyball",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "static",
+      "moveset": [
+        "electroball",
+        "dragonpulse",
+        "focusblast",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:ampharosite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "tapubulu",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "grassysurge",
+      "moveset": [
+        "woodhammer",
+        "hornleech",
+        "closecombat",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "urshifu",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "unseenfist",
+      "moveset": [
+        "wickedblow",
+        "closecombat",
+        "poisonjab",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "urshifu",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "jolly",
+      "ability": "unseenfist",
+      "moveset": [
+        "falseswipe",
+        "rocksmash",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "rapid_strike"
+      ]
+    }
+  ]
+}

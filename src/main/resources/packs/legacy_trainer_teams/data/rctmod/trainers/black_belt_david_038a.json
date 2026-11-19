@@ -1,0 +1,63 @@
+{
+  "name": "空手道王·大卫",
+  "team": [
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "screech",
+        "sandstorm",
+        "rocktomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "thunderfang",
+        "icefang",
+        "autotomize",
+        "dig"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

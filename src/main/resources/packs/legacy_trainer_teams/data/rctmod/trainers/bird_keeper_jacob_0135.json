@@ -1,0 +1,168 @@
+{
+  "name": "养鸟人·雅各布",
+  "team": [
+    {
+      "species": "cramorant",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "gulpmissile",
+      "moveset": [
+        "surf",
+        "hurricane",
+        "icebeam",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "decidueye",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "naive",
+      "ability": "tintedlens",
+      "moveset": [
+        "uturn",
+        "hurricane",
+        "spiritshackle",
+        "leafblade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "spell_tag"
+      ]
+    },
+    {
+      "species": "porygon2",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "bold",
+      "ability": "trace",
+      "moveset": [
+        "thunder",
+        "icebeam",
+        "foulplay",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "basculegion",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "modest",
+      "ability": "adaptability",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "flipturn",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "aspects": [
+        "f"
+      ]
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "thunder",
+        "earthpower",
+        "sludgewave",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

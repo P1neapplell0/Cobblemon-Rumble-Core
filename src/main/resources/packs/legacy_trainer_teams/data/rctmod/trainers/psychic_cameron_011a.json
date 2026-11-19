@@ -1,0 +1,92 @@
+{
+  "name": "超能力者·卡梅伦",
+  "team": [
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "hasty",
+      "ability": "owntempo",
+      "moveset": [
+        "zenheadbutt",
+        "slackoff",
+        "amnesia",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "slowking",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "adamant",
+      "ability": "owntempo",
+      "moveset": [
+        "nastyplot",
+        "swagger",
+        "psychic",
+        "trumpcard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "quiet",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychup",
+        "nastyplot",
+        "hydropump",
+        "wonderroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·马克斯韦尔",
+  "team": [
+    {
+      "species": "misdreavus",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "meanlook",
+        "perishsong",
+        "shadowball",
+        "painsplit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "haunter",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "darkpulse",
+        "destinybond",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

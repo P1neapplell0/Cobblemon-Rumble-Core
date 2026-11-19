@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·约翰逊",
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "docile",
+      "ability": "shedskin",
+      "moveset": [
+        "crunch",
+        "belch",
+        "haze",
+        "gunkshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 71,
+      "nature": "relaxed",
+      "ability": "frisk",
+      "moveset": [
+        "nastyplot",
+        "playrough",
+        "foulplay",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "calm",
+      "ability": "moxie",
+      "moveset": [
+        "foulplay",
+        "sandstorm",
+        "earthquake",
+        "lashout"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

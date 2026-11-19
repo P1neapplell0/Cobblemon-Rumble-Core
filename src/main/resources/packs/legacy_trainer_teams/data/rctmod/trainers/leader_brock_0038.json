@@ -1,0 +1,214 @@
+{
+  "name": "小刚",
+  "identity": "馆主·小刚",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gigalith",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "sandstream",
+      "moveset": [
+        "stealthrock",
+        "stoneedge",
+        "earthquake",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "smooth_rock"
+      ]
+    },
+    {
+      "species": "omastar",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "endure",
+        "meteorbeam",
+        "icebeam",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "stoneedge",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    },
+    {
+      "species": "lycanroc",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "accelerock",
+        "stoneedge",
+        "closecombat",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "sandstream",
+      "moveset": [
+        "stoneedge",
+        "firepunch",
+        "crunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "aerodactyl",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "unnerve",
+      "moveset": [
+        "stoneedge",
+        "earthquake",
+        "dualwingbeat",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:aerodactylite",
+        "life_orb"
+      ]
+    }
+  ]
+}

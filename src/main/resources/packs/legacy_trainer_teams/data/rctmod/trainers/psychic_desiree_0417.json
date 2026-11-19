@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·德西蕾",
+  "team": [
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "calm",
+      "ability": "innerfocus",
+      "moveset": [
+        "allyswitch",
+        "psyshock",
+        "psychic",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "calm",
+      "ability": "synchronize",
+      "moveset": [
+        "recover",
+        "psyshock",
+        "futuresight",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "玩家·布伦丹",
+  "identity": "训练家·布伦丹",
+  "team": [
+    {
+      "species": "ekans",
+      "gender": "FEMALE",
+      "level": 5,
+      "nature": "brave",
+      "ability": "shedskin",
+      "moveset": [
+        "wrap",
+        "leer",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

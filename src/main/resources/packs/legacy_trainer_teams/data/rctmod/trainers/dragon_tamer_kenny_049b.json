@@ -1,0 +1,78 @@
+{
+  "name": "驯龙师·肯尼",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bagon",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "serious",
+      "ability": "rockhead",
+      "moveset": [
+        "doubleedge",
+        "outrage",
+        "zenheadbutt",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shelgon",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonclaw",
+        "headbutt",
+        "crunch",
+        "dragonbreath"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

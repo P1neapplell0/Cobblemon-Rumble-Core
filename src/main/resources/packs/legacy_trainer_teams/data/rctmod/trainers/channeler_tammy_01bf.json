@@ -1,0 +1,34 @@
+{
+  "name": "灵媒·塔米",
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "disguise",
+      "moveset": [
+        "mimic",
+        "feintattack",
+        "charm",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

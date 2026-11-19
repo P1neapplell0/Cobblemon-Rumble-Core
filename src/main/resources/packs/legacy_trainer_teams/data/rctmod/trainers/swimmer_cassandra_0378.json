@@ -1,0 +1,63 @@
+{
+  "name": "泳者·卡珊德拉",
+  "team": [
+    {
+      "species": "finneon",
+      "gender": "FEMALE",
+      "level": 41,
+      "nature": "bashful",
+      "ability": "stormdrain",
+      "moveset": [
+        "attract",
+        "raindance",
+        "gust",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "bold",
+      "ability": "drizzle",
+      "moveset": [
+        "wingattack",
+        "waterpulse",
+        "stockpile",
+        "swallow"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

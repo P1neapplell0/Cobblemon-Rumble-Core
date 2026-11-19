@@ -1,0 +1,34 @@
+{
+  "name": "泳者·里卡多",
+  "team": [
+    {
+      "species": "tentacruel",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "sassy",
+      "ability": "clearbody",
+      "moveset": [
+        "acid",
+        "waterpulse",
+        "acidarmor",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

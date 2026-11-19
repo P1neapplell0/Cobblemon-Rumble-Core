@@ -1,0 +1,34 @@
+{
+  "name": "捕虫少年·加勒特",
+  "team": [
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "swarm",
+      "moveset": [
+        "takedown",
+        "megahorn",
+        "closecombat",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

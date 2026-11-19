@@ -1,0 +1,92 @@
+{
+  "name": "捕虫少年·科尔顿",
+  "team": [
+    {
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 51,
+      "nature": "lonely",
+      "ability": "compoundeyes",
+      "moveset": [
+        "ragepowder",
+        "captivate",
+        "tailwind",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "beedrill",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "careful",
+      "ability": "swarm",
+      "moveset": [
+        "poisonjab",
+        "agility",
+        "endeavor",
+        "fellstinger"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "butterfree",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "mild",
+      "ability": "compoundeyes",
+      "moveset": [
+        "ragepowder",
+        "captivate",
+        "tailwind",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

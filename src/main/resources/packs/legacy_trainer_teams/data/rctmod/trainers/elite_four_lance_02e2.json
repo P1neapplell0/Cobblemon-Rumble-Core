@@ -1,0 +1,169 @@
+{
+  "name": "渡",
+  "identity": "四天王·渡",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "quirky",
+      "ability": "intimidate",
+      "moveset": [
+        "hyperbeam",
+        "dragondance",
+        "earthquake",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "hyperbeam",
+        "earthquake",
+        "dragonclaw",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "kingdra",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "hardy",
+      "ability": "sniper",
+      "moveset": [
+        "hyperbeam",
+        "dragondance",
+        "surf",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "aerodactyl",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "hasty",
+      "ability": "pressure",
+      "moveset": [
+        "hyperbeam",
+        "ancientpower",
+        "aerialace",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "hardy",
+      "ability": "innerfocus",
+      "moveset": [
+        "hyperbeam",
+        "outrage",
+        "thunderbolt",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "persim_berry"
+      ]
+    }
+  ]
+}

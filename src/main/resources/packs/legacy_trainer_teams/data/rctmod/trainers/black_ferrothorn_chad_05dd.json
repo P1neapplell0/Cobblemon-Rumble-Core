@@ -1,0 +1,63 @@
+{
+  "name": "黑色坚果哑铃·查德",
+  "team": [
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "earthquake",
+        "powertrip",
+        "dig",
+        "thunderfang"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "ironbarbs",
+      "moveset": [
+        "ironhead",
+        "powerwhip",
+        "payback",
+        "pinmissile"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

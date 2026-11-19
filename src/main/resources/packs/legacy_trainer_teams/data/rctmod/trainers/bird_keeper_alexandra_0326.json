@@ -1,0 +1,34 @@
+{
+  "name": "养鸟人·亚历山德拉",
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "calm",
+      "ability": "keeneye",
+      "moveset": [
+        "peck",
+        "echoedvoice",
+        "confusion",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

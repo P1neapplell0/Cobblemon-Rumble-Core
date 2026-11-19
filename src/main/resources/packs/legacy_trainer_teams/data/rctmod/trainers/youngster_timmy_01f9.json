@@ -1,0 +1,92 @@
+{
+  "name": "短裤小子·蒂米",
+  "team": [
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "facade",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "hasty",
+      "ability": "shedskin",
+      "moveset": [
+        "gastroacid",
+        "crunch",
+        "belch",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "naughty",
+      "ability": "sniper",
+      "moveset": [
+        "haze",
+        "venoshock",
+        "airslash",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

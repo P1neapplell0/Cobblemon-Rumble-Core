@@ -1,0 +1,215 @@
+{
+  "name": "宝可梦训练家·卢卡斯",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "impish",
+      "ability": "poisonheal",
+      "moveset": [
+        "earthquake",
+        "acrobatics",
+        "fling",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "cradily",
+      "gender": "FEMALE",
+      "level": 69,
+      "nature": "bold",
+      "ability": "stormdrain",
+      "moveset": [
+        "gigadrain",
+        "leechseed",
+        "ingrain",
+        "stockpile"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "icebody",
+      "moveset": [
+        "freezedry",
+        "blizzard",
+        "hail",
+        "waterpulse"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "thunder",
+        "thunderbolt",
+        "voltswitch",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "heat-appliance"
+      ]
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "intimidate",
+      "moveset": [
+        "hyperbeam",
+        "blizzard",
+        "fireblast",
+        "thunder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "empoleon",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "hardy",
+      "ability": "torrent",
+      "moveset": [
+        "aquajet",
+        "waterfall",
+        "steelwing",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    }
+  ]
+}

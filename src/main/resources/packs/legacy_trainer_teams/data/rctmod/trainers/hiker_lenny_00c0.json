@@ -1,0 +1,121 @@
+{
+  "name": "登山男·莱尼",
+  "team": [
+    {
+      "species": "anorith",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "relaxed",
+      "ability": "battlearmor",
+      "moveset": [
+        "metalclaw",
+        "ancientpower",
+        "bugbite",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lileep",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "hasty",
+      "ability": "suctioncups",
+      "moveset": [
+        "ancientpower",
+        "brine",
+        "gigadrain",
+        "gastroacid"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "cranidos",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "rash",
+      "ability": "moldbreaker",
+      "moveset": [
+        "takedown",
+        "scaryface",
+        "assurance",
+        "chipaway"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shieldon",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "sturdy",
+      "moveset": [
+        "takedown",
+        "irondefense",
+        "swagger",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "露营少年·利亚姆",
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "bashful",
+      "ability": "intimidate",
+      "moveset": [
+        "flamecharge",
+        "bite",
+        "ember"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "oran_berry"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "drilbur",
+      "gender": "MALE",
+      "level": 11,
+      "nature": "bashful",
+      "ability": "moldbreaker",
+      "moveset": [
+        "rapidspin",
+        "mudslap",
+        "metalclaw"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    }
+  ]
+}

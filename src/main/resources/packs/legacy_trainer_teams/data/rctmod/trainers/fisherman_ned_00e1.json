@@ -1,0 +1,92 @@
+{
+  "name": "渔夫·内德",
+  "team": [
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "modest",
+      "ability": "waterveil",
+      "moveset": [
+        "flipturn",
+        "aquaring",
+        "agility",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "serious",
+      "ability": "damp",
+      "moveset": [
+        "raindance",
+        "bodyslam",
+        "bubblebeam",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clamperl",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "lonely",
+      "ability": "battlearmor",
+      "moveset": [
+        "watergun",
+        "whirlpool",
+        "irondefense",
+        "icywind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

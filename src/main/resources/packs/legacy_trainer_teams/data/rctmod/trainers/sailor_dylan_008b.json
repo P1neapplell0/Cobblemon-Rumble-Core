@@ -1,0 +1,92 @@
+{
+  "name": "水手·迪伦",
+  "team": [
+    {
+      "species": "horsea",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "serious",
+      "ability": "sniper",
+      "moveset": [
+        "watergun",
+        "twister",
+        "bubblebeam",
+        "focusenergy"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clamperl",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "brave",
+      "ability": "battlearmor",
+      "moveset": [
+        "watergun",
+        "whirlpool",
+        "irondefense",
+        "icywind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ducklett",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "naughty",
+      "ability": "frisk",
+      "moveset": [
+        "featherdance",
+        "icywind",
+        "aquaring",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

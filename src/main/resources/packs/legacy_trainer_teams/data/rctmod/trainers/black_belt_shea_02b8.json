@@ -1,0 +1,69 @@
+{
+  "name": "空手道王·谢伊",
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "naughty",
+      "ability": "guts",
+      "moveset": [
+        "submission",
+        "bulkup",
+        "dynamicpunch",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "serious",
+      "ability": "guts",
+      "moveset": [
+        "submission",
+        "bulkup",
+        "dynamicpunch",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

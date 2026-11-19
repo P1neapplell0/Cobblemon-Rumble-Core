@@ -1,0 +1,184 @@
+{
+  "name": "精英训练家·乔治",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sleeppowder",
+        "gigadrain",
+        "energyball",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "miracle_seed"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "donphan",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulldoze",
+        "iceshard",
+        "rollout",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "cloyster",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "rockblast",
+        "iciclespear",
+        "liquidation",
+        "shellsmash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "mienshao",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "regenerator",
+      "moveset": [
+        "fakeout",
+        "closecombat",
+        "uturn",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "pinsir",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "quickattack",
+        "xscissor",
+        "thrash",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "name": "露营少年·德鲁",
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "serious",
+      "ability": "furcoat",
+      "moveset": [
+        "feint",
+        "screech",
+        "feintattack",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "palpitoad",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "hardy",
+      "ability": "swiftswim",
+      "moveset": [
+        "bubblebeam",
+        "mudshot",
+        "raindance",
+        "uproar"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "brave",
+      "ability": "stench",
+      "moveset": [
+        "acidspray",
+        "bite",
+        "slash",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "spinda",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "naughty",
+      "ability": "owntempo",
+      "moveset": [
+        "psybeam",
+        "hypnosis",
+        "dizzypunch",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

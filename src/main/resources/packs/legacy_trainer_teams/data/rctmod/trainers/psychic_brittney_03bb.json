@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·布兰妮",
+  "team": [
+    {
+      "species": "medicham",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "highjumpkick",
+        "psychup",
+        "reversal",
+        "feint"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "calmmind",
+        "psychic",
+        "futuresight",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

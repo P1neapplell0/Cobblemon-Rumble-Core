@@ -1,0 +1,34 @@
+{
+  "name": "渔夫·汉克",
+  "team": [
+    {
+      "species": "octillery",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "relaxed",
+      "ability": "megalauncher",
+      "moveset": [
+        "bubblebeam",
+        "focusenergy",
+        "wringout",
+        "signalbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

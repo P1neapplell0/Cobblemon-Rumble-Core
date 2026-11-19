@@ -1,0 +1,23 @@
+[Spawning]
+maxTrainersPerPlayer = 2
+maxTrainersTotal = 16
+globalSpawnChance = 0.45
+globalSpawnChanceMinimum = 0.15
+spawnIntervalTicks = 600
+spawnIntervalTicksMaximum = 1800
+despawnTicksIfUnseen = 2400
+maxHorizontalDistanceToPlayers = 56
+minHorizontalDistanceToPlayers = 24
+maxVerticalDistanceToPlayers = 16
+spawnTrainerAssociation = false
+spawningRequiresTrainerCard = false
+dimensionWhitelist = ["minecraft:overworld"]
+dimensionBlacklist = ["cobblemon_rumble_core:gyms"]
+
+[Trainers]
+forceBattleOnSight = false
+
+[Players]
+initialSeries = "freeroam"
+freeroamRequiresCompletedSeries = false
+allowOverLeveling = true

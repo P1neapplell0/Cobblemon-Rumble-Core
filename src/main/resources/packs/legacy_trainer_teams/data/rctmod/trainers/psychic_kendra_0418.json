@@ -1,0 +1,63 @@
+{
+  "name": "超能力者·肯德拉",
+  "team": [
+    {
+      "species": "chingling",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "bashful",
+      "ability": "levitate",
+      "moveset": [
+        "wrap",
+        "growl",
+        "confusion",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "chimecho",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "lightscreen",
+        "healpulse",
+        "healbell",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

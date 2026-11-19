@@ -1,0 +1,101 @@
+{
+  "name": "大姐姐·萝拉",
+  "team": [
+    {
+      "species": "cherrim",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "flowergift",
+      "moveset": [
+        "petalblizzard",
+        "safeguard",
+        "pollenpuff",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "naive",
+      "ability": "chlorophyll",
+      "moveset": [
+        "petalblizzard",
+        "safeguard",
+        "earthpower",
+        "weatherball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "florges",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "calm",
+      "ability": "naturalcure",
+      "moveset": [
+        "petalblizzard",
+        "moonblast",
+        "safeguard",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

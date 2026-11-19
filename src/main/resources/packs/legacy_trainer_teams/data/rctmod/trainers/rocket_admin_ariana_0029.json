@@ -1,0 +1,214 @@
+{
+  "name": "火箭队干部·阿丽亚娜",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "poweruppunch",
+        "uturn",
+        "beatup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "pressure",
+      "moveset": [
+        "tripleaxel",
+        "iceshard",
+        "lowkick",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "victini",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "victorystar",
+      "moveset": [
+        "batonpass",
+        "searingshot",
+        "storedpower",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:normalium_z",
+        "normal_gem"
+      ]
+    },
+    {
+      "species": "toxapex",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "haze",
+        "muddywater",
+        "toxic",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "mawile",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "hypercutter",
+      "moveset": [
+        "ironhead",
+        "playrough",
+        "suckerpunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:mawilite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "xerneas",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "modest",
+      "ability": "fairyaura",
+      "moveset": [
+        "geomancy",
+        "drainingkiss",
+        "thunderbolt",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    }
+  ]
+}

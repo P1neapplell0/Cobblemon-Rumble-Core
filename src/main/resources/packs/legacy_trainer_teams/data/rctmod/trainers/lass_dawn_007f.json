@@ -1,0 +1,63 @@
+{
+  "name": "短裤少女·小光",
+  "team": [
+    {
+      "species": "kirlia",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "magicalleaf",
+        "allyswitch",
+        "drainingkiss",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "morpeko",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "hardy",
+      "ability": "hungerswitch",
+      "moveset": [
+        "powertrip",
+        "quickattack",
+        "flatter",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

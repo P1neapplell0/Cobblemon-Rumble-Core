@@ -1,0 +1,63 @@
+{
+  "name": "宝可梦保育家·艾莉森",
+  "team": [
+    {
+      "species": "aipom",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "astonish",
+        "tickle",
+        "furyswipes",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "bubblebeam",
+        "slam",
+        "bounce",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

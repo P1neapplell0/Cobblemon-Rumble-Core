@@ -1,0 +1,92 @@
+{
+  "name": "野餐少女·伊莎贝尔",
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "gentle",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "airslash",
+        "defog",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "naive",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "airslash",
+        "defog",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pidgeot",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "serious",
+      "ability": "frisk",
+      "moveset": [
+        "agility",
+        "airslash",
+        "defog",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

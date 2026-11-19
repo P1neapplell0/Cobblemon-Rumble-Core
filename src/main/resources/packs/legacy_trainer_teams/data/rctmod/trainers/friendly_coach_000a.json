@@ -1,0 +1,170 @@
+{
+  "name": "友善教练（物攻）",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "statusMoveBias": 1,
+      "switchBias": 0,
+      "itemBias": 0
+    }
+  },
+  "team": [
+    {
+      "species": "lillipup",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "relaxed",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lillipup",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "naive",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lillipup",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "serious",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lillipup",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lillipup",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "timid",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "lillipup",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "impish",
+      "ability": "sandrush",
+      "moveset": [
+        "afteryou"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

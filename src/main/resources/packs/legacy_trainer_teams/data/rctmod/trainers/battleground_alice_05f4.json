@@ -1,0 +1,203 @@
+{
+  "name": "对战殿堂爱丽丝",
+  "identity": "馆主·爱丽丝",
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "adamant",
+      "ability": "reckless",
+      "moveset": [
+        "bravebird",
+        "doubleedge",
+        "closecombat",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "careful",
+      "ability": "poisonheal",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "toxic",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "skarmory",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "impish",
+      "ability": "sturdy",
+      "moveset": [
+        "bravebird",
+        "whirlwind",
+        "roost",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "archeops",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "klutz",
+      "moveset": [
+        "dualwingbeat",
+        "stoneedge",
+        "earthquake",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:groundium_z",
+        "ground_gem"
+      ]
+    },
+    {
+      "species": "pidgeot",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "modest",
+      "ability": "noguard",
+      "moveset": [
+        "hurricane",
+        "heatwave",
+        "ominouswind",
+        "workup"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:pidgeotite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "thundurus",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "modest",
+      "ability": "voltabsorb",
+      "moveset": [
+        "thunderbolt",
+        "incinerate",
+        "weatherball",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "therian"
+      ]
+    }
+  ]
+}

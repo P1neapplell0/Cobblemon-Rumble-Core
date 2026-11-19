@@ -1,0 +1,92 @@
+{
+  "name": "宝可梦培育家·卡利尔",
+  "team": [
+    {
+      "species": "pichu",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "sassy",
+      "ability": "static",
+      "moveset": [
+        "thundershock",
+        "tailwhip",
+        "playnice",
+        "nuzzle"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "sassy",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "quickattack",
+        "doubleteam",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "happiny",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "sassy",
+      "ability": "serenegrace",
+      "moveset": [
+        "minimize",
+        "sweetkiss",
+        "disarmingvoice",
+        "covet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

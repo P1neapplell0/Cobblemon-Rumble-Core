@@ -1,0 +1,180 @@
+{
+  "name": "四天王·大叶",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "flamebody",
+      "moveset": [
+        "flamecharge",
+        "irontail",
+        "poisonjab",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    },
+    {
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "thunderfang",
+        "firefang",
+        "irontail",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "drifblim",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "unburden",
+      "moveset": [
+        "strengthsap",
+        "minimize",
+        "batonpass",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "cutecharm",
+      "moveset": [
+        "mirrorcoat",
+        "highjumpkick",
+        "quickattack",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "firepunch",
+        "thunderpunch",
+        "closecombat",
+        "machpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

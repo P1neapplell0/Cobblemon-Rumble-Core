@@ -1,0 +1,92 @@
+{
+  "name": "培育家·阿莉泽",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "discharge",
+        "megapunch",
+        "thunderbolt",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "hardy",
+      "ability": "magicguard",
+      "moveset": [
+        "luckychant",
+        "bodyslam",
+        "afteryou",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "naughty",
+      "ability": "hugepower",
+      "moveset": [
+        "raindance",
+        "doubleedge",
+        "superpower",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

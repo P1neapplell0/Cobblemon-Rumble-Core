@@ -1,0 +1,34 @@
+{
+  "name": "泳者·加布里埃尔",
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "calm",
+      "ability": "cloudnine",
+      "moveset": [
+        "aquajet",
+        "zenheadbutt",
+        "screech",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

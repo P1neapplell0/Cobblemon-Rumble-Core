@@ -1,0 +1,121 @@
+{
+  "name": "超级书呆·阿弗里",
+  "team": [
+    {
+      "species": "heatmor",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "gluttony",
+      "moveset": [
+        "spitup",
+        "swallow",
+        "flareblitz",
+        "inferno"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "docile",
+      "ability": "blaze",
+      "moveset": [
+        "flamethrower",
+        "firespin",
+        "inferno",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "talonflame",
+      "gender": "MALE",
+      "level": 73,
+      "nature": "docile",
+      "ability": "flamebody",
+      "moveset": [
+        "mefirst",
+        "tailwind",
+        "steelwing",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "oricorio",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "serious",
+      "ability": "dancer",
+      "moveset": [
+        "mirrormove",
+        "agility",
+        "hurricane",
+        "quiverdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

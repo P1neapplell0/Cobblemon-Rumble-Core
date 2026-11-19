@@ -1,0 +1,166 @@
+{
+  "name": "超级训练家·克丽丝托",
+  "team": [
+    {
+      "species": "oranguru",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "bold",
+      "ability": "innerfocus",
+      "moveset": [
+        "psychic",
+        "reflect",
+        "lightscreen",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "jellicent",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hex",
+        "willowisp",
+        "strengthsap",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "doubleedge",
+        "darkestlariat",
+        "earthquake",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "druddigon",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "outrage",
+        "suckerpunch",
+        "firepunch",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "magicbounce",
+      "moveset": [
+        "knockoff",
+        "playrough",
+        "suckerpunch",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

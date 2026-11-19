@@ -1,0 +1,34 @@
+{
+  "name": "自行车手·凯拉",
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "quickattack",
+        "tailwhip",
+        "nuzzle",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

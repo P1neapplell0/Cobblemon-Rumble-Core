@@ -1,0 +1,37 @@
+{
+  "name": "空手道王·阿龙",
+  "team": [
+    {
+      "species": "sirfetchd",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "sassy",
+      "ability": "sharpness",
+      "moveset": [
+        "knockoff",
+        "defog",
+        "brickbreak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

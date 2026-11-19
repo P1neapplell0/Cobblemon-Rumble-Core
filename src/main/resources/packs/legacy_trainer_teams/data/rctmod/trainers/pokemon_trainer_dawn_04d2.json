@@ -1,0 +1,48 @@
+{
+  "name": "宝可梦训练家·小光",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "piplup",
+      "gender": "MALE",
+      "level": 13,
+      "nature": "hardy",
+      "ability": "torrent",
+      "moveset": [
+        "pound",
+        "growl",
+        "watergun"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

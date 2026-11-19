@@ -1,0 +1,63 @@
+{
+  "name": "野餐少女·瓦莱丽",
+  "team": [
+    {
+      "species": "weepinbell",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "naive",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gastroacid",
+        "razorleaf",
+        "poisonjab",
+        "slam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ursaring",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "docile",
+      "ability": "quickfeet",
+      "moveset": [
+        "scaryface",
+        "rest",
+        "thrash",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "科学家·特拉维斯",
+  "team": [
+    {
+      "species": "kabutops",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "brave",
+      "ability": "sharpness",
+      "moveset": [
+        "endure",
+        "aquajet",
+        "megadrain",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "omastar",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "brine",
+        "endure",
+        "ancientpower",
+        "meteorbeam"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

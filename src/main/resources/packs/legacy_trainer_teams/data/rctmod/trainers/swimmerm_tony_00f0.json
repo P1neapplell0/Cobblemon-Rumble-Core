@@ -1,0 +1,63 @@
+{
+  "name": "男泳者·托尼",
+  "team": [
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "bold",
+      "ability": "poisontouch",
+      "moveset": [
+        "agility",
+        "dragonpulse",
+        "dragondance",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "samurott",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "jolly",
+      "ability": "torrent",
+      "moveset": [
+        "swordsdance",
+        "hydropump",
+        "sacredsword",
+        "razorshell"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

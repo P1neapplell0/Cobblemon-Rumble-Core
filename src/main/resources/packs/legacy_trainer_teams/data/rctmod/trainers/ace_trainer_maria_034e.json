@@ -1,0 +1,107 @@
+{
+  "name": "精英训练家·玛丽亚",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "aquajet",
+        "furyswipes",
+        "zenheadbutt",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "careful",
+      "ability": "runaway",
+      "moveset": [
+        "tailwhip",
+        "flamewheel",
+        "stomp",
+        "firespin"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "hammerarm",
+        "woodhammer",
+        "rocktomb",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

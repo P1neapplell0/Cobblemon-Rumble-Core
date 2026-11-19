@@ -1,0 +1,121 @@
+{
+  "name": "超能力者·约翰",
+  "team": [
+    {
+      "species": "grumpig",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "hasty",
+      "ability": "owntempo",
+      "moveset": [
+        "snore",
+        "psyshock",
+        "payback",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "cursedbody",
+      "moveset": [
+        "imprison",
+        "suckerpunch",
+        "mistyterrain",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "careful",
+      "ability": "steadfast",
+      "moveset": [
+        "feint",
+        "falseswipe",
+        "protect",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "espeon",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "rash",
+      "ability": "synchronize",
+      "moveset": [
+        "morningsun",
+        "psychic",
+        "lastresort",
+        "powerswap"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

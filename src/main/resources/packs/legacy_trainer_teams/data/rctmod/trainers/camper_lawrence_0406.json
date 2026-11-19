@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·劳伦斯",
+  "team": [
+    {
+      "species": "luxio",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "docile",
+      "ability": "intimidate",
+      "moveset": [
+        "thundershock",
+        "charge",
+        "spark",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "naive",
+      "ability": "stench",
+      "moveset": [
+        "focusenergy",
+        "venoshock",
+        "toxic",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

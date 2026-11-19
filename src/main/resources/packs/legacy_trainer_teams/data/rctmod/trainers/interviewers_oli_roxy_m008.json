@@ -1,0 +1,64 @@
+{
+  "name": "采访者·奥利＆萝克西",
+  "battleFormat": "GEN_9_DOUBLES",
+  "team": [
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "hardy",
+      "ability": "thickfat",
+      "moveset": [
+        "bubblebeam",
+        "charm",
+        "slam",
+        "bounce"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "wooper",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "impish",
+      "ability": "waterabsorb",
+      "moveset": [
+        "watergun",
+        "raindance",
+        "mudshot",
+        "mist"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

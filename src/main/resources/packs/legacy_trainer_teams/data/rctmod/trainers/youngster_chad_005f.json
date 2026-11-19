@@ -1,0 +1,63 @@
+{
+  "name": "短裤小子·查德",
+  "team": [
+    {
+      "species": "volbeat",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "adamant",
+      "ability": "prankster",
+      "moveset": [
+        "confuseray",
+        "quickattack",
+        "strugglebug",
+        "moonlight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "shroomish",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "quiet",
+      "ability": "effectspore",
+      "moveset": [
+        "leechseed",
+        "megadrain",
+        "headbutt",
+        "poisonpowder"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

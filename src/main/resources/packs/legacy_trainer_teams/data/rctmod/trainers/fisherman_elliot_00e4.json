@@ -1,0 +1,121 @@
+{
+  "name": "渔夫·埃利奥特",
+  "team": [
+    {
+      "species": "whiscash",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "mild",
+      "ability": "hydration",
+      "moveset": [
+        "rest",
+        "snore",
+        "waterpulse",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "luvdisc",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "bashful",
+      "ability": "swiftswim",
+      "moveset": [
+        "heartstamp",
+        "flail",
+        "sweetkiss",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "goldeen",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "hasty",
+      "ability": "lightningrod",
+      "moveset": [
+        "flipturn",
+        "aquaring",
+        "agility",
+        "waterfall"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "bold",
+      "ability": "poisontouch",
+      "moveset": [
+        "twister",
+        "bubblebeam",
+        "focusenergy",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

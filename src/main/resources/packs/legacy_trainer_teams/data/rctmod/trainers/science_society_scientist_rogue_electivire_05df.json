@@ -1,0 +1,130 @@
+{
+  "name": "科学社科学家",
+  "team": [
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 57,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "thunderbolt",
+        "thunder",
+        "shadowball",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "mow-appliance"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "timid",
+      "ability": "flareboost",
+      "moveset": [
+        "discharge",
+        "flamethrower",
+        "swift",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 58,
+      "nature": "modest",
+      "ability": "sturdy",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "swift",
+        "magnetrise"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "vikavolt",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "bugbuzz",
+        "thunderbolt",
+        "airslash",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

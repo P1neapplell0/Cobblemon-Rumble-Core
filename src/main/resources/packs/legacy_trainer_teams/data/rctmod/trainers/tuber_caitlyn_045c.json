@@ -1,0 +1,63 @@
+{
+  "name": "泳圈族·凯特琳",
+  "team": [
+    {
+      "species": "azurill",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "timid",
+      "ability": "sapsipper",
+      "moveset": [
+        "tailwhip",
+        "charm",
+        "bubblebeam",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "aquatail",
+        "playrough",
+        "aquaring",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

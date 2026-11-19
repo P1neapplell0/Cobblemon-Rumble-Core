@@ -1,0 +1,8 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:mushroom_fields",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ]
+}

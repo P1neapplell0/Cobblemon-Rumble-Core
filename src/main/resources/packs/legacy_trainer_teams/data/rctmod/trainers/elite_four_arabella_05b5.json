@@ -1,0 +1,207 @@
+{
+  "name": "四天王·阿拉贝拉",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ribombee",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "timid",
+      "ability": "shielddust",
+      "moveset": [
+        "moonblast",
+        "reflect",
+        "lightscreen",
+        "stickyweb"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "sylveon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "bold",
+      "ability": "pixilate",
+      "moveset": [
+        "hypervoice",
+        "mysticalfire",
+        "wish",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "fairy_gem"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "calm",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "dazzlinggleam",
+        "flamethrower",
+        "wish"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "careful",
+      "ability": "hugepower",
+      "moveset": [
+        "aquatail",
+        "playrough",
+        "superpower",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "mawile",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "ironhead",
+        "playrough",
+        "suckerpunch",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "mega_showdown:mawilite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "tapufini",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "calm",
+      "ability": "mistysurge",
+      "moveset": [
+        "moonblast",
+        "surf",
+        "naturesmadness",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

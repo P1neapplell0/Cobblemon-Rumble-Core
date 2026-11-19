@@ -1,0 +1,92 @@
+{
+  "name": "滑雪者·布拉德利",
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "harden",
+        "stealthrock",
+        "rockblast",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "sturdy",
+      "moveset": [
+        "harden",
+        "bulldoze",
+        "stealthrock",
+        "rockblast"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hasty",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "razorleaf",
+        "icywind",
+        "ingrain"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "画家·埃德娜",
+  "team": [
+    {
+      "species": "smeargle",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "mild",
+      "ability": "owntempo",
+      "moveset": [
+        "sketch",
+        "extremespeed",
+        "protect",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

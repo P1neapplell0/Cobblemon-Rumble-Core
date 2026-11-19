@@ -1,0 +1,63 @@
+{
+  "name": "摇滚乐手·卢卡",
+  "team": [
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 33,
+      "nature": "impish",
+      "ability": "soundproof",
+      "moveset": [
+        "swift",
+        "electroball",
+        "selfdestruct",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 33,
+      "nature": "lonely",
+      "ability": "soundproof",
+      "moveset": [
+        "swift",
+        "electroball",
+        "selfdestruct",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "泳者·凡妮莎",
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "aquajet",
+        "tailwhip",
+        "zenheadbutt",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

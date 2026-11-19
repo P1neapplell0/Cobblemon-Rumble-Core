@@ -1,0 +1,165 @@
+{
+  "name": "精英训练家·香农",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "beedrill",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "relaxed",
+      "ability": "swarm",
+      "moveset": [
+        "pinmissile",
+        "twineedle",
+        "agility",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "quirky",
+      "ability": "compoundeyes",
+      "moveset": [
+        "safeguard",
+        "psybeam",
+        "gust",
+        "supersonic"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "parasect",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "dryskin",
+      "moveset": [
+        "spore",
+        "leechlife",
+        "slash",
+        "growth"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "venonat",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "brave",
+      "ability": "tintedlens",
+      "moveset": [
+        "psybeam",
+        "stunspore",
+        "leechlife",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "venomoth",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "brave",
+      "ability": "tintedlens",
+      "moveset": [
+        "psybeam",
+        "gust",
+        "supersonic",
+        "leechlife"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

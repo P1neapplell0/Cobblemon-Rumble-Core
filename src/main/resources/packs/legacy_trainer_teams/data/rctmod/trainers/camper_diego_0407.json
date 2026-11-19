@@ -1,0 +1,63 @@
+{
+  "name": "露营少年·迭戈",
+  "team": [
+    {
+      "species": "cascoon",
+      "gender": "MALE",
+      "level": 13,
+      "nature": "naive",
+      "ability": "shedskin",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting",
+        "harden"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "hasty",
+      "ability": "shielddust",
+      "moveset": [
+        "gust",
+        "confusion",
+        "poisonpowder",
+        "moonlight"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}

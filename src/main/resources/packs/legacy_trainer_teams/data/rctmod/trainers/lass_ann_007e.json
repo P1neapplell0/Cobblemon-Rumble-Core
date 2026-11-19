@@ -1,0 +1,69 @@
+{
+  "name": "短裤少女·安",
+  "team": [
+    {
+      "species": "dewott",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bashful",
+      "ability": "battlearmor",
+      "moveset": [
+        "waterpledge",
+        "irontail",
+        "icebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "simisear",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "naive",
+      "ability": "gluttony",
+      "moveset": [
+        "firepledge",
+        "lowkick",
+        "grassknot",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    }
+  ]
+}

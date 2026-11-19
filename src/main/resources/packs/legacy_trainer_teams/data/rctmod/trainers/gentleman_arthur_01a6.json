@@ -1,0 +1,63 @@
+{
+  "name": "绅士·亚瑟",
+  "team": [
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "quiet",
+      "ability": "poisontouch",
+      "moveset": [
+        "rocksmash",
+        "poisonsting",
+        "furyattack",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    },
+    {
+      "species": "zangoose",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "mild",
+      "ability": "toughclaws",
+      "moveset": [
+        "pursuit",
+        "honeclaws",
+        "slash",
+        "revenge"
+      ],
+      "ivs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      }
+    }
+  ]
+}
