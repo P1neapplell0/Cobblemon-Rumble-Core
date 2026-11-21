@@ -1,0 +1,160 @@
+:root {
+  color-scheme: dark;
+  font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --edge: rgba(197, 213, 233, .38);
+  --cream: #fff1d9;
+  --apricot: #ffac57;
+  --panel: #171d2a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #111925;
+  color: white;
+  min-height: 100svh;
+  min-width: 280px;
+  isolation: isolate;
+}
+.scenery, #stage, .grade { position: fixed; inset: 0; pointer-events: none; }
+.scenery {
+  z-index: -3;
+  background: #111925 url('/*@@BACKGROUND@@*/') center center / cover no-repeat;
+}
+#stage { z-index: -2; }
+#stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#stage .model-stage {
+  filter: drop-shadow(0 -1px 1px #cfedff60) drop-shadow(0 2px 3px #050912d4);
+}
+.grade {
+  z-index: -1;
+  background:
+    linear-gradient(0deg, #080e1bee 0%, #0a111e68 19%, transparent 34%),
+    linear-gradient(180deg, #0b111b55, transparent 35%),
+    radial-gradient(ellipse at 50% 45%, transparent 53%, #080d1780 100%);
+}
+.menu {
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+  min-height: 100svh;
+  max-width: 100%;
+  padding: clamp(18px, 4vh, 50px) 12px clamp(16px, 3.6vh, 44px);
+  pointer-events: none;
+}
+.wordmark {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: clamp(1px, .4vh, 7px);
+  width: min(74vw, 66vh, 790px);
+  width: min(74vw, 66svh, 790px);
+  user-select: none;
+  filter: drop-shadow(0 5px 12px #080b13b0);
+}
+.wordmark img { display: block; width: 100%; height: auto; }
+.wordmark .cobblemon-mark { width: clamp(31px, 7.9svh, 82px); }
+.menu-controls { display: grid; justify-items: center; pointer-events: auto; }
+.actions { display: grid; justify-items: center; gap: clamp(4px, .85svh, 9px); }
+button { font: inherit; cursor: pointer; }
+button:focus-visible { outline: 2px solid #ffe2ab; outline-offset: 4px; }
+.action, .utility { border: 0; background: transparent; }
+.action {
+  padding: 2px 12px 4px;
+  color: #f6eee6;
+  font-family: "Arial Black", "Arial Bold", system-ui, sans-serif;
+  font-size: clamp(19px, 3.55svh, 39px);
+  font-weight: 950;
+  line-height: 1.13;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -.032em;
+  transform: skewX(-9deg);
+  text-shadow: 0 2px #5c4e54, 0 4px #101524, 0 6px 14px #030812;
+  transition: transform 160ms ease, color 160ms ease, filter 160ms ease;
+}
+.action.primary { color: #ffd493; text-shadow: 0 2px #a75228, 0 4px #301929, 0 6px 14px #030812; }
+.action:hover, .action:focus-visible { color: #ffe0a4; transform: skewX(-9deg) scale(1.07); filter: brightness(1.1); }
+.action:active { transform: skewX(-9deg) scale(.99); }
+.utilities { display: flex; justify-content: center; gap: clamp(6px, 1.4vw, 17px); margin-top: clamp(6px, 1.8svh, 18px); }
+.utility {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(33px, 5.2svh, 49px);
+  height: clamp(31px, 4.5svh, 42px);
+  padding: 0;
+  color: #f5ecd9;
+}
+.utility canvas {
+  width: clamp(20px, 2.8svh, 26px);
+  height: auto;
+  display: block;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px #03060e);
+}
+.utility:hover canvas, .utility:focus-visible canvas { filter: drop-shadow(0 0 6px #ffb476); }
+.utility.quit:hover canvas, .utility.quit:focus-visible canvas { filter: drop-shadow(0 0 7px #ff7c63); }
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -3px);
+  min-width: max-content;
+  white-space: nowrap;
+  color: #ffe2ab;
+  font-size: clamp(12px, 1.62svh, 15px);
+  font-weight: 700;
+  line-height: 1.15;
+  text-shadow: 0 1px 4px #03060e, 0 2px 9px #03060e;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 110ms ease, opacity 110ms ease;
+}
+.utility:hover .tooltip, .utility:focus-visible .tooltip { visibility: visible; opacity: 1; transform: translate(-50%, 0); }
+.exit-screen {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #090e18;
+}
+.exit-screen[hidden] { display: none; }
+.exit-screen .action { font-size: clamp(19px, 3vh, 30px); }
+dialog {
+  inset: 0;
+  color: var(--cream);
+  background: var(--panel);
+  border: 1px solid #e6b59282;
+  box-shadow: 0 20px 80px #111322a8;
+  padding: 0;
+  width: min(390px, calc(100% - 32px));
+}
+dialog::backdrop { background: #15162488; backdrop-filter: blur(5px); }
+.panel-body { padding: 24px; }
+.panel-body h2 { margin: 0 0 18px; font-size: 24px; }
+.panel-body form { margin-top: 20px; }
+#panel-content { display: grid; gap: 9px; }
+#panel-content:empty { display: none; }
+.dialog-button { background: #273041; color: inherit; border: 1px solid var(--edge); padding: 9px 14px; text-align: left; }
+.dialog-button:hover, .dialog-button[aria-pressed='true'] { border-color: var(--apricot); }
+.panel-body p { margin: 0; }
+@media (max-aspect-ratio: 5/6) {
+  .menu { padding-block: clamp(26px, 7.5svh, 68px) clamp(17px, 5.4svh, 46px); }
+  .wordmark { width: min(94vw, 610px); }
+  .wordmark .cobblemon-mark { width: clamp(36px, 12vw, 65px); }
+  .scenery { background-size: auto 100%; }
+  .grade { background: linear-gradient(0deg, #101823 17%, #10182344 26%, transparent 43%), radial-gradient(ellipse at 50% 46%, transparent 53%, #0b111b68); }
+}
+@media (max-height: 420px) and (min-aspect-ratio: 5/6) {
+  .menu { padding-block: 8px; }
+  .wordmark { width: min(58svh, 63vw); }
+  .action { font-size: 20px; }
+  .utility { height: 25px; }
+  .utilities { margin-top: 4px; }
+  .tooltip { top: 0; transform: translate(-50%, -100%); }
+  .utility:hover .tooltip, .utility:focus-visible .tooltip { transform: translate(-50%, -106%); }
+}
+@media (prefers-reduced-motion: reduce) { .action, .tooltip { transition: none; } }

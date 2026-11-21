@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cobblemon Rumble</title>
+  <style>/*@@CSS@@*/</style>
+</head>
+<body>
+  <div class="scenery" aria-hidden="true"></div>
+  <div id="stage" aria-hidden="true"></div>
+  <div class="grade" aria-hidden="true"></div>
+  <main class="menu" aria-labelledby="title">
+    <h1 class="wordmark" id="title">
+      <img class="cobblemon-mark" src="/*@@MARK@@*/" alt="" width="256" height="256">
+      <img class="display-title" src="/*@@WORDMARK@@*/" alt="Cobblemon Rumble" width="1150" height="364">
+    </h1>
+    <div class="menu-controls">
+      <div class="actions" lang="en">
+        <button class="action primary" data-open="play">Singleplayer</button>
+        <button class="action secondary" data-open="multiplayer">Multiplayer</button>
+      </div>
+      <nav class="utilities" aria-label="主菜单工具" data-aria="tools">
+        <button class="utility" data-open="settings" data-aria="settings" aria-label="设置"><canvas data-icon="settings" aria-hidden="true"></canvas><span class="tooltip" aria-hidden="true" data-label="settings">设置</span></button>
+        <button class="utility" data-open="discord" data-aria="discord" aria-label="Discord 社群"><canvas data-icon="discord" aria-hidden="true"></canvas><span class="tooltip" aria-hidden="true" data-label="discord">Discord 社群</span></button>
+        <button class="utility" data-open="mods" data-aria="mods" aria-label="模组管理"><canvas data-icon="mods" aria-hidden="true"></canvas><span class="tooltip" aria-hidden="true" data-label="mods">模组管理</span></button>
+        <button class="utility" data-open="language" data-aria="language" aria-label="语言"><canvas data-icon="language" aria-hidden="true"></canvas><span class="tooltip" aria-hidden="true" data-label="language">语言</span></button>
+        <button class="utility quit" data-open="quit" data-aria="quit" aria-label="退出游戏"><canvas data-icon="quit" aria-hidden="true"></canvas><span class="tooltip" aria-hidden="true" data-label="quit">退出游戏</span></button>
+      </nav>
+    </div>
+  </main>
+  <section class="exit-screen" hidden><button id="return-to-menu" class="action" data-label="returnToTitle">返回标题界面</button></section>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <section class="panel-body">
+      <h2 id="panel-title"></h2>
+      <div id="panel-content"></div>
+      <form method="dialog"><button class="dialog-button" data-label="back">返回</button></form>
+    </section>
+  </dialog>
+  <script id="assets" type="application/json">/*@@ASSETS@@*/</script>
+  <script>/*@@THREE@@*/</script>
+  <script>/*@@ICONS@@*/</script>
+  <script>/*@@RIG@@*/</script>
+  <script>/*@@ELECTRIC@@*/</script>
+  <script>/*@@APP@@*/</script>
+</body>
+</html>

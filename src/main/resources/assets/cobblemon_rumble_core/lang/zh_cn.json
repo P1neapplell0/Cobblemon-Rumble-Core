@@ -759,5 +759,10 @@
   "rumble.guide.terastallization.body": "佩戴或手持太晶珠，在实时战斗中按技能栏旁显示的 %1$s，使出战宝可梦太晶化。非星晶太晶属性会替换防御属性，并强化对应属性的招式；原属性招式仍有本系加成。每场副本每位训练家仅有一个太晶位。想永久改变太晶属性，先退出实时战斗并放出自己的宝可梦，手持同种太晶碎块（默认需要 50 个）并按 %2$s。多余的碎块可放进太晶收纳袋。",
   "rumble.guide.training_simulator.title": "训练模拟机：模拟宇宙",
   "rumble.guide.training_simulator.summary": "用试炼殿堂广场的两台训练模拟机挑战虚拟道馆。",
-  "rumble.guide.training_simulator.body": "在中央广场对训练模拟机按 %1$s，点击横排图标中的「模拟宇宙」，再选要进入的虚拟道馆。在虚拟空间与训练师交谈可开启实时竞技场挑战。「来测！」只需进入岩石系道馆、再从模拟空间离开，不必击败任何人。之后可重复挑战；击败对手后，下次遇到的训练师会更强。"
+  "rumble.guide.training_simulator.body": "在中央广场对训练模拟机按 %1$s，点击横排图标中的「模拟宇宙」，再选要进入的虚拟道馆。在虚拟空间与训练师交谈可开启实时竞技场挑战。「来测！」只需进入岩石系道馆、再从模拟空间离开，不必击败任何人。之后可重复挑战；击败对手后，下次遇到的训练师会更强。",
+  "rumble.title.settings": "设置",
+  "rumble.title.discord": "Discord 社群",
+  "rumble.title.mods": "模组管理",
+  "rumble.title.language": "语言",
+  "rumble.title.quit": "退出游戏"
 }

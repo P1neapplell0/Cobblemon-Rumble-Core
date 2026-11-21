@@ -18,6 +18,8 @@
    ./gradlew runServer  # runs/neoforge-server；首次启动需确认 Minecraft EULA
    ```
 
+发布时只需分发 `build/libs/cobblemon-rumble-core-<版本>.jar`，其中已包含早期窗口和 Core 的 Jar-in-Jar 依赖。升级时移除旧版 Core 和独立的 `rumble-early-display` JAR。
+
 `libs/packs/datapacks/` 为数据包，`libs/packs/resourcepacks/` 为资源包，`libs/packs/both/` 两端都可发现。新世界会自动发现并加载外置数据包；现有世界可用 `/datapack list` 查看，按需启用。资源包在客户端「选项 → 资源包」启用。可加 `-PrumblePacks=false` 排查外置包冲突。NeoForge 使用独立运行目录，原 `run/` 存档保留。客户端和专用服务器默认最大堆均为 `6G`；可分别用 `-PrumbleClientHeap=8G` 或 `-PrumbleServerHeap=8G` 覆盖。专用服务器可加 `-PrumbleServerWorld=rumble-smoke` 用新世界验证，不改默认存档。
 
 Simple Player Data Manager 随核心通过 Jar-in-Jar 分发。本地依赖齐备时，构建产物还附带三项 MIT 模组（Cobbreeding、FSweep Stack Fix、MSD Special Move Fix），三项均已在旧 IncandescentVerityCore 的成品中内置。外置数据包、资源包和其他模组仍单独加载。详见[精简和内置记录](docs/dependency-prune-2026-11-16.md)。

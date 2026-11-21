@@ -115,6 +115,12 @@ dependencies {
 }
 
 tasks.processResources {
+    from("docs/title-screen") {
+        include("arena-wordmark.png", "cobblemon-mark.png", "clean-arena.png", "game/*.png")
+        eachFile { path = "assets/cobblemon_rumble_core/textures/title/$name" }
+        includeEmptyDirs = false
+    }
+    from("docs/title-screen/game/window-icons") { into("rumble-window-icons") }
     from(layout.projectDirectory.dir("modpack_override/config")) {
         include("custom_instances/definitions/rumble_prologue.json")
         include("custom_instances/definitions/rumble_battle.json")
@@ -130,6 +136,50 @@ tasks.processResources {
         expand("modVersion" to modVersion)
     }
 }
+
+// Keep the normal, Jar-in-Jar-enabled Core intact as the payload of the release JAR.
+val coreModJar = tasks.named<Jar>("jar") {
+    destinationDirectory.set(layout.buildDirectory.dir("internal/core"))
+}
+
+// ImmediateWindowProvider is discovered in the SERVICE layer before normal mods.
+val earlyDisplay = sourceSets.create("earlyDisplay") {
+    compileClasspath += sourceSets.main.get().compileClasspath
+}
+val configureEarlyDisplay: Jar.() -> Unit = {
+    from(earlyDisplay.output)
+    from("docs/title-screen") {
+        include("arena-wordmark.png", "cobblemon-mark.png", "game/runner.png", "game/arena-blur.png", "game/window-icons/*.png")
+        eachFile { path = "rumble-early/$name" }
+        includeEmptyDirs = false
+    }
+    manifest.attributes("Automatic-Module-Name" to "com.p1nero.rumble.earlydisplay")
+}
+val releaseJar by tasks.registering(Jar::class) {
+    group = "build"
+    description = "Packages the early window and Core mod into the single distributable JAR."
+    configureEarlyDisplay()
+    from("src/release/resources")
+    from(coreModJar.flatMap { it.archiveFile }) {
+        into("rumble-core")
+        rename { "core.jar" }
+    }
+}
+tasks.assemble { dependsOn(releaseJar) }
+
+// runClient already loads Core from source; stage only the early-window service there.
+val earlyDisplayJar by tasks.registering(Jar::class) {
+    archiveBaseName.set("rumble-early-display")
+    destinationDirectory.set(layout.buildDirectory.dir("internal/early-display"))
+    configureEarlyDisplay()
+    exclude("**/BundledCoreLocator.class")
+}
+val stageEarlyDisplay by tasks.registering(Copy::class) {
+    from(earlyDisplayJar)
+    into(layout.projectDirectory.dir("runs/neoforge-client/mods"))
+    rename { "rumble-early-display.jar" }
+}
+tasks.named("runClient") { dependsOn(stageEarlyDisplay) }
 
 // Mirror only packaged overrides; never sync/delete unrelated local config, options or worlds.
 tasks.register("syncRunOverrides") {
