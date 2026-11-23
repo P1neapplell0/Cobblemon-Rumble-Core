@@ -107,3 +107,11 @@ key_quark.keybind.sort_player:key.keyboard.unknown
 key_quark.keybind.transfer_extract:key.keyboard.unknown
 key_quark.keybind.transfer_insert:key.keyboard.unknown
 key_quark.keybind.variant_selector:key.keyboard.unknown
+key_iris.keybind.reload:key.keyboard.unknown
+key_iris.keybind.toggleShaders:key.keyboard.unknown
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
+key_iris.keybind.wireframe:key.keyboard.unknown
+key_key.cobblemon.summary:key.keyboard.c
+key_key.modernui.zoom:key.keyboard.unknown
+key_chloride.zoom:key.keyboard.z
+key_key.realtimecobblemon.zmove:key.keyboard.z:SHIFT

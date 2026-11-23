@@ -122,3 +122,11 @@ version:3955
 narrator:0
 incompatibleResourcePacks:[]
 onboardAccessibility:false
+key_iris.keybind.reload:key.keyboard.unknown
+key_iris.keybind.toggleShaders:key.keyboard.unknown
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
+key_iris.keybind.wireframe:key.keyboard.unknown
+key_key.cobblemon.summary:key.keyboard.c
+key_key.modernui.zoom:key.keyboard.unknown
+key_chloride.zoom:key.keyboard.z
+key_key.realtimecobblemon.zmove:key.keyboard.z:SHIFT
