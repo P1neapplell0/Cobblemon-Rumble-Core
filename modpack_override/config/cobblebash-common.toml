@@ -3,11 +3,11 @@ gymItemBlacklist = ["minecraft:ender_pearl", "minecraft:chorus_fruit", "minecraf
 #Bonus Cobble Dollars awarded only for defeating a non-boss CobbleBash gym trainer in an already-completed gym when Cobble Dollars is installed.
 # Default: 500
 # Range: > 0
-cobbleDollarsRepeatTrainerReward = 500
+cobbleDollarsRepeatTrainerReward = 1000
 #Bonus Cobble Dollars awarded only for defeating a CobbleBash gym leader in an already-completed gym when Cobble Dollars is installed.
 # Default: 1500
 # Range: > 0
-cobbleDollarsRepeatBossReward = 2000
+cobbleDollarsRepeatBossReward = 4000
 #Multiplier applied to Cobblemon battle XP earned from non-boss CobbleBash trainers on repeat clears.
 # Default: 1.2
 # Range: 1.0 ~ 100.0

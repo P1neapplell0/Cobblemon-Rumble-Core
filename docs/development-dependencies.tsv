@@ -1,7 +1,6 @@
 本地路径	模组 ID	SHA-256	来源
 libs/accessories-neoforge-1.1.0-beta.53+1.21.1.jar	accessories	10017a3da78ea63e9ece27a1ca32f8cf490362f348778cf8cb759e7282f3beb0	CobblemonEbonyPhantomCore/libs/accessories-neoforge-1.1.0-beta.53+1.21.1.jar
 libs/accessories_compat_layer-neoforge-0.1.12+1.21.1.jar	accessories_compat_layer,tclayer,cclayer	d9b673ebc4766a59663e4cc73d50e0ff3a371334e599c7890941e6e0bdd286ae	CobblemonEbonyPhantomCore/libs/accessories_compat_layer-neoforge-0.1.12+1.21.1.jar
-libs/aetheria_pokespawn-neoforge-1.21.1-1.2.2.jar	aetheria_pokespawn	35c78145324edbd73208d73357c3245bac16482bb405e781e20438a6c22a3036	https://www.curseforge.com/minecraft/mc-mods/cobblemon-aetheria-pokespawn/files/9226153
 libs/arc_quest-neoforge1.21.1-1.0.14.jar	arc_quest	f9613c9c694a4ca140c7c75fb79d70cc40c643ec475a7f28b8c296e90f6f0ea3	Arc-Quest/build/libs/arc_quest-neoforge1.21.1-1.0.14.jar
 libs/architectury-13.0.11-neoforge.jar	architectury	9cc92f2c09533fc5482c60f993bd891c655a0e32b637037cdcb7c2b23adedeeb	CobblemonEbonyPhantomCore/libs/architectury-13.0.11-neoforge.jar
 libs/ares_hud-1.5.5.jar	ares_hud	f95914ed402c4d60247f48408bb58ed954f2cd06bc90798bbc2dcb41e892cffb	CobblemonEbonyPhantomCore/libs/ares_hud-1.5.5.jar
@@ -29,7 +28,6 @@ libs/cobblemon_smartphone-neoforge-2.0.2.jar	cobblemon_smartphone	c801e047f15867
 libs/cobblemonbuffs-neoforge-1.0.6.jar	cobblemonbuffs	686f6a9cee8a6006d634cb9987122c520d2f2e38466a973cda894490b56996ce	https://cdn.modrinth.com/data/iq16hrA8/versions/oyF9YL2Y/cobblemonbuffs-neoforge-1.0.6.jar
 libs/cobblemoncinematics-neoforge1.21.1-1.4.0.jar	cobblemoncinematics	054559566ef0025bd308a178f906b134233d726f358209cfc0682ec661185d75	CobblemonEbonyPhantomCore/libs/cobblemoncinematics-neoforge1.21.1-1.4.0.jar
 libs/cobblemonexpall-neoforge-0.0.2.jar	cobblemonexpall	ee2de89a6912600a3b4ec0572456685e731623846378de47fbfa4b2c74cf8112	https://cdn.modrinth.com/data/CjhzwixS/versions/Y7kAcsME/cobblemonexpall-neoforge-0.0.2.jar
-libs/cobblemonminigames-neoforge-4.3.0+cobblemon1.8.0.jar	cobblemonminigames	2dbdf18f88e4d10ea4f8c4761603ebb9d73be30918f5b9f36f17c834d6614310	https://cdn.modrinth.com/data/KVNtCTpr/versions/hZjubEyC/cobblemonminigames-neoforge-4.3.0%2Bcobblemon1.8.0.jar
 libs/cobblemonnpcarcquestcompat-1.1.0.jar	cobblemonnpcarcquestcompat	9ac6ec75ca1aed746abaad63869d9c595074fd3f7b8f3845c6291f6619915394	CobblemonNpcArcquestCompat/build/libs/cobblemonnpcarcquestcompat-1.1.0.jar
 libs/CobblemonTrialsEdition-neoforge-3.0.1.jar	cobblemontrialsedition	4bf3b5f50860e515c11e563871422ee20ab2ec4b014389903e4091f1df73f82d	https://cdn.modrinth.com/data/oH4pigcS/versions/icqCyZMs/CobblemonTrialsEdition-neoforge-3.0.1.jar
 libs/cobblenav-neoforge-2.4.2.jar	cobblenav	7ba8ad4ff7f0dd30dd353f5179dec103491906fbdb6555ca1b3d84eaa92d2126	https://cdn.modrinth.com/data/bI8Nt3uA/versions/uDp2V5cU/cobblenav-neoforge-2.4.2.jar
@@ -39,9 +37,9 @@ libs/Cobbreeding-neoforge-2.2.2.jar	cobbreeding	972fc8eb459ecf0708438733cdafee4a
 libs/cupboard-326652-8623569.jar	cupboard	426cd295560df4fceac7b410d864bd93ac200f8b77f9146ac430e92f36dae761	maven:curse.maven:cupboard-326652:8623569
 libs/curios-neoforge-9.5.1+1.21.1.jar	curios	a45df2125c26219974aba7507ffc9afe7b83acc941a386af3faacb1cc0056fde	CobblemonEbonyPhantomCore/libs/curios-neoforge-9.5.1+1.21.1.jar
 libs/custom_instances-neoforge1.21.1-1.0.0.jar	custom_instances	e9dd5fd21e36401ddb9e87b7676079ea1dd08eaa8d19f62a2b1b04a97e74e15c	Custom Instances - Pregen Trials/build/libs/custom_instances-neoforge1.21.1-1.0.0.jar
+libs/defaultoptions-neoforge-1.21.1-21.1.8.jar	defaultoptions	d12790dc1f0857778d282c00ad5be56882ac6fce44769c1f012be09b5604874a	Modrinth: Default Options 21.1.8 (NeoForge 1.21.1)
 libs/EasyEmeraldTools-NeoForge-1.21.1-1.6.33.jar	easy_emerald	a1e399c8e2fb6a4300cca74c1179afd56ba8cad5654e030846042bbd431f1e9d	CobblemonEbonyPhantomCore/libs/EasyEmeraldTools-NeoForge-1.21.1-1.6.33.jar
 libs/explorers-compass-enhance-1649198-8630097.jar	explorerscompass	fc81f7dce05e7e18d266397d40a88656479636561755a883031300eac76c082d	maven:curse.maven:explorers-compass-enhance-1649198:8630097
-libs/ezactions-neoforge-1.21.1-2.0.3.5.jar	ezactions	82d9c555180298970c1bf011e785c5cff006feb6e54e675b5b0ba5ca5a983017	CobblemonEbonyPhantomCore/libs/ezactions-neoforge-1.21.1-2.0.3.5.jar
 libs/female-gender-neoforge-481655-5579007.jar	wildfire_gender	3e5660b4c6734261f267d9ad6650496438befd0d4c04a5677db4ad16a63d9825	maven:curse.maven:female-gender-neoforge-481655:5579007
 libs/flywheel-neoforge-1.21.1-1.0.6.jar	flywheel	31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e	maven:dev.engine-room.flywheel:flywheel-neoforge-1.21.1:1.0.6
 libs/formtips-1.0.jar	formtips	4bc4d4a4279345e8670ed0a62daaaf18b95d23490fa81b2e3c933b0053afeb55	CobblemonEbonyPhantomCore/libs-mit/formtips-1.0.jar
@@ -65,6 +63,8 @@ libs/mowziesmobs-1.21.1-1.8.2.jar	mowziesmobs	b8e7e39fb6430326de7fbb193db56588ee
 libs/msd_special_move_fix-1.0.0.jar	msd_special_move_fix	c15f589c6462f81897595123f250356705cde047c220fd37952634c90bb93ec9	CobblemonEbonyPhantomCore/libs-mit/msd_special_move_fix-1.0.0.jar
 libs/natures-compass-252848-7892954.jar	naturescompass	0e249ac11b2f916c5570d9679e188da652fa5664ba9cdb7be5dc9ff69497539c	maven:curse.maven:natures-compass-252848:7892954
 libs/owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar	owo	de6ed336bd80154b7241a7b3276694befc1c94550add8bcdfe7f82e5172fd13d	CobblemonEbonyPhantomCore/libs/owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar
+libs/entity_model_features-3.3.12-1.21-neoforge.jar	entity_model_features	3ba0bf7b487660920d12cc0ff6cb5de1763f024a080fe0cd7d64e1c8e0f7f190	https://cdn.modrinth.com/data/4I1XuqiY/versions/197m3VoU/entity_model_features-3.3.12-1.21-neoforge.jar
+libs/entity_texture_features-7.2.7-1.21-neoforge.jar	entity_texture_features	6e4b1870d59ef6e337961c12a93760b05900e1e51c97def7953a4c5a551153ee	https://cdn.modrinth.com/data/BVzZfTc1/versions/1DVPB3a4/entity_texture_features-7.2.7-1.21-neoforge.jar
 libs/packs/both/(Cobblemon) Animated Pokemon.zip		ef72b7785eae6cf29449d6efda70010f6b53eb03819870c00760a537e9a0c747	CobblemonEbonyPhantomCore/modpack_override/global_packs/both/(Cobblemon) Animated Pokemon.zip
 libs/packs/both/ATM x MSD [v5.0].zip		53cfc81f9599b85dec6513bae689d381e939e39e46857233f5abe6d463af99e9	https://cdn.modrinth.com/data/odZZdRCE/versions/wv45Td2y/ATM%20x%20MSD%20%5Bv5.0%5D.zip（本地移除已卸载模组的刷怪引用）
 libs/packs/both/CCCwLegendSpawns_2.1.zip		7b937be4b339b665959b1f4f453dec377af940e8dab49643010263e29122e239	CobblemonEbonyPhantomCore/modpack_override/global_packs/both/CCCwLegendSpawns_2.1.zip
@@ -97,13 +97,12 @@ libs/packs/resourcepacks/HumanEraVillagersIllagers[3.91.6].zip		9304f0e1a858cf7a
 libs/packs/resourcepacks/RCT Trainers+ [1.7] v2.2.zip		d9bce7583a806dec8b4e7dd7af8e1bf3a7ade5a05d0caced8dcbc4f447ce60f6	CobblemonEbonyPhantomCore/modpack_override/resourcepacks/RCT Trainers+ [1.7] v2.2.zip
 libs/packs/resourcepacks/Z神+【Zygarde】.zip		0f3a2ec7aad351ee7a071221c715485f1a6a063cd33aa2a00212cafdce3d9fe1	CobblemonEbonyPhantomCore/modpack_override/resourcepacks/Z神+【Zygarde】.zip
 libs/packs/resourcepacks/铁武者+【ironvaliant】.zip		8879e7016b512524d63f9ee718bfa41c6a7bfccba5f1ca385ff25bf1990ea2cb	CobblemonEbonyPhantomCore/modpack_override/resourcepacks/铁武者+【ironvaliant】.zip
-libs/parcool-482378-7760593.jar	parcool	023774b63cbacf9f17ea6404a212ec2e4e4f9777f1b7bbaea8fbb62f3f0463db	maven:curse.maven:parcool-482378:7760593
 libs/Patchouli-1.21.1-93-NEOFORGE.jar	patchouli	959af52ed6640c316c3a8469203420be4aeea11ad6603890ba83bf48f5d9f993	https://www.curseforge.com/minecraft/mc-mods/patchouli/files/7730942
 libs/ponder-neoforge-1.0.87+mc1.21.1.jar	ponder	d6b7fdf94359f73dc1fee730eded898d51b3bf0d626710753253becd8e4e6bef	maven:net.createmod.ponder:ponder-neoforge:1.0.87+mc1.21.1
 libs/quark-243121-8420966.jar	quark	0f69ce0d31caa4f31e1fa4959541120121e27c652cd2d954839af6b5162f0c70	maven:curse.maven:quark-243121:8420966
 libs/rctapi-neoforge-1.21.1-0.16.2-beta.jar	rctapi	379936e383c4cfdac9ce8533c06561b1dee1240a6b9a847e9fd8e45c91552fe0	.gradle/migration/upgrades/rctapi-neoforge-1.21.1-0.16.2-beta.jar
 libs/rctmod-neoforge-1.21.1-0.19.2-beta.jar	rctmod	b1f1b4d5fea114ce22ff2a8a458da685a913e009e03161525178ff8197d12f9f	.gradle/migration/upgrades/rctmod-neoforge-1.21.1-0.19.2-beta.jar
-libs/realtimecobblemon-1.0.0-alpha.1.jar	realtimecobblemon	38f63660fe16a7ce4327c684c0c547c34960ad9acfe3e012fbc46c11124a9be4	本地原件：Downloads/realtimecobblemon-1.0.0-alpha.1.jar
+libs/realtimecobblemon-1.0.3alpha.1.jar	realtimecobblemon	d0c5669bfad46d81a987a54450bced41cb5d4d975e4d695a334ffa835e08fc91	本地提供的 1.0.3 alpha.1；JAR 内版本仍标为 1.0.0-alpha.1
 libs/resourcefulconfig-neoforge-1.21-3.0.11.jar	resourcefulconfig	25b4f3502d25c535004acd4a9420272fff01d2f1e2df352239fec93fdab005d4	CobblemonEbonyPhantomCore/libs/resourcefulconfig-neoforge-1.21-3.0.11.jar
 libs/resourcefullib-neoforge-1.21-3.0.12.jar	resourcefullib	5e36f2c69de008dc5795f730c84ab767688f15c810944b585485349a0c911261	CobblemonEbonyPhantomCore/libs/resourcefullib-neoforge-1.21-3.0.12.jar
 libs/simple_player_data_manager-1.0.0+mc1.21.1-neoforge.jar	simple_player_data_manager	0ea91be710abc688b48cb0fd7ea929d0dfe8a9949bf0ba65326067dede7b9d7b	Simple Player Data Manager/build/libs/simple_player_data_manager-1.0.0+mc1.21.1-neoforge.jar

@@ -28,8 +28,6 @@ atlassian-ide-plugin.xml
 *.nar
 *.ear
 *.zip
-!/modpack_override/resourcepacks/RCT Trainers+ \[1.7\] v2.2.zip
-!/modpack_override/optional_datapacks/bca_distribution.zip
 *.tar.gz
 *.rar
 
@@ -123,3 +121,8 @@ runs/
 # Local NeoForge development mods and packs
 /libs/
 /.kotlin/
+
+# Local modpack resources and data packs
+/modpack_override/optional_datapacks/
+/modpack_override/resourcepacks/
+/modpack_override/global_packs/

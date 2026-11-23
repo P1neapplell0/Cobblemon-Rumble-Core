@@ -43,6 +43,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 
@@ -88,11 +89,7 @@ public final class CobblemonRumbleCore {
         modBus.addListener(CobblemonRumbleCore::addModelFixes);
         modBus.addListener(CobblemonRumbleCore::addAdditionsDistribution);
         modBus.addListener(CobblemonRumbleCore::addLegacyTrainerTeams);
-        String packDirectory = System.getProperty("rumble.developmentPacks");
-        if (packDirectory != null && !packDirectory.isBlank()) {
-            Path root = Path.of(packDirectory);
-            modBus.addListener((AddPackFindersEvent event) -> addDevelopmentPacks(event, root));
-        }
+        modBus.addListener(CobblemonRumbleCore::addExternalPacks);
     }
 
     private static void addTranslations(AddPackFindersEvent event) {
@@ -121,13 +118,29 @@ public final class CobblemonRumbleCore {
                 PackSource.BUILT_IN, true, Pack.Position.TOP);
     }
 
-    private static void addDevelopmentPacks(AddPackFindersEvent event, Path root) {
-        String folder = event.getPackType() == PackType.SERVER_DATA ? "datapacks" : "resourcepacks";
-        DirectoryValidator validator = new DirectoryValidator(target -> false);
-        for (Path directory : new Path[] { root.resolve("both"), root.resolve(folder) }) {
-            if (Files.isDirectory(directory)) {
-                event.addRepositorySource(new FolderRepositorySource(directory, event.getPackType(), PackSource.DEFAULT, validator));
-            }
+    private static void addExternalPacks(AddPackFindersEvent event) {
+        if (Boolean.getBoolean("rumble.disableExternalPacks")) return;
+        Path root = FMLPaths.GAMEDIR.get().resolve("global_packs");
+        boolean installed = Files.isDirectory(root);
+        if (!installed) {
+            String development = System.getProperty("rumble.developmentPacks");
+            if (development == null || development.isBlank()) return;
+            root = Path.of(development);
+        }
+
+        addPackDirectory(event, root.resolve("both"));
+        if (event.getPackType() == PackType.SERVER_DATA) {
+            addPackDirectory(event, root.resolve("datapacks"));
+        } else if (!installed) {
+            // Installed client-only packs are already discovered by Minecraft in resourcepacks/.
+            addPackDirectory(event, root.resolve("resourcepacks"));
+        }
+    }
+
+    private static void addPackDirectory(AddPackFindersEvent event, Path directory) {
+        if (Files.isDirectory(directory)) {
+            var validator = new DirectoryValidator(target -> false);
+            event.addRepositorySource(new FolderRepositorySource(directory, event.getPackType(), PackSource.DEFAULT, validator));
         }
     }
 }

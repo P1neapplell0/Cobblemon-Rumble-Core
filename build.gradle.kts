@@ -18,7 +18,9 @@ neoForge {
     version = providers.gradleProperty("neo_version").get()
     runs {
         configureEach {
-            if (providers.gradleProperty("rumblePacks").orNull != "false") {
+            if (providers.gradleProperty("rumblePacks").orNull == "false") {
+                systemProperty("rumble.disableExternalPacks", "true")
+            } else {
                 systemProperty("rumble.developmentPacks", layout.projectDirectory.dir("libs/packs").asFile.absolutePath)
             }
         }
@@ -204,11 +206,12 @@ tasks.register("syncRunOverrides") {
         fun packs(line: String): List<String> = (groovy.json.JsonSlurper().parseText(line.removePrefix(packKey)) as List<*>)
             .filterIsInstance<String>()
         val listed = overrideRoot.file("options.txt").asFile.readLines().first { it.startsWith(packKey) }
-        val packagedPacks = packs(listed).filter { it.startsWith("file/") }
+        val packagedPacks = packs(listed)
+        val modResources = packagedPacks.indexOf("mod_resources").let { if (it < 0) packagedPacks.size else it }
         targets.forEach { target ->
             project.copy {
                 from(overrideRoot)
-                include("config/**", "resourcepacks/**", "optional_datapacks/**")
+                include("config/**", "global_packs/**", "resourcepacks/**", "optional_datapacks/**")
                 into(target)
             }
             if (target.asFile.name != "neoforge-server") {
@@ -216,7 +219,8 @@ tasks.register("syncRunOverrides") {
                 val lines = if (options.exists()) options.readLines().toMutableList() else mutableListOf()
                 val index = lines.indexOfFirst { it.startsWith(packKey) }
                 val existing = if (index >= 0) packs(lines[index]) else emptyList()
-                val order = (listOf("vanilla") + existing.filterNot(packagedPacks::contains) + "mod_resources" + packagedPacks).distinct()
+                val localPacks = existing.filterNot(packagedPacks::contains)
+                val order = (packagedPacks.take(modResources) + localPacks + packagedPacks.drop(modResources)).distinct()
                 val line = packKey + groovy.json.JsonOutput.toJson(order)
                 if (index >= 0) lines[index] = line else lines.add(line)
                 options.writeText(lines.joinToString("\n", postfix = "\n"))

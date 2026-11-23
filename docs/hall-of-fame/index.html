@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>试炼殿堂 · 登入名人堂</title>
+<style>
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #090b13; color: #fff5df; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 30%, #352a20, #090b13 65%); }
+main { width: min(90vw, 880px); padding: clamp(1rem, 5vw, 4rem) 0; text-align: center; }
+header { border-block: 1px solid #b89454; padding: 1.5rem 0; animation: reveal .8s both; }
+header p { color: #efbd68; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 4rem); margin: .25em 0; letter-spacing: .12em; }
+ul { padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); gap: .65rem; }
+li { display: grid; justify-items: center; gap: .5rem; padding: .9rem .2rem; background: #141825; border-bottom: 2px solid #967445; animation: reveal .55s both; animation-delay: calc(.7s + var(--i) * .16s); }
+.token { width: 2.25rem; aspect-ratio: 1; margin: .35rem; border: 1px solid #efbd68; border-radius: 50%; display: grid; place-items: center; color: #efbd68; }
+footer { animation: reveal .6s 1.75s both; }
+button { font: inherit; padding: .5rem 2rem; background: #efbd68; color: #141825; border: 0; cursor: pointer; }
+@keyframes reveal { from { opacity: 0; transform: translateY(.65rem); } to { opacity: 1; transform: none; } }
+@media (max-width: 580px) { ul { grid-template-columns: repeat(3, 1fr); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+</style>
+<main>
+  <header><p>试炼殿堂</p><h1>登入名人堂</h1><span>P1nero</span></header>
+  <ul aria-label="冠军队伍">
+    <li style="--i:0"><span class="token">◆</span>闪电鸟</li>
+    <li style="--i:1"><span class="token">◆</span>艾路雷朵</li>
+    <li style="--i:2"><span class="token">◆</span>多边兽Ⅱ</li>
+    <li style="--i:3"><span class="token">◆</span>银伴战兽</li>
+    <li style="--i:4"><span class="token">◆</span>卡比兽</li>
+    <li style="--i:5"><span class="token">◆</span>快龙</li>
+  </ul>
+  <footer><button onclick="location.reload()">重播</button></footer>
+</main>
+</html>

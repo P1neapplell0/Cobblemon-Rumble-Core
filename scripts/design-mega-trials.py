@@ -97,7 +97,7 @@ def design(libs, move_file, set_paths):
         legendary = {'Mewtwo': 72, 'Rayquaza': 75, 'Latias': 62, 'Latios': 62, 'Diancie': 60}
         total = sum(stats.values())
         level = legendary.get(name, 38 if total < 490 else 42 if total < 550 else 48 if total < 625 else 55)
-        coins = 2500 if level <= 42 else 3500 if level < 60 else 5500
+        coins = 5000 if level <= 42 else 7000 if level < 60 else 11000
         yield '\t'.join(map(str, (ident, key(name), form, base_aspect, level, nature, ev, ','.join(selected), stone, coins, source)))
 
 

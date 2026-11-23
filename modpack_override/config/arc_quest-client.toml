@@ -1,0 +1,18 @@
+[quest_journal]
+	#Whether to show the history tab in the quest journal.
+	enable_history_tab = true
+	#Whether to show unread red-dot indicators for quest history.
+	show_history_unread_dots = false
+	#Whether to show the mark-all-read button in the quest journal.
+	show_journal_mark_all_read_button = false
+	#Whether to show the clear-unread button in the guide list.
+	show_guide_mark_all_read_button = false
+
+[quest_markers]
+	#Whether Arc Quest markers are mirrored to Xaero's Minimap as third-party waypoints when installed.
+	sync_to_xaero_minimap = true
+
+[appearance]
+	#Art style for all Arc Quest HUDs and screens. DEFAULT preserves the original appearance; ORE uses pixel bevels; MODERNA uses fantasy metalwork and crystals; CYBERPUNK uses cutouts and luminous accents; WYRMHEART uses gothic engraved metalwork and medallions. All keep existing theme colors and translucent HUD backgrounds. Applies immediately.
+	#Allowed Values: DEFAULT, ORE, MODERNA, CYBERPUNK, WYRMHEART
+	hud_art_style = "ORE"
