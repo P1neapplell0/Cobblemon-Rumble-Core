@@ -75,7 +75,7 @@ public final class RumbleTitleScreen extends Screen {
         int button = Math.max(12, Math.round(height * .048f));
         Runnable[] actions = {
                 () -> minecraft.setScreen(new OptionsScreen(this, minecraft.options)),
-                () -> ConfirmLinkScreen.confirmLinkNow(this, System.getProperty("rumble.discordUrl", "https://discord.gg/UfVF8b2GFk"), true),
+                () -> ConfirmLinkScreen.confirmLinkNow(this, PackMenus.discordUrl(), true),
                 () -> minecraft.setScreen(new ModListScreen(this)),
                 () -> minecraft.setScreen(new LanguageSelectScreen(this, minecraft.options, minecraft.getLanguageManager())),
                 () -> minecraft.stop()

@@ -82,7 +82,7 @@ public final class DailyCommissions {
                                 && DAY.get(player) == currentDay(player))
                         .phase(PhaseBuilder.create(PHASE).displayName(objective)
                                 .objective(ObjectiveBuilder.custom(id, 1).display(objective))
-                                .reward(new CobbleDollarReward(i < 3 ? 6000 : 5000))
+                                .reward(new CobbleDollarReward(i < 3 ? 12_000 : 10_000))
                                 .reward(new ItemReward(i < 3 ? com.cobblemon.mod.common.CobblemonItems.POKE_BALL : Items.BONE_MEAL, 3)));
                 event.register(builder.build());
                 event.assignQuestToGroup(id, group);

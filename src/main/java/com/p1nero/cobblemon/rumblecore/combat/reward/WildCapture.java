@@ -60,7 +60,10 @@ public final class WildCapture {
     public static void initialize() {
         CobblemonEvents.POKEMON_CAPTURED.subscribe(event -> {
             var player = event.getPlayer();
-            if (player.getUUID().equals(event.getPokemon().getOwnerUUID())) {
+            var pokemon = event.getPokemon();
+            // Cobblemon emits this after adding the caught Pokémon to the party or PC.
+            if (player.getUUID().equals(pokemon.getOwnerUUID())) {
+                pokemon.setCurrentHealth(pokemon.getMaxHealth());
                 SquadQuest.captured(player);
             }
         });
@@ -70,17 +73,26 @@ public final class WildCapture {
     public static void onDefeat(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof PokemonEntity target) || !(target.level() instanceof ServerLevel level)
                 || stunned(target) || !target.getPokemon().isWild() || target.getBattleId() != null || target.isBusy()
-                || Decoys.isDecoy(target) || PrologueTraining.target(target) || ArenaMatch.isArena(level)
+                || Decoys.isDecoy(target) || PrologueTraining.target(target)
                 || !UncatchableProperty.INSTANCE.isCatchable(target)
-                || event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)
-                || !(event.getSource().getEntity() instanceof PokemonEntity attacker)
-                || !(attacker.getOwner() instanceof ServerPlayer player)) return;
-        Smash.Session session = Smash.session(player);
-        if (session == null || session.pokemon != attacker || player.level() != level || Duels.groupOf(player) != null
-                || ArenaMatch.group(player) != null) return;
+                || event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
+        boolean legendary = ArenaMatch.isLegendaryFoe(target);
+        var source = event.getSource().getEntity();
+        Smash.Session session;
+        if (legendary) {
+            session = Smash.sessionOf(source);
+            if (session != null && ArenaMatch.group(session.player) != ArenaMatch.group(target)) return;
+            // Residual damage also leaves a capture window (it may have no direct attacker).
+        } else {
+            if (ArenaMatch.isArena(level) || !(source instanceof PokemonEntity attacker)
+                    || !(attacker.getOwner() instanceof ServerPlayer player)) return;
+            session = Smash.session(player);
+            if (session == null || session.pokemon != attacker || player.level() != level || Duels.groupOf(player) != null
+                    || ArenaMatch.group(player) != null) return;
+        }
 
         event.setCanceled(true);
-        target.getPersistentData().putUUID(WINNER, player.getUUID());
+        if (session != null) target.getPersistentData().putUUID(WINNER, session.player.getUUID());
         resetWindow(target);
         target.setHealth(Math.max(.01f, target.getMaxHealth() * .01f));
         target.getPokemon().setCurrentHealth(Math.max(1, Math.round(target.getPokemon().getMaxHealth() * .01f)));
@@ -90,7 +102,8 @@ public final class WildCapture {
         target.setDeltaMovement(Vec3.ZERO);
         target.hurtMarked = true;
         // RTC's after-hit test only sees a living target. Preserve its normal XP and wallet hooks once.
-        Experience.knockedOut(session, target);
+        if (legendary) ArenaMatch.legendaryStunned(target);
+        else Experience.knockedOut(session, target);
         level.sendParticles(ParticleTypes.CRIT, target.getX(), target.getY() + target.getBbHeight() * .85,
                 target.getZ(), 12, .28, .15, .28, .10);
         level.playSound(null, target, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.NEUTRAL, .9f, .65f);

@@ -39,7 +39,7 @@ public final class MegaTrainingQuest {
     private static final String CRAFT = "craft_device", TRIAL = "clear_simulation", LESSON = "battle_may", FAREWELL = "farewell";
     public static final String TREE = PrologueWorld.id("story/mega_training").toString();
     private static final net.minecraft.resources.ResourceLocation ID = PrologueWorld.id("mega_training");
-    private static final int REWARD = 10000;
+    private static final int REWARD = 20_000;
     private static final GymCatalog.Actor MAY = new GymCatalog.Actor("may", MegaIntroduction.MAY_POS, GymTeamPokemon::may);
 
     private MegaTrainingQuest() {}
@@ -58,7 +58,7 @@ public final class MegaTrainingQuest {
                 .completionPolicy(org.arcadia.arc_quest.quest.api.QuestCompletionPolicy.SPECIFIC_PHASE).completionTargetPhase(FAREWELL)
                 .phase(phase(CRAFT).thenGoTo(TRIAL)).phase(phase(TRIAL).trackingMarker(terminal).thenGoTo(LESSON))
                 .phase(phase(LESSON).trackingMarker(actor).thenGoTo(FAREWELL)).phase(phase(FAREWELL).trackingMarker(actor))
-                .reward(new CobbleDollarReward(REWARD)).reward(new org.arcadia.arc_quest.quest.reward.ItemReward(MayAnklet.ITEM.get(), 1)).build());
+                .reward(new CobbleDollarReward(REWARD)).reward(new org.arcadia.arc_quest.quest.reward.ItemReward(MayMegaDevice.ITEM.get(), 1)).build());
         event.assignQuestToGroup(ID, PrologueWorld.id("adventure_quests"));
     }
 
@@ -80,7 +80,7 @@ public final class MegaTrainingQuest {
         line(farewell, "goodbye", DialogueText.DialogueArg.playerName()).delay(4100).autoNext("coins");
         farewell.node("coins").say(DialogueText.translatable("rumble.gym.reward.coins", DialogueText.DialogueArg.of(ctx -> REWARD)),
                 TREE + "/coins").delay(1550).autoNext("anklet");
-        farewell.node("anklet").say(RewardNotice.items(MayAnklet.ITEM.get().getDefaultInstance()), TREE + "/anklet")
+        farewell.node("anklet").say(RewardNotice.items(MayMegaDevice.ITEM.get().getDefaultInstance()), TREE + "/anklet")
                 .choice("done", DialogueText.translatable("gui.done"), c -> c.addEvents((p, ignored) -> {
                     if (atDialogueMay(p)) advance(p, FAREWELL);
                 }).close());

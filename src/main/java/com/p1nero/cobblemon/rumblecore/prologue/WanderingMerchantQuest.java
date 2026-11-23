@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.wintercogs.beyonddimensions.api.dimensionnet.DimensionsNet;
+import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.wintercogs.beyonddimensions.api.storage.key.impl.ItemStackKey;
 import fr.harmex.cobbledollars.common.utils.extensions.PlayerExtensionKt;
 import net.minecraft.ChatFormatting;
@@ -8,6 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Items;
 import org.arcadia.arc_quest.api.event.registry.ArcQuestRegistrationEvent;
@@ -38,6 +41,7 @@ public final class WanderingMerchantQuest {
                 .icon(Items.EMERALD).cannotAbandon().requiresQuest(com.p1nero.cobblemon.rumblecore.gym.GymStory.fourthGymQuest())
                 .phase(PhaseBuilder.create(PHASE).displayName(objective).objective(ObjectiveBuilder.custom(ID, 1).display(objective))
                         .trackingMarker(HallQuestMarkers.actor(PHASE, NAME, FixedStoryActors.MERCHANT, POS))).build());
+        event.assignQuestToGroup(ID, PrologueWorld.id("adventure_quests"));
     }
 
     static void accept(ServerPlayer player) { QuestProgressHandler.acceptQuest(player, ID.toString()); }
@@ -45,7 +49,8 @@ public final class WanderingMerchantQuest {
     static boolean visible(ServerPlayer player) {
         var data = ArcQuestPlayerManager.getOrCreate(player);
         var session = DialogueSessionManager.INSTANCE.getSession(player);
-        return data.isQuestCompleted(ID.toString()) || data.isQuestActive(ID.toString()) && ID.toString().equals(data.getTrackedQuestId())
+        return LegendaryCommission.meeting(player) || LegendaryCommission.unlocked(player)
+                || data.isQuestCompleted(ID.toString()) || data.isQuestActive(ID.toString()) && ID.toString().equals(data.getTrackedQuestId())
                 || session != null && FixedStoryActors.MERCHANT.equals(FixedStoryActors.role(session.getEntity()));
     }
 
@@ -53,13 +58,20 @@ public final class WanderingMerchantQuest {
         return at(player, trader) && ArcQuestPlayerManager.getOrCreate(player).isQuestCompleted(ID.toString());
     }
 
-    private static boolean at(ServerPlayer player, Entity trader) {
+    static boolean at(ServerPlayer player, Entity trader) {
         return trader == FixedStoryActors.find(player.serverLevel(), FixedStoryActors.MERCHANT) && trader != null && trader.isAlive()
                 && player.isAlive() && !player.isSpectator() && player.distanceToSqr(trader) <= 16 && player.hasLineOfSight(trader);
     }
 
     static boolean talk(ServerPlayer player, Entity trader) {
-        if (!(trader instanceof TrialMerchantEntity) || !at(player, trader) || !visible(player)) return false;
+        if (!(trader instanceof TrialMerchantEntity merchant) || !at(player, trader) || !visible(player)) return false;
+        player.playNotifySound(SoundEvents.WANDERING_TRADER_YES, SoundSource.NEUTRAL, 0.65F, 1F);
+        if (LegendaryCommission.meeting(player)) { LegendaryCommission.talk(player, merchant); return true; }
+        if (LegendaryCommission.unlocked(player) && !canTrade(player, merchant)
+                && !GymStory.phaseActive(player, ID, PHASE)) {
+            DialogueSessionManager.INSTANCE.startDialogue(player, trader, tree("legendary_stock"), new DialogueContext());
+            return true;
+        }
         DialogueSessionManager.INSTANCE.startDialogue(player, trader, tree(canTrade(player, (TrialMerchantEntity) trader) ? "trade" : "quest"), new DialogueContext());
         return true;
     }
@@ -67,9 +79,12 @@ public final class WanderingMerchantQuest {
     static void register(ArcQuestRegistrationEvent.Dialogue event) {
         String id = tree("quest");
         var quest = DialogueTreeBuilder.create(id).npc(DialogueText.translatable(NAME)).repeatable(true);
-        quest.node("thirsty").say(text("thirsty"), id + "/thirsty").choice("who", text("who"), c -> c.goTo("who"));
+        quest.node("thirsty").say(text("thirsty"), id + "/thirsty").choice("who", text("who"), c -> c.goTo("who"))
+                .choice("legendary", DialogueText.translatable("rumble.legendary.browse"),
+                        c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
+                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openLegendary(p))).close());
         quest.node("who").say(text("introduce"), id + "/who").choice("tea", DialogueText.of(ctx ->
-                Component.translatable(KEY + "tea").withStyle(ChatFormatting.GREEN)), c -> c.goTo("check"));
+                Component.translatable(KEY + "tea").withStyle(ChatFormatting.GOLD)), c -> c.goTo("check"));
         quest.node("check").say(DialogueText.of(ctx -> Component.translatable(KEY + (hasTea(ctx.player(), false) ? "ready" : "unknown"))), id + "/check")
                 .choice("submit", text("submit"), c -> c.conditionIf((p, npc) -> hasTea(p, false)).addEvents((p, npc) -> deliver(p)).goTo("delivered"))
                 .choice("recipe", text("recipe"), c -> c.goTo("guide"));
@@ -85,12 +100,22 @@ public final class WanderingMerchantQuest {
         var trade = DialogueTreeBuilder.create(id).npc(DialogueText.translatable(NAME)).repeatable(true);
         stock(trade, id);
         event.register(trade.build());
+
+        id = tree("legendary_stock");
+        var legendary = DialogueTreeBuilder.create(id).npc(DialogueText.translatable(NAME)).repeatable(true);
+        stock(legendary, id);
+        event.register(legendary.build());
     }
 
     private static void stock(DialogueTreeBuilder tree, String id) {
         tree.node("stock").say(text("stock"), id + "/stock")
-                .choice("trade", text("trade"), c -> c.conditionIf((p, npc) -> dialogueTrader(p) != null)
+                .choice("trade", text("trade"), c -> c.conditionIf((p, npc) -> npc instanceof TrialMerchantEntity trader && canTrade(p, trader))
                         .addEvents((p, npc) -> openShopAfterDialogue(p)).close())
+                .choice("odds", text("odds"), c -> c.conditionIf((p, npc) -> npc instanceof TrialMerchantEntity trader && canTrade(p, trader))
+                        .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openOdds(p))).close())
+                .choice("legendary", DialogueText.translatable("rumble.legendary.browse"),
+                        c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
+                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openLegendary(p))).close())
                 .choice("leave", text("leave"), c -> c.close());
     }
 
@@ -113,7 +138,7 @@ public final class WanderingMerchantQuest {
     private static void deliver(ServerPlayer player) {
         var session = DialogueSessionManager.INSTANCE.getSession(player);
         if (session == null || !at(player, session.getEntity()) || !visible(player)
-                || !com.p1nero.cobblemon.rumblecore.gym.GymStory.phaseActive(player, ID, PHASE) || !hasTea(player, true)) return;
+                || !GymStory.phaseActive(player, ID, PHASE) || !hasTea(player, true)) return;
         QuestProgressHandler.incrementObjective(player, ID.toString(), PHASE, 0, 1);
     }
 

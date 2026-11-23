@@ -20,6 +20,7 @@ import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.WeakHashMap;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
@@ -50,6 +51,8 @@ public final class PrologueClient {
     private static final ResourceLocation ARES_HUD = ResourceLocation.fromNamespaceAndPath("ares_hud", "main");
     private static final ResourceLocation INSTANCE_STATUS = ResourceLocation.fromNamespaceAndPath("custom_instances", "instance_status");
     private static final ResourceLocation QUEST_STATUS = ResourceLocation.fromNamespaceAndPath("arc_quest", "quest_hud");
+    private static final ResourceLocation QUEST_TRACKER = ResourceLocation.fromNamespaceAndPath("arc_quest", "quest_tracker");
+    private static final ResourceLocation QUEST_MARKERS = ResourceLocation.fromNamespaceAndPath("arc_quest", "quest_markers");
     private static final KeyMapping TALK = new KeyMapping("key.cobblemon_rumble_core.talk", KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_E, "key.categories.cobblemon_rumble_core");
     static final KeyMapping HELD = new KeyMapping("key.cobblemon_rumble_core.use_held", KeyConflictContext.IN_GAME,
@@ -65,6 +68,7 @@ public final class PrologueClient {
     private static long focusNpcAt;
     private static long changedAt;
     private static long acceptedAt;
+    private static final WeakHashMap<com.cobblemon.mod.common.entity.pokemon.PokemonEntity, Long> TENACITY = new WeakHashMap<>();
 
     private PrologueClient() {}
 
@@ -111,6 +115,16 @@ public final class PrologueClient {
     }
 
     public static void teraUsed(boolean used) { teraUsed = used; }
+    public static void tenacity(int entityId, ResourceLocation dimension, int ticks) {
+        var level = Minecraft.getInstance().level;
+        if (level == null || !level.dimension().location().equals(dimension)
+                || !(level.getEntity(entityId) instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon)) return;
+        TENACITY.put(pokemon, level.getGameTime() + Math.max(1, ticks));
+    }
+    public static boolean tenacityFlash(com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon) {
+        Long until = TENACITY.get(pokemon);
+        return until != null && pokemon.level().getGameTime() < until && pokemon.level().getGameTime() % 8 < 4;
+    }
     static boolean teraSpent(PokemonEntity body) {
         return teraUsed || body.getAspects().stream().anyMatch(aspect -> aspect.startsWith(TeraCombat.NETWORK_ASPECT));
     }
@@ -199,6 +213,7 @@ public final class PrologueClient {
             case MODE_EXIT, MODE_REENTER -> key == ClientSmash.SMASH;
             case LOCK -> key == BattleCamera.LOCK;
             case ATTACK, HEAVY -> key == options.keyAttack;
+            case DODGE -> key == ClientSmash.DODGE;
             case GUARD, PARRY -> key == options.keyUse;
             case MOVE -> {
                 boolean match = false;
@@ -256,10 +271,16 @@ public final class PrologueClient {
     }
 
     @SubscribeEvent public static void hideOverlappingHud(RenderGuiLayerEvent.Pre event) {
+        if (net.neoforged.neoforge.client.gui.VanillaGuiLayers.FOOD_LEVEL.equals(event.getName())) {
+            event.setCanceled(true);
+            return;
+        }
         // RTC already suppresses the vanilla hotbar, but Ares draws its own hotbar and player HUD.
         var layer = event.getName();
-        if (ARES_HUD.equals(layer) && ClientSmash.active()
-                || cue != Cue.NONE && (INSTANCE_STATUS.equals(layer) || QUEST_STATUS.equals(layer))) event.setCanceled(true);
+        boolean arcQuestHud = QUEST_STATUS.equals(layer) || QUEST_TRACKER.equals(layer);
+        // ArcQuest draws the right-hand tracker separately from the quest HUD and world marker layer.
+        if ((ClientSmash.active() && (ARES_HUD.equals(layer) || arcQuestHud || QUEST_MARKERS.equals(layer)))
+                || (cue != Cue.NONE && (INSTANCE_STATUS.equals(layer) || arcQuestHud))) event.setCanceled(true);
     }
 
     public static boolean hideInspectionHud() {

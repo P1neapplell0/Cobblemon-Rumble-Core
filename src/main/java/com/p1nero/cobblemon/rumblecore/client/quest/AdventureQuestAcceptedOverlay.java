@@ -83,6 +83,7 @@ public final class AdventureQuestAcceptedOverlay {
     }
 
     public static void render(GuiGraphics graphics, int screenWidth, int screenHeight) {
+        if (com.johnn.realtimecobblemon.client.ClientSmash.active()) return;
         if (active == null) return;
         long elapsed = Util.getMillis() - startedAt;
         if (elapsed >= TOTAL_MILLIS) {

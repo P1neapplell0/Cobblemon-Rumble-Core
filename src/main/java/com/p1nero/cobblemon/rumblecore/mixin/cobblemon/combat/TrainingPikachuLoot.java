@@ -2,7 +2,7 @@ package com.p1nero.cobblemon.rumblecore.mixin.cobblemon.combat;
 
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.entity.pokemon.PokemonServerDelegate;
-import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
+import com.p1nero.cobblemon.rumblecore.combat.reward.BattleLoot;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class TrainingPikachuLoot {
     @Inject(method = "dropAllDeathLoot", at = @At("HEAD"), cancellable = true)
     private void rumble$noTrainingDeathLoot(ServerLevel level, DamageSource source, CallbackInfo ci) {
-        if (PrologueTraining.target((PokemonEntity) (Object) this)) ci.cancel();
+        if (BattleLoot.suppressed((PokemonEntity) (Object) this)) ci.cancel();
     }
 
     @Mixin(value = PokemonServerDelegate.class, remap = false)
@@ -25,7 +25,7 @@ abstract class TrainingPikachuLoot {
 
         @Inject(method = "doDeathDrops", at = @At("HEAD"), cancellable = true)
         private void rumble$noTrainingSpeciesLoot(CallbackInfo ci) {
-            if (PrologueTraining.target(getEntity())) ci.cancel();
+            if (BattleLoot.suppressed(getEntity())) ci.cancel();
         }
     }
 }

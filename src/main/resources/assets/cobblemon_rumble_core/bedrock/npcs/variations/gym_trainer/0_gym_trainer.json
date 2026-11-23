@@ -5,35 +5,35 @@
     {
       "aspects": [],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon:textures/npcs/standard/trainer.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-tera-cassidy"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/cassidy.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-tera-butch"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:steve.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/butch.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-restock-jessie"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/jessie.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-restock-james"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/james.png",
       "layers": []
     },
@@ -42,7 +42,7 @@
         "rumble-gym-rock-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/hiker_reginald_043d.png",
       "layers": []
     },
@@ -51,7 +51,7 @@
         "rumble-gym-rock-2a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/hiker_daniel_02f4.png",
       "layers": []
     },
@@ -60,7 +60,7 @@
         "rumble-gym-rock-2b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/hiker_lorenzo_043e.png",
       "layers": []
     },
@@ -69,7 +69,7 @@
         "rumble-gym-grass-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/aroma_lady_jenna_039d.png",
       "layers": []
     },
@@ -78,7 +78,7 @@
         "rumble-gym-grass-2"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/aroma_lady_elizabeth_02f7.png",
       "layers": []
     },
@@ -87,7 +87,7 @@
         "rumble-gym-ghost-1a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/channeler_angelica_01c3.png",
       "layers": []
     },
@@ -96,7 +96,7 @@
         "rumble-gym-ghost-1b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/channeler_tasha_01d0.png",
       "layers": []
     },
@@ -105,7 +105,7 @@
         "rumble-gym-ghost-2a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/channeler_patricia_01b9.png",
       "layers": []
     },
@@ -114,7 +114,7 @@
         "rumble-gym-ghost-2b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/channeler_karina_01c1.png",
       "layers": []
     },
@@ -123,7 +123,7 @@
         "rumble-gym-ice-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/skier_bradley_034f.png",
       "layers": []
     },
@@ -132,7 +132,7 @@
         "rumble-gym-ice-2a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/skier_madison_0358.png",
       "layers": []
     },
@@ -141,7 +141,7 @@
         "rumble-gym-ice-2b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/skier_bjorn_0356.png",
       "layers": []
     },
@@ -150,7 +150,7 @@
         "rumble-gym-ground-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/ruin_maniac_calvin_03cb.png",
       "layers": []
     },
@@ -159,7 +159,7 @@
         "rumble-gym-ground-2"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/ruin_maniac_karl_0492.png",
       "layers": []
     },
@@ -168,7 +168,7 @@
         "rumble-gym-ground-3"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/hiker_damon_043b.png",
       "layers": []
     },
@@ -177,7 +177,7 @@
         "rumble-gym-fire-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/burglar_arnie_00d8.png",
       "layers": []
     },
@@ -186,7 +186,7 @@
         "rumble-gym-fire-2"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/black_belt_rafael_03d2.png",
       "layers": []
     },
@@ -195,7 +195,7 @@
         "rumble-gym-fire-3a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/battle_girl_kelsey_02f6.png",
       "layers": []
     },
@@ -204,7 +204,7 @@
         "rumble-gym-fire-3b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/burglar_dusty_00d7.png",
       "layers": []
     },
@@ -213,7 +213,7 @@
         "rumble-gym-fire-4a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/veteran_emanuel_0491.png",
       "layers": []
     },
@@ -222,7 +222,7 @@
         "rumble-gym-fire-4b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/black_belt_nathaniel_0349.png",
       "layers": []
     },
@@ -231,7 +231,7 @@
         "rumble-gym-dark-1"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/gentleman_jeremy_051d.png",
       "layers": []
     },
@@ -240,7 +240,7 @@
         "rumble-gym-dark-2"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/gentleman_clifford_025d.png",
       "layers": []
     },
@@ -249,7 +249,7 @@
         "rumble-gym-dark-3"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/poke_kid_danielle_0539.png",
       "layers": []
     },
@@ -258,7 +258,7 @@
         "rumble-gym-dark-4"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/poke_kid_danielle_053a.png",
       "layers": []
     },
@@ -267,7 +267,7 @@
         "rumble-gym-dark-5"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/poke_kid_danielle_053b.png",
       "layers": []
     },
@@ -276,7 +276,7 @@
         "rumble-gym-electric-1a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/engineer_bernie_00de.png",
       "layers": []
     },
@@ -285,7 +285,7 @@
         "rumble-gym-electric-1b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/engineer_baily_00dc.png",
       "layers": []
     },
@@ -294,7 +294,7 @@
         "rumble-gym-electric-2a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/guitarist_lonnie_03ca.png",
       "layers": []
     },
@@ -303,7 +303,7 @@
         "rumble-gym-electric-2b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/guitarist_preston_03c9.png",
       "layers": []
     },
@@ -312,7 +312,7 @@
         "rumble-gym-electric-3a"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/engineer_braxton_00dd.png",
       "layers": []
     },
@@ -321,7 +321,7 @@
         "rumble-gym-electric-3b"
       ],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "rctmod:textures/trainers/single/engineer_bernie_027b.png",
       "layers": []
     }

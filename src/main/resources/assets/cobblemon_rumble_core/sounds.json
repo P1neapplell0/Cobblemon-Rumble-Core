@@ -1,7 +1,12 @@
 {
-  "battle.wild": {"sounds": [{"name": "cobblemon_rumble_core:battle/wild", "stream": true}]},
-  "battle.trainer": {"sounds": [{"name": "cobblemon_rumble_core:battle/trainer", "stream": true}]},
+  "battle.standard": {"sounds": [{"name": "cobblemon_rumble_core:battle/ruby_sapphire_1", "stream": true}]},
+  "battle.gym": {"sounds": [{"name": "cobblemon_rumble_core:battle/ruby_sapphire_4", "stream": true}]},
+  "title.theme": {"sounds": [{"name": "cobblemon_rumble_core:title/theme", "stream": true}]},
   "title.pikachu": {"sounds": ["cobblemon:pokemon/pikachu/pikachu_cry"]},
   "title.lightning": {"sounds": ["cobblemon:move/thunderbolt/thunderbolt_actor"]},
-  "title.charizard": {"sounds": ["cobblemon:pokemon/charizard/charizard_cry"]}
+  "title.charizard": {"sounds": ["cobblemon:pokemon/charizard/charizard_cry"]},
+  "arena.intro": {"sounds": ["cobblemon_rumble_core:arena/intro"]},
+  "arena.face_off": {"sounds": ["cobblemon_rumble_core:arena/face_off"]},
+  "arena.fight": {"sounds": ["cobblemon_rumble_core:arena/fight"]},
+  "arena.knockout": {"sounds": ["cobblemon_rumble_core:arena/knockout"]}
 }

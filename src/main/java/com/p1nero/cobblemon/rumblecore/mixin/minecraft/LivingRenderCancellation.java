@@ -15,9 +15,20 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntityRenderer.class)
 abstract class LivingRenderCancellation {
+    @Inject(method = "getOverlayCoords", at = @At("HEAD"), cancellable = true)
+    private static void rumble$tenacityFlash(LivingEntity entity, float whiteOverlayProgress,
+            CallbackInfoReturnable<Integer> cir) {
+        if (entity instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon
+                && com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.tenacityFlash(pokemon)) {
+            cir.setReturnValue(net.minecraft.client.renderer.texture.OverlayTexture.pack(0.0F, false));
+        }
+    }
+
     @WrapMethod(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
     private void rumble$faceDialogueViewer(LivingEntity actor, float yaw, float partialTick, PoseStack poses,
             MultiBufferSource buffers, int light, Operation<Void> original) {

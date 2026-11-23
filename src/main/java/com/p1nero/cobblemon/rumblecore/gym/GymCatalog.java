@@ -16,7 +16,12 @@ public final class GymCatalog {
     private GymCatalog() {}
 
     public enum Gym {
-        ROCK, GRASS, GHOST, ICE, GROUND, FIRE, DARK, ELECTRIC;
+        ROCK(-7, -209), GRASS(-160, -139), GHOST(-195, 19), ICE(-155, 168),
+        GROUND(-11, 202), FIRE(145, 188), DARK(191, 8), ELECTRIC(139, -139);
+
+        // Centers of the Poké Ball floor mosaics in the bundled hall regions.
+        final int courtX, courtZ;
+        Gym(int courtX, int courtZ) { this.courtX = courtX; this.courtZ = courtZ; }
 
         public String path() { return name().toLowerCase(Locale.ROOT); }
     }
@@ -25,7 +30,7 @@ public final class GymCatalog {
         public Actor(String id, BlockPos pos, Supplier<List<Pokemon>> team) { this(id, pos, team, null); }
         public String key() { return "rumble.gym.actor." + id; }
         public Component name() { return displayName == null ? Component.translatable(key()) : displayName.copy(); }
-        String aspect() { return "rumble-gym-" + id.replace('_', '-'); }
+        public String aspect() { return "rumble-gym-" + id.replace('_', '-'); }
     }
 
     public record Encounter(String id, Gym gym, boolean leader, List<Actor> actors) {}
@@ -34,6 +39,11 @@ public final class GymCatalog {
     public static final Actor GRASS_SECOND_ATTENDANT = a("grass_2", -154, 47, -87);
 
     static final List<Encounter> ALL = createEncounters();
+    private static final java.util.Map<String, Gym> ACTOR_GYMS = ALL.stream().flatMap(e -> e.actors().stream()
+            .map(a -> java.util.Map.entry(a.id(), e.gym())))
+            .collect(java.util.stream.Collectors.toUnmodifiableMap(java.util.Map.Entry::getKey, java.util.Map.Entry::getValue));
+
+    static Gym actorGym(String id) { return ACTOR_GYMS.get(id); }
 
     static List<Encounter> forGym(Gym gym) { return ALL.stream().filter(e -> e.gym() == gym).toList(); }
     public static Encounter leader(Gym gym) {

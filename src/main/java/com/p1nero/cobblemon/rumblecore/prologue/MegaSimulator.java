@@ -2,6 +2,9 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
+import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
+import com.p1nero.cobblemon.rumblecore.prologue.client.CinemaCatalogScreen;
+import com.p1nero.misc.custom_instances.network.InstanceNetwork;
 import com.p1nero.cobblemon.rumblecore.prologue.client.MegaSimulatorScreen;
 import com.p1nero.cobblebashscreen.simulator.TrainingSimulatorMenu;
 import com.p1nero.misc.custom_instances.api.InstanceEntrance;
@@ -39,7 +42,7 @@ public final class MegaSimulator {
     private static final List<BlockPos> TERMINALS = List.of(POS, PrologueWorld.ANCHOR.north(5));
     public static final String UNIVERSE_UNLOCKED = "rumble.simulator.universe_unlocked";
     private static final String KEY = "rumble.mega.simulator.";
-    public static final int MEGA = 0, UNIVERSE = 1, SAFARI = 2;
+    public static final int MEGA = 0, UNIVERSE = 1, SAFARI = 2, CINEMA = 3, FRONTIER = 4;
     private static final ResourceLocation BASH_BLOCK = ResourceLocation.parse("cobblebash:training_simulator");
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CobblemonRumbleCore.MOD_ID);
     private static final java.util.function.Supplier<Block> TERMINAL = BLOCKS.register("mega_simulator",
@@ -76,7 +79,7 @@ public final class MegaSimulator {
         event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide()));
         event.setCanceled(true);
         if (event.getEntity() instanceof ServerPlayer player && atTerminal(player)) {
-            PacketDistributor.sendToPlayer(player, new Open(MegaTrials.unlocked(player), universeUnlocked(player), SafariChapter.unlocked(player)));
+            PacketDistributor.sendToPlayer(player, new Open(MegaTrials.unlocked(player), universeUnlocked(player), SafariChapter.unlocked(player), SimulatorTestQuest.testing(player), CinemaQuest.unlocked(player), false));
         }
     }
 
@@ -91,20 +94,25 @@ public final class MegaSimulator {
     private static void choose(ServerPlayer player, int selection) {
         var terminal = nearestTerminal(player);
         if (terminal == null) return;
-        if (selection == MEGA && MegaTrials.unlocked(player)) {
+        if (selection == FRONTIER) {
+            com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms.open(player);
+        } else if (selection == MEGA && MegaTrials.unlocked(player)) {
             new Entrance(player.serverLevel(), terminal).openInstanceCatalog(player);
         } else if (selection == UNIVERSE && universeUnlocked(player)) {
             openUniverse(player);
         } else if (selection == SAFARI && SafariChapter.unlocked(player)) {
             SafariChapter.openAdmission(player);
-        } else if (selection >= MEGA && selection <= SAFARI) {
+        } else if (selection == CINEMA && CinemaQuest.unlocked(player)) {
+            PacketDistributor.sendToPlayer(player, new Open(false, false, false, false, true, true));
+        } else if (selection >= MEGA && selection <= CINEMA) {
             player.displayClientMessage(Component.translatable(KEY + "locked"), true);
         }
     }
 
     private static void openUniverse(ServerPlayer player) {
         player.openMenu(new SimpleMenuProvider((id, inventory, user) -> new TrainingSimulatorMenu(id, inventory),
-                Component.translatable("container.cobblebash.training_simulator")));
+                Component.translatable(SimulatorTestQuest.testing(player)
+                        ? "rumble.simulator_test.lesson_title" : "container.cobblebash.training_simulator")));
     }
 
     private record Entrance(ServerLevel level, BlockPos terminal) implements InstanceEntrance {
@@ -119,17 +127,15 @@ public final class MegaSimulator {
         @Override public String catalogTitle() { return "{rumble.mega.simulator.mega}"; }
         @Override public void writeCatalogIcon(String template, CompoundTag icon) {
             var trial = MegaTrials.get(template);
-            if (trial == null) return;
-            icon.putString("renderer", MegaTrials.PORTRAIT.toString());
-            icon.putString("species", "cobblemon:" + trial.species());
-            icon.putString("aspects", String.join(",", trial.aspects()));
+            if (trial != null) trial.writePortrait(icon);
         }
     }
 
-    public record Open(boolean mega, boolean universe, boolean safari) implements CustomPacketPayload {
+    public record Open(boolean mega, boolean universe, boolean safari, boolean teaching, boolean cinema, boolean catalog) implements CustomPacketPayload {
         static final Type<Open> TYPE = new Type<>(PrologueWorld.id("simulator_open"));
         static final StreamCodec<RegistryFriendlyByteBuf, Open> CODEC = StreamCodec.composite(
-                ByteBufCodecs.BOOL, Open::mega, ByteBufCodecs.BOOL, Open::universe, ByteBufCodecs.BOOL, Open::safari, Open::new);
+                ByteBufCodecs.BOOL, Open::mega, ByteBufCodecs.BOOL, Open::universe, ByteBufCodecs.BOOL, Open::safari, ByteBufCodecs.BOOL, Open::teaching,
+                ByteBufCodecs.BOOL, Open::cinema, ByteBufCodecs.BOOL, Open::catalog, Open::new);
         @Override public Type<Open> type() { return TYPE; }
     }
 
@@ -139,9 +145,39 @@ public final class MegaSimulator {
         @Override public Type<Select> type() { return TYPE; }
     }
 
+    public record CinemaSelect(String trial) implements CustomPacketPayload {
+        private static final Type<CinemaSelect> TYPE = new Type<>(PrologueWorld.id("cinema_select"));
+        private static final StreamCodec<RegistryFriendlyByteBuf, CinemaSelect> CODEC = StreamCodec.composite(
+                ByteBufCodecs.stringUtf8(64), CinemaSelect::trial, CinemaSelect::new);
+        @Override public Type<CinemaSelect> type() { return TYPE; }
+    }
+
+    public record CinemaRole(java.util.UUID room, int side, int slot) implements CustomPacketPayload {
+        private static final Type<CinemaRole> TYPE = new Type<>(PrologueWorld.id("cinema_role"));
+        private static final StreamCodec<RegistryFriendlyByteBuf, CinemaRole> CODEC = StreamCodec.composite(
+                net.minecraft.core.UUIDUtil.STREAM_CODEC, CinemaRole::room, ByteBufCodecs.VAR_INT, CinemaRole::side,
+                ByteBufCodecs.VAR_INT, CinemaRole::slot, CinemaRole::new);
+        @Override public Type<CinemaRole> type() { return TYPE; }
+    }
+
+    private static void cinemaLobby(ServerPlayer player, CinemaSelect selection) {
+        if (!atTerminal(player) || !CinemaQuest.unlocked(player)) return;
+        var trial = CinemaTrials.get(selection.trial());
+        if (trial != null && trial.supported()) InstanceNetwork.openLobby(player, trial.template());
+    }
+
     private static void packets(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar("1");
-        registrar.playToClient(Open.TYPE, Open.CODEC, (packet, ctx) -> MegaSimulatorScreen.open(packet));
+        registrar.playToClient(Open.TYPE, Open.CODEC, (packet, ctx) -> {
+            if (packet.catalog()) CinemaCatalogScreen.open();
+            else MegaSimulatorScreen.open(packet);
+        });
         registrar.playToServer(Select.TYPE, Select.CODEC, (packet, ctx) -> choose((ServerPlayer) ctx.player(), packet.selection()));
+        registrar.playToServer(CinemaRole.TYPE, CinemaRole.CODEC, (packet, ctx) -> {
+            var player = (ServerPlayer) ctx.player();
+            var room = com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.inArena(player);
+            if (room != null && room.getId().equals(packet.room())) room.selectCinemaRole(player, packet.side(), packet.slot());
+        });
+        registrar.playToServer(CinemaSelect.TYPE, CinemaSelect.CODEC, (packet, ctx) -> cinemaLobby((ServerPlayer) ctx.player(), packet));
     }
 }

@@ -21,6 +21,7 @@ import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.fml.ModList;
 import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
@@ -36,6 +37,11 @@ public final class MegaTrials {
         public String speciesKey() { return "cobblemon.species." + species + ".name"; }
         public String title() { return "{" + speciesKey() + "} {rumble.mega.form." + form + "}"; }
         public Set<String> aspects() { return baseAspect.equals("-") ? Set.of(form) : Set.of(baseAspect, form); }
+        public void writePortrait(CompoundTag icon) {
+            icon.putString("renderer", PORTRAIT.toString());
+            icon.putString("species", "cobblemon:" + species);
+            icon.putString("aspects", String.join(",", aspects()));
+        }
         public boolean supported() {
             var mon = PokemonSpecies.getByIdentifier(ResourceLocation.fromNamespaceAndPath("cobblemon", species));
             return mon != null && mon.getForms().stream().anyMatch(f -> f.getAspects().containsAll(aspects()));

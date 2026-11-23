@@ -9,26 +9,30 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 /** A server-traced practice projectile; its trajectory is fixed at launch and can be dodged. */
 final class TrainingBolt {
-    enum Result { FLYING, MISSED, HIT, GUARDED, PARRIED }
+    enum Result { FLYING, MISSED, HIT, DODGED, GUARDED, PARRIED }
 
     private static final float DAMAGE = 5.0F;
     private static final double SPEED = 0.28;
     private final PokemonEntity caster;
     private final Vec3 velocity;
+    private final AABB launchTarget;
     private long lastTick;
     private Vec3 position;
     private int age;
 
-    TrainingBolt(ServerLevel level, PokemonEntity caster, Smash.Session battle) {
+    TrainingBolt(ServerLevel level, PokemonEntity caster, Smash.Session battle, boolean practiceDodge) {
         this.caster = caster;
         this.lastTick = level.getGameTime();
         position = origin(caster);
-        velocity = battle.player.getBoundingBox().getCenter().subtract(position).normalize().scale(SPEED);
+        var hitbox = battle.player.getBoundingBox();
+        launchTarget = practiceDodge ? hitbox.inflate(.12) : null;
+        velocity = hitbox.getCenter().subtract(position).normalize().scale(SPEED);
         Fx.animate(caster, "special", "attack", "physical");
         level.playSound(null, caster, SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.HOSTILE, 0.45F, 1.7F);
         burst(level, position, 12);
@@ -47,8 +51,18 @@ final class TrainingBolt {
         var next = position.add(velocity);
         var wall = level.clip(new ClipContext(position, next, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, caster));
         var end = wall.getType() == HitResult.Type.MISS ? next : wall.getLocation();
-        var collision = battle.player.getBoundingBox().inflate(.12).clip(position, end);
-        if (collision.isPresent() || battle.player.getBoundingBox().contains(position)) {
+        var current = battle.player.getBoundingBox().inflate(.12);
+        var collision = current.clip(position, end);
+        boolean hitsPlayer = collision.isPresent() || current.contains(position);
+        // A genuine RTC dodge can make the projectile miss the new position. Test both the
+        // actual and original trajectories during RTC's server-side invulnerability window.
+        if (launchTarget != null && level.getGameTime() < battle.combat.dodgeUntil
+                && (hitsPlayer || launchTarget.distanceToSqr(battle.player.getBoundingBox().getCenter()) <= 16
+                    && (launchTarget.contains(position) || launchTarget.clip(position, end).isPresent()))) {
+            burst(level, end, 8);
+            return Result.DODGED;
+        }
+        if (hitsPlayer) {
             var source = level.damageSources().mobProjectile(caster, caster);
             // Use RTC's real guard/parry resolution. Merely holding the key, missing, or dodging never passes.
             boolean guarding = battle.combat.blocking && level.getGameTime() >= battle.combat.dodgeUntil;

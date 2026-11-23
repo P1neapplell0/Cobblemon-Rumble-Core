@@ -52,7 +52,7 @@ public final class RoadTrainerArena {
                 try {
                     battle.distributeRewards(won);
                     if (won) {
-                        int amount = Math.min(1200, 100 + 5 * roster.stream().mapToInt(Pokemon::getLevel).sum());
+                        int amount = Math.min(2_400, 200 + 10 * roster.stream().mapToInt(Pokemon::getLevel).sum());
                         new CobbleDollarReward(amount).grant(player);
                         player.sendSystemMessage(Component.translatable("rumble.gym.reward.coins", amount));
                     }

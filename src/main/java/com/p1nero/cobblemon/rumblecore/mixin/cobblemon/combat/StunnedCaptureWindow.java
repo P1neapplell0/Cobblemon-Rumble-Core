@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore.mixin.cobblemon.combat;
 import com.cobblemon.mod.common.entity.pokeball.EmptyPokeBallEntity;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import net.minecraft.world.phys.EntityHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -12,17 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = EmptyPokeBallEntity.class, remap = false)
 abstract class StunnedCaptureWindow {
-    @com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation(method = "beginCapture", at = @At(value = "INVOKE",
-            target = "Lcom/cobblemon/mod/common/api/pokeball/catching/calculators/CaptureCalculator;processCapture(Lnet/minecraft/world/entity/LivingEntity;Lcom/cobblemon/mod/common/entity/pokeball/EmptyPokeBallEntity;Lcom/cobblemon/mod/common/entity/pokemon/PokemonEntity;)Lcom/cobblemon/mod/common/api/pokeball/catching/CaptureContext;"))
-    private com.cobblemon.mod.common.api.pokeball.catching.CaptureContext rumble$ankletCapture(
-            com.cobblemon.mod.common.api.pokeball.catching.calculators.CaptureCalculator calculator,
-            net.minecraft.world.entity.LivingEntity thrower, EmptyPokeBallEntity ball, PokemonEntity target,
-            com.llamalad7.mixinextras.injector.wrapoperation.Operation<com.cobblemon.mod.common.api.pokeball.catching.CaptureContext> original) {
-        var result = original.call(calculator, thrower, ball, target);
-        return com.p1nero.cobblemon.rumblecore.prologue.MayAnklet.guaranteesCapture(target)
-                ? new com.cobblemon.mod.common.api.pokeball.catching.CaptureContext(4, true, false) : result;
-    }
-
     @Shadow private void drop() { throw new AssertionError(); }
 
     @Inject(method = "onHitEntity", at = @At("HEAD"), cancellable = true)
@@ -30,14 +20,25 @@ abstract class StunnedCaptureWindow {
         EmptyPokeBallEntity self = (EmptyPokeBallEntity) (Object) this;
         if (self.level().isClientSide() || !(hit.getEntity() instanceof PokemonEntity target)
                 || self.getCaptureState() != EmptyPokeBallEntity.CaptureState.NOT
-                || !WildCapture.stunned(target) || WildCapture.canThrowAt(target)) return;
+                || (ArenaMatch.isLegendaryFoe(target) ? ArenaMatch.canThrowAtLegendary(target, self.getOwner())
+                    : !WildCapture.stunned(target) || WildCapture.canThrowAt(target))) return;
         drop();
         ci.cancel();
     }
 
     @Inject(method = "attemptCatch", at = @At("RETURN"))
     private void rumble$pauseCountdown(PokemonEntity target, CallbackInfo ci) {
-        if (WildCapture.stunned(target)) WildCapture.attemptStarted(target);
+        var ball = (EmptyPokeBallEntity) (Object) this;
+        if (!WildCapture.stunned(target) || !target.getBusyLocks().contains(ball)) return;
+        WildCapture.attemptStarted(target);
+        if (ArenaMatch.isLegendaryFoe(target)) ball.getCaptureFuture().thenAccept(success -> {
+            // Cobblemon completes this future just before adding the Pokémon to party/PC.
+            // The entity multiplier is transient; only species HP can be stored on the Pokémon.
+            if (success) {
+                var mon = target.getPokemon();
+                mon.setCurrentHealth(Math.max(1, Math.round(mon.getMaxHealth() * .01f)));
+            }
+        });
     }
 
     @Inject(method = "breakFree", at = @At("RETURN"))

@@ -4,7 +4,6 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.config.MegaShowdownConfig;
 import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
-import com.github.yajatkaul.mega_showdown.utils.AccessoriesUtils;
 import com.johnn.realtimecobblemon.Smash;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
@@ -45,13 +44,17 @@ public final class TeraCombat {
     public static boolean available() { return MegaCombat.available() && MegaShowdownConfig.terastallization; }
 
     public static boolean isDevice(ItemStack stack) {
-        return available() && (stack.is(MegaShowdownTags.Items.TERA_ORB) || stack.is(MegaShowdownTags.Items.OMNI_RING));
+        return available() && (ORB.equals(BuiltInRegistries.ITEM.getKey(stack.getItem()))
+                || stack.is(MegaShowdownTags.Items.TERA_ORB) || stack.is(MegaShowdownTags.Items.OMNI_RING));
     }
 
     public static boolean equipped(LivingEntity player) {
-        return available() && (isDevice(player.getMainHandItem()) || isDevice(player.getOffhandItem())
-                || AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.TERA_ORB)
-                || AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.OMNI_RING));
+        if (!available()) return false;
+        for (var stack : player.getHandSlots()) if (isDevice(stack)) return true;
+        for (var stack : player.getArmorSlots()) if (isDevice(stack)) return true;
+        var accessories = io.wispforest.accessories.api.AccessoriesCapability.get(player);
+        return accessories != null && accessories.isEquipped(TeraCombat::isDevice,
+                io.wispforest.accessories.api.EquipmentChecking.ACCESSORIES_ONLY);
     }
 
     static void use(ServerPlayer player) {

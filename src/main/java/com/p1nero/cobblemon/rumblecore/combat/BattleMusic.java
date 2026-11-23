@@ -24,8 +24,10 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)
 public final class BattleMusic {
+    public static final byte STANDARD = 1;
+    public static final byte GYM = 2;
     private static final Map<ServerPlayer, Engagement> ENGAGED = new WeakHashMap<>();
-    private static final Map<ServerPlayer, Byte> PLAYING = new WeakHashMap<>();
+    private static final Map<ServerPlayer, State> PLAYING = new WeakHashMap<>();
 
     private BattleMusic() {}
 
@@ -42,25 +44,40 @@ public final class BattleMusic {
         }
     }
 
+    public static void arenaIntro(ServerPlayer player, ArenaMatch arena) {
+        publish(player, new State(arena.getDimension().location(), arena.usesGymMusic() ? GYM : STANDARD));
+    }
+
     @SubscribeEvent
     public static void tick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         byte track = 0;
         var arena = ArenaMatch.inArena(player);
         var engagement = ENGAGED.get(player);
-        if (player.isAlive() && arena != null && arena.musicActive(player)) track = 2;
+        // The VS packet can arrive before the player is teleported into the new level.
+        var previous = PLAYING.get(player);
+        if (arena != null && arena.getState() == com.p1nero.misc.custom_instances.instance.InstanceSession.State.PREPARING
+                && previous != null && previous.track() != 0 && previous.dimension().equals(arena.getDimension().location())) return;
+        if (player.isAlive() && arena != null && arena.musicActive(player)) {
+            track = arena.usesGymMusic() ? GYM : STANDARD;
+        }
         else if (engagement != null) {
             var opponent = engagement.opponent();
             if (player.isAlive() && Smash.session(player) == engagement.session() && opponent.isAlive()
                     && opponent.level() == player.level() && !WildCapture.stunned(opponent)
                     && (Brawl.fighting(opponent) || player.server.getTickCount() < engagement.expires())
-                    && opponent.distanceToSqr(engagement.session().pokemon) < 32 * 32) track = 1;
+                    && opponent.distanceToSqr(engagement.session().pokemon) < 32 * 32) track = STANDARD;
             else ENGAGED.remove(player);
         }
-        if (track == PLAYING.getOrDefault(player, (byte) 0)) return;
-        if (track == 0) PLAYING.remove(player);
-        else PLAYING.put(player, track);
-        PacketDistributor.sendToPlayer(player, new State(player.level().dimension().location(), track));
+        publish(player, new State(player.level().dimension().location(), track));
+    }
+
+    private static void publish(ServerPlayer player, State next) {
+        var current = PLAYING.get(player);
+        if (next.equals(current) || current == null && next.track() == 0) return;
+        if (next.track() == 0) PLAYING.remove(player);
+        else PLAYING.put(player, next);
+        PacketDistributor.sendToPlayer(player, next);
     }
 
     private record Engagement(Smash.Session session, PokemonEntity opponent, int expires) {}

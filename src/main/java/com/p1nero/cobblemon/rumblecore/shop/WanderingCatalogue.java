@@ -6,6 +6,9 @@ import fr.harmex.cobbledollars.common.api.shop.Shop;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -20,7 +23,16 @@ public final class WanderingCatalogue {
     private static final String WHITE_HOVERBOARD = "hoverboards:hoverboard_white";
     private static final String BLACK_HOVERBOARD = "hoverboards:hoverboard_black";
     private static final int HOVERBOARD_PRICE = 10000;
-    private static final int UNLIMITED_STOCK = -1;
+    private static final PricedItem REWIND_WATCH = item("structure_rewind_watch:structure_rewind_watch", 10_000);
+    private static final List<PricedItem> GUARANTEED = List.of(
+            item("horizoncobblemonitems:void_bottle_cap", 10000), item("horizoncobblemonitems:golden_bottle_cap", 500000),
+            item("horizoncobblemonitems:silver_bottle_cap", 100000), item("artifacts:mimic_spawn_egg", 10000),
+            item("horizoncobblemonitems:axiom_berry", 50000), item("horizoncobblemonitems:tutor_hidden_machine", 100000));
+    private static final List<Draw> DRAWS = List.of(
+            new Draw(2, variants("_carat", 100000, "red", "blue", "green", "yellow", "pink", "cyan")),
+            new Draw(2, variants("_phoenix_feather", 50000, "health", "muscle", "resist", "genius", "clever", "swift")),
+            new Draw(1, variants("_mac_and_cheese", 20000, "spicy", "dry", "sweet", "bitter", "sour")));
+    private static final int MARKET_SIZE = 15;
     private static final int ULTRA_RARE_WEIGHT = 1;
     private static final int EXTREMELY_RARE_WEIGHT = 3;
     private static final int RARE_WEIGHT = 8;
@@ -32,35 +44,14 @@ public final class WanderingCatalogue {
         List<PricedItem> selected = new ArrayList<>();
         Set<String> selectedIds = new HashSet<>();
 
-        addUnique(selected, selectedIds, item("horizoncobblemonitems:void_bottle_cap", 10000));
-        addUnique(selected, selectedIds, item("horizoncobblemonitems:golden_bottle_cap", 500000));
-        addUnique(selected, selectedIds, item("horizoncobblemonitems:silver_bottle_cap", 100000));
-        addUnique(selected, selectedIds, item("artifacts:mimic_spawn_egg", 10000));
-        pick(selected, selectedIds, random, 2, List.of(
-                item("horizoncobblemonitems:red_carat", 100000),
-                item("horizoncobblemonitems:blue_carat", 100000),
-                item("horizoncobblemonitems:green_carat", 100000),
-                item("horizoncobblemonitems:yellow_carat", 100000),
-                item("horizoncobblemonitems:pink_carat", 100000),
-                item("horizoncobblemonitems:cyan_carat", 100000)));
-        addUnique(selected, selectedIds, item("horizoncobblemonitems:axiom_berry", 50000));
-        pick(selected, selectedIds, random, 2, List.of(
-                item("horizoncobblemonitems:health_phoenix_feather", 50000),
-                item("horizoncobblemonitems:muscle_phoenix_feather", 50000),
-                item("horizoncobblemonitems:resist_phoenix_feather", 50000),
-                item("horizoncobblemonitems:genius_phoenix_feather", 50000),
-                item("horizoncobblemonitems:clever_phoenix_feather", 50000),
-                item("horizoncobblemonitems:swift_phoenix_feather", 50000)));
-        pick(selected, selectedIds, random, 1, List.of(
-                item("horizoncobblemonitems:spicy_mac_and_cheese", 20000),
-                item("horizoncobblemonitems:dry_mac_and_cheese", 20000),
-                item("horizoncobblemonitems:sweet_mac_and_cheese", 20000),
-                item("horizoncobblemonitems:bitter_mac_and_cheese", 20000),
-                item("horizoncobblemonitems:sour_mac_and_cheese", 20000)));
-        addUnique(selected, selectedIds, item("horizoncobblemonitems:tutor_hidden_machine", 100000));
+        GUARANTEED.subList(0, 4).forEach(item -> addUnique(selected, selectedIds, item));
+        pick(selected, selectedIds, random, DRAWS.get(0).count(), DRAWS.get(0).pool());
+        addUnique(selected, selectedIds, GUARANTEED.get(4));
+        for (var draw : DRAWS.subList(1, DRAWS.size())) pick(selected, selectedIds, random, draw.count(), draw.pool());
+        addUnique(selected, selectedIds, GUARANTEED.get(5));
 
         List<WeightedItem> pool = weightedBlackMarketPool();
-        while (selected.size() < 15 && !pool.isEmpty()) {
+        while (selected.size() < MARKET_SIZE && !pool.isEmpty()) {
             int totalWeight = pool.stream().mapToInt(WeightedItem::weight).sum();
             int roll = random.nextInt(totalWeight);
             int index = 0;
@@ -77,9 +68,72 @@ public final class WanderingCatalogue {
         addUnique(selected, selectedIds, item(BLACK_HOVERBOARD, HOVERBOARD_PRICE));
         pick(selected, selectedIds, random, 1, randomHoverboardPool());
 
+        addUnique(selected, selectedIds, REWIND_WATCH);
+
         ArrayList<Offer> offers = new ArrayList<>();
         selected.forEach(entry -> addIfPresent(offers, offer(entry.id(), entry.price())));
         return new Shop(List.of(new Category("rumble.merchant.category", offers)));
+    }
+
+    public record Odds(String item, int price, double fraction) {}
+    private record Draw(int count, List<PricedItem> pool) {}
+    private static List<Odds> cachedOdds;
+
+    public static List<Odds> odds() {
+        if (cachedOdds != null) return cachedOdds;
+        var rows = new ArrayList<Odds>();
+        int selected = disclose(rows, GUARANTEED, GUARANTEED.size());
+        for (var draw : DRAWS) selected += disclose(rows, draw.pool(), draw.count());
+        var pool = weightedBlackMarketPool();
+        var byWeight = new LinkedHashMap<Integer, Integer>();
+        for (var entry : pool) byWeight.merge(entry.weight(), 1, Integer::sum);
+        var weights = byWeight.keySet().stream().mapToInt(Integer::intValue).toArray();
+        var counts = byWeight.values().stream().mapToInt(Integer::intValue).toArray();
+        int draws = Math.min(pool.size(), Math.max(0, MARKET_SIZE - selected));
+        var expected = expectedDraws(weights, counts, draws);
+        for (var entry : pool) {
+            int i = 0;
+            while (weights[i] != entry.weight()) i++;
+            var item = entry.item();
+            rows.add(new Odds(item.id(), item.price(), Math.min(1.0, expected[i] / counts[i])));
+        }
+        disclose(rows, List.of(item(WHITE_HOVERBOARD, HOVERBOARD_PRICE), item(BLACK_HOVERBOARD, HOVERBOARD_PRICE), REWIND_WATCH), 3);
+        disclose(rows, randomHoverboardPool(), 1);
+        return cachedOdds = List.copyOf(rows);
+    }
+
+    // Exact weighted sampling without replacement. Identical weights are interchangeable,
+    // so each state contains just a four-bit draw count per weight (at most 15 draws).
+    private static double[] expectedDraws(int[] weights, int[] counts, int draws) {
+        Map<Long, Double> states = Map.of(0L, 1.0);
+        for (int draw = 0; draw < draws; draw++) {
+            Map<Long, Double> next = new HashMap<>();
+            for (var state : states.entrySet()) {
+                long key = state.getKey();
+                int total = 0;
+                for (int i = 0; i < counts.length; i++) total += (counts[i] - (int) (key >>> (4 * i) & 15)) * weights[i];
+                for (int i = 0; i < counts.length; i++) {
+                    int weight = (counts[i] - (int) (key >>> (4 * i) & 15)) * weights[i];
+                    if (weight > 0) next.merge(key + (1L << (4 * i)), state.getValue() * weight / total, Double::sum);
+                }
+            }
+            states = next;
+        }
+        double[] expected = new double[counts.length];
+        for (var state : states.entrySet()) for (int i = 0; i < counts.length; i++)
+            expected[i] += (state.getKey() >>> (4 * i) & 15) * state.getValue();
+        return expected;
+    }
+
+    private static int disclose(List<Odds> output, List<PricedItem> pool, int count) {
+        var available = pool.stream().filter(p -> isAvailable(p.id())).toList();
+        int draws = Math.min(count, available.size());
+        if (draws > 0) for (var item : available) output.add(new Odds(item.id(), item.price(), (double) draws / available.size()));
+        return draws;
+    }
+
+    private static List<PricedItem> variants(String suffix, int price, String... variants) {
+        return java.util.Arrays.stream(variants).map(s -> item("horizoncobblemonitems:" + s + suffix, price)).toList();
     }
 
     private static List<PricedItem> randomHoverboardPool() {

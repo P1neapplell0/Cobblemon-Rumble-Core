@@ -45,6 +45,7 @@ public final class PrologueStory {
     private static final Map<ServerPlayer, Runnable> AFTER_DIALOGUE = new WeakHashMap<>();
     private static final Set<ServerPlayer> FAREWELL_OFFERED = Collections.newSetFromMap(new WeakHashMap<>());
     private static final String FAREWELL = "farewell";
+    public static final String FAREWELL_TREE = PrologueWorld.id("prologue/farewell").toString();
     private static final String SPEAKER = "entity.cobblemon_rumble_core.professor";
     private static final String DIALOGUE_KEY = "rumble.prologue.dialogue.";
     static final MarkSpec PROFESSOR_MARK = HallQuestMarkers.actor("professor", SPEAKER,
@@ -71,29 +72,37 @@ public final class PrologueStory {
             SquadQuest.group(event, "champion_road", QuestCategory.ARCHON, 0, ResourceLocation.parse(ID));
             SquadQuest.group(event, "adventure_quests", QuestCategory.ADVENTURE, 2, SquadQuest.ID);
             TrainerGrowth.register(event);
+            SimulatorGrowth.register(event);
             GymStory.registerQuests(event);
             ProfessorRestock.register(event);
             PersonalDimension.register(event);
             MegaTrainingQuest.register(event);
             SimulatorTestQuest.register(event);
+            CinemaQuest.register(event);
+            ChampionStory.register(event);
             TeraChapter.register(event);
             DailyCommissions.register(event);
             SafariChapter.register(event);
             WanderingMerchantQuest.register(event);
+            LegendaryCommission.register(event);
         }
 
         @SubscribeEvent
         public static void registerDialogue(ArcQuestRegistrationEvent.Dialogue event) {
             GymStory.registerDialogue(event);
+            com.p1nero.cobblemon.rumblecore.integration.rct.RoadTrainerDialogue.register(event);
             FirstBadgeVisit.register(event);
             ProfessorRestock.register(event);
             PersonalDimension.register(event);
             MegaIntroduction.register(event);
             MegaTrainingQuest.register(event);
             SimulatorTestQuest.register(event);
+            CinemaQuest.register(event);
+            ChampionStory.register(event);
             TeraChapter.register(event);
             SafariChapter.register(event);
             WanderingMerchantQuest.register(event);
+            LegendaryCommission.register(event);
             var intro = tree(WELCOME);
             for (int i = 1; i <= 9; i++) {
                 String node = "intro_" + i;
@@ -127,7 +136,13 @@ public final class PrologueStory {
             line(farewell, "strength").delay(4200).autoNext("stunned");
             line(farewell, "stunned").delay(4000).autoNext("catch");
             line(farewell, "catch").delay(4000).autoNext("easy");
-            line(farewell, "easy").choice("easy", text("ask_easy"), choice -> choice.goTo("depart"));
+            line(farewell, "easy").choice("easy", text("ask_easy"), choice -> choice.goTo("facilities"));
+            line(farewell, "facilities").delay(2900).autoNext("healer");
+            line(farewell, "healer").delay(4700).autoNext("storage_pc");
+            line(farewell, "storage_pc").choice("simulator", text("ask_simulator"), choice -> choice.goTo("simulator"));
+            line(farewell, "simulator").delay(5300).autoNext("simulator_frontier");
+            line(farewell, "simulator_frontier").delay(4600).autoNext("simulator_multiplayer");
+            line(farewell, "simulator_multiplayer").delay(3500).autoNext("depart");
             line(farewell, "depart").choice("depart", text("set_out"), choice -> choice.addEvents((player, npc) -> {
                 if (atDialogueProfessor(player)) finishFarewell(player);
             }).goTo("received_catch_kit"));
@@ -136,17 +151,20 @@ public final class PrologueStory {
             event.register(farewell.build());
 
             var idle = tree("done").repeatable(true);
-            idle.node("done").say(DialogueText.of(ctx -> {
-                String key = (String) ctx.vars().getOrDefault("idleKey", DIALOGUE_KEY + "done");
-                return Component.translatable(key, ctx.player().getGameProfile().getName());
-            }), rId("done"))
+            idle.node("done").say(DialogueText.of(ctx -> professorGreeting(ctx.player())), rId("done"))
                     .choice("space_ingot", DialogueText.of(ctx -> Component.translatable("rumble.personal_dimension.about")
-                                    .withStyle(net.minecraft.ChatFormatting.GREEN)), choice -> choice
+                                    .withStyle(net.minecraft.ChatFormatting.GOLD)), choice -> choice
                             .conditionIf((p, npc) -> PersonalDimension.trackedDelivery(p))
                             .addEvents((p, npc) -> { if (atDialogueProfessor(p)) after(p, () -> PersonalDimension.open(p, PersonalDimension.ABOUT_ROUTE)); }).close())
                     .choice("restock", ProfessorRestock.option(), choice -> choice
                             .conditionIf((p, npc) -> ProfessorRestock.active(p))
                             .addEvents((p, npc) -> { if (atDialogueProfessor(p)) after(p, () -> ProfessorRestock.open(p)); }).close())
+                    .choice("champion_rematch", ChampionStory.gold("rematch"), choice -> choice
+                            .conditionIf((p, npc) -> ChampionStory.completed(p))
+                            .addEvents((p, npc) -> ChampionStory.challenge(p)).close())
+                    .choice("hall_of_fame", DialogueText.translatable("rumble.champion.hall_title"), choice -> choice
+                            .conditionIf((p, npc) -> ChampionStory.completed(p))
+                            .addEvents((p, npc) -> ChampionStory.rankings(p)).close())
                     .choice("trade", FirstBadgeVisit.text("trade"), choice -> choice
                             .conditionIf((p, npc) -> ArcQuestPlayerManager.getOrCreate(p).hasFlag(ProfessorShop.UNLOCKED))
                             .addEvents((p, npc) -> ProfessorShop.afterDialogue(p, false)).close())
@@ -178,7 +196,7 @@ public final class PrologueStory {
     }
 
     static DialogueTreeBuilder tree(String path) { return DialogueTreeBuilder.create(rId(path)).npc(DialogueText.translatable(SPEAKER)); }
-    private static String rId(String path) { return PrologueWorld.id("prologue/" + path).toString(); }
+    static String rId(String path) { return PrologueWorld.id("prologue/" + path).toString(); }
     private static DialogueText text(String path, DialogueText.DialogueArg... args) { return DialogueText.translatable(DIALOGUE_KEY + path, args); }
     private static DialogueTreeBuilder line(DialogueTreeBuilder tree, String path) { return tree.node(path).say(text(path), rId(path)); }
 
@@ -198,6 +216,7 @@ public final class PrologueStory {
         RewardNotice.grant(player, catchKit());
         PhoneState.sync(player);
         acceptOpeningQuests(player);
+        OpeningTutorial.start(player);
     }
 
     private static void acceptOpeningQuests(ServerPlayer player) {
@@ -209,7 +228,7 @@ public final class PrologueStory {
     }
 
     private static ItemStack[] catchKit() {
-        return new ItemStack[] {new ItemStack(CobblemonItems.POKEDEX_RED), new ItemStack(CobblemonItems.POKE_BALL, 10)};
+        return new ItemStack[] {new ItemStack(CobblemonItems.POKEDEX_RED), new ItemStack(CobblemonItems.ULTRA_BALL, 30)};
     }
 
     static boolean completed(ServerPlayer player) { return ArcQuestPlayerManager.getOrCreate(player).isQuestCompleted(ID); }
@@ -289,29 +308,48 @@ public final class PrologueStory {
         if (GymStory.talk(player, entity)) return;
         if (!(entity instanceof ProfessorEntity doctor) || !at(player, doctor)) return;
         String phase = phase(player);
+        String championRoute = ChampionStory.trackedRoute(player);
         String route = switch (phase) {
             case WELCOME, PARTNER, BRIEFING, FAREWELL -> phase;
             case DRILLS, SPAR -> "retry";
-            default -> FirstBadgeVisit.active(player) ? FirstBadgeVisit.ROUTE : PersonalDimension.briefingActive(player)
+            default -> championRoute != null ? championRoute
+                    : FirstBadgeVisit.active(player) ? FirstBadgeVisit.ROUTE : PersonalDimension.briefingActive(player)
                     ? PersonalDimension.BRIEFING_ROUTE : SafariChapter.active(player) ? SafariChapter.ROUTE : completed(player) ? "done" : null;
         };
         if ("done".equals(route)) {
             var simulator = SimulatorTestQuest.professorRoute(player);
-            if (simulator != null) route = simulator;
+            championRoute = ChampionStory.activeRoute(player);
+            if (championRoute != null) route = championRoute;
+            else if (CinemaQuest.meeting(player)) route = CinemaQuest.ROUTE;
+            else if (simulator != null) route = simulator;
         }
         if (FAREWELL.equals(route)) FAREWELL_OFFERED.add(player);
         if (route != null) open(player, doctor, route);
     }
 
     static void open(ServerPlayer player, ProfessorEntity doctor, String route) {
-        var ctx = new DialogueContext();
-        if (route.equals("done")) {
-            var data = ArcQuestPlayerManager.getOrCreate(player);
-            String idle = SafariChapter.unlocked(player) ? "safari" : data.hasFlag(MegaIntroduction.UNLOCKED)
-                    ? "mega" : data.hasFlag(ProfessorShop.UNLOCKED) ? "badges" : "";
-            if (!idle.isEmpty()) ctx.put("idleKey", DIALOGUE_KEY + "idle." + idle);
-        }
-        DialogueSessionManager.INSTANCE.startDialogue(player, doctor, rId(route), ctx);
+        DialogueSessionManager.INSTANCE.startDialogue(player, doctor, rId(route), new DialogueContext());
+    }
+
+    private static Component professorGreeting(ServerPlayer player) {
+        var data = ArcQuestPlayerManager.getOrCreate(player);
+        String tracked = data.getTrackedQuestId();
+        String stage;
+        if (ChampionStory.completed(player)) stage = "champion";
+        else if (CinemaQuest.ID.toString().equals(tracked) && CinemaQuest.testing(player)) stage = "cinema_test";
+        else if (PersonalDimension.trackedDelivery(player)) stage = "space_ingot";
+        else if (ProfessorRestock.ID.toString().equals(tracked) && ProfessorRestock.active(player)) stage = "restock";
+        else if (data.isQuestCompleted(GymStory.eighthGymQuest().toString())) stage = "champion_ready";
+        else if (data.isQuestCompleted(GymStory.seventhGymQuest().toString())) stage = "final_badge";
+        else if (data.isQuestCompleted(GymStory.sixthGymQuest().toString())) stage = "legendary";
+        else if (data.isQuestCompleted(GymStory.fifthGymQuest().toString())) stage = "sixth";
+        else if (data.isQuestCompleted(GymStory.fourthGymQuest().toString())) stage = "fifth";
+        else if (data.isQuestCompleted(GymStory.thirdGymQuest().toString())) stage = "fourth";
+        else if (data.isQuestCompleted(GymStory.secondGymQuest().toString())) stage = "third";
+        else if (data.isQuestCompleted(GymStory.firstGymQuest().toString())) stage = "second";
+        else if (data.isQuestCompleted(SquadQuest.ID.toString())) stage = "first_gym";
+        else stage = "first_team";
+        return Component.translatable(DIALOGUE_KEY + "idle." + stage, player.getGameProfile().getName());
     }
 
     static void after(ServerPlayer player, Runnable action) { AFTER_DIALOGUE.put(player, action); }

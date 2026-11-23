@@ -63,10 +63,9 @@ public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsB
             field("colourScheme").set(this, ColourScheme.BLACK);
         } catch (IOException | ReflectiveOperationException | RuntimeException e) {
             warn(e);
-            return super.start(minecraft, neoforge);
+            return startBrandedWindow(minecraft, neoforge);
         }
-        tick = super.start(minecraft, neoforge);
-        setEarlyIcon();
+        tick = startBrandedWindow(minecraft, neoforge);
         try {
             var init = (Future<?>) field("initializationFuture").get(this);
             init.get(30, TimeUnit.SECONDS);
@@ -143,7 +142,19 @@ public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsB
         }
     }
 
-    private void setEarlyIcon() {
+    private Runnable startBrandedWindow(String minecraft, String neoforge) {
+        var tick = super.start(minecraft, neoforge);
+        try {
+            long window = field("window").getLong(this);
+            GLFW.glfwSetWindowTitle(window, "Cobblemon Rumble");
+            setEarlyIcon(window);
+        } catch (ReflectiveOperationException | RuntimeException e) {
+            LoggerFactory.getLogger("RumbleEarlyDisplay").warn("Could not brand the early window", e);
+        }
+        return tick;
+    }
+
+    private void setEarlyIcon(long window) {
         int platform = GLFW.glfwGetPlatform();
         if (platform != GLFW.GLFW_PLATFORM_WIN32 && platform != GLFW.GLFW_PLATFORM_X11) return;
         int[] sizes = {16, 32, 48, 128, 256};
@@ -158,11 +169,11 @@ public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsB
                     pixels[i] = decode(read("icon_" + size + "x" + size + ".png"), width, height);
                     images.get(i).set(width.get(0), height.get(0), pixels[i]);
                 }
-                GLFW.glfwSetWindowIcon(field("window").getLong(this), images);
+                GLFW.glfwSetWindowIcon(window, images);
             } finally {
                 for (var image : pixels) if (image != null) STBImage.stbi_image_free(image);
             }
-        } catch (IOException | ReflectiveOperationException | RuntimeException e) {
+        } catch (IOException | RuntimeException e) {
             LoggerFactory.getLogger("RumbleEarlyDisplay").warn("Could not set the early window icon", e);
         }
     }

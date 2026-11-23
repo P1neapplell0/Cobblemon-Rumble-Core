@@ -64,8 +64,8 @@ final class PrologueCombatInput {
         }
 
         @Inject(method = "dodge", at = @At("HEAD"), cancellable = true)
-        private static void rumble$deferDodge(ServerPlayer player, float strafe, float forward, CallbackInfo ci) {
-            if (PrologueTraining.restrict(player)) ci.cancel();
+        private static void rumble$practiceDodge(ServerPlayer player, float strafe, float forward, CallbackInfo ci) {
+            if (!PrologueTraining.allowCombat(player, Cue.DODGE)) ci.cancel();
         }
     }
 

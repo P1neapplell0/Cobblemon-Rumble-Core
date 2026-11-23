@@ -17,7 +17,9 @@ public enum PhoneApp {
     POKEMON_TRACKER("pokemon_tracker", "cobblenav_pokenav", "cobblenav"),
     FISHING_NAVIGATOR("fishing_navigator", "cobblenav_fishingnav", "cobblenav"),
     ULTRA_SPACE("ultra_space", null, "pokemon_ultra_space"),
-    MINE_CHAT("mine_chat", CobblemonRumbleCore.MOD_ID + ":mine_chat", "mine_chat");
+    MINE_CHAT("mine_chat", CobblemonRumbleCore.MOD_ID + ":mine_chat", "mine_chat"),
+    SERVER_HALL("server_hall", CobblemonRumbleCore.MOD_ID + ":server_hall", null),
+    FRONTIER("frontier", CobblemonRumbleCore.MOD_ID + ":frontier", null);
 
     private final String key;
     private final String actionId;
@@ -28,6 +30,8 @@ public enum PhoneApp {
         this.actionId = action == null || action.contains(":") ? action : "cobblemon_smartphone:" + action;
         this.dependency = dependency;
     }
+
+    public boolean builtIn() { return this == SERVER_HALL || this == FRONTIER; }
 
     public String key() { return key; }
     public String itemId() { return key + "_app_sd_card"; }

@@ -1,12 +1,16 @@
 package com.p1nero.cobblemon.rumblecore.client.npc;
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableEntityModel;
+import com.cobblemon.mod.common.client.render.models.blockbench.pose.Bone;
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.p1nero.cobblemon.rumblecore.client.combat.ArenaIntroOverlay;
 import com.wildfire.main.Gender;
 import com.wildfire.main.entitydata.EntityConfig;
 import com.wildfire.render.GenderLayer;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.WeakHashMap;
@@ -15,11 +19,13 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 
 /** Adapts Cobblemon's animated Bedrock torso to Female Gender's humanoid layer. */
-public final class TrainerGenderLayer extends RenderLayer<NPCEntity, PosableEntityModel<NPCEntity>> {
+public final class TrainerGenderLayer {
+    public interface Owner {
+        TrainerGenderLayer rumble$trainerGender();
+    }
     private static final String PREFIX = "rumble-gym-";
     private static final Set<String> FEMALE = Set.of("grass-leader", "ghost-leader", "ice-leader", "restock-jessie", "tera-cassidy", "may",
             "grass-1", "grass-2", "ghost-1a", "ghost-1b", "ghost-2a", "ghost-2b", "ice-2a", "fire-3a");
@@ -28,7 +34,6 @@ public final class TrainerGenderLayer extends RenderLayer<NPCEntity, PosableEnti
     private final GenderLayer<NPCEntity, HumanoidModel<NPCEntity>> layer;
 
     public TrainerGenderLayer(RenderLayerParent<NPCEntity, PosableEntityModel<NPCEntity>> parent, EntityRendererProvider.Context context) {
-        super(parent);
         rig = new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER));
         layer = new GenderLayer<>(new RenderLayerParent<>() {
             @Override public HumanoidModel<NPCEntity> getModel() { return rig; }
@@ -36,32 +41,46 @@ public final class TrainerGenderLayer extends RenderLayer<NPCEntity, PosableEnti
         }, context.getModelManager());
     }
 
-    @Override public void render(PoseStack pose, MultiBufferSource buffers, int light, NPCEntity npc,
-                                 float limb, float stride, float tick, float age, float yaw, float pitch) {
+    public void render(PoseStack pose, MultiBufferSource buffers, int light, NPCEntity npc,
+                       PosableEntityModel<?> entityModel, float tick) {
+        if (npc.getTags().contains(ArenaIntroOverlay.TRAINER_PREVIEW_TAG)) return;
         var actor = npc.getAspects().stream().filter(aspect -> aspect.startsWith(PREFIX) && FEMALE.contains(aspect.substring(PREFIX.length())))
                 .findFirst().orElse(null);
         if (actor == null) return;
-        var model = getParentModel().getPosableModel();
-        if (model == null) return;
-        var torso = model.getRelevantPartsByName().get("body");
+        var model = entityModel.getPosableModel();
+        var torso = model.getRelevantPartsByName().get("torso");
         if (torso == null) return;
-        rig.body.xRot = torso.xRot;
-        rig.body.yRot = torso.yRot;
-        rig.body.zRot = torso.zRot;
         rig.young = false;
         var config = configs.computeIfAbsent(npc, entity -> new Preset(entity.getUUID(), switch (actor.substring(PREFIX.length())) {
             case "restock-jessie", "tera-cassidy" -> 2;
             case "may" -> 0;
             default -> Math.floorMod(actor.hashCode(), 3);
         }));
+        var path = new ArrayList<Bone>(4);
+        if (!findPath(model.getRootPart(), (Bone) (Object) torso, path)) return;
+        pose.pushPose();
+        path.forEach(bone -> bone.transform(pose));
+        // Cobblemon's torso pivot is at the waist, 12 pixels below the humanoid layer's origin.
+        pose.translate(0, -12 / 16.0, 0);
         var old = EntityConfig.ENTITY_CACHE.put(npc.getUUID(), config);
         try {
             config.tick(npc);
-            layer.render(pose, buffers, light, npc, limb, stride, tick, age, yaw, pitch);
+            layer.render(pose, buffers, light, npc, 0, 0, tick, npc.tickCount + tick, 0, 0);
         } finally {
             if (old == null) EntityConfig.ENTITY_CACHE.remove(npc.getUUID(), config);
             else EntityConfig.ENTITY_CACHE.put(npc.getUUID(), old);
+            pose.popPose();
         }
+    }
+
+    private static boolean findPath(Bone bone, Bone target, List<Bone> path) {
+        path.add(bone);
+        if (bone == target) return true;
+        for (Bone child : bone.getChildren().values()) {
+            if (findPath(child, target, path)) return true;
+        }
+        path.removeLast();
+        return false;
     }
 
     private static final class Preset extends EntityConfig {

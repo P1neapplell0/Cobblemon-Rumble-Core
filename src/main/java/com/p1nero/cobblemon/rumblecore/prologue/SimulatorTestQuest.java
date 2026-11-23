@@ -36,7 +36,7 @@ public final class SimulatorTestQuest {
     private static final String MEET = "meet", TEST = "test", REPORT = "report";
     private static final String INTRO = "simulator_test_intro", RESULT = "simulator_test_result";
     private static final String ROCK_ENTERED = "rumble_simulator_test_rock_entered";
-    private static final ResourceLocation ID = PrologueWorld.id("simulator_test");
+    static final ResourceLocation ID = PrologueWorld.id("simulator_test");
 
     private SimulatorTestQuest() {}
 
@@ -76,9 +76,7 @@ public final class SimulatorTestQuest {
         intro.node("welcome").say(text("welcome", DialogueText.DialogueArg.playerName()), INTRO + "/welcome")
                 .choice("why", text("why"), c -> c.goTo("strong"));
         intro.node("strong").say(text("strong"), INTRO + "/strong")
-                .choice("boast", text("boast"), c -> c.goTo("warning"))
-                .choice("poochyena", text("poochyena"), c -> c.goTo("accident"));
-        line(intro, INTRO, "accident", "warning", 4000);
+                .choice("boast", text("boast"), c -> c.goTo("warning"));
         line(intro, INTRO, "warning", "instructions", 4500);
         intro.node("instructions").say(text("instructions"), INTRO + "/instructions")
                 .choice("start", text("start"), c -> c.addEvents((p, npc) -> {
@@ -99,7 +97,9 @@ public final class SimulatorTestQuest {
         line(report, RESULT, "pp_max", "received", 4000);
         report.node("received").say(RewardNotice.items(RewardNotice.stack("cobblemon:pp_max", 1)), RESULT + "/received")
                 .choice("done", DialogueText.translatable("gui.done"), c -> c.addEvents((p, npc) -> {
-                    if (PrologueStory.atDialogueProfessor(p)) advance(p, REPORT);
+                    if (!PrologueStory.atDialogueProfessor(p) || !active(p, REPORT)) return;
+                    advance(p, REPORT);
+                    SimulatorGrowth.offer(p);
                 }).close());
         event.register(report.build());
     }
@@ -125,6 +125,10 @@ public final class SimulatorTestQuest {
         if (event.getEntity() instanceof ServerPlayer player && CobbleBashDimensions.GYM_VOID.equals(event.getFrom())
                 && !CobbleBashDimensions.GYM_VOID.equals(event.getTo()) && active(player, TEST)
                 && ArcQuestPlayerManager.getOrCreate(player).hasFlag(ROCK_ENTERED)) advance(player, TEST);
+    }
+
+    static boolean testing(ServerPlayer player) {
+        return active(player, TEST) && !ArcQuestPlayerManager.getOrCreate(player).hasFlag(ROCK_ENTERED);
     }
 
     private static boolean active(ServerPlayer player, String phase) { return GymStory.phaseActive(player, ID, phase); }

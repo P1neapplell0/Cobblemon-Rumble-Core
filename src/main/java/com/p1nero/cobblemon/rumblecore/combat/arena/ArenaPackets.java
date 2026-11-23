@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import com.p1nero.cobblemon.rumblecore.client.combat.BattleNameplates;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.core.UUIDUtil;
@@ -70,6 +71,24 @@ public final class ArenaPackets {
         net.playToClient(Invite.TYPE, Invite.CODEC, (p, ctx) -> ArenaClient.invite(p));
         net.playToClient(Prepare.TYPE, Prepare.CODEC, (p, ctx) -> ArenaClient.prepare(p));
         net.playToClient(Switch.TYPE, Switch.CODEC, (p, ctx) -> ArenaClient.roster(p));
+        net.playToClient(Allies.TYPE, Allies.CODEC, (p, ctx) -> BattleNameplates.sync(p));
+        net.playToClient(Tenacity.TYPE, Tenacity.CODEC, (p, ctx) ->
+                com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.tenacity(p.entityId(), p.dimension(), p.ticks()));
+    }
+
+    /** Both the player and their controlled body are allies; only the body gets a label. */
+    public record Ally(UUID player, String name, int playerEntity, int body) {
+        static final StreamCodec<RegistryFriendlyByteBuf, Ally> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Ally::player, ByteBufCodecs.stringUtf8(64), Ally::name,
+                ByteBufCodecs.VAR_INT, Ally::playerEntity, ByteBufCodecs.VAR_INT, Ally::body, Ally::new);
+    }
+
+    public record Allies(ResourceLocation dimension, List<Ally> players, List<Integer> actors) implements CustomPacketPayload {
+        static final Type<Allies> TYPE = new Type<>(PrologueWorld.id("arena_allies"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Allies> CODEC = StreamCodec.composite(
+                ResourceLocation.STREAM_CODEC, Allies::dimension, Ally.CODEC.apply(ByteBufCodecs.list(1024)), Allies::players,
+                ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list(4096)), Allies::actors, Allies::new);
+        @Override public Type<Allies> type() { return TYPE; }
     }
 
     public record UseTera() implements CustomPacketPayload {
@@ -89,5 +108,13 @@ public final class ArenaPackets {
         static final Type<UseHeld> TYPE = new Type<>(PrologueWorld.id("arena_use_held"));
         static final StreamCodec<RegistryFriendlyByteBuf, UseHeld> CODEC = StreamCodec.unit(new UseHeld());
         @Override public Type<UseHeld> type() { return TYPE; }
+    }
+
+    public record Tenacity(int entityId, ResourceLocation dimension, int ticks) implements CustomPacketPayload {
+        static final Type<Tenacity> TYPE = new Type<>(PrologueWorld.id("arena_tenacity"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Tenacity> CODEC = StreamCodec.composite(
+                ByteBufCodecs.VAR_INT, Tenacity::entityId, ResourceLocation.STREAM_CODEC, Tenacity::dimension,
+                ByteBufCodecs.VAR_INT, Tenacity::ticks, Tenacity::new);
+        @Override public Type<Tenacity> type() { return TYPE; }
     }
 }

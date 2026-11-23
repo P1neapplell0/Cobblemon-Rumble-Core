@@ -1,0 +1,37 @@
+{
+  "id": "rumble_champion",
+  "name": "{rumble.champion.title}",
+  "description": "{rumble.champion.description}",
+  "icon": "minecraft:nether_star",
+  "timeLimitSeconds": 0,
+  "maxDeaths": 0,
+  "allowLateJoin": false,
+  "maxPlayers": 1,
+  "spawn": {
+    "x": -24,
+    "y": 64,
+    "z": 0
+  },
+  "victoryType": "custom",
+  "target": "rumble_champion",
+  "chunkSource": "rumble_arena_sky",
+  "dimensionSettings": {
+    "dayTime": 6000,
+    "fixedTime": true,
+    "ambientLight": 0.0,
+    "weather": "clear",
+    "hasSkylight": true,
+    "hasCeiling": false,
+    "ultraWarm": false,
+    "natural": true,
+    "piglinSafe": false,
+    "bedWorks": false,
+    "respawnAnchorWorks": false,
+    "hasRaids": false,
+    "effects": "overworld",
+    "monsterBlockLightLimit": 0,
+    "monsterLightLimit": 0,
+    "forceAdventure": true,
+    "allowNaturalMonsters": false
+  }
+}

@@ -15,6 +15,7 @@ public final class ProfessorStockMessage {
     private static final String ID = "rumble_professor_stock";
     private static final ChatSender PROFESSOR = new ChatSender(UUID.nameUUIDFromBytes(ID.getBytes(StandardCharsets.UTF_8)),
             "entity.cobblemon_rumble_core.professor", PrologueWorld.id("textures/entity/npc/prof_p1nero.png"), SenderType.NPC);
+    private static final String CINEMA_ID = "rumble_cinema_intro";
     private static final String SIMULATOR_ID = "rumble_simulator_test";
     private static final String MAY_ID = "rumble_may_introduction";
     private static final String SAFARI_ID = "rumble_safari_invitation";
@@ -30,6 +31,9 @@ public final class ProfessorStockMessage {
         new NPCDialog.Builder(SAFARI_ID, PROFESSOR, true)
                 .sendMessage(player -> Component.translatable("rumble.safari.sms", player.getDisplayName()),
                         List.of("rumble.safari.sms_reply")).build();
+        new NPCDialog.Builder(CINEMA_ID, PROFESSOR, true)
+                .sendMessage(player -> Component.translatable("rumble.cinema.sms", player.getDisplayName()),
+                        List.of("rumble.cinema.sms_reply")).build();
         new NPCDialog.Builder(SIMULATOR_ID, PROFESSOR, true)
                 .sendMessage(player -> Component.translatable("rumble.simulator_test.sms_hello", player.getDisplayName()), List.of())
                 .sendMessage(player -> Component.translatable("rumble.simulator_test.sms_test"), List.of("rumble.simulator_test.sms_what"))
@@ -38,6 +42,11 @@ public final class ProfessorStockMessage {
                 .sendMessage(player -> Component.translatable("rumble.mega.sms.hello"), List.of("rumble.mega.sms.who"))
                 .sendMessage(player -> Component.translatable("rumble.mega.sms.name"), List.of("rumble.mega.sms.daughter"))
                 .sendMessage(player -> Component.translatable("rumble.mega.sms.keystone"), List.of("rumble.mega.sms.reply")).build();
+    }
+
+    static void sendCinema(ServerPlayer player) {
+        var dialogue = NPCDialogRegister.getNPCDialog(CINEMA_ID);
+        if (dialogue != null) NPCDialogManager.getInstance().addNPCDialogQuest(PROFESSOR.getUuid(), player, dialogue, true);
     }
 
     static void sendSimulator(ServerPlayer player) {

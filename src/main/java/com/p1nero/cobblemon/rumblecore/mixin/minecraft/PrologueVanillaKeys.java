@@ -9,6 +9,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
 abstract class PrologueVanillaKeys {
+    @Inject(method = "handleKeybinds", at = @At("HEAD"))
+    private void rumble$blockInventoryDuringRealtimeCombat(CallbackInfo ci) {
+        if (!com.johnn.realtimecobblemon.client.ClientSmash.active()) return;
+        var inventory = Minecraft.getInstance().options.keyInventory;
+        while (inventory.consumeClick()) { }
+        inventory.setDown(false);
+    }
+
     @Inject(method = "handleKeybinds", at = @At("HEAD"), cancellable = true)
     private void rumble$focusGameplayKeys(CallbackInfo ci) {
         if (PrologueClient.restrict()) {

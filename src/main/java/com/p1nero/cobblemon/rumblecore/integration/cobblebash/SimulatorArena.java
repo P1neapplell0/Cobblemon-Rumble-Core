@@ -41,6 +41,7 @@ public final class SimulatorArena {
             @Override public List<GymCatalog.Actor> actors() { return List.of(actor); }
             @Override public ArenaTheme arena(ServerPlayer player) { return ArenaTheme.gym(gym); }
             @Override public boolean canSkip() { return false; }
+            @Override public boolean usesGymMusic() { return true; }
             @Override public boolean eligible(ServerPlayer player) {
                 if (GymInstanceManager.getActive(player.getUUID()) != instance || instance.getTrainerStage() != stage) return false;
                 if (!league) return instance.getGymType().equals(gym) && stage == unit.getRequiredStage();

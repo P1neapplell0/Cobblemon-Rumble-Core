@@ -490,9 +490,5 @@
   {
     "item": "create:experience_block",
     "price": "576"
-  },
-  {
-    "item": "cobblemonminigames:arcade_coin",
-    "price": "1"
   }
 ]

@@ -68,6 +68,7 @@ public final class SafariChapter {
                 .completionPolicy(QuestCompletionPolicy.SPECIFIC_PHASE).completionTargetPhase(CAPTURE)
                 .phase(objective(ENTER).trackingMarker(marker).thenGoTo(CAPTURE))
                 .phase(objective(CAPTURE).reward(new ItemReward(RewardNotice.stack("cobblesafari:wildegg", 1).getItem(), 1))).build());
+        event.assignQuestToGroup(SIDE, PrologueWorld.id("adventure_quests"));
     }
 
     private static PhaseBuilder objective(String phase) {

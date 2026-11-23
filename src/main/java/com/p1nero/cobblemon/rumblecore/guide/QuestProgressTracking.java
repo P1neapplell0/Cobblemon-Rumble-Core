@@ -26,6 +26,8 @@ public final class QuestProgressTracking {
     }
 
     private static void track(ServerPlayer player, ResourceLocation quest) {
+        var definition = org.arcadia.arc_quest.api.ArcQuestAPI.getQuest(quest);
+        if (definition == null || !definition.canBeAutoTrack()) return;
         var data = ArcQuestPlayerManager.get(player);
         String questId = quest.toString();
         if (data != null && data.isQuestActive(questId) && !questId.equals(data.getTrackedQuestId())) {

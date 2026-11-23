@@ -11,11 +11,14 @@ import java.util.UUID;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import fr.harmex.cobbledollars.common.world.inventory.ShopMenu;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
@@ -35,6 +38,7 @@ public final class TrialMerchantEntity extends WanderingTrader implements Cobble
     public TrialMerchantEntity(EntityType<? extends WanderingTrader> type, Level level) {
         super(type, level);
         setNoAi(true);
+        setSilent(true);
         setInvulnerable(true);
         setPersistenceRequired();
     }
@@ -44,9 +48,17 @@ public final class TrialMerchantEntity extends WanderingTrader implements Cobble
         bus.addListener((EntityAttributeCreationEvent event) -> event.put(TYPE.get(), WanderingTrader.createMobAttributes().build()));
     }
 
+    // Old entity saves can restore Silent=false after construction. Never play ambient grunts.
+    @Override protected SoundEvent getAmbientSound() { return null; }
+
     @Override protected Component getTypeName() { return Component.translatable(WanderingMerchantQuest.NAME); }
     @Override public boolean isPushable() { return false; }
     @Override public boolean canBeLeashed() { return false; }
+
+    @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        // The shop is opened by the ArcQuest dialogue action.
+        return InteractionResult.FAIL;
+    }
 
     @Override public ShopRef getShopRef() {
         var server = level().getServer();

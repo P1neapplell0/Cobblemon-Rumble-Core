@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.resources.IoSupplier;
+import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,5 +25,14 @@ abstract class PackWindowIcon {
                 return input;
             });
         }
+    }
+}
+
+/** Uses the same title at window creation and after the connection changes. */
+@Mixin(Minecraft.class)
+abstract class PackWindowTitle {
+    @Inject(method = "createTitle", at = @At("HEAD"), cancellable = true)
+    private void rumble$brandTitle(CallbackInfoReturnable<String> ci) {
+        ci.setReturnValue("Cobblemon Rumble");
     }
 }

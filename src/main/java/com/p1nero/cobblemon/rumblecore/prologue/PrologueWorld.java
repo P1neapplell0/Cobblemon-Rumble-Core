@@ -19,12 +19,14 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
@@ -35,6 +37,9 @@ public final class PrologueWorld {
     public static final BlockPos ANCHOR = new BlockPos(-14, 50, 0);
     public static final BlockPos ARRIVAL = ANCHOR.west(2);
     public static final BlockPos PROFESSOR = ANCHOR.north(2);
+    // Keep in sync with the prebuilt hall placements in scripts/install-hall-equipment.py.
+    public static final BlockPos HEALING_MACHINE = ANCHOR.west(5);
+    public static final BlockPos STORAGE_PC = ANCHOR.east(5);
     public static final BoolData ARRIVED = PlayerDataRegister.create(CobblemonRumbleCore.MOD_ID)
             .boolData("arrived_in_gyms", false, SyncMode.SERVER_ONLY);
 
@@ -61,16 +66,25 @@ public final class PrologueWorld {
     }
 
     @SubscribeEvent
+    public static void blockVanillaWanderingTrader(EntityJoinLevelEvent event) {
+        // Custom spawners can bypass PositionCheck. Match the vanilla type, not the fixed merchant subclass.
+        if (event.getLevel() instanceof ServerLevel level && GYMS.equals(level.dimension())
+                && event.getEntity().getType() == EntityType.WANDERING_TRADER) event.setCanceled(true);
+    }
+
+    @SubscribeEvent
     public static void seedWorld(ServerAboutToStartEvent event) {
         try {
             installDefinition(PrologueTraining.TEMPLATE);
             installDefinition(ArenaMatch.TEMPLATE);
+            installDefinition(ChampionStory.TEMPLATE);
             Path definitions = DefinitionStore.configRoot().resolve("definitions");
             var store = new DefinitionStore(definitions);
             ArenaTheme.install(store, readDefinition(definitions.resolve(ArenaMatch.TEMPLATE + ".json")));
             for (var gym : GymCatalog.Gym.values()) {
                 String id = ArenaMatch.leaderTemplate(gym);
                 installDefinition(id);
+                installDefinition(ArenaMatch.leaderTemplate(gym, true));
                 var definition = readDefinition(definitions.resolve(id + ".json"));
                 var theme = ArenaTheme.gym(gym.path());
                 if (definition.chunkSource().equals(ArenaTheme.DEFAULT.chunks()) || definition.chunkSource().equals(theme.chunks())) {
@@ -82,6 +96,12 @@ public final class PrologueWorld {
             Path table = FMLPaths.CONFIGDIR.get().resolve(megaTable);
             install("/defaults/" + megaTable, table);
             com.p1nero.cobblemon.rumblecore.gym.MegaTrials.install(table);
+            var arena = readDefinition(definitions.resolve(ArenaMatch.TEMPLATE + ".json"));
+            var champion = readDefinition(definitions.resolve(ChampionStory.TEMPLATE + ".json"));
+            var championChunks = ArenaTheme.SKY.available().chunks();
+            if (!champion.chunkSource().equals(championChunks)) store.save(champion.withChunkSource(championChunks));
+            com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials.install(store, arena);
+            com.p1nero.cobblemon.rumblecore.gym.CinemaTrials.install(store, arena);
 
             Path templates = DefinitionStore.configRoot().resolve("region");
             requireTemplate(templates.resolve("prologue_plaza"));
@@ -133,6 +153,16 @@ public final class PrologueWorld {
 
     @SubscribeEvent
     public static void initializeHall(ServerStartedEvent event) {
+        // Initialize the pack default once per world; later administrator changes remain effective.
+        var server = event.getServer();
+        var defaultsId = id("world_defaults");
+        var storage = server.getCommandStorage();
+        var defaults = storage.get(defaultsId).copy();
+        if (!defaults.getBoolean("keep_inventory_initialized")) {
+            server.getGameRules().getRule(net.minecraft.world.level.GameRules.RULE_KEEPINVENTORY).set(true, server);
+            defaults.putBoolean("keep_inventory_initialized", true);
+            storage.set(defaultsId, defaults);
+        }
         ServerLevel level = event.getServer().getLevel(GYMS);
         if (level == null) throw new IllegalStateException("Missing Rumble Gyms dimension");
         FixedStoryActors.initialize(level);

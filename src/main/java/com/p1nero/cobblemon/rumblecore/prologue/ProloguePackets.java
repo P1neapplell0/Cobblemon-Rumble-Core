@@ -11,7 +11,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 public final class ProloguePackets {
     public enum Cue {
-        NONE, TRANSFER, LOAD, CHALLENGE, MODE_EXIT, MODE_REENTER, MOVEMENT, LOCK, ATTACK, HEAVY, GUARD, PARRY, MOVE, SPAR, CLEAR,
+        NONE, TRANSFER, LOAD, CHALLENGE, MODE_EXIT, MODE_REENTER, MOVEMENT, LOCK, ATTACK, HEAVY, DODGE, GUARD, PARRY, MOVE, SPAR, CLEAR,
         MEGA_ITEM, MEGA_BATTLE, TERA_ITEM, TERA_BATTLE;
 
         public boolean defensive() { return this == GUARD || this == PARRY; }

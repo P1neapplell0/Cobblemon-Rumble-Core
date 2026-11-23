@@ -10,6 +10,7 @@ import com.johnn.realtimecobblemon.moves.Defense;
 import com.johnn.realtimecobblemon.moves.Kits;
 import com.mojang.logging.LogUtils;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.combat.arena.FrontierKnockout;
 import com.p1nero.misc.custom_instances.api.ExitReason;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
 import com.p1nero.misc.custom_instances.api.InstanceEvent;
@@ -38,6 +39,7 @@ import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import static com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets.Cue;
 
@@ -70,6 +72,7 @@ public final class PrologueTraining {
         int guardLaunchAt;
         TrainingBolt bolt;
         boolean wonPending;
+        int knockoutUntil;
         int pauseUntil;
         int nextAt;
         int loadDeadline;
@@ -176,6 +179,18 @@ public final class PrologueTraining {
         // A finishing hit can come from inside the RTC decoy/projectile iterator.
         // End the fight from the instance tick, not in the middle of RTC's damage callback.
         if (drill.wonPending) {
+            if (drill.knockoutUntil == 0) {
+                int duration = 29;
+                var actors = new java.util.ArrayList<Integer>();
+                actors.add(player.getId());
+                actors.add(drill.pikachu.getId());
+                var battle = Smash.session(player);
+                if (battle != null) actors.add(battle.pokemon.getId());
+                PacketDistributor.sendToPlayer(player, new FrontierKnockout.Cue(
+                        drill.getDimension().location(), duration, actors));
+                drill.knockoutUntil = now + duration;
+            }
+            if (now < drill.knockoutUntil) return;
             drill.authorizedWin = true;
             try { if (InstanceApi.win(drill.getLevel())) drill.wonPending = false; }
             finally { drill.authorizedWin = false; }
@@ -222,7 +237,7 @@ public final class PrologueTraining {
             drill.previousOnGround = player.onGround();
             drill.previousPosition = position;
             if (drill.walked >= 3.5 && drill.jumped && player.onGround()) success(drill, player, 32);
-        } else if (drill.cue.defensive()) {
+        } else if (drill.cue == Cue.DODGE || drill.cue.defensive()) {
             tickGuard(drill, battle, now);
         }
     }
@@ -233,13 +248,21 @@ public final class PrologueTraining {
             var result = drill.bolt.tick(level, battle);
             if (result == TrainingBolt.Result.FLYING) return;
             drill.bolt = null;
-            if (result == TrainingBolt.Result.PARRIED
-                    || (result == TrainingBolt.Result.GUARDED && drill.cue == Cue.GUARD)) {
+            boolean passed = switch (drill.cue) {
+                case DODGE -> result == TrainingBolt.Result.DODGED;
+                case GUARD -> result == TrainingBolt.Result.GUARDED || result == TrainingBolt.Result.PARRIED;
+                case PARRY -> result == TrainingBolt.Result.PARRIED;
+                default -> false;
+            };
+            if (passed) {
                 success(drill, battle.player, 44);
                 return;
             }
             if (drill.cue == Cue.PARRY && result == TrainingBolt.Result.GUARDED) {
                 battle.player.displayClientMessage(Component.translatable("rumble.prologue.lesson.parry.retry"), true);
+            }
+            if (drill.cue == Cue.DODGE) {
+                battle.player.displayClientMessage(Component.translatable("rumble.prologue.lesson.dodge.retry"), true);
             }
             drill.guardRetryAt = now + 36;
             return;
@@ -249,7 +272,7 @@ public final class PrologueTraining {
         if (drill.guardLaunchAt != 0) {
             if (now >= drill.guardLaunchAt) {
                 drill.guardLaunchAt = 0;
-                drill.bolt = new TrainingBolt(level, mon, battle);
+                drill.bolt = new TrainingBolt(level, mon, battle, drill.cue == Cue.DODGE);
             }
             return;
         }
@@ -290,7 +313,8 @@ public final class PrologueTraining {
             case MOVEMENT -> step(drill, player, Cue.LOCK);
             case LOCK -> step(drill, player, Cue.ATTACK);
             case ATTACK -> step(drill, player, Cue.HEAVY);
-            case HEAVY -> step(drill, player, Cue.GUARD);
+            case HEAVY -> step(drill, player, Cue.DODGE);
+            case DODGE -> step(drill, player, Cue.GUARD);
             case GUARD, PARRY -> {
                 Defense.block(player, false);
                 step(drill, player, drill.cue == Cue.GUARD ? Cue.PARRY : Cue.MOVE);
@@ -316,7 +340,7 @@ public final class PrologueTraining {
         drill.cue = cue;
         drill.nextAt = 0;
         int now = player.server.getTickCount();
-        boolean combatFocus = cue == Cue.LOCK || cue == Cue.ATTACK || cue == Cue.HEAVY || cue.defensive() || cue == Cue.MOVE;
+        boolean combatFocus = cue == Cue.LOCK || cue == Cue.ATTACK || cue == Cue.HEAVY || cue == Cue.DODGE || cue.defensive() || cue == Cue.MOVE;
         drill.pauseUntil = now + (combatFocus ? 9 : 0);
         boolean switchFocus = cue == Cue.MODE_EXIT || cue == Cue.MODE_REENTER;
         drill.readyAt = now + (combatFocus ? 32 : cue == Cue.CHALLENGE || switchFocus ? 24 : 0);

@@ -47,18 +47,21 @@ import org.arcadia.arc_quest.quest.reward.ItemReward;
 public final class TeraChapter {
     private static final String KEY = "rumble.tera.";
     public static final String TREE = PrologueWorld.id("story/tera_training").toString();
+    private static final String REMATCH = PrologueWorld.id("gym/ground_leader/rematch").toString();
     private static final ResourceLocation ID = PrologueWorld.id("paldean_power");
     private static final String SHOW = "show_orb", LESSON = "train_tera", DEBRIEF = "report_to_giovanni";
-    private static final int COINS = 20000;
+    private static final int COINS = 40_000;
     private static final String POUCH = "mega_showdown:tera_pouch_black", SHARD = "mega_showdown:dark_tera_shard";
     private static final GymCatalog.Actor GIOVANNI = GymCatalog.leader(GymCatalog.Gym.GROUND).actors().getFirst();
-    static final GymCatalog.Actor CASSIDY = new GymCatalog.Actor("tera_cassidy", new BlockPos(-17, 63, 204), GymTeamPokemon::cassidy);
-    static final GymCatalog.Actor BUTCH = new GymCatalog.Actor("tera_butch", new BlockPos(-13, 63, 204), GymTeamPokemon::butch);
+    static final GymCatalog.Actor CASSIDY = new GymCatalog.Actor("tera_cassidy", GIOVANNI.pos().north(2), GymTeamPokemon::cassidy);
+    static final GymCatalog.Actor BUTCH = new GymCatalog.Actor("tera_butch", GIOVANNI.pos().south(2), GymTeamPokemon::butch);
     private static final List<GymCatalog.Actor> TEAM_ROCKET = List.of(CASSIDY, BUTCH);
     public static final String CASSIDY_NAME = CASSIDY.key(), BUTCH_NAME = BUTCH.key();
     private record Scene(UUID session) {}
     private static final Map<ServerPlayer, Scene> AUDIENCE = new WeakHashMap<>();
     private static final Map<ServerPlayer, Integer> RETURN_AT = new WeakHashMap<>();
+    private static final Map<ServerPlayer, Launch> LAUNCH = new WeakHashMap<>();
+    private record Launch(UUID speaker, int expires) {}
 
     private TeraChapter() {}
 
@@ -86,11 +89,31 @@ public final class TeraChapter {
     }
 
     static void register(ArcQuestRegistrationEvent.Dialogue event) {
-        var ask = tree("ask");
-        say(ask, "missing").choice("done", DialogueText.translatable("gui.done"), c -> c.close());
-        event.register(ask.build());
+        var outro = tree("victory");
+        addDebrief(outro);
+        event.register(outro.build());
+    }
 
-        var intro = tree("lesson");
+    public static void addChoices(DialogueTreeBuilder rematch) {
+        var about = DialogueText.of(ctx -> Component.translatable(KEY + "about").withStyle(net.minecraft.ChatFormatting.GOLD));
+        rematch.choice("tera_missing", about, c -> c.conditionIf((p, npc) -> canAsk(p, npc)
+                        && active(p, SHOW) && !hasOrb(p)).goTo("missing"))
+                .choice("tera", about, c -> c.conditionIf((p, npc) -> canAsk(p, npc)
+                                && (active(p, LESSON) || active(p, SHOW) && hasOrb(p)))
+                        .addEvents((p, ignored) -> advance(p, SHOW)).goTo("recognize"))
+                .choice("tera_debrief", about, c -> c.conditionIf((p, npc) -> canAsk(p, npc)
+                        && active(p, DEBRIEF)).goTo("duo_retreat"))
+                .choice("later", DialogueText.translatable("rumble.gym.choice.later"), c -> c.close());
+        say(rematch, "missing").choice("done", DialogueText.translatable("gui.done"), c -> c.close());
+        addLesson(rematch);
+        addDebrief(rematch);
+    }
+
+    private static boolean hasOrb(ServerPlayer player) {
+        return TeraCombat.equipped(player) || player.getInventory().items.stream().anyMatch(TeraCombat::isDevice);
+    }
+
+    private static void addLesson(DialogueTreeBuilder intro) {
         say(intro, "recognize").delay(1700).autoNext("explain");
         say(intro, "explain", DialogueText.DialogueArg.of(ctx -> Component.keybind(TeraCombat.BINDING)))
                 .delay(5500).autoNext("check");
@@ -105,12 +128,15 @@ public final class TeraChapter {
                     .say(text(node), TREE + "/" + node).delay(i == 7 || i == 8 ? 1500 : 2900).autoNext(motto.get(i + 1));
         }
         intro.node("butch_5").speaker(DialogueText.translatable(BUTCH_NAME)).say(text("butch_5"), TREE + "/butch_5")
-                .choice("battle", text("battle"), c -> c.addEvents((p, npc) -> {
-                    if (atGiovanni(p, npc) && active(p, LESSON)) PrologueStory.after(p, () -> start(p));
+                .choice("battle", text("battle"), c -> c.addEvents((p, ignored) -> {
+                    var session = DialogueSessionManager.INSTANCE.getSession(p);
+                    var speaker = session == null ? null : session.getEntity();
+                    if (atGiovanni(p, speaker)) LAUNCH.put(p, new Launch(speaker.getUUID(), p.server.getTickCount() + 100));
+                    else tell(p, "start_unavailable");
                 }).close()).choice("later", DialogueText.translatable("rumble.gym.choice.later"), c -> c.close());
-        event.register(intro.build());
+    }
 
-        var outro = tree("victory");
+    private static void addDebrief(DialogueTreeBuilder outro) {
         outro.node("duo_retreat").speaker(text("duo")).say(text("duo_retreat"), TREE + "/duo_retreat")
                 .delay(2300).autoNext("congrats");
         say(outro, "congrats").delay(3000).autoNext("farewell");
@@ -118,10 +144,9 @@ public final class TeraChapter {
         outro.node("coins").say(DialogueText.translatable("rumble.gym.reward.coins", DialogueText.DialogueArg.of(ctx -> COINS)),
                 TREE + "/coins").delay(1600).autoNext("items");
         outro.node("items").say(RewardNotice.items(RewardNotice.stack(POUCH, 1), RewardNotice.stack(SHARD, 50)), TREE + "/items")
-                .choice("done", DialogueText.translatable("gui.done"), c -> c.addEvents((p, npc) -> {
-                    if (atGiovanni(p, npc)) advance(p, DEBRIEF);
+                .choice("done", DialogueText.translatable("gui.done"), c -> c.addEvents((p, ignored) -> {
+                    advance(p, DEBRIEF);
                 }).close());
-        event.register(outro.build());
     }
 
     private static DialogueTreeBuilder tree(String route) {
@@ -136,23 +161,26 @@ public final class TeraChapter {
         return TeraCombat.available() && atGiovanni(p, npc) && (active(p, SHOW) || active(p, LESSON) || active(p, DEBRIEF));
     }
 
-    public static void afterAsk(ServerPlayer p, Entity npc) {
-        if (canAsk(p, npc)) PrologueStory.after(p, () -> open(p, npc));
-    }
 
-    private static void open(ServerPlayer p, Entity npc) {
-        if (!canAsk(p, npc)) return;
-        if (active(p, SHOW) && (TeraCombat.equipped(p) || p.getInventory().items.stream().anyMatch(TeraCombat::isDevice))) advance(p, SHOW);
-        String route = active(p, DEBRIEF) ? "victory" : active(p, LESSON) ? "lesson" : "ask";
-        DialogueSessionManager.INSTANCE.startDialogue(p, npc, TREE + "/" + route, new DialogueContext());
-    }
-
-    private static void start(ServerPlayer p) {
-        if (!atGiovanni(p, FixedStoryActors.find(p.serverLevel(), GIOVANNI.id())) || !active(p, LESSON) || !TeraCombat.equipped(p)) return;
-        for (var mon : Cobblemon.INSTANCE.getStorage().getParty(p)) {
-            if (mon.isFainted() || mon.getTetheringId() != null || mon.getTeraType() == null) continue;
+    private static void start(ServerPlayer p, Launch launch) {
+        if (!atGiovanni(p, p.serverLevel().getEntity(launch.speaker())) || !ArenaMatch.available(p)) {
+            tell(p, "start_unavailable");
+            return;
+        }
+        if (!TeraCombat.equipped(p)) {
+            tell(p, "need_equipped");
+            return;
+        }
+        // Reconcile a pending handover before validating the deferred launch.
+        if (active(p, SHOW)) advance(p, SHOW);
+        if (!active(p, LESSON)) {
+            tell(p, "start_unavailable");
+            return;
+        }
+        for (var mon : Cobblemon.INSTANCE.getStorage().getParty(p).toGappyList()) {
+            if (mon == null || mon.isFainted() || mon.getTetheringId() != null || mon.getTeraType() == null) continue;
             var lead = mon.getUuid();
-            ArenaMatch.challengeStory(p, new ArenaMatch.StoryChallenge() {
+            boolean started = ArenaMatch.challengeStory(p, new ArenaMatch.StoryChallenge() {
                 @Override public List<GymCatalog.Actor> actors() { return TEAM_ROCKET; }
                 @Override public UUID teraLessonLead() { return lead; }
                 @Override public ArenaTheme arena(ServerPlayer player) { return ArenaTheme.gym(GymCatalog.Gym.GROUND.path()); }
@@ -163,14 +191,17 @@ public final class TeraChapter {
                     if (active(player, DEBRIEF)) RETURN_AT.put(player, player.server.getTickCount() + 10);
                 }
             });
+            if (!started) tell(p, "start_unavailable");
             return;
         }
-        p.displayClientMessage(Component.translatable(KEY + "need_partner"), true);
+        tell(p, "need_partner");
     }
+
+    private static void tell(ServerPlayer p, String key) { p.displayClientMessage(Component.translatable(KEY + key), true); }
 
     @SubscribeEvent
     public static void beat(DialogueNodeStartedEvent event) {
-        if (!event.getDialogueId().startsWith(TREE + "/")) return;
+        if (!sceneDialogue(event.getDialogueId())) return;
         var p = event.getPlayer();
         if ("congrats".equals(event.getNodeId())) {
             if (AUDIENCE.remove(p) != null) smoke(p, true);
@@ -199,26 +230,38 @@ public final class TeraChapter {
 
     @SubscribeEvent
     public static void dialogueEnded(DialogueEndedEvent event) {
-        if (event.getDialogueId().startsWith(TREE + "/")) AUDIENCE.remove(event.getPlayer());
+        if (sceneDialogue(event.getDialogueId())) AUDIENCE.remove(event.getPlayer());
     }
+
+    public static boolean sceneDialogue(String id) { return REMATCH.equals(id) || id.startsWith(TREE + "/"); }
 
     @SubscribeEvent
     public static void returnToGiovanni(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         Integer at = RETURN_AT.get(player);
         int now = player.server.getTickCount();
+        var launch = LAUNCH.get(player);
+        if (launch != null) {
+            if (now >= launch.expires()) {
+                LAUNCH.remove(player);
+                tell(player, "start_unavailable");
+            } else if (!DialogueSessionManager.INSTANCE.isInDialogue(player)) {
+                LAUNCH.remove(player);
+                start(player, launch);
+            }
+        }
         if (at == null || now < at) return;
         if (!active(player, DEBRIEF) || now >= at + 160) { RETURN_AT.remove(player); return; }
         var actor = FixedStoryActors.find(player.serverLevel(), GIOVANNI.id());
         if (atGiovanni(player, actor) && !DialogueSessionManager.INSTANCE.isInDialogue(player)) {
             RETURN_AT.remove(player);
-            open(player, actor);
+            DialogueSessionManager.INSTANCE.startDialogue(player, actor, TREE + "/victory", new DialogueContext());
         }
     }
 
     @SubscribeEvent
     public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (event.getEntity() instanceof ServerPlayer p) { AUDIENCE.remove(p); RETURN_AT.remove(p); }
+        if (event.getEntity() instanceof ServerPlayer p) { AUDIENCE.remove(p); RETURN_AT.remove(p); LAUNCH.remove(p); }
     }
 
     private static boolean atGiovanni(ServerPlayer p, Entity npc) {

@@ -45,6 +45,7 @@ public final class ProfessorRestock {
     public static final String JESSIE = "rumble.gym.actor.restock_jessie", JAMES = "rumble.gym.actor.restock_james";
     public static final String DUO = "rumble.restock.duo", MEOWTH = "rumble.restock.meowth";
     private static final String PREFIX = "rumble.restock.";
+    private static final int BATTLE_REWARD = 4_000;
     private static final String ASK = "request", FIND = "find_tumblestone", BATTLE = "rocket_battle", RETURN = "training_supplies";
     private static final String[] STONES = {"tumblestone", "black_tumblestone", "sky_tumblestone"};
     private static final String[] POWERS = {"power_weight", "power_bracer", "power_belt", "power_lens", "power_band", "power_anklet"};
@@ -75,7 +76,7 @@ public final class ProfessorRestock {
                 .completionPolicy(QuestCompletionPolicy.SPECIFIC_PHASE).completionTargetPhase(RETURN)
                 .phase(phase(ASK).thenGoTo(FIND))
                 .phase(phase(FIND).thenGoTo(BATTLE))
-                .phase(phase(BATTLE).reward(new CobbleDollarReward(2000)).thenGoTo(RETURN))
+                .phase(phase(BATTLE).reward(new CobbleDollarReward(BATTLE_REWARD)).thenGoTo(RETURN))
                 .phase(phase(RETURN).grantGuideOnComplete(RumbleGuides.EFFORT_VALUES));
         quest.reward(new ItemReward(item("ancient_origin_ball"), 1));
         for (String power : POWERS) quest.reward(new ItemReward(item(power), 1));
@@ -121,7 +122,9 @@ public final class ProfessorRestock {
 
         var victory = tree("victory");
         line(victory, "duo_retreat", DUO).delay(2150).autoNext("coins");
-        line(victory, "coins", DUO).delay(1400).autoNext("thanks");
+        victory.node("coins").speaker(DialogueText.translatable(DUO))
+                .say(DialogueText.translatable("rumble.gym.reward.coins", DialogueText.DialogueArg.of(ctx -> BATTLE_REWARD)),
+                        TREE + "/coins").delay(1400).autoNext("thanks");
         giftLines(victory);
         event.register(victory.build());
 
@@ -181,7 +184,7 @@ public final class ProfessorRestock {
     }
 
     private static DialogueText text(String line, DialogueText.DialogueArg... args) { return DialogueText.translatable(PREFIX + line, args); }
-    static DialogueText option() { return DialogueText.of(ctx -> Component.translatable(PREFIX + "about").withStyle(ChatFormatting.GREEN)); }
+    static DialogueText option() { return DialogueText.of(ctx -> Component.translatable(PREFIX + "about").withStyle(ChatFormatting.GOLD)); }
 
     static void accept(ServerPlayer player) {
         var data = ArcQuestPlayerManager.getOrCreate(player);

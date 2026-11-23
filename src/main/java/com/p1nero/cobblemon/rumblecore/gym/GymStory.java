@@ -20,6 +20,7 @@ import com.p1nero.cobblemon.rumblecore.prologue.PrologueStory;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.cobblemon.rumblecore.prologue.SafariChapter;
 import com.p1nero.cobblemon.rumblecore.prologue.SimulatorTestQuest;
+import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
 import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
 import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
@@ -74,7 +75,7 @@ public final class GymStory {
             new BlockPos(-145, 52, 4), new BlockPos(-116, 57, 116), new BlockPos(-5, 50, 138),
             new BlockPos(102, 55, 129), new BlockPos(125, 61, 10), new BlockPos(92, 56, -107));
     private static final List<String> BADGES = List.of("rock", "grass", "ghost", "ice", "mountain", "fire", "dark", "thunder");
-    private static final int[] LEADER_PAYOUTS = {2_000, 4_000, 6_000, 8_000, 10_000, 15_000, 20_000, 30_000};
+    private static final int[] LEADER_PAYOUTS = {4_000, 8_000, 12_000, 16_000, 20_000, 30_000, 40_000, 60_000};
     private record Pending(Encounter encounter, int speaker, int expires) {}
     private record Result(Encounter encounter, UUID speaker, boolean won, boolean rewarded, int earliest, int expires) {}
 
@@ -126,6 +127,9 @@ public final class GymStory {
         };
     }
 
+    public static ResourceLocation sixthGymQuest() { return quest(Gym.FIRE); }
+    public static ResourceLocation seventhGymQuest() { return quest(Gym.DARK); }
+
     public static boolean phaseActive(ServerPlayer player, ResourceLocation quest, String phase) {
         var active = ArcQuestPlayerManager.getOrCreate(player).getActiveQuest(quest.toString());
         return active != null && active.isPhaseActive(phase);
@@ -137,13 +141,13 @@ public final class GymStory {
             var encounters = GymCatalog.forGym(gym);
             var leader = encounters.getLast();
             var followup = followup(gym);
-            boolean debriefRequired = followup != null || gym == Gym.GROUND;
+            boolean debriefRequired = followup != null || gym == Gym.GROUND || gym == Gym.DARK;
             String followupId = switch (gym) {
                 case ROCK -> FirstBadgeVisit.ROUTE;
                 case GRASS -> PersonalDimension.BRIEFING_ROUTE;
                 case GHOST -> MegaIntroduction.ROUTE;
                 case ICE -> SafariChapter.ROUTE;
-                case GROUND -> DEBRIEF;
+                case GROUND, DARK -> DEBRIEF;
                 default -> leader.id();
             };
             var entrance = ENTRANCES.get(gym.ordinal());
@@ -210,16 +214,20 @@ public final class GymStory {
         @Override public String describe() { return BuiltInRegistries.ITEM.getOptional(id).map(i -> i.getDescription().getString()).orElse(""); }
     }
 
+    private static DialogueText trainerLine(Actor actor, String suffix) {
+        return DialogueText.translatable(actor.key() + suffix, DialogueText.DialogueArg.playerName());
+    }
+
     public static void registerDialogue(ArcQuestRegistrationEvent.Dialogue event) {
         for (var encounter : GymCatalog.ALL) for (var speaker : encounter.actors()) {
             var id = tree(speaker);
             var builder = DialogueTreeBuilder.create(id).npc(DialogueText.translatable(speaker.key())).repeatable(true);
             var others = encounter.actors().stream().filter(actor -> actor != speaker).toList();
-            builder.node("start").say(DialogueText.translatable(speaker.key() + ".intro"), id + "/start");
+            builder.node("start").say(trainerLine(speaker, ".intro"), id + "/start");
             if (!others.isEmpty()) {
                 var second = others.getFirst();
                 builder.delay(2900).autoNext("partner").node("partner").speaker(DialogueText.translatable(second.key()))
-                        .say(DialogueText.translatable(second.key() + ".intro"), id + "/partner");
+                        .say(trainerLine(second, ".intro"), id + "/partner");
             }
             builder.choice("battle", DialogueText.translatable(PREFIX + "choice.challenge"), choice -> choice.addEvents((player, ignored) -> {
                 var session = DialogueSessionManager.INSTANCE.getSession(player);
@@ -244,20 +252,19 @@ public final class GymStory {
                             if (matching(player, npc) == encounter && canChallenge(player, encounter))
                                 PENDING.put(player, new Pending(encounter, npc.getId(), player.server.getTickCount() + 100));
                         }).close());
-                if (encounter.gym() == Gym.GROUND) rematch.choice("tera", TeraChapter.text("about"), c -> c
-                        .conditionIf(TeraChapter::canAsk).addEvents(TeraChapter::afterAsk).close());
-                rematch.choice("later", DialogueText.translatable(PREFIX + "choice.later"), choice -> choice.close());
+                if (encounter.gym() == Gym.GROUND) TeraChapter.addChoices(rematch);
+                else rematch.choice("later", DialogueText.translatable(PREFIX + "choice.later"), choice -> choice.close());
                 event.register(rematch.build());
             }
             for (String outcome : List.of("win", "win_reward", "lose")) {
                 var result = resultTree(speaker, outcome);
                 var suffix = outcome.equals("lose") ? ".lose" : ".win";
                 var lines = DialogueTreeBuilder.create(result).npc(DialogueText.translatable(speaker.key())).repeatable(true);
-                lines.node("start").say(DialogueText.translatable(speaker.key() + suffix), result + "/start");
+                lines.node("start").say(trainerLine(speaker, suffix), result + "/start");
                 if (!others.isEmpty()) {
                     var second = others.getFirst();
                     lines.delay(2800).autoNext("partner").node("partner").speaker(DialogueText.translatable(second.key()))
-                            .say(DialogueText.translatable(second.key() + suffix), result + "/partner");
+                            .say(trainerLine(second, suffix), result + "/partner");
                 }
                 if (outcome.equals("win_reward")) {
                     lines.delay(2400).autoNext("coins").node("coins").say(DialogueText.translatable(
@@ -341,6 +348,11 @@ public final class GymStory {
             new org.arcadia.arc_quest.guide.runtime.GuideUnlockService().grant(player, PrologueWorld.id("technical_machines"));
         }
         QuestProgressHandler.incrementObjective(player, quest(encounter.gym()).toString(), DEBRIEF, 0, 1);
+        if (encounter.leader() && encounter.gym() == Gym.DARK
+                && ArcQuestPlayerManager.getOrCreate(player).isQuestCompleted(seventhGymQuest().toString())) {
+            acceptNext(player);
+            CinemaQuest.offer(player);
+        }
         if (encounter.leader() && encounter.gym() == Gym.GROUND && !phaseActive(player, fifthGymQuest(), DEBRIEF)) {
             acceptNext(player);
             TeraChapter.offer(player);
@@ -457,6 +469,8 @@ public final class GymStory {
         }
     }
 
+    public static ResourceLocation eighthGymQuest() { return quest(Gym.ELECTRIC); }
+
     private static boolean advanceVictory(ServerPlayer player, Encounter encounter) {
         if (!active(player, encounter)) return false;
         var questId = quest(encounter.gym()).toString();
@@ -464,6 +478,10 @@ public final class GymStory {
         var data = ArcQuestPlayerManager.getOrCreate(player);
         boolean rewarded = data.hasFlag(flag(encounter));
         acceptNext(player);
+        if (encounter.leader() && encounter.gym() == Gym.FIRE && data.isQuestCompleted(sixthGymQuest().toString()))
+            com.p1nero.cobblemon.rumblecore.prologue.LegendaryCommission.offer(player);
+        if (encounter.leader() && encounter.gym() == Gym.ELECTRIC && data.isQuestCompleted(eighthGymQuest().toString()))
+            com.p1nero.cobblemon.rumblecore.prologue.ChampionStory.offer(player);
         return rewarded;
     }
 
@@ -549,7 +567,9 @@ public final class GymStory {
                     if (!level.getBlockState(foot.below()).getCollisionShape(level, foot.below()).isEmpty()
                             && level.getBlockState(foot).getCollisionShape(level, foot).isEmpty()
                             && level.getBlockState(foot.above()).getCollisionShape(level, foot.above()).isEmpty()) {
-                        return newTrainer(level, actor, Vec3.atBottomCenterOf(foot), 0);
+                        var npc = newTrainer(level, actor, Vec3.atBottomCenterOf(foot), 0);
+                        faceHallCourt(npc, actor.id());
+                        return npc;
                     }
                 }
             }
@@ -557,19 +577,41 @@ public final class GymStory {
         return null;
     }
 
-    public static NPCEntity newTrainer(ServerLevel level, Actor actor, Vec3 location, float yaw) {
+    public static void faceHallCourt(NPCEntity npc, String actorId) {
+        var gym = GymCatalog.actorGym(actorId);
+        if (gym == null) return;
+        double dx = gym.courtX + .5 - npc.getX(), dz = gym.courtZ + .5 - npc.getZ();
+        if (dx * dx + dz * dz < .01) return;
+        float yaw = (float) Math.toDegrees(Math.atan2(-dx, dz));
+        npc.setYRot(yaw);
+        npc.setYBodyRot(yaw);
+        npc.setYHeadRot(yaw);
+        npc.yRotO = npc.yBodyRotO = npc.yHeadRotO = yaw;
+        npc.getLookControl().setLookAt(gym.courtX + .5, npc.getEyeY(), gym.courtZ + .5);
+    }
+
+    public static NPCEntity trainerModel(net.minecraft.world.level.Level level, String aspect) {
         var npc = new NPCEntity(level);
         var type = NPCClasses.INSTANCE.getByIdentifier(TRAINER_MODEL);
         if (type == null) throw new IllegalStateException("Missing Cobblemon NPC class: " + TRAINER_MODEL);
         npc.setNpc(type);
-        npc.getAppliedAspects().add(actor.aspect());
+        // A detached client preview never receives the server’s tracked model identifier.
+        if (level.isClientSide()) npc.getEntityData().set(NPCEntity.Companion.getRESOURCE_IDENTIFIER(), type.getResourceIdentifier());
+        npc.getAppliedAspects().add(aspect);
         npc.updateAspects();
+        return npc;
+    }
+
+    public static NPCEntity newTrainer(ServerLevel level, Actor actor, Vec3 location, float yaw) {
+        var npc = trainerModel(level, actor.aspect());
         npc.setCustomName(actor.name());
         npc.setCustomNameVisible(false);
+        npc.setHideNameTag(true);
         npc.setInvulnerable(true);
         npc.setMovable(false);
         npc.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0);
-        npc.getLookControl().setLookAt(location.x, location.y + 1.4, location.z + 2);
+        npc.getLookControl().setLookAt(location.x - 2 * Math.sin(Math.toRadians(yaw)), location.y + 1.4,
+                location.z + 2 * Math.cos(Math.toRadians(yaw)));
         npc.moveTo(location.x, location.y, location.z, yaw, 0);
         npc.setYHeadRot(yaw);
         npc.setYBodyRot(yaw);

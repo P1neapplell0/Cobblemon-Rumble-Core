@@ -60,7 +60,7 @@ public final class SquadQuest {
                 .phase(phase(TRAVEL, 1).trackingMarker(WAYSTONE).thenGoTo(CAPTURE))
                 .phase(phase(CAPTURE, 1).thenGoTo(PARTY))
                 .phase(phase(PARTY, 1))
-                .reward(new CobbleDollarReward(2000))
+                .reward(new CobbleDollarReward(4_000))
                 .reward(new ItemReward(Items.DIAMOND_SWORD, 1)).reward(new ItemReward(Items.DIAMOND_AXE, 1))
                 .reward(new ItemReward(Items.DIAMOND_SHOVEL, 1)).reward(new ItemReward(Items.DIAMOND_HOE, 1)).build());
     }

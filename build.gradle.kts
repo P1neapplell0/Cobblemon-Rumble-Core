@@ -30,6 +30,9 @@ neoForge {
         create("server") {
             server()
             gameDirectory.set(layout.projectDirectory.dir("runs/neoforge-server"))
+            if (providers.gradleProperty("rumbleAuditArenaRosters").orNull == "true") {
+                systemProperty("rumble.auditArenaRosters", "true")
+            }
             programArgument("--nogui")
             jvmArgument("-Xmx${providers.gradleProperty("rumbleServerHeap").getOrElse("6G")}")
             providers.gradleProperty("rumbleServerWorld").orNull?.let {
@@ -124,6 +127,7 @@ tasks.processResources {
     from(layout.projectDirectory.dir("modpack_override/config")) {
         include("custom_instances/definitions/rumble_prologue.json")
         include("custom_instances/definitions/rumble_battle.json")
+        include("custom_instances/definitions/rumble_champion.json")
         include("custom_instances/definitions/rumble_gym_*.json")
         include("cobblemon_rumble_core/recycling.json")
         include("cobblemon_rumble_core/mega_challenges.tsv")
@@ -180,6 +184,14 @@ val stageEarlyDisplay by tasks.registering(Copy::class) {
     rename { "rumble-early-display.jar" }
 }
 tasks.named("runClient") { dependsOn(stageEarlyDisplay) }
+
+val frontierBracketCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(tasks.named("testClasses"))
+    classpath = files(sourceSets.test.get().output, sourceSets.main.get().output)
+    mainClass.set("com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierBracketCheck")
+}
+tasks.named("check") { dependsOn(frontierBracketCheck) }
 
 // Mirror only packaged overrides; never sync/delete unrelated local config, options or worlds.
 tasks.register("syncRunOverrides") {

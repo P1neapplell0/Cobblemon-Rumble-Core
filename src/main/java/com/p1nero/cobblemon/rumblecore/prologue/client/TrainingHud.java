@@ -104,23 +104,29 @@ final class TrainingHud {
         var items = net.minecraft.core.registries.BuiltInRegistries.ITEM;
         var item = items.getKey(stack.getItem()).toString();
         boolean held = stack.is(MEGA_STONES) || item.equals("cobblemon:sitrus_berry") || item.equals("cobblemon:oran_berry");
-        int x = g.guiWidth() / 2 + 72, y = g.guiHeight() - 48;
-        if (held) drawBattleItem(g, x, y, stack, PrologueClient.HELD, false);
-        if (mc.player != null && TeraCombat.equipped(mc.player)) {
+        boolean tera = mc.player != null && TeraCombat.equipped(mc.player);
+        if (!held && !tera) return;
+        // RTC's top move row starts 63 px above the bottom. Keep a gap above it.
+        int right = g.guiWidth() - 12;
+        int y = g.guiHeight() - 63 - 8 - 22;
+        if (tera) {
             var orb = items.get(TeraCombat.ORB).getDefaultInstance();
-            int off = held ? 27 : 0;
-            // At narrow scales put the second slot on the other side of the moves rather than clipping it.
-            int teraX = x + off + 22 <= g.guiWidth() ? x + off : Math.max(2, g.guiWidth() / 2 - 94);
-            drawBattleItem(g, teraX, y, orb, PrologueClient.TERA, PrologueClient.teraSpent(body));
+            right = drawBattleItem(g, right, y, orb, PrologueClient.TERA, PrologueClient.teraSpent(body)) - 6;
         }
+        if (held) drawBattleItem(g, right, y, stack, PrologueClient.HELD, false);
     }
 
-    private static void drawBattleItem(GuiGraphics g, int x, int y, net.minecraft.world.item.ItemStack stack, KeyMapping key, boolean spent) {
-        g.fill(x, y, x + 22, y + 22, 0xd51a232b);
-        g.renderOutline(x, y, 22, 22, spent ? 0xdd718283 : 0xdd9beadf);
+    private static int drawBattleItem(GuiGraphics g, int right, int y, net.minecraft.world.item.ItemStack stack, KeyMapping key, boolean spent) {
+        var font = Minecraft.getInstance().font;
+        String label = font.plainSubstrByWidth(key.getTranslatedKeyMessage().getString(), 62);
+        int width = 28 + font.width(label);
+        int x = right - width;
+        g.fill(x, y, right, y + 22, 0xd51a232b);
+        g.renderOutline(x, y, width, 22, spent ? 0xdd718283 : 0xdd9beadf);
         g.renderItem(stack, x + 3, y + 3);
-        if (spent) g.fill(x + 1, y + 1, x + 21, y + 21, 0xaa131b24);
-        g.drawCenteredString(Minecraft.getInstance().font, key.getTranslatedKeyMessage(), x + 11, y + 24, spent ? 0xff91a9ad : 0xfffafafa);
+        if (spent) g.fill(x + 1, y + 1, right - 1, y + 21, 0xaa131b24);
+        g.drawString(font, label, x + 22, y + 7, spent ? 0xff91a9ad : 0xfffafafa);
+        return x;
     }
 
     private static void drawKeys(GuiGraphics g, KeyMapping[] keys, int center, int y, float age, float opacity) {
@@ -158,6 +164,7 @@ final class TrainingHud {
             case MOVEMENT -> new KeyMapping[]{o.keyUp, o.keyLeft, o.keyDown, o.keyRight, o.keyJump};
             case LOCK -> new KeyMapping[]{BattleCamera.LOCK};
             case ATTACK, HEAVY -> new KeyMapping[]{o.keyAttack};
+            case DODGE -> new KeyMapping[]{ClientSmash.DODGE};
             case GUARD, PARRY -> new KeyMapping[]{o.keyUse};
             case MOVE -> Arrays.copyOf(o.keyHotbarSlots, moves);
             case MEGA_ITEM -> new KeyMapping[]{PrologueClient.HELD};

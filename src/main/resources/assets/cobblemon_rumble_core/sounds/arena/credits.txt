@@ -1,0 +1,5 @@
+knockout.ogg: "17._ko.wav" from Dragon Announcer Audio Pack by VoiceBosch.
+Source: https://opengameart.org/content/dragon-announcer-audio-pack
+Licensed CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Changes: trimmed silence, high-pass filter, compression, short fade, Vorbis conversion.
+The edited sound is also licensed CC BY-SA 4.0.

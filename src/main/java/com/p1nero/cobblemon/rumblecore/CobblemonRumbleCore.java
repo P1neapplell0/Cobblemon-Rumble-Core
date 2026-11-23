@@ -36,12 +36,16 @@ public final class CobblemonRumbleCore {
     public CobblemonRumbleCore(IEventBus modBus, ModContainer container) {
         container.registerConfig(ModConfig.Type.COMMON, RumbleConfig.SPEC);
         PhoneItems.register(modBus);
-        com.p1nero.cobblemon.rumblecore.prologue.MayAnklet.register(modBus);
+        com.p1nero.cobblemon.rumblecore.prologue.MayMegaDevice.register(modBus);
         com.p1nero.cobblemon.rumblecore.prologue.PersonalDimension.registerItems(modBus);
         PrologueWorld.initialize();
         PrologueTraining.initialize();
         com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.initialize();
         modBus.addListener(com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPackets::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.combat.arena.FrontierKnockout::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.combat.arena.HallOfFame::register);
         TrialWaystones.initialize();
         InstancePokemonDamage.initialize();
         WildCapture.initialize();
@@ -54,6 +58,8 @@ public final class CobblemonRumbleCore {
         com.p1nero.cobblemon.rumblecore.prologue.TrialMerchantEntity.register(modBus);
         com.p1nero.cobblemon.rumblecore.prologue.MegaSimulator.register(modBus);
         modBus.addListener(ProloguePackets::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial::register);
+        modBus.addListener(com.p1nero.cobblemon.rumblecore.prologue.MerchantPanels::register);
         modBus.addListener(BattleMusic::register);
         modBus.addListener(QuestAcceptedNotice::register);
         modBus.addListener(PhoneSync::register);

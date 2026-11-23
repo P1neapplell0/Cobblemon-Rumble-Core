@@ -22,6 +22,15 @@ public final class RumbleMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.equals(ROOT + "cobbledollars.TrialMerchantInteraction")) {
+            return FMLLoader.getLoadingModList().getModFileById("cobbledollars_villagers_overhaul_rca") != null;
+        }
+        if (mixinClassName.endsWith(".quark.HideConfigButton")) {
+            return FMLLoader.getLoadingModList().getModFileById("quark") != null;
+        }
+        if (mixinClassName.endsWith(".zeta.HideConfigButton")) {
+            return FMLLoader.getLoadingModList().getModFileById("zeta") != null;
+        }
         // Mixin 初始化早于常规 ModList；使用加载阶段列表，保留原 requiredMods 的可选门控。
         if (mixinClassName.startsWith(ROOT + "fsweep.")) {
             return FMLLoader.getLoadingModList().getModFileById("fsweep") != null;

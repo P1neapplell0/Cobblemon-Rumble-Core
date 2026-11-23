@@ -96,7 +96,7 @@ public final class FixedStoryActors {
             add(new Role(MEOWTH, PokemonEntity.class, BlockPos.containing(center), level -> createMeowth(level, center)));
             for (var actor : List.of(TeraChapter.CASSIDY, TeraChapter.BUTCH))
                 add(new Role(actor.id(), NPCEntity.class, actor.pos(),
-                        level -> GymStory.newTrainer(level, actor, Vec3.atBottomCenterOf(actor.pos()), 180)));
+                        level -> GymStory.newTrainer(level, actor, Vec3.atBottomCenterOf(actor.pos()), -90)));
             for (var actor : GymStory.hallActors())
                 add(new Role(actor.id(), NPCEntity.class, actor.pos(), level -> GymStory.createHallTrainer(level, actor)));
         }
@@ -268,11 +268,15 @@ public final class FixedStoryActors {
             }
         }
         actor.setPersistenceRequired();
+        if (actor instanceof NPCEntity npc) GymStory.faceHallCourt(npc, id);
         actor.setNoAi(true);
         actor.setNoGravity(false);
         actor.setInvulnerable(true);
+        actor.setCustomNameVisible(false);
         actor.noPhysics = false;
+        if (actor instanceof NPCEntity npc) npc.setHideNameTag(true);
         if (actor instanceof PokemonEntity body) {
+            body.getEntityData().set(PokemonEntity.Companion.getHIDE_LABEL(), true);
             body.getEntityData().set(PokemonEntity.getUNBATTLEABLE(), true);
             var pokemon = body.getPokemon();
             if (!pokemon.getForcedAspects().contains(SCENE_ASPECT)) {
@@ -302,7 +306,7 @@ public final class FixedStoryActors {
         var role = Catalog.ROLES.get(role(actor));
         if (role == null || !role.uuid().equals(actor.getUUID())) return;
         var saved = actor.getPersistentData().getCompound(HOME);
-        var feet = saved.contains("x") ? new Vec3(saved.getDouble("x"), saved.getDouble("y"), saved.getDouble("z"))
+        var feet = saved.contains("x") && !TERA_ROCKET.contains(role.id()) ? new Vec3(saved.getDouble("x"), saved.getDouble("y"), saved.getDouble("z"))
                 : Vec3.atBottomCenterOf(role.pos());
         var home = BlockPos.containing(feet);
         boolean verticallyDisplaced = Math.abs(actor.getY() - home.getY()) > 5;
@@ -311,6 +315,12 @@ public final class FixedStoryActors {
         actor.teleportTo(feet.x, feet.y, feet.z);
         actor.setDeltaMovement(Vec3.ZERO);
         actor.resetFallDistance();
+        if (TERA_ROCKET.contains(role.id())) {
+            actor.setYRot(-90);
+            actor.setYBodyRot(-90);
+            actor.setYHeadRot(-90);
+        }
+        if (actor instanceof NPCEntity npc) GymStory.faceHallCourt(npc, role.id());
     }
 
     private static ProfessorEntity createProfessor(ServerLevel level) {
@@ -373,15 +383,16 @@ public final class FixedStoryActors {
     }
 
     private static boolean blockVanillaInteraction(Entity entity) {
-        return PrologueWorld.GYMS.equals(entity.level().dimension()) && GATED.contains(role(entity));
+        return entity instanceof TrialMerchantEntity
+                || PrologueWorld.GYMS.equals(entity.level().dimension()) && GATED.contains(role(entity));
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void interact(PlayerInteractEvent.EntityInteract event) {
         if (blockVanillaInteraction(event.getTarget())) event.setCanceled(true);
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void interactSpecific(PlayerInteractEvent.EntityInteractSpecific event) {
         if (blockVanillaInteraction(event.getTarget())) event.setCanceled(true);
     }

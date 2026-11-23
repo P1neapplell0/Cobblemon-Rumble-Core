@@ -6,11 +6,14 @@ import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.p1nero.cobblemon.rumblecore.prologue.ProfessorRestock;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
 import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
+import com.p1nero.cobblemon.rumblecore.prologue.TrialMerchantEntity;
 import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import java.util.Comparator;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;
+import com.p1nero.cobblemon.rumblecore.prologue.MegaSimulator;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueStory;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
@@ -48,8 +51,9 @@ public final class GymDialogueCamera {
         }
         boolean restock = session.treeId.startsWith(ProfessorRestock.TREE + "/");
         boolean mega = session.treeId.equals(MegaIntroduction.TREE);
-        boolean tera = session.treeId.startsWith(TeraChapter.TREE + "/");
-        if (!restock && !mega && !tera && !("start".equals(session.nodeId) || "partner".equals(session.nodeId))) {
+        boolean tera = TeraChapter.sceneDialogue(session.treeId) && !"start".equals(session.nodeId);
+        boolean farewell = session.treeId.equals(PrologueStory.FAREWELL_TREE);
+        if (!restock && !mega && !tera && !farewell && !("start".equals(session.nodeId) || "partner".equals(session.nodeId))) {
             beat = null;
             return;
         }
@@ -60,7 +64,14 @@ public final class GymDialogueCamera {
             Entity source = level.getEntity(session.entityId);
             if (source == null) return;
             Vec3 target;
-            if (restock) {
+            if (farewell) {
+                target = switch (session.nodeId) {
+                    case "healer" -> Vec3.atCenterOf(PrologueWorld.HEALING_MACHINE);
+                    case "storage_pc" -> Vec3.atCenterOf(PrologueWorld.STORAGE_PC).add(0, 0.45, 0);
+                    case "simulator" -> Vec3.atCenterOf(MegaSimulator.POS).add(0, 0.45, 0);
+                    default -> source.getEyePosition();
+                };
+            } else if (restock) {
                 target = restockTarget(level, source, session.nodeId);
             } else if (tera) {
                 target = teraTarget(level, source, session.nodeId);
@@ -144,10 +155,10 @@ public final class GymDialogueCamera {
             return source == entity || hasActorName(entity, ProfessorRestock.JESSIE)
                     || hasActorName(entity, ProfessorRestock.JAMES) || hasActorName(entity, ProfessorRestock.MEOWTH);
         }
-        if (session.treeId.startsWith(TeraChapter.TREE + "/")) {
+        if (TeraChapter.sceneDialogue(session.treeId)) {
             return source == entity || hasActorName(entity, TeraChapter.CASSIDY_NAME) || hasActorName(entity, TeraChapter.BUTCH_NAME);
         }
-        if (source == entity) return entity instanceof ProfessorEntity || GymStory.talkable(entity);
+        if (source == entity) return entity instanceof ProfessorEntity || entity instanceof TrialMerchantEntity || GymStory.talkable(entity);
         if (MegaIntroduction.TREE.equals(session.treeId) && entity instanceof ProfessorEntity) return MegaIntroduction.isMay(source);
         return entity instanceof NPCEntity npc && GymStory.isDialogueActor(source, npc, true);
     }

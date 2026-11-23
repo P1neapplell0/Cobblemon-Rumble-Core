@@ -3,65 +3,72 @@
   "order": 1,
   "variations": [
     {
+      "aspects": ["rumble-gym-champion"],
+      "poser": "cobblemon_rumble_core:story_trainer",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
+      "texture": "cobblemon_rumble_core:textures/entity/npc/prof_p1nero.png",
+      "layers": []
+    },
+    {
       "aspects": ["rumble-gym-may"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/xiao_yao.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-rock-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:steve.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
       "texture": "rctmod:textures/trainers/single/leader_brock_0038.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-grass-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/grass_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-ghost-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/ghost_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-ice-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/ice_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-ground-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:steve.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/ground_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-fire-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:steve.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/fire_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-dark-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:alex.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_alex.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/dark_leader.png",
       "layers": []
     },
     {
       "aspects": ["rumble-gym-electric-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
-      "model": "cobblemon:steve.geo",
+      "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
       "texture": "cobblemon_rumble_core:textures/entity/npc/electric_leader.png",
       "layers": []
     }

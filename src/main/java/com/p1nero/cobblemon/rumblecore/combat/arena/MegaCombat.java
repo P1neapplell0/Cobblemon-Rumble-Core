@@ -45,10 +45,12 @@ public final class MegaCombat {
     }
 
     static void begin(ServerLevel level, PokemonEntity body) {
-        Looks.mega(level, body, body.getLookAngle(), 60);
+        RealtimeProtection.beginMega(body);
+        Looks.mega(level, body, body.getLookAngle(), RealtimeProtection.MEGA_TICKS);
     }
 
     static boolean evolve(PokemonEntity body) {
+        RealtimeProtection.endMega(body);
         var pokemon = body.getPokemon();
         if (!canMega(pokemon)) return false;
         var previousForm = pokemon.getForm();

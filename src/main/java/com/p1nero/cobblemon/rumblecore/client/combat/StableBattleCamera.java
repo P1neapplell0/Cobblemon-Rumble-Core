@@ -22,10 +22,10 @@ public final class StableBattleCamera {
     private static BlockGetter world;
     private static Integer controlled;
     private static long lastFrame;
-    private static Vec3 lastPosition, anchor, targetAnchor, duelOffset;
-    private static double yaw, pitch;
-    private static double shoulder, armFraction = 1, duelBearing;
-    private static boolean wasDuel;
+    private static Vec3 lastPosition, anchor;
+    private static double shoulder, armFraction = 1, duelYaw, duelPan, duelDistance;
+    private static Vec3 framingOffset;
+    private static LivingEntity previousTarget;
     private static int previousMode = -1;
     private static Vec3 lastOffset, transitionOffset;
     private static double lastYaw, lastPitch, transitionYaw, transitionPitch;
@@ -38,16 +38,17 @@ public final class StableBattleCamera {
         world = null;
         controlled = null;
         lastFrame = 0;
-        lastPosition = anchor = targetAnchor = duelOffset = null;
+        lastPosition = anchor = null;
         armFraction = 1;
         previousMode = -1;
+        previousTarget = null;
         lastOffset = transitionOffset = null;
         transition = 0;
-        wasDuel = false;
+        framingOffset = null;
     }
 
     public static BattleCamera.Pose place(BlockGetter level, Entity entity, LivingEntity target, float partial,
-                                           boolean duel, float desiredShoulder, float sideView) {
+                                           float desiredShoulder, float sideView) {
         long now = System.nanoTime();
         Vec3 position = RenderAimRay.renderPosition(entity, partial);
         Integer id = ClientSmash.controlledEntity();
@@ -61,17 +62,19 @@ public final class StableBattleCamera {
         controlled = id;
         lastPosition = position;
 
-        double height = Math.max(0.3, entity.getBbHeight());
+        Entity model = id == null || Minecraft.getInstance().level == null ? entity
+                : Minecraft.getInstance().level.getEntity(id);
+        if (model == null) model = entity;
+        double height = Math.max(0.3, model.getBbHeight());
         double big = Mth.clamp((height - 0.5) / 2.5, 0, 1);
         Vec3 body = position.add(0, height * 0.62, 0);
         if (cut) {
             anchor = body;
-            yaw = entity.getYRot();
-            pitch = entity.getXRot();
             shoulder = desiredShoulder;
             armFraction = 1;
-            duelOffset = null;
-            targetAnchor = null;
+            duelYaw = BattleOrbit.yaw(entity);
+            duelPan = duelDistance = 0;
+            framingOffset = null;
             previousMode = -1;
             transition = 0;
         } else {
@@ -80,88 +83,130 @@ public final class StableBattleCamera {
             anchor = new Vec3(body.x, damp(anchor.y, body.y, dt, 0.075), body.z);
             shoulder = damp(shoulder, desiredShoulder, dt, 0.10);
         }
-        if (target != null) {
-            Vec3 at = RenderAimRay.renderBounds(target, partial).getCenter();
-            // No second target-position filter before the orientation filter: it compounds tracking delay.
-            targetAnchor = at;
-        } else targetAnchor = null;
-
-        double bias = Mth.lerp(big, 5, 12);
-        if (targetAnchor == null) {
-            // Mouse movement is already sampled every render frame. Don't re-interpolate it from a tick.
-            yaw = entity.getYRot();
-            pitch = entity.getXRot();
-        } else {
-            Vec3 look = targetAnchor.subtract(anchor.add(0, entity.getEyeHeight() - height * 0.62, 0));
-            double wantedYaw = yawOf(look);
-            double wantedPitch = pitchOf(look);
-            yaw = angle(yaw, wantedYaw, cut ? 1 : response(dt, 0.045));
-            pitch = damp(pitch, Mth.clamp(wantedPitch, -60, 60), dt, 0.045);
-        }
-
+        double yaw = BattleOrbit.yaw(entity), pitch = BattleOrbit.pitch(entity);
+        double freeTilt = Mth.lerp(big, 5, 12);
+        double cameraYaw = yaw, cameraPitch = Mth.clamp(pitch + freeTilt, -89, 89);
         Vec3 wanted;
-        double cameraYaw = yaw;
-        double cameraPitch = Mth.clamp(pitch + bias, -89, 89);
-        if (sideView > 0) {
-            // Preserve authored move close-ups, but use render-frame rotation and the stable body anchor.
-            cameraYaw = yaw + 90;
-            cameraPitch = 4;
-            double radians = Math.toRadians(cameraYaw);
-            wanted = anchor.add(direction(0, yaw).scale(sideView * 0.45))
-                    .add(Math.sin(radians) * sideView, 0.2, -Math.cos(radians) * sideView);
-        } else if (duel && targetAnchor != null) {
-            Vec3 delta = targetAnchor.subtract(anchor).multiply(1, 0, 1);
-            double distance = delta.length();
-            double bearing = distance < 0.6 ? duelBearing : yawOf(delta);
-            duelBearing = cut || !wasDuel ? bearing : angle(duelBearing, bearing, response(dt, 0.10));
-            Vec3 along = direction(0, duelBearing);
-            Vec3 normal = new Vec3(-along.z, 0, along.x);
-            double h = Math.max(height, target.getBbHeight() * 0.8);
-            Vec3 mid = anchor.add(targetAnchor).scale(0.5);
-            double gap = Mth.clamp((distance - 1.5 * h) / (10 * h), 0, 1);
-            double back = Math.max(Mth.lerp(gap, 2.75 * h, 5.5 * h), 0.62 * (distance + 1.5 * h));
-            Vec3 offset = normal.scale(back).add(0, 0.4 * back, 0);
-            duelOffset = duelOffset == null || cut ? offset : duelOffset.lerp(offset, response(dt, 0.10));
-            wanted = mid.add(duelOffset);
-            Vec3 look = mid.subtract(wanted);
-            cameraYaw = yawOf(look);
-            cameraPitch = pitchOf(look);
-        } else {
-            double distance = Mth.clamp(1.9 + 2.1 * height, 2.4, 16);
-            double radians = Math.toRadians(yaw);
-            Vec3 right = new Vec3(-Math.cos(radians), 0, -Math.sin(radians));
-            wanted = anchor.add(direction(cameraPitch, yaw).scale(-distance))
-                    .add(0, Mth.lerp(big, 0.12, 0.42) * height + 0.2, 0)
-                    .add(right.scale(Mth.clamp(0.3 + 0.4 * height, 0.45, 2.5) * shoulder));
-        }
-        wasDuel = duel;
-        int currentMode = sideView > 0 ? 2 : duel ? 1 : 0;
-        if (previousMode >= 0 && previousMode != currentMode) {
+        Vec3 opponent = target != null && sideView <= 0
+                ? RenderAimRay.renderBounds(target, partial).getCenter() : null;
+        int currentMode = sideView > 0 ? 2 : opponent != null ? 1 : 0;
+        if (previousMode >= 0 && (previousMode != currentMode || currentMode == 1 && previousTarget != target)) {
             transitionOffset = lastOffset;
             transitionYaw = lastYaw;
             transitionPitch = lastPitch;
             transition = 1;
         }
-        if (transition > 0.001 && transitionOffset != null) {
-            transition *= 1 - response(dt, 0.10);
-            // Blend relative to the moving anchor so mode changes don't pin the camera in world space.
+        if (sideView > 0) {
+            // Preserve authored move close-ups, but use render-frame rotation and the stable body anchor.
+            double facing = entity.getYRot();
+            cameraYaw = facing + 90;
+            cameraPitch = 4;
+            double radians = Math.toRadians(cameraYaw);
+            wanted = anchor.add(direction(0, facing).scale(sideView * 0.45))
+                    .add(Math.sin(radians) * sideView, 0.2, -Math.cos(radians) * sideView);
+        } else if (opponent != null) {
+            Vec3 separation = opponent.subtract(anchor);
+            double gap = separation.horizontalDistance();
+            double contact = Math.max(1.15, (model.getBbWidth() + target.getBbWidth()) * 0.55);
+            double tracking = smoothstep((gap - contact * 0.55) / (1.6 + contact * 0.45));
+            if (previousMode != 1) {
+                duelYaw = previousMode == 0 ? lastYaw : yaw;
+                duelPan = 0;
+                duelDistance = Mth.clamp(2.1 + 2.1 * height, 2.4, 16);
+                framingOffset = Vec3.ZERO;
+            }
+            // During a crossover the bearing stops being useful. Keep the shoulder through contact,
+            // then gradually follow again as the fighters separate. Mouse orbit stays available.
+            if (tracking > 0) {
+                duelYaw = steer(duelYaw, yawOf(separation), dt * tracking, .22, 115);
+            }
+            duelPan = damp(duelPan, BattleOrbit.pan(), dt, .10);
+            double orbitYaw = duelYaw + duelPan;
+            double size = Math.max(height, Math.min(4, target.getBbHeight()) * .65);
+            double close = 1 - tracking;
+            double distance = Mth.clamp(3.1 + 1.5 * size + gap * .17 + close * .65, 3.5, 15);
+            duelDistance = damp(duelDistance, distance, dt, .21);
+
+            // Lift and widen the same shoulder pose during close contact. Never jump to another
+            // camera position just because the sight line grazes the controlled model's hitbox.
+            double elevation = Mth.clamp(12 + BattleOrbit.tilt() + close * 9 + Math.max(0, -separation.y) * 1.2, 3, 37);
+            double radians = Math.toRadians(orbitYaw);
+            Vec3 right = new Vec3(-Math.cos(radians), 0, -Math.sin(radians));
+            double side = Math.max(model.getBbWidth() * .85 + .68, height * .68) + close * .46;
+            wanted = anchor.add(orientedOffset(separation, .18, .08, 2.4, 1))
+                    .add(direction(elevation, orbitYaw).scale(-duelDistance)).add(0, .24, 0)
+                    .add(right.scale(side * shoulder));
+
+            // Keep both fighters in the composition. A slight bias toward the opponent helps read attacks.
+            Vec3 framing = orientedOffset(separation, .58, .50, 16, 5);
+            framingOffset = framingOffset.lerp(framing, response(dt, .16));
+        } else {
+            double distance = Mth.clamp(2.1 + 2.1 * height, 2.4, 16);
+            double radians = Math.toRadians(cameraYaw);
+            Vec3 right = new Vec3(-Math.cos(radians), 0, -Math.sin(radians));
+            wanted = anchor.add(direction(cameraPitch, cameraYaw).scale(-distance))
+                    .add(0, Mth.lerp(big, 0.12, 0.42) * height + 0.2, 0)
+                    .add(right.scale(Mth.clamp(0.56 + 0.52 * Math.max(height, model.getBbWidth()), 0.8, 3.4) * shoulder));
+        }
+        if (transition > .001 && transitionOffset != null) {
+            transition *= 1 - response(dt, .13);
+            // Blend relative to the moving body. The look angle is blended independently below.
             wanted = anchor.add(transitionOffset.lerp(wanted.subtract(anchor), 1 - transition));
+        }
+        Vec3 pivot = position.add(0, entity.getEyeHeight(), 0);
+        Vec3 camera = collide(level, entity, pivot, wanted, dt);
+        if (opponent != null) {
+            Vec3 look = anchor.add(framingOffset).subtract(camera);
+            cameraYaw = look.horizontalDistanceSqr() > .0025 ? yawOf(look) : duelYaw + duelPan;
+            if (look.lengthSqr() > .0025) cameraPitch = pitchOf(look);
+        }
+        if (transition > .001) {
             cameraYaw = angle(transitionYaw, cameraYaw, 1 - transition);
             cameraPitch = Mth.lerp(1 - transition, transitionPitch, cameraPitch);
         }
+        if (currentMode == 1 && previousMode == 1) {
+            double deltaYaw = Math.IEEEremainder(cameraYaw - lastYaw, 360);
+            cameraYaw = lastYaw + Mth.clamp(deltaYaw, -175 * dt, 175 * dt);
+            cameraPitch = lastPitch + Mth.clamp(cameraPitch - lastPitch, -125 * dt, 125 * dt);
+        }
         previousMode = currentMode;
+        previousTarget = currentMode == 1 ? target : null;
         lastOffset = wanted.subtract(anchor);
         lastYaw = cameraYaw;
         lastPitch = cameraPitch;
-        return new BattleCamera.Pose(collide(level, entity, position.add(0, entity.getEyeHeight(), 0), wanted, dt), (float) cameraYaw, (float) cameraPitch);
+        float finalPitch = (float) Mth.clamp(cameraPitch, -89, 89);
+        if (sideView <= 0) BattleOrbit.rendered(entity, (float) cameraYaw, finalPitch, (float) freeTilt);
+        return new BattleCamera.Pose(camera, (float) cameraYaw, finalPitch);
+    }
+
+    private static Vec3 orientedOffset(Vec3 separation, double horizontalWeight, double verticalWeight,
+                                       double maxHorizontal, double maxVertical) {
+        double scale = Math.min(horizontalWeight, maxHorizontal / Math.max(separation.horizontalDistance(), 1));
+        return new Vec3(separation.x * scale, Mth.clamp(separation.y * verticalWeight, -maxVertical, maxVertical),
+                separation.z * scale);
+    }
+
+    private static double smoothstep(double value) {
+        double t = Mth.clamp(value, 0, 1);
+        return t * t * (3 - 2 * t);
+    }
+
+    private static double steer(double from, double to, double dt, double seconds, double maxSpeed) {
+        double delta = Math.IEEEremainder(to - from, 360) * response(dt, seconds);
+        return from + Mth.clamp(delta, -maxSpeed * dt, maxSpeed * dt);
     }
 
     private static Vec3 collide(BlockGetter level, Entity entity, Vec3 pivot, Vec3 wanted, double dt) {
+        double allowed = collisionFraction(BattleCamera.seeThrough(level), entity, pivot, wanted);
+        armFraction = allowed < armFraction ? allowed : damp(armFraction, allowed, dt, 0.18);
+        return pivot.add(wanted.subtract(pivot).scale(armFraction));
+    }
+
+    private static double collisionFraction(BlockGetter collision, Entity entity, Vec3 pivot, Vec3 wanted) {
         Vec3 direction = wanted.subtract(pivot);
         double length = direction.length();
-        if (length < 1.0e-6) return pivot;
+        if (length < 1.0e-6) return 1;
         double safe = length;
-        BlockGetter collision = BattleCamera.seeThrough(level);
         // Probe the camera volume rather than one ray. Retract before applying the pose, never through walls.
         for (int i = 0; i < 8; i++) {
             Vec3 offset = new Vec3(((i & 1) * 2 - 1) * 0.12, ((i >> 1 & 1) * 2 - 1) * 0.12,
@@ -170,10 +215,7 @@ public final class StableBattleCamera {
                     ClipContext.Block.VISUAL, ClipContext.Fluid.NONE, entity));
             if (hit.getType() != HitResult.Type.MISS) safe = Math.min(safe, Math.max(0, hit.getLocation().distanceTo(pivot.add(offset)) - 0.18));
         }
-        double allowed = safe / length;
-        // Instant obstruction response, gradual recovery: a spring arm without edge oscillation.
-        armFraction = allowed < armFraction ? allowed : damp(armFraction, allowed, dt, 0.18);
-        return pivot.add(direction.scale(armFraction));
+        return safe / length;
     }
 
     static double response(double dt, double seconds) { return -Math.expm1(-dt / seconds); }

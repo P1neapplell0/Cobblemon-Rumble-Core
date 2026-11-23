@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.jade;
 
+import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient;
 import net.minecraft.client.gui.GuiGraphics;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class PrologueTooltip {
     @Inject(method = "onRenderTick", at = @At("HEAD"), cancellable = true)
     private static void rumble$avoidDuplicatePrompt(GuiGraphics graphics, float delta, CallbackInfo ci) {
-        if (PrologueClient.hideInspectionHud()) ci.cancel();
+        if (ClientSmash.active() || PrologueClient.hideInspectionHud()) ci.cancel();
     }
 }

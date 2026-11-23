@@ -22,7 +22,7 @@ public final class PhoneItems {
     private static final EnumMap<PhoneApp, Supplier<AppCard>> CARDS = new EnumMap<>(PhoneApp.class);
 
     static {
-        for (PhoneApp app : PhoneApp.values()) CARDS.put(app, ITEMS.register(app.itemId(), () -> new AppCard(app)));
+        for (PhoneApp app : PhoneApp.values()) if (!app.builtIn()) CARDS.put(app, ITEMS.register(app.itemId(), () -> new AppCard(app)));
     }
 
     private PhoneItems() {}

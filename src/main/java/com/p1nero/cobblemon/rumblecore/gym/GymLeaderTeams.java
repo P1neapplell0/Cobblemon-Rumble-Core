@@ -33,8 +33,15 @@ public final class GymLeaderTeams {
                 return false;
             }
         }
-        GymCatalog.LOG.info("[GymTeam] Validated all normal and hard Gym Leader teams (85 Pokemon)");
+        GymCatalog.LOG.info("[GymTeam] Validated all normal and hard Gym Leader teams (85 Pokemon); RTC roster moves are filtered at deployment");
         return true;
+    }
+
+    public static List<Pokemon> hard(GymCatalog.Gym gym) {
+        return switch (gym) {
+            case ROCK -> hardRock(); case GRASS -> hardGrass(); case GHOST -> hardGhost(); case ICE -> hardIce();
+            case GROUND -> hardGround(); case FIRE -> hardFire(); case DARK -> hardDark(); case ELECTRIC -> hardElectric();
+        };
     }
 
     public static List<Pokemon> rock() {
@@ -107,11 +114,11 @@ public final class GymLeaderTeams {
     public static List<Pokemon> ground() {
         return team("Ground Gym Leader",
                 pokemon("hippowdon", 42, "adamant", "sandstream", "smooth_rock",
-                        moves("earthquake", "firefang", "thunderfang", "crunch"),
+                        moves("earthquake", "stoneedge", "thunderfang", "crunch"),
                         stats(31, 31, 31, 0, 0, 31), stats(252, 252, 0, 0, 0, 0)),
-                pokemon("nidoking", "MALE", 42, "jolly", "poisonpoint", "focus_sash",
-                        moves("toxicspikes", "stealthrock", "icepunch", "thunderpunch"),
-                        stats(31, 0, 31, 0, 0, 31), stats(252, 0, 0, 0, 0, 252)),
+                pokemon("nidoking", "MALE", 42, "modest", "poisonpoint", "focus_sash",
+                        moves("earthpower", "sludgebomb", "icebeam", "thunderbolt"),
+                        stats(31, 0, 31, 31, 31, 31), stats(4, 0, 0, 252, 0, 252)),
                 pokemon("krookodile", 42, "jolly", "intimidate", "muscle_band",
                         moves("earthquake", "crunch", "thunderfang", "rockslide"),
                         stats(31, 31, 0, 0, 31, 31), stats(0, 252, 0, 0, 0, 252)),
@@ -119,7 +126,7 @@ public final class GymLeaderTeams {
                         moves("ironhead", "icefang", "earthquake", "rockslide"),
                         stats(31, 31, 31, 0, 31, 0), stats(252, 252, 0, 0, 0, 0)),
                 pokemon("marowak", 42, null, "battlearmor", "sitrus_berry",
-                        moves("bonemerang", "firepunch", "thunderpunch", "rockslide"),
+                        moves("bonemerang", "rockslide", "flamethrower", "earthquake"),
                         stats(31, 31, 31, 0, 31, 0), stats(252, 252, 0, 0, 0, 0)),
                 pokemon("excadrill", 42, "adamant", "sandrush", "life_orb",
                         moves("swordsdance", "highhorsepower", "ironhead", "rockslide"),
@@ -276,7 +283,7 @@ public final class GymLeaderTeams {
                 hardPokemon("krookodile", 46, "jolly", "intimidate", "focus_sash",
                         moves("earthquake", "crunch", "stoneedge", "gunkshot"), attackSpeedEvs()),
                 hardPokemon("golem", 46, "adamant", "sturdy", "choice_band",
-                        moves("explosion"), hpAttackEvs()));
+                        moves("earthquake", "stoneedge", "rockblast", "heavyslam"), hpAttackEvs()));
     }
 
     public static List<Pokemon> hardFire() {
@@ -385,15 +392,11 @@ public final class GymLeaderTeams {
 
     private static Pokemon create(PokemonSpec spec, String context) {
         try {
-            boolean fixedMoves = context.startsWith("Hard ") || Set.of(
-                    "Rock Gym Leader", "Grass Gym Leader", "Ground Gym Leader",
-                    "Dark Gym Leader").contains(context);
+            boolean authored = context.endsWith("Ground Gym Leader");
             Pokemon pokemon = GymTeamPokemon.create(spec.species(), spec.gender(), spec.level(),
-                    spec.nature(), spec.ability(), fixedMoves ? spec.moves() : Set.of(),
+                    spec.nature(), spec.ability(), authored ? spec.moves() : Set.of(),
                     spec.ivs(), spec.evs(), spec.heldItem(), spec.aspects(), context);
-            if (!fixedMoves) {
-                LevelUpMovesets.apply(pokemon, context + "/" + spec.species());
-            }
+            GymTeamPokemon.prepareArenaMoves(pokemon, context, authored);
             pokemon.heal();
             return pokemon;
         } catch (RuntimeException exception) {

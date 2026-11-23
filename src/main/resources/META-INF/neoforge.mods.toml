@@ -186,3 +186,10 @@ type="optional"
 versionRange="[1.4.0,)"
 ordering="AFTER"
 side="CLIENT"
+
+[[dependencies.cobblemon_rumble_core]]
+modId="structure_rewind_watch"
+type="required"
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"

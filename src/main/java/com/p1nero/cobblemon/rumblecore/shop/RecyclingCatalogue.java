@@ -58,6 +58,9 @@ public final class RecyclingCatalogue {
             "minecraft:netherite_scrap",
             "minecraft:quartz",
             "minecraft:quartz_block",
+            "minecraft:raw_copper",
+            "minecraft:raw_iron",
+            "minecraft:raw_gold",
             "minecraft:redstone",
             "minecraft:redstone_block"
     );

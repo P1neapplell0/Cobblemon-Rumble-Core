@@ -53,7 +53,7 @@ public final class PhoneState {
     }
 
     public static boolean unlocked(ServerPlayer player, PhoneApp app) {
-        return app.available() && (app == PhoneApp.WAYSTONE || app == PhoneApp.CLOUD && StarterStorage.granted(player)
+        return app.available() && (app.builtIn() || app == PhoneApp.WAYSTONE || app == PhoneApp.CLOUD && StarterStorage.granted(player)
                 || root(player).getBoolean(app.key()));
     }
 

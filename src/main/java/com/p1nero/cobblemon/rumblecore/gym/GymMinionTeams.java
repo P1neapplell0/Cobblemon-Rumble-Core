@@ -258,13 +258,10 @@ public final class GymMinionTeams {
     private static Pokemon createPokemon(PokemonSpec spec, String context) {
         String heldItem = availableItem(spec.heldItem(), context);
         try {
-            boolean fixedMoves = context.equals("dark_3") || context.equals("dark_5");
             Pokemon pokemon = GymTeamPokemon.create(spec.species(), spec.gender(), spec.level(),
-                    spec.nature(), spec.ability(), fixedMoves ? spec.moves() : Set.of(),
+                    spec.nature(), spec.ability(), Set.of(),
                     UNTRAINED_STATS, UNTRAINED_STATS, heldItem, spec.aspects(), context);
-            if (!fixedMoves) {
-                LevelUpMovesets.apply(pokemon, context + "/" + spec.species());
-            }
+            GymTeamPokemon.prepareArenaMoves(pokemon, context);
             pokemon.heal();
             return pokemon;
         } catch (RuntimeException exception) {

@@ -70,7 +70,12 @@ public final class ProfessorCatalogue {
                 .forEach(entry -> berries.add(new Offer(new ItemStack(entry.getValue()), BigInteger.valueOf(1800), -1)));
         if (!berries.isEmpty()) shop.add(new Category(CATEGORY + "berries", berries));
         add(shop, "farming", 350, "coarse_mulch", "growth_mulch", "humid_mulch", "loamy_mulch", "peat_mulch", "rich_mulch", "sandy_mulch", "surprise_mulch",
+                640, "black_apricorn", "blue_apricorn", "green_apricorn", "pink_apricorn", "red_apricorn", "white_apricorn", "yellow_apricorn",
                 1200, "minecraft:golden_hoe", 5000, "poke_rod");
+        add(shop, "minerals", 4, "minecraft:coal", 8, "minecraft:redstone", 10, "minecraft:lapis_lazuli", "minecraft:raw_copper",
+                14, "minecraft:quartz", 16, "minecraft:amethyst_shard", 20, "minecraft:copper_ingot",
+                25, "minecraft:raw_iron", 40, "minecraft:raw_gold", 45, "minecraft:iron_ingot", 70, "minecraft:gold_ingot",
+                180, "minecraft:emerald", 320, "minecraft:diamond", 2400, "minecraft:netherite_ingot");
         add(shop, "waystones", 1000, "waystones:waystone", "waystones:mossy_waystone", "waystones:sandy_waystone",
                 "waystones:blackstone_waystone", "waystones:deepslate_waystone", "waystones:end_stone_waystone",
                 "waystones:mud_bricks_waystone", "waystones:prismarine_waystone", "waystones:purpur_waystone",

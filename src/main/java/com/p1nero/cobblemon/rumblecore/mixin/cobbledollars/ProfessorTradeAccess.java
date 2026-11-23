@@ -26,7 +26,7 @@ final class ProfessorTradeAccess {
         private void rumble$access(OpenShopPacket packet, MinecraftServer server, ServerPlayer player, CallbackInfo ci) {
             var target = player.serverLevel().getEntity(packet.getMerchantUUID());
             if (target instanceof ProfessorEntity doctor && !ProfessorShop.canTrade(player, doctor)
-                    || target instanceof TrialMerchantEntity trader && !WanderingMerchantQuest.canTrade(player, trader)) ci.cancel();
+                    || target instanceof TrialMerchantEntity) ci.cancel();
         }
     }
 
@@ -34,7 +34,8 @@ final class ProfessorTradeAccess {
     static abstract class OpenBank {
         @Inject(method = "handle(Lfr/harmex/cobbledollars/common/network/packets/c2s/OpenBankPacket;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/server/level/ServerPlayer;)V", at = @At("HEAD"), cancellable = true)
         private void rumble$access(OpenBankPacket packet, MinecraftServer server, ServerPlayer player, CallbackInfo ci) {
-            if (player.serverLevel().getEntity(packet.getMerchantUUID()) instanceof ProfessorEntity doctor
+            var target = player.serverLevel().getEntity(packet.getMerchantUUID());
+            if (target instanceof TrialMerchantEntity || target instanceof ProfessorEntity doctor
                     && !ProfessorShop.canTrade(player, doctor)) ci.cancel();
         }
     }

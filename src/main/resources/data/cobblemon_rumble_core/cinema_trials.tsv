@@ -1,0 +1,16 @@
+# id	arena	coins	xp_candy_xl	sides separated by |; members by ;: species,aspect,move1,move2,move3,move4
+new_island	psychic	80000	4	mewtwo,-,psystrike,aurasphere,icebeam,shadowball|mew,-,psychic,aurasphere,flamethrower,icebeam
+sea_guardian	water	120000	6	lugia,-,aeroblast,psychic,hydropump,earthpower|articuno,-,icebeam,hurricane,freezedry,bravebird;zapdos,-,thunderbolt,hurricane,discharge,drillpeck;moltres,-,flamethrower,hurricane,heatwave,airslash
+crystal_tower	rock	84000	4	charizard,-,flamethrower,airslash,dragonpulse,flareblitz|entei,-,sacredfire,extremespeed,stoneedge,crunch
+sky_visitor	sky	100000	5	rayquaza,-,dragonascent,dragonclaw,extremespeed,earthquake|deoxys,-,psychoboost,superpower,extremespeed,icebeam
+battle_factory	ice	76000	4	charizard,-,flamethrower,airslash,dragonpulse,flareblitz|articuno,-,icebeam,hurricane,freezedry,bravebird
+battle_pyramid	ice	80000	4	pikachu,-,thunderbolt,volttackle,irontail,quickattack|regice,-,icebeam,thunderbolt,focusblast,flashcannon
+space_time_tower	sky	130000	7	dialga,-,roaroftime,flashcannon,earthpower,aurasphere|palkia,-,spacialrend,hydropump,thunderbolt,icebeam|darkrai,-,darkpulse,sludgebomb,icebeam,focusblast
+awakened_giant	ground	120000	6	regirock,-,stoneedge,rockslide,earthquake,drainpunch;regice,-,icebeam,thunderbolt,focusblast,flashcannon;registeel,-,ironhead,flashcannon,bodypress,earthquake|regigigas,-,gigaimpact,drainpunch,knockoff,earthquake
+distortion_world	ghost	116000	6	giratina,origin-forme,shadowforce,dragonclaw,shadowsneak,earthquake|dialga,-,roaroftime,flashcannon,earthpower,aurasphere;palkia,-,spacialrend,hydropump,thunderbolt,icebeam
+judgment	sky	160000	8	arceus,-,judgment,extremespeed,earthquake,shadowclaw|dialga,-,roaroftime,flashcannon,earthpower,aurasphere;palkia,-,spacialrend,hydropump,thunderbolt,icebeam;giratina,-,shadowforce,dragonclaw,shadowsneak,earthquake
+league_semifinal	psychic	84000	4	pikachu,-,thunderbolt,volttackle,irontail,quickattack|latios,-,lusterpurge,dracometeor,aurasphere,thunderbolt
+sacred_sword	ice	100000	5	kyurem,-,glaciate,icebeam,dragonpulse,earthpower|keldeo,-,secretsword,scald,hydropump,focusblast
+cerulean_cave	psychic	110000	6	charizard,mega_x,flareblitz,dragonclaw,earthquake,thunderpunch|mewtwo,-,psystrike,aurasphere,icebeam,shadowball
+thunderclap	electric	84000	4	noivern,-,boomburst,dragonpulse,hurricane,flamethrower|zapdos,-,thunderbolt,hurricane,discharge,drillpeck
+league_final	fire	110000	6	greninja,ash,watershuriken,hydropump,darkpulse,icebeam|charizard,mega_x,flareblitz,dragonclaw,earthquake,thunderpunch

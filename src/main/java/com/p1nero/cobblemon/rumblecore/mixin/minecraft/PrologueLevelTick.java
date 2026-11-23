@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class PrologueLevelTick {
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void rumble$trainingClock(BooleanSupplier time, CallbackInfo ci) {
-        if (PrologueTraining.skipLevelTick((ServerLevel)(Object)this)) ci.cancel();
+        var level = (ServerLevel) (Object) this;
+        if (PrologueTraining.skipLevelTick(level)) ci.cancel();
     }
 }

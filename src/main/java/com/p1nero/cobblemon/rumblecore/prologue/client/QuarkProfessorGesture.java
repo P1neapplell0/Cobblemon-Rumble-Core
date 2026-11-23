@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.logging.LogUtils;
+import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
 import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
 import com.p1nero.cobblemon.rumblecore.client.quest.GymDialogueCamera;
@@ -96,7 +97,7 @@ public final class QuarkProfessorGesture implements ProfessorRenderer.Gesture {
         boolean partner = "partner".equals(session.nodeId);
         Entity source = npc.level().getEntity(session.entityId);
         if (source == null) return;
-        if (session.treeId.startsWith(TeraChapter.TREE + "/")) {
+        if (TeraChapter.sceneDialogue(session.treeId)) {
             if (!GymDialogueCamera.facesViewer(npc)) return;
             boolean speaking = session.nodeId.startsWith("cassidy_") ? GymDialogueCamera.hasActorName(npc, TeraChapter.CASSIDY_NAME)
                     : session.nodeId.startsWith("butch_") ? GymDialogueCamera.hasActorName(npc, TeraChapter.BUTCH_NAME) : source == npc;
@@ -105,7 +106,7 @@ public final class QuarkProfessorGesture implements ProfessorRenderer.Gesture {
         if (trainerGesture == null) trainerGesture = new QuarkProfessorGesture(Minecraft.getInstance().getEntityModels()::bakeLayer);
         var pose = trainerGesture;
         pose.prepare(source, (tree, node) -> {
-            if (tree.startsWith(TeraChapter.TREE + "/")) return switch (node) {
+            if (TeraChapter.sceneDialogue(tree) && !"start".equals(node)) return switch (node) {
                 case "explain", "introduce", "cassidy_3", "butch_3" -> "point";
                 case "cassidy_1", "cassidy_5", "butch_4" -> "wave";
                 case "recognize", "congrats" -> "yes";
@@ -146,6 +147,19 @@ public final class QuarkProfessorGesture implements ProfessorRenderer.Gesture {
         if (MegaIntroduction.TREE.equals(tree)) return switch (node) {
             case "professor_intro" -> "yes";
             case "professor_simulator" -> "point";
+            default -> null;
+        };
+        if (PrologueWorld.id("prologue/champion_briefing").toString().equals(tree)) return switch (node) {
+            case "welcome" -> "wave";
+            case "challenge", "ready" -> "point";
+            case "budget" -> "think";
+            default -> null;
+        };
+        if (PrologueWorld.id("prologue/champion_return").toString().equals(tree)) return "cheer";
+        if (CinemaQuest.TREE.equals(tree)) return switch (node) {
+            case "welcome" -> "wave";
+            case "feature" -> "point";
+            case "reward" -> "yes";
             default -> null;
         };
         if (PrologueWorld.id("prologue/welcome").toString().equals(tree)) {

@@ -19,6 +19,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,7 +30,6 @@ import org.joml.Matrix4f;
 @Mixin(value = BattleCamera.class, remap = false)
 abstract class BattleCameraInterpolation {
     @Shadow private static float shoulder;
-    @Shadow private static BattleCamera.Mode mode;
     @Shadow public static float sideView;
     @Shadow private static float aimX;
     @Shadow private static float aimY;
@@ -42,33 +42,47 @@ abstract class BattleCameraInterpolation {
     }
 
     @Inject(method = "place", at = @At("HEAD"), cancellable = true)
-    private static void rumble$stableRig(Camera camera, BlockGetter level, Entity entity, float partial,
+    private static void rumble$stableSideView(Camera camera, BlockGetter level, Entity entity, float partial,
                                          CallbackInfoReturnable<BattleCamera.Pose> cir) {
         if (!ClientSmash.active() || entity != Minecraft.getInstance().player) {
             StableBattleCamera.reset();
             ReticleProjection.reset();
-            cir.setReturnValue(null);
-            return;
+        } else if (sideView > 0) {
+            // RTC returns side-view poses before reaching the normal rig calls below.
+            cir.setReturnValue(rumble$stablePose(level, entity, partial));
         }
+    }
+
+    // Replace the base pose, leaving RTC free to apply its Z-Move camera on top.
+    @ModifyExpressionValue(method = "place", at = {
+            @At(value = "INVOKE", target = "Lcom/johnn/realtimecobblemon/client/BattleCamera;duel(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/LivingEntity;FF)Lcom/johnn/realtimecobblemon/client/BattleCamera$Pose;"),
+            @At(value = "INVOKE", target = "Lcom/johnn/realtimecobblemon/client/BattleCamera;shoulder(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;FF)Lcom/johnn/realtimecobblemon/client/BattleCamera$Pose;")
+    }, require = 2)
+    private static BattleCamera.Pose rumble$stableBasePose(BattleCamera.Pose original, Camera camera,
+                                                            BlockGetter level, Entity entity, float partial) {
+        return rumble$stablePose(level, entity, partial);
+    }
+
+    @Unique
+    private static BattleCamera.Pose rumble$stablePose(BlockGetter level, Entity entity, float partial) {
         LivingEntity target = BattleCamera.target();
-        cir.setReturnValue(StableBattleCamera.place(level, entity, target, partial,
-                mode == BattleCamera.Mode.DUEL && target != null, shoulder, sideView));
+        return StableBattleCamera.place(level, entity, target, partial, shoulder, sideView);
     }
 
     // Project the reticle from the same in-between position used to draw the target, not its tick AABB.
-    @Redirect(method = "onRenderLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getBoundingBox()Lnet/minecraft/world/phys/AABB;"))
+    @Redirect(method = "onRenderLevel0", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getBoundingBox()Lnet/minecraft/world/phys/AABB;"))
     private static AABB rumble$interpolateTarget(LivingEntity target, RenderLevelStageEvent event) {
         float partial = event.getCamera().getPartialTickTime();
         return RenderAimRay.renderBounds(target, partial);
     }
 
-    @ModifyExpressionValue(method = "onRenderLevel", at = @At(value = "INVOKE",
+    @ModifyExpressionValue(method = "onRenderLevel0", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/DeltaTracker;getGameTimeDeltaPartialTick(Z)F"))
     private static float rumble$sameFrameTime(float original, RenderLevelStageEvent event) {
         return event.getCamera().getPartialTickTime();
     }
 
-    @Redirect(method = "onRenderLevel", at = @At(value = "INVOKE",
+    @Redirect(method = "onRenderLevel0", at = @At(value = "INVOKE",
             target = "Lcom/johnn/realtimecobblemon/client/BattleCamera;project(Lnet/minecraft/client/Camera;Lorg/joml/Matrix4f;Lnet/minecraft/world/phys/Vec3;)V"))
     private static void rumble$preciseProjection(Camera camera, Matrix4f projection, Vec3 point, RenderLevelStageEvent event) {
         // Use the exact view/projection matrices of this world frame, including roll and projection effects.
