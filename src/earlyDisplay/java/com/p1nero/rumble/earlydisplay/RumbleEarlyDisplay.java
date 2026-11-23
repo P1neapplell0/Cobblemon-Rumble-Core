@@ -17,10 +17,8 @@ import net.neoforged.fml.earlydisplay.ElementShader;
 import net.neoforged.fml.earlydisplay.QuadHelper;
 import net.neoforged.fml.earlydisplay.RenderElement;
 import net.neoforged.fml.earlydisplay.SimpleBufferBuilder;
-import net.neoforged.fml.loading.FMLConfig;
 import net.neoforged.fml.loading.progress.ProgressMeter;
 import net.neoforged.fml.loading.progress.StartupNotificationManager;
-import net.neoforged.neoforgespi.earlywindow.GraphicsBootstrapper;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWImage;
 import org.lwjgl.stb.STBImage;
@@ -52,8 +50,7 @@ import static org.lwjgl.opengl.GL32C.glTexImage2D;
 import static org.lwjgl.opengl.GL32C.glTexParameteri;
 
 /** Reuses FML's native window, framebuffer, and handoff; replaces only its render elements. */
-public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsBootstrapper {
-    private static final String NAME = "rumbleearlywindow";
+public final class RumbleEarlyDisplay extends DisplayWindow {
     private static final int BACKDROP = 3;
     private final int[] textures = new int[4];
     private byte[][] artwork;
@@ -66,15 +63,7 @@ public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsB
     private float logoAspect;
     private float backdropAspect;
 
-    @Override public String name() { return NAME; }
-
-    @Override public void bootstrap(String[] arguments) {
-        // Respect a different explicitly installed provider and FML's enable/disable switch.
-        var key = FMLConfig.ConfigValue.EARLY_WINDOW_PROVIDER;
-        if ("fmlearlywindow".equals(FMLConfig.getConfigValue(key)) && FMLConfig.getBoolConfigValue(FMLConfig.ConfigValue.EARLY_WINDOW_CONTROL)) {
-            FMLConfig.updateConfig(key, NAME);
-        }
-    }
+    @Override public String name() { return RumbleWindowBootstrap.NAME; }
 
     @Override public Runnable start(String minecraft, String neoforge) {
         Runnable tick;
