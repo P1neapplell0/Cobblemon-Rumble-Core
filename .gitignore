@@ -126,3 +126,6 @@ runs/
 /modpack_override/optional_datapacks/
 /modpack_override/resourcepacks/
 /modpack_override/global_packs/
+
+# Local shader packs
+/modpack_override/shaderpacks/

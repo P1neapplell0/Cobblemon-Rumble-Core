@@ -1,0 +1,21 @@
+[download]
+modrinth_projectid = "allthemons-x-mega-showdown-legacy"
+modrinth_versionid = "v3.7.0"
+curseforge_projectid = ""
+curseforge_fileid = ""
+directUrl = ["https://cdn.modrinth.com/data/odZZdRCE/versions/3kfULKvo/ATM%20x%20MSD%20%5Bv3.7.0%5D.zip?mr_download_reason=standalone"]
+priority = ["modrinth", "directUrl", "curseforge"]
+
+[basic]
+identifier = "allthemons-x-mega-showdown-legacy"
+file_name = "allthemons-x-mega-showdown-legacy-3.7.0.zip"
+appliedTarget = "global_packs/both"
+RedirectUrl = "https://modrinth.com/datapack/allthemons-x-mega-showdown-legacy/version/v3.7.0"
+isInList = true
+isHidden = false
+
+[dependencies]
+
+[DisplayName]
+
+[tip]

@@ -1,0 +1,21 @@
+[download]
+modrinth_projectid = "cobblemotion"
+modrinth_versionid = "1.5.1"
+curseforge_projectid = ""
+curseforge_fileid = ""
+directUrl = ["https://cdn.modrinth.com/data/lIDAJAby/versions/sPztKDIi/Cobblemotion_v1.5.1.zip?mr_download_reason=standalone"]
+priority = ["modrinth", "directUrl", "curseforge"]
+
+[basic]
+identifier = "cobblemotion"
+file_name = "cobblemotion-1.5.1.zip"
+appliedTarget = "global_packs/both"
+RedirectUrl = "https://modrinth.com/datapack/cobblemotion/version/1.5.1"
+isInList = true
+isHidden = false
+
+[dependencies]
+
+[DisplayName]
+
+[tip]

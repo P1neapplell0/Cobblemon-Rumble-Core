@@ -1,0 +1,21 @@
+[download]
+modrinth_projectid = "cobblemon-additions"
+modrinth_versionid = "4.3.0"
+curseforge_projectid = ""
+curseforge_fileid = ""
+directUrl = ["https://cdn.modrinth.com/data/W2pr9jyL/versions/NVitD9gY/cobblemon-additions-4.3.0.jar?mr_download_reason=standalone"]
+priority = ["modrinth", "directUrl", "curseforge"]
+
+[basic]
+identifier = "cobblemon-additions"
+file_name = "cobblemon-additions-4.3.0.jar"
+appliedTarget = "mods"
+RedirectUrl = "https://modrinth.com/datapack/cobblemon-additions/version/4.3.0"
+isInList = true
+isHidden = false
+
+[dependencies]
+
+[DisplayName]
+
+[tip]
