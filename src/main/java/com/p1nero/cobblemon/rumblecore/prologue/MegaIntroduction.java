@@ -2,24 +2,27 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import java.util.List;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import org.arcadia.arc_quest.api.event.dialogue.DialogueNodeStartedEvent;
 import org.arcadia.arc_quest.api.event.registry.ArcQuestRegistrationEvent;
 import org.arcadia.arc_quest.dialogue.api.DialogueContext;
 import org.arcadia.arc_quest.dialogue.api.DialogueText;
 import org.arcadia.arc_quest.dialogue.builder.DialogueTreeBuilder;
 import org.arcadia.arc_quest.dialogue.runtime.DialogueSessionManager;
+import org.arcadia.arc_quest.guide.runtime.GuideUnlockService;
 import org.arcadia.arc_quest.quest.api.QuestText;
 import org.arcadia.arc_quest.quest.builder.ObjectiveBuilder;
 import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
@@ -66,7 +69,7 @@ public final class MegaIntroduction {
     }
 
     @SubscribeEvent
-    public static void gift(org.arcadia.arc_quest.api.event.dialogue.DialogueNodeStartedEvent event) {
+    public static void gift(DialogueNodeStartedEvent event) {
         if (!TREE.equals(event.getDialogueId()) || !"may_received".equals(event.getNodeId())) return;
         var player = event.getPlayer();
         var data = ArcQuestPlayerManager.getOrCreate(player);
@@ -84,7 +87,7 @@ public final class MegaIntroduction {
         QuestProgressHandler.incrementObjective(player, GymStory.thirdGymQuest().toString(), ROUTE, 0, 1);
         GymStory.acceptNext(player);
         MegaTrainingQuest.accept(player);
-        new org.arcadia.arc_quest.guide.runtime.GuideUnlockService().grant(player, com.p1nero.cobblemon.rumblecore.guide.RumbleGuides.MEGA);
+        new GuideUnlockService().grant(player, RumbleGuides.MEGA);
     }
 
     private static boolean active(ServerPlayer player) { return GymStory.phaseActive(player, GymStory.thirdGymQuest(), ROUTE); }

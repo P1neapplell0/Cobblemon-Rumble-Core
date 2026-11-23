@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.gym;
 
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.google.gson.JsonParser;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTheme;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
@@ -13,6 +14,8 @@ import com.p1nero.misc.custom_instances.storage.DefinitionStore;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,8 +23,8 @@ import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.fml.ModList;
 import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
@@ -70,7 +73,7 @@ public final class MegaTrials {
     public static void install(Path table) throws IOException {
         if (!ModList.get().isLoaded("mega_showdown")) { trials = Map.of(); return; }
         var store = new DefinitionStore(DefinitionStore.configRoot().resolve("definitions"));
-        var gym = DefinitionStore.fromJson(com.google.gson.JsonParser.parseString(Files.readString(
+        var gym = DefinitionStore.fromJson(JsonParser.parseString(Files.readString(
                 DefinitionStore.configRoot().resolve("definitions/rumble_gym_rock.json"))).getAsJsonObject());
         var next = new LinkedHashMap<String, Trial>();
         var lines = Files.readAllLines(table);
@@ -79,13 +82,13 @@ public final class MegaTrials {
             if (line.isBlank() || line.startsWith("#")) continue;
             try {
                 String[] columns = line.split("\t", -1);
-                int[] ev = java.util.Arrays.stream(columns[6].split(",")).mapToInt(Integer::parseInt).toArray();
+                int[] ev = Arrays.stream(columns[6].split(",")).mapToInt(Integer::parseInt).toArray();
                 var trial = new Trial(PREFIX + columns[0], columns[1], columns[2], columns[3], Integer.parseInt(columns[4]), columns[5],
                         new GymTeamPokemon.TrainingStats(ev[0], ev[1], ev[2], ev[3], ev[4], ev[5]), List.of(columns[7].split(",")),
                         ResourceLocation.parse(columns[8]), Integer.parseInt(columns[9]));
                 if (next.containsKey(trial.id()) || trial.level() < 1 || trial.level() > 100 || trial.coins() <= 0
                         || trial.moves().size() != 4 || Set.copyOf(trial.moves()).size() != 4 || ev.length != 6
-                        || java.util.Arrays.stream(ev).anyMatch(v -> v < 0 || v > 252) || java.util.Arrays.stream(ev).sum() > 510
+                        || Arrays.stream(ev).anyMatch(v -> v < 0 || v > 252) || Arrays.stream(ev).sum() > 510
                         || !BuiltInRegistries.ITEM.containsKey(trial.stone())) throw new IllegalArgumentException("invalid roster row");
                 var definition = new InstanceDefinition(trial.id(), trial.title(), 0, 1, false, 0,
                         gym.spawn(), InstanceDefinition.VictoryType.CUSTOM, trial.id(), "", trial.arena().available().chunks())
@@ -102,7 +105,7 @@ public final class MegaTrials {
                 throw new IOException("Bad Mega challenge at " + table + ":" + (i + 1), exception);
             }
         }
-        trials = java.util.Collections.unmodifiableMap(next);
+        trials = Collections.unmodifiableMap(next);
     }
 
     public static List<String> ids() { return trials.values().stream().filter(Trial::supported).map(Trial::id).toList(); }

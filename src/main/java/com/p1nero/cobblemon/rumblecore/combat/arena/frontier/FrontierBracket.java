@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 /** Single elimination with opening byes and a third-place match alongside the final. */
@@ -89,7 +90,7 @@ final class FrontierBracket {
         var finale = current().getFirst();
         UUID[] places = { finale.winner, finale.loser(), null, null };
         if (size == 3) {
-            places[2] = rounds.getFirst().stream().map(Bout::loser).filter(java.util.Objects::nonNull).findFirst().orElse(null);
+            places[2] = rounds.getFirst().stream().map(Bout::loser).filter(Objects::nonNull).findFirst().orElse(null);
         } else {
             places[2] = current().get(1).winner;
             places[3] = current().get(1).loser();

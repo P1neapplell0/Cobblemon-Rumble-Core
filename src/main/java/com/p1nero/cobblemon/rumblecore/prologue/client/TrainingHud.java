@@ -1,28 +1,36 @@
 package com.p1nero.cobblemon.rumblecore.prologue.client;
 
 import com.cobblemon.mod.common.client.keybind.keybinds.PartySendBinding;
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.cobblemon.rumblecore.combat.arena.TeraCombat;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import java.util.Arrays;
 import java.util.Locale;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
+import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 import static com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets.Cue;
 
 final class TrainingHud {
-    private static final net.minecraft.resources.ResourceLocation PORTRAIT = PrologueWorld.id("textures/gui/prof_p1nero_prologue.png");
-    private static final net.minecraft.resources.ResourceLocation GIOVANNI = PrologueWorld.id("textures/entity/npc/ground_leader.png");
-    private static final net.minecraft.resources.ResourceLocation MAY = PrologueWorld.id("textures/entity/npc/xiao_yao.png");
-    private static final net.minecraft.tags.TagKey<net.minecraft.world.item.Item> MEGA_STONES = net.minecraft.tags.TagKey.create(
-            net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("mega_showdown:mega_stone"));
+    private static final ResourceLocation PORTRAIT = PrologueWorld.id("textures/gui/prof_p1nero_prologue.png");
+    private static final ResourceLocation GIOVANNI = PrologueWorld.id("textures/entity/npc/ground_leader.png");
+    private static final ResourceLocation MAY = PrologueWorld.id("textures/entity/npc/xiao_yao.png");
+    private static final TagKey<Item> MEGA_STONES = TagKey.create(
+            Registries.ITEM, ResourceLocation.parse("mega_showdown:mega_stone"));
 
     private TrainingHud() {}
 
@@ -48,7 +56,7 @@ final class TrainingHud {
         var title = tr(step + ".title");
         var body = tr(step, keysText(keys, cue));
         // Size the group from the finished text so neither the portrait nor the lines slide while typing.
-        var lines = font.getSplitter().splitLines(body, width, net.minecraft.network.chat.Style.EMPTY);
+        var lines = font.getSplitter().splitLines(body, width, Style.EMPTY);
         int textWidth = font.width(title);
         for (FormattedText line : lines) textWidth = Math.max(textWidth, font.width(line));
         int groupX = (g.guiWidth() - textWidth - inset) / 2;
@@ -98,10 +106,10 @@ final class TrainingHud {
         var mc = Minecraft.getInstance();
         var id = ClientSmash.controlledEntity();
         if (mc.screen != null || mc.level == null || !ClientSmash.active() || id == null
-                || !(mc.level.getEntity(id) instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity body)) return;
+                || !(mc.level.getEntity(id) instanceof PokemonEntity body)) return;
         var stack = body.getShownItem();
         if (stack.isEmpty()) stack = body.getPokemon().heldItem();
-        var items = net.minecraft.core.registries.BuiltInRegistries.ITEM;
+        var items = BuiltInRegistries.ITEM;
         var item = items.getKey(stack.getItem()).toString();
         boolean held = stack.is(MEGA_STONES) || item.equals("cobblemon:sitrus_berry") || item.equals("cobblemon:oran_berry");
         boolean tera = mc.player != null && TeraCombat.equipped(mc.player);
@@ -116,7 +124,7 @@ final class TrainingHud {
         if (held) drawBattleItem(g, right, y, stack, PrologueClient.HELD, false);
     }
 
-    private static int drawBattleItem(GuiGraphics g, int right, int y, net.minecraft.world.item.ItemStack stack, KeyMapping key, boolean spent) {
+    private static int drawBattleItem(GuiGraphics g, int right, int y, ItemStack stack, KeyMapping key, boolean spent) {
         var font = Minecraft.getInstance().font;
         String label = font.plainSubstrByWidth(key.getTranslatedKeyMessage().getString(), 62);
         int width = 28 + font.width(label);

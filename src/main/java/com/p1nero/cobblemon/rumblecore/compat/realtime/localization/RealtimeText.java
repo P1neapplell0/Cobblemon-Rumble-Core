@@ -3,15 +3,12 @@ package com.p1nero.cobblemon.rumblecore.compat.realtime.localization;
 import com.cobblemon.mod.common.api.moves.Moves;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.minecraft.locale.Language;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +17,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import net.minecraft.locale.Language;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 
 /** Adapts only text produced by RTC. Server messages carry translation keys, not resolved Chinese. */
 public final class RealtimeText {
@@ -56,7 +56,7 @@ public final class RealtimeText {
                     } else {
                         String pattern = key.equals(STAGE_CHANGE)
                                 ? Pattern.quote(parts[0]) + "(.*?)" + Pattern.quote(parts[1]) + stageResults + Pattern.quote(parts[2])
-                                : String.join("(.*?)", java.util.Arrays.stream(parts).map(Pattern::quote).toList());
+                                : String.join("(.*?)", Arrays.stream(parts).map(Pattern::quote).toList());
                         templates.add(new Template(entry, parts[0], parts[parts.length - 1], Pattern.compile(pattern)));
                     }
                 });

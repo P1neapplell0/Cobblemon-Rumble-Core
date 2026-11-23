@@ -3,11 +3,12 @@ package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
-import com.p1nero.cobblemon.rumblecore.client.combat.BattleOrbit;
 import com.p1nero.cobblemon.rumblecore.client.combat.BattleNameplates;
+import com.p1nero.cobblemon.rumblecore.client.combat.BattleOrbit;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaKnockoutVisual;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
+import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.Minecraft;
@@ -20,8 +21,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -80,7 +81,7 @@ abstract class StoryActorLockOn {
 
     @Unique
     private static boolean rumble$instance(LocalPlayer player) {
-        return com.p1nero.misc.custom_instances.instance.InstanceManager.isInstanceDimension(player.level().dimension());
+        return InstanceManager.isInstanceDimension(player.level().dimension());
     }
 
     @ModifyConstant(method = "keep", constant = @Constant(doubleValue = 40.0))

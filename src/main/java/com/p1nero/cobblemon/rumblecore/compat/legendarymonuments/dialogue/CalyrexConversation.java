@@ -1,20 +1,29 @@
 package com.p1nero.cobblemon.rumblecore.compat.legendarymonuments.dialogue;
 
-import com.cobblemon.mod.common.api.dialogue.*;
-import com.cobblemon.mod.common.api.dialogue.input.*;
+import com.cobblemon.mod.common.api.dialogue.ArtificialDialogueFaceProvider;
+import com.cobblemon.mod.common.api.dialogue.Dialogue;
+import com.cobblemon.mod.common.api.dialogue.DialogueAction;
+import com.cobblemon.mod.common.api.dialogue.DialogueGibber;
+import com.cobblemon.mod.common.api.dialogue.DialogueManager;
+import com.cobblemon.mod.common.api.dialogue.DialoguePage;
+import com.cobblemon.mod.common.api.dialogue.DialogueSpeaker;
+import com.cobblemon.mod.common.api.dialogue.DialogueText;
+import com.cobblemon.mod.common.api.dialogue.WrappedDialogueText;
+import com.cobblemon.mod.common.api.dialogue.input.DialogueNoInput;
+import com.cobblemon.mod.common.api.dialogue.input.DialogueOption;
+import com.cobblemon.mod.common.api.dialogue.input.DialogueOptionSetInput;
 import com.jorgaomc.legendarymonuments.entities.CalyrexNpcManager;
 import com.p1nero.cobblemon.rumblecore.compat.legendarymonuments.localization.MonumentText;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Supplier;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 
 /** Collects only the output of the current upstream call. Cobblemon owns the open screen's lifetime. */
 public final class CalyrexConversation {

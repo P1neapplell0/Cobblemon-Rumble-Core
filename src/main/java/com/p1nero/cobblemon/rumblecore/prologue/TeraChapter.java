@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.WeakHashMap;
-import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -95,7 +95,7 @@ public final class TeraChapter {
     }
 
     public static void addChoices(DialogueTreeBuilder rematch) {
-        var about = DialogueText.of(ctx -> Component.translatable(KEY + "about").withStyle(net.minecraft.ChatFormatting.GOLD));
+        var about = DialogueText.of(ctx -> Component.translatable(KEY + "about").withStyle(ChatFormatting.GOLD));
         rematch.choice("tera_missing", about, c -> c.conditionIf((p, npc) -> canAsk(p, npc)
                         && active(p, SHOW) && !hasOrb(p)).goTo("missing"))
                 .choice("tera", about, c -> c.conditionIf((p, npc) -> canAsk(p, npc)

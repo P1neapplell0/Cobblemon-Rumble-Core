@@ -4,24 +4,25 @@ import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.shop.ProfessorCatalogue;
 import com.p1nero.cobblemon.rumblecore.shop.RecyclingCatalogue;
 import fr.harmex.cobbledollars.common.world.item.trading.CobbleDollarsShopHolder;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-import net.minecraft.world.entity.player.Player;
 
 public final class ProfessorEntity extends PathfinderMob implements CobbleDollarsShopHolder {
     public static final double TALK_DISTANCE = 4.0;
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, CobblemonRumbleCore.MOD_ID);
-    public static final net.neoforged.neoforge.registries.DeferredHolder<EntityType<?>, EntityType<ProfessorEntity>> TYPE =
+    public static final DeferredHolder<EntityType<?>, EntityType<ProfessorEntity>> TYPE =
             TYPES.register("professor", () -> EntityType.Builder.of(ProfessorEntity::new, MobCategory.MISC)
                     .sized(0.6F, 1.8F).clientTrackingRange(8).updateInterval(2).build("cobblemon_rumble_core:professor"));
 
@@ -53,7 +54,7 @@ public final class ProfessorEntity extends PathfinderMob implements CobbleDollar
 
     public static void register(IEventBus bus) {
         TYPES.register(bus);
-        bus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent event) ->
+        bus.addListener((EntityAttributeCreationEvent event) ->
                 event.put(TYPE.get(), createMobAttributes().build()));
     }
 

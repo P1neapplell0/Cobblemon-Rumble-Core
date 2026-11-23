@@ -1,18 +1,19 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
+import com.cobblemon.mod.common.CobblemonItems;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.block.BerryBlock;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
+import com.p1nero.misc.simple_player_data_manager.api.LongData;
 import com.p1nero.misc.simple_player_data_manager.api.PlayerDataRegister;
+import com.p1nero.misc.simple_player_data_manager.api.StringData;
 import com.p1nero.misc.simple_player_data_manager.api.SyncMode;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.EventPriority;
@@ -40,9 +41,9 @@ public final class DailyCommissions {
     private static final List<String> TYPES = List.of("normal", "fire", "water", "electric", "grass", "ice", "fighting",
             "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy");
     private static final List<String> KINDS = List.of("defeat", "capture", "fish", "harvest", "plant", "mine", "juice", "home");
-    private static final com.p1nero.misc.simple_player_data_manager.api.LongData DAY = PlayerDataRegister.create(CobblemonRumbleCore.MOD_ID)
+    private static final LongData DAY = PlayerDataRegister.create(CobblemonRumbleCore.MOD_ID)
             .longData("daily_commission_day", Long.MIN_VALUE, SyncMode.SERVER_ONLY);
-    private static final com.p1nero.misc.simple_player_data_manager.api.StringData ASSIGNED = PlayerDataRegister.create(CobblemonRumbleCore.MOD_ID)
+    private static final StringData ASSIGNED = PlayerDataRegister.create(CobblemonRumbleCore.MOD_ID)
             .stringData("daily_commission", "", SyncMode.SERVER_ONLY);
 
     private DailyCommissions() {}
@@ -83,7 +84,7 @@ public final class DailyCommissions {
                         .phase(PhaseBuilder.create(PHASE).displayName(objective)
                                 .objective(ObjectiveBuilder.custom(id, 1).display(objective))
                                 .reward(new CobbleDollarReward(i < 3 ? 12_000 : 10_000))
-                                .reward(new ItemReward(i < 3 ? com.cobblemon.mod.common.CobblemonItems.POKE_BALL : Items.BONE_MEAL, 3)));
+                                .reward(new ItemReward(i < 3 ? CobblemonItems.POKE_BALL : Items.BONE_MEAL, 3)));
                 event.register(builder.build());
                 event.assignQuestToGroup(id, group);
             }
@@ -152,7 +153,7 @@ public final class DailyCommissions {
 
     @SubscribeEvent
     public static void crafted(PlayerEvent.ItemCraftedEvent e) {
-        if (e.getEntity() instanceof ServerPlayer p && e.getCrafting().is(com.cobblemon.mod.common.CobblemonItems.BERRY_JUICE)) progress(p, "juice");
+        if (e.getEntity() instanceof ServerPlayer p && e.getCrafting().is(CobblemonItems.BERRY_JUICE)) progress(p, "juice");
     }
 
     @SubscribeEvent

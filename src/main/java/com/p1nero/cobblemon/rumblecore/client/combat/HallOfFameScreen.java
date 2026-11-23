@@ -6,6 +6,7 @@ import com.p1nero.cobblemon.rumblecore.combat.arena.HallOfFame;
 import java.util.Arrays;
 import java.util.UUID;
 import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -46,7 +47,7 @@ public final class HallOfFameScreen extends Screen {
     public static void register(FMLClientSetupEvent event) { event.enqueueWork(HallOfFame::registerClient); }
 
     public static void open(HallOfFame.Show packet) {
-        var minecraft = net.minecraft.client.Minecraft.getInstance();
+        var minecraft = Minecraft.getInstance();
         minecraft.setScreen(new HallOfFameScreen(null, packet.token(), packet.data()));
     }
 

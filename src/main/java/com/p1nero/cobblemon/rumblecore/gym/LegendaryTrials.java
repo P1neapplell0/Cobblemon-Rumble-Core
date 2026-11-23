@@ -8,13 +8,14 @@ import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTheme;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
 import com.p1nero.misc.custom_instances.instance.InstanceDefinition;
-import com.p1nero.misc.custom_instances.storage.DefinitionStore;
 import com.p1nero.misc.custom_instances.instance.reward.RewardDefinition;
+import com.p1nero.misc.custom_instances.storage.DefinitionStore;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -87,7 +88,7 @@ public final class LegendaryTrials {
             }
         } catch (IOException e) { throw new IllegalStateException("Cannot read legendary_trials.tsv", e); }
         building.replaceAll((id, trial) -> new Trial(id, trial.generation(), trial.arena(), List.copyOf(trial.foes())));
-        return java.util.Collections.unmodifiableMap(building);
+        return Collections.unmodifiableMap(building);
     }
 
     public static void install(DefinitionStore store, InstanceDefinition base) throws IOException {

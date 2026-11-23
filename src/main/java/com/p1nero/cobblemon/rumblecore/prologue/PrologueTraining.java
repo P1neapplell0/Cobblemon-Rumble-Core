@@ -17,6 +17,7 @@ import com.p1nero.misc.custom_instances.api.InstanceEvent;
 import com.p1nero.misc.custom_instances.instance.InstanceDefinition;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import com.p1nero.misc.custom_instances.instance.InstanceSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -181,7 +182,7 @@ public final class PrologueTraining {
         if (drill.wonPending) {
             if (drill.knockoutUntil == 0) {
                 int duration = 29;
-                var actors = new java.util.ArrayList<Integer>();
+                var actors = new ArrayList<Integer>();
                 actors.add(player.getId());
                 actors.add(drill.pikachu.getId());
                 var battle = Smash.session(player);

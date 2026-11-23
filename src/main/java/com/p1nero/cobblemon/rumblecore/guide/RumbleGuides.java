@@ -1,13 +1,12 @@
 package com.p1nero.cobblemon.rumblecore.guide;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import java.util.Arrays;
+import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import org.arcadia.arc_quest.guide.runtime.GuideUnlockService;
-import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import org.arcadia.arc_quest.api.event.registry.ArcQuestRegistrationEvent;
@@ -16,6 +15,8 @@ import org.arcadia.arc_quest.guide.api.GuideGroupDefinition;
 import org.arcadia.arc_quest.guide.api.GuideText;
 import org.arcadia.arc_quest.guide.builder.GuideBuilder;
 import org.arcadia.arc_quest.guide.builder.GuidePageBuilder;
+import org.arcadia.arc_quest.guide.runtime.GuideUnlockService;
+import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
 
 /** Registration is independent of unlock timing; quest phases can grant these stable IDs later. */
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -66,7 +67,7 @@ public final class RumbleGuides {
     private static void add(ArcQuestRegistrationEvent.Guide event, ResourceLocation group, String path, String screenshot,
                             String item, int order, String... keys) {
         String prefix = "rumble.guide." + path;
-        GuideText.Arg[] args = java.util.Arrays.stream(keys).map(key -> GuideText.Arg.of((player, context) -> Component.keybind(key)))
+        GuideText.Arg[] args = Arrays.stream(keys).map(key -> GuideText.Arg.of((player, context) -> Component.keybind(key)))
                 .toArray(GuideText.Arg[]::new);
         var page = GuidePageBuilder.create();
         if (screenshot == null) {

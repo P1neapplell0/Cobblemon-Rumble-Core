@@ -1,7 +1,12 @@
 package com.p1nero.cobblemon.rumblecore.client.quest;
 
+import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -20,11 +25,6 @@ import org.arcadia.arc_quest.client.events.ClientEventHandler;
 import org.arcadia.arc_quest.client.hud.HudAnimUtil;
 import org.arcadia.arc_quest.client.hud.HudRenderUtil;
 import org.arcadia.arc_quest.quest.api.QuestCategory;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
 
 /** Queued ArcQuest-style notice shown when a Rumble Core quest is accepted. */
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, value = Dist.CLIENT)
@@ -83,7 +83,7 @@ public final class AdventureQuestAcceptedOverlay {
     }
 
     public static void render(GuiGraphics graphics, int screenWidth, int screenHeight) {
-        if (com.johnn.realtimecobblemon.client.ClientSmash.active()) return;
+        if (ClientSmash.active()) return;
         if (active == null) return;
         long elapsed = Util.getMillis() - startedAt;
         if (elapsed >= TOTAL_MILLIS) {

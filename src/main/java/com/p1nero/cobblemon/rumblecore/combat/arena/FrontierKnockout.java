@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.p1nero.cobblemon.rumblecore.client.combat.FrontierKnockoutOverlay;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import java.util.List;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -15,7 +16,7 @@ public final class FrontierKnockout {
 
     private FrontierKnockout() {}
 
-    public record Cue(ResourceLocation dimension, int ticks, java.util.List<Integer> actors) implements CustomPacketPayload {
+    public record Cue(ResourceLocation dimension, int ticks, List<Integer> actors) implements CustomPacketPayload {
         static final Type<Cue> TYPE = new Type<>(PrologueWorld.id("frontier_ko"));
         static final StreamCodec<RegistryFriendlyByteBuf, Cue> CODEC = StreamCodec.composite(
                 ResourceLocation.STREAM_CODEC, Cue::dimension, ByteBufCodecs.VAR_INT, Cue::ticks,

@@ -2,20 +2,26 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonItems;
-import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
-import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import com.p1nero.cobblemon.rumblecore.phone.PhoneState;
 import com.cobblemon.mod.common.api.storage.player.GeneralPlayerData;
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreTypes;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
+import com.p1nero.cobblemon.rumblecore.gym.GymStory;
+import com.p1nero.cobblemon.rumblecore.integration.rct.RoadTrainerDialogue;
+import com.p1nero.cobblemon.rumblecore.phone.PhoneState;
+import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import java.util.Collections;
-import java.util.Set;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -33,8 +39,6 @@ import org.arcadia.arc_quest.quest.builder.ObjectiveBuilder;
 import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
 import org.arcadia.arc_quest.quest.builder.QuestBuilder;
 import org.arcadia.arc_quest.quest.logic.QuestProgressHandler;
-import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
-import net.minecraft.world.item.ItemStack;
 import org.arcadia.arc_quest.questmarker.api.MarkSpec;
 import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 
@@ -90,7 +94,7 @@ public final class PrologueStory {
         @SubscribeEvent
         public static void registerDialogue(ArcQuestRegistrationEvent.Dialogue event) {
             GymStory.registerDialogue(event);
-            com.p1nero.cobblemon.rumblecore.integration.rct.RoadTrainerDialogue.register(event);
+            RoadTrainerDialogue.register(event);
             FirstBadgeVisit.register(event);
             ProfessorRestock.register(event);
             PersonalDimension.register(event);
@@ -153,7 +157,7 @@ public final class PrologueStory {
             var idle = tree("done").repeatable(true);
             idle.node("done").say(DialogueText.of(ctx -> professorGreeting(ctx.player())), rId("done"))
                     .choice("space_ingot", DialogueText.of(ctx -> Component.translatable("rumble.personal_dimension.about")
-                                    .withStyle(net.minecraft.ChatFormatting.GOLD)), choice -> choice
+                                    .withStyle(ChatFormatting.GOLD)), choice -> choice
                             .conditionIf((p, npc) -> PersonalDimension.trackedDelivery(p))
                             .addEvents((p, npc) -> { if (atDialogueProfessor(p)) after(p, () -> PersonalDimension.open(p, PersonalDimension.ABOUT_ROUTE)); }).close())
                     .choice("restock", ProfessorRestock.option(), choice -> choice
@@ -188,7 +192,7 @@ public final class PrologueStory {
 
     private static PhaseBuilder phase(String phase, String... keys) {
         String prefix = "rumble.prologue.phase." + phase;
-        var args = java.util.Arrays.stream(keys).map(key -> QuestText.Arg.constant(Component.keybind(key)))
+        var args = Arrays.stream(keys).map(key -> QuestText.Arg.constant(Component.keybind(key)))
                 .toArray(QuestText.Arg[]::new);
         return PhaseBuilder.create(phase).displayName(QuestText.translatable(prefix))
                 .objective(ObjectiveBuilder.custom(PrologueWorld.id("prologue/" + phase), 1)
@@ -281,7 +285,7 @@ public final class PrologueStory {
         }
     }
 
-    static boolean at(ServerPlayer player, net.minecraft.world.entity.Entity npc) {
+    static boolean at(ServerPlayer player, Entity npc) {
         return npc instanceof ProfessorEntity && FixedStoryActors.PROFESSOR.equals(FixedStoryActors.role(npc)) && npc.isAlive() && npc.level() == player.level()
                 && player.isAlive() && !player.isSpectator() && player.serverLevel().dimension().equals(PrologueWorld.GYMS)
                 && player.distanceToSqr(npc) <= ProfessorEntity.TALK_DISTANCE * ProfessorEntity.TALK_DISTANCE && player.hasLineOfSight(npc);
@@ -296,7 +300,7 @@ public final class PrologueStory {
     static ProfessorEntity nearby(ServerPlayer player) {
         return player.serverLevel().getEntitiesOfClass(ProfessorEntity.class,
                 player.getBoundingBox().inflate(ProfessorEntity.TALK_DISTANCE), doctor -> at(player, doctor))
-                .stream().min(java.util.Comparator.comparingDouble(player::distanceToSqr)).orElse(null);
+                .stream().min(Comparator.comparingDouble(player::distanceToSqr)).orElse(null);
     }
 
     static void talk(ServerPlayer player, int id) {

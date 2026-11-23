@@ -6,8 +6,9 @@ import com.cobblemon.mod.common.net.messages.server.BattleChallengePacket;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.util.PlayerExtensionsKt;
 import com.johnn.realtimecobblemon.Smash;
-import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import com.johnn.realtimecobblemon.duel.Duels;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import java.util.Map;
 import java.util.WeakHashMap;
 import kotlin.Unit;
@@ -27,10 +28,10 @@ public final class RealtimeBattleEntry {
         var targeted = level.getEntity(packet.getTargetedEntityId());
         var opponent = targeted instanceof PokemonEntity pokemon ? pokemon.getOwner() : targeted;
         if (opponent instanceof ServerPlayer other) {
-            com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.challenge(player, other, packet.getSelectedPokemonId());
+            ArenaMatch.challenge(player, other, packet.getSelectedPokemonId());
             return;
         }
-        if (com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.inArena(player) != null) return;
+        if (ArenaMatch.inArena(player) != null) return;
         if (!(targeted instanceof PokemonEntity target)
                 || !validTarget(player, target) || Smash.active(player) || Duels.groupOf(player) != null
                 || !player.isAlive() || player.isPassenger() || player.isSleeping()) return;

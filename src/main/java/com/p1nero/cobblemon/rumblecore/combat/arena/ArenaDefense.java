@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore.combat.arena;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.moves.Anims;
+import com.johnn.realtimecobblemon.moves.Conditions;
 import com.johnn.realtimecobblemon.moves.Fx3D;
 import com.johnn.realtimecobblemon.moves.Sounds;
 import java.util.Map;
@@ -73,7 +74,7 @@ public final class ArenaDefense {
         var state = REACTIONS.get(foe);
         if (state == null || !state.guard || foe.level().getGameTime() >= state.activeUntil
                 || !attacker.player.getUUID().equals(state.attacker) || ArenaMatch.defenseTier(foe) == 0) return false;
-        return !com.johnn.realtimecobblemon.moves.Conditions.stunned(foe);
+        return !Conditions.stunned(foe);
     }
 
     private static final class Reaction {

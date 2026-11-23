@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -26,7 +27,7 @@ abstract class SimulatorLessonHighlight extends AbstractContainerScreen<Training
     @Shadow private double targetScrollOffset;
     @Shadow private int pendingChallenge;
     @Shadow private int maxScrollPixels() { throw new AssertionError(); }
-    @org.spongepowered.asm.mixin.Unique private boolean rumble$positioned;
+    @Unique private boolean rumble$positioned;
 
     private SimulatorLessonHighlight(TrainingSimulatorMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);

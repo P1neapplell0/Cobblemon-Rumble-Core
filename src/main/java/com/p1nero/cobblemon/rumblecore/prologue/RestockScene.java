@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import java.util.Map;
+import java.util.UUID;
 import java.util.WeakHashMap;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,7 +18,7 @@ import org.arcadia.arc_quest.dialogue.runtime.DialogueSessionManager;
 /** Only the audience and effects are per-player; the three actors are saved in the hall. */
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)
 public final class RestockScene {
-    private record Audience(ProfessorEntity doctor, java.util.UUID session) {}
+    private record Audience(ProfessorEntity doctor, UUID session) {}
 
     private static final Map<ServerPlayer, Audience> AUDIENCE = new WeakHashMap<>();
 

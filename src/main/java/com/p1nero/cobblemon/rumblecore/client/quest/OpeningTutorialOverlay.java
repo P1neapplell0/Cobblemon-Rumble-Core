@@ -9,8 +9,8 @@ import com.nbp.cobblemon_smartphone.item.SmartphoneItem;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TutorialPulse;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
-import com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial;
 import com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial.Step;
+import com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial;
 import java.util.Locale;
 import net.minecraft.Util;
 import net.minecraft.client.KeyMapping;
@@ -19,6 +19,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -230,7 +231,7 @@ public final class OpeningTutorialOverlay {
         int ink = (int) Math.min(Integer.MAX_VALUE, age / 13);
         for (var line : lines) {
             final int[] remaining = {ink};
-            graphics.drawString(mc.font, (net.minecraft.util.FormattedCharSequence) sink -> line.accept((i, style, cp) ->
+            graphics.drawString(mc.font, (FormattedCharSequence) sink -> line.accept((i, style, cp) ->
                     remaining[0]-- > 0 && sink.accept(i, style, cp)), x + 10, lineY, PAPER);
             ink = Math.max(0, remaining[0]);
             lineY += 11;

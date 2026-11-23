@@ -1,6 +1,12 @@
 package com.p1nero.cobblemon.rumblecore.mixin.cobblemon.combat;
 
-import com.cobblemon.mod.common.battles.*;
+import com.cobblemon.mod.common.battles.BattleActorErrors;
+import com.cobblemon.mod.common.battles.BattleFormat;
+import com.cobblemon.mod.common.battles.BattleRegistry;
+import com.cobblemon.mod.common.battles.BattleSide;
+import com.cobblemon.mod.common.battles.BattleStartError;
+import com.cobblemon.mod.common.battles.BattleStartResult;
+import com.cobblemon.mod.common.battles.ErroredBattleStart;
 import com.gitlab.srcmc.rctapi.api.battle.BattleManager.TrainerEntityBattleActor;
 import com.gitlab.srcmc.rctmod.world.entities.TrainerMob;
 import com.nore.cobblebash.entity.GymTrainerEntity;

@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.client.combat;
 
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
+import java.util.Objects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -53,7 +54,7 @@ public final class StableBattleCamera {
         Vec3 position = RenderAimRay.renderPosition(entity, partial);
         Integer id = ClientSmash.controlledEntity();
         double elapsed = lastFrame == 0 ? 0 : (now - lastFrame) * 1.0e-9;
-        boolean cut = focus != entity || world != level || !java.util.Objects.equals(controlled, id)
+        boolean cut = focus != entity || world != level || !Objects.equals(controlled, id)
                 || lastPosition == null || position.distanceToSqr(lastPosition) > 64 || elapsed > 1.0;
         double dt = Minecraft.getInstance().isPaused() ? 0 : Math.min(elapsed, 0.1);
         lastFrame = now;

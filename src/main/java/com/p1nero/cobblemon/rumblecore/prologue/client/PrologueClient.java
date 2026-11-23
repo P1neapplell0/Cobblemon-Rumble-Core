@@ -1,22 +1,22 @@
 package com.p1nero.cobblemon.rumblecore.prologue.client;
 
-import com.p1nero.cobblemon.rumblecore.client.quest.GymDialogueCamera;
-import com.p1nero.cobblemon.rumblecore.prologue.ProfessorRestock;
-import com.p1nero.cobblemon.rumblecore.prologue.DialogueTarget;
 import com.cobblemon.mod.common.client.keybind.keybinds.PartySendBinding;
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.client.quest.GymDialogueCamera;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPackets;
 import com.p1nero.cobblemon.rumblecore.combat.arena.TeraCombat;
-import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
-import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import net.minecraft.world.entity.LivingEntity;
+import com.p1nero.cobblemon.rumblecore.prologue.DialogueTarget;
+import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
+import com.p1nero.cobblemon.rumblecore.prologue.ProfessorRestock;
 import com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
+import com.p1nero.cobblemon.rumblecore.prologue.TrialMerchantEntity;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,8 +26,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.ChatScreen;
+import net.minecraft.client.renderer.entity.WanderingTraderRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.EntityHitResult;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -39,6 +43,7 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.lwjgl.glfw.GLFW;
@@ -68,7 +73,7 @@ public final class PrologueClient {
     private static long focusNpcAt;
     private static long changedAt;
     private static long acceptedAt;
-    private static final WeakHashMap<com.cobblemon.mod.common.entity.pokemon.PokemonEntity, Long> TENACITY = new WeakHashMap<>();
+    private static final WeakHashMap<PokemonEntity, Long> TENACITY = new WeakHashMap<>();
 
     private PrologueClient() {}
 
@@ -77,8 +82,8 @@ public final class PrologueClient {
         @SubscribeEvent public static void key(RegisterKeyMappingsEvent event) { event.register(TALK); event.register(HELD); event.register(TERA); }
         @SubscribeEvent public static void renderer(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(ProfessorEntity.TYPE.get(), ProfessorRenderer::new);
-            event.registerEntityRenderer(com.p1nero.cobblemon.rumblecore.prologue.TrialMerchantEntity.TYPE.get(),
-                    net.minecraft.client.renderer.entity.WanderingTraderRenderer::new);
+            event.registerEntityRenderer(TrialMerchantEntity.TYPE.get(),
+                    WanderingTraderRenderer::new);
         }
     }
 
@@ -94,11 +99,11 @@ public final class PrologueClient {
         var player = Minecraft.getInstance().player;
         if (state.accepted() && !accepted) {
             acceptedAt = System.nanoTime();
-            if (player != null) player.playSound(net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME, .68f, 1.6f);
+            if (player != null) player.playSound(SoundEvents.AMETHYST_BLOCK_CHIME, .68f, 1.6f);
         } else if (changed && latest == Cue.CLEAR && player != null) {
-            player.playSound(net.minecraft.sounds.SoundEvents.EXPERIENCE_ORB_PICKUP, .65f, 1.2f);
+            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, .65f, 1.2f);
         } else if (latest.focus() && state.ready() && (changed || !ready) && player != null) {
-            player.playSound(net.minecraft.sounds.SoundEvents.NOTE_BLOCK_HAT.value(), .25f, 1.5f);
+            player.playSound(SoundEvents.NOTE_BLOCK_HAT.value(), .25f, 1.5f);
         }
         cue = latest;
         ready = state.ready();
@@ -118,10 +123,10 @@ public final class PrologueClient {
     public static void tenacity(int entityId, ResourceLocation dimension, int ticks) {
         var level = Minecraft.getInstance().level;
         if (level == null || !level.dimension().location().equals(dimension)
-                || !(level.getEntity(entityId) instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon)) return;
+                || !(level.getEntity(entityId) instanceof PokemonEntity pokemon)) return;
         TENACITY.put(pokemon, level.getGameTime() + Math.max(1, ticks));
     }
-    public static boolean tenacityFlash(com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon) {
+    public static boolean tenacityFlash(PokemonEntity pokemon) {
         Long until = TENACITY.get(pokemon);
         return until != null && pokemon.level().getGameTime() < until && pokemon.level().getGameTime() % 8 < 4;
     }
@@ -146,7 +151,7 @@ public final class PrologueClient {
     private static LivingEntity aimedNpc(Minecraft mc) {
         if (!canShowInteraction(mc) || !mc.level.dimension().equals(PrologueWorld.GYMS)) return null;
         return mc.level.getEntitiesOfClass(LivingEntity.class, mc.player.getBoundingBox().inflate(ProfessorEntity.TALK_DISTANCE),
-                        actor -> (actor instanceof ProfessorEntity || actor instanceof com.p1nero.cobblemon.rumblecore.prologue.TrialMerchantEntity
+                        actor -> (actor instanceof ProfessorEntity || actor instanceof TrialMerchantEntity
                                 || GymStory.talkable(actor))
                                 && !GymDialogueCamera.hasActorName(actor, ProfessorRestock.JESSIE)
                                 && !GymDialogueCamera.hasActorName(actor, ProfessorRestock.JAMES)
@@ -169,18 +174,18 @@ public final class PrologueClient {
         }
         if (drain(HELD) && mc.player != null && mc.screen == null && ClientSmash.active() && !restrict()) {
             if (HELD.getKey().equals(mc.options.keyDrop.getKey())) drain(mc.options.keyDrop);
-            PacketDistributor.sendToServer(new com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPackets.UseHeld());
+            PacketDistributor.sendToServer(new ArenaPackets.UseHeld());
         }
         if (drain(TALK) && renderedNpc != null && canShowInteraction(mc) && aimedNpc(mc) == renderedNpc) {
             if (TALK.getKey().equals(mc.options.keyInventory.getKey())) drain(mc.options.keyInventory);
             pendingTalk = renderedNpc;
         }
         if (cue == Cue.LOAD && !sentReady && mc.screen == null && mc.level != null
-                && mc.level.getEntity(target) instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity) {
+                && mc.level.getEntity(target) instanceof PokemonEntity) {
             sentReady = true;
             PacketDistributor.sendToServer(new ProloguePackets.ArenaReady(target));
         }
-        if (cue == Cue.LOCK && ready && !sentLock && BattleCamera.target() instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity mon
+        if (cue == Cue.LOCK && ready && !sentLock && BattleCamera.target() instanceof PokemonEntity mon
                 && mon.getId() == target) {
             sentLock = true;
             PacketDistributor.sendToServer(new ProloguePackets.TargetLocked(target));
@@ -271,7 +276,7 @@ public final class PrologueClient {
     }
 
     @SubscribeEvent public static void hideOverlappingHud(RenderGuiLayerEvent.Pre event) {
-        if (net.neoforged.neoforge.client.gui.VanillaGuiLayers.FOOD_LEVEL.equals(event.getName())) {
+        if (VanillaGuiLayers.FOOD_LEVEL.equals(event.getName())) {
             event.setCanceled(true);
             return;
         }
@@ -286,7 +291,7 @@ public final class PrologueClient {
     public static boolean hideInspectionHud() {
         var mc = Minecraft.getInstance();
         return mc.screen == null && (cue.focus() || cue == Cue.SPAR || cue == Cue.CLEAR
-                || focusNpc != null && mc.hitResult instanceof net.minecraft.world.phys.EntityHitResult hit
+                || focusNpc != null && mc.hitResult instanceof EntityHitResult hit
                         && hit.getEntity() == focusNpc);
     }
 

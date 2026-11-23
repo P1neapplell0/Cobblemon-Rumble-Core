@@ -1,8 +1,9 @@
 package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.cobblemon.mod.common.pokemon.Pokemon;
-import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.cobblemon.rumblecore.client.combat.BattleNameplates;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.core.UUIDUtil;
@@ -64,7 +65,7 @@ public final class ArenaPackets {
     public static void register(RegisterPayloadHandlersEvent event) {
         var net = event.registrar("2");
         net.playToServer(UseTera.TYPE, UseTera.CODEC, (p, ctx) -> TeraCombat.use((ServerPlayer) ctx.player()));
-        net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.teraUsed(p.used()));
+        net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> PrologueClient.teraUsed(p.used()));
         net.playToServer(UseHeld.TYPE, UseHeld.CODEC, (p, ctx) -> ArenaMatch.useHeld((ServerPlayer) ctx.player()));
         net.playToServer(Reply.TYPE, Reply.CODEC, (p, ctx) -> ArenaMatch.reply((ServerPlayer) ctx.player(), p));
         net.playToServer(Pick.TYPE, Pick.CODEC, (p, ctx) -> ArenaMatch.pick((ServerPlayer) ctx.player(), p));
@@ -73,7 +74,7 @@ public final class ArenaPackets {
         net.playToClient(Switch.TYPE, Switch.CODEC, (p, ctx) -> ArenaClient.roster(p));
         net.playToClient(Allies.TYPE, Allies.CODEC, (p, ctx) -> BattleNameplates.sync(p));
         net.playToClient(Tenacity.TYPE, Tenacity.CODEC, (p, ctx) ->
-                com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.tenacity(p.entityId(), p.dimension(), p.ticks()));
+                PrologueClient.tenacity(p.entityId(), p.dimension(), p.ticks()));
     }
 
     /** Both the player and their controlled body are allies; only the body gets a label. */

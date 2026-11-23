@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animatio
 import com.cobblemon.mod.common.client.render.models.blockbench.bedrock.animation.BedrockAnimationAdapter;
 import com.cobblemon.mod.common.client.render.models.blockbench.pokemon.PokemonPosableModel;
 import com.cobblemon.mod.common.client.render.models.blockbench.pose.Bone;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -13,8 +14,10 @@ import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.IntStream;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -25,12 +28,12 @@ import net.neoforged.fml.ModList;
 record TitleRig(PokemonPosableModel model, ResourceLocation skin, ResourceLocation[] glow,
                 BedrockAnimation idle, BedrockAnimation move, BedrockAnimation blink, Set<String> aspects) {
     private static final String POKEMON = "assets/cobblemon/bedrock/pokemon/";
-    private static final com.google.gson.Gson GSON = new GsonBuilder()
+    private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(BedrockAnimation.class, BedrockAnimationAdapter.INSTANCE).create();
 
     static TitleRig load(int dex, String species, boolean flying) throws IOException {
         String animationGroup = species.equals("salamence") ? "salamence_mega" : species;
-        String folder = String.format(java.util.Locale.ROOT, "%04d_%s", dex, species);
+        String folder = String.format(Locale.ROOT, "%04d_%s", dex, species);
         String modelName = switch (species) {
             case "charizard" -> "charizard_mega_x";
             case "salamence" -> "salamencemega";
@@ -72,7 +75,7 @@ record TitleRig(PokemonPosableModel model, ResourceLocation skin, ResourceLocati
         var glow = switch (species) {
             case "charizard" -> new ResourceLocation[]{texture(modelMod, folder, "x_glow"), texture(modelMod, folder, "x_glow2"),
                     texture(modelMod, folder, "x_glow3"), texture(modelMod, folder, "x_glow4")};
-            case "ceruledge" -> java.util.stream.IntStream.rangeClosed(1, 8)
+            case "ceruledge" -> IntStream.rangeClosed(1, 8)
                     .mapToObj(i -> texture(modelMod, folder, "ceruledge_emissive_" + i)).toArray(ResourceLocation[]::new);
             default -> new ResourceLocation[0];
         };

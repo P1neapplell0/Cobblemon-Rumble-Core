@@ -10,6 +10,7 @@ import fr.harmex.cobbledollars.common.utils.extensions.PlayerExtensionKt;
 import fr.harmex.cobbledollars.common.world.inventory.BankMenu;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,6 +18,7 @@ import java.util.WeakHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 
@@ -86,7 +88,7 @@ final class BulkRecycling {
             if (available.amount() > 0 && key.equals(available.key())) cloud.add(new StorageLine(key, available.amount(), price));
         }
         if (++nextQuote <= 0) nextQuote = 1;
-        cloud.sort(java.util.Comparator.comparing(line -> BuiltInRegistries.ITEM.getKey(line.key().getReadOnlyStack().getItem())));
+        cloud.sort(Comparator.comparing(line -> BuiltInRegistries.ITEM.getKey(line.key().getReadOnlyStack().getItem())));
         return new Plan(nextQuote, selection, List.copyOf(inventory), storage, List.copyOf(cloud));
     }
 
@@ -100,7 +102,7 @@ final class BulkRecycling {
         PacketDistributor.sendToPlayer(player, new RecyclingPackets.Result(menu, quote, status, bag.toString(), cloud.toString()));
     }
 
-    private record InventoryLine(int slot, net.minecraft.world.item.Item item, int count, BigInteger price) {}
+    private record InventoryLine(int slot, Item item, int count, BigInteger price) {}
     private record StorageLine(ItemStackKey key, long count, BigInteger price) {}
     private record Plan(int id, Set<ResourceLocation> selection, List<InventoryLine> inventory, UnifiedStorage storage, List<StorageLine> cloud) {
         boolean matches(Plan other) { return storage == other.storage && inventory.equals(other.inventory) && cloud.equals(other.cloud); }

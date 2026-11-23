@@ -1,7 +1,8 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
-import com.wintercogs.beyonddimensions.api.dimensionnet.DimensionsNet;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
+import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
+import com.wintercogs.beyonddimensions.api.dimensionnet.DimensionsNet;
 import com.wintercogs.beyonddimensions.api.storage.key.impl.ItemStackKey;
 import fr.harmex.cobbledollars.common.utils.extensions.PlayerExtensionKt;
 import net.minecraft.ChatFormatting;
@@ -38,7 +39,7 @@ public final class WanderingMerchantQuest {
         var objective = QuestText.translatable(KEY + "objective");
         event.register(SquadQuest.sound(QuestBuilder.create(ID)).category(QuestCategory.ADVENTURE).sortOrder(5)
                 .displayName(QuestText.translatable(NAME)).description(objective).themeColor(SquadQuest.SIDE_THEME)
-                .icon(Items.EMERALD).cannotAbandon().requiresQuest(com.p1nero.cobblemon.rumblecore.gym.GymStory.fourthGymQuest())
+                .icon(Items.EMERALD).cannotAbandon().requiresQuest(GymStory.fourthGymQuest())
                 .phase(PhaseBuilder.create(PHASE).displayName(objective).objective(ObjectiveBuilder.custom(ID, 1).display(objective))
                         .trackingMarker(HallQuestMarkers.actor(PHASE, NAME, FixedStoryActors.MERCHANT, POS))).build());
         event.assignQuestToGroup(ID, PrologueWorld.id("adventure_quests"));
@@ -144,7 +145,7 @@ public final class WanderingMerchantQuest {
 
     /** Bag first, then the player's own cloud; do not withdraw from a shared network. */
     private static boolean hasTea(ServerPlayer player, boolean take) {
-        var tea = com.p1nero.cobblemon.rumblecore.quest.RewardNotice.stack("cobblemon:sinister_tea", 1);
+        var tea = RewardNotice.stack("cobblemon:sinister_tea", 1);
         for (var slot : player.getInventory().items) {
             if (!slot.is(tea.getItem())) continue;
             if (take) { slot.shrink(1); player.getInventory().setChanged(); }

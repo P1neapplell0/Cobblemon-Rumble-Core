@@ -2,35 +2,61 @@ package com.p1nero.cobblemon.rumblecore.client.combat;
 
 import com.cobblemon.mod.common.api.moves.Moves;
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
-import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRoster;
-import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
-import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.*;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TutorialPulse;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRoster;
 import fr.harmex.cobbledollars.common.utils.extensions.BigIntegerExtensionsKt;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.IntStream;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.PacketDistributor;
-import org.arcadia.arc_quest.client.hud.style.OreUiRenderer;
 import org.arcadia.arc_quest.client.hud.style.OreUiRenderer.Action;
+import org.arcadia.arc_quest.client.hud.style.OreUiRenderer;
+import org.lwjgl.glfw.GLFW;
+
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.CYAN;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.GOLD;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.MUTED;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.NEUTRAL;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.PINK;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.TEXT;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.card;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.center;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.item;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.moveStrip;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.moveTool;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.partyFace;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.placeholder;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.player;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.shell;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.text;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.typeIcon;
 
 /** Client views of the authoritative room. Closing the editor never implicitly forfeits a match. */
 public final class FrontierScreen extends Screen {
@@ -258,11 +284,11 @@ public final class FrontierScreen extends Screen {
 
     @Override public boolean keyPressed(int key, int scanCode, int modifiers) {
         if (page == Page.CREATE && createMenu != null) {
-            if (key == org.lwjgl.glfw.GLFW.GLFW_KEY_UP || key == org.lwjgl.glfw.GLFW.GLFW_KEY_DOWN) {
-                selectCreateOption(key == org.lwjgl.glfw.GLFW.GLFW_KEY_UP ? 0 : 1);
+            if (key == GLFW.GLFW_KEY_UP || key == GLFW.GLFW_KEY_DOWN) {
+                selectCreateOption(key == GLFW.GLFW_KEY_UP ? 0 : 1);
                 return true;
             }
-            if (key != org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE) return true;
+            if (key != GLFW.GLFW_KEY_ESCAPE) return true;
         }
         return super.keyPressed(key, scanCode, modifiers);
     }
@@ -563,7 +589,7 @@ public final class FrontierScreen extends Screen {
 
     private FrontierRoster.Pick get(CompoundTag seat, int i) {
         var picks = seat.getList("picks", Tag.TAG_COMPOUND);
-        return i >= picks.size() ? FrontierRoster.EMPTY : java.util.Objects.requireNonNullElse(FrontierRooms.decode(picks.getCompound(i)), FrontierRoster.EMPTY);
+        return i >= picks.size() ? FrontierRoster.EMPTY : Objects.requireNonNullElse(FrontierRooms.decode(picks.getCompound(i)), FrontierRoster.EMPTY);
     }
 
     private int lineupHeight() { return (h - 95) / 3; }
@@ -590,7 +616,7 @@ public final class FrontierScreen extends Screen {
             btn(x + 9, y + 7, 77, text("leave"), () -> request("leave", tag -> {}));
             inviteButton();
         }
-        boolean selected = java.util.stream.IntStream.range(0, FrontierRoster.TEAM_SIZE)
+        boolean selected = IntStream.range(0, FrontierRoster.TEAM_SIZE)
                 .anyMatch(i -> !FrontierRoster.NONE.equals(get(own, i).species()));
         boolean owner = !tournament() && state.getBoolean("owner"), ready = own.getBoolean("ready");
         int middle = x + w / 2, footer = y + h - 27;
@@ -751,7 +777,7 @@ public final class FrontierScreen extends Screen {
     private void reorder(int teamSlot, int index, int destination, FrontierRoster.Pick pick) {
         if (pending || move >= 0) return;
         var moves = new ArrayList<>(pick.moves());
-        java.util.Collections.swap(moves, index, destination);
+        Collections.swap(moves, index, destination);
         submitPick(teamSlot, new FrontierRoster.Pick(pick.species(), pick.held(), moves));
     }
 
@@ -978,7 +1004,7 @@ public final class FrontierScreen extends Screen {
             @Override protected void renderWidget(GuiGraphics g, int mx, int my, float tick) { paint.render(g, this, tick); }
         };
         if (megaLimitOpen) return addRenderableOnly(button);
-        if (tooltip && move < 0) button.setTooltip(net.minecraft.client.gui.components.Tooltip.create(label));
+        if (tooltip && move < 0) button.setTooltip(Tooltip.create(label));
         button.active = enabled;
         return addRenderableWidget(button);
     }
@@ -996,8 +1022,8 @@ public final class FrontierScreen extends Screen {
                 OreUiRenderer.labeledButton(g, font, label, x, y, w, 20, style, b.isHoveredOrFocused(), enabled, 1, style == Action.PRIMARY ? 0xff4b8b30 : NEUTRAL));
     }
 
-    private static final net.minecraft.tags.TagKey<net.minecraft.world.item.Item> EVOLUTION_STONES =
-            net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,
+    private static final TagKey<Item> EVOLUTION_STONES =
+            TagKey.create(Registries.ITEM,
                     ResourceLocation.fromNamespaceAndPath("cobblemon", "evolution_stones"));
 
     private static int heldGroup(ResourceLocation id) {
@@ -1122,7 +1148,7 @@ public final class FrontierScreen extends Screen {
         int middle = x + w / 2, rail = centerRail(), top = y + 33;
         int railH = h - 66, midY = top + railH / 2;
         card(g, middle - rail / 2, top, rail, railH, GOLD, false);
-        var vs = Component.literal("VS").withStyle(net.minecraft.ChatFormatting.BOLD);
+        var vs = Component.literal("VS").withStyle(ChatFormatting.BOLD);
         float scale = Math.min(4F, (rail - 10) / (float) font.width(vs));
         g.pose().pushPose();
         try {

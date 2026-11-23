@@ -10,10 +10,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
 import java.util.LinkedHashMap;
 import java.util.Properties;
+import org.slf4j.Logger;
 
 /** Seeds the fixed hall before levels open. Compare preset revisions, not mutable world data. */
 final class HallMap {
-    private static final org.slf4j.Logger LOGGER = LogUtils.getLogger();
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     private HallMap() {}
 

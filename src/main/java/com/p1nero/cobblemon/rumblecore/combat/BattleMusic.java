@@ -8,6 +8,7 @@ import com.p1nero.cobblemon.rumblecore.client.combat.BattleMusicClient;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import com.p1nero.misc.custom_instances.instance.InstanceSession;
 import java.util.Map;
 import java.util.WeakHashMap;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -56,7 +57,7 @@ public final class BattleMusic {
         var engagement = ENGAGED.get(player);
         // The VS packet can arrive before the player is teleported into the new level.
         var previous = PLAYING.get(player);
-        if (arena != null && arena.getState() == com.p1nero.misc.custom_instances.instance.InstanceSession.State.PREPARING
+        if (arena != null && arena.getState() == InstanceSession.State.PREPARING
                 && previous != null && previous.track() != 0 && previous.dimension().equals(arena.getDimension().location())) return;
         if (player.isAlive() && arena != null && arena.musicActive(player)) {
             track = arena.usesGymMusic() ? GYM : STANDARD;

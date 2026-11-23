@@ -1,15 +1,16 @@
 package com.p1nero.cobblemon.rumblecore.combat.arena;
 
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.p1nero.cobblemon.rumblecore.client.combat.ServerHallScreen;
 import com.p1nero.cobblemon.rumblecore.mixin.custom_instances.HallCompletionAccess;
 import com.p1nero.cobblemon.rumblecore.prologue.ChampionStory;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import com.p1nero.misc.custom_instances.storage.record.RunRecord;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import io.netty.buffer.ByteBuf;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Function;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -51,7 +52,7 @@ public final class ServerHall {
         });
     }
 
-    private static <T> void sendPage(ServerPlayer player, Request request, List<T> board, java.util.function.Function<T, Row> convert) {
+    private static <T> void sendPage(ServerPlayer player, Request request, List<T> board, Function<T, Row> convert) {
         int count = Math.clamp(request.rows(), 1, MAX_ROWS);
         int start = Math.clamp(request.page(), 0, Math.max(0, board.size() - 1) / count) * count;
         int end = start + Math.min(count, board.size() - start);

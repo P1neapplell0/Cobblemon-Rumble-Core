@@ -2,27 +2,23 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import net.minecraft.ChatFormatting;
+import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
 import org.arcadia.arc_quest.api.event.dialogue.DialogueEndedEvent;
 import org.arcadia.arc_quest.api.event.dialogue.DialogueNodeStartedEvent;
 import org.arcadia.arc_quest.api.event.registry.ArcQuestRegistrationEvent;
 import org.arcadia.arc_quest.dialogue.api.DialogueText;
-import org.arcadia.arc_quest.quest.api.QuestCategory;
 import org.arcadia.arc_quest.quest.api.QuestText;
 import org.arcadia.arc_quest.quest.builder.ObjectiveBuilder;
 import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
-import org.arcadia.arc_quest.quest.builder.QuestBuilder;
 import org.arcadia.arc_quest.quest.logic.QuestProgressHandler;
 import org.arcadia.arc_quest.quest.reward.ItemReward;
-import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)

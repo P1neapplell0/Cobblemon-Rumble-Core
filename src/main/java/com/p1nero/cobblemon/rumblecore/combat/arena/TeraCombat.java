@@ -7,6 +7,8 @@ import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
 import com.johnn.realtimecobblemon.Smash;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
+import io.wispforest.accessories.api.AccessoriesCapability;
+import io.wispforest.accessories.api.EquipmentChecking;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -52,9 +54,9 @@ public final class TeraCombat {
         if (!available()) return false;
         for (var stack : player.getHandSlots()) if (isDevice(stack)) return true;
         for (var stack : player.getArmorSlots()) if (isDevice(stack)) return true;
-        var accessories = io.wispforest.accessories.api.AccessoriesCapability.get(player);
+        var accessories = AccessoriesCapability.get(player);
         return accessories != null && accessories.isEquipped(TeraCombat::isDevice,
-                io.wispforest.accessories.api.EquipmentChecking.ACCESSORIES_ONLY);
+                EquipmentChecking.ACCESSORIES_ONLY);
     }
 
     static void use(ServerPlayer player) {

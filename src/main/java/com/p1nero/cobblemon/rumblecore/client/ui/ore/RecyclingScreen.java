@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,9 +19,11 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -149,7 +152,7 @@ public final class RecyclingScreen extends Screen {
                 if (!selected.add(id)) selected.remove(id);
                 result = null;
                 updateButton();
-                minecraft.getSoundManager().play(net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(net.minecraft.sounds.SoundEvents.UI_BUTTON_CLICK, 1.0f));
+                minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0f));
                 return true;
             }
         }
@@ -263,7 +266,7 @@ public final class RecyclingScreen extends Screen {
 
     private static List<Group> groups(BankScreen screen, boolean bulk) {
         Map<String, List<Entry>> grouped = new LinkedHashMap<>();
-        Map<Item, String> retail = new java.util.HashMap<>();
+        Map<Item, String> retail = new HashMap<>();
         if (bulk) for (var category : ProfessorCatalogue.create().getCategories()) {
             grouped.put(category.getName(), new ArrayList<>());
             for (var offer : category.getOffers()) for (var stack : offer.getItems()) retail.put(stack.getItem(), category.getName());

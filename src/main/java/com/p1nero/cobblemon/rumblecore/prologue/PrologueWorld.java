@@ -1,15 +1,21 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
+import com.google.gson.JsonParser;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTheme;
+import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
+import com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials;
+import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
+import com.p1nero.misc.custom_instances.instance.InstanceDefinition;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import com.p1nero.misc.custom_instances.storage.DefinitionStore;
 import com.p1nero.misc.simple_player_data_manager.api.BoolData;
 import com.p1nero.misc.simple_player_data_manager.api.PlayerDataRegister;
 import com.p1nero.misc.simple_player_data_manager.api.SyncMode;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -21,6 +27,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -55,7 +62,7 @@ public final class PrologueWorld {
     public static boolean blocksAmbientSpawns(Level level) {
         return GYMS.equals(level.dimension()) || level instanceof ServerLevel serverLevel
                 && InstanceManager.isInstanceDimension(level.dimension()) && (PrologueTraining.isTrainingLevel(serverLevel)
-                    || com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.isArena(serverLevel));
+                    || ArenaMatch.isArena(serverLevel));
     }
 
     @SubscribeEvent
@@ -92,16 +99,16 @@ public final class PrologueWorld {
                     if (!definition.chunkSource().equals(chunks)) store.save(definition.withChunkSource(chunks));
                 }
             }
-            String megaTable = com.p1nero.cobblemon.rumblecore.gym.MegaTrials.TABLE;
+            String megaTable = MegaTrials.TABLE;
             Path table = FMLPaths.CONFIGDIR.get().resolve(megaTable);
             install("/defaults/" + megaTable, table);
-            com.p1nero.cobblemon.rumblecore.gym.MegaTrials.install(table);
+            MegaTrials.install(table);
             var arena = readDefinition(definitions.resolve(ArenaMatch.TEMPLATE + ".json"));
             var champion = readDefinition(definitions.resolve(ChampionStory.TEMPLATE + ".json"));
             var championChunks = ArenaTheme.SKY.available().chunks();
             if (!champion.chunkSource().equals(championChunks)) store.save(champion.withChunkSource(championChunks));
-            com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials.install(store, arena);
-            com.p1nero.cobblemon.rumblecore.gym.CinemaTrials.install(store, arena);
+            LegendaryTrials.install(store, arena);
+            CinemaTrials.install(store, arena);
 
             Path templates = DefinitionStore.configRoot().resolve("region");
             requireTemplate(templates.resolve("prologue_plaza"));
@@ -115,9 +122,9 @@ public final class PrologueWorld {
         }
     }
 
-    private static com.p1nero.misc.custom_instances.instance.InstanceDefinition readDefinition(Path file) throws IOException {
+    private static InstanceDefinition readDefinition(Path file) throws IOException {
         try (var reader = Files.newBufferedReader(file)) {
-            return DefinitionStore.fromJson(com.google.gson.JsonParser.parseReader(reader).getAsJsonObject());
+            return DefinitionStore.fromJson(JsonParser.parseReader(reader).getAsJsonObject());
         }
     }
 
@@ -140,7 +147,7 @@ public final class PrologueWorld {
         }
     }
 
-    private static void install(java.io.InputStream input, Path dest) throws IOException {
+    private static void install(InputStream input, Path dest) throws IOException {
         Files.createDirectories(dest.getParent());
         Path tmp = Files.createTempFile(dest.getParent(), ".rumble-", ".tmp");
         try {
@@ -159,7 +166,7 @@ public final class PrologueWorld {
         var storage = server.getCommandStorage();
         var defaults = storage.get(defaultsId).copy();
         if (!defaults.getBoolean("keep_inventory_initialized")) {
-            server.getGameRules().getRule(net.minecraft.world.level.GameRules.RULE_KEEPINVENTORY).set(true, server);
+            server.getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).set(true, server);
             defaults.putBoolean("keep_inventory_initialized", true);
             storage.set(defaultsId, defaults);
         }

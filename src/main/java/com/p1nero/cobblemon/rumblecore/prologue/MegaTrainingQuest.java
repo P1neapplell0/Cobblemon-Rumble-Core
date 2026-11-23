@@ -13,7 +13,9 @@ import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import com.p1nero.misc.custom_instances.api.InstanceEvent;
 import java.util.List;
 import java.util.UUID;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Items;
@@ -25,11 +27,14 @@ import org.arcadia.arc_quest.dialogue.api.DialogueContext;
 import org.arcadia.arc_quest.dialogue.api.DialogueText;
 import org.arcadia.arc_quest.dialogue.builder.DialogueTreeBuilder;
 import org.arcadia.arc_quest.dialogue.runtime.DialogueSessionManager;
+import org.arcadia.arc_quest.quest.api.QuestCategory;
+import org.arcadia.arc_quest.quest.api.QuestCompletionPolicy;
 import org.arcadia.arc_quest.quest.api.QuestText;
 import org.arcadia.arc_quest.quest.builder.ObjectiveBuilder;
 import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
 import org.arcadia.arc_quest.quest.builder.QuestBuilder;
 import org.arcadia.arc_quest.quest.logic.QuestProgressHandler;
+import org.arcadia.arc_quest.quest.reward.ItemReward;
 import org.arcadia.arc_quest.questmarker.api.MarkSpec;
 import org.arcadia.arc_quest.questmarker.api.MarkableObject;
 
@@ -38,7 +43,7 @@ public final class MegaTrainingQuest {
     private static final String KEY = "rumble.mega.training.";
     private static final String CRAFT = "craft_device", TRIAL = "clear_simulation", LESSON = "battle_may", FAREWELL = "farewell";
     public static final String TREE = PrologueWorld.id("story/mega_training").toString();
-    private static final net.minecraft.resources.ResourceLocation ID = PrologueWorld.id("mega_training");
+    private static final ResourceLocation ID = PrologueWorld.id("mega_training");
     private static final int REWARD = 20_000;
     private static final GymCatalog.Actor MAY = new GymCatalog.Actor("may", MegaIntroduction.MAY_POS, GymTeamPokemon::may);
 
@@ -51,14 +56,14 @@ public final class MegaTrainingQuest {
                 new MarkableObject.DimensionPos(PrologueWorld.GYMS, pos.getX(), pos.getY() + 1, pos.getZ()));
         var actor = MarkSpec.translated("mega_may", MegaIntroduction.NAME,
                 new MarkableObject.DimensionPos(PrologueWorld.GYMS, may.getX(), may.getY() + 2, may.getZ()));
-        event.register(SquadQuest.sound(QuestBuilder.create(ID)).category(org.arcadia.arc_quest.quest.api.QuestCategory.ADVENTURE)
+        event.register(SquadQuest.sound(QuestBuilder.create(ID)).category(QuestCategory.ADVENTURE)
                 .sortOrder(3).themeColor(SquadQuest.SIDE_THEME).icon(Items.AMETHYST_SHARD).cannotAbandon().canBeAutoTrack(false)
                 .requiresQuest(GymStory.thirdGymQuest()).displayName(QuestText.translatable(KEY + "title"))
                 .description(QuestText.translatable(KEY + "description"))
-                .completionPolicy(org.arcadia.arc_quest.quest.api.QuestCompletionPolicy.SPECIFIC_PHASE).completionTargetPhase(FAREWELL)
+                .completionPolicy(QuestCompletionPolicy.SPECIFIC_PHASE).completionTargetPhase(FAREWELL)
                 .phase(phase(CRAFT).thenGoTo(TRIAL)).phase(phase(TRIAL).trackingMarker(terminal).thenGoTo(LESSON))
                 .phase(phase(LESSON).trackingMarker(actor).thenGoTo(FAREWELL)).phase(phase(FAREWELL).trackingMarker(actor))
-                .reward(new CobbleDollarReward(REWARD)).reward(new org.arcadia.arc_quest.quest.reward.ItemReward(MayMegaDevice.ITEM.get(), 1)).build());
+                .reward(new CobbleDollarReward(REWARD)).reward(new ItemReward(MayMegaDevice.ITEM.get(), 1)).build());
         event.assignQuestToGroup(ID, PrologueWorld.id("adventure_quests"));
     }
 
@@ -132,7 +137,7 @@ public final class MegaTrainingQuest {
         if (!(event.getEntity() instanceof ServerPlayer player) || !active(player, CRAFT) || !MegaCombat.isDevice(event.getCrafting())) return;
         var matrix = event.getInventory();
         for (int i = 0; i < matrix.getContainerSize(); i++) {
-            if (net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(matrix.getItem(i).getItem()).toString().equals(MegaIntroduction.KEYSTONE)) {
+            if (BuiltInRegistries.ITEM.getKey(matrix.getItem(i).getItem()).toString().equals(MegaIntroduction.KEYSTONE)) {
                 advance(player, CRAFT);
                 return;
             }

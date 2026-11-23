@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -21,12 +22,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.common.Tags;
 
 /** Legacy CobbleDollars item/price rows, with the professor's retail catalogue applied last. */
 public final class RecyclingCatalogue {
     private static final String CONFIG = "cobblemon_rumble_core/recycling.json";
 
-    private static final java.util.Set<String> EXCLUDED = java.util.Set.of(
+    private static final Set<String> EXCLUDED = Set.of(
             "cobblemon:ability_patch",
             "cobblemon:ancient_origin_ball",
             "cobblemon:master_ball",
@@ -96,8 +98,8 @@ public final class RecyclingCatalogue {
             }
         }
         prices.keySet().removeIf(item -> EXCLUDED.contains(BuiltInRegistries.ITEM.getKey(item).toString())
-                || BuiltInRegistries.ITEM.wrapAsHolder(item).is(net.neoforged.neoforge.common.Tags.Items.ORES)
-                || BuiltInRegistries.ITEM.wrapAsHolder(item).is(net.neoforged.neoforge.common.Tags.Items.RAW_MATERIALS));
+                || BuiltInRegistries.ITEM.wrapAsHolder(item).is(Tags.Items.ORES)
+                || BuiltInRegistries.ITEM.wrapAsHolder(item).is(Tags.Items.RAW_MATERIALS));
         Map<Offer, List<DataComponentType<?>>> offers = new LinkedHashMap<>();
         prices.forEach((item, price) -> offers.put(new Offer(new ItemStack(item), price, -1), List.of()));
         return new Bank(offers);

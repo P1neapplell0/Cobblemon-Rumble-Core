@@ -5,11 +5,12 @@ import fr.harmex.cobbledollars.common.api.shop.Offer;
 import fr.harmex.cobbledollars.common.api.shop.Shop;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -133,7 +134,7 @@ public final class WanderingCatalogue {
     }
 
     private static List<PricedItem> variants(String suffix, int price, String... variants) {
-        return java.util.Arrays.stream(variants).map(s -> item("horizoncobblemonitems:" + s + suffix, price)).toList();
+        return Arrays.stream(variants).map(s -> item("horizoncobblemonitems:" + s + suffix, price)).toList();
     }
 
     private static List<PricedItem> randomHoverboardPool() {

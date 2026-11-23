@@ -1,7 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.combat.arena.frontier;
 
-import com.johnn.realtimecobblemon.SmashConfig;
 import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.johnn.realtimecobblemon.SmashConfig;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.client.combat.FrontierScreen;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
@@ -13,23 +13,26 @@ import fr.harmex.cobbledollars.common.utils.extensions.PlayerExtensionKt;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.function.Consumer;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.Commands;
+import net.minecraft.commands.arguments.UuidArgument;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ClickEvent;
-import net.minecraft.commands.Commands;
-import net.minecraft.commands.arguments.UuidArgument;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -38,10 +41,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.server.ServerStoppingEvent;
-import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -300,7 +303,7 @@ public final class FrontierRooms {
             else if ("start".equals(action) && seat == room.host && room.seats.size() >= 3
                     && room.seats.values().stream().allMatch(s -> s.ready && eligibleOnline(player.server, s.id))) {
                 var order = new ArrayList<>(room.seats.keySet());
-                java.util.Collections.shuffle(order);
+                Collections.shuffle(order);
                 room.bracket = new FrontierBracket(order, player.server.getTickCount());
                 room.seats.values().forEach(s -> s.ready = false);
                 broadcast(player.server, room, true, null);
@@ -412,7 +415,7 @@ public final class FrontierRooms {
         COOLDOWNS.put(key, now + 1200);
         target.sendSystemMessage(Component.translatable("rumble.frontier.invited_chat", player.getDisplayName(), room.stake)
                 .append(" ").append(Component.translatable("rumble.frontier.accept_invite").withStyle(style -> style
-                        .withColor(net.minecraft.ChatFormatting.GOLD).withUnderlined(true)
+                        .withColor(ChatFormatting.GOLD).withUnderlined(true)
                         .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/rumble_frontier_accept " + room.id)))));
         broadcast(player.server, room);
     }
@@ -582,7 +585,7 @@ public final class FrontierRooms {
         var room = MEMBERS.get(player.getUUID());
         if (room == null) {
             var available = new ListTag();
-            for (var entry : ROOMS.values().stream().sorted(java.util.Comparator.comparing(Room::multi)).toList()) {
+            for (var entry : ROOMS.values().stream().sorted(Comparator.comparing(Room::multi)).toList()) {
                 if (entry.bracket != null || entry.starting || entry.expires <= player.server.getTickCount()) continue;
                 var row = new CompoundTag();
                 row.putUUID("room", entry.id);

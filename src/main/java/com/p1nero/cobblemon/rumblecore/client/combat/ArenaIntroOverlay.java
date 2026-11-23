@@ -9,17 +9,21 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.logging.LogUtils;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
-import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.ReceivingLevelScreen;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.RemotePlayer;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -178,7 +182,7 @@ public final class ArenaIntroOverlay {
     private static void backdrop(GuiGraphics graphics, ArenaIntro.Portrait portrait, int width, int height,
                                  boolean right, float entrance) {
         var font = Minecraft.getInstance().font;
-        var text = portrait.name().copy().withStyle(net.minecraft.ChatFormatting.BOLD, net.minecraft.ChatFormatting.ITALIC);
+        var text = portrait.name().copy().withStyle(ChatFormatting.BOLD, ChatFormatting.ITALIC);
         float scale = Math.min(height / 30f, width * .51f / Math.max(1, font.width(text)));
         int x = (int) (width * (right ? .75f : .25f) + (1 - entrance) * width * (right ? .23f : -.23f));
         graphics.enableScissor(right ? width / 2 : 0, 0, right ? width : width / 2, height);
@@ -195,7 +199,7 @@ public final class ArenaIntroOverlay {
         label(graphics, text, x, y, 1, 0xffffe5a9, false);
     }
 
-    private static void drawLineup(GuiGraphics graphics, LivingEntity lead, java.util.List<LivingEntity> support,
+    private static void drawLineup(GuiGraphics graphics, LivingEntity lead, List<LivingEntity> support,
                                    int minX, int maxX, int height, float entrance, float exit, long elapsed, int direction) {
         if (support.isEmpty()) {
             drawModel(graphics, lead, minX, maxX, height, 1, entrance, exit, elapsed, direction);
@@ -257,7 +261,7 @@ public final class ArenaIntroOverlay {
         return Math.round(width * (.5f - (row / height - .5f) * .17f));
     }
 
-    private static void drawFrontier(GuiGraphics g, TrialPortraits faces, java.util.List<ArenaIntro.Portrait> picks,
+    private static void drawFrontier(GuiGraphics g, TrialPortraits faces, List<ArenaIntro.Portrait> picks,
                                      int width, int height, float entrance, float exit, long elapsed, int direction) {
         if (entrance <= 0) return;
         boolean left = direction > 0;
@@ -288,14 +292,14 @@ public final class ArenaIntroOverlay {
             int textArea = columnWidth - size - 24;
             int textX = left ? faceX + size + textArea / 2 : faceX - textArea / 2;
             float scale = Math.clamp(rowH / 19f, 1.2f, 3.75f);
-            label(g, Component.literal((i + 1) + "P").withStyle(net.minecraft.ChatFormatting.BOLD), textX, y + rowH * .38f, scale, accent, true);
+            label(g, Component.literal((i + 1) + "P").withStyle(ChatFormatting.BOLD), textX, y + rowH * .38f, scale, accent, true);
             if (pick != null) FrontierConsole.center(g, font, pick.name(), textX, y + rowH * 3 / 4 - 3, textArea - 5, 0xfff2f8fd);
         }
     }
 
     /** A screen-local model cache; only draft Pokémon get their own display entity. */
     static final class TeamModels {
-        private final java.util.Map<ResourceLocation, LivingEntity> models = new java.util.HashMap<>();
+        private final Map<ResourceLocation, LivingEntity> models = new HashMap<>();
         private ClientLevel level;
 
         void draw(GuiGraphics g, ResourceLocation species, int x, int y, int w, int h, boolean left) {
@@ -306,7 +310,7 @@ public final class ArenaIntroOverlay {
                 models.clear();
             }
             if (level == null) return;
-            var model = models.computeIfAbsent(species, id -> create(ArenaIntro.Portrait.pokemon(id, Component.empty(), java.util.List.of()), level));
+            var model = models.computeIfAbsent(species, id -> create(ArenaIntro.Portrait.pokemon(id, Component.empty(), List.of()), level));
             if (model == null) return;
             float scale = Math.min((h - 3) * .77f / Math.max(.5f, model.getBbHeight()), (w - 2) * .72f / Math.max(.55f, model.getBbWidth()));
             int facing = left ? 1 : -1;
@@ -367,7 +371,7 @@ public final class ArenaIntroOverlay {
         graphics.pose().pushPose();
         graphics.pose().translate(x, y - 4 * scale, 0);
         graphics.pose().scale(scale, scale, 1);
-        var display = italic ? text.copy().withStyle(net.minecraft.ChatFormatting.BOLD, net.minecraft.ChatFormatting.ITALIC) : text;
+        var display = italic ? text.copy().withStyle(ChatFormatting.BOLD, ChatFormatting.ITALIC) : text;
         graphics.drawString(font, display, -font.width(display) / 2, 0, color, false);
         graphics.pose().popPose();
     }
@@ -416,8 +420,8 @@ public final class ArenaIntroOverlay {
         long readyAt, finishAt;
         ClientLevel level;
         LivingEntity left, right;
-        java.util.List<LivingEntity> leftSupport = java.util.List.of();
-        java.util.List<LivingEntity> rightSupport = java.util.List.of();
+        List<LivingEntity> leftSupport = List.of();
+        List<LivingEntity> rightSupport = List.of();
         final TrialPortraits faces = new TrialPortraits();
         boolean cried, faceOffSound, fightSound;
 

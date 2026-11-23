@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.minecraft;
 
+import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient;
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class PrologueVanillaKeys {
     @Inject(method = "handleKeybinds", at = @At("HEAD"))
     private void rumble$blockInventoryDuringRealtimeCombat(CallbackInfo ci) {
-        if (!com.johnn.realtimecobblemon.client.ClientSmash.active()) return;
+        if (!ClientSmash.active()) return;
         var inventory = Minecraft.getInstance().options.keyInventory;
         while (inventory.consumeClick()) { }
         inventory.setDown(false);

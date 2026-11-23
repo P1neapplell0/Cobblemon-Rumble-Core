@@ -9,6 +9,7 @@ import com.cobblemon.mod.common.pokemon.Species;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -121,7 +122,7 @@ public final class FrontierRoster {
 
     static List<Pokemon> snapshotParty(ServerPlayer player) {
         return Cobblemon.INSTANCE.getStorage().getParty(player).toGappyList().stream()
-                .filter(java.util.Objects::nonNull).limit(TEAM_SIZE)
+                .filter(Objects::nonNull).limit(TEAM_SIZE)
                 .map(pokemon -> pokemon.clone(true, player.registryAccess())).toList();
     }
 

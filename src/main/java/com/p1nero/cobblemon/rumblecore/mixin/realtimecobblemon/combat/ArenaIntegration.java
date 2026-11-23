@@ -1,48 +1,56 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
-import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
-import com.johnn.realtimecobblemon.moves.Brawl;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import java.util.UUID;
+import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.johnn.realtimecobblemon.MegaEvo;
 import com.johnn.realtimecobblemon.MoveCombat;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.duel.Duels;
-import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.johnn.realtimecobblemon.moves.Brawl;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaDefense;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
+import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 final class ArenaIntegration {
-    @Mixin(value = com.johnn.realtimecobblemon.MegaEvo.class, remap = false)
+    @Mixin(value = MegaEvo.class, remap = false)
     static abstract class Mega {
         @Inject(method = "begin", at = @At("RETURN"))
         private static void rumble$protectMegaCast(ServerPlayer player, Smash.Session session, String choice, CallbackInfo ci) {
-            com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection.beginMega(session.pokemon);
+            RealtimeProtection.beginMega(session.pokemon);
         }
 
         @Inject(method = {"onSmashEnd", "forceEvolve"}, at = @At("HEAD"), require = 1)
         private static void rumble$endMegaCast(ServerPlayer player, CallbackInfo ci) {
             var session = Smash.session(player);
-            if (session != null) com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection.endMega(session.pokemon);
+            if (session != null) RealtimeProtection.endMega(session.pokemon);
         }
 
         @Inject(method = "onKey", at = @At("HEAD"), cancellable = true)
@@ -85,7 +93,7 @@ final class ArenaIntegration {
 
         @Inject(method = "onPlayerTick", at = @At(value = "INVOKE", target =
                 "Lcom/cobblemon/mod/common/pokemon/Pokemon;isFainted()Z"), cancellable = true)
-        private static void rumble$holdFaintedCamera(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event,
+        private static void rumble$holdFaintedCamera(PlayerTickEvent.Post event,
                                                      CallbackInfo ci, @Local Smash.Session session) {
             if (session.pokemon.getPokemon().isFainted() && ArenaMatch.keepKnockoutBody(session)) ci.cancel();
         }
@@ -99,9 +107,9 @@ final class ArenaIntegration {
 
         @WrapOperation(method = "hurtPokemon", at = @At(value = "INVOKE", target =
                 "Lcom/cobblemon/mod/common/entity/pokemon/PokemonEntity;recallWithAnimation()Ljava/util/concurrent/CompletableFuture;"))
-        private static java.util.concurrent.CompletableFuture<?> rumble$keepKoBody(PokemonEntity pokemon,
-                Operation<java.util.concurrent.CompletableFuture<?>> original, @Local(argsOnly = true) Smash.Session session) {
-            return ArenaMatch.keepKnockoutBody(session) ? java.util.concurrent.CompletableFuture.completedFuture(null) : original.call(pokemon);
+        private static CompletableFuture<?> rumble$keepKoBody(PokemonEntity pokemon,
+                Operation<CompletableFuture<?>> original, @Local(argsOnly = true) Smash.Session session) {
+            return ArenaMatch.keepKnockoutBody(session) ? CompletableFuture.completedFuture(null) : original.call(pokemon);
         }
 
         @Inject(method = "start", at = @At(value = "INVOKE", target =
@@ -149,10 +157,10 @@ final class ArenaIntegration {
 
     @Mixin(value = Brawl.class, remap = false)
     static abstract class TrainerAI {
-        @org.spongepowered.asm.mixin.injection.ModifyConstant(method = "decide",
-                constant = @org.spongepowered.asm.mixin.injection.Constant(floatValue = .55f))
+        @ModifyConstant(method = "decide",
+                constant = @Constant(floatValue = .55f))
         private static float rumble$prioritizeArenaMoves(float jabChance,
-                @org.spongepowered.asm.mixin.injection.Coerce Object foe, Smash.Session target,
+                @Coerce Object foe, Smash.Session target,
                 ServerLevel level, double distance, long now) {
             return ArenaMatch.inArena(target.player) == null ? jabChance : .14f;
         }
@@ -175,10 +183,10 @@ final class ArenaIntegration {
 
         @Inject(method = "tick", at = @At(value = "INVOKE", target =
                 "Lcom/johnn/realtimecobblemon/moves/Brawl;walk(Lcom/johnn/realtimecobblemon/moves/Brawl$Foe;Lcom/johnn/realtimecobblemon/Smash$Session;DJ)V"), cancellable = true)
-        private static void rumble$anticipateCast(@org.spongepowered.asm.mixin.injection.Coerce Object foe,
+        private static void rumble$anticipateCast(@Coerce Object foe,
                 Smash.Session attacker, CallbackInfo ci, @Local PokemonEntity pokemon,
-                @Local net.minecraft.server.level.ServerLevel level) {
-            if (com.p1nero.cobblemon.rumblecore.combat.arena.ArenaDefense.react(pokemon, attacker, level)) ci.cancel();
+                @Local ServerLevel level) {
+            if (ArenaDefense.react(pokemon, attacker, level)) ci.cancel();
         }
 
         @Inject(method = "parries", at = @At("HEAD"), cancellable = true)

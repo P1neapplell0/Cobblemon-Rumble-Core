@@ -1,9 +1,10 @@
 package com.p1nero.cobblemon.rumblecore.phone;
 
-import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
-import com.p1nero.cobblemon.rumblecore.prologue.TrialWaystones;
 import com.nbp.cobblemon_smartphone.item.SmartphoneItem;
 import com.nbp.cobblemon_smartphone.util.SmartphoneHelper;
+import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.prologue.PersonalDimension;
+import com.p1nero.cobblemon.rumblecore.prologue.TrialWaystones;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -87,7 +88,7 @@ public final class PhoneState {
 
     public static void sync(ServerPlayer player) {
         int mask = (TrialWaystones.travelUnlocked(player) ? TrialWaystones.STORY_TRAVEL_BIT : 0)
-                | com.p1nero.cobblemon.rumblecore.prologue.PersonalDimension.travelBits(player);
+                | PersonalDimension.travelBits(player);
         for (PhoneApp app : PhoneApp.values()) if (unlocked(player, app)) mask |= app.bit();
         PacketDistributor.sendToPlayer(player, new PhoneSync(mask));
     }

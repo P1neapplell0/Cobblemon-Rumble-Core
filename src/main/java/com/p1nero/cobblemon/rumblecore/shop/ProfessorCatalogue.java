@@ -1,14 +1,17 @@
 package com.p1nero.cobblemon.rumblecore.shop;
 
+import com.cobblemon.mod.common.item.berry.BerryItem;
+import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
 import fr.harmex.cobbledollars.common.api.shop.Category;
 import fr.harmex.cobbledollars.common.api.shop.Offer;
 import fr.harmex.cobbledollars.common.api.shop.Shop;
-import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 
 public final class ProfessorCatalogue {
@@ -65,8 +68,8 @@ public final class ProfessorCatalogue {
         var berries = new ArrayList<Offer>();
         BuiltInRegistries.ITEM.entrySet().stream()
                 .filter(entry -> entry.getKey().location().getNamespace().equals("cobblemon"))
-                .filter(entry -> entry.getValue() instanceof com.cobblemon.mod.common.item.berry.BerryItem)
-                .sorted(java.util.Comparator.comparing(entry -> entry.getKey().location()))
+                .filter(entry -> entry.getValue() instanceof BerryItem)
+                .sorted(Comparator.comparing(entry -> entry.getKey().location()))
                 .forEach(entry -> berries.add(new Offer(new ItemStack(entry.getValue()), BigInteger.valueOf(1800), -1)));
         if (!berries.isEmpty()) shop.add(new Category(CATEGORY + "berries", berries));
         add(shop, "farming", 350, "coarse_mulch", "growth_mulch", "humid_mulch", "loamy_mulch", "peat_mulch", "rich_mulch", "sandy_mulch", "surprise_mulch",
@@ -81,7 +84,7 @@ public final class ProfessorCatalogue {
                 "waystones:mud_bricks_waystone", "waystones:prismarine_waystone", "waystones:purpur_waystone",
                 "waystones:red_nether_bricks_waystone");
         List<Offer> phones = new ArrayList<>();
-        for (var color : net.minecraft.world.item.DyeColor.values()) {
+        for (var color : DyeColor.values()) {
             phone(phones, color.getName() + "_smartphone");
         }
         phone(phones, "smartphone");

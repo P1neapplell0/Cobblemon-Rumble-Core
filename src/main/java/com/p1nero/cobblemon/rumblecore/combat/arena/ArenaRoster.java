@@ -3,6 +3,8 @@ package com.p1nero.cobblemon.rumblecore.combat.arena;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import java.util.List;
+import java.util.Map;
+import java.util.function.IntFunction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -15,6 +17,23 @@ public final class ArenaRoster {
             Stats.SPECIAL_ATTACK, Stats.SPECIAL_DEFENCE, Stats.SPEED);
 
     private ArenaRoster() {}
+
+    static String snapshot(String playerName, Map<Integer, CompoundTag> startingTeam,
+                           IntFunction<CompoundTag> deploymentForSlot) {
+        var roster = new ListTag();
+        startingTeam.forEach((slot, starting) -> {
+            var entry = starting.copy();
+            var deployment = deploymentForSlot.apply(slot);
+            entry.putBoolean("used", deployment != null);
+            if (deployment != null) entry.put("battle", deployment);
+            roster.add(entry);
+        });
+        var details = new CompoundTag();
+        details.putString("kind", KIND);
+        details.putString("player", playerName);
+        details.put("roster", roster);
+        return details.toString();
+    }
 
     static CompoundTag pokemon(Pokemon pokemon) {
         var entry = new CompoundTag();

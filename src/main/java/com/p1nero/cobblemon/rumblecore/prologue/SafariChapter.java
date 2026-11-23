@@ -3,16 +3,17 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 import com.cobblemon.mod.common.api.moves.Moves;
 import com.cobblemon.mod.common.item.components.TMMoveComponent;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
-import maxigregrze.cobblesafari.config.SafariTimerConfig;
-import maxigregrze.cobblesafari.network.ModNetworking;
 import com.p1nero.cobblemon.rumblecore.mixin.cobblesafari.SafariTeleporterAccess;
-import maxigregrze.cobblesafari.teleporter.TeleporterTickHandler;
+import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import java.util.Map;
 import java.util.WeakHashMap;
+import java.util.function.Consumer;
+import maxigregrze.cobblesafari.config.SafariTimerConfig;
+import maxigregrze.cobblesafari.network.ModNetworking;
+import maxigregrze.cobblesafari.teleporter.TeleporterTickHandler;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,6 +27,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.arcadia.arc_quest.api.event.registry.ArcQuestRegistrationEvent;
 import org.arcadia.arc_quest.dialogue.api.DialogueText;
 import org.arcadia.arc_quest.dialogue.builder.DialogueTreeBuilder;
+import org.arcadia.arc_quest.dialogue.runtime.DialogueSessionManager;
 import org.arcadia.arc_quest.quest.api.QuestCategory;
 import org.arcadia.arc_quest.quest.api.QuestCompletionPolicy;
 import org.arcadia.arc_quest.quest.api.QuestText;
@@ -33,6 +35,7 @@ import org.arcadia.arc_quest.quest.builder.ObjectiveBuilder;
 import org.arcadia.arc_quest.quest.builder.PhaseBuilder;
 import org.arcadia.arc_quest.quest.builder.QuestBuilder;
 import org.arcadia.arc_quest.quest.logic.QuestProgressHandler;
+import org.arcadia.arc_quest.quest.network.QuestSyncCoordinator;
 import org.arcadia.arc_quest.quest.reward.ItemReward;
 import org.arcadia.arc_quest.questmarker.api.MarkSpec;
 import org.arcadia.arc_quest.questmarker.api.MarkableObject;
@@ -80,7 +83,7 @@ public final class SafariChapter {
         return TMMoveComponent.Companion.createStack(Moves.INSTANCE.getByNameOrDummy("icebeam"));
     }
 
-    public static void iceGift(DialogueTreeBuilder tree, String id, java.util.function.Consumer<ServerPlayer> finish) {
+    public static void iceGift(DialogueTreeBuilder tree, String id, Consumer<ServerPlayer> finish) {
         line(tree, id, "stop", "reassure", 1450);
         line(tree, id, "reassure", "praise", 3000);
         line(tree, id, "praise", "offer", 2250);
@@ -140,7 +143,7 @@ public final class SafariChapter {
     }
 
     private static boolean mayUseTerminal(ServerPlayer p) {
-        return unlocked(p) && MegaSimulator.atTerminal(p) && com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.available(p);
+        return unlocked(p) && MegaSimulator.atTerminal(p) && ArenaMatch.available(p);
     }
 
     private static ResourceKey<Level> dimension() {
@@ -150,11 +153,11 @@ public final class SafariChapter {
     @SubscribeEvent
     public static void tick(PlayerTickEvent.Post e) {
         if (!(e.getEntity() instanceof ServerPlayer p)) return;
-        if (active(p) && p.tickCount % 20 == 0 && !org.arcadia.arc_quest.dialogue.runtime.DialogueSessionManager.INSTANCE.isInDialogue(p)) {
+        if (active(p) && p.tickCount % 20 == 0 && !DialogueSessionManager.INSTANCE.isInDialogue(p)) {
             var data = ArcQuestPlayerManager.getOrCreate(p);
             if (!data.hasFlag(SMS)) {
                 data.setFlag(SMS);
-                org.arcadia.arc_quest.quest.network.QuestSyncCoordinator.persistAndSyncIfChanged(p, data);
+                QuestSyncCoordinator.persistAndSyncIfChanged(p, data);
                 if (ModList.get().isLoaded("mine_chat")) ProfessorStockMessage.sendSafari(p);
             }
         }

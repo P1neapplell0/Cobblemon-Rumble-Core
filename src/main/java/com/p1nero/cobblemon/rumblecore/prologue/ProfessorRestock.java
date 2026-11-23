@@ -1,14 +1,13 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
-import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
-import net.minecraft.world.item.ItemStack;
-
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.gym.GymTeamPokemon;
-import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
+import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -18,6 +17,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -161,7 +162,7 @@ public final class ProfessorRestock {
         tree.node("ball_received").say(RewardNotice.items(new ItemStack(item("ancient_origin_ball"))), TREE + "/ball_received")
                 .delay(1900).autoNext("tools");
         beat(tree, "tools", null, "tools_received", 3000);
-        tree.node("tools_received").say(RewardNotice.items(java.util.Arrays.stream(POWERS).map(power -> new ItemStack(item(power)))
+        tree.node("tools_received").say(RewardNotice.items(Arrays.stream(POWERS).map(power -> new ItemStack(item(power)))
                 .toArray(ItemStack[]::new)), TREE + "/tools_received").choice("take", text("take"), c -> c
                 .addEvents((p, npc) -> {
                     if (PrologueStory.atDialogueProfessor(p) && inPhase(p, RETURN)) advance(p, RETURN);
@@ -203,7 +204,7 @@ public final class ProfessorRestock {
         QuestProgressHandler.incrementObjective(player, ID.toString(), phase, 0, 1);
     }
 
-    private static net.minecraft.world.item.Item item(String path) {
+    private static Item item(String path) {
         return BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("cobblemon", path));
     }
 

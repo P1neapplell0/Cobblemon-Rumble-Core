@@ -1,12 +1,13 @@
 package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.cobblemon.mod.common.Cobblemon;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.client.combat.HallOfFameScreen;
 import com.p1nero.cobblemon.rumblecore.prologue.ChampionStory;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
-import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import com.p1nero.misc.custom_instances.client.screen.information.InstanceInformationScreen;
+import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -79,7 +80,7 @@ public final class HallOfFame {
             String raw = record.playerDetails().get(player.getUUID());
             if (raw != null) {
                 try { details = TagParser.parseTag(raw); }
-                catch (com.mojang.brigadier.exceptions.CommandSyntaxException ignored) { }
+                catch (CommandSyntaxException ignored) { }
             }
         }
         var token = UUID.randomUUID();

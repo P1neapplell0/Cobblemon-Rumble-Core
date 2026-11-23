@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import org.arcadia.arc_quest.api.ArcQuestAPI;
 import org.arcadia.arc_quest.api.event.quest.QuestPhaseCompletedEvent;
 import org.arcadia.arc_quest.api.event.quest.QuestProgressChangedEvent;
 import org.arcadia.arc_quest.quest.service.TrackedQuestService;
@@ -26,7 +27,7 @@ public final class QuestProgressTracking {
     }
 
     private static void track(ServerPlayer player, ResourceLocation quest) {
-        var definition = org.arcadia.arc_quest.api.ArcQuestAPI.getQuest(quest);
+        var definition = ArcQuestAPI.getQuest(quest);
         if (definition == null || !definition.canBeAutoTrack()) return;
         var data = ArcQuestPlayerManager.get(player);
         String questId = quest.toString();

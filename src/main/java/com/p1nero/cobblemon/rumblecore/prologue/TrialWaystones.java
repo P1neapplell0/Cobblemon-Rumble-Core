@@ -3,13 +3,14 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 import com.cobblemon.mod.common.battles.BattleRegistry;
 import com.johnn.realtimecobblemon.Smash;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
-import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog.Gym;
+import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneState;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import net.blay09.mods.balm.api.Balm;
@@ -17,11 +18,11 @@ import net.blay09.mods.waystones.api.EntityTeleportResult;
 import net.blay09.mods.waystones.api.MutableWaystone;
 import net.blay09.mods.waystones.api.Waystone;
 import net.blay09.mods.waystones.api.WaystoneOrigin;
-import net.blay09.mods.waystones.api.WaystonesAPI;
 import net.blay09.mods.waystones.api.WaystoneTypes;
+import net.blay09.mods.waystones.api.WaystonesAPI;
 import net.blay09.mods.waystones.api.error.WaystoneTeleportError;
-import net.blay09.mods.waystones.api.event.WaystoneTeleportEntityEvent;
 import net.blay09.mods.waystones.api.event.WaystoneInitializedEvent;
+import net.blay09.mods.waystones.api.event.WaystoneTeleportEntityEvent;
 import net.blay09.mods.waystones.block.ModBlocks;
 import net.blay09.mods.waystones.block.WaystoneBlockBase;
 import net.blay09.mods.waystones.block.entity.WaystoneBlockEntityBase;
@@ -33,9 +34,10 @@ import net.blay09.mods.waystones.menu.WaystoneSelectionMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -46,8 +48,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -137,7 +139,7 @@ public final class TrialWaystones {
         boolean changed = false;
         var bases = PlayerWaystoneManager.getActivatedWaystones(player).stream()
                 .filter(stone -> stone.getDimension().equals(PrologueWorld.GYMS))
-                .map(stone -> fixedBase(stone.getPos())).filter(java.util.Objects::nonNull).distinct().toList();
+                .map(stone -> fixedBase(stone.getPos())).filter(Objects::nonNull).distinct().toList();
         for (var base : bases) {
             var records = storedStones(hall, base);
             if (records.size() < 2) continue;
@@ -225,7 +227,7 @@ public final class TrialWaystones {
         if (event.getEntity() instanceof ServerPlayer player) {
             if (player.isCreative()) return;
             // Placement restores the held stack after the canceled event returns.
-            player.server.tell(new net.minecraft.server.TickTask(player.server.getTickCount(), player.containerMenu::broadcastFullState));
+            player.server.tell(new TickTask(player.server.getTickCount(), player.containerMenu::broadcastFullState));
         }
         event.setCanceled(true);
     }

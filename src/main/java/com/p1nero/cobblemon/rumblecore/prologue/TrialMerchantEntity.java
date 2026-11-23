@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.shop.WanderingCatalogue;
 import fr.harmex.cobbledollars.common.api.bank.Bank;
+import fr.harmex.cobbledollars.common.world.inventory.ShopMenu;
 import fr.harmex.cobbledollars.common.world.item.trading.CobbleDollarsShopHolder;
 import java.util.HashSet;
 import java.util.Map;
@@ -10,6 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -17,17 +20,15 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import fr.harmex.cobbledollars.common.world.inventory.ShopMenu;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class TrialMerchantEntity extends WanderingTrader implements CobbleDollarsShopHolder {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, CobblemonRumbleCore.MOD_ID);
-    public static final net.neoforged.neoforge.registries.DeferredHolder<EntityType<?>, EntityType<TrialMerchantEntity>> TYPE =
+    public static final DeferredHolder<EntityType<?>, EntityType<TrialMerchantEntity>> TYPE =
             TYPES.register("trial_merchant", () -> EntityType.Builder.of(TrialMerchantEntity::new, MobCategory.MISC)
                     .sized(.6F, 1.95F).clientTrackingRange(8).updateInterval(2).build("cobblemon_rumble_core:trial_merchant"));
     private long shopDay = Long.MIN_VALUE;

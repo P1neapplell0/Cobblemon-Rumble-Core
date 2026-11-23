@@ -2,18 +2,20 @@ package com.p1nero.cobblemon.rumblecore.compat.legendarymonuments.localization;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 
 /** Adapts Legendary Monuments' hard-coded English at its call sites, before serialization. */
 public final class MonumentText {
@@ -31,13 +33,13 @@ public final class MonumentText {
                     if (parts.length == 1) {
                         keys.putIfAbsent(english, key);
                     } else {
-                        String regex = String.join("(.+?)", java.util.Arrays.stream(parts).map(Pattern::quote).toList());
+                        String regex = String.join("(.+?)", Arrays.stream(parts).map(Pattern::quote).toList());
                         templates.add(new Template(key, english, parts[0], parts[parts.length - 1],
                                 Pattern.compile(regex, Pattern.DOTALL)));
                     }
                 });
-            } catch (java.io.IOException e) {
-                throw new java.io.UncheckedIOException(e);
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
             }
             templates.sort(Comparator.comparingInt((Template t) -> t.fallback.length()).reversed());
             return new Catalog(Map.copyOf(keys), List.copyOf(templates));

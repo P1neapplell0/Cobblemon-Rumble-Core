@@ -5,22 +5,24 @@ import com.cobblemon.mod.common.api.npc.NPCClasses;
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog.Actor;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog.Encounter;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog.Gym;
-import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
+import com.p1nero.cobblemon.rumblecore.prologue.ChampionStory;
+import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
 import com.p1nero.cobblemon.rumblecore.prologue.FirstBadgeVisit;
+import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
+import com.p1nero.cobblemon.rumblecore.prologue.HallQuestMarkers;
+import com.p1nero.cobblemon.rumblecore.prologue.LegendaryCommission;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
 import com.p1nero.cobblemon.rumblecore.prologue.PersonalDimension;
 import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
-import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
-import com.p1nero.cobblemon.rumblecore.prologue.HallQuestMarkers;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueStory;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.cobblemon.rumblecore.prologue.SafariChapter;
 import com.p1nero.cobblemon.rumblecore.prologue.SimulatorTestQuest;
-import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
 import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
 import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
@@ -39,6 +41,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -345,7 +348,7 @@ public final class GymStory {
                 || !phaseActive(player, quest(encounter.gym()), DEBRIEF)) return;
         if (encounter.leader() && encounter.gym() == Gym.ICE && phaseActive(player, fourthGymQuest(), DEBRIEF)) {
             RewardNotice.grant(player, SafariChapter.tm());
-            new org.arcadia.arc_quest.guide.runtime.GuideUnlockService().grant(player, PrologueWorld.id("technical_machines"));
+            new GuideUnlockService().grant(player, PrologueWorld.id("technical_machines"));
         }
         QuestProgressHandler.incrementObjective(player, quest(encounter.gym()).toString(), DEBRIEF, 0, 1);
         if (encounter.leader() && encounter.gym() == Gym.DARK
@@ -479,9 +482,9 @@ public final class GymStory {
         boolean rewarded = data.hasFlag(flag(encounter));
         acceptNext(player);
         if (encounter.leader() && encounter.gym() == Gym.FIRE && data.isQuestCompleted(sixthGymQuest().toString()))
-            com.p1nero.cobblemon.rumblecore.prologue.LegendaryCommission.offer(player);
+            LegendaryCommission.offer(player);
         if (encounter.leader() && encounter.gym() == Gym.ELECTRIC && data.isQuestCompleted(eighthGymQuest().toString()))
-            com.p1nero.cobblemon.rumblecore.prologue.ChampionStory.offer(player);
+            ChampionStory.offer(player);
         return rewarded;
     }
 
@@ -590,7 +593,7 @@ public final class GymStory {
         npc.getLookControl().setLookAt(gym.courtX + .5, npc.getEyeY(), gym.courtZ + .5);
     }
 
-    public static NPCEntity trainerModel(net.minecraft.world.level.Level level, String aspect) {
+    public static NPCEntity trainerModel(Level level, String aspect) {
         var npc = new NPCEntity(level);
         var type = NPCClasses.INSTANCE.getByIdentifier(TRAINER_MODEL);
         if (type == null) throw new IllegalStateException("Missing Cobblemon NPC class: " + TRAINER_MODEL);

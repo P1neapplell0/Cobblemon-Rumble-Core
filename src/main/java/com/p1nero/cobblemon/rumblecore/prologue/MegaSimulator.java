@@ -1,15 +1,21 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
-import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
-import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
-import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
-import com.p1nero.cobblemon.rumblecore.prologue.client.CinemaCatalogScreen;
-import com.p1nero.misc.custom_instances.network.InstanceNetwork;
-import com.p1nero.cobblemon.rumblecore.prologue.client.MegaSimulatorScreen;
 import com.p1nero.cobblebashscreen.simulator.TrainingSimulatorMenu;
+import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
+import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
+import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
+import com.p1nero.cobblemon.rumblecore.prologue.client.CinemaCatalogScreen;
+import com.p1nero.cobblemon.rumblecore.prologue.client.MegaSimulatorScreen;
 import com.p1nero.misc.custom_instances.api.InstanceEntrance;
+import com.p1nero.misc.custom_instances.network.InstanceNetwork;
+import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
+import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -45,7 +51,7 @@ public final class MegaSimulator {
     public static final int MEGA = 0, UNIVERSE = 1, SAFARI = 2, CINEMA = 3, FRONTIER = 4;
     private static final ResourceLocation BASH_BLOCK = ResourceLocation.parse("cobblebash:training_simulator");
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CobblemonRumbleCore.MOD_ID);
-    private static final java.util.function.Supplier<Block> TERMINAL = BLOCKS.register("mega_simulator",
+    private static final Supplier<Block> TERMINAL = BLOCKS.register("mega_simulator",
             () -> new Block(BlockBehaviour.Properties.of().strength(5).lightLevel(state -> 5)));
 
     private MegaSimulator() { }
@@ -64,7 +70,7 @@ public final class MegaSimulator {
     private static BlockPos nearestTerminal(ServerPlayer player) {
         if (!player.isAlive() || player.isSpectator()) return null;
         return TERMINALS.stream().filter(pos -> pos.closerToCenterThan(player.position(), 8) && isTerminal(player.level(), pos))
-                .min(java.util.Comparator.comparingDouble(pos -> Vec3.atCenterOf(pos).distanceToSqr(player.position())))
+                .min(Comparator.comparingDouble(pos -> Vec3.atCenterOf(pos).distanceToSqr(player.position())))
                 .orElse(null);
     }
 
@@ -95,7 +101,7 @@ public final class MegaSimulator {
         var terminal = nearestTerminal(player);
         if (terminal == null) return;
         if (selection == FRONTIER) {
-            com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms.open(player);
+            FrontierRooms.open(player);
         } else if (selection == MEGA && MegaTrials.unlocked(player)) {
             new Entrance(player.serverLevel(), terminal).openInstanceCatalog(player);
         } else if (selection == UNIVERSE && universeUnlocked(player)) {
@@ -152,10 +158,10 @@ public final class MegaSimulator {
         @Override public Type<CinemaSelect> type() { return TYPE; }
     }
 
-    public record CinemaRole(java.util.UUID room, int side, int slot) implements CustomPacketPayload {
+    public record CinemaRole(UUID room, int side, int slot) implements CustomPacketPayload {
         private static final Type<CinemaRole> TYPE = new Type<>(PrologueWorld.id("cinema_role"));
         private static final StreamCodec<RegistryFriendlyByteBuf, CinemaRole> CODEC = StreamCodec.composite(
-                net.minecraft.core.UUIDUtil.STREAM_CODEC, CinemaRole::room, ByteBufCodecs.VAR_INT, CinemaRole::side,
+                UUIDUtil.STREAM_CODEC, CinemaRole::room, ByteBufCodecs.VAR_INT, CinemaRole::side,
                 ByteBufCodecs.VAR_INT, CinemaRole::slot, CinemaRole::new);
         @Override public Type<CinemaRole> type() { return TYPE; }
     }
@@ -175,7 +181,7 @@ public final class MegaSimulator {
         registrar.playToServer(Select.TYPE, Select.CODEC, (packet, ctx) -> choose((ServerPlayer) ctx.player(), packet.selection()));
         registrar.playToServer(CinemaRole.TYPE, CinemaRole.CODEC, (packet, ctx) -> {
             var player = (ServerPlayer) ctx.player();
-            var room = com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch.inArena(player);
+            var room = ArenaMatch.inArena(player);
             if (room != null && room.getId().equals(packet.room())) room.selectCinemaRole(player, packet.side(), packet.slot());
         });
         registrar.playToServer(CinemaSelect.TYPE, CinemaSelect.CODEC, (packet, ctx) -> cinemaLobby((ServerPlayer) ctx.player(), packet));

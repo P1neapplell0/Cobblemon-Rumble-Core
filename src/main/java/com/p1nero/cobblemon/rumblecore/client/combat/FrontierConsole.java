@@ -2,8 +2,10 @@ package com.p1nero.cobblemon.rumblecore.client.combat;
 
 import com.cobblemon.mod.common.api.moves.Moves;
 import com.cobblemon.mod.common.api.types.ElementalType;
-import com.cobblemon.mod.common.client.gui.TypeIcon;
 import com.cobblemon.mod.common.client.gui.MoveCategoryIcon;
+import com.cobblemon.mod.common.client.gui.TypeIcon;
+import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
+import java.util.Set;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,8 +14,9 @@ import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import org.arcadia.arc_quest.client.hud.style.OreUiRenderer;
+import net.minecraft.world.item.ItemStack;
 import org.arcadia.arc_quest.client.hud.style.OrePalette;
+import org.arcadia.arc_quest.client.hud.style.OreUiRenderer;
 
 /** Paints the simulator chassis and its controls; room rules live on the server. */
 final class FrontierConsole {
@@ -46,8 +49,8 @@ final class FrontierConsole {
         return ResourceLocation.fromNamespaceAndPath("cobblemon", "textures/gui/summary/" + path + ".png");
     }
 
-    static boolean partyFace(GuiGraphics g, com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits portraits,
-                             ResourceLocation species, java.util.Set<String> aspects, int x, int y, int size,
+    static boolean partyFace(GuiGraphics g, TrialPortraits portraits,
+                             ResourceLocation species, Set<String> aspects, int x, int y, int size,
                              float tick, boolean mirror, int accent) {
         if (size < 5) return false;
         OreUiRenderer.field(g, x, y, size, size, false, 1, accent);
@@ -114,7 +117,7 @@ final class FrontierConsole {
         g.drawString(font, clipped.getString(), center - font.width(clipped) / 2, y, color, false);
     }
 
-    static void item(GuiGraphics g, net.minecraft.world.item.ItemStack item, int x, int y, int size) {
+    static void item(GuiGraphics g, ItemStack item, int x, int y, int size) {
         if (item.isEmpty()) return;
         g.pose().pushPose();
         try {

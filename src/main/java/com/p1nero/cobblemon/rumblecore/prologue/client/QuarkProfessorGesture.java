@@ -2,25 +2,26 @@ package com.p1nero.cobblemon.rumblecore.prologue.client;
 
 import com.cobblemon.mod.common.client.render.models.blockbench.PosableModel;
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
-import com.p1nero.cobblemon.rumblecore.gym.GymStory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.logging.LogUtils;
-import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
-import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
-import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
 import com.p1nero.cobblemon.rumblecore.client.quest.GymDialogueCamera;
-import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
+import com.p1nero.cobblemon.rumblecore.gym.GymStory;
+import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
+import com.p1nero.cobblemon.rumblecore.prologue.MegaIntroduction;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaTrainingQuest;
+import com.p1nero.cobblemon.rumblecore.prologue.ProfessorEntity;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
-import java.util.UUID;
+import com.p1nero.cobblemon.rumblecore.prologue.TeraChapter;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import org.arcadia.arc_quest.client.hud.dialogue.DialogueScreen;
@@ -43,7 +44,7 @@ public final class QuarkProfessorGesture implements ProfessorRenderer.Gesture {
         this(context::bakeLayer);
     }
 
-    private QuarkProfessorGesture(java.util.function.Function<ModelLayerLocation, ModelPart> bake) {
+    private QuarkProfessorGesture(Function<ModelLayerLocation, ModelPart> bake) {
         root = bake.apply(ModelLayers.PLAYER);
         armorRoot = bake.apply(ModelLayers.PLAYER_OUTER_ARMOR);
         legsRoot = bake.apply(ModelLayers.PLAYER_INNER_ARMOR);

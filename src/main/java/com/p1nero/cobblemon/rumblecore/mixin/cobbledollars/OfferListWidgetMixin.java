@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore.mixin.cobbledollars;
 import fr.harmex.cobbledollars.common.api.shop.Category;
 import fr.harmex.cobbledollars.common.api.shop.Offer;
 import fr.harmex.cobbledollars.common.client.gui.screen.widget.OfferListWidget;
+import java.util.List;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,7 +24,7 @@ public abstract class OfferListWidgetMixin {
         Category category = widget.getCategory();
         if (category == null) return;
 
-        java.util.List<Offer> offers = category.getOffers();
+        List<Offer> offers = category.getOffers();
         for (OfferListWidget.OfferEntry entry : widget.children()) {
             Integer offerIndex = entry.getOfferIndex();
             Integer ingredientIndex = entry.getIngredientIndex();

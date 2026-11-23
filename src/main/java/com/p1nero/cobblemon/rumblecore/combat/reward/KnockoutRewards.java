@@ -4,6 +4,7 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.duel.Duels;
 import com.johnn.realtimecobblemon.moves.Decoys;
+import com.p1nero.cobblemon.rumblecore.prologue.DailyCommissions;
 import com.p1nero.cobblemon.rumblecore.wallet.KnockoutWallet;
 import net.minecraft.server.level.ServerLevel;
 import net.neoforged.fml.ModList;
@@ -22,7 +23,7 @@ public final class KnockoutRewards {
         // Several hits can observe a fainted entity before it disappears. Settle once on the server.
         if (data.getBoolean(SETTLED)) return;
         data.putBoolean(SETTLED, true);
-        com.p1nero.cobblemon.rumblecore.prologue.DailyCommissions.pokemon(session.player, "defeat", target.getPokemon());
+        DailyCommissions.pokemon(session.player, "defeat", target.getPokemon());
         RealtimeEffort.award(session.player, session.pokemon.getPokemon(), target.getPokemon());
         if (ModList.get().isLoaded("cobbledollars")) KnockoutWallet.credit(session.player, target.getPokemon().getMaxHealth());
     }

@@ -4,7 +4,9 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.mojang.logging.LogUtils;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import org.slf4j.Logger;
@@ -39,9 +41,9 @@ public final class GymCatalog {
     public static final Actor GRASS_SECOND_ATTENDANT = a("grass_2", -154, 47, -87);
 
     static final List<Encounter> ALL = createEncounters();
-    private static final java.util.Map<String, Gym> ACTOR_GYMS = ALL.stream().flatMap(e -> e.actors().stream()
-            .map(a -> java.util.Map.entry(a.id(), e.gym())))
-            .collect(java.util.stream.Collectors.toUnmodifiableMap(java.util.Map.Entry::getKey, java.util.Map.Entry::getValue));
+    private static final Map<String, Gym> ACTOR_GYMS = ALL.stream().flatMap(e -> e.actors().stream()
+            .map(a -> Map.entry(a.id(), e.gym())))
+            .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
 
     static Gym actorGym(String id) { return ACTOR_GYMS.get(id); }
 

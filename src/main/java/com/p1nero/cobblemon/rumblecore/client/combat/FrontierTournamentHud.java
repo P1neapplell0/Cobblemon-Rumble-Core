@@ -1,14 +1,14 @@
 package com.p1nero.cobblemon.rumblecore.client.combat;
 
+import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
+import java.util.UUID;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import java.util.UUID;
-import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -21,6 +21,16 @@ import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.arcadia.arc_quest.client.hud.style.OreUiRenderer;
 import org.lwjgl.glfw.GLFW;
+
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.CYAN;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.GOLD;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.MUTED;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.NEUTRAL;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.PINK;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.TEXT;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.center;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.player;
+import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.text;
 
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, value = Dist.CLIENT)
 public final class FrontierTournamentHud {
@@ -56,7 +66,7 @@ public final class FrontierTournamentHud {
         var mc = Minecraft.getInstance();
         return room.hasUUID("room") && mc.player != null && mc.screen == null
                 && !mc.player.level().dimension().location().getNamespace().equals("custom_instances")
-                && !com.johnn.realtimecobblemon.client.ClientSmash.active();
+                && !ClientSmash.active();
     }
 
     @SubscribeEvent public static void tick(ClientTickEvent.Post event) {

@@ -5,34 +5,38 @@ import com.cobblemon.mod.common.CobblemonSounds;
 import com.cobblemon.mod.common.api.storage.party.NPCPartyStore;
 import com.cobblemon.mod.common.api.storage.party.PartyStore;
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
-import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.cobblemon.mod.common.item.PokeBallItem;
 import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty;
+import com.johnn.realtimecobblemon.MegaEvo;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.SmashConfig;
-import com.johnn.realtimecobblemon.network.SmashPayloads;
 import com.johnn.realtimecobblemon.duel.Duels;
 import com.johnn.realtimecobblemon.moves.Brawl;
 import com.johnn.realtimecobblemon.moves.Conditions;
+import com.johnn.realtimecobblemon.moves.Decoys;
+import com.johnn.realtimecobblemon.network.SmashPayloads;
+import com.mojang.logging.LogUtils;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.RumbleConfig;
-import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
-import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
-import com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials;
-import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
-import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
-import com.p1nero.cobblemon.rumblecore.prologue.ChampionStory;
-import com.p1nero.cobblemon.rumblecore.gym.GymTeamPokemon;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import com.p1nero.cobblemon.rumblecore.prologue.LegendaryCommission;
+import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
-import com.cobblemon.mod.common.item.PokeBallItem;
+import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
+import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
+import com.p1nero.cobblemon.rumblecore.gym.GymLeaderTeams;
+import com.p1nero.cobblemon.rumblecore.gym.GymStory;
+import com.p1nero.cobblemon.rumblecore.gym.GymTeamPokemon;
+import com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials;
+import com.p1nero.cobblemon.rumblecore.gym.MegaTrials;
+import com.p1nero.cobblemon.rumblecore.prologue.ChampionStory;
+import com.p1nero.cobblemon.rumblecore.prologue.CinemaQuest;
+import com.p1nero.cobblemon.rumblecore.prologue.LegendaryCommission;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaSimulator;
-import com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets;
 import com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets.Cue;
+import com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import com.p1nero.misc.custom_instances.api.ExitReason;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
 import com.p1nero.misc.custom_instances.api.InstanceEvent;
@@ -40,49 +44,59 @@ import com.p1nero.misc.custom_instances.instance.InstanceDefinition;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import com.p1nero.misc.custom_instances.instance.InstanceSession;
 import com.p1nero.misc.custom_instances.network.InstanceNetwork;
-import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
-import com.mojang.logging.LogUtils;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.CompletableFuture;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import kotlin.Unit;
-import net.minecraft.server.level.TicketType;
-import net.minecraft.world.level.ChunkPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.TicketType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.util.Mth;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.server.ServerStoppedEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
+import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 import org.slf4j.Logger;
 
 /** One isolated, server-authoritative single battle. The real party is never mutated by competitive moves. */
@@ -112,11 +126,11 @@ public final class ArenaMatch extends InstanceSession {
     private final FrontierGame frontier;
     private int knockoutUntil;
     private int knockoutSlowUntil;
-    private final java.util.Set<Entity> knockoutActors = new java.util.HashSet<>();
-    private final java.util.Set<Integer> shownKnockouts = new java.util.HashSet<>();
+    private final Set<Entity> knockoutActors = new HashSet<>();
+    private final Set<Integer> shownKnockouts = new HashSet<>();
     private int knockoutRecallAt;
 
-    private record FrontierGame(List<Pokemon> host, List<Pokemon> guest, java.util.function.Consumer<UUID> result, Runnable failed) {}
+    private record FrontierGame(List<Pokemon> host, List<Pokemon> guest, Consumer<UUID> result, Runnable failed) {}
     private final GymCatalog.Encounter leader;
     private final boolean hardLeader;
     private final MegaTrials.Trial megaTrial;
@@ -350,8 +364,8 @@ public final class ArenaMatch extends InstanceSession {
         return start(player, null, null, null, story);
     }
 
-    public static boolean startFrontier(ServerPlayer owner, ServerPlayer guest, java.util.function.Supplier<List<Pokemon>> host,
-                                        java.util.function.Supplier<List<Pokemon>> challenger, java.util.function.Consumer<UUID> result,
+    public static boolean startFrontier(ServerPlayer owner, ServerPlayer guest, Supplier<List<Pokemon>> host,
+                                        Supplier<List<Pokemon>> challenger, Consumer<UUID> result,
                                         Runnable failed) {
         if (owner == guest || !available(owner) || !available(guest) || !owner.server.isPvpAllowed()) return false;
         try {
@@ -377,7 +391,7 @@ public final class ArenaMatch extends InstanceSession {
     private static boolean start(ServerPlayer owner, ServerPlayer guest, GymCatalog.Encounter encounter, UUID speaker,
                                  StoryChallenge story, String template) {
         var manager = InstanceManager.get(owner.server);
-        String password = String.format(java.util.Locale.ROOT, "%04d", ThreadLocalRandom.current().nextInt(10000));
+        String password = String.format(Locale.ROOT, "%04d", ThreadLocalRandom.current().nextInt(10000));
         try {
             UUID room;
             creating = new Setup(owner.getUUID(), guest == null ? null : guest.getUUID(), encounter, speaker, story);
@@ -495,7 +509,7 @@ public final class ArenaMatch extends InstanceSession {
     private void startIntroMusic(MinecraftServer server) {
         for (UUID id : getMembers().keySet()) {
             var viewer = server.getPlayerList().getPlayer(id);
-            if (viewer != null) com.p1nero.cobblemon.rumblecore.combat.BattleMusic.arenaIntro(viewer, this);
+            if (viewer != null) BattleMusic.arenaIntro(viewer, this);
         }
     }
 
@@ -673,9 +687,9 @@ public final class ArenaMatch extends InstanceSession {
             spawn = GYM_EAST_LEAD.add(0, 0, lane);
             List<Pokemon> source = match.hardLeader && match.leader != null
                     && match.leader.actors().getFirst().id().equals(actor.id())
-                    ? com.p1nero.cobblemon.rumblecore.gym.GymLeaderTeams.hard(match.leader.gym()) : actor.team().get();
+                    ? GymLeaderTeams.hard(match.leader.gym()) : actor.team().get();
             roster = source.stream().map(mon -> mon.clone(false, level.registryAccess()))
-                    .collect(java.util.stream.Collectors.toCollection(ArrayList::new));
+                    .collect(Collectors.toCollection(ArrayList::new));
             if (roster.isEmpty()) throw new IllegalStateException("Missing challenge team for " + actor.id());
             npc = GymStory.newTrainer(level, actor, EAST.add(0, 0, lane), 90);
             npc.setNoAi(true);
@@ -713,7 +727,7 @@ public final class ArenaMatch extends InstanceSession {
             if (body != null) {
                 if (now % 2 == 0) {
                     Fighter target = match.team.values().stream().filter(f -> !match.gone(f) && f.body != null)
-                            .min(java.util.Comparator.comparingDouble(f -> body.distanceToSqr(f.body))).orElse(null);
+                            .min(Comparator.comparingDouble(f -> body.distanceToSqr(f.body))).orElse(null);
                     if (target != null && body.distanceToSqr(target.body) <= 28 * 28)
                         body.getLookControl().setLookAt(target.body, 28, 24);
                 }
@@ -872,19 +886,8 @@ public final class ArenaMatch extends InstanceSession {
         }
 
         String snapshot() {
-            var details = new CompoundTag();
-            details.putString("kind", ArenaRoster.KIND);
-            details.putString("player", player.getGameProfile().getName());
-            var entries = new ListTag();
-            startingRoster.forEach((slot, starting) -> {
-                var entry = starting.copy();
-                var deployment = used.get(slotToRoster[slot]);
-                entry.putBoolean("used", deployment != null);
-                if (deployment != null) entry.put("battle", deployment);
-                entries.add(entry);
-            });
-            details.put("roster", entries);
-            return details.toString();
+            return ArenaRoster.snapshot(player.getGameProfile().getName(), startingRoster,
+                    slot -> used.get(slotToRoster[slot]));
         }
 
         Pokemon current() { return active < 0 ? null : roster.get(active); }
@@ -1341,8 +1344,8 @@ public final class ArenaMatch extends InstanceSession {
                 standing.forEach(this::sendIn);
                 // Provoke at combat start, and reacquire after a participant leaves or switches.
                 for (var foe : threats) if (!Brawl.fighting(foe)) {
-                    standing.stream().map(f -> Smash.session(f.player)).filter(java.util.Objects::nonNull)
-                            .min(java.util.Comparator.comparingDouble(s -> foe.distanceToSqr(s.pokemon)))
+                    standing.stream().map(f -> Smash.session(f.player)).filter(Objects::nonNull)
+                            .min(Comparator.comparingDouble(s -> foe.distanceToSqr(s.pokemon)))
                             .ifPresent(s -> Brawl.provoke(s, foe));
                 }
             }
@@ -1485,7 +1488,7 @@ public final class ArenaMatch extends InstanceSession {
                 f.round++;
                 f.choosing = true;
                 showRoster(f);
-                f.player.playNotifySound(SoundEvents.NOTE_BLOCK_BELL.value(), net.minecraft.sounds.SoundSource.PLAYERS, 0.6F, 0.83F);
+                f.player.playNotifySound(SoundEvents.NOTE_BLOCK_BELL.value(), SoundSource.PLAYERS, 0.6F, 0.83F);
             }
         }
     }
@@ -1637,7 +1640,7 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     private void showRoster(Fighter f) {
-        var choices = java.util.stream.IntStream.range(0, f.roster.size()).mapToObj(i -> {
+        var choices = IntStream.range(0, f.roster.size()).mapToObj(i -> {
             Pokemon mon = f.roster.get(i);
             return new ArenaPackets.Option(i, mon);
         }).toList();
@@ -1887,8 +1890,8 @@ public final class ArenaMatch extends InstanceSession {
         if (session == null || session.pokemon.getPokemon().isFainted()) return;
         if (match != null && match.cinema != null) return;
         if (match == null) {
-            if (!com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining.restrict(player) && !MegaCombat.heal(session.pokemon))
-                com.johnn.realtimecobblemon.MegaEvo.onKey(player);
+            if (!PrologueTraining.restrict(player) && !MegaCombat.heal(session.pokemon))
+                MegaEvo.onKey(player);
             return;
         }
         var f = match.fighter(player);
@@ -1952,7 +1955,7 @@ public final class ArenaMatch extends InstanceSession {
         }
         if (target instanceof PokemonEntity mon && match.wildFoes.contains(mon)) return !WildCapture.stunned(mon);
         return target instanceof ServerPlayer p ? match.isFriendlyFireEnabled() && Smash.active(p) : match.trainerOf(target) != null
-                || match.isFriendlyFireEnabled() && com.johnn.realtimecobblemon.moves.Decoys.isDecoy(target);
+                || match.isFriendlyFireEnabled() && Decoys.isDecoy(target);
     }
 
     public static boolean retainClientControl(ServerPlayer player) {

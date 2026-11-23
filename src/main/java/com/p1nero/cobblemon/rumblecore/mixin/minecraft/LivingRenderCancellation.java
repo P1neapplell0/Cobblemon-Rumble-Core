@@ -1,15 +1,18 @@
 package com.p1nero.cobblemon.rumblecore.mixin.minecraft;
 
-import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.GlideRenderAccess;
-import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.SquashRenderAccess;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.p1nero.cobblemon.rumblecore.client.quest.DialogueActorPose;
+import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.GlideRenderAccess;
+import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.SquashRenderAccess;
+import com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.world.entity.LivingEntity;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
@@ -23,9 +26,9 @@ abstract class LivingRenderCancellation {
     @Inject(method = "getOverlayCoords", at = @At("HEAD"), cancellable = true)
     private static void rumble$tenacityFlash(LivingEntity entity, float whiteOverlayProgress,
             CallbackInfoReturnable<Integer> cir) {
-        if (entity instanceof com.cobblemon.mod.common.entity.pokemon.PokemonEntity pokemon
-                && com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient.tenacityFlash(pokemon)) {
-            cir.setReturnValue(net.minecraft.client.renderer.texture.OverlayTexture.pack(0.0F, false));
+        if (entity instanceof PokemonEntity pokemon
+                && PrologueClient.tenacityFlash(pokemon)) {
+            cir.setReturnValue(OverlayTexture.pack(0.0F, false));
         }
     }
 

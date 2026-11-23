@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 import net.neoforged.fml.earlydisplay.ColourScheme;
 import net.neoforged.fml.earlydisplay.DisplayWindow;
 import net.neoforged.fml.earlydisplay.ElementShader;
@@ -29,7 +28,28 @@ import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
 import org.slf4j.LoggerFactory;
 
-import static org.lwjgl.opengl.GL32C.*;
+import static org.lwjgl.opengl.GL32C.GL_ACTIVE_TEXTURE;
+import static org.lwjgl.opengl.GL32C.GL_CLAMP_TO_EDGE;
+import static org.lwjgl.opengl.GL32C.GL_LINEAR;
+import static org.lwjgl.opengl.GL32C.GL_LINEAR_MIPMAP_LINEAR;
+import static org.lwjgl.opengl.GL32C.GL_RGBA8;
+import static org.lwjgl.opengl.GL32C.GL_RGBA;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE0;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_BINDING_2D;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_MAG_FILTER;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_MIN_FILTER;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_WRAP_S;
+import static org.lwjgl.opengl.GL32C.GL_TEXTURE_WRAP_T;
+import static org.lwjgl.opengl.GL32C.GL_UNSIGNED_BYTE;
+import static org.lwjgl.opengl.GL32C.glActiveTexture;
+import static org.lwjgl.opengl.GL32C.glBindTexture;
+import static org.lwjgl.opengl.GL32C.glDeleteTextures;
+import static org.lwjgl.opengl.GL32C.glGenTextures;
+import static org.lwjgl.opengl.GL32C.glGenerateMipmap;
+import static org.lwjgl.opengl.GL32C.glGetInteger;
+import static org.lwjgl.opengl.GL32C.glTexImage2D;
+import static org.lwjgl.opengl.GL32C.glTexParameteri;
 
 /** Reuses FML's native window, framebuffer, and handoff; replaces only its render elements. */
 public final class RumbleEarlyDisplay extends DisplayWindow implements GraphicsBootstrapper {

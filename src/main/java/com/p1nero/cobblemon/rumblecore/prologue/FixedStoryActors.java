@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Function;
@@ -398,6 +399,6 @@ public final class FixedStoryActors {
     }
 
     static List<Entity> rocketActors(ServerLevel level) {
-        return ROCKET.stream().map(id -> find(level, id)).filter(java.util.Objects::nonNull).toList();
+        return ROCKET.stream().map(id -> find(level, id)).filter(Objects::nonNull).toList();
     }
 }

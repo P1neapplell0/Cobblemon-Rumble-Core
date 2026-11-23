@@ -7,11 +7,11 @@ import com.p1nero.cobblemon.rumblecore.quest.RewardNotice;
 import com.wintercogs.beyonddimensions.api.dimensionnet.DimensionsNet;
 import com.wintercogs.beyonddimensions.api.storage.key.impl.ItemStackKey;
 import java.util.List;
+import java.util.function.Supplier;
 import leaf.soulhome.registry.DimensionRegistry;
 import leaf.soulhome.registry.ItemsRegistry;
 import leaf.soulhome.utils.DimensionHelper;
 import leaf.soulhome.utils.ResourceLocationHelper;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -49,7 +49,7 @@ public final class PersonalDimension {
     private static final String DELIVER = "deliver_ingot", ENTER = "enter_home", KEY = "rumble.personal_dimension.";
     private static final String SEEDED = KEY + "seeded";
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CobblemonRumbleCore.MOD_ID);
-    private static final java.util.function.Supplier<Item> INGOT = ITEMS.register("space_time_ingot", () -> new Item(new Item.Properties()));
+    private static final Supplier<Item> INGOT = ITEMS.register("space_time_ingot", () -> new Item(new Item.Properties()));
 
     private PersonalDimension() {}
 
