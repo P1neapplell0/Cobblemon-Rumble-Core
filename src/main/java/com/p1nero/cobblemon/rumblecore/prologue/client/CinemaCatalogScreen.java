@@ -5,19 +5,21 @@ import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
 import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaSimulator;
 import com.p1nero.misc.custom_instances.client.screen.LobbyScreen;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.locale.Language;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /** A catalog opens the native room lobby; cast choices belong to an existing room. */
 public final class CinemaCatalogScreen extends Screen {
@@ -38,30 +40,40 @@ public final class CinemaCatalogScreen extends Screen {
     }
 
     public static void open() {
-        var cards = CinemaTrials.all().stream().filter(CinemaTrials.Trial::supported).map(trial -> {
+        var cards = new ArrayList<Card>();
+        CinemaTrials.all().stream().filter(CinemaTrials.Trial::supported).forEach(trial -> {
             var featured = trial.sides().stream().map(List::getFirst).toList();
-            return new Card(Component.translatable(trial.titleKey()), null, featured, false, true, false,
-                    clicked -> PacketDistributor.sendToServer(new MegaSimulator.CinemaSelect(trial.id())));
-        }).toList();
-        Minecraft.getInstance().setScreen(new CinemaCatalogScreen(null, text("title"), cards, false));
+            cards.add(new Card(Component.translatable(trial.titleKey()), null, featured, false, true, false,
+                    clicked -> PacketDistributor.sendToServer(new MegaSimulator.CinemaSelect(trial.id()))));
+        });
+        cards.add(new Card(text("coming_soon"), null, List.of(), false, false, false, clicked -> {}));
+        Minecraft.getInstance().setScreen(new CinemaCatalogScreen(null, text("title"), List.copyOf(cards), false));
     }
 
     public static void chooseRole(Screen parent, CinemaTrials.Trial trial, CompoundTag party) {
         var roles = party.getCompound("rumbleCinema");
-        int currentSide = roles.getInt("side"), currentSlot = roles.getInt("slot");
-        var occupants = roles.getList("occupied", Tag.TAG_COMPOUND).stream().map(tag -> (CompoundTag) tag)
-                .collect(Collectors.toMap(tag -> tag.getInt("slot"), tag -> tag.getString("name")));
+        var player = Minecraft.getInstance().player;
+        if (player == null) return;
+        String viewer = player.getUUID().toString();
+        var selections = roles.getCompound("selections");
+        var current = selections.getCompound(viewer);
+        int currentSide = current.contains("side") ? current.getInt("side") : -1;
+        int currentSlot = current.getInt("slot");
         var cards = new ArrayList<Card>();
         for (int side = 0; side < trial.sides().size(); side++) {
             int faction = side;
             var lineup = trial.sides().get(side);
             for (int slot = 0; slot < lineup.size(); slot++) {
                 int index = slot;
-                String occupant = side == currentSide ? occupants.get(slot) : null;
-                boolean enabled = occupant == null && (occupants.isEmpty() || side == currentSide) && party.getInt("players") <= lineup.size();
-                var detail = occupant == null ? text("faction", side + 1, slot + 1) : text("role_taken", side + 1, occupant);
                 var cast = lineup.get(slot);
-                cards.add(new Card(cast.name(), detail, List.of(cast), true, enabled, side == currentSide && slot == currentSlot,
+                var occupants = selections.getAllKeys().stream().filter(id -> !id.equals(viewer))
+                        .map(selections::getCompound).filter(role -> {
+                            var other = trial.castAt(role.getInt("side"), role.getInt("slot"));
+                            return other != null && other.species().equals(cast.species());
+                        }).map(role -> role.getString("name")).toList();
+                var detail = occupants.isEmpty() ? text("faction", side + 1, slot + 1)
+                        : text("role_taken", side + 1, String.join(", ", occupants)).withStyle(ChatFormatting.RED);
+                cards.add(new Card(cast.name(), detail, List.of(cast), true, true, side == currentSide && slot == currentSlot,
                         clicked -> PacketDistributor.sendToServer(new MegaSimulator.CinemaRole(party.getUUID("session"), faction, index))));
             }
         }
@@ -116,12 +128,21 @@ public final class CinemaCatalogScreen extends Screen {
                 OreTheme.button(g, this, null, card.selected(), active);
                 int imageHeight = h - (card.model() ? 30 : 20);
                 OreTheme.well(g, x + 4, y + 3, w - 8, imageHeight);
-                int count = card.cast().size(), size = Math.min(imageHeight - 4, (w - 10) / count);
-                for (int i = 0; i < count; i++) {
-                    var cast = card.cast().get(i);
-                    int px = x + (w - count * size) / 2 + i * size, py = y + 3 + (imageHeight - size) / 2;
-                    if (card.model() || !portraits.drawFace(g, cast.speciesId(), cast.aspects(), px, py, size, partial, i > 0))
-                        portraits.render(g, cast.speciesId(), cast.aspects(), px, py, size, partial);
+                int count = card.cast().size();
+                if (count == 0) {
+                    g.pose().pushPose();
+                    g.pose().translate(x + w / 2F, y + 3 + imageHeight / 2F, 0);
+                    g.pose().scale(2.5F, 2.5F, 1);
+                    g.drawCenteredString(font, "?", 0, -font.lineHeight / 2, OreTheme.MUTED);
+                    g.pose().popPose();
+                } else {
+                    int size = Math.min(imageHeight - 4, (w - 10) / count);
+                    for (int i = 0; i < count; i++) {
+                        var cast = card.cast().get(i);
+                        int px = x + (w - count * size) / 2 + i * size, py = y + 3 + (imageHeight - size) / 2;
+                        if (card.model() || !portraits.drawFace(g, cast.speciesId(), cast.aspects(), px, py, size, partial, i > 0))
+                            portraits.render(g, cast.speciesId(), cast.aspects(), px, py, size, partial);
+                    }
                 }
                 centered(g, card.name(), x + w / 2, y + imageHeight + 7, w - 8, active ? OreTheme.TEXT : OreTheme.MUTED);
                 if (card.detail() != null) centered(g, card.detail(), x + w / 2, y + h - 13, w - 8, card.selected() ? OreTheme.GREEN : OreTheme.MUTED);
@@ -133,7 +154,7 @@ public final class CinemaCatalogScreen extends Screen {
     }
 
     private void centered(GuiGraphics g, Component text, int center, int y, int max, int color) {
-        g.drawCenteredString(font, font.substrByWidth(text, Math.max(1, max)).getString(), center, y, color);
+        g.drawCenteredString(font, Language.getInstance().getVisualOrder(font.substrByWidth(text, Math.max(1, max))), center, y, color);
     }
 
     private int pages() { return Math.max(1, (cards.size() + pageSize - 1) / pageSize); }
@@ -156,5 +177,5 @@ public final class CinemaCatalogScreen extends Screen {
     @Override public void onClose() { onCloseTo(parent); }
     private static void onCloseTo(Screen screen) { Minecraft.getInstance().setScreen(screen); }
     @Override public boolean isPauseScreen() { return false; }
-    private static Component text(String key, Object... args) { return Component.translatable("rumble.cinema." + key, args); }
+    private static MutableComponent text(String key, Object... args) { return Component.translatable("rumble.cinema." + key, args); }
 }

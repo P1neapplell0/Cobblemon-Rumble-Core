@@ -5,6 +5,7 @@ import com.johnn.realtimecobblemon.moves.Conditions;
 import com.johnn.realtimecobblemon.moves.Combo;
 import com.johnn.realtimecobblemon.moves.Motion;
 import com.johnn.realtimecobblemon.Smash;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTenacity;
 import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import net.minecraft.server.level.ServerLevel;
@@ -42,7 +43,8 @@ abstract class TenacityRTCLauncher {
     private static void rumble$ignoreLauncher(LivingEntity entity, Vec3 direction, Smash.Session attacker,
                                              ServerLevel level, CallbackInfo ci) {
         // Suppress the entire launch reaction, including its later ground slam. Damage has already resolved.
-        if (RealtimeProtection.megaProtected(entity) || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon)) ci.cancel();
+        if (RealtimeMoveWindup.locked(entity) || RealtimeProtection.megaProtected(entity)
+                || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon)) ci.cancel();
     }
 }
 

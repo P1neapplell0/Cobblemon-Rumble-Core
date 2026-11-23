@@ -27,7 +27,12 @@ public final class ServerHall {
 
     private ServerHall() {}
 
+    public static void open(ServerPlayer player) {
+        PacketDistributor.sendToPlayer(player, Open.INSTANCE);
+    }
+
     static void register(PayloadRegistrar network) {
+        network.playToClient(Open.TYPE, Open.CODEC, (packet, context) -> ServerHallScreen.open());
         network.playToServer(Request.TYPE, Request.CODEC, (packet, context) -> sendPage((ServerPlayer) context.player(), packet));
         network.playToClient(Page.TYPE, Page.CODEC, (packet, context) -> ServerHallScreen.receive(packet));
     }
@@ -80,6 +85,15 @@ public final class ServerHall {
 
     private static String clippedName(String name) {
         return name.substring(0, Math.min(name.length(), 64));
+    }
+
+    private enum Open implements CustomPacketPayload {
+        INSTANCE;
+
+        private static final Type<Open> TYPE = new Type<>(PrologueWorld.id("server_hall_open"));
+        private static final StreamCodec<ByteBuf, Open> CODEC = StreamCodec.unit(INSTANCE);
+
+        @Override public Type<Open> type() { return TYPE; }
     }
 
     public record Request(UUID token, int page, int rows, boolean pvp) implements CustomPacketPayload {

@@ -19,8 +19,10 @@ abstract class MegaLobbyData {
         var match = ArenaMatch.inArena(viewer);
         if (data.contains("party") && match != null && match.cinemaRoom()) {
             var roles = new CompoundTag();
-            match.writeCinemaRoles(roles, viewer.getUUID());
-            data.getCompound("party").put("rumbleCinema", roles);
+            match.writeCinemaRoles(roles);
+            var party = data.getCompound("party");
+            party.put("rumbleCinema", roles);
+            if (!match.cinemaRolesReady()) party.putBoolean("allReady", false);
         }
         var trial = MegaTrials.get(data.getCompound("definition").getString("id"));
         if (trial == null) return;

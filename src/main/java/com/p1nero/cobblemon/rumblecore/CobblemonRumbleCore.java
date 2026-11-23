@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore;
 
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.InstancePokemonDamage;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindupPacket;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPackets;
@@ -79,6 +80,7 @@ public final class CobblemonRumbleCore {
         modBus.addListener(OpeningTutorial::register);
         modBus.addListener(MerchantPanels::register);
         modBus.addListener(BattleMusic::register);
+        modBus.addListener(RealtimeMoveWindupPacket::register);
         modBus.addListener(QuestAcceptedNotice::register);
         modBus.addListener(PhoneSync::register);
         modBus.addListener(RecyclingPackets::register);

@@ -1,0 +1,60 @@
+package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
+
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.johnn.realtimecobblemon.Smash;
+import com.johnn.realtimecobblemon.moves.Brawl;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import java.util.List;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import org.objectweb.asm.Opcodes;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(value = Brawl.class, remap = false)
+abstract class RealtimeMoveWindupAi {
+    // Reuse Brawl's stun branch so an interrupted action is reset instead of firing late.
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/Conditions;stunned(Lnet/minecraft/world/entity/Entity;)Z"))
+    private static boolean rumble$checkAiControl(Entity entity, Operation<Boolean> original) {
+        boolean blocked = original.call(entity) || RealtimeMoveWindup.crowdControlled(entity);
+        if (blocked && entity instanceof PokemonEntity pokemon) RealtimeMoveWindup.npcInterrupted(pokemon);
+        return blocked;
+    }
+
+    @Redirect(method = "decide", at = @At(value = "FIELD", target =
+            "Lcom/johnn/realtimecobblemon/moves/Brawl$Foe;moves:Ljava/util/List;", opcode = Opcodes.GETFIELD), require = 2)
+    private static List<?> rumble$hideCoolingDownMoves(@Coerce Object foe) {
+        var access = (BrawlFoeAccess) foe;
+        var pokemon = access.rumble$mon();
+        if (RealtimeMoveWindup.npcCoolingDown(pokemon, pokemon.level().getGameTime())) return List.of();
+        return access.rumble$moves();
+    }
+
+    @Inject(method = "startMove", at = @At("HEAD"), cancellable = true)
+    private static void rumble$warnBeforeAiMove(@Coerce Object foe, Smash.Session target,
+            ServerLevel level, long now, @Coerce Object pick, CallbackInfo ci) {
+        var pokemon = ((BrawlFoeAccess) foe).rumble$mon();
+        var move = ((BrawlPickAccess) pick).rumble$move();
+        if (!RealtimeMoveWindup.npcMove(pokemon, level, now, move)) ci.cancel();
+    }
+
+    @ModifyExpressionValue(method = "startMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;clamp(III)I"))
+    private static int rumble$halfSecondWindup(int original) {
+        return RealtimeMoveWindup.TICKS;
+    }
+
+    @Inject(method = "move", at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/Fx;animateMove(Lcom/cobblemon/mod/common/entity/pokemon/PokemonEntity;Lcom/johnn/realtimecobblemon/moves/MoveInfo;I)V"))
+    private static void rumble$startCooldownOnRelease(CallbackInfo ci, @Local PokemonEntity pokemon) {
+        RealtimeMoveWindup.npcReleased(pokemon, pokemon.level().getGameTime());
+    }
+}

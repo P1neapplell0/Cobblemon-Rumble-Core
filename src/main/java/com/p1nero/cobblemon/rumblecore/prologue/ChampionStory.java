@@ -2,8 +2,8 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.HallOfFame;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ServerHall;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
-import com.p1nero.misc.custom_instances.network.InstanceNetwork;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -95,8 +95,8 @@ public final class ChampionStory {
     }
 
     static void rankings(ServerPlayer player) {
-        if ((awaitingCeremony(player) || completed(player)) && PrologueStory.atDialogueProfessor(player)) {
-            PrologueStory.after(player, () -> InstanceNetwork.openInformation(player, TEMPLATE, "players"));
+        if (completed(player) && PrologueStory.atDialogueProfessor(player)) {
+            PrologueStory.after(player, () -> ServerHall.open(player));
         }
     }
 

@@ -5,6 +5,7 @@ import com.johnn.realtimecobblemon.Smash;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
 import net.minecraft.world.damagesource.DamageSource;
@@ -27,6 +28,7 @@ abstract class InstanceDirectDamage {
         int previous = mon.getCurrentHealth();
         original.call(mon, health);
         int lost = previous - mon.getCurrentHealth();
+        ArenaMatch.cinemaPlayerHit(battle.pokemon, source, lost);
         InstanceApi.recordCustomDamage(battle.pokemon, source, lost);
         RealtimeProtection.hit(battle.pokemon, source, lost);
     }

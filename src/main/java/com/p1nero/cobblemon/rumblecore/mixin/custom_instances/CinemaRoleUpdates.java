@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.mixin.custom_instances;
 
 import com.p1nero.cobblemon.rumblecore.prologue.client.CinemaCatalogScreen;
+import com.p1nero.cobblemon.rumblecore.prologue.client.CinemaRoleNotice;
 import com.p1nero.misc.custom_instances.client.InstanceClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -13,6 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class CinemaRoleUpdates {
     @Inject(method = "receive", at = @At("HEAD"), cancellable = true)
     private static void rumble$updateCast(String kind, CompoundTag data, CallbackInfo ci) {
-        if (Minecraft.getInstance().screen instanceof CinemaCatalogScreen screen && screen.roomUpdate(kind, data)) ci.cancel();
+        var screen = Minecraft.getInstance().screen;
+        if (screen instanceof CinemaCatalogScreen catalog && catalog.roomUpdate(kind, data)
+                || screen instanceof CinemaRoleNotice notice && notice.roomUpdate(kind, data)) ci.cancel();
     }
 }

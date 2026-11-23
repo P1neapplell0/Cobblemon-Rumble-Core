@@ -65,7 +65,6 @@ import java.util.stream.IntStream;
 import kotlin.Unit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -77,6 +76,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -261,10 +261,7 @@ public final class ArenaMatch extends InstanceSession {
 
     @Override public boolean isFriendlyFireEnabled() { return legendary == null && cinema == null && (!partyBattle() || super.isFriendlyFireEnabled()); }
     @Override public int getMaxPlayers() {
-        if (cinema == null) return super.getMaxPlayers();
-        cinema.pruneRoles();
-        int capacity = cinema.side < 0 ? cinema.trial.capacity() : cinema.trial.sides().get(cinema.side).size();
-        return Math.min(super.getMaxPlayers(), capacity);
+        return cinema == null ? super.getMaxPlayers() : Math.min(super.getMaxPlayers(), cinema.trial.capacity());
     }
     @Override public Map<UUID, String> snapshotPlayerDetails() {
         var details = new LinkedHashMap<>(departedRosters);
@@ -691,19 +688,24 @@ public final class ArenaMatch extends InstanceSession {
             roster = source.stream().map(mon -> mon.clone(false, level.registryAccess()))
                     .collect(Collectors.toCollection(ArrayList::new));
             if (roster.isEmpty()) throw new IllegalStateException("Missing challenge team for " + actor.id());
-            npc = GymStory.newTrainer(level, actor, EAST.add(0, 0, lane), 90);
-            npc.setNoAi(true);
-            for (Pokemon mon : roster) GymTeamPokemon.prepareArenaMoves(mon,
-                    match.megaTrial == null ? actor.id() : match.megaTrial.id(),
-                    match.megaTrial != null || match.champion() || match.setup != null && match.setup.story() != null
-                            || "ground_leader".equals(actor.id()));
-            var party = new NPCPartyStore(npc);
-            npc.setParty(party);
-            for (Pokemon pokemon : roster) {
-                UncatchableProperty.INSTANCE.uncatchable().apply(pokemon);
-                if (!party.add(pokemon)) throw new IllegalStateException("Gym team exceeds party capacity: " + actor.id());
+            for (Pokemon mon : roster) {
+                GymTeamPokemon.prepareArenaMoves(mon, match.megaTrial == null ? actor.id() : match.megaTrial.id(),
+                        match.megaTrial != null || match.champion() || match.setup != null && match.setup.story() != null
+                                || "ground_leader".equals(actor.id()));
+                UncatchableProperty.INSTANCE.uncatchable().apply(mon);
             }
-            if (!level.addFreshEntity(npc)) throw new IllegalStateException("Could not create trainer " + actor.id());
+            if (match.megaTrial != null) {
+                npc = null;
+            } else {
+                npc = GymStory.newTrainer(level, actor, EAST.add(0, 0, lane), 90);
+                npc.setNoAi(true);
+                var party = new NPCPartyStore(npc);
+                npc.setParty(party);
+                for (Pokemon pokemon : roster) {
+                    if (!party.add(pokemon)) throw new IllegalStateException("Gym team exceeds party capacity: " + actor.id());
+                }
+                if (!level.addFreshEntity(npc)) throw new IllegalStateException("Could not create trainer " + actor.id());
+            }
         }
 
         boolean out() { return index >= roster.size(); }
@@ -740,38 +742,48 @@ public final class ArenaMatch extends InstanceSession {
                 return;
             }
             if (out() || now < nextSend) return;
-            if (sending == null) {
+            if (npc == null) {
+                deployed(level, now, difficulty, roster.get(index).sendOut(level, spawn, null, this::configureBody));
+            } else if (sending == null) {
                 npc.setInvisible(false);
                 pendingSince = now;
-                sending = roster.get(index).sendOutWithAnimation(npc, level, spawn, null, true, null, e -> {
-                    e.setYRot(90);
-                    e.setYBodyRot(90);
-                    e.setYHeadRot(90);
-                    e.getEntityData().set(PokemonEntity.getUNBATTLEABLE(), true);
-                    return Unit.INSTANCE;
-                });
+                sending = roster.get(index).sendOutWithAnimation(npc, level, spawn, null, true, null, this::configureBody);
             } else if (sending.isDone()) {
-                body = sending.join();
+                var sent = sending.join();
                 sending = null;
-                if (body == null || body.isRemoved()) throw new IllegalStateException("Failed to send out " + actor.id());
-                if (healthScale > 1) {
-                    var attribute = body.getAttribute(Attributes.MAX_HEALTH);
-                    if (attribute != null) {
-                        attribute.addTransientModifier(new AttributeModifier(PrologueWorld.id("gym_team_health"),
-                                healthScale - 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-                        body.setHealth(body.getMaxHealth());
-                    }
-                }
-                if (!megaUsed && MegaCombat.canMega(body.getPokemon())) {
-                    megaUsed = true;
-                    megaAt = now + RealtimeProtection.MEGA_TICKS;
-                    body.setNoAi(true);
-                    MegaCombat.begin(level, body);
-                } else Brawl.train(body, difficulty);
+                deployed(level, now, difficulty, sent);
                 npc.setInvisible(true);
             } else if (now - pendingSince > 140) {
                 throw new IllegalStateException("Send-out timed out for " + actor.id());
             }
+        }
+
+        private Unit configureBody(PokemonEntity entity) {
+            entity.setYRot(90);
+            entity.setYBodyRot(90);
+            entity.setYHeadRot(90);
+            entity.setPersistenceRequired();
+            entity.getEntityData().set(PokemonEntity.getUNBATTLEABLE(), true);
+            return Unit.INSTANCE;
+        }
+
+        private void deployed(ServerLevel level, int now, Brawl.Difficulty difficulty, PokemonEntity sent) {
+            if (sent == null || sent.isRemoved()) throw new IllegalStateException("Failed to send out " + actor.id());
+            body = sent;
+            if (healthScale > 1) {
+                var attribute = body.getAttribute(Attributes.MAX_HEALTH);
+                if (attribute != null) {
+                    attribute.addTransientModifier(new AttributeModifier(PrologueWorld.id("gym_team_health"),
+                            healthScale - 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                    body.setHealth(body.getMaxHealth());
+                }
+            }
+            if (!megaUsed && MegaCombat.canMega(body.getPokemon())) {
+                megaUsed = true;
+                megaAt = now + RealtimeProtection.MEGA_TICKS;
+                body.setNoAi(true);
+                MegaCombat.begin(level, body);
+            } else Brawl.train(body, difficulty);
         }
 
         void recallActive(int now) {
@@ -782,20 +794,26 @@ public final class ArenaMatch extends InstanceSession {
             oldBody.setNoAi(true);
             oldBody.getNavigation().stop();
             npc.setInvisible(false);
-            recalling = roster.get(index);
-            if (!oldBody.isRemoved()) oldBody.recallWithAnimation();
-            nextSend = now + RECALL_TICKS;
+            if (npc == null) {
+                roster.get(index).recall();
+                nextSend = now + 20;
+            } else {
+                recalling = roster.get(index);
+                if (!oldBody.isRemoved()) oldBody.recallWithAnimation();
+                nextSend = now + RECALL_TICKS;
+            }
         }
 
         void result(boolean playerWon) {
             if (body != null) body.setNoAi(true);
+            if (npc == null) return;
             npc.setInvisible(false);
             npc.playAnimation(playerWon ? NPCEntity.LOSE_ANIMATION : NPCEntity.WIN_ANIMATION, List.of());
         }
 
         void clean() {
             for (Pokemon pokemon : roster) pokemon.recall();
-            npc.discard();
+            if (npc != null) npc.discard();
             if (sending != null) sending.thenAccept(e -> { if (e != null) e.getPokemon().recall(); });
         }
     }
@@ -897,16 +915,13 @@ public final class ArenaMatch extends InstanceSession {
         private static final Vec3 CENTER = new Vec3(0.5, 64, 0.5);
         private final ArenaMatch match;
         private final CinemaTrials.Trial trial;
-        private int side = -1;
-        private final Map<UUID, Integer> roles = new HashMap<>();
+        private record Role(int side, int slot) {}
+        private record Actor(int side, CinemaAi ai) {}
+        private final Map<UUID, Role> roles = new HashMap<>();
         private final Map<PokemonEntity, Actor> actors = new LinkedHashMap<>();
-
-        private static final class Actor {
-            final int side;
-            int nextAttack;
-            boolean duelingAI;
-            Actor(int side) { this.side = side; }
-        }
+        private final Map<UUID, ArenaPackets.Allies> alliesByViewer = new HashMap<>();
+        private boolean playerHit;
+        private int winningSide = -1;
 
         CinemaBattle(ArenaMatch match, CinemaTrials.Trial trial) {
             this.match = match;
@@ -915,58 +930,76 @@ public final class ArenaMatch extends InstanceSession {
 
         void pruneRoles() {
             roles.keySet().retainAll(match.getMembers().keySet());
-            if (roles.isEmpty()) side = -1;
         }
 
         boolean pick(UUID player, int faction, int slot) {
             pruneRoles();
-            if (faction < 0 || faction >= trial.sides().size()) return false;
-            int size = trial.sides().get(faction).size();
-            if (slot < 0 || slot >= size || match.getMembers().size() > size) return false;
-            if (faction != side && roles.keySet().stream().anyMatch(id -> !id.equals(player))) return false;
-            if (faction == side && roles.entrySet().stream().anyMatch(e -> !e.getKey().equals(player) && e.getValue() == slot)) return false;
-            side = faction;
-            roles.put(player, slot);
+            if (trial.castAt(faction, slot) == null) return false;
+            // Keep duplicate picks visible to everyone; readiness and start reject them.
+            roles.put(player, new Role(faction, slot));
             return true;
         }
 
+        Set<UUID> conflicts() {
+            var firstBySpecies = new HashMap<String, UUID>();
+            Set<UUID> conflicts = new HashSet<>();
+            roles.forEach((id, role) -> {
+                if (!match.getMembers().containsKey(id)) return;
+                var first = firstBySpecies.putIfAbsent(trial.castAt(role.side(), role.slot()).species(), id);
+                if (first != null) {
+                    conflicts.add(first);
+                    conflicts.add(id);
+                }
+            });
+            return conflicts;
+        }
+
+        private int playerSide(UUID id) {
+            var role = roles.get(id);
+            return role == null ? -1 : role.side();
+        }
+
         void playIntro(MinecraftServer server) {
-            var allies = trial.sides().get(side).stream().map(CinemaTrials.Cast::portrait).toList();
-            var rivals = new ArrayList<ArenaIntro.Portrait>();
-            for (int index = 0; index < trial.sides().size(); index++) {
-                if (index != side) trial.sides().get(index).forEach(cast -> rivals.add(cast.portrait()));
-            }
             for (var id : match.getMembers().keySet()) {
                 var player = server.getPlayerList().getPlayer(id);
-                var own = allies.get(roles.get(id));
                 if (player == null) continue;
-                var partners = allies.stream().filter(portrait -> portrait != own).toList();
+                var role = roles.get(id);
+                var partners = new ArrayList<ArenaIntro.Portrait>();
+                var rivals = new ArrayList<ArenaIntro.Portrait>();
+                for (int side = 0; side < trial.sides().size(); side++) {
+                    var lineup = trial.sides().get(side);
+                    for (int slot = 0; slot < lineup.size(); slot++) {
+                        if (side != role.side()) rivals.add(lineup.get(slot).portrait());
+                        else if (slot != role.slot()) partners.add(lineup.get(slot).portrait());
+                    }
+                }
                 PacketDistributor.sendToPlayer(player, new ArenaIntro.Start(match.getId(), match.getDimension().location(),
-                        own, rivals.getFirst(), partners, List.copyOf(rivals.subList(1, rivals.size()))));
+                        trial.castAt(role.side(), role.slot()).portrait(), rivals.getFirst(), partners, List.copyOf(rivals.subList(1, rivals.size()))));
             }
         }
 
         void prepare(MinecraftServer server) {
-            var players = new HashMap<Integer, UUID>();
+            var players = new HashMap<Role, UUID>();
             match.getMembers().keySet().forEach(id -> players.put(roles.get(id), id));
             for (int faction = 0; faction < trial.sides().size(); faction++) {
                 var roster = trial.sides().get(faction);
                 // Place opposing factions on distinct arcs and offset large teams along the tangent.
-                double angle = Math.PI + (faction - side) * Math.PI * 2 / trial.sides().size();
+                double angle = Math.PI + faction * Math.PI * 2 / trial.sides().size();
                 var radial = new Vec3(Math.cos(angle), 0, Math.sin(angle));
                 var tangent = new Vec3(-radial.z, 0, radial.x);
                 float yaw = (float) Math.toDegrees(Math.atan2(-radial.z, -radial.x)) - 90;
                 for (int slot = 0; slot < roster.size(); slot++) {
                     Vec3 position = CENTER.add(radial.scale(12)).add(tangent.scale((slot - (roster.size() - 1) / 2.0) * 8));
                     var pokemon = roster.get(slot).create(trial.id());
-                    if (faction == side && players.containsKey(slot)) {
-                        var player = server.getPlayerList().getPlayer(players.get(slot));
+                    CinemaHealth.apply(pokemon, trial.healthScale(faction));
+                    var member = players.get(new Role(faction, slot));
+                    if (member != null) {
+                        var player = server.getPlayerList().getPlayer(member);
                         if (player == null || !CinemaQuest.unlocked(player)) throw new IllegalStateException("Cinema party changed before setup");
                         var fighter = new Fighter(player, position, yaw, pokemon);
                         match.team.put(player.getUUID(), fighter);
                         player.connection.teleport(position.x, position.y, position.z, yaw, 0);
                     } else {
-                        int actorSide = faction;
                         GymTeamPokemon.prepareArenaMoves(pokemon, trial.id(), true);
                         UncatchableProperty.INSTANCE.uncatchable().apply(pokemon);
                         var body = pokemon.sendOut(match.getLevel(), position, null, entity -> {
@@ -977,7 +1010,7 @@ public final class ArenaMatch extends InstanceSession {
                             return Unit.INSTANCE;
                         });
                         if (body == null || body.isRemoved()) throw new IllegalStateException("Cannot deploy cinema Pokémon " + pokemon.getSpecies());
-                        actors.put(body, new Actor(actorSide));
+                        actors.put(body, new Actor(faction, new CinemaAi(body)));
                     }
                 }
             }
@@ -990,10 +1023,7 @@ public final class ArenaMatch extends InstanceSession {
                 for (var fighter : match.team.values()) if (!match.gone(fighter)) match.sendIn(fighter);
                 if (match.team.values().stream().anyMatch(f -> !match.gone(f) && !Smash.active(f.player))) return;
                 match.fighting = true;
-                actors.keySet().forEach(body -> {
-                    body.setNoAi(false);
-                    Brawl.train(body, Brawl.Difficulty.HARD);
-                });
+                actors.keySet().forEach(body -> body.setNoAi(false));
             }
             var standing = match.team.values().stream().filter(f -> !match.gone(f) && f.hasReserve() && Smash.active(f.player)).toList();
             if (standing.isEmpty()) { manager.end(match, ExitReason.DEFEAT, false); return; }
@@ -1002,43 +1032,33 @@ public final class ArenaMatch extends InstanceSession {
                 fighter.body.discard();
                 fighter.body = null;
             }
-            if (actors.entrySet().stream().noneMatch(e -> e.getValue().side != side && alive(e.getKey()))) {
+            int survivingPlayerSide = playerSide(standing.getFirst().player.getUUID());
+            if (standing.stream().allMatch(f -> playerSide(f.player.getUUID()) == survivingPlayerSide)
+                    && actors.entrySet().stream().noneMatch(e -> e.getValue().side() != survivingPlayerSide && alive(e.getKey()))) {
+                winningSide = survivingPlayerSide;
                 match.trainerResolved = match.trainerWon = true;
                 if (!manager.win(match.getLevel(), GYM_WIN)) manager.end(match, ExitReason.ERROR, false);
                 return;
             }
-            if (now % 5 != 0) return;
             for (var entry : actors.entrySet()) {
                 var pokemon = entry.getKey();
                 var actor = entry.getValue();
                 if (!alive(pokemon)) continue;
-                var target = closestOpponent(pokemon, actor.side, standing);
-                actor.duelingAI = target instanceof PokemonEntity;
-                if (target instanceof ServerPlayer player) {
-                    if (!Brawl.fighting(pokemon)) Brawl.provoke(Smash.session(player), pokemon);
-                } else if (target instanceof PokemonEntity rival) {
-                    pokemon.getLookControl().setLookAt(rival, 30, 30);
-                    double reach = 1.5 + (pokemon.getBbWidth() + rival.getBbWidth()) / 2;
-                    if (pokemon.distanceToSqr(rival) > reach * reach) pokemon.getNavigation().moveTo(rival, 1.1);
-                    else if (now >= actor.nextAttack) {
-                        actor.nextAttack = now + 35 + pokemon.getRandom().nextInt(15);
-                        pokemon.getNavigation().stop();
-                        float damage = rival.getMaxHealth() * (actor.side == side ? .045F : .075F);
-                        rival.hurt(match.getLevel().damageSources().mobAttack(pokemon), damage);
-                    }
-                }
+                var target = closestOpponent(pokemon, actor.side(), standing);
+                actor.ai().tick(match.getLevel(), target, this::opponents, playerHit);
             }
         }
 
         private LivingEntity closestOpponent(PokemonEntity pokemon, int faction, List<Fighter> standing) {
             LivingEntity closest = null;
             double distance = Double.MAX_VALUE;
-            if (faction != side) for (var fighter : standing) {
+            for (var fighter : standing) {
+                if (playerSide(fighter.player.getUUID()) == faction) continue;
                 double next = pokemon.distanceToSqr(fighter.player);
                 if (next < distance) { closest = fighter.player; distance = next; }
             }
             for (var entry : actors.entrySet()) {
-                if (entry.getValue().side == faction || !alive(entry.getKey())) continue;
+                if (entry.getValue().side() == faction || !alive(entry.getKey())) continue;
                 double next = pokemon.distanceToSqr(entry.getKey());
                 if (next < distance) { closest = entry.getKey(); distance = next; }
             }
@@ -1049,7 +1069,7 @@ public final class ArenaMatch extends InstanceSession {
 
         private int factionOf(Entity entity) {
             var actor = actors.get(entity);
-            if (actor != null) return actor.side;
+            if (actor != null) return actor.side();
             if (entity == null || entity.level() != match.getLevel()) return -1;
             var session = entity instanceof ServerPlayer player ? Smash.session(player) : Smash.sessionOf(entity);
             if (session == null && entity instanceof PokemonEntity) {
@@ -1060,15 +1080,20 @@ public final class ArenaMatch extends InstanceSession {
                     }
                 }
             }
-            return session != null && match.fighter(session.player) != null ? side : -1;
+            return session != null && match.fighter(session.player) != null ? playerSide(session.player.getUUID()) : -1;
+        }
+
+        boolean opponents(Entity attacker, Entity target) {
+            int from = factionOf(attacker), to = factionOf(target);
+            return from >= 0 && to >= 0 && from != to;
         }
 
         boolean canDamage(LivingIncomingDamageEvent event) {
             var source = event.getSource();
-            int attacker = factionOf(source.getEntity());
-            if (attacker < 0) attacker = factionOf(source.getDirectEntity());
-            int target = factionOf(event.getEntity());
-            return attacker >= 0 && target >= 0 && attacker != target;
+            Entity attacker = source.getEntity();
+            if (factionOf(attacker) < 0) attacker = source.getDirectEntity();
+            Entity target = event.getEntity();
+            return opponents(attacker, target) && (playerHit || !actors.containsKey(attacker) || !actors.containsKey(target));
         }
 
         void clean() { actors.keySet().forEach(Entity::discard); actors.clear(); }
@@ -1080,8 +1105,17 @@ public final class ArenaMatch extends InstanceSession {
         return cinema == null || cinema.roles.containsKey(player.getUUID());
     }
 
+    public boolean cinemaRoleConflicts() {
+        return cinema != null && !cinema.conflicts().isEmpty();
+    }
+
+    public boolean cinemaRoleConflicts(ServerPlayer player) {
+        return cinema != null && cinema.conflicts().contains(player.getUUID());
+    }
+
     public boolean cinemaRolesReady() {
-        return cinema == null || getMembers().keySet().stream().allMatch(cinema.roles::containsKey);
+        return cinema == null || !getMembers().isEmpty() && !cinemaRoleConflicts()
+                && getMembers().keySet().stream().allMatch(cinema.roles::containsKey);
     }
 
     public void selectCinemaRole(ServerPlayer player, int side, int slot) {
@@ -1092,23 +1126,26 @@ public final class ArenaMatch extends InstanceSession {
             InstanceNetwork.refreshParty(player, this);
             return;
         }
-        InstanceManager.get(player.server).setReady(player, getId(), false);
+        getMembers().get(player.getUUID()).ready = false;
+        cinema.conflicts().forEach(id -> getMembers().get(id).ready = false);
+        InstanceManager.get(player.server).syncParty(this);
         InstanceNetwork.openParty(player);
     }
 
-    public void writeCinemaRoles(CompoundTag data, UUID viewer) {
+    public void writeCinemaRoles(CompoundTag data) {
         cinema.pruneRoles();
-        data.putInt("side", cinema.side);
-        data.putInt("slot", cinema.roles.getOrDefault(viewer, -1));
-        ListTag occupied = new ListTag();
-        cinema.roles.forEach((id, slot) -> {
-            if (viewer.equals(id)) return;
+        var conflicts = cinema.conflicts();
+        data.putBoolean("conflict", !conflicts.isEmpty());
+        var selections = new CompoundTag();
+        cinema.roles.forEach((id, role) -> {
             var entry = new CompoundTag();
-            entry.putInt("slot", slot);
+            entry.putInt("side", role.side());
+            entry.putInt("slot", role.slot());
             entry.putString("name", getMembers().get(id).name);
-            occupied.add(entry);
+            entry.putBoolean("conflict", conflicts.contains(id));
+            selections.put(id.toString(), entry);
         });
-        data.put("occupied", occupied);
+        data.put("selections", selections);
     }
 
     public static boolean isCinemaActor(PokemonEntity pokemon) {
@@ -1117,10 +1154,25 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static boolean cinemaActorDisallowsBrawl(PokemonEntity pokemon) {
-        var match = group(pokemon);
-        if (match == null || match.cinema == null) return false;
-        var actor = match.cinema.actors.get(pokemon);
-        return actor != null && (!match.fighting || actor.side == match.cinema.side || actor.duelingAI);
+        return isCinemaActor(pokemon);
+    }
+
+    public static void cinemaPlayerHit(LivingEntity target, DamageSource source, float damage) {
+        if (damage <= 0 || !(target.level() instanceof ServerLevel level)
+                || !(InstanceApi.find(level).orElse(null) instanceof ArenaMatch match)
+                || match.cinema == null || match.cinema.playerHit || !match.fighting) return;
+        var attacker = source.getEntity();
+        var session = attacker instanceof ServerPlayer player ? Smash.session(player) : Smash.sessionOf(attacker);
+        if (session != null && match.cinema.opponents(session.player, target)) match.cinema.playerHit = true;
+    }
+
+    @SubscribeEvent
+    public static void cinemaActorDamaged(LivingDamageEvent.Post event) {
+        cinemaPlayerHit(event.getEntity(), event.getSource(), event.getNewDamage());
+    }
+
+    public boolean cinemaRewardEligible(UUID id) {
+        return cinema == null || cinema.winningSide >= 0 && cinema.playerSide(id) == cinema.winningSide;
     }
 
     @Override protected void onTick(InstanceManager manager) {
@@ -1208,11 +1260,28 @@ public final class ArenaMatch extends InstanceSession {
             int body = control != null && control.pokemon.isAlive() && !control.pokemon.getPokemon().isFainted()
                     ? control.pokemon.getId() : -1;
             players.add(new ArenaPackets.Ally(f.player.getUUID(), f.player.getGameProfile().getName(), f.player.getId(), body));
-            if (control != null) control.combat.decoys.forEach(decoy -> actors.add(decoy.getId()));
+            if (cinema == null && control != null) control.combat.decoys.forEach(decoy -> actors.add(decoy.getId()));
         }
-        if (cinema != null) cinema.actors.forEach((pokemon, actor) -> {
-            if (actor.side == cinema.side && CinemaBattle.alive(pokemon)) actors.add(pokemon.getId());
-        });
+        if (cinema != null) {
+            for (var viewer : team.values()) {
+                if (gone(viewer)) continue;
+                UUID id = viewer.player.getUUID();
+                int side = cinema.playerSide(id);
+                var teammates = players.stream().filter(p -> cinema.playerSide(p.player()) == side).toList();
+                var friendly = new ArrayList<Integer>();
+                cinema.actors.forEach((pokemon, actor) -> {
+                    if (actor.side() == side && CinemaBattle.alive(pokemon)) friendly.add(pokemon.getId());
+                });
+                teammates.forEach(ally -> {
+                    var control = Smash.session(team.get(ally.player()).player);
+                    if (control != null) control.combat.decoys.forEach(decoy -> friendly.add(decoy.getId()));
+                });
+                friendly.sort(Integer::compare);
+                var update = new ArenaPackets.Allies(getDimension().location(), teammates, List.copyOf(friendly));
+                if (!update.equals(cinema.alliesByViewer.put(id, update))) PacketDistributor.sendToPlayer(viewer.player, update);
+            }
+            return;
+        }
         actors.sort(Integer::compare);
         var update = new ArenaPackets.Allies(getDimension().location(), List.copyOf(players), List.copyOf(actors));
         if (update.equals(lastAllies)) return;
@@ -1870,7 +1939,8 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static boolean isTrainerFighter(PokemonEntity entity) {
-        return group(entity) != null && entity.getPokemon().isNPCOwned();
+        var match = group(entity);
+        return match != null && (entity.getPokemon().isNPCOwned() || match.trainerOf(entity) != null);
     }
 
     public static List<Pokemon> roster(ServerPlayer p) {
@@ -1944,8 +2014,7 @@ public final class ArenaMatch extends InstanceSession {
                 || target == attacker.player || target == attacker.pokemon || !target.isAlive() || target.isSpectator()
                 || attacker.combat.decoys.contains(target) || group(target) != match) return false;
         if (match.cinema != null) {
-            var actor = match.cinema.actors.get(target);
-            return actor != null && actor.side != match.cinema.side;
+            return match.cinema.opponents(attacker.player, target);
         }
         if (match.b != null) {
             var opponent = attacker.player == match.a.player ? match.b : match.a;

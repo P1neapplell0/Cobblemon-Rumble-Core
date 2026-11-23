@@ -57,7 +57,15 @@ public final class CinemaTrials {
     public record Trial(String id, ArenaTheme arena, int coins, int candies, List<List<Cast>> sides) {
         public String titleKey() { return "rumble.cinema.trial." + id; }
         public String template() { return "rumble_cinema_" + id; }
-        public int capacity() { return sides.stream().mapToInt(List::size).max().orElse(1); }
+        public int capacity() { return sides.stream().mapToInt(List::size).sum(); }
+        public double healthScale(int side) {
+            int largest = sides.stream().mapToInt(List::size).max().orElseThrow();
+            return (double) largest / sides.get(side).size();
+        }
+        public Cast castAt(int side, int slot) {
+            if (side < 0 || side >= sides.size() || slot < 0 || slot >= sides.get(side).size()) return null;
+            return sides.get(side).get(slot);
+        }
         public static Trial fromTemplate(String template) {
             return all().stream().filter(trial -> trial.template().equals(template)).findFirst().orElse(null);
         }

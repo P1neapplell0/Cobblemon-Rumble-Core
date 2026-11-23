@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface ConditionTimers {
     @Accessor("statusUntil") long rumble$statusUntil();
     @Accessor("statusUntil") void rumble$expireStatus(long time);
+    @Accessor("launchedUntil") long rumble$launchedUntil();
     @Accessor("stunUntil") long rumble$stunUntil();
     @Accessor("boundUntil") long rumble$boundUntil();
     @Accessor("confusedUntil") long rumble$confusedUntil();

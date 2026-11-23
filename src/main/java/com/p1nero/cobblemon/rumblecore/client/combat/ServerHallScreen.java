@@ -32,6 +32,10 @@ public final class ServerHallScreen extends Screen {
         this.parent = parent;
     }
 
+    public static void open() {
+        Minecraft.getInstance().setScreen(new ServerHallScreen(null));
+    }
+
     @Override protected void init() {
         int previousPageSize = pageSize;
         int offset = page * pageSize;
