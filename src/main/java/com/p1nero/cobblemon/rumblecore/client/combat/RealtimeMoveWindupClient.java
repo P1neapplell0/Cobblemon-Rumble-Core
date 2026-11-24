@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.phys.Vec3;
 
@@ -18,8 +19,10 @@ public final class RealtimeMoveWindupClient {
     public static void onWarning(int ticks) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null) return;
-        // A relative UI sound, so every selected listener hears it at the same volume.
-        mc.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.NOTE_BLOCK_PLING.value(), 1.35F, 0.9F));
+        // Keep the cue non-positional for reliable audibility, while distinguishing our cast from threats.
+        SoundEvent sound = ticks > 0 ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.AMETHYST_BLOCK_CHIME;
+        float pitch = ticks > 0 ? 0.9F : 0.82F;
+        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, 1.1F, pitch));
         if (ticks > 0) {
             caster = mc.player;
             caster.setSprinting(false);
