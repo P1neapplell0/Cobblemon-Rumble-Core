@@ -19,7 +19,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.FormattedCharSequence;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -51,6 +50,8 @@ public final class OpeningTutorialOverlay {
     }
 
     private OpeningTutorialOverlay() { }
+
+    public static boolean isActive() { return step.active(); }
 
     public static boolean at(Step expected) { return step == expected; }
 
@@ -101,6 +102,7 @@ public final class OpeningTutorialOverlay {
         shownAt = 0;
         sentAt = 0;
         mainGroupSeen = 0;
+        actedAt = 0;
         acted = false;
         target = null;
         observed = null;
@@ -115,7 +117,7 @@ public final class OpeningTutorialOverlay {
     public static void action(Step expected) {
         if (step == expected && !acted) {
             acted = true;
-            actedAt = Util.getMillis();
+            actedAt = 0;
         }
     }
 
@@ -127,6 +129,7 @@ public final class OpeningTutorialOverlay {
         var mc = Minecraft.getInstance();
         if (!available(mc)) {
             shownAt = 0;
+            actedAt = 0;
             return;
         }
         var screen = mc.screen;
@@ -146,9 +149,8 @@ public final class OpeningTutorialOverlay {
             case CLOSE_JOURNAL -> acted || screen == null;
             case HOLD_PHONE -> mainHand;
             case OPEN_PHONE -> mainHand && screen instanceof SmartphoneScreen;
-            case CLOUD, WAYSTONES -> acted && now - actedAt >= INTRO_MS;
+            case CLOUD, WAYSTONES, DISTRIBUTION -> acted && actedAt != 0 && now - actedAt >= INTRO_MS;
             case POKEMON_INFO -> screen instanceof PokeInfoScreen || screen instanceof PokeInfoDetailScreen;
-            case DISTRIBUTION -> acted && now - actedAt >= INTRO_MS;
             default -> false;
         };
         long duration = step == Step.JOURNAL || step == Step.HOLD_PHONE ? INTRO_MS : READ_MS;
@@ -170,13 +172,12 @@ public final class OpeningTutorialOverlay {
     }
 
     private static boolean available(Minecraft mc) {
-        return step.active() && mc.player != null && !mc.options.hideGui && !ClientSmash.active()
+        return isActive() && mc.player != null && mc.getOverlay() == null && !mc.options.hideGui && !ClientSmash.active()
                 && ClientDialogueCache.INSTANCE.getCurrentSession() == null;
     }
 
     private static void draw(GuiGraphics graphics, Screen screen) {
         if (shownAt == 0 || !showOn(screen)) return;
-        long age = Util.getMillis() - shownAt;
         var mc = Minecraft.getInstance();
         boolean reopenJournal = screen == null && (step == Step.MAIN_GROUP || step == Step.MAIN_QUEST || step == Step.TRACK);
         boolean explaining = acted && (step == Step.CLOUD || step == Step.WAYSTONES || step == Step.DISTRIBUTION);
@@ -186,7 +187,7 @@ public final class OpeningTutorialOverlay {
         String message = reopenJournal ? "journal" : reopenPhone ? "reopen_phone" : step.name().toLowerCase(Locale.ROOT);
         if (explaining) {
             message += "_opened";
-            age = Util.getMillis() - actedAt;
+            if (actedAt == 0) actedAt = Util.getMillis();
         } else if (step == Step.MAIN_GROUP && mainGroupVisible()) {
             message = "main_group_opened";
         } else if (step == Step.TRACK && screen instanceof QuestJournalScreen && trackingMainQuest()) {
@@ -195,53 +196,56 @@ public final class OpeningTutorialOverlay {
             message = "choose_pokemon";
         }
         Component binding = key == null ? Component.empty() : key.getTranslatedKeyMessage();
-        var lines = mc.font.split(text(message, binding), Math.min(210, graphics.guiWidth() - 22));
+        var lines = mc.font.split(text(message, binding), Math.max(1, Math.min(210, graphics.guiWidth() - 32)));
         var title = text(step.ordinal() <= Step.CLOSE_JOURNAL.ordinal() ? "journal_title" : "phone_title");
-        int w = Math.min(graphics.guiWidth() - 12, Math.max(mc.font.width(title) + 18,
-                lines.stream().mapToInt(mc.font::width).max().orElse(0) + 20));
+        int w = Math.max(mc.font.width(title) + 20, lines.stream().mapToInt(mc.font::width).max().orElse(0) + 20);
+        if (key != null) w = Math.max(w, mc.font.width(binding) + 32);
         int h = 25 + lines.size() * 11 + (key == null ? 0 : 22);
+        float scale = Math.min(1F, Math.min(Math.max(1, graphics.guiWidth() - 12) / (float) w,
+                Math.max(1, graphics.guiHeight() - 12) / (float) h));
+        int boxW = (int) Math.ceil(w * scale), boxH = (int) Math.ceil(h * scale);
         Target mark = !explaining && target != null && target.screen() == screen && Util.getMillis() - target.seen() < 250 ? target : null;
-        int x = (graphics.guiWidth() - w) / 2;
-        int y = screen == null ? Math.max(6, graphics.guiHeight() * 2 / 3 - h) : 6;
+        int x = (graphics.guiWidth() - boxW) / 2;
+        int y = screen == null ? Math.max(6, graphics.guiHeight() * 2 / 3 - boxH) : 6;
         if (mark != null) {
-            if (mark.x() + mark.w() + w + 17 <= graphics.guiWidth()) {
+            if (mark.x() + mark.w() + boxW + 17 <= graphics.guiWidth()) {
                 x = mark.x() + mark.w() + 11;
-                y = mark.y() + mark.h() / 2 - h / 2;
-            } else if (mark.x() >= w + 17) {
-                x = mark.x() - w - 11;
-                y = mark.y() + mark.h() / 2 - h / 2;
+                y = mark.y() + mark.h() / 2 - boxH / 2;
+            } else if (mark.x() >= boxW + 17) {
+                x = mark.x() - boxW - 11;
+                y = mark.y() + mark.h() / 2 - boxH / 2;
             } else {
-                y = mark.y() >= h + 17 ? mark.y() - h - 11 : mark.y() + mark.h() + 11;
+                y = mark.y() >= boxH + 17 ? mark.y() - boxH - 11 : mark.y() + mark.h() + 11;
             }
         }
-        y = Math.max(6, Math.min(y, graphics.guiHeight() - h - 6));
+        y = Math.max(6, Math.min(y, graphics.guiHeight() - boxH - 6));
         graphics.pose().pushPose();
         graphics.pose().translate(0, 0, 480);
         if (mark != null) {
             TutorialPulse.render(graphics, mark.x(), mark.y(), mark.w(), mark.h());
             int mx = mark.x() + mark.w() / 2, my = mark.y() + mark.h() / 2;
-            int px = Math.clamp(mx, x, x + w), py = Math.clamp(my, y, y + h);
+            int px = Math.clamp(mx, x, x + boxW), py = Math.clamp(my, y, y + boxH);
             graphics.hLine(Math.min(mx, px), Math.max(mx, px), my, 0xccf9df94);
             graphics.vLine(px, Math.min(my, py), Math.max(my, py), 0xccf9df94);
         }
-        graphics.fill(x, y, x + w, y + h, 0xe91a202a);
-        graphics.hLine(x, x + w - 1, y, GOLD);
-        graphics.drawString(mc.font, title, x + 10, y + 7, GOLD);
-        int lineY = y + 20;
-        int ink = (int) Math.min(Integer.MAX_VALUE, age / 13);
+        graphics.pose().translate(x, y, 0);
+        graphics.pose().scale(scale, scale, 1);
+        graphics.fill(0, 0, w, h, 0xe91a202a);
+        graphics.hLine(0, w - 1, 0, GOLD);
+        graphics.drawString(mc.font, title, 10, 7, GOLD);
+        int lineY = 20;
+        // Pass the font's original wrapped sequences straight to the renderer. Partial
+        // character visitors can break shaping/batching in production text renderers.
         for (var line : lines) {
-            final int[] remaining = {ink};
-            graphics.drawString(mc.font, (FormattedCharSequence) sink -> line.accept((i, style, cp) ->
-                    remaining[0]-- > 0 && sink.accept(i, style, cp)), x + 10, lineY, PAPER);
-            ink = Math.max(0, remaining[0]);
+            graphics.drawString(mc.font, line, 10, lineY, PAPER);
             lineY += 11;
         }
         if (key != null) {
             int bw = mc.font.width(binding) + 18;
-            int bx = x + (w - bw) / 2;
+            int bx = (w - bw) / 2;
             graphics.fill(bx, lineY + 2, bx + bw, lineY + 17, 0xff302e2a);
             TutorialPulse.render(graphics, bx, lineY + 2, bw, 15);
-            graphics.drawCenteredString(mc.font, binding, x + w / 2, lineY + 5, PAPER);
+            graphics.drawCenteredString(mc.font, binding, w / 2, lineY + 5, PAPER);
         }
         graphics.pose().popPose();
     }

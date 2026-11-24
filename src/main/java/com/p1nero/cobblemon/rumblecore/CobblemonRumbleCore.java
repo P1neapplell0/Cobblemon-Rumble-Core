@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.InstancePokemonDamage;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindupPacket;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeReleaseAim;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPackets;
@@ -11,6 +12,7 @@ import com.p1nero.cobblemon.rumblecore.combat.arena.HallOfFame;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.guide.QuestAcceptedNotice;
+import com.p1nero.cobblemon.rumblecore.integration.bca.AdditionsNpcNames;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneItems;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneState;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneSync;
@@ -81,6 +83,7 @@ public final class CobblemonRumbleCore {
         modBus.addListener(MerchantPanels::register);
         modBus.addListener(BattleMusic::register);
         modBus.addListener(RealtimeMoveWindupPacket::register);
+        modBus.addListener(RealtimeReleaseAim::register);
         modBus.addListener(QuestAcceptedNotice::register);
         modBus.addListener(PhoneSync::register);
         modBus.addListener(RecyclingPackets::register);
@@ -91,6 +94,8 @@ public final class CobblemonRumbleCore {
         modBus.addListener(CobblemonRumbleCore::addModelFixes);
         modBus.addListener(CobblemonRumbleCore::addPoseFixes);
         modBus.addListener(CobblemonRumbleCore::addAdditionsDistribution);
+        modBus.addListener(CobblemonRumbleCore::addAdditionsDialogues);
+        if (AdditionsNpcNames.additionsLoaded()) NeoForge.EVENT_BUS.addListener(AdditionsNpcNames::onJoin);
         modBus.addListener(CobblemonRumbleCore::addLegacyTrainerTeams);
         modBus.addListener(CobblemonRumbleCore::addExternalPacks);
     }
@@ -118,6 +123,13 @@ public final class CobblemonRumbleCore {
         if (!ModList.get().isLoaded("cobblemon-additions")) return;
         event.addPackFinders(ResourceLocation.fromNamespaceAndPath(MOD_ID, "packs/bca_distribution"),
                 PackType.SERVER_DATA, Component.literal("Rumble - Cobblemon Additions Distribution"),
+                PackSource.BUILT_IN, true, Pack.Position.TOP);
+    }
+
+    private static void addAdditionsDialogues(AddPackFindersEvent event) {
+        if (!AdditionsNpcNames.additionsLoaded()) return;
+        event.addPackFinders(ResourceLocation.fromNamespaceAndPath(MOD_ID, "packs/bca_dialogues"),
+                PackType.SERVER_DATA, Component.literal("Rumble - Cobblemon Additions NPC Dialogues"),
                 PackSource.BUILT_IN, true, Pack.Position.TOP);
     }
 

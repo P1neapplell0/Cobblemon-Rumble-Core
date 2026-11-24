@@ -61,7 +61,7 @@ public final class PrologueClient {
     private static final KeyMapping TALK = new KeyMapping("key.cobblemon_rumble_core.talk", KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_E, "key.categories.cobblemon_rumble_core");
     static final KeyMapping HELD = new KeyMapping("key.cobblemon_rumble_core.use_held", KeyConflictContext.IN_GAME,
-            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_Q, "key.categories.cobblemon_rumble_core");
+            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_R, "key.categories.cobblemon_rumble_core");
     static final KeyMapping TERA = new KeyMapping(TeraCombat.BINDING, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_T, "key.categories.cobblemon_rumble_core");
     private static boolean teraPressed, teraUsed;
@@ -222,7 +222,7 @@ public final class PrologueClient {
             case GUARD, PARRY -> key == options.keyUse;
             case MOVE -> {
                 boolean match = false;
-                for (int i = 0; i < moves; i++) match |= key == options.keyHotbarSlots[i];
+                for (int i = 0; i < moves; i++) match |= key == com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveKeys.SLOTS[i];
                 yield match;
             }
             default -> false;

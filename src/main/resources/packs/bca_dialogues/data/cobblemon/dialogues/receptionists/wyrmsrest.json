@@ -1,0 +1,194 @@
+{
+  "initializationAction": "(q.npc.is_in_battle_with(q.player) || !q.npc.is_doing_activity('minecraft:idle', 'cobblemon:battling')) ? q.dialogue.close()",
+  "speakers": {
+    "npc": {
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      },
+      "face": "q.npc.face(false);"
+    },
+    "player": {
+      "face": "q.player.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.player.username"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "player-chat",
+      "speaker": "player",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.player-chat.line.1"
+      ],
+      "input": "q.dialogue.set_page(q.npc.was_hurt_by(q.player) ? 'hurt-1' : 'npc-chat');"
+    },
+    {
+      "id": "hurt-1",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.hurt-1.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "npc-chat",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.npc-chat.line.1"
+      ],
+      "input": "q.dialogue.set_page('npc-chat2');"
+    },
+    {
+      "id": "npc-chat2",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.npc-chat2.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.npc-chat2.option.facilities.1",
+            "value": "facilities",
+            "action": [
+              "q.dialogue.set_page('facilities')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.npc-chat2.option.facility.info.2",
+            "value": "facility_info",
+            "action": [
+              "q.dialogue.set_page('facility_info')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.npc-chat2.option.cancel.3",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "facility_info",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.facility.info.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.facility.info.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat2')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.facility.info.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "facilities",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.facilities.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.facilities.option.restaurant.1",
+            "value": "restaurant",
+            "action": [
+              "q.dialogue.set_page('restaurant')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.facilities.option.tavern.2",
+            "value": "tavern",
+            "action": [
+              "q.dialogue.set_page('tavern')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.facilities.option.back.3",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat2')"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "restaurant",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.restaurant.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.restaurant.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('facilities')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.restaurant.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tavern",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.wyrmsrest.tavern.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.tavern.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('facilities')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.wyrmsrest.tavern.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

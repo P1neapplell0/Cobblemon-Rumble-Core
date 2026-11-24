@@ -16,6 +16,10 @@ abstract class PrologueVanillaKeys {
         var inventory = Minecraft.getInstance().options.keyInventory;
         while (inventory.consumeClick()) { }
         inventory.setDown(false);
+        var options = Minecraft.getInstance().options;
+        for (var move : com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveKeys.SLOTS) {
+            if (move.getKey().equals(options.keyDrop.getKey())) while (options.keyDrop.consumeClick()) { }
+        }
     }
 
     @Inject(method = "handleKeybinds", at = @At("HEAD"), cancellable = true)

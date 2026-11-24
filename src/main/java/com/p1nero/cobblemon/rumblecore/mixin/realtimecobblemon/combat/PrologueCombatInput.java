@@ -88,9 +88,13 @@ final class PrologueCombatInput {
         @WrapMethod(method = "onToggle")
         private static void rumble$teachToggle(ServerPlayer player, int id, Operation<Void> original) {
             if (ArenaMatch.toggle(player)) return;
+            var session = Smash.session(player);
+            if (session != null && session.pokemon.getPokemon().isFainted()
+                    && com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout.inFlight(session.pokemon)) return;
             boolean wasActive = Smash.active(player);
             Cue action = wasActive ? Cue.MODE_EXIT : Cue.MODE_REENTER;
             if (!PrologueTraining.allowToggle(player, action)) return;
+            if (!wasActive && com.p1nero.cobblemon.rumblecore.combat.RealtimeBattleEntry.enterSelected(player, id)) return;
             original.call(player, id);
             if (Smash.active(player) != wasActive) PrologueTraining.performed(player, action, 36);
         }

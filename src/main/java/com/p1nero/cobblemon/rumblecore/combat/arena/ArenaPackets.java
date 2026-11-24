@@ -7,6 +7,7 @@ import com.p1nero.cobblemon.rumblecore.prologue.client.PrologueClient;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.core.UUIDUtil;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentSerialization;
@@ -18,6 +19,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 public final class ArenaPackets {
+    public static final int WILD_ROUND = -1;
     private ArenaPackets() {}
 
     public record Reply(UUID invitation, boolean accept) implements CustomPacketPayload {
@@ -62,17 +64,30 @@ public final class ArenaPackets {
         @Override public Type<Switch> type() { return TYPE; }
     }
 
+    public record GymReport(ResourceLocation dimension, CompoundTag report) implements CustomPacketPayload {
+        static final Type<GymReport> TYPE = new Type<>(PrologueWorld.id("gym_report"));
+        static final StreamCodec<RegistryFriendlyByteBuf, GymReport> CODEC = StreamCodec.composite(
+                ResourceLocation.STREAM_CODEC, GymReport::dimension, ByteBufCodecs.COMPOUND_TAG, GymReport::report, GymReport::new);
+        @Override public Type<GymReport> type() { return TYPE; }
+    }
+
     public static void register(RegisterPayloadHandlersEvent event) {
         var net = event.registrar("2");
         net.playToServer(UseTera.TYPE, UseTera.CODEC, (p, ctx) -> TeraCombat.use((ServerPlayer) ctx.player()));
         net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> PrologueClient.teraUsed(p.used()));
         net.playToServer(UseHeld.TYPE, UseHeld.CODEC, (p, ctx) -> ArenaMatch.useHeld((ServerPlayer) ctx.player()));
         net.playToServer(Reply.TYPE, Reply.CODEC, (p, ctx) -> ArenaMatch.reply((ServerPlayer) ctx.player(), p));
-        net.playToServer(Pick.TYPE, Pick.CODEC, (p, ctx) -> ArenaMatch.pick((ServerPlayer) ctx.player(), p));
+        net.playToServer(Pick.TYPE, Pick.CODEC, (p, ctx) -> {
+            var player = (ServerPlayer) ctx.player();
+            if (p.round() == WILD_ROUND) com.p1nero.cobblemon.rumblecore.combat.RealtimeBattleEntry.pick(player, p);
+            else ArenaMatch.pick(player, p);
+        });
         net.playToClient(Invite.TYPE, Invite.CODEC, (p, ctx) -> ArenaClient.invite(p));
+        net.playToClient(GymReport.TYPE, GymReport.CODEC, (p, ctx) -> ArenaClient.gymReport(p));
         net.playToClient(Prepare.TYPE, Prepare.CODEC, (p, ctx) -> ArenaClient.prepare(p));
         net.playToClient(Switch.TYPE, Switch.CODEC, (p, ctx) -> ArenaClient.roster(p));
         net.playToClient(Allies.TYPE, Allies.CODEC, (p, ctx) -> BattleNameplates.sync(p));
+        net.playToClient(Opponents.TYPE, Opponents.CODEC, (p, ctx) -> BattleNameplates.syncOpponents(p));
         net.playToClient(Tenacity.TYPE, Tenacity.CODEC, (p, ctx) ->
                 PrologueClient.tenacity(p.entityId(), p.dimension(), p.ticks()));
     }
@@ -90,6 +105,14 @@ public final class ArenaPackets {
                 ResourceLocation.STREAM_CODEC, Allies::dimension, Ally.CODEC.apply(ByteBufCodecs.list(1024)), Allies::players,
                 ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list(4096)), Allies::actors, Allies::new);
         @Override public Type<Allies> type() { return TYPE; }
+    }
+
+    public record Opponents(ResourceLocation dimension, List<Ally> players, List<Integer> actors) implements CustomPacketPayload {
+        static final Type<Opponents> TYPE = new Type<>(PrologueWorld.id("arena_opponents"));
+        static final StreamCodec<RegistryFriendlyByteBuf, Opponents> CODEC = StreamCodec.composite(
+                ResourceLocation.STREAM_CODEC, Opponents::dimension, Ally.CODEC.apply(ByteBufCodecs.list(1024)), Opponents::players,
+                ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list(4096)), Opponents::actors, Opponents::new);
+        @Override public Type<Opponents> type() { return TYPE; }
     }
 
     public record UseTera() implements CustomPacketPayload {

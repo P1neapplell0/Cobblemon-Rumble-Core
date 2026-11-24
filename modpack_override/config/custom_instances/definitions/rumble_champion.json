@@ -1,8 +1,6 @@
 {
   "id": "rumble_champion",
   "name": "{rumble.champion.title}",
-  "description": "{rumble.champion.description}",
-  "icon": "minecraft:nether_star",
   "timeLimitSeconds": 0,
   "maxDeaths": 0,
   "allowLateJoin": false,
@@ -14,7 +12,12 @@
   },
   "victoryType": "custom",
   "target": "rumble_champion",
+  "prerequisite": "",
   "chunkSource": "rumble_arena_sky",
+  "icon": "minecraft:nether_star",
+  "descriptionImage": "",
+  "description": "{rumble.champion.description}",
+  "maxTeamDeaths": 0,
   "dimensionSettings": {
     "dayTime": 6000,
     "fixedTime": true,
@@ -33,5 +36,7 @@
     "monsterLightLimit": 0,
     "forceAdventure": true,
     "allowNaturalMonsters": false
-  }
+  },
+  "rewards": [],
+  "unlockConditions": []
 }

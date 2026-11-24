@@ -7,7 +7,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -20,7 +19,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import org.arcadia.arc_quest.dialogue.network.ClientDialogueCache;
 import org.arcadia.arc_quest.client.events.ClientEventHandler;
 import org.arcadia.arc_quest.client.hud.HudAnimUtil;
 import org.arcadia.arc_quest.client.hud.HudRenderUtil;
@@ -42,60 +42,45 @@ public final class AdventureQuestAcceptedOverlay {
     private static final Deque<Notice> QUEUE = new ArrayDeque<>();
 
     private static Notice active;
-    private static long startedAt;
+    private static final int TICK_MILLIS = 50;
+    private static long elapsed;
 
     private AdventureQuestAcceptedOverlay() {
     }
 
+    private static boolean canShow(Minecraft mc) {
+        return mc.player != null && mc.level != null && mc.screen == null && mc.getOverlay() == null
+                && !mc.options.hideGui && !OpeningTutorialOverlay.isActive() && !ClientSmash.active()
+                && ClientDialogueCache.INSTANCE.getCurrentSession() == null;
+    }
+
+    @SubscribeEvent
+    public static void tick(ClientTickEvent.Post event) {
+        if (!canShow(Minecraft.getInstance())) return;
+        if (active != null && (elapsed += TICK_MILLIS) < TOTAL_MILLIS) return;
+        active = QUEUE.pollFirst();
+        elapsed = 0;
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void hud(RenderGuiEvent.Post event) {
-        if (Minecraft.getInstance().screen != null) return;
+        if (active == null || !canShow(Minecraft.getInstance())) return;
         var graphics = event.getGuiGraphics();
         render(graphics, graphics.guiWidth(), graphics.guiHeight());
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void screen(ScreenEvent.Render.Post event) {
-        render(event.getGuiGraphics(), event.getScreen().width, event.getScreen().height);
-    }
-
     @SubscribeEvent
-    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) { clear(); }
-
-    public static void show(Component title, Component description) {
-        Notice notice = new Notice(title.copy(), description.copy());
-        if (active == null) {
-            active = notice;
-            startedAt = Util.getMillis();
-        } else {
-            QUEUE.addLast(notice);
-        }
-    }
-
-    public static boolean isActive() {
-        return active != null;
-    }
-
-    public static void clear() {
+    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {
         active = null;
         QUEUE.clear();
-        startedAt = 0L;
+        elapsed = 0;
     }
 
-    public static void render(GuiGraphics graphics, int screenWidth, int screenHeight) {
-        if (ClientSmash.active()) return;
-        if (active == null) return;
-        long elapsed = Util.getMillis() - startedAt;
-        if (elapsed >= TOTAL_MILLIS) {
-            active = QUEUE.pollFirst();
-            if (active == null) {
-                startedAt = 0L;
-                return;
-            }
-            startedAt = Util.getMillis();
-            elapsed = 0L;
-        }
+    public static void show(Component title, Component description) {
+        QUEUE.addLast(new Notice(title.copy(), description.copy()));
+    }
 
+    private static void render(GuiGraphics graphics, int screenWidth, int screenHeight) {
         float reveal;
         float visibility;
         float textVisibility;

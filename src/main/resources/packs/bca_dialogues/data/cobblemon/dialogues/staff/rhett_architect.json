@@ -1,0 +1,88 @@
+{
+  "initializationAction": "(q.npc.is_in_battle_with(q.player) || !q.npc.is_doing_activity('minecraft:idle', 'cobblemon:battling')) ? q.dialogue.close()",
+  "speakers": {
+    "rhett": {
+      "name": "dialogue.bca.staff.rhett.architect.speaker.rhett",
+      "face": "q.npc.face(false);"
+    },
+    "player": {
+      "name": {
+        "type": "expression",
+        "expression": "q.player.username"
+      },
+      "face": "q.player.face(true);"
+    }
+  },
+  "pages": [
+    {
+      "id": "greeting",
+      "speaker": "rhett",
+      "lines": [
+        "dialogue.bca.staff.rhett.architect.greeting.line.1",
+        "dialogue.bca.staff.rhett.architect.greeting.line.2"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.staff.rhett.architect.greeting.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.close();",
+              "q.npc.start_battle(q.player, 'single');"
+            ],
+            "isSelectable": "c.npc.can_battle;"
+          },
+          {
+            "text": "dialogue.bca.staff.rhett.architect.greeting.option.info.2",
+            "value": "info",
+            "action": "q.dialogue.set_page('about');"
+          },
+          {
+            "text": "dialogue.bca.staff.rhett.architect.greeting.option.cancel.3",
+            "value": "cancel",
+            "action": "q.dialogue.set_page('decline');"
+          }
+        ]
+      }
+    },
+    {
+      "id": "about",
+      "speaker": "rhett",
+      "lines": [
+        "dialogue.bca.staff.rhett.architect.about.line.1",
+        "dialogue.bca.staff.rhett.architect.about.line.2",
+        "dialogue.bca.staff.rhett.architect.about.line.3"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.staff.rhett.architect.about.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.close();",
+              "q.npc.start_battle(q.player, 'single');"
+            ],
+            "isSelectable": "c.npc.can_battle;"
+          },
+          {
+            "text": "dialogue.bca.staff.rhett.architect.about.option.cancel.2",
+            "value": "cancel",
+            "action": "q.dialogue.set_page('decline');"
+          }
+        ]
+      }
+    },
+    {
+      "id": "decline",
+      "speaker": "rhett",
+      "lines": [
+        "dialogue.bca.staff.rhett.architect.decline.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    }
+  ]
+}

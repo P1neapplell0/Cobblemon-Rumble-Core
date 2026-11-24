@@ -174,7 +174,7 @@ final class TrainingHud {
             case ATTACK, HEAVY -> new KeyMapping[]{o.keyAttack};
             case DODGE -> new KeyMapping[]{ClientSmash.DODGE};
             case GUARD, PARRY -> new KeyMapping[]{o.keyUse};
-            case MOVE -> Arrays.copyOf(o.keyHotbarSlots, moves);
+            case MOVE -> Arrays.copyOf(com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveKeys.SLOTS, moves);
             case MEGA_ITEM -> new KeyMapping[]{PrologueClient.HELD};
             case TERA_ITEM -> new KeyMapping[]{PrologueClient.TERA};
             default -> new KeyMapping[0];

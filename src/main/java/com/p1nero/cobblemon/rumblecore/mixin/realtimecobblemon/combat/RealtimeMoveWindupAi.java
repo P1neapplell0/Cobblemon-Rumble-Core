@@ -14,6 +14,7 @@ import java.util.List;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,7 +50,7 @@ abstract class RealtimeMoveWindupAi {
         var access = (BrawlFoeAccess) foe;
         var pokemon = access.rumble$mon();
         if (RealtimeMoveWindup.npcCoolingDown(pokemon, pokemon.level().getGameTime())) return List.of();
-        return access.rumble$moves();
+        return access.rumble$moves().stream().filter(pick -> RealtimeMoveWindup.npcHasPp(pokemon, ((BrawlPickAccess) pick).rumble$move())).toList();
     }
 
     @Inject(method = "startMove", at = @At("HEAD"), cancellable = true)
@@ -63,6 +64,13 @@ abstract class RealtimeMoveWindupAi {
     @ModifyExpressionValue(method = "startMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;clamp(III)I"))
     private static int rumble$halfSecondWindup(int original) {
         return RealtimeMoveWindup.TICKS;
+    }
+
+    // The first read is AI tracking during the windup. The second actually launches the attack.
+    @ModifyExpressionValue(method = "move", at = @At(value = "FIELD", ordinal = 1, target =
+            "Lcom/johnn/realtimecobblemon/moves/Brawl$Foe;seen:Lnet/minecraft/world/phys/Vec3;"))
+    private static Vec3 rumble$aimAtRelease(Vec3 tracked, @Coerce Object foe, Smash.Session target) {
+        return target.player.getBoundingBox().getCenter();
     }
 
     @Inject(method = "move", at = @At(value = "INVOKE", target =

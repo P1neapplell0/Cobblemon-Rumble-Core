@@ -1,6 +1,9 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
 import com.johnn.realtimecobblemon.Smash;
+import com.cobblemon.mod.common.api.moves.Move;
+import com.llamalad7.mixinextras.sugar.Local;
+import net.minecraft.network.chat.Component;
 import com.johnn.realtimecobblemon.moves.MoveEngine;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -18,6 +21,21 @@ abstract class RealtimeMoveWindupInput {
     @Inject(method = "use0", at = @At("HEAD"), cancellable = true)
     private static void rumble$blockUnavailableMove(ServerPlayer player, int slot, float charge, CallbackInfo ci) {
         if (RealtimeMoveWindup.playerCastBlocked(player)) ci.cancel();
+    }
+
+    @Inject(method = "use0", at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/MoveRegistry;info(Lcom/cobblemon/mod/common/api/moves/Move;)Lcom/johnn/realtimecobblemon/moves/MoveInfo;"), cancellable = true)
+    private static void rumble$requirePp(ServerPlayer player, int slot, float charge, CallbackInfo ci, @Local Move move) {
+        if (move.getCurrentPp() > 0) return;
+        player.displayClientMessage(Component.translatable("rumble.realtime.no_pp", move.getDisplayName()), true);
+        ci.cancel();
+    }
+
+    // This is after validation and after the windup; cancelled casts never spend PP.
+    @Inject(method = "use0", at = @At(value = "FIELD", target =
+            "Lcom/johnn/realtimecobblemon/Smash$Session;cooldownTotal:[I"))
+    private static void rumble$spendPp(ServerPlayer player, int slot, float charge, CallbackInfo ci, @Local Move move) {
+        move.setCurrentPp(Math.max(0, move.getCurrentPp() - 1));
     }
 
     @Inject(method = "use0", at = @At(value = "INVOKE", target =

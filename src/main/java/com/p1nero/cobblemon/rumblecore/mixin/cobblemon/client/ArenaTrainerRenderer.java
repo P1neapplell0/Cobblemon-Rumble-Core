@@ -1,9 +1,9 @@
-package com.p1nero.cobblemon.rumblecore.mixin.cobblebash;
+package com.p1nero.cobblemon.rumblecore.mixin.cobblemon.client;
 
 import com.cobblemon.mod.common.client.render.npc.NPCRenderer;
 import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.p1nero.cobblemon.rumblecore.integration.cobblebash.SimulatorTrainerAppearance;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTrainerAppearance;
 import java.lang.ref.WeakReference;
 import java.util.AbstractMap;
 import java.util.Map;
@@ -18,19 +18,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = NPCRenderer.class, remap = false)
-abstract class SimulatorTrainerRenderer {
+abstract class ArenaTrainerRenderer {
     @Unique private final Map<NPCEntity, Map.Entry<String, WeakReference<LivingEntity>>> rumble$displays = new WeakHashMap<>();
 
     @Inject(method = "render(Lcom/cobblemon/mod/common/entity/npc/NPCEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
             at = @At("HEAD"), cancellable = true)
-    private void rumble$renderSimulatorTrainer(NPCEntity npc, float yaw, float partialTick, PoseStack pose,
+    private void rumble$renderArenaTrainer(NPCEntity npc, float yaw, float partialTick, PoseStack pose,
                                                MultiBufferSource buffers, int light, CallbackInfo ci) {
-        String aspect = SimulatorTrainerAppearance.getAspect(npc);
+        String aspect = ArenaTrainerAppearance.getAspect(npc);
         if (aspect.isEmpty()) return;
         var display = rumble$displays.get(npc);
         var entity = display != null && display.getKey().equals(aspect) ? display.getValue().get() : null;
         if (entity == null) {
-            entity = SimulatorTrainerAppearance.createDisplay(npc.level(), aspect);
+            entity = ArenaTrainerAppearance.createDisplay(npc.level(), aspect);
             if (entity == null) return;
             rumble$displays.put(npc, new AbstractMap.SimpleImmutableEntry<>(aspect, new WeakReference<>(entity)));
         }

@@ -1,12 +1,10 @@
 {
   "id": "rumble_gym_ghost",
   "name": "{rumble.gym.ghost.title}",
-  "description": "{rumble.arena.description}",
-  "icon": "cobblemon:poke_ball",
   "timeLimitSeconds": 0,
   "maxDeaths": 1,
   "allowLateJoin": false,
-  "maxPlayers": 0,
+  "maxPlayers": 6,
   "spawn": {
     "x": -24,
     "y": 64,
@@ -14,7 +12,12 @@
   },
   "victoryType": "custom",
   "target": "rumble_gym_ghost",
+  "prerequisite": "",
   "chunkSource": "rumble_arena_ghost",
+  "icon": "cobblemon:poke_ball",
+  "descriptionImage": "",
+  "description": "{rumble.arena.description}",
+  "maxTeamDeaths": 0,
   "dimensionSettings": {
     "dayTime": 6000,
     "fixedTime": true,
@@ -33,5 +36,7 @@
     "monsterLightLimit": 0,
     "forceAdventure": true,
     "allowNaturalMonsters": false
-  }
+  },
+  "rewards": [],
+  "unlockConditions": []
 }

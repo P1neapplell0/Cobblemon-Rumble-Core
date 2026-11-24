@@ -133,6 +133,8 @@ tasks.processResources {
         include("custom_instances/definitions/rumble_gym_*.json")
         include("cobblemon_rumble_core/recycling.json")
         include("cobblemon_rumble_core/mega_challenges.tsv")
+        include("cobblemon_rumble_core/maps/gyms/region/r.-1.-1.mca")
+        include("cobblemon_rumble_core/maps/gyms/region/r.-1.0.mca")
 
         into("defaults")
     }
@@ -228,3 +230,11 @@ tasks.register("syncRunOverrides") {
         }
     }
 }
+
+val frontierRulesCheck by tasks.registering(JavaExec::class) {
+    dependsOn(tasks.testClasses)
+    classpath = sourceSets.test.get().runtimeClasspath
+    mainClass.set("com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRulesCheck")
+}
+
+tasks.named("check") { dependsOn(frontierRulesCheck) }

@@ -10,6 +10,7 @@ import com.nore.cobblebash.gym.GymTrainerUnit;
 import com.nore.cobblebash.instance.GymInstanceManager;
 import com.nore.cobblebash.integration.RctApiProbe;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTrainerAppearance;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTheme;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
@@ -32,7 +33,7 @@ public final class SimulatorArena {
         List<Pokemon> roster = Arrays.stream(registered.getTeam()).filter(Objects::nonNull).toList();
         if (roster.isEmpty()) return false;
         var npc = registered.getEntity();
-        var appearance = SimulatorTrainerAppearance.capture(npc);
+        var appearance = ArenaTrainerAppearance.capture(npc);
         int stage = instance.getTrainerStage();
         boolean champion = gym.equals("elite4_champion");
         var member = EliteFourMember.fromTrainerGymType(gym);

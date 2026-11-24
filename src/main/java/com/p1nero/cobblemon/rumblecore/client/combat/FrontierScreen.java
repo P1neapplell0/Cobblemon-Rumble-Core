@@ -1,11 +1,13 @@
 package com.p1nero.cobblemon.rumblecore.client.combat;
 
+import com.cobblemon.mod.common.api.moves.MoveTemplate;
 import com.cobblemon.mod.common.api.moves.Moves;
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TutorialPulse;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRoster;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRules;
 import fr.harmex.cobbledollars.common.utils.extensions.BigIntegerExtensionsKt;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -16,11 +18,11 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.stream.IntStream;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
@@ -49,7 +51,6 @@ import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.TEXT
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.card;
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.center;
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.item;
-import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.moveStrip;
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.moveTool;
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.partyFace;
 import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.placeholder;
@@ -61,7 +62,7 @@ import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.type
 /** Client views of the authoritative room. Closing the editor never implicitly forfeits a match. */
 public final class FrontierScreen extends Screen {
     private static final String KEY = "rumble.frontier.";
-    private enum Page { LOBBY, CREATE, ROOM, PICKER, WAITING, BRACKET, INVITE }
+    private enum Page { LOBBY, CREATE, ROOM, PRESETS, PICKER, WAITING, INVITE }
     private enum Kind { SPECIES, HELD }
     private enum ItemsFilter { ALL, HELD, MEGA }
     private CompoundTag state;
@@ -72,18 +73,30 @@ public final class FrontierScreen extends Screen {
     private String filter = "", stake = "0";
     private List<Option> options = List.of();
     private EditBox field;
-    private boolean pending, megaLimitOpen;
+    private boolean pending;
+    private String dialogProblem = "";
+    private int spectatorOffset;
+    private static final int READY_GREEN = 0xff98eb9b;
     private int refreshTicks;
     private final TrialPortraits portraits = new TrialPortraits();
     private int moveAnchorX, moveAnchorY;
     private String moveQuery = "";
+    private MoveTemplate inspectedMove;
     private boolean generationsOpen;
-    private enum CreateMenu { MODE, ROSTER }
+    private enum CreateMenu { MODE, RULE, TIME }
     private CreateMenu createMenu;
-    private boolean createMulti, ownParty, bracketPinned;
-    private String capacity = "";
-    private int roomFilter, bracketColumn;
+    private boolean createMulti;
+    private boolean createTimed = true;
+    private int createMinutes = FrontierRules.DEFAULT_TIMED_MINUTES, menuSelected;
+    private int roomFilter;
+    private int presetScroll, pickerScroll, teamScroll, draftScroll;
+    private int lastPromptSlot = -1;
+    private boolean listContent, draggingScrollbar;
+    private static final int PRESET_STRIDE = 64, TEAM_STRIDE = 34;
+    private boolean editingPreset, managePresets;
+    private final List<FrontierRoster.Pick> presets = FrontierPresetStore.load();
     private String inviteQuery = "";
+    private final List<Button> inviteButtons = new ArrayList<>();
 
     private record Option(Component name, String id, Runnable apply) { }
 
@@ -91,12 +104,11 @@ public final class FrontierScreen extends Screen {
         super(text("title"));
         this.state = state;
         page = destination(state);
-        bracketColumn = roundColumn();
+        updateDialog(state);
     }
 
     private static Page destination(CompoundTag data) {
         if (!data.hasUUID("room")) return Page.LOBBY;
-        if (data.getInt("round") > 0) return data.contains("own") ? Page.ROOM : Page.BRACKET;
         return multi(data) ? Page.WAITING : Page.ROOM;
     }
 
@@ -111,33 +123,24 @@ public final class FrontierScreen extends Screen {
             if (data.getBoolean("close")) { mc.setScreen(null); return; }
             boolean hadRoom = screen.state.hasUUID("room");
             Page before = destination(screen.state), after = destination(data);
-            boolean advance = data.getInt("round") != screen.state.getInt("round");
             screen.state = data;
             screen.pending = false;
-            if (data.hasUUID("room") != hadRoom || advance || before != after && !(screen.bracketPinned && after == Page.ROOM)
+            if (data.hasUUID("room") != hadRoom || before != after
                     || screen.page == Page.INVITE && !data.getBoolean("canInvite")) {
                 screen.page = after;
-                screen.bracketPinned = false;
                 screen.offset = 0;
-                screen.bracketColumn = screen.roundColumn();
-                screen.bracketScroll = 0;
                 screen.createMenu = null;
                 screen.move = -1;
                 screen.generationsOpen = false;
                 screen.moveOffset = 0;
-                screen.megaLimitOpen = false;
+                screen.dialogProblem = "";
+                screen.spectatorOffset = 0;
             }
             if (screen.move >= 0 && (screen.own().getBoolean("ready") ||
-                    FrontierRoster.NONE.equals(screen.get(screen.own(), screen.slot).species()))) screen.move = -1;
-            if (data.hasUUID("room") && "mega_limit".equals(data.getString("problem"))) {
-                screen.page = Page.ROOM;
-                screen.move = -1;
-                screen.megaLimitOpen = true;
-            }
-            if (screen.page == Page.INVITE && screen.field != null && screen.field.isFocused()) {
-                screen.rebuildWidgets();
-                screen.setFocused(screen.field);
-                screen.field.moveCursorToEnd(false);
+                    FrontierRoster.NONE.equals(screen.editingPick(screen.slot).species()))) screen.move = -1;
+            screen.updateDialog(data);
+            if (screen.page == Page.INVITE && screen.field != null) {
+                screen.refreshInviteButtons();
             } else if (screen.page != Page.PICKER || !data.getString("problem").isEmpty()) screen.rebuildWidgets();
         } else if (data.getBoolean("open") && mc.level != null
                 && !(data.getBoolean("automatic") && FrontierTournamentHud.isPinned())) {
@@ -145,18 +148,33 @@ public final class FrontierScreen extends Screen {
         }
     }
 
+    private void updateDialog(CompoundTag data) {
+        String issue = data.getString("problem");
+        if (ruleDialog(issue)) {
+            dialogProblem = issue;
+            move = -1;
+        }
+    }
+
+    private static boolean ruleDialog(String issue) {
+        return "mega_limit".equals(issue) || "repeat_species".equals(issue);
+    }
+
+    private boolean dialogOpen() { return !dialogProblem.isEmpty(); }
+    private boolean watching() { return state.getBoolean("watching"); }
+
     @Override public boolean isPauseScreen() { return false; }
 
     @Override protected void init() {
         int preferredWidth = switch (page) {
             case CREATE, INVITE -> 320;
-            case BRACKET -> state.getBoolean("finished") ? 330 : 620;
+            case PRESETS -> 336;
             default -> 620;
         };
         int preferredHeight = switch (page) {
-            case ROOM -> 330;
-            case CREATE -> createMulti ? 180 : 153;
-            case BRACKET -> state.getBoolean("finished") ? 195 : 300;
+            case ROOM -> 334;
+            case WAITING -> 350;
+            case CREATE -> createMulti ? 195 : 153;
             default -> 300;
         };
         w = Math.min(preferredWidth, width - 14);
@@ -164,8 +182,11 @@ public final class FrontierScreen extends Screen {
         x = (width - w) / 2;
         y = (height - h) / 2;
         field = null;
+        listContent = false;
+        inviteButtons.clear();
         switch (page) {
             case LOBBY -> {
+                btn(x + w - 194, y + 7, 88, text("edit_presets"), () -> openPresets(true));
                 btn(x + w - 100, y + 7, 91, text("create_plus"), true, Action.PRIMARY, () -> page(Page.CREATE));
                 int start = x + 12;
                 for (int i = 0; i < 3; i++) {
@@ -178,15 +199,16 @@ public final class FrontierScreen extends Screen {
             case CREATE -> createForm();
             case ROOM -> lineups();
             case PICKER -> picker();
+            case PRESETS -> presetPanel();
             case WAITING -> waiting();
-            case BRACKET -> bracketButtons();
             case INVITE -> invitation();
         }
-        if (page == Page.CREATE || page == Page.PICKER || page == Page.INVITE)
-            btn(x + 9, y + 7, 62, text("back"), () -> page(page == Page.CREATE ? Page.LOBBY : destination(state)));
-        if (state.hasUUID("room") && (page == Page.WAITING || page == Page.ROOM && !tournament()))
+        if (page == Page.CREATE || page == Page.PICKER || page == Page.INVITE || page == Page.PRESETS)
+            btn(x + 9, y + 7, 62, text("back"), () -> page(page == Page.CREATE ? Page.LOBBY : page == Page.PICKER && editingPreset ? Page.PRESETS : destination(state)));
+        if (state.hasUUID("room") && (page == Page.WAITING || page == Page.ROOM))
             btn(x + 91, y + 7, 81, text("pin_room"), this::pinRoom);
-        if (megaLimitOpen) megaLimitDialog();
+        if (page == Page.ROOM || page == Page.WAITING) spectatorControls();
+        if (dialogOpen()) drawDialog();
     }
 
     @Override public void tick() {
@@ -199,9 +221,15 @@ public final class FrontierScreen extends Screen {
     private void page(Page next) {
         generationsOpen = false;
         createMenu = null;
+        draggingScrollbar = false;
+        if (next == Page.PICKER) pickerScroll = 0;
+        if (next == Page.WAITING && page != Page.PRESETS) teamScroll = 0;
         move = -1;
         page = next;
-        if (next == Page.BRACKET) { bracketColumn = roundColumn(); bracketScroll = 0; }
+        if (next != Page.PICKER && next != Page.PRESETS) {
+            editingPreset = false;
+            managePresets = false;
+        }
         offset = 0;
         rebuildWidgets();
     }
@@ -211,84 +239,94 @@ public final class FrontierScreen extends Screen {
         var data = new CompoundTag();
         data.putString("action", action);
         if (state.hasUUID("room")) data.putUUID("room", state.getUUID("room"));
-        data.putInt("round", state.getInt("round"));
         payload.accept(data);
         pending = true;
         PacketDistributor.sendToServer(new FrontierRooms.Command(data));
     }
 
-    private int createRow(int row) { return y + 34 + row * Math.min(26, (h - 62) / (createMulti ? 4 : 3)); }
-    private int createInputX() { return x + Math.min(112, w * 2 / 5); }
-    private int createInputWidth() { return x + w - 15 - createInputX(); }
+    private int createRow(int row) {
+        int last = createMulti && createTimed ? 3 : createMulti ? 2 : 1;
+        return y + 34 + row * Math.clamp((h - 64) / Math.max(1, last), 21, 27);
+    }
+    private int createInputX() { return x + Math.min(108, w * 2 / 5); }
+    private int createInputWidth() { return x + w - 13 - createInputX(); }
+    private int createMenuAnchor() { return createRow(createMenu == CreateMenu.MODE ? 0 : createMenu == CreateMenu.RULE ? 2 : 3); }
+    private int menuTop() {
+        int anchor = createMenuAnchor(), menuHeight = 19 * optionCount();
+        return anchor + 20 + menuHeight < height - 4 ? anchor + 20 : Math.max(4, anchor - menuHeight);
+    }
+    private int optionCount() { return createMenu == CreateMenu.TIME ? FrontierRules.TIMED_MINUTES.size() : 2; }
 
-    private void createForm() {
-        btn(createInputX(), createRow(0), createInputWidth(), createOption(CreateMenu.MODE, createMulti).copy().append("  ▾"),
-                () -> createMenu = createMenu == CreateMenu.MODE ? null : CreateMenu.MODE);
-        btn(createInputX(), createRow(1), createInputWidth(), createOption(CreateMenu.ROSTER, ownParty).copy().append("  ▾"),
-                () -> createMenu = createMenu == CreateMenu.ROSTER ? null : CreateMenu.ROSTER);
-        var stakeBox = edit(createInputX(), createRow(2), createInputWidth(), stake, value -> stake = value);
-        stakeBox.setMaxLength(18);
-        stakeBox.setFilter(value -> value.matches("[0-9]{0,18}"));
-        if (createMulti) {
-            var limitBox = edit(createInputX(), createRow(3), createInputWidth(), capacity, value -> capacity = value);
-            limitBox.setMaxLength(10);
-            limitBox.setFilter(value -> value.matches("[0-9]{0,10}"));
-            limitBox.setHint(text("capacity_unlimited"));
-        }
-        btn(x + w / 2 - 55, y + h - 27, 110, text("create"), true, Action.PRIMARY, () -> {
-            int limit;
-            try { limit = createMulti && !capacity.isBlank() ? Integer.parseInt(capacity) : 0; }
-            catch (NumberFormatException e) { limit = -1; }
-            int requestedLimit = limit;
-            request("create", tag -> {
-                tag.putString("stake", stake.isBlank() ? "0" : stake);
-                tag.putBoolean("multi", createMulti);
-                tag.putBoolean("ownParty", ownParty);
-                tag.putInt("capacity", requestedLimit);
-            });
+    private void dropdown(CreateMenu menu, int row, int selected) {
+        btn(createInputX(), createRow(row), createInputWidth(), createOption(menu, selected).copy().append("  ▾"), () -> {
+            createMenu = menu;
+            menuSelected = selected;
         });
     }
 
+    private void createForm() {
+        dropdown(CreateMenu.MODE, 0, createMulti ? 1 : 0);
+        var stakeBox = edit(createInputX(), createRow(1) + 1, createInputWidth(), stake, value -> stake = value);
+        stakeBox.setMaxLength(18);
+        stakeBox.setFilter(value -> value.matches("[0-9]{0,18}"));
+        if (createMulti) {
+            dropdown(CreateMenu.RULE, 2, createTimed ? 0 : 1);
+            if (createTimed) dropdown(CreateMenu.TIME, 3, FrontierRules.TIMED_MINUTES.indexOf(createMinutes));
+        }
+        btn(createInputX(), y + h - 27, createInputWidth(), text("create"), true, Action.PRIMARY, () -> request("create", tag -> {
+            tag.putString("stake", stake.isBlank() ? "0" : stake);
+            tag.putBoolean("multi", createMulti);
+            tag.putInt("minutes", createMulti && createTimed ? createMinutes : 0);
+        }));
+    }
+
     private void drawCreateForm(GuiGraphics g) {
-        String[] labels = {"create_mode", "create_roster", "stake_label", "capacity"};
-        for (int i = 0; i < (createMulti ? 4 : 3); i++) {
-            FrontierConsole.text(g, font, text(labels[i]), x + 15, createRow(i) + 6, createInputX() - x - 20, i == 2 ? GOLD : TEXT);
+        String[] labels = {"create_mode", "stake_label", "create_rule", "create_time"};
+        for (int i = 0; i < (createMulti ? createTimed ? 4 : 3 : 2); i++) {
+            FrontierConsole.text(g, font, text(labels[i]), x + 15, createRow(i) + 6, createInputX() - x - 20, i == 1 ? GOLD : TEXT);
         }
     }
 
-    private static Component createOption(CreateMenu menu, boolean second) {
-        return text(menu == CreateMenu.MODE ? second ? "mode_multi" : "mode_solo" : second ? "own_party" : "any_party");
+    private static Component createOption(CreateMenu menu, int index) {
+        return switch (menu) {
+            case MODE -> text(index == 0 ? "mode_solo" : "mode_multi");
+            case RULE -> text(index == 0 ? "timed" : "elimination");
+            case TIME -> text("minutes_option", FrontierRules.TIMED_MINUTES.get(index));
+        };
     }
 
     private void selectCreateOption(int index) {
-        if (createMenu == CreateMenu.MODE) createMulti = index == 1;
-        else ownParty = index == 1;
+        switch (createMenu) {
+            case MODE -> createMulti = index == 1;
+            case RULE -> createTimed = index == 0;
+            case TIME -> createMinutes = FrontierRules.TIMED_MINUTES.get(index);
+        }
         createMenu = null;
         rebuildWidgets();
     }
 
     private void drawCreateMenu(GuiGraphics g, int mx, int my) {
-        int top = createRow(createMenu == CreateMenu.MODE ? 0 : 1) + 20;
-        int left = createInputX(), width = createInputWidth();
+        int top = menuTop(), left = createInputX(), rows = optionCount(), menuWidth = createInputWidth();
         g.pose().pushPose();
         try {
             g.pose().translate(0, 0, 400);
-            for (int i = 0; i < 2; i++) {
-                int row = top + i * 20;
-                boolean selected = (i == 1) == (createMenu == CreateMenu.MODE ? createMulti : ownParty);
-                OreUiRenderer.labeledButton(g, font, createOption(createMenu, i == 1), left, row, width, 20,
-                        selected ? Action.PRIMARY : Action.SECONDARY, inside(mx, my, left, row, width, 20), true, 1, NEUTRAL);
+            g.fill(left, top, left + menuWidth, top + 19 * rows, 0xff171918);
+            for (int index = 0; index < rows; index++) {
+                int row = top + index * 19;
+                OreUiRenderer.labeledButton(g, font, createOption(createMenu, index), left, row, menuWidth, 19,
+                        index == menuSelected ? Action.PRIMARY : Action.SECONDARY, inside(mx, my, left, row, menuWidth, 19), true, 1, NEUTRAL);
             }
         } finally { g.pose().popPose(); }
     }
 
     @Override public boolean keyPressed(int key, int scanCode, int modifiers) {
+        if (dialogOpen() && key == GLFW.GLFW_KEY_ESCAPE) { dismissDialog(); return true; }
         if (page == Page.CREATE && createMenu != null) {
             if (key == GLFW.GLFW_KEY_UP || key == GLFW.GLFW_KEY_DOWN) {
-                selectCreateOption(key == GLFW.GLFW_KEY_UP ? 0 : 1);
-                return true;
-            }
-            if (key != GLFW.GLFW_KEY_ESCAPE) return true;
+                menuSelected = Math.clamp(menuSelected + (key == GLFW.GLFW_KEY_UP ? -1 : 1), 0, optionCount() - 1);
+            } else if (key == GLFW.GLFW_KEY_ENTER || key == GLFW.GLFW_KEY_KP_ENTER) selectCreateOption(menuSelected);
+            else if (key == GLFW.GLFW_KEY_ESCAPE) createMenu = null;
+            return true;
         }
         return super.keyPressed(key, scanCode, modifiers);
     }
@@ -310,21 +348,20 @@ public final class FrontierScreen extends Screen {
             var host = room.getCompound("host");
             var guest = room.getCompound("guest");
             boolean multi = multi(room);
-            boolean ownRoster = room.getBoolean("ownParty");
             boolean open = multi ? (room.getInt("capacity") == 0 || room.getInt("count") < room.getInt("capacity")) : guest.isEmpty();
             int cx = x + 12 + i % columns * span, cy = y + 58 + i / columns * ROOM_STRIDE;
-            var label = open ? text("join_room", host.getString("name")) : text("full");
-            control(cx, cy, span - 4, ROOM_STRIDE - 4, label, open,
+            var label = open ? text("join_room", host.getString("name")) : text("join_watch");
+            control(cx, cy, span - 4, ROOM_STRIDE - 4, label, true,
                     () -> request("join", tag -> tag.putUUID("room", room.getUUID("room"))),
                     (g, b, dt) -> {
                         int middle = cx + b.getWidth() / 2, wing = Math.max(23, b.getWidth() / 4);
-                        card(g, cx, cy, b.getWidth(), b.getHeight(), open ? CYAN : MUTED, b.isHoveredOrFocused() && open);
+                        card(g, cx, cy, b.getWidth(), b.getHeight(), open ? CYAN : GOLD, b.isHoveredOrFocused());
                         if (multi) {
                             player(g, host, cx + 10, cy + 11, 23, GOLD);
                             FrontierConsole.text(g, font, Component.literal(host.getString("name")), cx + 39, cy + 13, b.getWidth() - 47, TEXT);
                             FrontierConsole.text(g, font, text("mode_multi"), cx + 39, cy + 26, b.getWidth() - 47, GOLD);
-                            center(g, font, text(ownRoster ? "lobby_own_party" : "lobby_any_party"),
-                                    middle, cy + 39, b.getWidth() - 16, ownRoster ? PINK : CYAN);
+                            center(g, font, text(room.getInt("minutes") > 0 ? "timed_minutes" : "elimination", room.getInt("minutes")),
+                                    middle, cy + 39, b.getWidth() - 16, CYAN);
                             center(g, font, money(room), middle, cy + 52, b.getWidth() - 16, GOLD);
                             center(g, font, text("seats", room.getInt("count"), capacityLabel(room)), middle, cy + 65, b.getWidth() - 8, open ? CYAN : MUTED);
                             return;
@@ -333,7 +370,7 @@ public final class FrontierScreen extends Screen {
                         roomSeat(g, guest, cx + b.getWidth() - wing, cy, wing * 2 - 5, PINK, dt, true);
                         center(g, font, Component.literal("VS"), middle, cy + 12, 28, TEXT);
                         center(g, font, money(room), middle, cy + 26, Math.max(38, b.getWidth() - 52), GOLD);
-                        center(g, font, text(open ? "open" : "full"), middle, cy + 65, b.getWidth() - 8, open ? CYAN : MUTED);
+                        center(g, font, text(open ? "open" : "join_watch"), middle, cy + 65, b.getWidth() - 8, open ? CYAN : GOLD);
                     });
         }
     }
@@ -353,12 +390,22 @@ public final class FrontierScreen extends Screen {
     }
 
     private int centerRail() { return Math.clamp(w / 9, 38, 72); }
-    private int teamWidth() { return (w - 24 - centerRail()) / 2; }
-    private int teamX(boolean left) { return left ? x + 10 : x + w - 10 - teamWidth(); }
+    private int teamWidth() { return (w - 36 - centerRail()) / 2; }
+    private int teamX(boolean left) { return left ? x + 10 : x + w - 18 - teamWidth(); }
 
-    private boolean tournament() { return state.getInt("round") > 0; }
-    private CompoundTag own() { return state.getCompound(tournament() ? "own" : state.getBoolean("owner") ? "host" : "guest"); }
-    private CompoundTag rival() { return state.getCompound(tournament() ? "rival" : state.getBoolean("owner") ? "guest" : "host"); }
+    private CompoundTag own() {
+        if (watching()) return state.getCompound("host");
+        return state.getCompound(state.contains("self", Tag.TAG_COMPOUND) ? "self" : state.getBoolean("owner") ? "host" : "guest");
+    }
+    private CompoundTag rival() { return state.getCompound(watching() || state.getBoolean("owner") ? "guest" : "host"); }
+
+    private Component seatLabel(CompoundTag seat) {
+        return text(seat.getBoolean("away") ? "seat_away" : seat.getBoolean("ready") ? "seat_ready" : "seat_edit", seat.getString("name"));
+    }
+
+    private int seatColor(CompoundTag seat) {
+        return seat.getBoolean("away") ? MUTED : seat.getBoolean("ready") ? READY_GREEN : GOLD;
+    }
 
     private void inviteButton() {
         btn(x + w - 105, y + 7, 95, text("invite"), state.getBoolean("canInvite"), () -> {
@@ -369,14 +416,61 @@ public final class FrontierScreen extends Screen {
     }
 
     private void waiting() {
+        var seats = state.getList("seats", Tag.TAG_COMPOUND);
+        int total = (w - 36) / 2;
+        int[] row = new int[2];
+        boolean ready = state.getBoolean("selfReady");
+        var local = minecraft.player.getUUID();
+        var host = state.getCompound("host");
+        teamScroll = Math.clamp(teamScroll, 0, scrollLimit());
+        listContent = true;
+        for (int i = 0; i < seats.size(); i++) {
+            var seat = seats.getCompound(i);
+            int side = seat.getInt("side"), accent = side == 0 ? CYAN : PINK;
+            if (side < 0 || side > 1 || !seat.hasUUID("player")) continue;
+            int left = x + 10 + side * (total + 10), top = scrollTop() + row[side]++ * TEAM_STRIDE - teamScroll;
+            if (top >= scrollBottom() || top + TEAM_STRIDE <= scrollTop()) continue;
+            int centerY = top + (TEAM_STRIDE - 5) / 2;
+            boolean self = seat.getUUID("player").equals(local);
+            boolean owner = host.hasUUID("player") && host.getUUID("player").equals(seat.getUUID("player"));
+            int portraitX = left + total - 27, avatarX = left + 6;
+            int nameEnd = self ? portraitX - 24 : portraitX;
+            addContent((g, mx, my, dt) -> {
+                card(g, left, top, total, TEAM_STRIDE - 2, accent, false);
+                g.fill(left + 2, top + 4, left + 4, top + TEAM_STRIDE - 7, seatColor(seat));
+                if (owner) g.renderOutline(avatarX - 2, centerY - 10, 20, 20, GOLD);
+                player(g, seat, avatarX, centerY - 8, 16, owner ? GOLD : accent);
+                FrontierConsole.text(g, font, seatLabel(seat), left + 28, centerY - 4, nameEnd - left - 32, seatColor(seat));
+                if (owner && inside(mx, my, avatarX - 2, centerY - 10, 20, 20)) setTooltipForNextRenderPass(text("room_owner"));
+                var species = ResourceLocation.tryParse(seat.getList("species", Tag.TAG_STRING).getString(0));
+                if (species != null && !FrontierRoster.NONE.equals(species)) {
+                    partyFace(g, portraits, species, Set.of(), portraitX, centerY - 11, 22, dt, side == 1, accent);
+                } else {
+                    OreUiRenderer.field(g, portraitX, centerY - 11, 22, 22, false, 1, accent);
+                    center(g, font, Component.literal("?"), portraitX + 11, centerY - 4, 16, MUTED);
+                }
+            });
+            if (self) control(portraitX - 23, centerY - 9, 20, 19, text("choose_preset"), !ready, true,
+                    this::openPresets, (g, b, dt) -> OreUiRenderer.labeledButton(g, font, Component.literal("⇄"),
+                            b.getX(), b.getY(), b.getWidth(), b.getHeight(), Action.SECONDARY, b.isHoveredOrFocused(), b.active, 1, accent));
+        }
+        listContent = false;
         btn(x + 9, y + 7, 77, text("leave"), () -> request("leave", tag -> {}));
         inviteButton();
-        int middle = x + w / 2, footer = y + h - 27;
-        boolean owner = state.getBoolean("owner");
-        btn(owner ? middle - 95 : middle - 47, footer, 94, text(state.getBoolean("selfReady") ? "unready" : "ready"),
-                () -> request("ready", tag -> {}));
-        if (owner) btn(middle + 3, footer, 94, text("start_tournament"), state.getBoolean("canStart"), Action.PRIMARY,
-                () -> request("start", tag -> {}));
+        for (int side = 0; side < 2; side++) {
+            int team = side;
+            btn(x + 10 + side * (total + 10), y + 47, total,
+                    text(side == 0 ? "join_blue" : "join_red"), state.getInt("selfSide") != side,
+                    () -> request("side", tag -> tag.putInt("side", team)));
+        }
+        int footer = y + h - 26;
+        if (!watching()) btn(x + w - (state.getBoolean("owner") ? 180 : 94), footer, 82, text(ready ? "unready" : "ready"),
+                !get(own(), 0).equals(FrontierRoster.EMPTY), () -> request("ready", tag -> {}));
+        if (state.getBoolean("owner")) {
+            btn(x + 10, footer, 94, text("shuffle_teams"), seats.size() >= 2, () -> request("shuffle", tag -> {}));
+            btn(x + w - 94, footer, 84, text("start"), state.getBoolean("canStart"),
+                    Action.PRIMARY, () -> request("start", tag -> {}));
+        }
     }
 
     private List<CompoundTag> inviteRows() {
@@ -389,22 +483,31 @@ public final class FrontierScreen extends Screen {
 
     private void invitation() {
         field = edit(x + 16, y + 40, w - 32, inviteQuery, value -> {
+            // EditBox also calls the responder when only its cursor moves.
+            if (inviteQuery.equals(value)) return;
             inviteQuery = value;
             offset = 0;
-            int cursor = field.getCursorPosition();
-            rebuildWidgets();
-            setFocused(field);
-            field.moveCursorTo(cursor, false);
+            refreshInviteButtons();
         });
         field.setHint(text("search"));
+        refreshInviteButtons();
+    }
+
+    private void refreshInviteButtons() {
+        // The search box must survive list refreshes, empty results, and scrollbar movement.
+        for (var button : inviteButtons) {
+            if (getFocused() == button) setFocused(null);
+            removeWidget(button);
+        }
+        inviteButtons.clear();
         var rows = inviteRows();
         offset = Math.clamp(offset, 0, Math.max(0, rows.size() - inviteVisible()));
         for (int i = 0; i < inviteVisible() && offset + i < rows.size(); i++) {
             var row = rows.get(offset + i);
             int top = y + 67 + i * 26;
             boolean sent = row.getBoolean("sent"), cooldown = row.getBoolean("cooldown");
-            btn(x + w - 105, top + 2, 85, text(sent ? "invited" : cooldown ? "invite_cooldown" : "send_invite"),
-                    !sent && !cooldown, () -> request("invite", tag -> tag.putUUID("target", row.getUUID("player"))));
+            inviteButtons.add(btn(x + w - 105, top + 2, 85, text(sent ? "invited" : cooldown ? "invite_cooldown" : "send_invite"),
+                    !sent && !cooldown, Action.SECONDARY, () -> request("invite", tag -> tag.putUUID("target", row.getUUID("player")))));
         }
     }
 
@@ -425,166 +528,11 @@ public final class FrontierScreen extends Screen {
         return limit == 0 ? text("capacity_unlimited") : Component.literal(Integer.toString(limit));
     }
 
-    private int waitingRows() { return Math.max(1, (h - 99) / 32); }
+
 
     private void drawWaiting(GuiGraphics g) {
-        var seats = state.getList("seats", Tag.TAG_COMPOUND);
-        int visible = waitingRows();
-        int gap = 16, span = (w - 34 - gap) / 2;
-        int stride = 32;
-        offset = Math.min(offset, Math.max(0, Math.ceilDiv(seats.size(), 2) - visible));
-        center(g, font, text("waiting_line", seats.size(), capacityLabel(state), money(state)), x + w / 2, y + 39, w - 36, GOLD);
-        int end = Math.min(seats.size() + (seats.size() % 2), (offset + visible) * 2);
-        for (int i = offset * 2; i < end; ++i) {
-            var seat = seats.getCompound(i);
-            int left = x + 17 + i % 2 * (span + gap), top = y + 55 + (i / 2 - offset) * stride;
-            int tint = i % 2 == 0 ? CYAN : PINK;
-            card(g, left, top, span, stride - 4, tint, false);
-            int face = Math.min(23, stride - 11);
-            if (seat.isEmpty()) placeholder(g, font, left + 7, top + 4, face);
-            else player(g, seat, left + 7, top + 4, face, tint);
-            int readyWidth = Math.min(67, span / 3);
-            FrontierConsole.text(g, font, seat.isEmpty() ? text("vacant") : Component.literal(seat.getString("name")),
-                    left + face + 13, top + (stride - 12) / 2, span - face - readyWidth - 17, TEXT);
-            if (!seat.isEmpty()) center(g, font, text(seat.getBoolean("ready") ? "is_ready" : i == 0 ? "host" : "not_ready"),
-                    left + span - readyWidth / 2 - 4, top + (stride - 12) / 2, readyWidth, seat.getBoolean("ready") ? tint : MUTED);
-        }
-    }
-
-    private int bracketDepth() { return Math.clamp(state.getInt("roundTotal"), 1, 30); }
-    private int bracketColumns() { return Math.clamp((w - 28) / 132, 1, Math.min(3, bracketDepth())); }
-    private int roundColumn() { return Math.max(0, state.getInt("round") - 1); }
-    private int bracketMaxColumn() { return bracketDepth() - bracketColumns(); }
-    private int bracketTop() { return y + 80; }
-    private int bracketBottom() { return y + h - 48; }
-    private int bracketFirst() { return 1 << (bracketDepth() - 1); }
-    private int bracketStride() {
-        return Math.max(39, Math.max(1, bracketBottom() - bracketTop() - 5) / Math.min(4, bracketFirst()));
-    }
-    private long bracketExtent() { return (long) bracketFirst() * bracketStride() + 45; }
-    private long bracketMaxScroll() { return Math.max(0, bracketExtent() - (bracketBottom() - bracketTop())); }
-    private long bracketScroll;
-
-    private void bracketButtons() {
-        btn(x + 9, y + 7, 78, text("close_world"), this::pinRoom);
-        if (state.contains("own")) btn(x + w - 99, y + 7, 89, text("lineup"), true, Action.PRIMARY, () -> { bracketPinned = false; page(Page.ROOM); });
-        if (state.getBoolean("finished")) {
-            btn(x + w / 2 - 47, y + h - 27, 94, text("done"), () -> request("leave", tag -> {}));
-            return;
-        }
-        bracketColumn = Math.clamp(bracketColumn, 0, bracketMaxColumn());
-        if (bracketMaxColumn() > 0) {
-            btn(x + 13, y + h - 29, 30, Component.literal("‹"), bracketColumn > 0, () -> shiftBracket(-1));
-            btn(x + 47, y + h - 29, 30, Component.literal("›"), bracketColumn < bracketMaxColumn(), () -> shiftBracket(1));
-        }
-        if (bracketMaxScroll() > 0) {
-            btn(x + w - 77, y + h - 29, 30, Component.literal("↑"), () -> scrollBracket(-Math.max(39, bracketBottom() - bracketTop() - 39)));
-            btn(x + w - 43, y + h - 29, 30, Component.literal("↓"), () -> scrollBracket(Math.max(39, bracketBottom() - bracketTop() - 39)));
-        }
-    }
-
-    private void shiftBracket(int delta) {
-        bracketColumn = Math.clamp(bracketColumn + delta, 0, bracketMaxColumn());
-        rebuildWidgets();
-    }
-
-    private void scrollBracket(long pixels) { bracketScroll = Math.clamp(bracketScroll + pixels, 0, bracketMaxScroll()); }
-
-    private void drawBracket(GuiGraphics g) {
-        if (state.getBoolean("finished")) {
-            drawAwards(g);
-            return;
-        }
-        var opponent = state.getCompound("currentOpponent");
-        var heading = opponent.isEmpty()
-                ? text(state.getBoolean("bye") ? "bye" : "no_round_opponent", state.getInt("round"))
-                : text("round_opponent", state.getInt("round"), opponent.getString("name"));
-        card(g, x + 12, y + 31, w - 24, 22, GOLD, false);
-        center(g, font, heading, x + w / 2, y + 38, w - 44, GOLD);
-
-        var rounds = state.getList("rounds", Tag.TAG_COMPOUND);
-        int depth = bracketDepth(), columns = bracketColumns();
-        int span = (w - 29) / columns, cardW = span - 13;
-        int stride = bracketStride(), rowH = Math.min(stride - 5, 43);
-        scrollBracket(0);
-        for (int col = bracketColumn; col < bracketColumn + columns; col++) {
-            int left = x + 14 + (col - bracketColumn) * span;
-            center(g, font, text(col + 1 == depth ? "final_round" : "round", col + 1), left + cardW / 2, y + 64,
-                    cardW, col + 1 == state.getInt("round") ? GOLD : MUTED);
-        }
-        g.enableScissor(x + 10, bracketTop(), x + w - 12, bracketBottom());
-        try {
-            int viewport = bracketBottom() - bracketTop();
-            for (int col = bracketColumn; col < bracketColumn + columns; col++) {
-                int left = x + 14 + (col - bracketColumn) * span;
-                var bouts = rounds.getCompound(col).getList("bouts", Tag.TAG_COMPOUND);
-                long step = (long) stride << col;
-                int count = bracketFirst() >> col;
-                // Visit the visible cards and their neighboring connectors, regardless of bracket size.
-                int start = (int) Math.max(0, bracketScroll / step - 2);
-                int end = (int) Math.min(count, (bracketScroll + viewport) / step + 3);
-                for (int row = start; row < end; row++) {
-                    long middle = step * row + step / 2 - bracketScroll;
-                    int mid = bracketTop() + (int) Math.clamp(middle, -1_000_000, 1_000_000);
-                    if (col + 1 < bracketColumn + columns) {
-                        long join = step * (2L * (row / 2) + 1) - bracketScroll;
-                        int to = bracketTop() + (int) Math.clamp(join, -1_000_000, 1_000_000);
-                        g.fill(left + cardW, mid, left + cardW + 7, mid + 1, NEUTRAL);
-                        g.fill(left + cardW + 6, Math.min(mid, to), left + cardW + 7, Math.max(mid, to) + 1, NEUTRAL);
-                        g.fill(left + cardW + 7, to, left + span, to + 1, NEUTRAL);
-                    }
-                    if (middle > -rowH && middle < viewport + rowH)
-                        drawBout(g, bouts.getCompound(row), left, mid - rowH / 2, cardW, rowH);
-                }
-                if (col == depth - 1 && state.getInt("count") >= 4) {
-                    long bronze = (long) stride * bracketFirst() - bracketScroll + 18;
-                    if (bronze > -rowH && bronze < viewport + rowH) {
-                        int middle = bracketTop() + (int) bronze;
-                        center(g, font, text("bronze"), left + cardW / 2, middle - rowH / 2 - 11, cardW, MUTED);
-                        drawBout(g, bouts.getCompound(1), left, middle - rowH / 2, cardW, rowH);
-                    }
-                }
-            }
-        } finally { g.disableScissor(); }
-        if (bracketMaxScroll() > 0) {
-            int viewport = bracketBottom() - bracketTop();
-            int thumb = Math.max(9, (int) ((long) viewport * viewport / bracketExtent()));
-            int top = bracketTop() + (int) ((viewport - thumb) * (double) bracketScroll / bracketMaxScroll());
-            g.fill(x + w - 10, bracketTop(), x + w - 7, bracketBottom(), 0xff242922);
-            g.fill(x + w - 10, top, x + w - 7, top + thumb, GOLD);
-        }
-        center(g, font, text(state.getBoolean("roundOpened") ? "round_progress" : "round_next"), x + w / 2, y + h - 24, w - 163, GOLD);
-    }
-
-    private void drawAwards(GuiGraphics g) {
-        var awards = state.getList("awards", Tag.TAG_COMPOUND);
-        if (awards.isEmpty()) center(g, font, text("refunded"), x + w / 2, y + h / 2, w - 32, GOLD);
-        int left = x + 13, span = w - 26;
-        int stride = Math.min(29, (h - 67) / Math.max(1, awards.size()));
-        for (int i = 0; i < awards.size(); i++) {
-            var award = awards.getCompound(i);
-            int top = y + 35 + i * stride;
-            int face = Math.min(19, stride - 7);
-            card(g, left, top, span, stride - 3, i == 0 ? GOLD : CYAN, false);
-            FrontierConsole.text(g, font, Component.literal("#" + (i + 1)), left + 7, top + (stride - 11) / 2, 21, GOLD);
-            player(g, award, left + 29, top + 3, face, CYAN);
-            FrontierConsole.text(g, font, Component.literal(award.getString("name")), left + 34 + face, top + (stride - 11) / 2, span / 2 - 35 - face, TEXT);
-            center(g, font, BigIntegerExtensionsKt.formatFull(new BigInteger(award.getString("prize")), true),
-                    left + span * 3 / 4, top + (stride - 11) / 2, span / 2 - 8, GOLD);
-        }
-    }
-
-    private void drawBout(GuiGraphics g, CompoundTag bout, int left, int top, int width, int height) {
-        int accent = bout.getBoolean("running") ? CYAN : bout.getBoolean("done") ? GOLD : NEUTRAL;
-        card(g, left, top, width, height, accent, false);
-        for (int i = 0; i < 2; i++) {
-            var seat = bout.getCompound(i == 0 ? "left" : "right");
-            int y = top + 3 + i * (height - 6) / 2, face = Math.min(14, (height - 7) / 2);
-            boolean winner = seat.hasUUID("player") && bout.hasUUID("winner") && bout.getUUID("winner").equals(seat.getUUID("player"));
-            if (!seat.isEmpty()) player(g, seat, left + 5, y, face, winner ? GOLD : accent);
-            FrontierConsole.text(g, font, seat.isEmpty() ? text(bout.getBoolean("done") ? "bye" : "tbd") : Component.literal(seat.getString("name")),
-                    left + face + 10, y + (face - 8) / 2, width - face - 15, winner ? GOLD : seat.isEmpty() ? MUTED : TEXT);
-        }
+        int minutes = state.getInt("minutes");
+        center(g, font, text(minutes > 0 ? "timed_minutes" : "elimination", minutes), x + w / 2, y + 34, w - 24, GOLD);
     }
 
     private FrontierRoster.Pick get(CompoundTag seat, int i) {
@@ -592,37 +540,112 @@ public final class FrontierScreen extends Screen {
         return i >= picks.size() ? FrontierRoster.EMPTY : Objects.requireNonNullElse(FrontierRooms.decode(picks.getCompound(i)), FrontierRoster.EMPTY);
     }
 
-    private int lineupHeight() { return (h - 95) / 3; }
+    private int lineupHeight() { return Math.max(58, (scrollBottom() - scrollTop()) / 3); }
 
     private static final int[] SLOT_COLORS = {0xffffcc76, 0xff80dfff, 0xffc8a4ff};
 
     private void lineups() {
         var own = own();
         var rival = rival();
-        boolean editable = !state.getBoolean("ownParty") && !own.getBoolean("ready");
+        int locked = state.getInt("locked");
+        boolean turn = state.getBoolean("draftTurn");
+        var selected = FrontierRooms.decode(state.getCompound("pendingPick"));
+        boolean canConfirm = turn && selected != null && !selected.equals(FrontierRoster.EMPTY);
+        int rowHeight = lineupHeight();
+        int viewport = scrollBottom() - scrollTop();
+        if (turn && locked != lastPromptSlot) {
+            if (locked * rowHeight < draftScroll) draftScroll = locked * rowHeight;
+            else if ((locked + 1) * rowHeight > draftScroll + viewport) draftScroll = (locked + 1) * rowHeight - viewport;
+        }
+        lastPromptSlot = turn ? locked : -1;
+        draftScroll = Math.clamp(draftScroll, 0, scrollLimit());
+        listContent = true;
         for (boolean left : new boolean[]{true, false}) {
             var seat = left ? own : rival;
             int accent = left ? CYAN : PINK;
             int cx = teamX(left), cw = teamWidth(), ch = lineupHeight();
             for (int i = 0; i < FrontierRoster.TEAM_SIZE; i++) {
-                lineupCard(cx, y + 66 + i * ch, cw, ch - 3, i, get(seat, i), left, accent, left && editable);
+                var pick = left && turn && i == locked && selected != null ? selected : get(seat, i);
+                int top = scrollTop() + i * ch - draftScroll;
+                lineupCard(cx, top, cw, ch - 3, i, pick, left, accent, false);
+                if (left && turn && i == locked) {
+                    control(cx, top, cw, ch - 3, text("choose_preset"), true, true, this::openPresets, (g, b, dt) -> {
+                        g.renderOutline(cx, top, cw, ch - 4, CYAN);
+                        if (pick.equals(FrontierRoster.EMPTY)) turnBanner(g, text("choose_preset"), cx + cw / 2, top + ch / 2 - 11, cw - 18, CYAN);
+                        if (!canConfirm || b.isHoveredOrFocused()) pulse(g, cx, top, cw, ch - 3);
+                    });
+                }
             }
         }
-
-        if (tournament()) {
-            btn(x + 9, y + 7, 77, text("close_world"), this::pinRoom);
-            btn(x + w - 97, y + 7, 87, text("bracket"), () -> { bracketPinned = true; page(Page.BRACKET); });
-        } else {
-            btn(x + 9, y + 7, 77, text("leave"), () -> request("leave", tag -> {}));
-            inviteButton();
+        listContent = false;
+        btn(x + 9, y + 7, 77, text("leave"), () -> request("leave", tag -> {}));
+        inviteButton();
+        int middle = x + w / 2, footer = y + h - 26;
+        if (!watching()) {
+            int confirmX = middle - (state.getBoolean("owner") ? 95 : 45);
+            btn(confirmX, footer, 90, text("confirm_pick"), canConfirm,
+                    canConfirm ? Action.PRIMARY : Action.SECONDARY, () -> request("confirm", tag -> {}));
+            if (canConfirm) addRenderableOnly((g, mx, my, dt) -> pulse(g, confirmX, footer, 90, 20));
         }
-        boolean selected = IntStream.range(0, FrontierRoster.TEAM_SIZE)
-                .anyMatch(i -> !FrontierRoster.NONE.equals(get(own, i).species()));
-        boolean owner = !tournament() && state.getBoolean("owner"), ready = own.getBoolean("ready");
-        int middle = x + w / 2, footer = y + h - 27;
-        btn(owner ? middle - 95 : middle - 47, footer, 94, text(ready ? "unready" : "ready"), selected || ready, () -> request("ready", tag -> {}));
-        if (owner) btn(middle + 3, footer, 94, text("start"), ready && rival.getBoolean("ready"), Action.PRIMARY, () -> request("start", tag -> {}));
-        if (move >= 0) moveChooser(get(own, slot));
+        if (state.getBoolean("owner")) btn(middle + 5, footer, 90, text("start"), state.getBoolean("canStart"),
+                Action.PRIMARY, () -> request("start", tag -> {}));
+        var active = state.getCompound(state.getBoolean("hostTurn") ? "host" : "guest");
+        boolean away = own.getBoolean("away") || rival.getBoolean("away");
+        boolean complete = own.getBoolean("ready") && rival.getBoolean("ready");
+        var status = text(!state.contains("guest", Tag.TAG_COMPOUND) ? "waiting" : away ? "waiting_rejoin"
+                : complete ? "draft_locked" : turn ? canConfirm ? "draft_confirm_hint" : "draft_slot" : "draft_opponent",
+                turn ? locked + 1 : active.getString("name"));
+        addRenderableOnly((g, mx, my, dt) -> turnBanner(g, status, middle, y + 64, w - 24, turn ? CYAN : GOLD));
+    }
+
+    private void turnBanner(GuiGraphics g, Component message, int center, int top, int available, int color) {
+        var bold = message.copy().withStyle(ChatFormatting.BOLD);
+        int size = Math.min(available, Math.max(60, font.width(bold) + 20));
+        g.fill(center - size / 2, top, center - size / 2 + size, top + 19, 0xff151e22);
+        g.renderOutline(center - size / 2, top, size, 19, color);
+        center(g, font, bold, center, top + 6, size - 10, color);
+    }
+
+    private void openPresets() { openPresets(false); }
+
+    private void openPresets(boolean manage) {
+        editingPreset = true;
+        managePresets = manage;
+        presetScroll = 0;
+        page(Page.PRESETS);
+    }
+
+    private FrontierRoster.Pick editingPick(int index) {
+        return editingPreset ? index < presets.size() ? presets.get(index) : FrontierRoster.EMPTY : get(own(), index);
+    }
+
+    private void presetPanel() {
+        int cardW = w - 91;
+        presetScroll = Math.clamp(presetScroll, 0, scrollLimit());
+        btn(x + w - 104, y + 7, 94, text("new_preset"), presets.size() < FrontierPresetStore.LIMIT, () -> choose(Kind.SPECIES, presets.size()));
+        if (presets.isEmpty()) addRenderableOnly((g, mx, my, dt) -> center(g, font, text("preset_empty"), x + w / 2, y + h / 2, w - 26, CYAN));
+        listContent = true;
+        for (int index = presetScroll / PRESET_STRIDE; index < presets.size(); index++) {
+            int top = scrollTop() + PRESET_STRIDE * index - presetScroll, which = index;
+            if (top >= scrollBottom()) break;
+            var pick = presets.get(index);
+            lineupCard(x + 10, top, cardW, PRESET_STRIDE - 4, index, pick, true, CYAN, true);
+            boolean canSelect = multi(state) ? !state.getBoolean("selfReady") : state.getBoolean("draftTurn");
+            if (!managePresets) btn(x + w - 76, top + 8, 57, text("select_preset"), canSelect, Action.PRIMARY, () -> {
+                request("preset", tag -> tag.put("pick", FrontierRooms.encode(pick)));
+                page(destination(state));
+            });
+            btn(x + w - 76, top + (managePresets ? 20 : 32), 57, text("delete_preset"), () -> {
+                presets.remove(which);
+                FrontierPresetStore.save(presets);
+                move = -1;
+                rebuildWidgets();
+            });
+        }
+        listContent = false;
+        addRenderableOnly((g, mx, my, dt) -> center(g, font,
+                text("preset_count", presets.size(), FrontierPresetStore.LIMIT), x + w / 2, y + h - 20, w - 26, GOLD));
+        if (move >= 0 && slot < presets.size()) moveChooser(presets.get(slot));
     }
 
     private void lineupCard(int cx, int cy, int cw, int ch, int index, FrontierRoster.Pick pick,
@@ -634,10 +657,11 @@ public final class FrontierScreen extends Screen {
         int toolSize = Math.min(itemSize, 17);
         int itemColumnH = itemSize + (edit ? toolSize + 4 : 0);
         int portraitW = Math.max(0, Math.min(68, Math.min(cw / 4 + 3, innerH - 2)));
-        int badgeW = cw >= 155 ? 24 : 20;
-        int emptyBadgeSpace = species == null ? badgeW + 4 : 0;
-        int contentX = cx + 5 + (left ? emptyBadgeSpace : 0);
-        int contentW = Math.max(1, cw - emptyBadgeSpace - 10);
+        int badgeW = Math.clamp(Math.min(cw / 7, ch / 2), 17, 28);
+        int badgeH = Math.clamp(ch / 3, 12, 19);
+        int badgeSpace = badgeW + 3;
+        int contentX = cx + 5 + (left ? badgeSpace : 0);
+        int contentW = Math.max(1, cw - badgeSpace - 10);
         int faceX = left ? contentX : contentX + contentW - portraitW;
         int faceY = innerY + (innerH - portraitW) / 2;
         int itemX = left ? faceX + portraitW + 3 : faceX - itemSize - 3;
@@ -646,16 +670,16 @@ public final class FrontierScreen extends Screen {
         int itemColumnY = innerY + Math.max(0, (innerH - itemColumnH) / 2);
         int itemY = itemColumnY + itemColumnH - itemSize;
         var held = itemStack(pick.held());
-        addRenderableOnly((g, mx, my, dt) -> {
+        addContent((g, mx, my, dt) -> {
             card(g, cx, cy, cw, ch, accent, false);
+            drawSlotBadge(g, cx + (left ? 5 : cw - badgeW - 5), innerY + (innerH - badgeH) / 2, badgeW, badgeH, index);
             if (species == null) {
-                drawSlotBadge(g, cx + (left ? 5 : cw - badgeW - 5), innerY, badgeW, index);
-                if (!edit) center(g, font, text("empty"), contentX + contentW / 2, cy + (ch - 8) / 2, contentW - 6, MUTED);
+                if (!edit && !(left && state.getBoolean("draftTurn") && index == state.getInt("locked")))
+                    center(g, font, text("empty"), contentX + contentW / 2, cy + (ch - 8) / 2, contentW - 6, MUTED);
                 return;
             }
             if (portraitW > 4) partyFace(g, portraits, pick.species(), Set.of(), faceX, faceY,
                     portraitW, dt, !left, accent);
-            drawSlotBadge(g, faceX + (left ? 1 : Math.max(0, portraitW - badgeW - 1)), faceY + 1, badgeW, index);
         });
         if (species == null) {
             if (edit) control(contentX, innerY, contentW, innerH, text("choose_species"), true,
@@ -678,6 +702,7 @@ public final class FrontierScreen extends Screen {
                 center(g, font, Component.literal(edit ? "+" : "–"), itemX + itemSize / 2, itemY + (itemSize - 8) / 2, itemSize - 4, MUTED);
                 if (edit) pulse(g, itemX, itemY, itemSize, itemSize);
             } else {
+                if (b.isHoveredOrFocused() && move < 0) itemTooltip(held);
                 int size = Math.min(itemSize - 6, 24);
                 FrontierConsole.item(g, held, itemX + (itemSize - size) / 2, itemY + (itemSize - size) / 2, size);
             }
@@ -688,36 +713,30 @@ public final class FrontierScreen extends Screen {
     private void lineupMoves(int x, int y, int width, int height, int teamSlot, FrontierRoster.Pick pick,
                              int accent, boolean edit) {
         int count = FrontierRoster.MOVE_SLOTS;
-        int stride = Math.max(1, height / count);
-        int rowH = Math.max(1, stride - 2);
+        // Keep the four moves stacked beside the portrait; short windows scroll the lineup.
+        int stride = height / count;
+        int rowH = stride - (stride >= 13 ? 2 : 1);
         int tool = edit ? Math.clamp(width / 7, 7, 12) : 0;
         int inset = edit ? tool + 2 : 0;
         int nameW = Math.max(1, width - inset * 2);
         for (int i = 0; i < count; i++) {
-            int index = i, rowY = y + i * stride;
+            int index = i, rowY = y + i * stride, nameX = x + inset;
             String id = pick.moves().get(i);
             var template = id.isEmpty() ? null : Moves.getByName(id);
             Component name = id.isEmpty() ? Component.literal("–") : moveName(id);
             boolean selected = edit && slot == teamSlot && move == index;
-            addRenderableOnly((g, mx, my, dt) -> {
-                int nameX = x + inset;
-                card(g, nameX, rowY, nameW, rowH, accent, selected);
-                int iconSize = template == null ? 0 : Math.max(0, Math.min(10, Math.min(rowH - 5, nameW - 10)));
+            addContent((g, mx, my, dt) -> {
+                FrontierConsole.shallowCard(g, nameX, rowY, nameW, rowH, accent, selected);
+                int iconSize = template == null ? 0 : Math.max(0, Math.min(10, Math.min(rowH - 3, nameW - 10)));
                 int nameInset = 3;
                 if (iconSize > 0) {
                     typeIcon(g, template.getElementalType(), nameX + 3, rowY + (rowH - 2 - iconSize) / 2, iconSize);
                     nameInset += iconSize + 3;
                 }
-                int textHeight = Math.max(1, rowH - 4);
-                float scale = Math.min(1, textHeight / 8F);
-                g.pose().pushPose();
-                try {
-                    g.pose().translate(nameX + nameInset, rowY + 1 + (textHeight - 8 * scale) / 2, 0);
-                    g.pose().scale(scale, scale, 1);
-                    FrontierConsole.text(g, font, name, 0, 0, (int) ((nameW - nameInset - 3) / scale), id.isEmpty() ? MUTED : TEXT);
-                } finally { g.pose().popPose(); }
-                if (!id.isEmpty() && move < 0 && !megaLimitOpen && inside(mx, my, nameX, rowY, nameW, rowH)) {
-                    setTooltipForNextRenderPass(List.of(name.getVisualOrderText()));
+                FrontierConsole.text(g, font, name, nameX + nameInset, rowY + Math.max(0, (rowH - 9) / 2),
+                        nameW - nameInset - 3, id.isEmpty() ? MUTED : TEXT);
+                if (!id.isEmpty() && move < 0 && !dialogOpen() && inside(mx, my, nameX, rowY, nameW, rowH)) {
+                    inspectedMove = template;
                 }
             });
             if (!edit) continue;
@@ -739,15 +758,16 @@ public final class FrontierScreen extends Screen {
         }
     }
 
-    private void drawSlotBadge(GuiGraphics g, int x, int y, int width, int slot) {
-        int color = SLOT_COLORS[slot];
+    private void drawSlotBadge(GuiGraphics g, int x, int y, int width, int height, int slot) {
+        int color = SLOT_COLORS[slot % SLOT_COLORS.length];
+        var label = Component.literal(editingPreset ? "#" + (slot + 1) : (slot + 1) + "P").withStyle(ChatFormatting.BOLD);
+        FrontierConsole.shallowCard(g, x, y, width, height, color, true);
+        float scale = Math.min((width - 4F) / font.width(label), (height - 4F) / font.lineHeight);
         g.pose().pushPose();
         try {
-            g.pose().translate(0, 0, 100);
-            card(g, x, y, width, 18, color, true);
-            g.pose().translate(x + width / 2F, y + 4, 1);
-            g.pose().scale(1.35F, 1.35F, 1);
-            g.drawCenteredString(font, Component.literal((slot + 1) + "P"), 0, 0, color);
+            g.pose().translate(x + width / 2F, y + (height - 2 - font.lineHeight * scale) / 2F, 0);
+            g.pose().scale(scale, scale, 1);
+            g.drawCenteredString(font, label, 0, 0, color);
         } finally { g.pose().popPose(); }
     }
 
@@ -760,7 +780,7 @@ public final class FrontierScreen extends Screen {
     }
 
     private int moveStride() { return 20; }
-    private int moveListW() { return Math.min(201, width - 12); }
+    private int moveListW() { return Math.min(168, width - 12); }
     private int moveListX() { return Math.clamp(moveAnchorX, 6, width - moveListW() - 6); }
     private int moveListY() { return Math.clamp(moveAnchorY, 6, Math.max(6, height - moveListHeight() - 6)); }
     private int moveListRows() { return Math.clamp((height - 61) / moveStride(), 1, 7); }
@@ -794,11 +814,21 @@ public final class FrontierScreen extends Screen {
                 OreUiRenderer.panel(g, bx, by, bw, moveListHeight(), 1, NEUTRAL);
                 FrontierConsole.text(g, font, text("replace_move", move + 1), bx + 7, by + 6, bw - 14, TEXT);
                 if (total == 0) FrontierConsole.text(g, font, text("no_replacements"), bx + 6, listY + 4, bw - 12, MUTED);
+                MoveTemplate hovered = null;
+                int hoveredY = listY;
                 for (int i = 0; i < rows && moveOffset + i < total; i++) {
-                    var option = list.get(moveOffset + i);
+                    var option = Moves.getByName(list.get(moveOffset + i));
+                    if (option == null) continue;
                     int ry = listY + i * moveStride();
-                    moveStrip(g, font, option, moveName(option), bx + 5, ry, bw - 17, moveStride() - 2,
-                            inside(mx, my, bx + 5, ry, bw - 17, moveStride() - 2));
+                    boolean over = inside(mx, my, bx + 5, ry, bw - 17, moveStride() - 2);
+                    if (over) { hovered = option; hoveredY = ry; }
+                    FrontierConsole.summaryMove(g, font, option, bx + 5, ry, bw - 17, moveStride() - 2, over);
+                }
+                if (hovered != null) {
+                    int detailWidth = Math.min(152, width - 12);
+                    int side = bx + bw + 5 + detailWidth <= width - 4 ? bx + bw + 5 : bx - detailWidth - 5;
+                    FrontierConsole.summaryMoveDetails(g, font, hovered, Math.clamp(side, 4, width - detailWidth - 4),
+                            hoveredY, detailWidth, height);
                 }
                 if (total > rows) {
                     int thumb = Math.max(8, track * rows / total);
@@ -828,7 +858,7 @@ public final class FrontierScreen extends Screen {
     }
 
     private void buildOptions() {
-        var old = get(own(), slot);
+        var old = editingPick(slot);
         var list = new ArrayList<Option>();
         switch (kind) {
             case SPECIES -> {
@@ -854,12 +884,20 @@ public final class FrontierScreen extends Screen {
     }
 
     private void submitPick(int index, FrontierRoster.Pick pick) {
-        request("edit", tag -> { tag.putInt("slot", index); tag.put("pick", FrontierRooms.encode(pick)); });
+        if (editingPreset) {
+            if (pick.equals(FrontierRoster.EMPTY)) return;
+            if (index < presets.size()) presets.set(index, pick);
+            else if (index == presets.size() && presets.size() < FrontierPresetStore.LIMIT) {
+                presets.add(pick);
+                presetScroll = index * PRESET_STRIDE;
+            }
+            FrontierPresetStore.save(presets);
+        } else request("edit", tag -> { tag.putInt("slot", index); tag.put("pick", FrontierRooms.encode(pick)); });
     }
 
     private void editPick(FrontierRoster.Pick pick) {
         submitPick(slot, pick);
-        page(Page.ROOM);
+        page(editingPreset ? Page.PRESETS : Page.ROOM);
     }
 
     private List<Option> filtered() {
@@ -869,20 +907,19 @@ public final class FrontierScreen extends Screen {
     }
 
     private int pickerX() { return x + 12; }
-    private int pickerWidth() { return x + w - 12 - pickerX(); }
+    private int pickerWidth() { return w - 32; }
     private int pickerColumns() { return kind == Kind.SPECIES ? Math.clamp(pickerWidth() / 54, 2, 9) : Math.max(1, pickerWidth() / 22); }
     private int pickerStride() { return kind == Kind.SPECIES ? 49 : 22; }
     private int pickerTop() { return y + (kind == Kind.HELD ? 87 : 63); }
-    private int pickerRows() { return Math.max(1, (y + h - pickerTop() - 33) / pickerStride()); }
     private int pickerCellWidth() { return kind == Kind.HELD ? 22 : pickerWidth() / pickerColumns(); }
 
     private void picker() {
-        var pick = get(own(), slot);
+        var pick = editingPick(slot);
         boolean species = kind == Kind.SPECIES;
         boolean remove = !(species ? FrontierRoster.NONE.equals(pick.species()) : FrontierRoster.NONE.equals(pick.held()));
         int generationWidth = species ? 85 : 0;
         int removeW = species && remove ? 94 : 0;
-        field = edit(x + 12, y + 37, w - 24 - generationWidth - removeW, filter, value -> { filter = value; offset = 0; });
+        field = edit(x + 12, y + 37, w - 24 - generationWidth - removeW, filter, value -> { filter = value; pickerScroll = 0; });
         field.setHint(text("search"));
         if (remove) {
             btn(species ? x + w - 12 - generationWidth - removeW + 3 : x + w - 118,
@@ -897,7 +934,7 @@ public final class FrontierScreen extends Screen {
                 btn(x + 12 + category.ordinal() * tw, y + 61, tw - 3, label, itemFilter != category, () -> {
                     itemFilter = category;
                     buildOptions();
-                    offset = 0;
+                    pickerScroll = 0;
                     rebuildWidgets();
                 });
             }
@@ -915,11 +952,11 @@ public final class FrontierScreen extends Screen {
     private int generationRow() { return Math.clamp((height - y - 59) / 10, 10, 19); }
 
     @Override public boolean mouseClicked(double mx, double my, int button) {
-        if (megaLimitOpen) { super.mouseClicked(mx, my, button); return true; }
+        if (dialogOpen()) { super.mouseClicked(mx, my, button); return true; }
         if (page == Page.CREATE && createMenu != null && button == 0) {
-            int menuTop = createRow(createMenu == CreateMenu.MODE ? 0 : 1) + 20;
-            if (inside(mx, my, createInputX(), menuTop, createInputWidth(), 40)) {
-                selectCreateOption((int) (my - menuTop) / 20);
+            int menuTop = menuTop();
+            if (inside(mx, my, createInputX(), menuTop, createInputWidth(), optionCount() * 19)) {
+                selectCreateOption((int) (my - menuTop) / 19);
             } else createMenu = null;
             return true;
         }
@@ -927,18 +964,18 @@ public final class FrontierScreen extends Screen {
             if (inside(mx, my, generationX(), y + 57, 82, generationRow() * 10)) {
                 generation = (int) ((my - y - 57) / generationRow());
                 buildOptions();
-                offset = 0;
+                pickerScroll = 0;
             }
             generationsOpen = false;
             rebuildWidgets();
             return true;
         }
-        if (page == Page.ROOM && move >= 0) {
+        if ((page == Page.ROOM || page == Page.PRESETS) && move >= 0) {
             if (button != 0) return true;
             if (field.mouseClicked(mx, my, button)) { setFocused(field); return true; }
             int listY = moveListY() + 42;
             if (inside(mx, my, moveListX() + 5, listY, moveListW() - 17, moveListRows() * moveStride())) {
-                var pick = get(own(), slot);
+                var pick = editingPick(slot);
                 var list = candidates(pick);
                 int i = moveOffset + (int) (my - listY) / moveStride();
                 if (!pending && i < list.size() && (int) (my - listY) % moveStride() < moveStride() - 2) {
@@ -954,43 +991,109 @@ public final class FrontierScreen extends Screen {
             }
             return true;
         }
-        int cell = page == Page.PICKER ? pickerCellWidth() : 1;
-        if (page == Page.PICKER && button == 0 && mx >= pickerX() && mx < pickerX() + cell * pickerColumns() && my >= pickerTop() && my < pickerTop() + pickerRows() * pickerStride()) {
+        if (button == 0 && scrollPage() && scrollLimit() > 0 && inside(mx, my, scrollbarX() - 1, scrollTop(), 8, scrollBottom() - scrollTop())) {
+            draggingScrollbar = true;
+            jumpScroll(my);
+            return true;
+        }
+        if (page == Page.PICKER && button == 0 && inside(mx, my, pickerX(), scrollTop(), pickerCellWidth() * pickerColumns(), scrollBottom() - scrollTop())) {
             var list = filtered();
-            int i = (offset + (int) ((my - pickerTop()) / pickerStride())) * pickerColumns() + (int) ((mx - pickerX()) / cell);
-            if (i < list.size() && !pending && !own().getBoolean("ready")) { list.get(i).apply.run(); return true; }
+            int localY = (int)(my - pickerTop()) + pickerScroll, localX = (int)(mx - pickerX());
+            int i = localY / pickerStride() * pickerColumns() + localX / pickerCellWidth();
+            if (i < list.size() && !pending && localY % pickerStride() < pickerStride() - 2 && localX % pickerCellWidth() < pickerCellWidth() - 2) {
+                list.get(i).apply.run(); return true;
+            }
         }
         return super.mouseClicked(mx, my, button);
     }
 
     @Override public boolean mouseScrolled(double mx, double my, double dx, double dy) {
-        if (megaLimitOpen) return true;
-        if (page == Page.ROOM && move >= 0 && dy != 0 && inside(mx, my, moveListX(), moveListY(), moveListW(), moveListHeight())) {
-            moveOffset = Math.clamp(moveOffset + (dy < 0 ? 1 : -1), 0, Math.max(0, candidates(get(own(), slot)).size() - moveListRows()));
+        if (dialogOpen()) return true;
+        if ((page == Page.ROOM || page == Page.WAITING) && dy != 0
+                && inside(mx, my, x + 10, spectatorTop(), w - 20, SPECTATOR_HEIGHT)) {
+            spectatorOffset = Math.clamp(spectatorOffset + (dy < 0 ? 1 : -1), 0, spectatorMaxOffset());
             return true;
         }
-        if (generationsOpen) return true;
-        if (page == Page.BRACKET && !state.getBoolean("finished")) {
-            if (dx != 0) shiftBracket(dx > 0 ? 1 : -1);
-            if (dy != 0) scrollBracket(dy < 0 ? bracketStride() : -bracketStride());
-            return true;
-        }
-        if (page == Page.WAITING && dy != 0) {
-            int count = state.getList("seats", Tag.TAG_COMPOUND).size();
-            offset = Math.clamp(offset + (dy < 0 ? 1 : -1), 0, Math.max(0, Math.ceilDiv(count, 2) - waitingRows()));
+        if (page == Page.CREATE && createMenu != null) return true;
+        if ((page == Page.ROOM || page == Page.PRESETS) && move >= 0) {
+            if (dy != 0 && inside(mx, my, moveListX(), moveListY(), moveListW(), moveListHeight()))
+                moveOffset = Math.clamp(moveOffset + (dy < 0 ? 1 : -1), 0, Math.max(0, candidates(editingPick(slot)).size() - moveListRows()));
             return true;
         }
         if (page == Page.INVITE && dy != 0) {
             offset = Math.clamp(offset + (dy < 0 ? 1 : -1), 0, Math.max(0, inviteRows().size() - inviteVisible()));
-            rebuildWidgets();
+            refreshInviteButtons();
             return true;
         }
-        if (page != Page.LOBBY && page != Page.PICKER || dy == 0) return super.mouseScrolled(mx, my, dx, dy);
-        int rows = page == Page.LOBBY ? roomRows() : pickerRows();
-        int count = page == Page.LOBBY ? Math.ceilDiv(listings().size(), roomColumns()) : Math.ceilDiv(filtered().size(), pickerColumns());
-        offset = Math.clamp(offset + (dy < 0 ? 1 : -1), 0, Math.max(0, count - rows));
-        if (page == Page.LOBBY) rebuildWidgets();
+        if (scrollPage() && dy != 0 && inside(mx, my, x + 8, scrollTop(), w - 16, scrollBottom() - scrollTop())) {
+            setScroll(scroll() - (int) Math.round(dy * 24));
+            return true;
+        }
+        if (page != Page.LOBBY || dy == 0) return super.mouseScrolled(mx, my, dx, dy);
+        offset = Math.clamp(offset + (dy < 0 ? 1 : -1), 0, Math.max(0, Math.ceilDiv(listings().size(), roomColumns()) - roomRows()));
+        rebuildWidgets();
         return true;
+    }
+
+    private boolean scrollPage() { return page == Page.ROOM || page == Page.PRESETS || page == Page.WAITING || page == Page.PICKER; }
+    private int scrollTop() { return y + switch (page) {
+        case PICKER -> pickerTop() - y;
+        case WAITING -> 72;
+        case ROOM -> 85;
+        default -> 39;
+    }; }
+    private int scrollBottom() { return page == Page.ROOM || page == Page.WAITING ? spectatorTop() - 3 : y + h - 33; }
+    private int scrollbarX() { return x + w - 16; }
+    private int scroll() { return page == Page.ROOM ? draftScroll : page == Page.PRESETS ? presetScroll : page == Page.WAITING ? teamScroll : pickerScroll; }
+    private int contentHeight() {
+        if (page == Page.ROOM) return lineupHeight() * FrontierRoster.TEAM_SIZE;
+        if (page == Page.PRESETS) return presets.size() * PRESET_STRIDE;
+        if (page == Page.WAITING) {
+            var seats = state.getList("seats", Tag.TAG_COMPOUND);
+            int blue = 0;
+            for (int i = 0; i < seats.size(); i++) if (seats.getCompound(i).getInt("side") == 0) blue++;
+            return TEAM_STRIDE * Math.max(blue, seats.size() - blue);
+        }
+        return Math.ceilDiv(filtered().size(), pickerColumns()) * pickerStride();
+    }
+    private int scrollLimit() { return Math.max(0, contentHeight() - Math.max(1, scrollBottom() - scrollTop())); }
+    private void setScroll(int pixels) {
+        int value = Math.clamp(pixels, 0, scrollLimit());
+        if (value == scroll()) return;
+        if (page == Page.PICKER) pickerScroll = value;
+        else {
+            if (page == Page.PRESETS) presetScroll = value;
+            else if (page == Page.ROOM) draftScroll = value;
+            else teamScroll = value;
+            rebuildWidgets();
+        }
+    }
+    private void jumpScroll(double y) {
+        int track = scrollBottom() - scrollTop(), thumb = scrollbarThumb(track, contentHeight());
+        setScroll((int) Math.round((y - scrollTop() - thumb / 2.0) * scrollLimit() / Math.max(1, track - thumb)));
+    }
+    @Override public boolean mouseDragged(double mx, double my, int button, double dx, double dy) {
+        if (button == 0 && draggingScrollbar && scrollPage()) { jumpScroll(my); return true; }
+        return super.mouseDragged(mx, my, button, dx, dy);
+    }
+    @Override public boolean mouseReleased(double mx, double my, int button) {
+        if (button == 0 && draggingScrollbar) { draggingScrollbar = false; return true; }
+        return super.mouseReleased(mx, my, button);
+    }
+    private static int scrollbarThumb(int track, int content) { return Math.min(track, Math.max(12, (int) ((long) track * track / Math.max(1, content)))); }
+    private static void drawScrollBar(GuiGraphics g, int x, int y, int track, int position, int limit, int content) {
+        if (track <= 0 || limit <= 0) return;
+        int thumb = scrollbarThumb(track, content);
+        OreUiRenderer.scrollbar(g, x, y, 6, track, (track - thumb) * position / limit, thumb, false, false, 1, NEUTRAL);
+    }
+    private boolean inScroll(double mx, double my) { return inside(mx, my, x + 8, scrollTop(), w - 24, scrollBottom() - scrollTop()); }
+    private void addContent(Renderable render) {
+        if (!listContent) { addRenderableOnly(render); return; }
+        addRenderableOnly((g, mx, my, dt) -> {
+            g.enableScissor(x + 8, scrollTop(), scrollbarX(), scrollBottom());
+            try { render.render(g, inScroll(mx, my) ? mx : -1, inScroll(mx, my) ? my : -1, dt); }
+            finally { g.disableScissor(); }
+        });
     }
 
     private interface Paint { void render(GuiGraphics g, Button b, float tick); }
@@ -1000,13 +1103,21 @@ public final class FrontierScreen extends Screen {
     }
 
     private Button control(int x, int y, int w, int h, Component label, boolean enabled, boolean tooltip, Runnable click, Paint paint) {
+        boolean clip = listContent;
         var button = new Button(x, y, Math.max(1, w), h, label, b -> click.run(), narration -> narration.get()) {
+            @Override public boolean mouseClicked(double mx, double my, int button) {
+                return (!clip || inScroll(mx, my)) && super.mouseClicked(mx, my, button);
+            }
             @Override protected void renderWidget(GuiGraphics g, int mx, int my, float tick) { paint.render(g, this, tick); }
         };
-        if (megaLimitOpen) return addRenderableOnly(button);
-        if (tooltip && move < 0) button.setTooltip(Tooltip.create(label));
         button.active = enabled;
-        return addRenderableWidget(button);
+        if (tooltip && move < 0) button.setTooltip(Tooltip.create(label));
+        if (clip) {
+            addContent(button);
+            if (!dialogOpen() && enabled && y < scrollBottom() && y + h > scrollTop()) addWidget(button);
+            return button;
+        }
+        return dialogOpen() ? addRenderableOnly(button) : addRenderableWidget(button);
     }
 
     private void btn(int x, int y, int w, Component label, Runnable click) {
@@ -1017,8 +1128,8 @@ public final class FrontierScreen extends Screen {
         btn(x, y, w, label, enabled, Action.SECONDARY, click);
     }
 
-    private void btn(int x, int y, int w, Component label, boolean enabled, Action style, Runnable click) {
-        control(x, y, w, 20, label, enabled, click, (g, b, tick) ->
+    private Button btn(int x, int y, int w, Component label, boolean enabled, Action style, Runnable click) {
+        return control(x, y, w, 20, label, enabled, click, (g, b, tick) ->
                 OreUiRenderer.labeledButton(g, font, label, x, y, w, 20, style, b.isHoveredOrFocused(), enabled, 1, style == Action.PRIMARY ? 0xff4b8b30 : NEUTRAL));
     }
 
@@ -1036,12 +1147,13 @@ public final class FrontierScreen extends Screen {
     }
 
     private EditBox edit(int x, int y, int width, String value, Consumer<String> responder) {
+        int outerWidth = width;
         var field = new EditBox(font, x + 5, y, Math.max(1, width - 10), 18, text("search")) {
             @Override public void renderWidget(GuiGraphics g, int mx, int my, float dt) {
                 g.pose().pushPose();
                 try {
-                    if (page == Page.ROOM && move >= 0) g.pose().translate(0, 0, 301);
-                    OreUiRenderer.field(g, x, y, width, 18, isFocused(), 1, NEUTRAL);
+                    if ((page == Page.ROOM || page == Page.PRESETS) && move >= 0) g.pose().translate(0, 0, 301);
+                    OreUiRenderer.field(g, x, y, outerWidth, 18, isFocused(), 1, NEUTRAL);
                     super.renderWidget(g, mx, my, dt);
                 } finally { g.pose().popPose(); }
             }
@@ -1061,10 +1173,12 @@ public final class FrontierScreen extends Screen {
     }
 
     @Override public void render(GuiGraphics g, int mx, int my, float delta) {
+        inspectedMove = null;
         shell(g, x, y, w, h);
         if (page == Page.LOBBY) FrontierConsole.text(g, font, title, x + 13, y + 12, w / 3, CYAN);
-        center(g, font, text(page == Page.PICKER ? kind == Kind.SPECIES ? "picker_species" : "picker_held"
-                : page == Page.BRACKET && state.getBoolean("finished") ? "panel.awards" : "panel." + page.name().toLowerCase(Locale.ROOT)),
+        if (page != Page.LOBBY) center(g, font, text(page == Page.PRESETS && managePresets ? "edit_presets"
+                : page == Page.PICKER ? kind == Kind.SPECIES ? "picker_species" : "picker_held"
+                : "panel." + page.name().toLowerCase(Locale.ROOT)),
                 x + w / 2, y + 12, w / 3, TEXT);
         var balance = text("balance", state.getString("balance"));
         int balanceW = Math.min(w / 3 - 7, font.width(balance));
@@ -1075,16 +1189,29 @@ public final class FrontierScreen extends Screen {
             case ROOM -> drawSeats(g);
             case PICKER -> drawPicker(g, mx, my, delta);
             case WAITING -> drawWaiting(g);
-            case BRACKET -> drawBracket(g);
             case INVITE -> drawInvites(g);
+            case PRESETS -> {}
         }
+        if (page == Page.ROOM || page == Page.WAITING) drawSpectators(g, mx, my);
         super.render(g, mx, my, delta);
+        if (scrollPage() && move < 0) drawScrollBar(g, scrollbarX(), scrollTop(), scrollBottom() - scrollTop(), scroll(), scrollLimit(), contentHeight());
         if (page == Page.PICKER && generationsOpen) drawGenerations(g, mx, my);
         if (page == Page.CREATE && createMenu != null) drawCreateMenu(g, mx, my);
+        if (inspectedMove != null && move < 0 && !dialogOpen()) {
+            int panelWidth = Math.min(152, width - 8);
+            int side = mx + 13 + panelWidth < width ? mx + 13 : mx - panelWidth - 6;
+            g.pose().pushPose();
+            try {
+                g.pose().translate(0, 0, 390);
+                FrontierConsole.summaryMoveDetails(g, font, inspectedMove, Math.clamp(side, 4, width - panelWidth - 4),
+                        my + 8, panelWidth, height);
+            } finally { g.pose().popPose(); }
+        }
         var error = state.getString("problem");
-        if (!error.isEmpty() && !"mega_limit".equals(error) && !megaLimitOpen) {
+        if (!error.isEmpty() && !ruleDialog(error) && !dialogOpen()) {
             var message = text("error." + error);
-            center(g, font, message, x + w / 2, y + h - 43, w - 24, 0xffffaa94);
+            int errorY = page == Page.ROOM || page == Page.WAITING ? y + h - 25 : y + h - 43;
+            center(g, font, message, x + w / 2, errorY, w - 24, 0xffffaa94);
         }
     }
 
@@ -1099,18 +1226,18 @@ public final class FrontierScreen extends Screen {
         }
     }
 
-    private void dismissMegaLimit() {
-        megaLimitOpen = false;
+    private void dismissDialog() {
+        dialogProblem = "";
         rebuildWidgets();
     }
 
-    private void megaLimitDialog() {
+    private void drawDialog() {
         int dw = Math.min(230, width - 16);
         int dx = (width - dw) / 2;
-        var lines = font.split(text("error.mega_limit"), dw - 28);
+        var lines = font.split(text("error." + dialogProblem), dw - 28);
         int dh = 66 + lines.size() * 10;
         int dy = (height - dh) / 2;
-        var ok = Button.builder(CommonComponents.GUI_OK, button -> dismissMegaLimit())
+        var ok = Button.builder(CommonComponents.GUI_OK, button -> dismissDialog())
                 .bounds(width / 2 - 42, dy + dh - 28, 84, 20).build();
         addWidget(ok);
         setInitialFocus(ok);
@@ -1120,7 +1247,7 @@ public final class FrontierScreen extends Screen {
                 g.pose().translate(0, 0, 400);
                 g.fill(0, 0, width, height, 0xa0000000);
                 OreUiRenderer.panel(g, dx, dy, dw, dh, 1, NEUTRAL);
-                center(g, font, text("mega_limit_title"), width / 2, dy + 12, dw - 24, GOLD);
+                center(g, font, text("mega_limit".equals(dialogProblem) ? "mega_limit_title" : "repeat_species_title"), width / 2, dy + 12, dw - 24, GOLD);
                 for (int i = 0; i < lines.size(); i++) {
                     g.drawCenteredString(font, lines.get(i), width / 2, dy + 30 + i * 10, TEXT);
                 }
@@ -1141,48 +1268,98 @@ public final class FrontierScreen extends Screen {
             var seat = left ? own() : rival();
             card(g, sx, y + 36, ww, 26, accent, false);
             int avatarX = left ? sx + 5 : sx + ww - 21;
-            player(g, seat, avatarX, y + 41, 16, accent);
-            var name = seat.isEmpty() ? text("waiting") : text(seat.getBoolean("ready") ? "seat_ready" : "seat_edit", seat.getString("name"));
-            center(g, font, name, sx + ww / 2, y + 45, ww - 46, seat.getBoolean("ready") ? accent : TEXT);
+            var host = state.getCompound("host");
+            boolean owner = seat.hasUUID("player") && host.hasUUID("player") && seat.getUUID("player").equals(host.getUUID("player"));
+            if (owner) g.renderOutline(avatarX - 2, y + 39, 20, 20, GOLD);
+            player(g, seat, avatarX, y + 41, 16, owner ? GOLD : accent);
+            var name = seat.isEmpty() ? Component.literal("—") : seatLabel(seat);
+            center(g, font, name, sx + ww / 2, y + 45, ww - 46, seatColor(seat));
         }
         int middle = x + w / 2, rail = centerRail(), top = y + 33;
-        int railH = h - 66, midY = top + railH / 2;
+        int railH = spectatorTop() - top - 3, midY = top + railH / 2;
         card(g, middle - rail / 2, top, rail, railH, GOLD, false);
         var vs = Component.literal("VS").withStyle(ChatFormatting.BOLD);
         float scale = Math.min(4F, (rail - 10) / (float) font.width(vs));
+        int vsY = Math.max(y + 85, midY - 24);
+        int stakeY = Math.max(midY + 12, vsY + (int) (9 * scale) + 4);
         g.pose().pushPose();
         try {
-            g.pose().translate(middle, midY - 24, 0);
+            g.pose().translate(middle, vsY, 0);
             g.pose().scale(scale, scale, 1);
             g.drawCenteredString(font, vs, 0, 0, GOLD);
         } finally { g.pose().popPose(); }
-        center(g, font, text("stake_label"), middle, midY + 12, rail - 6, MUTED);
-        center(g, font, money(state), middle, midY + 25, rail - 4, GOLD);
-        if (state.getBoolean("ownParty")) center(g, font, text("own_party_short"), middle, midY + 42, rail - 5, TEXT);
+        center(g, font, text("stake_label"), middle, stakeY, rail - 6, MUTED);
+        center(g, font, money(state), middle, stakeY + 13, rail - 4, GOLD);
+    }
+
+    private static final int SPECTATOR_HEIGHT = 45, SPECTATOR_CELL = 43;
+    private int spectatorTop() { return y + h - 29 - SPECTATOR_HEIGHT; }
+    private int spectatorColumns() { return Math.max(1, (w - (page == Page.WAITING ? 165 : 92)) / SPECTATOR_CELL); }
+    private int spectatorMaxOffset() {
+        return Math.max(0, state.getList("spectators", Tag.TAG_COMPOUND).size() - spectatorColumns());
+    }
+
+    private void spectatorControls() {
+        if (page != Page.WAITING || watching()) return;
+        int bx = x + w - 81, by = spectatorTop() + 5, bw = 65, bh = SPECTATOR_HEIGHT - 10;
+        control(bx, by, bw, bh, text("join_watch"), true, true,
+                () -> request("side", tag -> tag.putInt("side", -1)), (g, b, dt) -> {
+                    boolean hover = b.isHoveredOrFocused();
+                    OreUiRenderer.field(g, bx, by, bw, bh, hover, 1, GOLD);
+                    center(g, font, Component.literal("+"), bx + bw / 2, by + 5, bw - 6, GOLD);
+                    center(g, font, b.getMessage(), bx + bw / 2, by + 21, bw - 6, hover ? TEXT : MUTED);
+                });
+    }
+
+    private void drawSpectators(GuiGraphics g, int mx, int my) {
+        var seats = state.getList("spectators", Tag.TAG_COMPOUND);
+        int left = x + 10, top = spectatorTop();
+        card(g, left, top, w - 20, SPECTATOR_HEIGHT, GOLD, false);
+        FrontierConsole.text(g, font, text("spectator_count", seats.size()), left + 6, top + 16, 62, GOLD);
+        spectatorOffset = Math.clamp(spectatorOffset, 0, spectatorMaxOffset());
+        var host = state.getCompound("host");
+        for (int i = 0; i < spectatorColumns(); i++) {
+            int slotX = left + 68 + i * SPECTATOR_CELL, slotY = top + 4;
+            int slotW = SPECTATOR_CELL - 3, slotH = SPECTATOR_HEIGHT - 8;
+            OreUiRenderer.field(g, slotX, slotY, slotW, slotH, false, 1, NEUTRAL);
+            if (i + spectatorOffset >= seats.size()) continue;
+            var seat = seats.getCompound(i + spectatorOffset);
+            int px = slotX + (slotW - 20) / 2, py = slotY + 2;
+            if (host.hasUUID("player") && seat.hasUUID("player") && host.getUUID("player").equals(seat.getUUID("player")))
+                g.renderOutline(px - 1, py - 1, 22, 22, GOLD);
+            player(g, seat, px, py, 20, GOLD);
+            var name = Component.literal(seat.getString("name"));
+            center(g, font, name, slotX + slotW / 2, slotY + 24, slotW - 4, TEXT);
+            if (!dialogOpen() && inside(mx, my, slotX, slotY, slotW, slotH)) setTooltipForNextRenderPass(name);
+        }
     }
 
     private void drawPicker(GuiGraphics g, int mx, int my, float dt) {
         var list = filtered();
-        int columns = pickerColumns(), rows = pickerRows();
-        int stride = pickerStride(), cell = pickerCellWidth();
-        offset = Math.clamp(offset, 0, Math.max(0, Math.ceilDiv(list.size(), columns) - rows));
-        for (int i = 0; i < rows * columns && offset * columns + i < list.size(); i++) {
-            int at = pickerTop() + i / columns * stride, bx = pickerX() + i % columns * cell;
-            var choice = list.get(offset * columns + i);
-            boolean hover = !generationsOpen && inside(mx, my, bx, at, cell - 1, stride - 1);
-            if (kind == Kind.SPECIES) {
-                card(g, bx, at, cell - 2, stride - 2, CYAN, hover);
-                int size = Math.min(29, cell - 6);
-                var species = ResourceLocation.tryParse(choice.id);
-                if (species != null) portraits.render(g, species, Set.of(), bx + (cell - 2 - size) / 2, at + 2, size, dt);
-                center(g, font, choice.name, bx + (cell - 2) / 2, at + stride - 15, cell - 8, TEXT);
-            } else {
-                var stack = itemStack(ResourceLocation.tryParse(choice.id));
-                OreUiRenderer.field(g, bx, at, 21, 21, hover, 1, NEUTRAL);
-                FrontierConsole.item(g, stack, bx + 2, at + 2, 16);
-                if (hover) setTooltipForNextRenderPass(List.of(choice.name.getVisualOrderText()));
+        int columns = pickerColumns(), stride = pickerStride(), cell = pickerCellWidth();
+        pickerScroll = Math.clamp(pickerScroll, 0, scrollLimit());
+        int top = scrollTop(), bottom = scrollBottom();
+        g.enableScissor(pickerX(), top, scrollbarX(), bottom);
+        try {
+            for (int i = pickerScroll / stride * columns; i < list.size(); i++) {
+                int at = top + i / columns * stride - pickerScroll, bx = pickerX() + i % columns * cell;
+                if (at >= bottom) break;
+                var choice = list.get(i);
+                boolean hover = !generationsOpen && inScroll(mx, my) && inside(mx, my, bx, at, cell - 2, stride - 2);
+                if (kind == Kind.SPECIES) {
+                    card(g, bx, at, cell - 2, stride - 2, CYAN, hover);
+                    int size = Math.min(29, cell - 6);
+                    var species = ResourceLocation.tryParse(choice.id);
+                    if (species != null) portraits.render(g, species, Set.of(), bx + (cell - 2 - size) / 2, at + 2, size, dt);
+                    center(g, font, choice.name, bx + (cell - 2) / 2, at + stride - 15, cell - 8, TEXT);
+                } else {
+                    var stack = itemStack(ResourceLocation.tryParse(choice.id));
+                    OreUiRenderer.field(g, bx, at, 21, 21, hover, 1, NEUTRAL);
+                    FrontierConsole.item(g, stack, bx + 2, at + 2, 16);
+                    if (hover) itemTooltip(stack);
+                }
             }
-        }
+        } finally { g.disableScissor(); }
     }
 
     private void drawGenerations(GuiGraphics g, int mx, int my) {
@@ -1205,15 +1382,30 @@ public final class FrontierScreen extends Screen {
     }
 
     @Override public void onClose() {
-        if (megaLimitOpen) { dismissMegaLimit(); return; }
+        if (dialogOpen()) { dismissDialog(); return; }
         if (createMenu != null) { createMenu = null; return; }
         if (generationsOpen) { generationsOpen = false; rebuildWidgets(); return; }
         if (move >= 0) { move = -1; rebuildWidgets(); return; }
+        if (page == Page.PICKER && editingPreset) { page(Page.PRESETS); return; }
+        if (page == Page.PRESETS) { page(destination(state)); return; }
         if (page == Page.PICKER && state.hasUUID("room")) { pinRoom(); return; }
         if (page == Page.CREATE) { page(Page.LOBBY); return; }
         if (page == Page.INVITE && state.hasUUID("room")) { pinRoom(); return; }
         if (state.hasUUID("room")) { pinRoom(); return; }
         super.onClose();
+    }
+
+    private void itemTooltip(ItemStack stack) {
+        var lines = new ArrayList<>(getTooltipFromItem(minecraft, stack));
+        if (lines.size() < 2) {
+            var language = net.minecraft.locale.Language.getInstance();
+            String itemKey = stack.getItem().getDescriptionId();
+            String tooltipKey = itemKey.startsWith("item.") ? "tooltip." + itemKey.substring(5) + ".tooltip" : "";
+            if (language.has(itemKey + ".tooltip")) lines.add(Component.translatable(itemKey + ".tooltip"));
+            else if (!tooltipKey.isEmpty() && language.has(tooltipKey)) lines.add(Component.translatable(tooltipKey));
+            else lines.add(text(FrontierRoster.isMega(stack) ? "mega_item_info" : "held_item_info"));
+        }
+        setTooltipForNextRenderPass(lines.stream().flatMap(line -> font.split(line, 235).stream()).toList());
     }
 
     private static Component moveName(String id) { return Component.translatable("cobblemon.move." + id); }

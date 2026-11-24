@@ -6,7 +6,7 @@
   "timeLimitSeconds": 0,
   "maxDeaths": 1,
   "allowLateJoin": false,
-  "maxPlayers": 0,
+  "maxPlayers": 6,
   "spawn": {
     "x": -24,
     "y": 64,

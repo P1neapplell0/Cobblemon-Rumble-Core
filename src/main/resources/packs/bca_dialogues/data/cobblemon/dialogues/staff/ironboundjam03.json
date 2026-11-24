@@ -1,0 +1,113 @@
+{
+  "initializationAction": "(q.npc.is_in_battle_with(q.player) || !q.npc.is_doing_activity('minecraft:idle', 'cobblemon:battling')) ? q.dialogue.close()",
+  "speakers": {
+    "npc": {
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      },
+      "face": "q.npc.face(false);"
+    },
+    "player": {
+      "face": "q.player.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.player.username"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "player-chat",
+      "speaker": "player",
+      "lines": [
+        "dialogue.bca.staff.ironboundjam03.player-chat.line.1"
+      ],
+      "input": "q.dialogue.set_page(q.npc.was_hurt_by(q.player) ? 'hurt-1' : 'npc-chat');"
+    },
+    {
+      "id": "hurt-1",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.staff.ironboundjam03.hurt-1.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "npc-chat",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.staff.ironboundjam03.npc-chat.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.staff.ironboundjam03.npc-chat.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.set_page('npc-chat2')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.staff.ironboundjam03.npc-chat.option.Who.2",
+            "value": "Who",
+            "action": [
+              "q.dialogue.set_page('about-me')"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "npc-chat2",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.staff.ironboundjam03.npc-chat2.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.staff.ironboundjam03.npc-chat2.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.close();",
+              "q.npc.start_battle(q.player);"
+            ],
+            "isSelectable": "c.npc.can_battle;"
+          }
+        ]
+      }
+    },
+    {
+      "id": "about-me",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.staff.ironboundjam03.about-me.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.staff.ironboundjam03.about-me.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.staff.ironboundjam03.about-me.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

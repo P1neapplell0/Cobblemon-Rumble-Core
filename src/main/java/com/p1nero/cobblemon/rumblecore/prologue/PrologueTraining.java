@@ -181,14 +181,14 @@ public final class PrologueTraining {
         // End the fight from the instance tick, not in the middle of RTC's damage callback.
         if (drill.wonPending) {
             if (drill.knockoutUntil == 0) {
-                int duration = 29;
+                int duration = FrontierKnockout.CUE_TICKS;
                 var actors = new ArrayList<Integer>();
                 actors.add(player.getId());
                 actors.add(drill.pikachu.getId());
                 var battle = Smash.session(player);
                 if (battle != null) actors.add(battle.pokemon.getId());
                 PacketDistributor.sendToPlayer(player, new FrontierKnockout.Cue(
-                        drill.getDimension().location(), duration, actors));
+                        drill.getDimension().location(), duration, drill.pikachu.getId(), battle == null ? -1 : battle.pokemon.getId(), actors));
                 drill.knockoutUntil = now + duration;
             }
             if (now < drill.knockoutUntil) return;

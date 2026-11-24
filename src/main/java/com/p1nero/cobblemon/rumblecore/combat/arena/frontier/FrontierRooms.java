@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +37,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -67,23 +67,17 @@ public final class FrontierRooms {
         final UUID id;
         final String name;
         final FrontierRoster.Pick[] picks = {FrontierRoster.EMPTY, FrontierRoster.EMPTY, FrontierRoster.EMPTY};
-        final List<Pokemon> personalParty;
-        boolean ready;
+        boolean ready, away;
+        int side, locked;
+        FrontierRoster.Pick pendingPick = FrontierRoster.EMPTY;
 
-        Seat(ServerPlayer player) { this(player, false); }
-
-        Seat(ServerPlayer player, boolean ownParty) {
+        Seat(ServerPlayer player) {
             id = player.getUUID();
             name = player.getGameProfile().getName();
-            personalParty = ownParty ? FrontierRoster.snapshotParty(player) : List.of();
-            for (int i = 0; i < personalParty.size(); i++) picks[i] = FrontierRoster.describe(personalParty.get(i));
         }
 
         List<FrontierRoster.Pick> draft() { return List.copyOf(Arrays.asList(picks)); }
-
-        List<Pokemon> forMatch(ServerPlayer player, boolean ownParty) {
-            return ownParty ? FrontierRoster.copyForMatch(player, personalParty) : FrontierRoster.create(draft());
-        }
+        List<Pokemon> forMatch() { return FrontierRoster.create(draft()); }
     }
 
     private static final class Room {
@@ -91,57 +85,35 @@ public final class FrontierRooms {
         final Seat host;
         final BigInteger stake;
         final Map<UUID, Seat> seats = new LinkedHashMap<>();
+        final Map<UUID, Seat> spectators = new LinkedHashMap<>();
         final Map<UUID, Integer> invites = new HashMap<>();
-        final HashSet<UUID> withdrawals = new HashSet<>();
         final int capacity;
-        final boolean multiplayer, ownParty;
-        FrontierBracket bracket;
-        Map<UUID, BigInteger> prizes = Map.of();
+        final boolean multiplayer;
         int expires;
+        final int minutes;
         boolean starting;
-        boolean roundOpened;
         boolean settled;
 
-        Room(ServerPlayer player, Seat host, BigInteger stake, boolean multiplayer, int capacity, boolean ownParty) {
+        Room(ServerPlayer player, Seat host, BigInteger stake, boolean multiplayer, int minutes) {
             this.host = host;
             seats.put(host.id, host);
             this.stake = stake;
-            this.capacity = capacity;
+            this.capacity = multiplayer ? 0 : 2;
+            this.minutes = minutes;
             this.multiplayer = multiplayer;
-            this.ownParty = ownParty;
             touch(player);
         }
 
         boolean multi() { return multiplayer; }
         Seat guest() { return seats.values().stream().skip(1).findFirst().orElse(null); }
-        boolean open(int now) { return bracket == null && !starting && (capacity == 0 || seats.size() < capacity) && expires > now; }
+        boolean open(int now) { return !starting && expires > now; }
+        boolean full() { return capacity > 0 && seats.size() >= capacity; }
+        List<UUID> members() {
+            var ids = new ArrayList<>(seats.keySet());
+            ids.addAll(spectators.keySet());
+            return ids;
+        }
         void touch(ServerPlayer player) { expires = player.server.getTickCount() + LIFETIME; }
-    }
-
-    public static final class Escrow implements Consumer<UUID> {
-        private final MinecraftServer server;
-        private final UUID host, guest;
-        private final BigInteger stake;
-        private boolean settled;
-
-        private Escrow(MinecraftServer server, Room room) {
-            this.server = server;
-            host = room.host.id;
-            guest = room.guest().id;
-            stake = room.stake;
-        }
-
-        /** A draw/setup failure refunds both; the winner otherwise receives the full pot. */
-        @Override public void accept(UUID winner) {
-            if (settled) return;
-            settled = true;
-            if (host.equals(winner) || guest.equals(winner)) {
-                credit(server, winner, stake.add(stake));
-            } else {
-                credit(server, host, stake);
-                credit(server, guest, stake);
-            }
-        }
     }
 
     private static void recordDeposits(MinecraftServer server, Room room) {
@@ -194,7 +166,7 @@ public final class FrontierRooms {
     @SubscribeEvent
     public static void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        if (MEMBERS.containsKey(player.getUUID())) send(player, false);
+        resumeAfterInterruption(player);
         var storage = player.server.getCommandStorage();
         var payouts = storage.get(PAYOUTS).copy();
         var key = player.getUUID().toString();
@@ -206,24 +178,45 @@ public final class FrontierRooms {
 
     @SubscribeEvent
     public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
-            var room = MEMBERS.get(player.getUUID());
-            if (room == null || room.bracket == null) leave(player, false);
-            else {
-                var seat = room.seats.get(player.getUUID());
-                seat.ready = false;
-                broadcast(player.server, room, false, player.getUUID());
-            }
-        }
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        var room = MEMBERS.get(player.getUUID());
+        if (room == null || room.starting) return;
+        var seat = room.seats.get(player.getUUID());
+        if (seat == null) seat = room.spectators.get(player.getUUID());
+        if (seat != null) seat.away = true;
+        broadcast(player.server, room, false, player.getUUID());
     }
 
     @SubscribeEvent
-    public static void expire(PlayerTickEvent.Post event) {
-        if (!(event.getEntity() instanceof ServerPlayer player) || player.tickCount % 100 != 0) return;
+    public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) resumeAfterInterruption(player);
+    }
+
+    private static void resumeAfterInterruption(ServerPlayer player) {
         var room = MEMBERS.get(player.getUUID());
-        if (room != null && room.bracket == null && !room.starting && (room.expires <= player.server.getTickCount() || !hasAccess(player))) {
-            leave(player, false);
-        }
+        if (room == null || room.starting) return;
+        var seat = room.seats.get(player.getUUID());
+        if (seat == null) seat = room.spectators.get(player.getUUID());
+        if (seat != null) seat.away = false;
+        // The respawn/login packets must precede the HUD state (the client replaces its player on respawn).
+        player.server.tell(new TickTask(player.server.getTickCount(), () -> {
+            if (player.hasDisconnected() || MEMBERS.get(player.getUUID()) != room) return;
+            send(player, false);
+            broadcast(player.server, room, false, player.getUUID());
+        }));
+    }
+
+    @SubscribeEvent
+    public static void updateWaitingRooms(PlayerTickEvent.Post event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        var room = MEMBERS.get(player.getUUID());
+        if (room == null || room.starting) return;
+        var seat = room.seats.get(player.getUUID());
+        if (seat == null) return;
+        boolean unavailable = !ArenaMatch.available(player);
+        if (seat.away == unavailable) return;
+        seat.away = unavailable;
+        broadcast(player.server, room, false, player.getUUID());
     }
 
     @SubscribeEvent
@@ -243,13 +236,16 @@ public final class FrontierRooms {
                 && SmashConfig.<Boolean>get(SmashConfig.ENABLED);
     }
 
+    static boolean inWaitingRoom(UUID player) { return MEMBERS.containsKey(player); }
+
     public static void open(ServerPlayer player) {
         if (!ArenaMatch.available(player) || !MEMBERS.containsKey(player.getUUID()) && !eligible(player)) { problem(player, "unavailable"); return; }
         send(player, true);
     }
 
     private static void problem(ServerPlayer player, String key) {
-        player.sendSystemMessage(Component.translatable("rumble.frontier.error." + key));
+        if (!"repeat_species".equals(key) && !"mega_limit".equals(key))
+            player.sendSystemMessage(Component.translatable("rumble.frontier.error." + key));
         send(player, false, key);
     }
 
@@ -265,9 +261,14 @@ public final class FrontierRooms {
             else if (room == null) send(player, false);
             return;
         }
-        if ("leave".equals(action)) { leave(player, true); return; }
-        if (!eligible(player) && (room == null || room.bracket == null || !ArenaMatch.available(player))) { problem(player, "unavailable"); return; }
+        if ("leave".equals(action)) { leave(player); return; }
+        if (room == null ? !eligible(player) : !ArenaMatch.available(player)) { problem(player, "unavailable"); return; }
         if (room != null && room.starting) return;
+        if (room != null && !room.open(player.server.getTickCount())) {
+            cancel(player.server, room);
+            notifyClosed(player.server, room, null, "expired");
+            return;
+        }
         if ("list".equals(action)) { send(player, false); return; }
         if ("create".equals(action)) {
             var raw = command.getString("stake");
@@ -275,17 +276,15 @@ public final class FrontierRooms {
             if (!raw.matches("[0-9]{1,18}")) { problem(player, "stake"); return; }
             var stake = new BigInteger(raw);
             boolean multi = command.getBoolean("multi");
-            int capacity = multi ? command.getInt("capacity") : 2;
-            if (multi && (!command.contains("capacity", Tag.TAG_INT) || capacity != 0 && capacity < 4)) { problem(player, "capacity"); return; }
-            boolean ownParty = command.getBoolean("ownParty");
-            var host = new Seat(player, ownParty);
-            if (ownParty && host.personalParty.isEmpty()) { problem(player, "own_party"); return; }
+            int minutes = multi ? (command.contains("minutes", Tag.TAG_INT) ? command.getInt("minutes") : FrontierRules.DEFAULT_TIMED_MINUTES) : 0;
+            if (!FrontierRules.isValidTeamDuration(minutes)) { problem(player, "minutes"); return; }
+            var host = new Seat(player);
             if (!debit(player, stake)) { problem(player, "funds"); return; }
-            room = new Room(player, host, stake, multi, capacity, ownParty);
+            room = new Room(player, host, stake, multi, minutes);
             ROOMS.put(room.id, room);
             MEMBERS.put(player.getUUID(), room);
-            if (room.multi()) recordDeposits(player.server, room);
-            send(player, false);
+            recordDeposits(player.server, room);
+            send(player, true);
             return;
         }
         if ("join".equals(action)) {
@@ -295,46 +294,91 @@ public final class FrontierRooms {
         }
         if (room == null || !command.hasUUID("room") || !room.id.equals(command.getUUID("room"))) { send(player, false); return; }
         var seat = room.seats.get(player.getUUID());
-        if (seat == null) return;
-        if ("invite".equals(action)) { invite(player, room, command); return; }
-        if (room.bracket != null) { roundCommand(player, room, seat, action, command); return; }
+        boolean owner = room.host.id.equals(player.getUUID());
+        if ("invite".equals(action) && (seat != null || owner)) { invite(player, room, command); return; }
+        if (room.multi() && "side".equals(action)) {
+            if (!command.contains("side", Tag.TAG_INT)) { send(player, false); return; }
+            int side = command.getInt("side");
+            if (side < -1 || side > 1 || !changeSide(player, room, side)) return;
+            room.touch(player);
+            broadcast(player.server, room);
+            return;
+        }
+        if (seat == null && !(room.multi() && owner && ("start".equals(action) || "shuffle".equals(action)))) {
+            send(player, false);
+            return;
+        }
         if (room.multi()) {
-            if ("ready".equals(action)) seat.ready = !seat.ready;
-            else if ("start".equals(action) && seat == room.host && room.seats.size() >= 3
-                    && room.seats.values().stream().allMatch(s -> s.ready && eligibleOnline(player.server, s.id))) {
-                var order = new ArrayList<>(room.seats.keySet());
-                Collections.shuffle(order);
-                room.bracket = new FrontierBracket(order, player.server.getTickCount());
-                room.seats.values().forEach(s -> s.ready = false);
-                broadcast(player.server, room, true, null);
-                return;
-            } else { send(player, false); return; }
+            switch (action) {
+                case "shuffle" -> {
+                    if (!owner || room.seats.size() < 2) { send(player, false); return; }
+                    var fighters = new ArrayList<>(room.seats.values());
+                    Collections.shuffle(fighters);
+                    for (int i = 0; i < fighters.size(); i++) {
+                        fighters.get(i).side = i % 2;
+                        fighters.get(i).ready = false;
+                    }
+                }
+                case "preset" -> { if (!selectPreset(player, seat, command, 0)) return; seat.picks[0] = seat.pendingPick; }
+                case "ready" -> {
+                    if (seat.picks[0].equals(FrontierRoster.EMPTY)) { problem(player, "choose_preset"); return; }
+                    seat.ready = !seat.ready;
+                }
+                case "start" -> {
+                    if (!owner || !teamsReady(player.server, room) || !player.server.isPvpAllowed()) {
+                        send(player, false); return;
+                    }
+                    var entries = new LinkedHashMap<UUID, ArenaMatch.TeamEntry>();
+                    try {
+                        for (var other : room.seats.values()) entries.put(other.id, new ArenaMatch.TeamEntry(other.side, FrontierRoster.create(other.draft())));
+                    } catch (RuntimeException failure) { problem(player, "unavailable"); return; }
+                    room.starting = true;
+                    Room active = room;
+                    var server = player.server;
+                    var leader = seat != null ? player : server.getPlayerList().getPlayer(entries.keySet().iterator().next());
+                    if (!ArenaMatch.startFrontierTeams(leader, entries, room.minutes, List.copyOf(room.spectators.keySet()),
+                            winner -> settleTeams(server, active, winner))) settleTeams(server, room, -1);
+                    closeRoom(server, room);
+                    return;
+                }
+                default -> { send(player, false); return; }
+            }
             room.touch(player);
             broadcast(player.server, room);
             return;
         }
         switch (action) {
-            case "edit", "ready" -> { if (!draft(player, room, seat, action, command)) return; }
+            case "preset", "confirm" -> {
+                var opponent = seat == room.host ? room.guest() : room.host;
+                if (opponent == null || !draftTurn(room, seat)) { problem(player, "draft_wait"); return; }
+                if ("preset".equals(action)) {
+                    if (!selectPreset(player, seat, command, seat.locked)) return;
+                } else {
+                    if (seat.pendingPick.equals(FrontierRoster.EMPTY)) { problem(player, "choose_preset"); return; }
+                    seat.picks[seat.locked++] = seat.pendingPick;
+                    seat.pendingPick = FrontierRoster.EMPTY;
+                    seat.ready = seat.locked == FrontierRoster.TEAM_SIZE;
+                }
+            }
             case "start" -> {
                 var opponent = room.guest();
                 if (seat != room.host || opponent == null || !room.host.ready || !opponent.ready) { send(player, false); return; }
                 var guest = player.server.getPlayerList().getPlayer(opponent.id);
-                if (guest == null || !eligible(guest)) { problem(player, "closed"); return; }
-                if (!room.ownParty && (FrontierRoster.validate(room.host.draft(), true) != FrontierRoster.Issue.NONE
-                        || FrontierRoster.validate(opponent.draft(), true) != FrontierRoster.Issue.NONE)) {
+                if (!availableInRoom(player.server, opponent) || !player.server.isPvpAllowed()) { problem(player, "player_away"); return; }
+                if (FrontierRoster.validate(room.host.draft(), true) != FrontierRoster.Issue.NONE
+                        || FrontierRoster.validate(opponent.draft(), true) != FrontierRoster.Issue.NONE) {
                     room.host.ready = opponent.ready = false;
                     broadcast(player.server, room);
                     problem(player, "unavailable");
                     return;
                 }
-                var escrow = new Escrow(player.server, room);
+                Room duel = room;
+                var server = player.server;
+                Consumer<UUID> escrow = winner -> settleDuel(server, duel, winner);
                 room.starting = true;
-                boolean ownParty = room.ownParty;
-                if (!ArenaMatch.startFrontier(player, guest, () -> seat.forMatch(player, ownParty),
-                        () -> opponent.forMatch(guest, ownParty), escrow, () -> escrow.accept(null))) escrow.accept(null);
-                remove(room);
-                close(player);
-                close(guest);
+                if (!ArenaMatch.startFrontier(player, guest, seat::forMatch,
+                        opponent::forMatch, List.copyOf(room.spectators.keySet()), escrow, () -> escrow.accept(null))) escrow.accept(null);
+                closeRoom(server, room);
                 return;
             }
             default -> { send(player, false); return; }
@@ -343,25 +387,73 @@ public final class FrontierRooms {
         broadcast(player.server, room);
     }
 
-    private static boolean draft(ServerPlayer player, Room room, Seat seat, String action, CompoundTag command) {
-        if (room.ownParty) {
-            if (!"ready".equals(action) || seat.personalParty.isEmpty()) { send(player, false); return false; }
-            seat.ready = !seat.ready;
-            return true;
+    private static boolean teamsReady(MinecraftServer server, Room room) {
+        return room.seats.values().stream().map(s -> s.side).distinct().count() == 2
+                && room.seats.values().stream().allMatch(s -> s.ready && availableInRoom(server, s));
+    }
+
+    private static boolean availableInRoom(MinecraftServer server, Seat seat) {
+        var player = server.getPlayerList().getPlayer(seat.id);
+        return !seat.away && player != null && !player.hasDisconnected() && ArenaMatch.available(player);
+    }
+
+    private static boolean changeSide(ServerPlayer player, Room room, int side) {
+        var id = player.getUUID();
+        var seat = room.seats.get(id);
+        if (side == -1 && seat != null) {
+            room.seats.remove(id);
+            room.spectators.put(id, seat);
+            credit(player.server, id, room.stake);
+        } else if (side >= 0 && seat == null) {
+            seat = room.spectators.get(id);
+            if (seat == null) { send(player, false); return false; }
+            if (!debit(player, room.stake)) { problem(player, "funds"); return false; }
+            room.spectators.remove(id);
+            room.seats.put(id, seat);
         }
-        if ("edit".equals(action)) {
-            int slot = command.getInt("slot");
-            var pick = decode(command.getCompound("pick"));
-            if (seat.ready || slot < 0 || slot >= FrontierRoster.TEAM_SIZE || pick == null) { send(player, false); return false; }
-            var next = new ArrayList<>(seat.draft());
-            next.set(slot, pick);
-            if (!validate(player, next, false)) return false;
-            seat.picks[slot] = pick;
-        } else {
-            if (!seat.ready && !validate(player, seat.draft(), true)) return false;
-            seat.ready = !seat.ready;
+        if (seat != null) {
+            seat.side = side;
+            seat.ready = false;
         }
+        recordDeposits(player.server, room);
         return true;
+    }
+
+    private static boolean draftTurn(Room room, Seat seat) {
+        var guest = room.guest();
+        return guest != null && FrontierRules.draftTurn(seat == room.host, room.host.locked, guest.locked);
+    }
+
+    private static boolean selectPreset(ServerPlayer player, Seat seat, CompoundTag command, int slot) {
+        var pick = decode(command.getCompound("pick"));
+        if (seat.ready || slot < 0 || slot >= FrontierRoster.TEAM_SIZE || pick == null || pick.equals(FrontierRoster.EMPTY)) {
+            problem(player, "choose_preset"); return false;
+        }
+        var next = new ArrayList<>(seat.draft());
+        next.set(slot, pick);
+        if (!validate(player, next, true)) return false;
+        seat.pendingPick = pick;
+        return true;
+    }
+
+    private static void settleDuel(MinecraftServer server, Room room, UUID winner) {
+        if (room.settled) return;
+        room.settled = true;
+        if (room.seats.containsKey(winner)) credit(server, winner, room.stake.multiply(BigInteger.TWO));
+        else room.seats.keySet().forEach(id -> credit(server, id, room.stake));
+        recordDeposits(server, room);
+    }
+
+    private static void settleTeams(MinecraftServer server, Room room, int winner) {
+        if (room.settled) return;
+        var winners = room.seats.values().stream().filter(s -> s.side == winner).toList();
+        room.settled = true;
+        if (winners.isEmpty()) room.seats.keySet().forEach(id -> credit(server, id, room.stake));
+        else {
+            var split = FrontierRules.teamPayout(room.stake, room.seats.size(), winners.size());
+            for (int i = 0; i < winners.size(); i++) credit(server, winners.get(i).id, split.get(i));
+        }
+        recordDeposits(server, room);
     }
 
     private static boolean validate(ServerPlayer player, List<FrontierRoster.Pick> draft, boolean ready) {
@@ -371,28 +463,31 @@ public final class FrontierRooms {
         return false;
     }
 
-    private static boolean eligibleOnline(MinecraftServer server, UUID id) {
-        var player = id == null ? null : server.getPlayerList().getPlayer(id);
-        return player != null && eligible(player);
-    }
-
     private static boolean join(ServerPlayer player, Room room, boolean invited) {
         int now = player.server.getTickCount();
         if (!eligible(player) || MEMBERS.containsKey(player.getUUID()) || room == null || !room.open(now)
-                || !eligibleOnline(player.server, room.host.id)
                 || invited && room.invites.getOrDefault(player.getUUID(), 0) <= now) {
             problem(player, "closed"); return false;
         }
-        var seat = new Seat(player, room.ownParty);
-        if (room.ownParty && seat.personalParty.isEmpty()) { problem(player, "own_party"); return false; }
-        if (!debit(player, room.stake)) { problem(player, "funds"); return false; }
-        room.seats.put(player.getUUID(), seat);
-        room.host.ready = false;
+        var seat = new Seat(player);
+        if (room.full()) {
+            seat.side = -1;
+            room.spectators.put(seat.id, seat);
+        } else {
+            if (!debit(player, room.stake)) { problem(player, "funds"); return false; }
+            room.seats.put(seat.id, seat);
+            if (!room.multi()) room.host.ready = false;
+        }
+        if (room.multi()) {
+            long left = room.seats.values().stream().filter(s -> s != seat && s.side == 0).count();
+            seat.side = left > room.seats.size() - 1 - left ? 1 : 0;
+        }
+        room.invites.remove(seat.id);
         room.touch(player);
         MEMBERS.put(player.getUUID(), room);
-        if (room.multi()) recordDeposits(player.server, room);
+        recordDeposits(player.server, room);
         broadcast(player.server, room, false, player.getUUID());
-        send(player, invited);
+        send(player, true);
         return true;
     }
 
@@ -413,134 +508,73 @@ public final class FrontierRooms {
                 || target == null || MEMBERS.containsKey(id) || !eligible(target)) { send(player, false); return; }
         room.invites.put(id, now + 1200);
         COOLDOWNS.put(key, now + 1200);
-        target.sendSystemMessage(Component.translatable("rumble.frontier.invited_chat", player.getDisplayName(), room.stake)
+        target.sendSystemMessage(Component.translatable(room.full() ? "rumble.frontier.invited_watch" : "rumble.frontier.invited_chat", player.getDisplayName(), room.stake)
                 .append(" ").append(Component.translatable("rumble.frontier.accept_invite").withStyle(style -> style
                         .withColor(ChatFormatting.GOLD).withUnderlined(true)
                         .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/rumble_frontier_accept " + room.id)))));
         broadcast(player.server, room);
     }
 
-    private static void roundCommand(ServerPlayer player, Room room, Seat seat, String action, CompoundTag command) {
-        var round = room.bracket;
-        var bout = round.bout(seat.id);
-        if (bout == null || bout.done || bout.running || !room.roundOpened || room.withdrawals.contains(seat.id)
-                || command.getInt("round") != round.rounds.size() || !("edit".equals(action) || "ready".equals(action))) {
-            send(player, false); return;
-        }
-        if (!draft(player, room, seat, action, command)) return;
-        broadcast(player.server, room);
-    }
-
     @SubscribeEvent
-    public static void rounds(ServerTickEvent.Post event) {
+    public static void pruneInviteCooldowns(ServerTickEvent.Post event) {
+        int now = event.getServer().getTickCount();
+        if (now % 100 != 0) return;
+        COOLDOWNS.values().removeIf(expiry -> expiry <= now);
         var server = event.getServer();
-        int now = server.getTickCount();
-        if (now % 10 != 0) return;
-        if (now % 1200 == 0) COOLDOWNS.values().removeIf(expiry -> expiry <= now);
         for (var room : List.copyOf(ROOMS.values())) {
-            var bracket = room.bracket;
-            if (bracket == null) continue;
-            if (bracket.finished) {
-                if (now >= room.expires) {
-                    var present = room.seats.keySet().stream().filter(id -> MEMBERS.get(id) == room).toList();
-                    remove(room);
-                    for (var id : present) {
-                        var player = server.getPlayerList().getPlayer(id);
-                        if (player != null) send(player, false);
-                    }
-                }
-                continue;
+            room.invites.values().removeIf(expiry -> expiry <= now);
+            if (!room.starting && !room.open(now)) {
+                cancel(server, room);
+                notifyClosed(server, room, null, "expired");
             }
-            if (now < bracket.opensAt) continue;
-            if (!room.roundOpened) {
-                room.roundOpened = true;
-                broadcast(server, room, true, null);
-            }
-            boolean resolvedUnavailable = false;
-            for (var bout : bracket.current()) {
-                if (bout.done || bout.running) continue;
-                var host = roundPlayer(server, room, bout.left);
-                var guest = roundPlayer(server, room, bout.right);
-                boolean readyHost = host != null && room.seats.get(bout.left).ready;
-                boolean readyGuest = guest != null && room.seats.get(bout.right).ready;
-                boolean leftOut = room.withdrawals.contains(bout.left), rightOut = room.withdrawals.contains(bout.right);
-                if (bout.resolveUnavailable(leftOut, rightOut, now >= bracket.closesAt, readyHost, readyGuest)) {
-                    resolvedUnavailable = true;
-                } else if (readyHost && readyGuest) {
-                    bout.running = true;
-                    Runnable retry = () -> {
-                        bout.running = false;
-                        room.seats.get(bout.left).ready = room.seats.get(bout.right).ready = false;
-                        // Allow both players to reopen their lineups after a failed instance has closed.
-                        bracket.closesAt = Math.max(bracket.closesAt, server.getTickCount() + 20 * 30);
-                        if (!host.hasDisconnected()) problem(host, "round_setup");
-                        if (!guest.hasDisconnected()) problem(guest, "round_setup");
-                    };
-                    boolean started = ArenaMatch.startFrontier(host, guest,
-                            () -> room.seats.get(bout.left).forMatch(host, room.ownParty),
-                            () -> room.seats.get(bout.right).forMatch(guest, room.ownParty),
-                            winner -> { bout.resolve(winner); broadcast(server, room); }, retry);
-                    if (!started) retry.run();
-                    else { close(host); close(guest); }
-                }
-            }
-            if (resolvedUnavailable) broadcast(server, room);
-            if (bracket.current().stream().anyMatch(b -> !b.done) || room.seats.keySet().stream().anyMatch(id -> {
-                if (room.withdrawals.contains(id)) return false;
-                var p = server.getPlayerList().getPlayer(id);
-                return p != null && ArenaMatch.inFrontier(p);
-            })) continue;
-            bracket.advance(now);
-            if (bracket.finished) {
-                room.prizes = bracket.prizes(room.stake.multiply(BigInteger.valueOf(bracket.size)));
-                if (room.prizes.isEmpty()) room.seats.keySet().forEach(id -> credit(server, id, room.stake));
-                else room.prizes.forEach((id, amount) -> credit(server, id, amount));
-                room.settled = true;
-                recordDeposits(server, room);
-                room.expires = now + 20 * 120;
-            }
-            room.seats.values().forEach(seat -> seat.ready = false);
-            room.roundOpened = false;
-            broadcast(server, room, true, null);
         }
     }
 
-    private static ServerPlayer roundPlayer(MinecraftServer server, Room room, UUID id) {
-        if (id == null || room.withdrawals.contains(id)) return null;
-        var p = server.getPlayerList().getPlayer(id);
-        return p != null && ArenaMatch.available(p) && server.isPvpAllowed() && SmashConfig.<Boolean>get(SmashConfig.ENABLED) ? p : null;
-    }
-
-    private static void leave(ServerPlayer player, boolean answer) {
+    private static void leave(ServerPlayer player) {
         Room room = MEMBERS.get(player.getUUID());
-        if (room == null || room.starting) return;
-        if (room.bracket != null) {
-            room.withdrawals.add(player.getUUID());
-            MEMBERS.remove(player.getUUID(), room);
-            broadcast(player.server, room);
-            if (answer) send(player, false);
+        if (room == null || room.starting) {
+            send(player, false);
             return;
         }
-        if (room.host.id.equals(player.getUUID())) {
+        var id = player.getUUID();
+        if (room.host.id.equals(id)) {
             cancel(player.server, room);
-            for (var id : room.seats.keySet()) if (!id.equals(player.getUUID())) {
-                var guest = player.server.getPlayerList().getPlayer(id);
-                if (guest != null) problem(guest, "closed");
-            }
+            notifyClosed(player.server, room, id, "closed");
         } else {
-            MEMBERS.remove(player.getUUID());
-            room.seats.remove(player.getUUID());
-            room.host.ready = false;
-            credit(player.server, player.getUUID(), room.stake);
-            if (room.multi()) recordDeposits(player.server, room);
+            MEMBERS.remove(id, room);
+            if (room.seats.remove(id) != null) {
+                if (!room.multi()) {
+                    room.host.ready = false;
+                    Arrays.fill(room.host.picks, FrontierRoster.EMPTY);
+                    room.host.locked = 0;
+                    room.host.pendingPick = FrontierRoster.EMPTY;
+                }
+                credit(player.server, id, room.stake);
+                recordDeposits(player.server, room);
+            } else room.spectators.remove(id);
             broadcast(player.server, room);
         }
         if (!player.hasDisconnected()) send(player, false);
     }
 
+    private static void notifyClosed(MinecraftServer server, Room room, UUID except, String reason) {
+        for (var id : room.members()) {
+            var player = server.getPlayerList().getPlayer(id);
+            if (!id.equals(except) && player != null && !player.hasDisconnected()) problem(player, reason);
+        }
+    }
+
+    private static void closeRoom(MinecraftServer server, Room room) {
+        remove(room);
+        for (var id : room.members()) {
+            var player = server.getPlayerList().getPlayer(id);
+            if (player != null && !player.hasDisconnected()) close(player);
+        }
+    }
+
     private static void remove(Room room) {
         ROOMS.remove(room.id);
-        room.seats.keySet().forEach(id -> MEMBERS.remove(id, room));
+        room.members().forEach(id -> MEMBERS.remove(id, room));
     }
 
     private static void cancel(MinecraftServer server, Room room) {
@@ -548,7 +582,7 @@ public final class FrontierRooms {
         if (!room.settled) {
             room.seats.keySet().forEach(id -> credit(server, id, room.stake));
             room.settled = true;
-            if (room.multi()) recordDeposits(server, room);
+            recordDeposits(server, room);
         }
     }
 
@@ -557,18 +591,16 @@ public final class FrontierRooms {
     }
 
     private static void broadcast(MinecraftServer server, Room room, boolean open, UUID skip) {
-        for (var id : room.seats.keySet()) {
+        for (var id : room.members()) {
             if (id.equals(skip) || MEMBERS.get(id) != room) continue;
             var p = server.getPlayerList().getPlayer(id);
-            if (p != null) send(p, open && ArenaMatch.available(p), "", true);
+            if (p != null && !p.hasDisconnected()) send(p, open && ArenaMatch.available(p), "", true);
         }
     }
 
     private static void close(ServerPlayer player) {
         var data = new CompoundTag();
         data.putBoolean("close", true);
-        var room = MEMBERS.get(player.getUUID());
-        if (room != null) data.putUUID("room", room.id);
         PacketDistributor.sendToPlayer(player, new View(data));
     }
 
@@ -586,14 +618,14 @@ public final class FrontierRooms {
         if (room == null) {
             var available = new ListTag();
             for (var entry : ROOMS.values().stream().sorted(Comparator.comparing(Room::multi)).toList()) {
-                if (entry.bracket != null || entry.starting || entry.expires <= player.server.getTickCount()) continue;
+                if (entry.starting || entry.expires <= player.server.getTickCount()) continue;
                 var row = new CompoundTag();
                 row.putUUID("room", entry.id);
                 row.put("host", publicSeat(entry.host));
                 if (entry.guest() != null) row.put("guest", publicSeat(entry.guest()));
                 row.putInt("capacity", entry.capacity);
+                row.putInt("minutes", entry.minutes);
                 row.putBoolean("multi", entry.multi());
-                row.putBoolean("ownParty", entry.ownParty);
                 row.putInt("count", entry.seats.size());
                 row.putString("stake", entry.stake.toString());
                 available.add(row);
@@ -607,17 +639,33 @@ public final class FrontierRooms {
             if (room.guest() != null) data.put("guest", encode(room.guest()));
             data.putInt("capacity", room.capacity);
             data.putBoolean("multi", room.multi());
-            data.putBoolean("ownParty", room.ownParty);
             data.putInt("count", room.seats.size());
-            data.putBoolean("canInvite", room.open(player.server.getTickCount()));
             var seats = new ListTag();
             room.seats.values().forEach(s -> seats.add(publicSeat(s)));
             data.put("seats", seats);
+            var spectators = new ListTag();
+            room.spectators.values().forEach(s -> spectators.add(publicSeat(s)));
+            data.put("spectators", spectators);
             var self = room.seats.get(player.getUUID());
-            data.putBoolean("selfReady", self.ready);
-            data.putBoolean("canStart", room.seats.size() >= 3 && room.seats.values().stream().allMatch(s -> s.ready));
-            if (room.bracket != null) encodeBracket(player, room, data);
-            else if (room.open(player.server.getTickCount())) encodeInvites(player, room, data);
+            boolean watching = self == null;
+            data.putBoolean("watching", watching);
+            boolean invite = room.open(player.server.getTickCount()) && (!watching || player.getUUID().equals(room.host.id));
+            data.putBoolean("canInvite", invite);
+            if (room.multi() && self != null) data.put("self", encode(self));
+            data.putBoolean("selfReady", self != null && self.ready);
+            var guest = room.guest();
+            data.putBoolean("canStart", room.multi() ? teamsReady(player.server, room)
+                    : guest != null && room.host.ready && guest.ready && availableInRoom(player.server, room.host) && availableInRoom(player.server, guest));
+            data.putInt("minutes", room.minutes);
+            data.putInt("selfSide", watching ? -1 : self.side);
+            boolean turn = !watching && !room.multi() && draftTurn(room, self);
+            data.putBoolean("draftTurn", turn);
+            data.putBoolean("hostTurn", !room.multi() && draftTurn(room, room.host));
+            if (self != null) {
+                data.putInt("locked", self.locked);
+                data.put("pendingPick", encode(self.pendingPick));
+            }
+            if (invite) encodeInvites(player, room, data);
         }
         PacketDistributor.sendToPlayer(player, new View(data));
     }
@@ -638,55 +686,14 @@ public final class FrontierRooms {
         data.put("candidates", candidates);
     }
 
-    private static void encodeBracket(ServerPlayer player, Room room, CompoundTag data) {
-        var bracket = room.bracket;
-        data.putInt("round", bracket.rounds.size());
-        data.putInt("roundTotal", bracket.depth);
-        data.putBoolean("finished", bracket.finished);
-        data.putBoolean("roundOpened", room.roundOpened);
-        var rows = new ListTag();
-        for (var round : bracket.rounds) {
-            var column = new CompoundTag();
-            var bouts = new ListTag();
-            for (var bout : round) {
-                var row = new CompoundTag();
-                if (bout.left != null) row.put("left", publicSeat(room.seats.get(bout.left)));
-                if (bout.right != null) row.put("right", publicSeat(room.seats.get(bout.right)));
-                if (bout.winner != null) row.putUUID("winner", bout.winner);
-                row.putBoolean("done", bout.done);
-                row.putBoolean("running", bout.running);
-                row.putBoolean("bronze", bout.bronze);
-                bouts.add(row);
-            }
-            column.put("bouts", bouts);
-            rows.add(column);
-        }
-        data.put("rounds", rows);
-        var bout = bracket.bout(player.getUUID());
-        data.putBoolean("boutDone", bout != null && bout.done);
-        data.putBoolean("hasBout", bout != null);
-        if (!bracket.finished && bout != null && bout.opponent(player.getUUID()) != null) {
-            data.put("currentOpponent", publicSeat(room.seats.get(bout.opponent(player.getUUID()))));
-        }
-        if (bout != null && bout.opponent(player.getUUID()) != null && !bout.done && !bout.running && room.roundOpened) {
-            data.put("own", encode(room.seats.get(player.getUUID())));
-            data.put("rival", encode(room.seats.get(bout.opponent(player.getUUID()))));
-        }
-        data.putBoolean("bye", !bracket.finished && bout != null && bout.done && bout.opponent(player.getUUID()) == null);
-        var awards = new ListTag();
-        room.prizes.forEach((id, amount) -> {
-            var award = publicSeat(room.seats.get(id));
-            award.putString("prize", amount.toString());
-            awards.add(award);
-        });
-        data.put("awards", awards);
-    }
-
     private static CompoundTag publicSeat(Seat seat) {
         var data = new CompoundTag();
         data.putString("name", seat.name);
         data.putUUID("player", seat.id);
         data.putBoolean("ready", seat.ready);
+        data.putBoolean("away", seat.away);
+        data.putInt("side", seat.side);
+        data.putInt("locked", seat.locked);
         var species = new ListTag();
         for (var pick : seat.picks) species.add(StringTag.valueOf(pick.species().toString()));
         data.put("species", species);
@@ -698,6 +705,9 @@ public final class FrontierRooms {
         data.putString("name", seat.name);
         data.putUUID("player", seat.id);
         data.putBoolean("ready", seat.ready);
+        data.putBoolean("away", seat.away);
+        data.putInt("side", seat.side);
+        data.putInt("locked", seat.locked);
         var picks = new ListTag();
         for (var pick : seat.picks) picks.add(encode(pick));
         data.put("picks", picks);

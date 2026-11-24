@@ -58,6 +58,10 @@ public final class ArenaClient {
 
     public static boolean choosing() { return Minecraft.getInstance().screen instanceof Choose; }
 
+    static void gymReport(ArenaPackets.GymReport packet) {
+        com.p1nero.cobblemon.rumblecore.client.combat.TeamDpsScreen.preview(packet.dimension(), packet.report());
+    }
+
     static void prepare(ArenaPackets.Prepare packet) { arenaDimension = packet.dimension(); }
 
     public static boolean isArena() {
@@ -121,8 +125,12 @@ public final class ArenaClient {
             if (selection != null) selection.render(graphics, mouseX, mouseY, partialTick);
         }
 
-        @Override public void onClose() {}
-        @Override public boolean shouldCloseOnEsc() { return false; }
+        @Override public void onClose() {
+            if (!shouldCloseOnEsc()) return;
+            PacketDistributor.sendToServer(new ArenaPackets.Pick(packet.match(), packet.round(), -1));
+            super.onClose();
+        }
+        @Override public boolean shouldCloseOnEsc() { return packet.round() == ArenaPackets.WILD_ROUND; }
         @Override public boolean isPauseScreen() { return false; }
     }
 }

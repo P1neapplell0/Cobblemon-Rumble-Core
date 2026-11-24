@@ -8,6 +8,7 @@ import java.util.UUID;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import com.p1nero.cobblemon.rumblecore.client.ui.ore.OreTheme;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -51,10 +52,16 @@ public final class HallOfFameScreen extends Screen {
         minecraft.setScreen(new HallOfFameScreen(null, packet.token(), packet.data()));
     }
 
-    public static Screen details(Screen parent, CompoundTag data) { return new HallOfFameScreen(parent, null, data); }
+    public static Screen details(Screen parent, CompoundTag data) {
+        if (data.getBoolean("rumbleTeamRun")) return TeamDpsScreen.ranking(parent, data, data.getCompound("rumbleTeamReport"));
+        return roster(parent, data);
+    }
+
+    static Screen roster(Screen parent, CompoundTag data) { return new HallOfFameScreen(parent, null, data); }
 
     @Override protected void init() {
-        done = addRenderableWidget(Button.builder(Component.translatable(token == null ? "gui.back" : "gui.continue"), b -> onClose())
+        done = token == null ? addRenderableWidget(OreTheme.action(width / 2 - 48, height - 27, 96, 20,
+                Component.translatable("gui.back"), false, b -> onClose())) : addRenderableWidget(Button.builder(Component.translatable(token == null ? "gui.back" : "gui.continue"), b -> onClose())
                 .bounds(width / 2 - 48, height - 27, 96, 20).build());
         done.visible = token == null || elapsed() > 1700;
     }
@@ -98,13 +105,19 @@ public final class HallOfFameScreen extends Screen {
     @Override public void renderBackground(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) { }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        graphics.fillGradient(0, 0, width, height, 0xFF29221D, 0xFF090B14);
         int y = token == null ? 13 : Math.max(13, cardTop() - 49);
         int edge = Math.max(12, width / 10);
-        graphics.fill(edge, y, width - edge, y + 1, GOLD);
-        graphics.fill(edge, y + 35, width - edge, y + 36, GOLD);
-        graphics.drawCenteredString(font, getTitle(), width / 2, y + 7, GOLD);
-        graphics.drawCenteredString(font, data.getString("player"), width / 2, y + 21, PAPER);
+        if (token == null) {
+            graphics.fill(0, 0, width, height, 0xA0121214);
+            int panelWidth = Math.min(width - 12, Math.max(340, columns() * cardWidth() + 12));
+            OreTheme.panel(graphics, (width - panelWidth) / 2, 5, panelWidth, height - 10, 24);
+        } else {
+            graphics.fillGradient(0, 0, width, height, 0xFF29221D, 0xFF090B14);
+            graphics.fill(edge, y, width - edge, y + 1, GOLD);
+            graphics.fill(edge, y + 35, width - edge, y + 36, GOLD);
+        }
+        graphics.drawCenteredString(font, getTitle(), width / 2, y + 7, token == null ? OreTheme.TEXT : GOLD);
+        graphics.drawCenteredString(font, data.getString("player"), width / 2, y + 21, token == null ? OreTheme.MUTED : PAPER);
         for (int i = 0; i < roster.size(); i++) {
             long revealTime = token == null ? 280L : elapsed() - 480L - i * 175L;
             if (revealTime < 0) break;
@@ -113,15 +126,21 @@ public final class HallOfFameScreen extends Screen {
             var pokemon = roster.getCompound(i);
             int x = cardX(i), top = cardY(i) + Math.round((1F - reveal) * 7), w = cardWidth(), h = cardHeight();
             boolean active = token == null && selected == i;
-            graphics.fill(x + 1, top + 1, x + w - 1, top + h - 1, tint(active ? 0xFF3C2E24 : 0xFF151927, alpha));
-            graphics.fill(x + 1, top + h - 2, x + w - 1, top + h - 1, tint(pokemon.getBoolean("used") ? GOLD : 0xFF575363, alpha));
+            if (token == null) {
+                OreTheme.row(graphics, x + 1, top, w - 2, h - 1, active,
+                        mouseX >= x && mouseX < x + w && mouseY >= top && mouseY < top + h);
+                if (pokemon.getBoolean("used")) graphics.fill(x + 3, top + h - 3, x + w - 3, top + h - 2, OreTheme.GREEN);
+            } else {
+                graphics.fill(x + 1, top + 1, x + w - 1, top + h - 1, tint(0xFF151927, alpha));
+                graphics.fill(x + 1, top + h - 2, x + w - 1, top + h - 1, tint(pokemon.getBoolean("used") ? GOLD : 0xFF575363, alpha));
+            }
             int portraitSize = Math.min(w - 4, h - 13);
             if (alpha >= 96) {
                 var battle = pokemon.getCompound("battle");
                 portraits.draw(graphics, token == null && !battle.isEmpty() ? battle : pokemon,
                         x + (w - portraitSize) / 2, top + 2, portraitSize, partialTick);
                 graphics.drawCenteredString(font, font.plainSubstrByWidth(species(pokemon).getString(), w - 4), x + w / 2,
-                        top + h - 11, tint(active ? GOLD : PAPER, alpha));
+                        top + h - 11, token == null ? OreTheme.TEXT : tint(PAPER, alpha));
             }
         }
         if (token == null && selected < roster.size()) renderDetails(graphics, roster.getCompound(selected));

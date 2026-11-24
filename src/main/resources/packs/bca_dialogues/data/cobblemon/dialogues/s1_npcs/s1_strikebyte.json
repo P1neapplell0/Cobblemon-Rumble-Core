@@ -1,0 +1,188 @@
+{
+  "initializationAction": "(q.npc.is_in_battle_with(q.player) || !q.npc.is_doing_activity('minecraft:idle', 'cobblemon:battling')) ? q.dialogue.close()",
+  "speakers": {
+    "npc": {
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      },
+      "face": "q.npc.face(false);"
+    },
+    "player": {
+      "face": "q.player.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.player.username"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "player-chat",
+      "speaker": "player",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.player-chat.line.1"
+      ],
+      "input": "q.dialogue.set_page(q.npc.was_hurt_by(q.player) ? 'hurt-1' : 'npc-chat');"
+    },
+    {
+      "id": "hurt-1",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.hurt-1.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "npc-chat",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.npc-chat.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.npc-chat.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.set_page('battle')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.npc-chat.option.wyrms.rest.2",
+            "value": "wyrms_rest",
+            "action": [
+              "q.dialogue.set_page('wyrms_rest')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.npc-chat.option.bca.3",
+            "value": "bca",
+            "action": [
+              "q.dialogue.set_page('bca')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.npc-chat.option.cancel.4",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wyrms_rest",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.wyrms.rest.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.wyrms.rest.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.wyrms.rest.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bca",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.bca.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.bca.option.vision.1",
+            "value": "vision",
+            "action": [
+              "q.dialogue.set_page('vision')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.bca.option.back.2",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.bca.option.cancel.3",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "vision",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.vision.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.vision.option.back.1",
+            "value": "back",
+            "action": [
+              "q.dialogue.set_page('npc-chat')"
+            ]
+          },
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.vision.option.cancel.2",
+            "value": "cancel",
+            "action": [
+              "q.dialogue.close()"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "battle",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.s1.npcs.s1.strikebyte.battle.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.s1.npcs.s1.strikebyte.battle.option.battle.1",
+            "value": "battle",
+            "action": [
+              "q.dialogue.close();",
+              "q.npc.start_battle(q.player);"
+            ],
+            "isSelectable": "c.npc.can_battle;"
+          }
+        ]
+      }
+    }
+  ]
+}

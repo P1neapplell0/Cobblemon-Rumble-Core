@@ -1,5 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.mixin.custom_instances;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.OreTheme;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TrialPortraits;
 import com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials;
@@ -30,6 +32,23 @@ abstract class TrialLobbyPortraits extends FantasyScreen {
     private void rumble$readPortrait(CompoundTag data, CallbackInfo ci) {
         if (data.contains("rumbleMegaPortrait")) rumble$megaPortrait = data.getCompound("rumbleMegaPortrait");
     }
+
+    // The base lobby subtracts one from the definition's cap for its custom room field.
+    @Unique private int rumble$gymCapacityBeforeSubtract(int limit) {
+        return ArenaMatch.gymTemplate(definition.id()) ? ArenaMatch.GYM_SLOTS + 1 : limit;
+    }
+
+    @ModifyExpressionValue(method = {"<init>", "lambda$init$6", "lambda$init$13"}, at = @At(value = "INVOKE", target =
+            "Lcom/p1nero/misc/custom_instances/instance/InstanceDefinition;maxPlayers()I"))
+    private int rumble$gymInputLimit(int limit) { return rumble$gymCapacityBeforeSubtract(limit); }
+
+    @ModifyExpressionValue(method = "init", at = @At(value = "INVOKE", target =
+            "Lcom/p1nero/misc/custom_instances/instance/InstanceDefinition;maxPlayers()I", remap = false), remap = true)
+    private int rumble$gymInputHint(int limit) { return rumble$gymCapacityBeforeSubtract(limit); }
+
+    @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", ordinal = 1, target =
+            "Lcom/p1nero/misc/custom_instances/instance/InstanceDefinition;maxPlayers()I", remap = false), remap = true)
+    private int rumble$gymCapacityLabel(int limit) { return rumble$gymCapacityBeforeSubtract(limit); }
 
     @Inject(method = "renderTitle", at = @At("HEAD"), cancellable = true)
     private void rumble$renderRoster(GuiGraphics graphics, CallbackInfo ci) {

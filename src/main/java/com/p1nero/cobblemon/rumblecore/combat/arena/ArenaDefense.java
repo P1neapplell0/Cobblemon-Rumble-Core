@@ -40,7 +40,7 @@ public final class ArenaDefense {
         if (foe.getRandom().nextFloat() >= (tier == 2 ? .55f : .30f)) return false;
         state.readyAt = now + (tier == 2 ? 46 : 64);
         foe.getNavigation().stop();
-        boolean dodge = foe.onGround() && foe.getRandom().nextBoolean();
+        boolean dodge = foe.onGround() && foe.getRandom().nextFloat() < .85f;
         if (dodge) {
             Vec3 sideways = new Vec3(-towardsFoe.z, 0, towardsFoe.x).normalize().scale(.85);
             if (foe.getRandom().nextBoolean()) sideways = sideways.reverse();
@@ -59,8 +59,10 @@ public final class ArenaDefense {
         state.activeUntil = strike + 3;
         state.guard = true;
         foe.setDeltaMovement(0, foe.getDeltaMovement().y, 0);
-        Fx3D.send(level, 42, foe.getBoundingBox().getCenter(), Vec3.ZERO, 0, 0,
-                Math.max(foe.getBbWidth(), foe.getBbHeight()) * .75f + .35f, (int) (state.activeUntil - now), foe.getId());
+        Vec3 center = foe.getBoundingBox().getCenter();
+        float radius = Math.max(foe.getBbWidth(), foe.getBbHeight()) * .75f + .35f;
+        Fx3D.send(level, 40, center, Vec3.ZERO, 0, 0, radius, Math.max(6, (int) (state.activeUntil - now)), foe.getId());
+        Fx3D.send(level, 42, center, Vec3.ZERO, 0, 0, radius, 6, foe.getId());
         Sounds.play(level, foe.position(), "shield_hit", .45f, .85f);
         return true;
     }

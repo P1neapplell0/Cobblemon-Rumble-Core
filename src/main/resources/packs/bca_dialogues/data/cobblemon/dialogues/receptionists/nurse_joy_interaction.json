@@ -1,0 +1,96 @@
+{
+  "initializationAction": [
+    "c.npc.set_chatting();",
+    "v.healer = c.npc.find_nearby_block('cobblemon:healing_machine');",
+    "v.has_healer = v.healer != 0;",
+    "v.full_health = c.player.is_party_at_full_health();",
+    "v.has_charge = v.has_healer == true && v.full_health == false && q.player.can_heal_at_healer(v.healer) == true;",
+    "v.landing_page = !v.has_healer ? 'no_healer' : (v.full_health ? 'full_health' : (v.has_charge ? 'has_charge' : 'no_charge'));"
+  ],
+  "speakers": {
+    "npc": {
+      "name": {
+        "type": "expression",
+        "expression": "q.npc.name"
+      },
+      "face": "q.npc.face();"
+    },
+    "player": {
+      "face": "q.player.face();",
+      "name": {
+        "type": "expression",
+        "expression": "q.player.username"
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "greeting",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.greeting.line.1"
+      ],
+      "input": "q.dialogue.set_page(v.landing_page);"
+    },
+    {
+      "id": "no_healer",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.no.healer.line.1",
+        "dialogue.bca.receptionists.nurse.joy.interaction.no.healer.line.2"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "full_health",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.full.health.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "no_charge",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.no.charge.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    },
+    {
+      "id": "has_charge",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.has.charge.line.1"
+      ],
+      "input": {
+        "type": "option",
+        "vertical": false,
+        "options": [
+          {
+            "text": "dialogue.bca.receptionists.nurse.joy.interaction.has.charge.option.yes.1",
+            "value": "yes",
+            "action": [
+              "v.callback_dialogue = 'sacchi_healed';",
+              "c.npc.run_action_effect('npc_heal_player_pokemon');",
+              "q.dialogue.close();"
+            ]
+          },
+          {
+            "text": "dialogue.bca.receptionists.nurse.joy.interaction.has.charge.option.no.2",
+            "value": "no",
+            "action": "q.dialogue.set_page('okbye');"
+          }
+        ]
+      }
+    },
+    {
+      "id": "okbye",
+      "speaker": "npc",
+      "lines": [
+        "dialogue.bca.receptionists.nurse.joy.interaction.okbye.line.1"
+      ],
+      "input": "q.dialogue.close();"
+    }
+  ]
+}

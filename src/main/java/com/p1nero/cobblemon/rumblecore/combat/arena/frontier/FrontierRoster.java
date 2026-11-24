@@ -7,8 +7,11 @@ import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.pokemon.Species;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -81,13 +84,21 @@ public final class FrontierRoster {
     }
 
     public static Pick initialPick(Species species) {
-        var pokemon = species.create(100);
-        var moves = new ArrayList<String>(MOVE_SLOTS);
-        for (var move : pokemon.getMoveSet()) {
-            if (move != null && legalMove(species, move.getName()) != null && !moves.contains(move.getName())) moves.add(move.getName());
-        }
-        if (moves.isEmpty()) legalMoves(species).stream().map(MoveTemplate::getName).filter(name -> !name.equals("struggle"))
-                .sorted().limit(MOVE_SLOTS).forEach(moves::add);
+        // Dedicated servers do not sync moveset builders. Seed the editor from the synced learnset.
+        var learnset = species.getStandardForm().getMoves();
+        var levelUp = new LinkedHashSet<MoveTemplate>();
+        learnset.getLevelUpMoves().entrySet().stream().filter(e -> e.getKey() <= 100)
+                .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                .forEach(e -> levelUp.addAll(e.getValue().reversed()));
+        var legal = legalMoves(species);
+        var names = new LinkedHashSet<String>();
+        levelUp.stream().filter(legal::contains).filter(move -> !STRUGGLE.getPath().equals(move.getName()))
+                .filter(move -> move.getPower() > 0).findFirst().ifPresent(move -> names.add(move.getName()));
+        levelUp.stream().filter(legal::contains).map(MoveTemplate::getName)
+                .filter(name -> !STRUGGLE.getPath().equals(name)).forEach(names::add);
+        if (names.isEmpty()) legal.stream().map(MoveTemplate::getName)
+                .filter(name -> !STRUGGLE.getPath().equals(name)).sorted().forEach(names::add);
+        var moves = new ArrayList<>(names.stream().limit(MOVE_SLOTS).toList());
         while (moves.size() < MOVE_SLOTS) moves.add("");
         return new Pick(species.getResourceIdentifier(), NONE, moves);
     }

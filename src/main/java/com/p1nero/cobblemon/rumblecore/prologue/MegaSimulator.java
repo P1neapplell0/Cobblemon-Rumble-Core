@@ -45,7 +45,9 @@ import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)
 public final class MegaSimulator {
     public static final BlockPos POS = PrologueWorld.ANCHOR.south(5);
-    private static final List<BlockPos> TERMINALS = List.of(POS, PrologueWorld.ANCHOR.north(5));
+    private static final BlockPos NORTH = PrologueWorld.ANCHOR.north(5);
+    private static final List<BlockPos> TERMINALS = List.of(POS, POS.west(2), POS.east(2),
+            NORTH, NORTH.west(2), NORTH.east(2));
     public static final String UNIVERSE_UNLOCKED = "rumble.simulator.universe_unlocked";
     private static final String KEY = "rumble.mega.simulator.";
     public static final int MEGA = 0, UNIVERSE = 1, SAFARI = 2, CINEMA = 3, FRONTIER = 4;

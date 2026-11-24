@@ -3,14 +3,19 @@ package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.p1nero.cobblemon.rumblecore.client.combat.BattleNameplates;
 import com.p1nero.cobblemon.rumblecore.client.combat.BattleOrbit;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaKnockoutVisual;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeReleaseAim;
+import net.neoforged.neoforge.network.PacketDistributor;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.Entity;
@@ -34,6 +39,29 @@ abstract class StoryActorLockOn {
     @Shadow static List<LivingEntity> candidates(LocalPlayer player) { throw new AssertionError(); }
     @Shadow static boolean canSee(LocalPlayer player, Entity target) { throw new AssertionError(); }
 
+    @Unique private static java.util.UUID rumble$lockedTrainer;
+    @Unique private static int rumble$lockedBody = -1;
+    @Unique private static int rumble$syncedLock = -1;
+    @Unique private static int rumble$syncedBody = -1;
+
+    @Inject(method = "onTick", at = @At("HEAD"))
+    private static void rumble$clearLockOutsideArena(ClientTickEvent.Post event, CallbackInfo ci) {
+        var player = Minecraft.getInstance().player;
+        if (player == null || !ClientSmash.active() || !rumble$instance(player)) rumble$clearTrainerLock();
+    }
+
+    @WrapOperation(method = "onTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;consumeClick()Z"))
+    private static boolean rumble$cancelPendingLockOnManualInput(KeyMapping mapping, Operation<Boolean> original) {
+        boolean clicked = original.call(mapping);
+        if (clicked && mapping == BattleCamera.LOCK) rumble$clearTrainerLock();
+        return clicked;
+    }
+
+    @Unique private static void rumble$clearTrainerLock() {
+        rumble$lockedTrainer = null;
+        rumble$lockedBody = -1;
+    }
+
     @Inject(method = "onTurn", at = @At("HEAD"), cancellable = true)
     private static void rumble$normalMouseSensitivity(CalculatePlayerTurnEvent event, CallbackInfo ci) {
         ci.cancel();
@@ -50,7 +78,34 @@ abstract class StoryActorLockOn {
     private static void rumble$retarget(ClientTickEvent.Post event, CallbackInfo ci) {
         var mc = Minecraft.getInstance();
         LocalPlayer player = mc.player;
-        if (player == null || lockId < 0) return;
+        if (player == null) return;
+        var enemies = BattleNameplates.opponents(player);
+        if (enemies != null && rumble$instance(player)) {
+            if (lockId != rumble$lockedBody && lockId >= 0) {
+                rumble$lockedTrainer = enemies.players().stream().filter(p -> p.body() == lockId).map(p -> p.player()).findFirst().orElse(null);
+                rumble$lockedBody = lockId;
+            }
+            if (rumble$lockedTrainer != null) {
+                var nextBody = enemies.players().stream().filter(p -> p.player().equals(rumble$lockedTrainer)).findFirst().orElse(null);
+                if (nextBody == null) rumble$clearTrainerLock();
+                else {
+                    var previous = BattleCamera.target();
+                    boolean switching = nextBody.body() != rumble$lockedBody
+                            || previous instanceof PokemonEntity mon && mon.getPokemon().isFainted();
+                    if (switching) {
+                        if (nextBody.body() != rumble$lockedBody
+                                && player.level().getEntity(nextBody.body()) instanceof LivingEntity body && rumble$usable(player, body)) {
+                            lock(body);
+                            rumble$lockedBody = body.getId();
+                        }
+                        return;
+                    }
+                    // The client can see a recall before the server's opponent update arrives.
+                    if (previous == null) return;
+                }
+            }
+        }
+        if (lockId < 0) return;
         var target = BattleCamera.target();
         BattleOrbit.updateLock(player, true);
         if (mc.screen != null) return;
@@ -92,9 +147,21 @@ abstract class StoryActorLockOn {
     @Inject(method = "onTick", at = @At("RETURN"))
     private static void rumble$releaseOrbit(ClientTickEvent.Post event, CallbackInfo ci) {
         var player = Minecraft.getInstance().player;
-        if (player == null) BattleOrbit.reset();
+        if (player == null) {
+            BattleOrbit.reset();
+            rumble$syncedLock = rumble$syncedBody = -1;
+        }
         else {
-            BattleOrbit.updateLock(player, ClientSmash.active() && BattleCamera.target() != null);
+            var target = ClientSmash.active() ? BattleCamera.target() : null;
+            BattleOrbit.updateLock(player, target != null);
+            int aim = target == null ? -1 : target.getId();
+            Integer controlled = ClientSmash.controlledEntity();
+            int body = controlled == null ? -1 : controlled;
+            if (ClientSmash.active() && (aim != rumble$syncedLock || body != rumble$syncedBody)) {
+                PacketDistributor.sendToServer(new RealtimeReleaseAim(aim));
+            }
+            rumble$syncedLock = aim;
+            rumble$syncedBody = ClientSmash.active() ? body : -1;
             BattleOrbit.tickIntent();
         }
     }

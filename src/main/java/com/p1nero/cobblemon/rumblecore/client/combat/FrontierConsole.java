@@ -1,6 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.client.combat;
 
-import com.cobblemon.mod.common.api.moves.Moves;
+import com.cobblemon.mod.common.api.moves.MoveTemplate;
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.client.gui.MoveCategoryIcon;
 import com.cobblemon.mod.common.client.gui.TypeIcon;
@@ -27,6 +27,9 @@ final class FrontierConsole {
     private static final ResourceLocation UP = asset("summary_move_reorder_up");
     private static final ResourceLocation DOWN = asset("summary_move_reorder_down");
     private static final ResourceLocation SWAP = asset("summary_move_swap");
+    private static final ResourceLocation NATIVE_MOVE = asset("summary_move_condensed");
+    private static final ResourceLocation NATIVE_MOVE_TINT = asset("summary_move_overlay_condensed");
+    private static final ResourceLocation MOVE_INFO = ResourceLocation.fromNamespaceAndPath("cobblemon", "textures/gui/tmmachine/tooltip_move_info.png");
 
     private FrontierConsole() {}
 
@@ -38,6 +41,16 @@ final class FrontierConsole {
 
     static void card(GuiGraphics g, int x, int y, int w, int h, int accent, boolean highlighted) {
         OreUiRenderer.card(g, x, y, w, h, highlighted, highlighted, 1, accent);
+    }
+
+    /** A shallow Ore bevel leaves short labels a full line instead of reserving a fixed three-pixel foot. */
+    static void shallowCard(GuiGraphics g, int x, int y, int w, int h, int accent, boolean selected) {
+        if (w < 4 || h < 4) return;
+        int foot = Math.clamp(h / 11, 1, 2);
+        g.fill(x, y, x + w, y + h, 0xFF131416);
+        g.fill(x + 1, y + 1, x + w - 1, y + h - 1 - foot, selected ? 0xFF42484B : 0xFF383B3F);
+        g.fill(x + 1, y + 1, x + w - 1, y + 2, selected ? accent : 0xFF686C70);
+        g.fill(x + 1, y + h - 1 - foot, x + w - 1, y + h - 1, 0xFF25272B);
     }
 
     static void placeholder(GuiGraphics g, Font font, int x, int y, int size) {
@@ -58,17 +71,43 @@ final class FrontierConsole {
         return portraits.drawFace(g, species, aspects, x + 2, y + 2, size - 4, tick, mirror);
     }
 
-    /** Ore UI rows with Cobblemon's elemental and damage-category glyphs. */
-    static void moveStrip(GuiGraphics g, Font font, String id, Component label, int x, int y, int width, int height, boolean active) {
-        var move = id.isEmpty() ? null : Moves.getByName(id);
-        OreUiRenderer.card(g, x, y, width, height, active, active, 1, move == null ? NEUTRAL : 0xff000000 | move.getElementalType().getPrimaryColor());
-        if (move == null) {
-            text(g, font, label, x + 7, y + (height - 8) / 2, width - 13, MUTED);
-            return;
+    /** Reuse the Summary move graphics without invoking its party-mutating move-swap handler. */
+    static void summaryMove(GuiGraphics g, Font font, MoveTemplate move, int x, int y, int w, int h, boolean selected) {
+        var tint = com.cobblemon.mod.common.util.math.SimpleMathExtensionsKt.toRGB(move.getElementalType().getHue());
+        g.flush();
+        g.setColor(tint.getFirst().floatValue(), tint.getSecond().floatValue(), tint.getThird().floatValue(), 1F);
+        try { g.blit(NATIVE_MOVE, x, y, w, h, 0, selected ? 18 : 0, 91, 18, 91, 36); }
+        finally { g.setColor(1, 1, 1, 1); }
+        g.blit(NATIVE_MOVE_TINT, x, y, w, h, 0, 0, 91, 18, 91, 18);
+        typeIcon(g, move.getElementalType(), x + 4, y + (h - 14) / 2, 14);
+        new MoveCategoryIcon(x + w - 16, y + (h - 9) / 2., move.getDamageCategory(), 1).render(g);
+        text(g, font, move.getDisplayName(), x + 22, y + (h - 8) / 2, w - 41, TEXT);
+    }
+
+    static void summaryMoveDetails(GuiGraphics g, Font font, MoveTemplate move, int x, int anchorY, int width, int screenHeight) {
+        int pad = 8;
+        var description = font.split(move.getDescription(), width - 2 * pad);
+        int panelH = Math.min(screenHeight - 8, Math.max(69, 46 + description.size() * 10));
+        int y = Math.clamp(anchorY, 4, Math.max(4, screenHeight - panelH - 4));
+        g.blit(MOVE_INFO, x, y, width, panelH, 0, 0, 96, 98, 96, 98);
+        // An opaque center keeps localized descriptions legible over the underlying team cards.
+        g.fill(x + 3, y + 3, x + width - 3, y + panelH - 3, 0xff1b2224);
+        typeIcon(g, move.getElementalType(), x + pad, y + 8, 15);
+        new MoveCategoryIcon(x + width - 20, y + 11, move.getDamageCategory(), 1).render(g);
+        text(g, font, move.getDisplayName().copy().withStyle(net.minecraft.ChatFormatting.BOLD), x + pad + 19, y + 11, width - 48, TEXT);
+        summaryStat(g, font, asset("summary_moves_icon_power"), x + pad, y + 28,
+                move.getPower() > 0 ? Integer.toString((int) move.getPower()) : "—");
+        summaryStat(g, font, asset("summary_moves_icon_accuracy"), x + pad + (width - 2 * pad) / 3, y + 28,
+                move.getAccuracy() > 0 ? (int) move.getAccuracy() + "%" : "—");
+        g.drawString(font, "PP " + move.getPp(), x + pad + 2 * (width - 2 * pad) / 3, y + 29, GOLD, false);
+        for (int i = 0; i < description.size() && 51 + i * 10 < panelH; i++) {
+            g.drawString(font, description.get(i), x + pad, y + 43 + i * 10, TEXT, false);
         }
-        typeIcon(g, move.getElementalType(), x + 4, y + (height - 18) / 2, 18);
-        new MoveCategoryIcon(x + width - 19, y + (height - 9) / 2., move.getDamageCategory(), 1).render(g);
-        text(g, font, label, x + 28, y + (height - 8) / 2, width - 51, TEXT);
+    }
+
+    private static void summaryStat(GuiGraphics g, Font font, ResourceLocation icon, int x, int y, String value) {
+        g.blit(icon, x, y, 0, 0, 10, 10, 10, 10);
+        g.drawString(font, value, x + 13, y + 1, GOLD, false);
     }
 
     static void typeIcon(GuiGraphics g, ElementalType type, float x, float y, int size) {
@@ -114,7 +153,8 @@ final class FrontierConsole {
 
     static void center(GuiGraphics g, Font font, Component label, int center, int y, int max, int color) {
         var clipped = font.substrByWidth(label, Math.max(0, max));
-        g.drawString(font, clipped.getString(), center - font.width(clipped) / 2, y, color, false);
+        g.drawString(font, net.minecraft.locale.Language.getInstance().getVisualOrder(clipped),
+                center - font.width(clipped) / 2, y, color, false);
     }
 
     static void item(GuiGraphics g, ItemStack item, int x, int y, int size) {

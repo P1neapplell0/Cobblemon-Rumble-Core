@@ -33,6 +33,7 @@ import net.minecraft.world.level.storage.LevelResource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
@@ -66,6 +67,11 @@ public final class PrologueWorld {
     }
 
     @SubscribeEvent
+    public static void protectHallBlocks(BlockEvent.BreakEvent event) {
+        if (event.getLevel() instanceof ServerLevel level && GYMS.equals(level.dimension())) event.setCanceled(true);
+    }
+
+    @SubscribeEvent
     public static void blockAmbientPosition(MobSpawnEvent.PositionCheck event) {
         var reason = event.getSpawnType();
         if ((reason == MobSpawnType.NATURAL || reason == MobSpawnType.CHUNK_GENERATION || reason == MobSpawnType.PATROL)
@@ -91,8 +97,10 @@ public final class PrologueWorld {
             for (var gym : GymCatalog.Gym.values()) {
                 String id = ArenaMatch.leaderTemplate(gym);
                 installDefinition(id);
-                installDefinition(ArenaMatch.leaderTemplate(gym, true));
-                var definition = readDefinition(definitions.resolve(id + ".json"));
+                String hardId = ArenaMatch.leaderTemplate(gym, true);
+                installDefinition(hardId);
+                gymCapacity(store, readDefinition(definitions.resolve(hardId + ".json")));
+                var definition = gymCapacity(store, readDefinition(definitions.resolve(id + ".json")));
                 var theme = ArenaTheme.gym(gym.path());
                 if (definition.chunkSource().equals(ArenaTheme.DEFAULT.chunks()) || definition.chunkSource().equals(theme.chunks())) {
                     String chunks = theme.available().chunks();
@@ -120,6 +128,15 @@ public final class PrologueWorld {
         } catch (IOException e) {
             throw new IllegalStateException("Could not load Rumble maps. Deploy modpack_override/config: " + e.getMessage(), e);
         }
+    }
+
+    private static InstanceDefinition gymCapacity(DefinitionStore store, InstanceDefinition definition) throws IOException {
+        if (definition.maxPlayers() == ArenaMatch.GYM_SLOTS) return definition;
+        var data = definition.toTag();
+        data.putInt("players", ArenaMatch.GYM_SLOTS);
+        var updated = InstanceDefinition.fromTag(data);
+        store.save(updated);
+        return updated;
     }
 
     private static InstanceDefinition readDefinition(Path file) throws IOException {

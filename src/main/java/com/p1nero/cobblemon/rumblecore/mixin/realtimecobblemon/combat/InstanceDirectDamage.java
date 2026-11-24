@@ -6,6 +6,8 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.p1nero.misc.custom_instances.api.InstanceApi;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeDamageFeedback;
 import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class InstanceDirectDamage {
     @Inject(method = "hurtPokemon", at = @At("HEAD"), cancellable = true)
     private static void rumble$protectStoryActors(Smash.Session battle, float amount, DamageSource source, CallbackInfo ci) {
-        if (FixedStoryActors.protectedFromCombat(battle.pokemon) || RealtimeProtection.megaProtected(battle.pokemon)) ci.cancel();
+        if (battle.pokemon.getPokemon().isFainted() || ArenaMatch.friendlyDamage(battle, source) || FixedStoryActors.protectedFromCombat(battle.pokemon) || RealtimeProtection.megaProtected(battle.pokemon)) ci.cancel();
     }
 
     @WrapOperation(method = "hurtPokemon", at = @At(value = "INVOKE",
@@ -26,8 +28,11 @@ abstract class InstanceDirectDamage {
     private static void rumble$recordDirectDamage(Pokemon mon, int health, Operation<Void> original,
             Smash.Session battle, float amount, DamageSource source) {
         int previous = mon.getCurrentHealth();
+        if (health == 0 && previous > 0) RealtimeKnockout.launch(battle.pokemon,
+                source.getEntity() != null ? source.getEntity() : source.getDirectEntity());
         original.call(mon, health);
         int lost = previous - mon.getCurrentHealth();
+        RealtimeDamageFeedback.record(battle.pokemon, source, lost);
         ArenaMatch.cinemaPlayerHit(battle.pokemon, source, lost);
         InstanceApi.recordCustomDamage(battle.pokemon, source, lost);
         RealtimeProtection.hit(battle.pokemon, source, lost);

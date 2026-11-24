@@ -132,8 +132,18 @@ public final class RealtimeMoveWindup {
         return true;
     }
 
+    public static boolean npcHasPp(PokemonEntity pokemon, MoveInfo info) {
+        var learned = npcLearnedMove(pokemon, info);
+        return learned == null || learned.getCurrentPp() > 0;
+    }
+
+    private static com.cobblemon.mod.common.api.moves.Move npcLearnedMove(PokemonEntity pokemon, MoveInfo info) {
+        return pokemon.getPokemon().getMoveSet().getMoves().stream()
+                .filter(move -> move.getName().equals(info.id())).findFirst().orElse(null);
+    }
+
     public static boolean npcMove(PokemonEntity pokemon, ServerLevel level, long now, MoveInfo move) {
-        if (npcCoolingDown(pokemon, now) || locked(pokemon) || crowdControlled(pokemon)) return false;
+        if (npcCoolingDown(pokemon, now) || locked(pokemon) || crowdControlled(pokemon) || !npcHasPp(pokemon, move)) return false;
         LOCKS.put(pokemon, new Lock(level.dimension(), now + TICKS));
         NPC_PENDING_MOVES.put(pokemon, move);
         stopPokemon(pokemon);
@@ -149,6 +159,8 @@ public final class RealtimeMoveWindup {
         MoveInfo move = NPC_PENDING_MOVES.remove(pokemon);
         if (move == null) return;
         LOCKS.remove(pokemon);
+        var learned = npcLearnedMove(pokemon, move);
+        if (learned != null) learned.setCurrentPp(Math.max(0, learned.getCurrentPp() - 1));
         int cooldown = MoveCombat.cooldownTicks(move.power(), move.pp(), move.isStatus(), SmashConfig.get(SmashConfig.COOLDOWN_SCALE));
         if (move.priority() > 0) cooldown = (int) (cooldown * 0.75);
         if (move.isStatus() && move.has("heal")) {

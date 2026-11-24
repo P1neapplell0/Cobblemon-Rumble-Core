@@ -6,6 +6,7 @@ import com.johnn.realtimecobblemon.moves.Combo;
 import com.johnn.realtimecobblemon.moves.Motion;
 import com.johnn.realtimecobblemon.Smash;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTenacity;
 import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import net.minecraft.server.level.ServerLevel;
@@ -20,12 +21,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class TenacityRTCConditions {
     @Inject(method = {"stun", "launch", "juggle"}, at = @At("HEAD"), cancellable = true)
     private static void rumble$ignoreStunDuringGetUp(LivingEntity entity, int ticks, CallbackInfo ci) {
-        if (RealtimeProtection.megaProtected(entity) || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon)) ci.cancel();
+        if (!RealtimeKnockout.applyingTo(entity)
+                && (RealtimeProtection.megaProtected(entity) || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon))) ci.cancel();
     }
 
     @Inject(method = {"stun", "launch", "juggle"}, at = @At("RETURN"))
     private static void rumble$recordStagger(LivingEntity entity, int ticks, CallbackInfo ci) {
-        if (entity instanceof PokemonEntity pokemon) ArenaTenacity.staggered(pokemon);
+        if (entity instanceof PokemonEntity pokemon && !RealtimeKnockout.applyingTo(entity)) ArenaTenacity.staggered(pokemon);
     }
 }
 
@@ -33,7 +35,8 @@ abstract class TenacityRTCConditions {
 abstract class TenacityRTCImpulse {
     @Inject(method = "knock", at = @At("HEAD"), cancellable = true)
     private static void rumble$ignoreDirectImpulse(LivingEntity entity, Vec3 velocity, CallbackInfo ci) {
-        if (RealtimeProtection.megaProtected(entity) || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon)) ci.cancel();
+        if (!RealtimeKnockout.applyingTo(entity)
+                && (RealtimeProtection.megaProtected(entity) || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon))) ci.cancel();
     }
 }
 
@@ -44,7 +47,7 @@ abstract class TenacityRTCLauncher {
                                              ServerLevel level, CallbackInfo ci) {
         // Suppress the entire launch reaction, including its later ground slam. Damage has already resolved.
         if (RealtimeMoveWindup.locked(entity) || RealtimeProtection.megaProtected(entity)
-                || entity instanceof PokemonEntity pokemon && ArenaTenacity.active(pokemon)) ci.cancel();
+                || entity instanceof PokemonEntity pokemon && (ArenaTenacity.active(pokemon) || RealtimeKnockout.inFlight(pokemon))) ci.cancel();
     }
 }
 

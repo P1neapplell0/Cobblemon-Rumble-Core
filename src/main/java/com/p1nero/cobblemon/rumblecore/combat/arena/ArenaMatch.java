@@ -11,6 +11,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty;
 import com.johnn.realtimecobblemon.MegaEvo;
 import com.johnn.realtimecobblemon.Smash;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout;
 import com.johnn.realtimecobblemon.SmashConfig;
 import com.johnn.realtimecobblemon.duel.Duels;
 import com.johnn.realtimecobblemon.moves.Brawl;
@@ -22,6 +23,8 @@ import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.RumbleConfig;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRules;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierSpectators;
 import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.gym.GymLeaderTeams;
@@ -46,6 +49,7 @@ import com.p1nero.misc.custom_instances.instance.InstanceSession;
 import com.p1nero.misc.custom_instances.network.InstanceNetwork;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -124,13 +128,26 @@ public final class ArenaMatch extends InstanceSession {
     private Setup setup;
     private static FrontierGame creatingFrontier;
     private final FrontierGame frontier;
+    private boolean admittedSpectators;
+    private static TeamGame creatingTeamGame;
+    private final TeamGame teamGame = creatingTeamGame;
+    public record TeamEntry(int side, List<Pokemon> roster) {}
+    private record TeamGame(Map<UUID, TeamEntry> entries, int minutes, List<UUID> spectators, Consumer<Integer> result) {}
+    private final Map<UUID, Integer> respawn = new HashMap<>();
+    private final Map<UUID, Integer> teamRecall = new HashMap<>();
+    private int teamResultAt, teamWinner;
+    private final int[] teamScore = new int[2];
+    private int teamDeadline, lastTeamSecond = -1;
+    private final Map<UUID, ArenaPackets.Opponents> opponents = new HashMap<>();
+    private net.minecraft.server.level.ServerBossEvent teamClock;
+    private final Map<UUID, ArenaPackets.Allies> teamAllies = new HashMap<>();
     private int knockoutUntil;
     private int knockoutSlowUntil;
     private final Set<Entity> knockoutActors = new HashSet<>();
     private final Set<Integer> shownKnockouts = new HashSet<>();
     private int knockoutRecallAt;
 
-    private record FrontierGame(List<Pokemon> host, List<Pokemon> guest, Consumer<UUID> result, Runnable failed) {}
+    private record FrontierGame(List<Pokemon> host, List<Pokemon> guest, List<UUID> spectators, Consumer<UUID> result, Runnable failed) {}
     private final GymCatalog.Encounter leader;
     private final boolean hardLeader;
     private final MegaTrials.Trial megaTrial;
@@ -144,7 +161,7 @@ public final class ArenaMatch extends InstanceSession {
     private Fighter a, b;
     private final List<Trainer> trainers = new ArrayList<>();
     private Integer introAt;
-    private int battleGate, trainerResultAt;
+    private int battleGate, trainerResultAt, gymPreviewUntil;
     private boolean pvpResultAnnounced, frontierCombatStarted;
     private boolean frontierResolved;
     private boolean trainerWon, fighting, trainerResolved;
@@ -249,7 +266,7 @@ public final class ArenaMatch extends InstanceSession {
         });
     }
 
-    private boolean partyBattle() { return leader != null || megaTrial != null || legendary != null || cinema != null || champion(); }
+    private boolean partyBattle() { return teamGame != null || leader != null || megaTrial != null || legendary != null || cinema != null || champion(); }
     private boolean hasTrainers() { return champion() || leader != null || megaTrial != null || setup != null && setup.hasTrainers(); }
     private UUID lessonLead() {
         if (setup == null || setup.story() == null) return null;
@@ -260,10 +277,29 @@ public final class ArenaMatch extends InstanceSession {
     private boolean gimmickLesson() { return lessonLead() != null; }
     private boolean teraLesson() { return setup != null && setup.story() != null && setup.story().teraLessonLead() != null; }
 
-    @Override public boolean isFriendlyFireEnabled() { return legendary == null && cinema == null && (!partyBattle() || super.isFriendlyFireEnabled()); }
+    @Override public boolean isFriendlyFireEnabled() { return teamGame == null && leader == null && legendary == null && cinema == null && (!partyBattle() || super.isFriendlyFireEnabled()); }
     @Override public int getMaxPlayers() {
+        if (teamGame != null) return Integer.MAX_VALUE;
+        if (leader != null) return Math.min(GYM_SLOTS, super.getMaxPlayers());
         return cinema == null ? super.getMaxPlayers() : Math.min(super.getMaxPlayers(), cinema.trial.capacity());
     }
+    public static final int GYM_SLOTS = 6;
+
+    public static boolean gymTemplate(String id) { return id.startsWith("rumble_gym_"); }
+
+    public int gymRosterLimit(UUID player) {
+        int size = getMembers().size();
+        if (leader == null || size == 0) return 0;
+        return GYM_SLOTS / size + (getOwner().equals(player) ? GYM_SLOTS % size : 0);
+    }
+
+    public boolean isGymObserver(ServerPlayer player) {
+        var fighter = team.get(player.getUUID());
+        return leader != null && fighter != null && fighter.eliminated && player.serverLevel() == getLevel();
+    }
+
+    public boolean gymPreviewActive() { return gymPreviewUntil != 0; }
+
     @Override public Map<UUID, String> snapshotPlayerDetails() {
         var details = new LinkedHashMap<>(departedRosters);
         team.forEach((id, fighter) -> details.put(id, fighter.snapshot()));
@@ -275,7 +311,7 @@ public final class ArenaMatch extends InstanceSession {
     @Override public boolean showDefaultResult() { return false; }
     @Override public boolean showDefaultBattleReport() { return false; }
     @Override public boolean showStatusHud() { return partyBattle() && (getState() == State.WAITING || getState() == State.PREPARING); }
-    @Override public int resultDelayTicks() { return 75; }
+    @Override public int resultDelayTicks() { return gymPreviewActive() ? 0 : 75; }
 
     public boolean musicActive(ServerPlayer player) {
         return getState() == State.ACTIVE && getLevel() == player.serverLevel()
@@ -363,17 +399,44 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static boolean startFrontier(ServerPlayer owner, ServerPlayer guest, Supplier<List<Pokemon>> host,
-                                        Supplier<List<Pokemon>> challenger, Consumer<UUID> result,
+                                        Supplier<List<Pokemon>> challenger, List<UUID> spectators, Consumer<UUID> result,
                                         Runnable failed) {
         if (owner == guest || !available(owner) || !available(guest) || !owner.server.isPvpAllowed()) return false;
         try {
-            creatingFrontier = new FrontierGame(host.get(), challenger.get(), result, failed);
+            creatingFrontier = new FrontierGame(host.get(), challenger.get(), List.copyOf(spectators), result, failed);
             return start(owner, guest, null, null, null);
         } catch (RuntimeException e) {
             LOG.error("Could not prepare Battle Frontier rosters", e);
             return false;
         } finally {
             creatingFrontier = null;
+        }
+    }
+
+    public static boolean startFrontierTeams(ServerPlayer host, Map<UUID, TeamEntry> entries, int minutes, List<UUID> spectators, Consumer<Integer> result) {
+        if (!host.server.isPvpAllowed() || !entries.containsKey(host.getUUID())
+                || entries.values().stream().anyMatch(e -> e.roster().size() != 1 || e.side() < 0 || e.side() > 1)
+                || entries.values().stream().map(TeamEntry::side).distinct().count() != 2
+                || !FrontierRules.isValidTeamDuration(minutes)) return false;
+        var players = entries.keySet().stream().map(host.server.getPlayerList()::getPlayer).toList();
+        if (players.stream().anyMatch(p -> p == null || !available(p))) return false;
+        var manager = InstanceManager.get(host.server);
+        String password = String.format(Locale.ROOT, "%04d", ThreadLocalRandom.current().nextInt(10000));
+        try {
+            UUID room;
+            creatingTeamGame = new TeamGame(Collections.unmodifiableMap(new LinkedHashMap<>(entries)), minutes, List.copyOf(spectators), result);
+            try { room = manager.create(host, TEMPLATE, password); }
+            finally { creatingTeamGame = null; }
+            for (var player : players) if (player != host) manager.join(player, TEMPLATE, room, password);
+            // Joining clears prior readiness in Custom Instances. Set it only once everyone has joined.
+            for (var player : players) manager.setReady(player, room, true);
+            manager.start(host, TEMPLATE);
+            return true;
+        } catch (IOException | RuntimeException e) {
+            if (InstanceApi.find(host).orElse(null) instanceof ArenaMatch match) manager.end(match, ExitReason.ERROR, true);
+            LOG.warn("Could not start Battle Frontier team arena", e);
+            InstanceManager.error(host, e);
+            return false;
         }
     }
 
@@ -432,6 +495,10 @@ public final class ArenaMatch extends InstanceSession {
         if (match.champion()) {
             if (match.setup == null || !match.setup.owner().equals(player.getUUID()) || !ChampionStory.eligible(player))
                 event.setCanceled(true);
+            return;
+        }
+        if (match.teamGame != null) {
+            if (!match.teamGame.entries().containsKey(player.getUUID()) || !available(player)) event.setCanceled(true);
             return;
         }
         if (match.leader == null) {
@@ -539,7 +606,7 @@ public final class ArenaMatch extends InstanceSession {
     public static void started(InstanceEvent.Started event) {
         if (!(event.getSession() instanceof ArenaMatch match)) return;
         var server = match.getLevel().getServer();
-        if (match.setup == null && match.megaTrial == null && match.legendary == null && match.cinema == null) throw new IllegalStateException("Unregistered arena challenge");
+        if (match.teamGame == null && match.setup == null && match.megaTrial == null && match.legendary == null && match.cinema == null) throw new IllegalStateException("Unregistered arena challenge");
         // The eastern throw animation needs entity ticks even with a small server simulation distance.
         match.getLevel().getChunkSource().addRegionTicket(COMBAT_TICKET, ARENA_CENTER, COMBAT_TICKET_DISTANCE, match.getId());
         if (match.cinema != null) {
@@ -551,6 +618,20 @@ public final class ArenaMatch extends InstanceSession {
             match.prepareLegendary();
             return;
         }
+        if (match.teamGame != null) {
+            int[] lanes = new int[2];
+            for (var entry : match.teamGame.entries().entrySet()) {
+                var player = server.getPlayerList().getPlayer(entry.getKey());
+                if (player == null || !match.getMembers().containsKey(entry.getKey())) throw new IllegalStateException("Frontier team changed during startup");
+                int side = entry.getValue().side();
+                var pos = frontierSpawn(side, lanes[side]++);
+                var fighter = Fighter.frontier(player, pos, side == 0 ? -90 : 90, entry.getValue().roster());
+                match.team.put(entry.getKey(), fighter);
+                match.placeFrontier(fighter);
+            }
+            match.readyForBattle(server);
+            return;
+        }
         if (match.partyBattle()) {
             int index = 0;
             for (UUID id : match.getMembers().keySet()) {
@@ -559,7 +640,8 @@ public final class ArenaMatch extends InstanceSession {
                         : match.megaTrial != null ? MegaTrials.unlocked(participant) : GymStory.canChallenge(participant, match.leader)))
                     throw new IllegalStateException("Challenge party changed before setup");
                 double lane = laneOffset(index++);
-                var fighter = new Fighter(participant, WEST.add(0, 0, lane), -90);
+                var fighter = new Fighter(participant, WEST.add(index == 6 ? 2 : 0, 0, lane), -90,
+                        match.leader == null ? GYM_SLOTS : match.gymRosterLimit(id));
                 match.team.put(id, fighter);
                 if (!fighter.hasReserve()) throw new IllegalStateException("Gym participant has no usable Pokémon");
                 match.positionAndPrompt(fighter);
@@ -650,6 +732,17 @@ public final class ArenaMatch extends InstanceSession {
                 PrologueWorld.id("legendary_boss_health"), 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         body.setHealth(body.getMaxHealth());
         Brawl.train(body, Brawl.Difficulty.HARD);
+    }
+
+    private static Vec3 frontierSpawn(int side, int index) {
+        var base = side == 0 ? WEST : EAST;
+        if (index < 5) return base.add(0, 0, laneOffset(index));
+        // Spread larger teams across their halves rather than stacking all extra players on the pads.
+        int cell = (index - 5) % 99;
+        int lane = cell % 11, row = cell / 11;
+        double depth = 3 + row * 1.8;
+        double lateral = (lane == 0 ? 0 : (lane % 2 == 0 ? lane / 2 : -(lane + 1) / 2)) * 2.5;
+        return base.add(side == 0 ? depth : -depth, 0, lateral);
     }
 
     private static double laneOffset(int index) {
@@ -833,18 +926,24 @@ public final class ArenaMatch extends InstanceSession {
         long megaReady;
         boolean controlled, choosing, startRequested, megaUsed;
         boolean catching;
+        boolean eliminated;
         Pokemon teraSlot;
         PokemonEntity body;
         Vec3 replacementAt;
 
         Fighter(ServerPlayer player, Vec3 spawn, float yaw) {
-            this(player, spawn, yaw, null);
+            this(player, spawn, yaw, GYM_SLOTS);
+        }
+
+        Fighter(ServerPlayer player, Vec3 spawn, float yaw, int limit) {
+            this(player, spawn, yaw, (Pokemon) null);
             var original = Cobblemon.INSTANCE.getStorage().getParty(player);
             for (int slot = 0; slot < slotToRoster.length; slot++) {
                 var source = original.get(slot);
                 if (source == null) continue;
-                startingRoster.put(slot, ArenaRoster.pokemon(source));
-                if (source.isFainted() || source.getTetheringId() != null) continue;
+                boolean usable = !source.isFainted() && source.getTetheringId() == null && roster.size() < limit;
+                if (limit == GYM_SLOTS || usable) startingRoster.put(slot, ArenaRoster.pokemon(source));
+                if (!usable) continue;
                 if (source.getEntity() != null) source.recall();
                 var copy = source.clone(true, player.registryAccess());
                 personalCopies.put(source.getUuid(), copy);
@@ -1044,7 +1143,10 @@ public final class ArenaMatch extends InstanceSession {
             for (var entry : actors.entrySet()) {
                 var pokemon = entry.getKey();
                 var actor = entry.getValue();
-                if (!alive(pokemon)) continue;
+                if (!alive(pokemon)) {
+                    if (((ArenaKnockoutVisual) pokemon).rumble$isKnockedOut() && !pokemon.isRemoved()) pokemon.discard();
+                    continue;
+                }
                 var target = closestOpponent(pokemon, actor.side(), standing);
                 actor.ai().tick(match.getLevel(), target, this::opponents, playerHit);
             }
@@ -1066,7 +1168,9 @@ public final class ArenaMatch extends InstanceSession {
             return closest;
         }
 
-        private static boolean alive(PokemonEntity pokemon) { return pokemon.isAlive() && !pokemon.getPokemon().isFainted(); }
+        private static boolean alive(PokemonEntity pokemon) {
+            return pokemon.isAlive() && !pokemon.getPokemon().isFainted() && !((ArenaKnockoutVisual) pokemon).rumble$isKnockedOut();
+        }
 
         private int factionOf(Entity entity) {
             var actor = actors.get(entity);
@@ -1170,6 +1274,11 @@ public final class ArenaMatch extends InstanceSession {
     @SubscribeEvent
     public static void cinemaActorDamaged(LivingDamageEvent.Post event) {
         cinemaPlayerHit(event.getEntity(), event.getSource(), event.getNewDamage());
+        if (event.getNewDamage() <= 0 || !(event.getEntity() instanceof PokemonEntity target) || Smash.sessionOf(target) != null) return;
+        var attacker = event.getSource().getEntity();
+        var control = attacker == null ? null : Smash.sessionOf(attacker);
+        if (control != null) Smash.send(control.player, new com.johnn.realtimecobblemon.network.SmashPayloads.Shake(
+                ((ArenaKnockoutVisual) target).rumble$isKnockedOut() ? .67F : .24F));
     }
 
     public boolean cinemaRewardEligible(UUID id) {
@@ -1178,8 +1287,14 @@ public final class ArenaMatch extends InstanceSession {
 
     @Override protected void onTick(InstanceManager manager) {
         try {
+            if (!admittedSpectators && (frontier != null || teamGame != null)) {
+                admittedSpectators = true;
+                FrontierSpectators.enter(this, teamGame != null ? teamGame.spectators() : frontier.spectators());
+            }
+            syncOpponents();
+            if (teamGame != null) { tickFrontierTeams(manager); return; }
             if (partyBattle()) syncAllies();
-            if (frontier == null && fighting && trainerResultAt == 0 && playPendingKnockouts(manager.getServer().getTickCount())) return;
+            if (frontier == null && teamGame == null && fighting && trainerResultAt == 0 && playPendingKnockouts(manager.getServer().getTickCount())) return;
             if (cinema != null) { cinema.tick(manager); return; }
             if (legendary != null) { tickLegendary(manager); return; }
             if (partyBattle()) { tickLeader(manager); return; }
@@ -1252,6 +1367,32 @@ public final class ArenaMatch extends InstanceSession {
         }
     }
 
+    private void syncOpponents() {
+        var fighters = partyBattle() ? List.copyOf(team.values()) : a == null ? List.<Fighter>of() : b == null ? List.of(a) : List.of(a, b);
+        for (var viewer : fighters) {
+            if (gone(viewer)) continue;
+            var rivals = new ArrayList<ArenaPackets.Ally>();
+            var actors = new ArrayList<Integer>();
+            for (var candidate : fighters) {
+                if (viewer == candidate || gone(candidate)) continue;
+                if (teamGame != null ? side(viewer) == side(candidate)
+                        : cinema != null ? cinema.playerSide(viewer.player.getUUID()) == cinema.playerSide(candidate.player.getUUID())
+                        : b == null) continue;
+                var session = Smash.session(candidate.player);
+                int body = session != null && !session.pokemon.getPokemon().isFainted() ? session.pokemon.getId() : -1;
+                rivals.add(new ArenaPackets.Ally(candidate.player.getUUID(), "", candidate.player.getId(), body));
+            }
+            for (var trainer : trainers) if (trainer.body != null && !trainer.knockedOut) actors.add(trainer.body.getId());
+            for (var foe : wildFoes) if (foe.isAlive() && !foe.getPokemon().isFainted()) actors.add(foe.getId());
+            if (cinema != null) cinema.actors.forEach((pokemon, actor) -> {
+                if (actor.side() != cinema.playerSide(viewer.player.getUUID()) && CinemaBattle.alive(pokemon)) actors.add(pokemon.getId());
+            });
+            actors.sort(Integer::compare);
+            var update = new ArenaPackets.Opponents(getDimension().location(), List.copyOf(rivals), List.copyOf(actors));
+            if (!update.equals(opponents.put(viewer.player.getUUID(), update))) PacketDistributor.sendToPlayer(viewer.player, update);
+        }
+    }
+
     private void syncAllies() {
         var players = new ArrayList<ArenaPackets.Ally>();
         var actors = new ArrayList<Integer>();
@@ -1290,12 +1431,107 @@ public final class ArenaMatch extends InstanceSession {
         for (var f : team.values()) if (!gone(f)) PacketDistributor.sendToPlayer(f.player, update);
     }
 
-    private static final int KO_TICKS = 29;
+    private static final int KO_TICKS = FrontierKnockout.CUE_TICKS;
 
     private void placeFrontier(Fighter f) {
         var pos = f.spawn;
         f.player.setDeltaMovement(Vec3.ZERO);
         f.player.connection.teleport(pos.x, pos.y, pos.z, f.yaw, 0);
+    }
+
+    private int side(Fighter fighter) { return teamGame.entries().get(fighter.player.getUUID()).side(); }
+
+    private void tickFrontierTeams(InstanceManager manager) {
+        int now = manager.getServer().getTickCount();
+        if (now < battleGate) return;
+        if (teamResultAt != 0) {
+            if (now >= teamResultAt) finishFrontierTeams(manager);
+            return;
+        }
+        if (teamDeadline == 0) {
+            teamDeadline = now + teamGame.minutes() * 60 * 20;
+            if (teamGame.minutes() > 0) {
+                teamClock = new net.minecraft.server.level.ServerBossEvent(Component.empty(),
+                        net.minecraft.world.BossEvent.BossBarColor.BLUE, net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
+                team.values().forEach(fighter -> teamClock.addPlayer(fighter.player));
+            }
+        }
+        boolean timed = teamGame.minutes() > 0;
+        boolean[] standing = new boolean[2];
+        var allies = new ArrayList<ArenaPackets.Ally>();
+        for (var fighter : team.values()) {
+            if (gone(fighter)) continue;
+            UUID id = fighter.player.getUUID();
+            int side = side(fighter);
+            if (!respawn.containsKey(id) && fighter.current().isFainted()) {
+                teamScore[1 - side]++;
+                respawn.put(id, timed ? now + 100 : Integer.MAX_VALUE);
+                teamRecall.put(id, now + RealtimeKnockout.FLIGHT_TICKS);
+                fighter.megaReady = 0;
+            }
+            if (respawn.containsKey(id)) {
+                if (now >= teamRecall.getOrDefault(id, Integer.MAX_VALUE)) {
+                    teamRecall.remove(id);
+                    if (Smash.active(fighter.player)) Smash.end(fighter.player, null, false);
+                    fighter.current().recall();
+                    if (fighter.body != null) fighter.body.discard();
+                    fighter.body = null;
+                    placeFrontier(fighter);
+                }
+                if (!timed) continue;
+                if (now % 20 == 0) fighter.player.displayClientMessage(Component.translatable("rumble.frontier.respawn",
+                        Math.max(0, (respawn.get(id) - now + 19) / 20)), true);
+                standing[side] = true;
+                if (now < respawn.get(id)) continue;
+                respawn.remove(id);
+                fighter.current().heal();
+                fighter.replacementAt = fighter.spawn;
+            }
+            tickHeld(fighter);
+            sendIn(fighter);
+            standing[side] = true;
+            allies.add(new ArenaPackets.Ally(id, fighter.player.getGameProfile().getName(), fighter.player.getId(),
+                    Smash.active(fighter.player) && fighter.body != null ? fighter.body.getId() : -1));
+        }
+        fighting = standing[0] && standing[1];
+        frontierCombatStarted |= fighting;
+        int seconds = timed ? Math.max(0, (teamDeadline - now + 19) / 20) : -1;
+        for (var fighter : team.values()) {
+            if (gone(fighter)) continue;
+            int side = side(fighter);
+            var friendly = allies.stream().filter(ally -> side(team.get(ally.player())) == side).toList();
+            var decoys = new ArrayList<Integer>();
+            friendly.forEach(ally -> {
+                var control = Smash.session(team.get(ally.player()).player);
+                if (control != null) control.combat.decoys.forEach(d -> decoys.add(d.getId()));
+            });
+            var update = new ArenaPackets.Allies(getDimension().location(), friendly, decoys);
+            if (!update.equals(teamAllies.put(fighter.player.getUUID(), update))) PacketDistributor.sendToPlayer(fighter.player, update);
+            if (timed && seconds != lastTeamSecond && seconds > 0 && seconds <= 10) {
+                    fighter.player.playNotifySound(net.minecraft.sounds.SoundEvents.NOTE_BLOCK_PLING.value(), net.minecraft.sounds.SoundSource.PLAYERS, 1F, 1.2F);
+                    fighter.player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket(0, 12, 6));
+                    fighter.player.connection.send(new net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket(Component.literal(Integer.toString(seconds))));
+            }
+        }
+        if (teamClock != null) {
+            teamClock.setName(Component.translatable("rumble.frontier.team_score", teamScore[0], teamScore[1], seconds / 60,
+                    String.format(Locale.ROOT, "%02d", seconds % 60)));
+            teamClock.setProgress(seconds / (teamGame.minutes() * 60F));
+        }
+        lastTeamSecond = seconds;
+        if (!fighting || timed && seconds == 0) {
+            fighting = false;
+            teamWinner = FrontierRules.winner(timed, standing[0], standing[1], teamScore[0], teamScore[1]);
+            teamResultAt = Math.max(now + 10, teamRecall.values().stream().mapToInt(Integer::intValue).max().orElse(now));
+        }
+    }
+
+    private void finishFrontierTeams(InstanceManager manager) {
+        frontierResolved = true;
+        teamGame.result().accept(teamWinner);
+        for (var fighter : team.values()) if (!gone(fighter)) fighter.player.sendSystemMessage(Component.translatable(
+                teamWinner < 0 ? "rumble.frontier.team_draw" : teamWinner == side(fighter) ? "rumble.frontier.team_win" : "rumble.frontier.team_loss"));
+        manager.end(this, teamWinner < 0 ? ExitReason.DEFEAT : ExitReason.VICTORY, true);
     }
 
     private void tickFrontier(InstanceManager manager) {
@@ -1320,7 +1556,7 @@ public final class ArenaMatch extends InstanceSession {
         } else if (a.current().isFainted() || b.current().isFainted()) {
             fighting = false;
             knockoutUntil = now + KO_TICKS;
-            showKnockout(List.of(a, b));
+            showKnockout(List.of(a, b), a.knockedOut() ? a.body : b.body);
             return;
         }
         tickHeld(a);
@@ -1359,11 +1595,22 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static float knockoutMovement(Entity entity) {
-        if (entity instanceof PokemonEntity && entity.level() instanceof ServerLevel level
+        if (entity instanceof PokemonEntity body && !RealtimeKnockout.inFlight(body) && entity.level() instanceof ServerLevel level
                 && InstanceApi.find(level).orElse(null) instanceof ArenaMatch match
                 && match.getState() == State.ACTIVE && match.knockoutActors.contains(entity)
                 && level.getServer().getTickCount() < match.knockoutSlowUntil) return FrontierKnockout.SPEED;
         return 1;
+    }
+
+    public static boolean onKnockoutLaunch(PokemonEntity body) {
+        var match = group(body);
+        if (match == null || match.teamGame != null) return false;
+        if (match.frontier != null) return true; // The draft match drives its own round transition.
+        if (!match.fighting || match.trainerResultAt != 0) return false;
+        int now = match.getLevel().getServer().getTickCount();
+        // Capture the body and attacker at impact, while both are still tracked and before recall or settlement.
+        match.beginKnockout(body, now);
+        return true;
     }
 
     // RTC normally recalls immediately when HP reaches zero. Keep the last body in frame until the KO beat ends.
@@ -1454,6 +1701,18 @@ public final class ArenaMatch extends InstanceSession {
         if (trainerResultAt != 0) {
             tickKnockoutRecall(now);
             if (now >= trainerResultAt) {
+                if (leader != null && getStartingTeam().size() > 1) {
+                    if (gymPreviewUntil == 0) {
+                        gymPreviewUntil = now + 100;
+                        var preview = new ArenaPackets.GymReport(getDimension().location(), getBattleStatistics().snapshot().toTag());
+                        for (var fighter : team.values()) if (!gone(fighter)) {
+                            if (Smash.active(fighter.player)) Smash.end(fighter.player, null, false);
+                            PacketDistributor.sendToPlayer(fighter.player, preview);
+                        }
+                        return;
+                    }
+                    if (now < gymPreviewUntil) return;
+                }
                 trainers.forEach(t -> t.result(trainerWon));
                 trainerResolved = true;
                 if (!trainerWon) manager.end(this, ExitReason.DEFEAT, false);
@@ -1495,7 +1754,7 @@ public final class ArenaMatch extends InstanceSession {
     private void resolveTrainers(int now, boolean playerWon, List<Fighter> fighters) {
         trainerWon = playerWon;
         fighters.forEach(this::closeRoster);
-        if (knockoutUntil != 0 && knockoutSlowUntil == knockoutUntil && now <= knockoutUntil + 1) {
+        if (knockoutUntil != 0 && knockoutSlowUntil <= knockoutUntil && now <= knockoutUntil + 1) {
             knockoutRecallAt = now;
             trainerResultAt = now + RECALL_TICKS;
         } else {
@@ -1511,7 +1770,7 @@ public final class ArenaMatch extends InstanceSession {
         trainers.forEach(trainer -> trainer.recallActive(now));
     }
 
-    private void showKnockout(List<Fighter> fighters) {
+    private void showKnockout(List<Fighter> fighters, PokemonEntity focus) {
         knockoutSlowUntil = getLevel().getServer().getTickCount() + FrontierKnockout.SLOW_TICKS;
         knockoutActors.clear();
         for (var fighter : fighters) {
@@ -1523,22 +1782,38 @@ public final class ArenaMatch extends InstanceSession {
         knockoutActors.addAll(wildFoes);
         if (cinema != null) knockoutActors.addAll(cinema.actors.keySet());
         var cue = new FrontierKnockout.Cue(getDimension().location(), KO_TICKS,
-                knockoutActors.stream().map(Entity::getId).toList());
+                focus == null ? -1 : focus.getId(), RealtimeKnockout.attackerId(focus), knockoutActors.stream().map(Entity::getId).toList());
         for (var fighter : fighters) if (!gone(fighter)) PacketDistributor.sendToPlayer(fighter.player, cue);
     }
 
     private boolean playPendingKnockouts(int now) {
         if (now < knockoutUntil) return true;
-        var fighters = partyBattle() ? List.copyOf(team.values()) : a == null ? List.<Fighter>of() : b == null ? List.of(a) : List.of(a, b);
-        boolean fresh = false;
-        for (var f : fighters) if (f.knockedOut()) fresh |= shownKnockouts.add(f.body.getId());
-        for (var t : trainers) if (t.body != null && (t.knockedOut || !CinemaBattle.alive(t.body))) fresh |= shownKnockouts.add(t.body.getId());
-        for (var foe : wildFoes) if (!CinemaBattle.alive(foe) || WildCapture.stunned(foe)) fresh |= shownKnockouts.add(foe.getId());
-        if (cinema != null) for (var foe : cinema.actors.keySet()) if (!CinemaBattle.alive(foe)) fresh |= shownKnockouts.add(foe.getId());
-        if (!fresh) return false;
-        showKnockout(fighters);
-        knockoutUntil = now + FrontierKnockout.SLOW_TICKS;
+        var defeated = new ArrayList<PokemonEntity>();
+        for (var f : knockoutFighters()) if (f.knockedOut()) defeated.add(f.body);
+        for (var t : trainers) if (t.body != null && (t.knockedOut || !CinemaBattle.alive(t.body))) defeated.add(t.body);
+        for (var foe : wildFoes) if (!CinemaBattle.alive(foe) || WildCapture.stunned(foe)) defeated.add(foe);
+        if (cinema != null) for (var foe : cinema.actors.keySet()) if (!CinemaBattle.alive(foe)) defeated.add(foe);
+        defeated.removeIf(body -> body.isRemoved() || shownKnockouts.contains(body.getId()));
+        if (defeated.isEmpty()) return false;
+        var focus = defeated.stream().filter(RealtimeKnockout::inFlight).findFirst().orElse(defeated.getFirst());
+        if (focus.isAlive() && !RealtimeKnockout.wasLaunched(focus) && !WildCapture.stunned(focus)) {
+            RealtimeKnockout.launch(focus, focus.getLastHurtByMob());
+        }
+        beginKnockout(focus, now);
+        defeated.forEach(body -> shownKnockouts.add(body.getId()));
         return true;
+    }
+
+    private void beginKnockout(PokemonEntity focus, int now) {
+        if (!shownKnockouts.add(focus.getId()) || now < knockoutUntil) return;
+        knockoutUntil = now + KO_TICKS;
+        showKnockout(knockoutFighters(), focus);
+    }
+
+    private List<Fighter> knockoutFighters() {
+        if (partyBattle()) return List.copyOf(team.values());
+        if (a == null) return List.of();
+        return b == null ? List.of(a) : List.of(a, b);
     }
 
     private boolean gone(Fighter f) {
@@ -1559,6 +1834,9 @@ public final class ArenaMatch extends InstanceSession {
                 f.choosing = true;
                 showRoster(f);
                 f.player.playNotifySound(SoundEvents.NOTE_BLOCK_BELL.value(), SoundSource.PLAYERS, 0.6F, 0.83F);
+            } else if (leader != null && getStartingTeam().size() > 1) {
+                f.eliminated = true;
+                f.player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
             }
         }
     }
@@ -1625,7 +1903,7 @@ public final class ArenaMatch extends InstanceSession {
         var match = inArena(player);
         if (match == null) return false;
         var f = match.fighter(player);
-        if (f == null || match.legendary != null || match.cinema != null || match.fighting || match.gimmickLesson() || Smash.active(player) || player.serverLevel() != match.getLevel()
+        if (f == null || match.teamGame != null || match.frontier != null || match.legendary != null || match.cinema != null || match.fighting || match.gimmickLesson() || Smash.active(player) || player.serverLevel() != match.getLevel()
                 || match.getState() != State.ACTIVE || slot < 0 || slot >= f.slotToRoster.length) return true;
         if (match.waitingInBlue(f) && !inBlue(player)) {
             keepInBlue(player);
@@ -1677,7 +1955,7 @@ public final class ArenaMatch extends InstanceSession {
             }
             return true;
         }
-        if (match.frontier != null || match.fighting || match.gimmickLesson()) {
+        if (match.frontier != null || match.teamGame != null || match.fighting || match.gimmickLesson()) {
             player.displayClientMessage(Component.translatable("rumble.arena.mode_locked"), true);
         } else if (f != null && !Smash.active(player) && player.serverLevel() == match.getLevel()
                 && match.getState() == State.ACTIVE) {
@@ -1750,6 +2028,12 @@ public final class ArenaMatch extends InstanceSession {
     @SubscribeEvent
     public static void ending(InstanceEvent.Ending event) {
         if (event.getSession() instanceof ArenaMatch match) {
+            if (match.getLevel() != null) FrontierSpectators.end(match.getLevel().getServer(), match);
+            if (match.teamClock != null) match.teamClock.removeAllPlayers();
+            if (match.teamGame != null && !match.frontierResolved) {
+                match.frontierResolved = true;
+                match.teamGame.result().accept(-1);
+            }
             if (match.frontier != null && !match.frontierResolved) {
                 if (event.getReason() == ExitReason.ERROR) {
                     match.frontierResolved = true;
@@ -1790,6 +2074,7 @@ public final class ArenaMatch extends InstanceSession {
             }
             return;
         }
+        if (match.teamClock != null) match.teamClock.removePlayer(event.getPlayer());
         if (match.partyBattle()) {
             var fighter = match.team.remove(event.getPlayer().getUUID());
             if (fighter == null) return;
@@ -1893,7 +2178,7 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static ArenaMatch inArena(ServerPlayer p) { return InstanceApi.find(p).orElse(null) instanceof ArenaMatch match ? match : null; }
-    public static boolean inFrontier(ServerPlayer p) { var match = inArena(p); return match != null && match.frontier != null; }
+    public static boolean inFrontier(ServerPlayer p) { var match = inArena(p); return match != null && (match.frontier != null || match.teamGame != null); }
     public static boolean inGimmickLesson(ServerPlayer player) {
         var match = inArena(player);
         return match != null && match.gimmickLesson();
@@ -1907,6 +2192,15 @@ public final class ArenaMatch extends InstanceSession {
             if (match.trainerOf(e) != null || match.wildFoes.contains(e) || match.cinema != null && match.cinema.actors.containsKey(e)) return match;
             for (var s : Smash.sessions()) if ((s.pokemon == e || s.combat.decoys.contains(e)) && match.fighter(s.player) != null) return match;
         }
+        return null;
+    }
+
+    private Fighter combatant(Entity entity) {
+        if (entity instanceof ServerPlayer p) return fighter(p);
+        if (entity == null) return null;
+        var control = Smash.sessionOf(entity);
+        if (control != null) return fighter(control.player);
+        for (var s : Smash.sessions()) if (s.combat.decoys.contains(entity)) return fighter(s.player);
         return null;
     }
 
@@ -1969,7 +2263,7 @@ public final class ArenaMatch extends InstanceSession {
         if (f == null || f.choosing || f.body != session.pokemon || match.trainerResultAt != 0
                 || !match.fighting && (!match.gimmickLesson() || match.teraLesson()) || f.megaReady != 0 || !f.body.isAlive()) return;
         if (MegaCombat.heal(f.body)) { Smash.sendHud(session); return; }
-        if (f.megaUsed || !MegaCombat.equipped(player) || !MegaCombat.canMega(f.current())) return;
+        if (f.megaUsed || (match.frontier == null && match.teamGame == null && match.b == null && !MegaCombat.equipped(player)) || !MegaCombat.canMega(f.current())) return;
         long now = match.getLevel().getGameTime();
         if (session.combat.lockedUntil > now) return;
         f.megaReady = now + RealtimeProtection.MEGA_TICKS;
@@ -1979,7 +2273,7 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     void useTera(Smash.Session session) {
-        if (frontier != null) return;
+        if (frontier != null || teamGame != null) return;
         if (cinema != null) return;
         var f = fighter(session.player);
         if (group(session.player) != this || f == null || f.choosing || f.teraSlot != null || f.body != session.pokemon
@@ -2008,6 +2302,16 @@ public final class ArenaMatch extends InstanceSession {
         }
     }
 
+    public static boolean friendlyDamage(Smash.Session victim, DamageSource damage) {
+        var match = group(victim.player);
+        if (match == null || match.leader == null && match.teamGame == null) return false;
+        var source = damage.getEntity();
+        var attacker = match.combatant(source != null ? source : damage.getDirectEntity());
+        var defender = match.fighter(victim.player);
+        return !match.fighting || attacker != null && defender != null && attacker != defender
+                && (match.teamGame == null || match.side(attacker) == match.side(defender));
+    }
+
     public static Boolean canHit(Smash.Session attacker, LivingEntity target) {
         ArenaMatch match = group(attacker.player);
         if (match == null) return null;
@@ -2016,6 +2320,12 @@ public final class ArenaMatch extends InstanceSession {
                 || attacker.combat.decoys.contains(target) || group(target) != match) return false;
         if (match.cinema != null) {
             return match.cinema.opponents(attacker.player, target);
+        }
+        if (match.teamGame != null) {
+            var source = match.fighter(attacker.player);
+            var other = match.combatant(target);
+            return source != null && other != null && match.side(source) != match.side(other)
+                    && Smash.active(other.player);
         }
         if (match.b != null) {
             var opponent = attacker.player == match.a.player ? match.b : match.a;
@@ -2038,13 +2348,22 @@ public final class ArenaMatch extends InstanceSession {
     public static void protectUnsafeDamage(LivingIncomingDamageEvent event) {
         LivingEntity victim = event.getEntity();
         if (!(victim.level() instanceof ServerLevel level) || !(InstanceApi.find(level).orElse(null) instanceof ArenaMatch arena)) return;
-        if (!arena.fighting || arena.trainerResultAt != 0
+        if (!arena.fighting || arena.trainerResultAt != 0 || victim instanceof PokemonEntity body && RealtimeKnockout.inFlight(body)
                 || level.getServer().getTickCount() < arena.knockoutUntil) { event.setCanceled(true); return; }
         if (arena.cinema != null) {
             if (!arena.cinema.canDamage(event)) event.setCanceled(true);
             return;
         }
-        var by = group(event.getSource().getEntity());
+        var source = event.getSource().getEntity();
+        var by = group(source != null ? source : event.getSource().getDirectEntity());
+        if (arena.leader != null || arena.teamGame != null) {
+            var attacker = arena.combatant(source != null ? source : event.getSource().getDirectEntity());
+            var defender = arena.combatant(victim);
+            if (attacker != null && defender != null && attacker != defender && (arena.leader != null || arena.side(attacker) == arena.side(defender))) {
+                event.setCanceled(true);
+                return;
+            }
+        }
         if (victim instanceof ServerPlayer p && (!Smash.active(p) || by == null || group(p) != by)) event.setCanceled(true);
         if (victim instanceof PokemonEntity pokemon && arena.wildFoes.contains(pokemon)
                 && (by != arena && !event.getSource().is(DamageTypes.MAGIC) || arena.capturePhase)) event.setCanceled(true);
@@ -2064,15 +2383,36 @@ public final class ArenaMatch extends InstanceSession {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void retainBodyForRecall(LivingDamageEvent.Pre event) {
-        if (!(event.getEntity() instanceof PokemonEntity pokemon) || !isTrainerFighter(pokemon)) return;
-        if (event.getNewDamage() < pokemon.getHealth()) return;
+        if (!(event.getEntity() instanceof PokemonEntity pokemon)) return;
+        // NeoForge applies absorption after Pre; only damage that reaches HP can cause a KO.
+        float hpDamage = event.getNewDamage() - pokemon.getAbsorptionAmount();
+        if (hpDamage <= 0) return;
+        float remaining = pokemon.getHealth() - hpDamage;
+        // Cobblemon truncates an owned Pokémon's scaled HP to an integer after hurt().
+        // This can faint a body that still has a fractional amount of entity health.
+        if (remaining > 0 && (pokemon.getOwnerUUID() == null
+                || (int) (pokemon.getPokemon().getMaxHealth() * (remaining / pokemon.getMaxHealth())) > 0)) return;
         var arena = group(pokemon);
+        if (remaining > 0 && arena == null) return;
+        var source = event.getSource().getEntity() != null ? event.getSource().getEntity() : event.getSource().getDirectEntity();
+        if (arena == null) {
+            boolean realtimeHit = source instanceof ServerPlayer player ? Smash.active(player)
+                    : source != null && Smash.sessionOf(source) != null;
+            if (realtimeHit && !PrologueTraining.target(pokemon)) RealtimeKnockout.launch(pokemon, source);
+            return;
+        }
         var foe = arena.trainerOf(pokemon);
-        foe.knockedOut = true;
+        if (foe == null && (arena.cinema == null || !arena.cinema.actors.containsKey(pokemon))) {
+            if (arena.wildFoes.contains(pokemon)) RealtimeKnockout.launch(pokemon, source);
+            return;
+        }
         pokemon.setNoAi(true);
-        ((ArenaKnockoutVisual) pokemon).rumble$markKnockedOut();
+        pokemon.getNavigation().stop();
+        RealtimeKnockout.launch(pokemon, source);
+        // Keep the body identifiable as this match's trainer until launch has dispatched the cue.
+        if (foe != null) foe.knockedOut = true;
         // Vanilla would run the death animation and remove the body. Preserve it just long enough for recall.
-        event.setNewDamage(Math.max(0, pokemon.getHealth() - 0.01F));
+        event.setNewDamage(Math.min(event.getNewDamage(), Math.max(0, pokemon.getHealth() - 0.01F) + pokemon.getAbsorptionAmount()));
     }
 
     @SubscribeEvent

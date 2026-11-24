@@ -2,6 +2,8 @@ package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.mojang.logging.LogUtils;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -16,7 +18,20 @@ import org.slf4j.Logger;
 final class HallMap {
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    private record Region(URL source, String hash) {}
+
     private HallMap() {}
+
+    private static URL presetRegion(Path preset, String region) throws IOException {
+        // The two central equipment regions are versioned with Core. A stale installation's config
+        // must not mask their updates; the rest of the terrain still comes from modpack_override.
+        if (region.equals("region/r.-1.-1.mca") || region.equals("region/r.-1.0.mca")) {
+            var resource = HallMap.class.getResource("/defaults/cobblemon_rumble_core/maps/gyms/" + region);
+            if (resource == null) throw new IOException("Missing bundled hall region: " + region);
+            return resource;
+        }
+        return preset.resolve(region).toUri().toURL();
+    }
 
     static void install(Path preset, Path world) throws IOException {
         Path stamp = world.resolve(".rumble-map-sha256.properties");
@@ -24,20 +39,24 @@ final class HallMap {
         if (Files.isRegularFile(stamp)) {
             try (var input = Files.newInputStream(stamp)) { installed.load(input); }
         }
-        var hashes = new LinkedHashMap<String, String>();
+        var regions = new LinkedHashMap<String, Region>();
         for (int x = -2; x <= 1; x++) {
             for (int z = -2; z <= 1; z++) {
                 String region = "region/r." + x + "." + z + ".mca";
-                hashes.put(region, sha256(preset.resolve(region)));
+                URL source = presetRegion(preset, region);
+                try (var input = source.openStream()) {
+                    regions.put(region, new Region(source, sha256(input)));
+                }
             }
         }
 
         Path backup = null;
         int copied = 0;
         var next = new Properties();
-        for (var entry : hashes.entrySet()) {
+        for (var entry : regions.entrySet()) {
             String region = entry.getKey();
-            String hash = entry.getValue();
+            Region template = entry.getValue();
+            String hash = template.hash();
             next.setProperty(region, hash);
             Path dest = world.resolve(region);
             boolean exists = Files.isRegularFile(dest);
@@ -57,7 +76,9 @@ final class HallMap {
             Files.createDirectories(dest.getParent());
             Path tmp = Files.createTempFile(dest.getParent(), ".rumble-region-", ".tmp");
             try {
-                Files.copy(preset.resolve(region), tmp, StandardCopyOption.REPLACE_EXISTING);
+                try (var input = template.source().openStream()) {
+                    Files.copy(input, tmp, StandardCopyOption.REPLACE_EXISTING);
+                }
                 if (!hash.equals(sha256(tmp))) throw new IOException("Hall preset changed during install: " + region);
                 replace(tmp, dest);
             } finally {
@@ -84,16 +105,18 @@ final class HallMap {
     }
 
     private static String sha256(Path file) throws IOException {
+        try (var input = Files.newInputStream(file)) { return sha256(input); }
+    }
+
+    private static String sha256(InputStream input) throws IOException {
         final MessageDigest digest;
         try {
             digest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException(e);
         }
-        try (var input = Files.newInputStream(file)) {
-            byte[] buffer = new byte[65536];
-            for (int size; (size = input.read(buffer)) != -1;) digest.update(buffer, 0, size);
-        }
+        byte[] buffer = new byte[65536];
+        for (int size; (size = input.read(buffer)) != -1;) digest.update(buffer, 0, size);
         return HexFormat.of().formatHex(digest.digest());
     }
 }

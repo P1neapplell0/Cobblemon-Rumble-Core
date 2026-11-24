@@ -8,12 +8,14 @@ import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.duel.Duels;
 import com.johnn.realtimecobblemon.moves.Brawl;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaDefense;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout;
 import com.p1nero.cobblemon.rumblecore.combat.arena.RealtimeProtection;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
@@ -83,6 +85,17 @@ final class ArenaIntegration {
 
     @Mixin(value = Smash.class, remap = false)
     static abstract class Session {
+        @WrapMethod(method = "end")
+        private static void rumble$offerWildReplacement(ServerPlayer player, Component message, boolean returnToOrigin, Operation<Void> original) {
+            var session = Smash.session(player);
+            boolean fainted = session != null && session.pokemon.getPokemon().isFainted();
+            boolean replace = fainted && rumble$isFreeRoam(player);
+            boolean recall = fainted && !ArenaMatch.keepKnockoutBody(session) && RealtimeKnockout.wasLaunched(session.pokemon);
+            original.call(player, message, returnToOrigin);
+            if (recall && !session.pokemon.isRemoved() && session.pokemon.level() == player.level()) session.pokemon.recallWithAnimation();
+            if (replace) com.p1nero.cobblemon.rumblecore.combat.RealtimeBattleEntry.knockedOut(player);
+        }
+
         @WrapOperation(method = "end", at = @At(value = "INVOKE", target =
                 "Lnet/minecraft/server/level/ServerPlayer;teleportTo(Lnet/minecraft/server/level/ServerLevel;DDDFF)V", remap = true))
         private static void rumble$leaveOwnPosition(ServerPlayer player, ServerLevel destination, double x, double y,
@@ -95,21 +108,25 @@ final class ArenaIntegration {
                 "Lcom/cobblemon/mod/common/pokemon/Pokemon;isFainted()Z"), cancellable = true)
         private static void rumble$holdFaintedCamera(PlayerTickEvent.Post event,
                                                      CallbackInfo ci, @Local Smash.Session session) {
-            if (session.pokemon.getPokemon().isFainted() && ArenaMatch.keepKnockoutBody(session)) ci.cancel();
+            if (session.pokemon.getPokemon().isFainted() && rumble$holdKo(session)) ci.cancel();
         }
 
         @WrapOperation(method = "hurtPokemon", at = @At(value = "INVOKE", target =
                 "Lcom/johnn/realtimecobblemon/Smash;end(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/network/chat/Component;Z)V"))
         private static void rumble$keepKoControl(ServerPlayer player, Component message, boolean returnToOrigin,
                                                  Operation<Void> original, @Local(argsOnly = true) Smash.Session session) {
-            if (!ArenaMatch.keepKnockoutBody(session)) original.call(player, message, returnToOrigin);
+            if (!rumble$holdKo(session)) original.call(player, message, returnToOrigin);
         }
 
         @WrapOperation(method = "hurtPokemon", at = @At(value = "INVOKE", target =
                 "Lcom/cobblemon/mod/common/entity/pokemon/PokemonEntity;recallWithAnimation()Ljava/util/concurrent/CompletableFuture;"))
         private static CompletableFuture<?> rumble$keepKoBody(PokemonEntity pokemon,
                 Operation<CompletableFuture<?>> original, @Local(argsOnly = true) Smash.Session session) {
-            return ArenaMatch.keepKnockoutBody(session) ? CompletableFuture.completedFuture(null) : original.call(pokemon);
+            return rumble$holdKo(session) ? CompletableFuture.completedFuture(null) : original.call(pokemon);
+        }
+
+        private static boolean rumble$holdKo(Smash.Session session) {
+            return ArenaMatch.keepKnockoutBody(session) || RealtimeKnockout.inFlight(session.pokemon);
         }
 
         @Inject(method = "start", at = @At(value = "INVOKE", target =

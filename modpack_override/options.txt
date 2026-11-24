@@ -120,6 +120,7 @@ maxFps:260
 enableVsync:false
 version:3955
 narrator:0
+soundCategory_music:0.15
 incompatibleResourcePacks:[]
 onboardAccessibility:false
 key_iris.keybind.reload:key.keyboard.unknown
@@ -130,3 +131,8 @@ key_key.cobblemon.summary:key.keyboard.c
 key_key.modernui.zoom:key.keyboard.unknown
 key_chloride.zoom:key.keyboard.z
 key_key.realtimecobblemon.zmove:key.keyboard.z:SHIFT
+key_key.cobblemon_rumble_core.move_1:key.keyboard.q
+key_key.cobblemon_rumble_core.move_2:key.keyboard.e
+key_key.cobblemon_rumble_core.move_3:key.keyboard.x
+key_key.cobblemon_rumble_core.move_4:key.keyboard.c
+key_key.cobblemon_rumble_core.use_held:key.keyboard.r

@@ -54,7 +54,7 @@ public final class RumbleGuides {
         add(event, START, "pokemon_evolution", null, "cobblemon:leaf_stone", 30, "key.cobblemon.summary");
         add(event, COMBAT, "realtime_combat", "realtime-combat", "cobblemon:poke_ball", 30,
                 "key.cobblemon.throwpartypokemon", "key.attack", "key.realtimecobblemon.dodge", "key.realtimecobblemon.lock_on", "key.realtimecobblemon.smash",
-                "key.hotbar.1", "key.hotbar.2", "key.hotbar.3", "key.hotbar.4", "key.use");
+                "key.cobblemon_rumble_core.move_1", "key.cobblemon_rumble_core.move_2", "key.cobblemon_rumble_core.move_3", "key.cobblemon_rumble_core.move_4", "key.use");
         add(event, COMBAT, "pokemon_held_items", "held-items", "cobblemon:leftovers", 40, "key.realtimecobblemon.smash", "key.sneak", "key.use");
         add(event, COMBAT, "effort_values", "effort-values", "cobblemon:power_weight", 50, "key.cobblemon.summary");
         add(event, COMBAT, "mega_evolution", null, "mega_showdown:mega_bracelet", 60, "key.cobblemon_rumble_core.use_held");

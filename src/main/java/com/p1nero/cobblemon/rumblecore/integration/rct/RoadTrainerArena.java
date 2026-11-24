@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.integration.rct;
 
+import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC;
 import com.gitlab.srcmc.rctmod.ModCommon;
@@ -7,6 +8,7 @@ import com.gitlab.srcmc.rctmod.api.RCTMod;
 import com.gitlab.srcmc.rctmod.world.entities.TrainerMob;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTheme;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaTrainerAppearance;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.mixin.rct.TrainerOpponent;
 import com.p1nero.cobblemon.rumblecore.quest.CobbleDollarReward;
@@ -33,6 +35,7 @@ public final class RoadTrainerArena {
         var chunk = mob.chunkPosition();
         var ticket = UUID.randomUUID();
         var theme = ArenaTheme.biome(source, mob.blockPosition());
+        var appearance = ArenaTrainerAppearance.capture(mob);
         var actor = new GymCatalog.Actor("road_trainer", mob.blockPosition(),
                 () -> roster.stream().map(pokemon -> pokemon.clone(true, player.registryAccess())).toList(), mob.getDisplayName());
         var trainerManager = RCTMod.getInstance().getTrainerManager();
@@ -41,6 +44,7 @@ public final class RoadTrainerArena {
 
             @Override public List<GymCatalog.Actor> actors() { return List.of(actor); }
             @Override public ArenaTheme arena(ServerPlayer player) { return theme; }
+            @Override public void configureTrainer(NPCEntity trainer) { appearance.applyTo(trainer); }
             @Override public boolean canSkip() { return false; }
             @Override public boolean eligible(ServerPlayer player) {
                 return mob.isAlive() && (mob.getOpponent() == null || mob.getOpponent() == player);

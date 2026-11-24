@@ -4,6 +4,7 @@ import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.p1nero.cobblemon.rumblecore.client.combat.RenderAimRay;
+import com.p1nero.cobblemon.rumblecore.client.combat.FrontierKnockoutOverlay;
 import com.p1nero.cobblemon.rumblecore.client.combat.StableBattleCamera;
 import com.p1nero.cobblemon.rumblecore.client.combat.ReticleProjection;
 import java.util.function.Predicate;
@@ -67,6 +68,15 @@ abstract class BattleCameraInterpolation {
     private static BattleCamera.Pose rumble$stablePose(BlockGetter level, Entity entity, float partial) {
         LivingEntity target = BattleCamera.target();
         return StableBattleCamera.place(level, entity, target, partial, shoulder, sideView);
+    }
+
+    @Inject(method = "onRenderLevel", at = @At("HEAD"), cancellable = true)
+    private static void rumble$hideAimDuringKnockout(RenderLevelStageEvent event, CallbackInfo ci) {
+        if (FrontierKnockoutOverlay.focus() != null) {
+            aimOnScreen = false;
+            ReticleProjection.reset();
+            ci.cancel();
+        }
     }
 
     // Project the reticle from the same in-between position used to draw the target, not its tick AABB.

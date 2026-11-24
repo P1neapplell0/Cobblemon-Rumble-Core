@@ -1,0 +1,51 @@
+{
+  "id": "rumble_legendary_plasma_research",
+  "name": "{cobblemon.species.genesect.name}",
+  "timeLimitSeconds": 0,
+  "maxDeaths": 1,
+  "allowLateJoin": false,
+  "maxPlayers": 0,
+  "spawn": {
+    "x": -24,
+    "y": 64,
+    "z": 0
+  },
+  "victoryType": "custom",
+  "target": "rumble_legendary_plasma_research",
+  "prerequisite": "",
+  "chunkSource": "rumble_arena_electric",
+  "icon": "cobblemon:master_ball",
+  "descriptionImage": "",
+  "description": "{rumble.legendary.objective}",
+  "maxTeamDeaths": 0,
+  "dimensionSettings": {
+    "dayTime": 6000,
+    "fixedTime": true,
+    "ambientLight": 0.0,
+    "weather": "clear",
+    "hasSkylight": true,
+    "hasCeiling": false,
+    "ultraWarm": false,
+    "natural": true,
+    "piglinSafe": false,
+    "bedWorks": false,
+    "respawnAnchorWorks": false,
+    "hasRaids": false,
+    "effects": "overworld",
+    "monsterBlockLightLimit": 0,
+    "monsterLightLimit": 0,
+    "forceAdventure": true,
+    "allowNaturalMonsters": false
+  },
+  "rewards": [
+    {
+      "kind": "CUSTOM",
+      "item": "",
+      "count": 1,
+      "data": "",
+      "description": "{rumble.mega.reward} 50000",
+      "command": "cobbledollars give @s 50000"
+    }
+  ],
+  "unlockConditions": []
+}

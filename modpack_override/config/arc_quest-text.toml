@@ -1,0 +1,17 @@
+[text_scale]
+	#Dialogue text scale.
+	# Default: 1.0
+	# Range: 0.5 ~ 2.0
+	dialogue = 1.5
+	#Quest journal text scale.
+	# Default: 1.0
+	# Range: 0.5 ~ 2.0
+	quest_journal = 1.5
+	#Guide text scale.
+	# Default: 1.0
+	# Range: 0.5 ~ 2.0
+	guide = 1.5
+	#Shop, quick shop, and gacha text scale.
+	# Default: 1.0
+	# Range: 0.5 ~ 2.0
+	shop = 0.84

@@ -26,13 +26,30 @@ import org.joml.Matrix4f;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, value = Dist.CLIENT)
 public final class BattleNameplates {
     private static ArenaPackets.Allies allies;
+    private static ArenaPackets.Opponents opponents;
 
     private BattleNameplates() {}
 
     public static void sync(ArenaPackets.Allies update) { allies = update; }
 
+    public static void syncOpponents(ArenaPackets.Opponents update) { opponents = update; }
+
+    public static ArenaPackets.Opponents opponents(Entity entity) {
+        return opponents != null && entity.level().dimension().location().equals(opponents.dimension()) ? opponents : null;
+    }
+
+    public static boolean outlined(Entity entity) {
+        var local = Minecraft.getInstance().player;
+        if (!(entity instanceof PokemonEntity mon) || local == null || !ClientSmash.active()
+                || !mon.isAlive() || mon.getPokemon().isFainted() || mon.isInvisibleTo(local)
+                || local.distanceToSqr(entity) > 48 * 48 || !local.hasLineOfSight(entity)) return false;
+        var enemies = opponents(entity);
+        return enemies != null && (enemies.actors().contains(entity.getId())
+                || enemies.players().stream().anyMatch(p -> p.body() == entity.getId()));
+    }
+
     @SubscribeEvent
-    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) { allies = null; }
+    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) { allies = null; opponents = null; }
 
     private static boolean sameArena(Entity entity) {
         return allies != null && entity.level().dimension().location().equals(allies.dimension());
