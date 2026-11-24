@@ -3,7 +3,7 @@
 import argparse
 import csv
 import json
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 import zipfile
 
@@ -32,14 +32,17 @@ def load_assets():
 
 def validate(legend, mega, species, moves):
     seen = set()
-    groups = defaultdict(list)
+    ids = set()
     locales = [json.loads((LANG / f'{ln}.json').read_text(encoding='utf-8')) for ln in ('zh_cn', 'en_us')]
     for row in legend:
         ident, mon, aspect = row['id'], row['species'], row['aspect']
-        assert (ident, mon, aspect) not in seen, (ident, mon, aspect)
-        seen.add((ident, mon, aspect))
-        groups[ident].append(row)
-        assert all('rumble.legendary.trial.' + ident in locale for locale in locales), ident
+        assert ident not in ids, (ident, 'more than one boss in the trial')
+        ids.add(ident)
+        assert (mon, aspect) not in seen, (mon, aspect, 'duplicate boss')
+        seen.add((mon, aspect))
+        if aspect != '-' or mon == 'urshifu':
+            key = f"rumble.legendary.form_trial.{mon}.{aspect if aspect != '-' else 'single_strike-style'}"
+            assert all(key in locale for locale in locales), key
         base = species[mon]
         form = base if aspect == '-' else next(f for f in base.get('forms', []) if aspect in f['aspects'])
         learnset = {move.split(':')[-1] for move in form.get('moves', base['moves'])}
@@ -49,16 +52,13 @@ def validate(legend, mega, species, moves):
         for move in learned:
             assert move in learnset, (mon, aspect, move, 'not in form learnset')
             assert moves[move]['power'] > 0 and moves[move]['category'] != 'status', (mon, move, 'not selectable by RTC Brawl')
-    for ident, group in groups.items():
-        assert 1 <= len(group) <= 4, ident
-        assert len({(row['generation'], row['arena']) for row in group}) == 1, ident
     assert len({row['id'] for row in mega}) == len(mega), 'duplicate Mega ID'
     for row in mega:
         assert row['species'] in species and 1 <= int(row['level']) <= 100, row
         learned = row['moves'].split(',')
         assert len(set(learned)) == len(learned) == 4, row
         assert all(move in moves for move in learned), row
-    print(f'{len(groups)} legendary encounters / {len(legend)} combatants; {len(mega)} Mega loadouts')
+    print(f'{len(ids)} single-boss legendary encounters; {len(mega)} Mega loadouts')
 
 
 def mega_markdown(mega, names, moves):

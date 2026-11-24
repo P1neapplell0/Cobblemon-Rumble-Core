@@ -97,8 +97,7 @@ public final class LegendaryDirectoryScreen extends Screen {
         String value = query.strip().toLowerCase(Locale.ROOT);
         filtered = entries.stream().filter(e -> region == 0 || e.trial().generation() == region)
                 .filter(e -> value.isEmpty() || e.title().getString().toLowerCase(Locale.ROOT).contains(value)
-                        || e.trial().foes().stream().anyMatch(f -> f.species().contains(value)
-                            || Component.translatable(f.speciesKey()).getString().toLowerCase(Locale.ROOT).contains(value))).toList();
+                        || e.trial().foe().species().contains(value)).toList();
         page = 0;
         if (!filtered.contains(selected)) selected = filtered.isEmpty() ? null : filtered.getFirst();
         populate();
@@ -208,24 +207,16 @@ public final class LegendaryDirectoryScreen extends Screen {
         int dx = details + 6, dy = y + 57;
         var title = selected.title();
         g.drawString(font, font.substrByWidth(title, detailW - 12).getString(), dx, dy, OreTheme.TEXT, false);
-        var foes = selected.trial().foes();
-        g.drawString(font, text("count", foes.size()), dx, dy + 12, OreTheme.COINS, false);
-        int across = Math.min(2, foes.size());
-        int rows = (foes.size() + across - 1) / across;
-        int cellW = (detailW - 12) / across;
-        int cellH = (detailH - 31) / rows;
-        for (int i = 0; i < foes.size(); i++) {
-            var foe = foes.get(i);
-            int cx = dx + (i % across) * cellW, cy = dy + 27 + (i / across) * cellH;
-            int size = Math.min(54, Math.min(cellW - 5, cellH - 10));
-            var name = Component.translatable(foe.speciesKey());
-            if (size >= 12) portraits.render(g, foe.speciesId(), foe.aspects(), cx + (cellW - size) / 2, cy, size, tick);
-            if (cellH >= 10) g.drawCenteredString(font, text("level", foe.level()), cx + cellW / 2, cy + Math.max(0, size), OreTheme.MUTED);
-            if (mx >= cx && mx < cx + cellW && my >= cy && my < cy + cellH) {
+        var foe = selected.trial().foe();
+        g.drawString(font, text("boss_stats"), dx, dy + 12, OreTheme.COINS, false);
+        int size = Math.min(54, Math.min(detailW - 17, detailH - 41));
+        int px = dx + (detailW - 12 - size) / 2, py = dy + 27;
+        if (size >= 12) {
+            portraits.render(g, foe.speciesId(), foe.aspects(), px, py, size, tick);
+            g.drawCenteredString(font, text("level", foe.level()), dx + (detailW - 12) / 2, py + size, OreTheme.MUTED);
+            if (mx >= px && mx < px + size && my >= py && my < py + size + 10) {
                 var tooltip = new ArrayList<Component>();
-                String aspect = foe.aspect().equals("-") && foe.species().equals("urshifu") ? "single_strike-style" : foe.aspect();
-                if (!aspect.equals("-")) name.append(" · ").append(text("form." + aspect));
-                tooltip.add(name.append(" · ").append(text("level", foe.level())));
+                tooltip.add(selected.title().copy().append(" · ").append(text("level", foe.level())));
                 foe.moves().forEach(move -> tooltip.add(Component.translatable("cobblemon.move." + move)));
                 detailHover = tooltip;
             }
@@ -264,7 +255,7 @@ public final class LegendaryDirectoryScreen extends Screen {
         @Override protected void renderWidget(GuiGraphics g, int mx, int my, float tick) {
             if (entry == null) return;
             OreTheme.row(g, getX(), getY(), width, height, entry.equals(selected), isHoveredOrFocused());
-            var lead = entry.trial().foes().getFirst();
+            var lead = entry.trial().foe();
             int size = Math.min(height - 11, 37);
             portraits.render(g, lead.speciesId(), lead.aspects(), getX() + (width - size) / 2, getY() + 1, size, tick);
             g.drawCenteredString(font, font.substrByWidth(entry.title(), width - 6).getString(), getX() + width / 2,

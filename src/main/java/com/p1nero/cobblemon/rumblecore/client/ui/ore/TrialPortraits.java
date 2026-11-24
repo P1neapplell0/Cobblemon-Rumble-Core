@@ -8,7 +8,9 @@ import com.cobblemon.mod.common.client.render.SpriteType;
 import com.cobblemon.mod.common.client.render.models.blockbench.FloatingState;
 import com.cobblemon.mod.common.client.render.models.blockbench.repository.VaryingModelRepository;
 import com.cobblemon.mod.common.entity.PoseType;
+import com.mojang.logging.LogUtils;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,17 +24,20 @@ import org.joml.Quaternionf;
 public final class TrialPortraits {
     private record Key(ResourceLocation species, Set<String> aspects) {}
     private final Map<Key, FloatingState> poses = new HashMap<>();
+    private final Set<Key> brokenPortraits = new HashSet<>();
 
     public boolean draw(GuiGraphics g, ResourceLocation species, Set<String> aspects, int x, int y, int size, float tick) {
         return draw(g, species, aspects, x, y, size, tick, false);
     }
 
     public boolean draw(GuiGraphics g, ResourceLocation species, Set<String> aspects, int x, int y, int size, float tick, boolean mirror) {
-        if (PokemonSpecies.getByIdentifier(species) == null) return false;
-        var pose = pose(species, aspects);
+        if (size <= 0 || PokemonSpecies.getByIdentifier(species) == null) return false;
+        var key = new Key(species, Set.copyOf(aspects));
+        if (brokenPortraits.contains(key)) return false;
         g.enableScissor(x, y, x + size, y + size);
         g.pose().pushPose();
         try {
+            var pose = pose(key);
             // Cobblemon's profile transform expects a top-center anchor. Profile sprites
             // are drawn from that same anchor as a two-unit quad without the model transform.
             boolean sprite = VaryingModelRepository.INSTANCE.getSprite(species, pose, SpriteType.PROFILE) != null;
@@ -45,6 +50,11 @@ public final class TrialPortraits {
                     1, 1, 1, 1, 0, 0, 15);
             g.flush();
             return true;
+        } catch (RuntimeException error) {
+            brokenPortraits.add(key);
+            poses.remove(key);
+            LogUtils.getLogger().warn("Cannot render Pokémon portrait {} {}; using a placeholder", species, aspects, error);
+            return false;
         } finally {
             g.pose().popPose();
             g.disableScissor();
@@ -56,6 +66,8 @@ public final class TrialPortraits {
                             int x, int y, int size, float tick, boolean reversed) {
         var model = PokemonSpecies.getByIdentifier(species);
         if (model == null || size <= 0) return false;
+        var key = new Key(species, Set.copyOf(aspects));
+        if (brokenPortraits.contains(key)) return false;
         float scale = size / 21F;
         g.enableScissor(x, y, x + size, y + size);
         g.pose().pushPose();
@@ -64,17 +76,22 @@ public final class TrialPortraits {
             g.pose().translate(x + (reversed ? 11.5F : 9.5F) * scale, y - 12 * scale, 25);
             g.pose().scale(scale, scale, 1);
             GuiUtilsKt.drawPosablePortrait(species, g.pose(), 13, model.getStandardForm().getBaseScale(),
-                    reversed, pose(species, aspects), tick);
+                    reversed, pose(key), tick);
             g.flush();
             return true;
+        } catch (RuntimeException error) {
+            brokenPortraits.add(key);
+            poses.remove(key);
+            LogUtils.getLogger().warn("Cannot render Pokémon portrait {} {}; using a placeholder", species, aspects, error);
+            return false;
         } finally {
             g.pose().popPose();
             g.disableScissor();
         }
     }
 
-    private FloatingState pose(ResourceLocation species, Set<String> aspects) {
-        return poses.computeIfAbsent(new Key(species, Set.copyOf(aspects)), key -> {
+    private FloatingState pose(Key portrait) {
+        return poses.computeIfAbsent(portrait, key -> {
             var state = new FloatingState();
             state.setCurrentAspects(key.aspects());
             return state;

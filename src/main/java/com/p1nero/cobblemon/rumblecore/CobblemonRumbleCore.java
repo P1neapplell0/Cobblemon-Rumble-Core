@@ -89,6 +89,7 @@ public final class CobblemonRumbleCore {
         NeoForge.EVENT_BUS.addListener(PhoneState::onDimensionChange);
         modBus.addListener(CobblemonRumbleCore::addTranslations);
         modBus.addListener(CobblemonRumbleCore::addModelFixes);
+        modBus.addListener(CobblemonRumbleCore::addPoseFixes);
         modBus.addListener(CobblemonRumbleCore::addAdditionsDistribution);
         modBus.addListener(CobblemonRumbleCore::addLegacyTrainerTeams);
         modBus.addListener(CobblemonRumbleCore::addExternalPacks);
@@ -104,6 +105,12 @@ public final class CobblemonRumbleCore {
         if (!ModList.get().isLoaded("mega_showdown")) return;
         event.addPackFinders(ResourceLocation.fromNamespaceAndPath(MOD_ID, "packs/model_fixes"),
                 PackType.CLIENT_RESOURCES, Component.literal("Cobblemon Rumble Core – Model Fixes"),
+                PackSource.BUILT_IN, true, Pack.Position.TOP);
+    }
+
+    private static void addPoseFixes(AddPackFindersEvent event) {
+        event.addPackFinders(ResourceLocation.fromNamespaceAndPath(MOD_ID, "packs/pose_fixes"),
+                PackType.CLIENT_RESOURCES, Component.literal("Cobblemon Rumble Core – Pose Compatibility"),
                 PackSource.BUILT_IN, true, Pack.Position.TOP);
     }
 

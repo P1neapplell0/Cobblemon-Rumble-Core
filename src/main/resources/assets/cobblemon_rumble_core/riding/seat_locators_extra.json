@@ -1805,5 +1805,12 @@
         }
       }
     }
-  ]
+  ],
+  "cobblemon:bedrock/pokemon/models/cosmetic/morecosmetics/mewtwo_boundary.geo.json": [{"bone":{"name":"riding_expand_seat_1","parent":"torso","pivot":[0.0,24.8,0.96],"locators":{"seat_1":[0.0,24.8,0.96]}},"ancestors":{"torso":{"parent":"body","pivot":[0,19.75,0.6]},"body":{"parent":"mewtwo","pivot":[0,26,0]},"mewtwo":{"pivot":[0,0,0]}}}],
+  "cobblemon:bedrock/pokemon/models/cosmetic/morecosmetics/drampa_newyear.geo.json": [{"bone":{"name":"riding_expand_seat_1","parent":"body","pivot":[0.0,20.5,13.5],"locators":{"seat_1":[0.0,20.5,13.5]}},"ancestors":{"body":{"parent":"drampa","pivot":[0,11,0]},"drampa":{"pivot":[0,0,0]}}}],
+  "cobblemon:bedrock/pokemon/models/0146_moltres/moltres_galarian.geo.json": [{"bone":{"name":"upper_torso","parent":"body","pivot":[0,26,1],"rotation":[5,0,0],"locators":{"seat_1":[0,27,5]}},"ancestors":{"body":{"parent":"moltres","pivot":[0,26,1]},"moltres":{"pivot":[0,0,0]}}}],
+  "cobblemon:bedrock/pokemon/models/0823_corviknight/gmax_corviknight.geo.json": [{"bone":{"locators":{"seat_2":[0,46,-7]},"name":"locator_seat_2","parent":"chest","pivot":[0,46,-7]},"ancestors":{"chest":{"parent":"torso","pivot":[1,35,-10],"rotation":[-15,0,0]},"torso":{"parent":"body","pivot":[0,24,-6.5],"rotation":[-40,0,0]},"body":{"parent":"corviknight","pivot":[0,32,0]},"corviknight":{"pivot":[0,-1.5,0]}}}],
+  "cobblemon:bedrock/pokemon/models/0373_salamence/salamencemega.geo.json": [{"bone":{"locators":{"seat_2":[0,22,9.5]},"name":"locator_seat_2","parent":"waist","pivot":[0,22,9.5]},"ancestors":{"waist":{"parent":"torso","pivot":[0,11.5,9.5]},"torso":{"parent":"body","pivot":[0,12,15],"rotation":[-5,0,0]},"body":{"parent":"salamence","pivot":[0,16.5,0]},"salamence":{"pivot":[0,0,0]}}}],
+  "cobblemon:bedrock/pokemon/models/0009_blastoise/blastoise.geo.json": [{"bone":{"locators":{"seat_2":[0,27,18]},"name":"locator_seat_water_1","parent":"shell","pivot":[0,27,18]},"ancestors":{"shell":{"parent":"torso","pivot":[-4,21,10],"rotation":[10,0,0]},"torso":{"parent":"body2","pivot":[0,14,0]},"body2":{"parent":"body","pivot":[0,24,2]},"body":{"parent":"blastoise","pivot":[0,24,2]},"blastoise":{"pivot":[0,0,0]}}}],
+  "cobblemon:bedrock/pokemon/models/0009_blastoise/gmaxblastoise.geo.json": [{"bone":{"name":"locator_seat_water2","parent":"shell","pivot":[0,27,18],"locators":{"seat_2":[0,27,18]}},"ancestors":{"shell":{"parent":"torso","pivot":[-4,21,10],"rotation":[10,0,0]},"torso":{"parent":"body2","pivot":[0,14,0]},"body2":{"parent":"body","pivot":[0,24,2]},"body":{"parent":"blastoise","pivot":[0,24,2]},"blastoise":{"pivot":[0,0,0]}}}]
 }

@@ -10,6 +10,7 @@ import com.johnn.realtimecobblemon.moves.Decoys;
 import com.johnn.realtimecobblemon.moves.Experience;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaPokemonHealth;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import com.p1nero.cobblemon.rumblecore.prologue.SquadQuest;
 import net.minecraft.core.particles.ParticleTypes;
@@ -63,7 +64,7 @@ public final class WildCapture {
             var pokemon = event.getPokemon();
             // Cobblemon emits this after adding the caught Pokémon to the party or PC.
             if (player.getUUID().equals(pokemon.getOwnerUUID())) {
-                pokemon.setCurrentHealth(pokemon.getMaxHealth());
+                ArenaPokemonHealth.apply(pokemon, 1);
                 SquadQuest.captured(player);
             }
         });

@@ -180,7 +180,6 @@ public final class PrologueWorld {
         ServerLevel level = player.server.getLevel(GYMS);
         if (level == null) return false;
         player.teleportTo(level, ARRIVAL.getX() + 0.5, ARRIVAL.getY(), ARRIVAL.getZ() + 0.5, -135, 0);
-        player.setRespawnPosition(level.dimension(), ARRIVAL, -135, true, false);
         return player.serverLevel() == level;
     }
 }

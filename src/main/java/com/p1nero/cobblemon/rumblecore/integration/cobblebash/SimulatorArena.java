@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.integration.cobblebash;
 
+import com.cobblemon.mod.common.entity.npc.NPCEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.nore.cobblebash.Config;
 import com.nore.cobblebash.command.GymCommand;
@@ -31,6 +32,7 @@ public final class SimulatorArena {
         List<Pokemon> roster = Arrays.stream(registered.getTeam()).filter(Objects::nonNull).toList();
         if (roster.isEmpty()) return false;
         var npc = registered.getEntity();
+        var appearance = SimulatorTrainerAppearance.capture(npc);
         int stage = instance.getTrainerStage();
         boolean champion = gym.equals("elite4_champion");
         var member = EliteFourMember.fromTrainerGymType(gym);
@@ -40,6 +42,7 @@ public final class SimulatorArena {
         return ArenaMatch.challengeStory(player, new ArenaMatch.StoryChallenge() {
             @Override public List<GymCatalog.Actor> actors() { return List.of(actor); }
             @Override public ArenaTheme arena(ServerPlayer player) { return ArenaTheme.gym(gym); }
+            @Override public void configureTrainer(NPCEntity trainer) { appearance.applyTo(trainer); }
             @Override public boolean canSkip() { return false; }
             @Override public boolean usesGymMusic() { return true; }
             @Override public boolean eligible(ServerPlayer player) {

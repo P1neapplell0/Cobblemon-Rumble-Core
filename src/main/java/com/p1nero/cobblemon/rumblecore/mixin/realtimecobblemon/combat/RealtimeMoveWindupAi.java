@@ -3,13 +3,16 @@ package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.moves.Brawl;
+import com.johnn.realtimecobblemon.moves.MoveInfo;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import java.util.List;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,6 +24,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = Brawl.class, remap = false)
 abstract class RealtimeMoveWindupAi {
+    @WrapOperation(method = "land(Lcom/johnn/realtimecobblemon/moves/Brawl$Foe;Lcom/johnn/realtimecobblemon/Smash$Session;"
+            + "Lnet/minecraft/server/level/ServerLevel;Lcom/johnn/realtimecobblemon/moves/MoveInfo;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;ZF)F",
+            at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/MoveEngine;receive(Lcom/johnn/realtimecobblemon/Smash$Session;Lnet/minecraft/world/damagesource/DamageSource;FLcom/johnn/realtimecobblemon/moves/MoveInfo;)F"))
+    private static float rumble$scaleLegendaryDamage(Smash.Session defender, DamageSource source, float damage,
+                                                     MoveInfo move, Operation<Float> original) {
+        if (source.getEntity() instanceof PokemonEntity attacker && ArenaMatch.isLegendaryFoe(attacker)) damage *= 1.5F;
+        return original.call(defender, source, damage, move);
+    }
+
     // Reuse Brawl's stun branch so an interrupted action is reset instead of firing late.
     @WrapOperation(method = "tick", at = @At(value = "INVOKE", target =
             "Lcom/johnn/realtimecobblemon/moves/Conditions;stunned(Lnet/minecraft/world/entity/Entity;)Z"))

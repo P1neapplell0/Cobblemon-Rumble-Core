@@ -256,7 +256,10 @@ public final class PrologueStory {
         if (!(event.getEntity() instanceof ServerPlayer player) || !player.isAlive()) return;
         if (player.tickCount % 20 == 0) TrainerGrowth.update(player);
         // Initial position is applied once, after login/recovery hooks have restored the player.
-        if (!PrologueWorld.ARRIVED.get(player) && PrologueWorld.arrive(player)) PrologueWorld.ARRIVED.markTrue(player);
+        if (!PrologueWorld.ARRIVED.get(player) && PrologueWorld.arrive(player)) {
+            player.setRespawnPosition(player.serverLevel().dimension(), PrologueWorld.ARRIVAL, -135, true, false);
+            PrologueWorld.ARRIVED.markTrue(player);
+        }
         Runnable next = AFTER_DIALOGUE.get(player);
         if (next != null && !DialogueSessionManager.INSTANCE.isInDialogue(player)) {
             AFTER_DIALOGUE.remove(player);

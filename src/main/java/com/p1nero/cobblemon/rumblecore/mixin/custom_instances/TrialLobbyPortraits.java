@@ -45,17 +45,13 @@ abstract class TrialLobbyPortraits extends FantasyScreen {
             }
             return;
         }
-        int size = 24, count = trial.foes().size(), right = left + panelWidth - 9;
-        int portraitsX = right - count * (size + 2);
-        var name = font.substrByWidth(title, Math.max(12, portraitsX - left - 15)).getString();
+        int size = 24, x = left + panelWidth - 9 - size, y = top + 4;
+        var name = font.substrByWidth(title, Math.max(12, x - left - 15)).getString();
         graphics.drawString(font, name, left + 9, top + 5, OreTheme.TEXT, false);
-        graphics.drawString(font, Component.translatable("rumble.legendary.count", count), left + 9, top + 17, OreTheme.COINS, false);
-        for (int i = 0; i < count; i++) {
-            var foe = trial.foes().get(i);
-            int x = portraitsX + i * (size + 2), y = top + 4;
-            OreTheme.well(graphics, x, y, size, size);
-            rumble$portraits.render(graphics, foe.speciesId(), foe.aspects(), x, y, size, 0);
-        }
+        graphics.drawString(font, Component.translatable("rumble.legendary.boss_stats"), left + 9, top + 17, OreTheme.COINS, false);
+        var foe = trial.foe();
+        OreTheme.well(graphics, x, y, size, size);
+        rumble$portraits.render(graphics, foe.speciesId(), foe.aspects(), x, y, size, 0);
         ci.cancel();
     }
 }

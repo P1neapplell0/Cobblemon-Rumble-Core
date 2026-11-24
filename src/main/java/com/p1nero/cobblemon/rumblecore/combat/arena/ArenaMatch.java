@@ -159,6 +159,7 @@ public final class ArenaMatch extends InstanceSession {
         default UUID megaLessonLead() { return null; }
         default UUID teraLessonLead() { return null; }
         default ArenaTheme arena(ServerPlayer player) { return ArenaTheme.DEFAULT; }
+        default void configureTrainer(NPCEntity npc) { }
         default void closed() { }
         default boolean canSkip() { return true; }
         default boolean usesGymMusic() { return false; }
@@ -471,8 +472,8 @@ public final class ArenaMatch extends InstanceSession {
                     Component.translatable("rumble.arena.intro.mega_name", Component.translatable(megaTrial.speciesKey()),
                             Component.translatable("rumble.mega.form." + megaTrial.form())), List.copyOf(megaTrial.aspects()));
         } else if (legendary != null) {
-            var lead = legendary.foes().getFirst();
-            boss = ArenaIntro.Portrait.pokemon(lead.speciesId(), Component.translatable(lead.speciesKey()), List.copyOf(lead.aspects()));
+            var lead = legendary.foe();
+            boss = ArenaIntro.Portrait.pokemon(lead.speciesId(), Component.translatable(legendary.titleKey()), List.copyOf(lead.aspects()));
         } else if (!opponents.isEmpty()) {
             var lead = opponents.getFirst();
             Component name = lead.name();
@@ -629,27 +630,26 @@ public final class ArenaMatch extends InstanceSession {
         readyForBattle(server);
     }
 
-    private void spawnLegendaryFoes() {
-        int count = legendary.foes().size();
-        for (int i = 0; i < count; i++) {
-            var foe = legendary.foes().get(i);
-            var at = GYM_EAST_LEAD.add(0, 0, (i - (count - 1) / 2.0) * 9);
-            PokemonEntity body = foe.create(legendary.id()).sendOut(getLevel(), at, null, mon -> {
-                mon.setYRot(90);
-                mon.setYBodyRot(90);
-                mon.setYHeadRot(90);
-                mon.setPersistenceRequired();
-                mon.getEntityData().set(PokemonEntity.getUNBATTLEABLE(), true);
-                return Unit.INSTANCE;
-            });
-            if (body == null || body.isRemoved()) throw new IllegalStateException("Failed to deploy " + foe.species());
-            wildFoes.add(body);
-            var health = body.getAttribute(Attributes.MAX_HEALTH);
-            if (health != null && team.size() > 1) health.addTransientModifier(new AttributeModifier(
-                    PrologueWorld.id("legendary_team_health"), team.size() - 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-            body.setHealth(body.getMaxHealth());
-            Brawl.train(body, Brawl.Difficulty.HARD);
-        }
+    private void spawnLegendaryFoe() {
+        var foe = legendary.foe();
+        var pokemon = foe.create(legendary.id());
+        // RTC normalizes incoming damage against the Pokémon's own HP, not just the entity attribute.
+        ArenaPokemonHealth.apply(pokemon, 2);
+        PokemonEntity body = pokemon.sendOut(getLevel(), GYM_EAST_LEAD, null, mon -> {
+            mon.setYRot(90);
+            mon.setYBodyRot(90);
+            mon.setYHeadRot(90);
+            mon.setPersistenceRequired();
+            mon.getEntityData().set(PokemonEntity.getUNBATTLEABLE(), true);
+            return Unit.INSTANCE;
+        });
+        if (body == null || body.isRemoved()) throw new IllegalStateException("Failed to deploy " + foe.species());
+        wildFoes.add(body);
+        var health = body.getAttribute(Attributes.MAX_HEALTH);
+        if (health != null) health.addTransientModifier(new AttributeModifier(
+                PrologueWorld.id("legendary_boss_health"), 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+        body.setHealth(body.getMaxHealth());
+        Brawl.train(body, Brawl.Difficulty.HARD);
     }
 
     private static double laneOffset(int index) {
@@ -699,6 +699,7 @@ public final class ArenaMatch extends InstanceSession {
             } else {
                 npc = GymStory.newTrainer(level, actor, EAST.add(0, 0, lane), 90);
                 npc.setNoAi(true);
+                if (match.setup != null && match.setup.story() != null) match.setup.story().configureTrainer(npc);
                 var party = new NPCPartyStore(npc);
                 npc.setParty(party);
                 for (Pokemon pokemon : roster) {
@@ -793,11 +794,11 @@ public final class ArenaMatch extends InstanceSession {
             body = null; // Disarm targeting and permit Cobblemon's native recall event.
             oldBody.setNoAi(true);
             oldBody.getNavigation().stop();
-            npc.setInvisible(false);
             if (npc == null) {
                 roster.get(index).recall();
                 nextSend = now + 20;
             } else {
+                npc.setInvisible(false);
                 recalling = roster.get(index);
                 if (!oldBody.isRemoved()) oldBody.recallWithAnimation();
                 nextSend = now + RECALL_TICKS;
@@ -991,7 +992,7 @@ public final class ArenaMatch extends InstanceSession {
                 for (int slot = 0; slot < roster.size(); slot++) {
                     Vec3 position = CENTER.add(radial.scale(12)).add(tangent.scale((slot - (roster.size() - 1) / 2.0) * 8));
                     var pokemon = roster.get(slot).create(trial.id());
-                    CinemaHealth.apply(pokemon, trial.healthScale(faction));
+                    ArenaPokemonHealth.apply(pokemon, trial.healthScale(faction));
                     var member = players.get(new Role(faction, slot));
                     if (member != null) {
                         var player = server.getPlayerList().getPlayer(member);
@@ -1394,7 +1395,7 @@ public final class ArenaMatch extends InstanceSession {
         if (!fighting) {
             standing.forEach(this::sendIn);
             if (standing.stream().anyMatch(f -> !Smash.active(f.player))) return;
-            spawnLegendaryFoes();
+            spawnLegendaryFoe();
             fighting = true;
         }
         if (!capturePhase) {

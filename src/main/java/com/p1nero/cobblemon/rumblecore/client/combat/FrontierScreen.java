@@ -1174,7 +1174,7 @@ public final class FrontierScreen extends Screen {
                 card(g, bx, at, cell - 2, stride - 2, CYAN, hover);
                 int size = Math.min(29, cell - 6);
                 var species = ResourceLocation.tryParse(choice.id);
-                if (species != null) portraits.draw(g, species, Set.of(), bx + (cell - 2 - size) / 2, at + 2, size, dt);
+                if (species != null) portraits.render(g, species, Set.of(), bx + (cell - 2 - size) / 2, at + 2, size, dt);
                 center(g, font, choice.name, bx + (cell - 2) / 2, at + stride - 15, cell - 8, TEXT);
             } else {
                 var stack = itemStack(ResourceLocation.tryParse(choice.id));

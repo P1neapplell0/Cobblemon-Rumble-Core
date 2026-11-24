@@ -14,7 +14,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -51,11 +50,18 @@ public final class LegendaryTrials {
         }
     }
 
-    public record Trial(String id, int generation, ArenaTheme arena, List<Foe> foes) {
+    public record Trial(String id, int generation, ArenaTheme arena, Foe foe) {
         public String template() { return PREFIX + id; }
         public ResourceLocation quest() { return PrologueWorld.id("legendary/" + id); }
-        public String titleKey() { return "rumble.legendary.trial." + id; }
-        public boolean supported() { return foes.stream().allMatch(Foe::supported); }
+        public String titleKey() {
+            String form = foe.aspect();
+            if (form.equals("-")) {
+                if (!foe.species().equals("urshifu")) return foe.speciesKey();
+                form = "single_strike-style";
+            }
+            return "rumble.legendary.form_trial." + foe.species() + "." + form;
+        }
+        public boolean supported() { return foe.supported(); }
     }
 
     public static List<Trial> all() { return List.copyOf(TRIALS.values()); }
@@ -78,16 +84,12 @@ public final class LegendaryTrials {
                     var moves = List.of(c[7].split(","));
                     if (!c[0].matches("[a-z0-9_]+") || gen < 1 || gen > 9 || level < 1 || level > 100
                             || moves.size() != 4 || Set.copyOf(moves).size() != 4) throw new IllegalArgumentException("invalid roster");
-                    var trial = building.computeIfAbsent(c[0], id -> new Trial(id, gen, arena, new ArrayList<>()));
                     var foe = new Foe(c[3], c[4], level, c[6], moves);
-                    if (trial.generation() != gen || trial.arena() != arena || trial.foes().size() >= 4
-                            || trial.foes().stream().anyMatch(f -> f.species().equals(foe.species()) && f.aspect().equals(foe.aspect())))
-                        throw new IllegalArgumentException("inconsistent encounter or duplicate foe");
-                    trial.foes().add(foe);
+                    if (building.putIfAbsent(c[0], new Trial(c[0], gen, arena, foe)) != null)
+                        throw new IllegalArgumentException("duplicate trial ID");
                 } catch (RuntimeException e) { throw new IllegalStateException("Invalid legendary_trials.tsv at row " + row, e); }
             }
         } catch (IOException e) { throw new IllegalStateException("Cannot read legendary_trials.tsv", e); }
-        building.replaceAll((id, trial) -> new Trial(id, trial.generation(), trial.arena(), List.copyOf(trial.foes())));
         return Collections.unmodifiableMap(building);
     }
 
@@ -98,7 +100,7 @@ public final class LegendaryTrials {
                     InstanceDefinition.VictoryType.CUSTOM, trial.template(), "", trial.arena().available().chunks())
                     .withDimensionSettings(base.dimensionSettings())
                     .withPresentation("cobblemon:master_ball", "", "{rumble.legendary.objective}");
-            int coins = 50_000 + (trial.foes().size() - 1) * 30_000;
+            int coins = 50_000;
             definition = definition.withRewards(List.of(RewardDefinition.custom("{rumble.mega.reward} " + coins,
                     "cobbledollars give @s " + coins)));
             store.save(definition);

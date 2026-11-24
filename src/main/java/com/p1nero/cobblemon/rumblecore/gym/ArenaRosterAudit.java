@@ -39,7 +39,7 @@ public final class ArenaRosterAudit {
         for (var id : MegaTrials.ids()) check(id, MegaTrials.get(id).actor().team(), true);
         for (var trial : LegendaryTrials.all()) {
             if (!trial.supported()) { unavailable(trial.id()); continue; }
-            check(trial.id(), () -> trial.foes().stream().map(foe -> foe.create(trial.id())).toList(), true);
+            check(trial.id(), () -> List.of(trial.foe().create(trial.id())), true);
         }
         for (var trial : CinemaTrials.all()) {
             if (!trial.supported()) { unavailable(trial.id()); continue; }
