@@ -4,6 +4,7 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.MoveCombat;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.SmashConfig;
+import com.johnn.realtimecobblemon.duel.Duels;
 import com.johnn.realtimecobblemon.moves.Conditions;
 import com.johnn.realtimecobblemon.moves.MoveEngine;
 import com.johnn.realtimecobblemon.moves.MoveInfo;
@@ -12,6 +13,7 @@ import com.johnn.realtimecobblemon.moves.MoveStyle;
 import com.johnn.realtimecobblemon.moves.Pops;
 import com.johnn.realtimecobblemon.network.SmashPayloads;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat.ConditionTimers;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -146,7 +148,7 @@ public final class RealtimeMoveWindup {
 
     private static com.cobblemon.mod.common.api.moves.Move npcLearnedMove(PokemonEntity pokemon, MoveInfo info) {
         return pokemon.getPokemon().getMoveSet().getMoves().stream()
-                .filter(move -> move.getName().equals(info.id())).findFirst().orElse(null);
+                .filter(move -> RealtimeSignatureMoves.usesSlot(pokemon.getPokemon(), move, info)).findFirst().orElse(null);
     }
 
     /** Returns the duration to schedule the cast for, or zero if the cast was rejected. */
@@ -207,9 +209,13 @@ public final class RealtimeMoveWindup {
     private static void warn(ServerLevel level, PokemonEntity pokemon, ServerPlayer caster, int ticks, boolean melee) {
         Vec3 at = pokemon.position().add(0.0, pokemon.getBbHeight() + 0.2, 0.0);
         var pop = new SmashPayloads.Pop(pokemon.getId(), at.x, at.y, at.z, "!", 0xFFD43B, Pops.WORD_BIG, ticks);
+        var arena = caster == null ? null : ArenaMatch.pvpWarningGroup(caster);
+        var duel = caster == null || arena != null ? null : Duels.groupOf(caster);
         for (ServerPlayer viewer : level.players()) {
-            if (viewer == caster || viewer.distanceToSqr(pokemon) <= WARNING_RADIUS * WARNING_RADIUS) {
-                Smash.send(viewer, pop);
+            boolean nearby = viewer == caster || viewer.distanceToSqr(pokemon) <= WARNING_RADIUS * WARNING_RADIUS;
+            if (nearby) Smash.send(viewer, pop);
+            if (nearby || (arena != null && ArenaMatch.pvpWarningGroup(viewer) == arena)
+                    || (duel != null && Duels.groupOf(viewer) == duel)) {
                 Smash.send(viewer, new RealtimeMoveWindupPacket(viewer == caster ? ticks : 0, melee));
             }
         }

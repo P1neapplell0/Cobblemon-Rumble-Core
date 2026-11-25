@@ -279,6 +279,7 @@ public final class FrontierRooms {
                     .map(StringTag::valueOf).forEach(moves::add);
             result.putString("learnset", id.toString());
             result.put("moves", moves);
+            result.put("initialPick", encode(FrontierRoster.initialPick(species)));
             PacketDistributor.sendToPlayer(player, new View(result));
             return;
         }

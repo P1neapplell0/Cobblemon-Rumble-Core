@@ -13,6 +13,7 @@ import com.johnn.realtimecobblemon.moves.MoveStyle;
 import com.johnn.realtimecobblemon.moves.Pops;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeAiDamage;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeSignatureMoves;
 import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat.CinemaMoveAccess;
 import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat.CinemaSoundAccess;
 import java.util.ArrayList;
@@ -41,7 +42,8 @@ final class CinemaAi {
 
     CinemaAi(PokemonEntity pokemon) {
         this.pokemon = pokemon;
-        moves = pokemon.getPokemon().getMoveSet().getMoves().stream().map(MoveRegistry::info)
+        moves = pokemon.getPokemon().getMoveSet().getMoves().stream()
+                .map(move -> RealtimeSignatureMoves.resolve(pokemon.getPokemon(), move, MoveRegistry.info(move)))
                 .filter(info -> !info.isStatus() && info.power() > 0).map(info -> {
                     var style = MoveRegistry.style(info);
                     return new Move(info, style, Math.max(2, Math.max(style.range(), style.radius())));

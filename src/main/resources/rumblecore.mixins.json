@@ -12,7 +12,6 @@
     "custom_instances.HallCompletionLimit",
     "custom_instances.GymInstanceRules",
     "custom_instances.GymSpectatorMode",
-
     "custom_instances.GymRosterNetwork",
     "custom_instances.SoloBestRecords",
     "custom_instances.TeamDpsRecords",
@@ -39,9 +38,6 @@
     "cobblemon.combat.RealtimeFaintBody",
     "cobblemon.combat.RealtimeFaintHealthSync",
     "cobblemon.combat.RealtimeKnockoutPhysics",
-
-
-
     "cobblemon.combat.ChallengeStartsRealtime",
     "cobblemon.combat.CobblemonDefaults",
     "cobblemon.combat.SendOutSessionCleanup",
@@ -145,6 +141,9 @@
     "realtimecobblemon.combat.ArenaIntegration$Rules",
     "realtimecobblemon.combat.ArenaIntegration$Mega",
     "mega_showdown.ArenaMegaEvolution",
+    "realtimecobblemon.combat.FightingAccess",
+    "realtimecobblemon.combat.RealtimeDrainingKiss",
+    "realtimecobblemon.combat.RealtimeGrabTargetFeedback",
     "realtimecobblemon.combat.ArenaIntegration$Session",
     "realtimecobblemon.combat.ArenaIntegration$TrainerAI",
     "realtimecobblemon.combat.ArenaIntegration$Targets",
@@ -161,6 +160,7 @@
     "minecraft.KnockoutCamera",
     "minecraft.KnockoutCamera$RotationAccess",
     "minecraft.RealtimeImpactRender",
+    "realtimecobblemon.combat.RealtimeBattleSoundListener",
     "realtimecobblemon.combat.RealtimeBeamClashHud",
     "minecraft.ArenaEnemyOutline",
     "realtimecobblemon.combat.RealtimeMoveWindupClientTick",
@@ -245,17 +245,16 @@
     "realtimecobblemon.combat.RealtimeKnockoutClient",
     "realtimecobblemon.combat.KnockoutTumble",
     "realtimecobblemon.combat.KnockoutCameraShake",
-
-
     "realtimecobblemon.GlideRenderAccess",
     "realtimecobblemon.SquashRenderAccess",
     "realtimecobblemon.combat.BattleCameraInterpolation",
     "realtimecobblemon.combat.OrbitFlightMovement",
     "realtimecobblemon.combat.StoryActorLockOn",
-
     "realtimecobblemon.combat.SubpixelBattleReticle",
     "realtimecobblemon.localization.ClientTextSites",
-    "cobblemon.combat.SingleChallengeScreen"
+    "cobblemon.combat.SingleChallengeScreen",
+    "cobblemon.client.MoveSwapRealtimeShape",
+    "cobblemon.client.MoveSlotWidgetRealtimeShape"
   ],
   "injectors": {
     "defaultRequire": 1

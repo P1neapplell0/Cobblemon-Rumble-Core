@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
+import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.moves.Brawl;
@@ -11,6 +12,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeSignatureMoves;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import java.util.List;
 import net.minecraft.server.level.ServerLevel;
@@ -35,6 +37,12 @@ abstract class RealtimeMoveWindupAi {
                                                      MoveInfo move, Operation<Float> original) {
         if (source.getEntity() instanceof PokemonEntity attacker && ArenaMatch.isLegendaryFoe(attacker)) damage *= 1.5F;
         return original.call(defender, source, damage, move);
+    }
+
+    @WrapOperation(method = "picks", at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/MoveRegistry;info(Lcom/cobblemon/mod/common/api/moves/Move;)Lcom/johnn/realtimecobblemon/moves/MoveInfo;"))
+    private static MoveInfo rumble$heldItemMove(Move move, Operation<MoveInfo> original, PokemonEntity pokemon) {
+        return RealtimeSignatureMoves.resolve(pokemon.getPokemon(), move, original.call(move));
     }
 
     // Reuse Brawl's stun branch so an interrupted action is reset instead of firing late.

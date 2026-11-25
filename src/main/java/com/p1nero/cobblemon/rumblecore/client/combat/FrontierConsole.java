@@ -81,27 +81,41 @@ final class FrontierConsole {
         g.blit(NATIVE_MOVE_TINT, x, y, w, h, 0, 0, 91, 18, 91, 18);
         typeIcon(g, move.getElementalType(), x + 4, y + (h - 14) / 2, 14);
         new MoveCategoryIcon(x + w - 16, y + (h - 9) / 2., move.getDamageCategory(), 1).render(g);
-        text(g, font, move.getDisplayName(), x + 22, y + (h - 8) / 2, w - 41, TEXT);
+        moveLabel(g, font, RealtimeMoveShapeUi.displayNameWithShape(move), x + 22, y + (h - 8) / 2, Math.max(1, w - 42), TEXT);
     }
 
     static void summaryMoveDetails(GuiGraphics g, Font font, MoveTemplate move, int x, int anchorY, int width, int screenHeight) {
         int pad = 8;
         var description = font.split(move.getDescription(), width - 2 * pad);
-        int panelH = Math.min(screenHeight - 8, Math.max(69, 46 + description.size() * 10));
+        var realtimeShape = RealtimeMoveShapeUi.shapeDescription(move);
+        int shapeLines = 1 + font.split(realtimeShape, width - 2 * pad).size();
+        int panelH = Math.min(screenHeight - 8, Math.max(69, 46 + (description.size() + shapeLines) * 10));
         int y = Math.clamp(anchorY, 4, Math.max(4, screenHeight - panelH - 4));
         g.blit(MOVE_INFO, x, y, width, panelH, 0, 0, 96, 98, 96, 98);
         // An opaque center keeps localized descriptions legible over the underlying team cards.
         g.fill(x + 3, y + 3, x + width - 3, y + panelH - 3, 0xff1b2224);
         typeIcon(g, move.getElementalType(), x + pad, y + 8, 15);
         new MoveCategoryIcon(x + width - 20, y + 11, move.getDamageCategory(), 1).render(g);
-        text(g, font, move.getDisplayName().copy().withStyle(net.minecraft.ChatFormatting.BOLD), x + pad + 19, y + 11, width - 48, TEXT);
+        moveLabel(g, font, RealtimeMoveShapeUi.displayNameWithShape(move).withStyle(net.minecraft.ChatFormatting.BOLD), x + pad + 19, y + 11, width - 48, TEXT);
         summaryStat(g, font, asset("summary_moves_icon_power"), x + pad, y + 28,
                 move.getPower() > 0 ? Integer.toString((int) move.getPower()) : "—");
         summaryStat(g, font, asset("summary_moves_icon_accuracy"), x + pad + (width - 2 * pad) / 3, y + 28,
                 move.getAccuracy() > 0 ? (int) move.getAccuracy() + "%" : "—");
         g.drawString(font, "PP " + move.getPp(), x + pad + 2 * (width - 2 * pad) / 3, y + 29, GOLD, false);
-        for (int i = 0; i < description.size() && 51 + i * 10 < panelH; i++) {
-            g.drawString(font, description.get(i), x + pad, y + 43 + i * 10, TEXT, false);
+        int lineY = y + 43;
+        for (int i = 0; i < description.size() && lineY < y + panelH - 4; i++, lineY += 10) {
+            g.drawString(font, description.get(i), x + pad, lineY, TEXT, false);
+        }
+        // Frontier's existing move card owns this hover panel; keep RTC's type
+        // explanation inside it instead of drawing a second tooltip above it.
+        if (lineY < y + panelH - 4) {
+            g.drawString(font, RealtimeMoveShapeUi.shapeLabel(move), x + pad, lineY, 0xffd8b9ff, false);
+            lineY += 10;
+            for (var line : font.split(realtimeShape, width - 2 * pad)) {
+                if (lineY >= y + panelH - 4) break;
+                g.drawString(font, line, x + pad, lineY, 0xffc5cbd6, false);
+                lineY += 10;
+            }
         }
     }
 
@@ -145,6 +159,18 @@ final class FrontierConsole {
         var id = seat.getUUID("player");
         var player = connection == null ? null : connection.getPlayerInfo(id);
         PlayerFaceRenderer.draw(g, player == null ? DefaultPlayerSkin.get(id) : player.getSkin(), x, y, size);
+    }
+
+    /** Keep names and their suffixes together on narrow preset cards. */
+    static void moveLabel(GuiGraphics g, Font font, Component label, int x, int y, int max, int color) {
+        if (max < 1) return;
+        float scale = Math.min(1F, (float) max / Math.max(1, font.width(label)));
+        g.pose().pushPose();
+        try {
+            g.pose().translate(x, y + (1F - scale) * font.lineHeight / 2F, 0);
+            g.pose().scale(scale, scale, 1);
+            g.drawString(font, label, 0, 0, color, false);
+        } finally { g.pose().popPose(); }
     }
 
     static void text(GuiGraphics g, Font font, Component label, int x, int y, int max, int color) {

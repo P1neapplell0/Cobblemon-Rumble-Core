@@ -24,10 +24,11 @@ public final class RealtimeMoveWindupClient {
         if (mc.level == null || mc.player == null) return;
         // Keep the cue non-positional for reliable audibility, while distinguishing our cast from threats.
         boolean ownCast = ticks > 0;
-        SoundEvent sound = melee ? SoundEvents.IRON_GOLEM_ATTACK
-                : (ownCast ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.AMETHYST_BLOCK_CHIME);
-        float pitch = melee ? (ownCast ? 1.65F : 1.15F) : 1.1F;
-        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, pitch, ownCast ? 0.9F : 0.82F));
+        SoundEvent sound = melee
+                ? (ownCast ? SoundEvents.IRON_GOLEM_ATTACK : SoundEvents.NOTE_BLOCK_SNARE.value())
+                : (ownCast ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.NOTE_BLOCK_BELL.value());
+        float pitch = melee && ownCast ? 1.65F : ownCast ? 1.1F : 0.9F;
+        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, pitch, ownCast ? 0.9F : 1.0F));
         if (ticks > 0) {
             caster = mc.player;
             level = mc.level;

@@ -2209,6 +2209,11 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static ArenaMatch inArena(ServerPlayer p) { return InstanceApi.find(p).orElse(null) instanceof ArenaMatch match ? match : null; }
+    public static ArenaMatch pvpWarningGroup(ServerPlayer player) {
+        var match = inArena(player);
+        return match != null && (match.b != null && !match.partyBattle() || match.teamGame != null)
+                && match.fighter(player) != null ? match : null;
+    }
     public static boolean inFrontier(ServerPlayer p) { var match = inArena(p); return match != null && (match.frontier != null || match.teamGame != null); }
     public static boolean inGimmickLesson(ServerPlayer player) {
         var match = inArena(player);

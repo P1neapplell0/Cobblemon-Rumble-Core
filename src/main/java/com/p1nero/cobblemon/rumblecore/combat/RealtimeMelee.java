@@ -8,6 +8,7 @@ import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import java.util.Comparator;
 import java.util.List;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
@@ -35,6 +36,12 @@ public final class RealtimeMelee {
                 .orElse(null);
         if (target == null) return new Aim(null, look, Vec3.ZERO, 0);
         Vec3 direction = direction(session, target, look);
+        // When aim assist acquired an unlocked target, rotate the actual controlled
+        // Pokemon as well as the attack vector. Otherwise the hit lands toward the
+        // target while the model keeps facing the player's cursor.
+        if (lock == null && direction.horizontalDistanceSqr() > 1.0e-5) {
+            faceControlledPokemon(session, direction);
+        }
         // The acquisition window deliberately extends beyond reach + step: a pursuit can still whiff.
         double reach = effectiveReach(body, target.getBoundingBox());
         boolean outOfReach = gap(body, target.getBoundingBox()) > reach;
@@ -45,6 +52,18 @@ public final class RealtimeMelee {
             movement = Vec3.ZERO;
         }
         return new Aim(target, direction, movement, Math.max(0, gap(body, target.getBoundingBox()) - .18));
+    }
+
+    private static void faceControlledPokemon(Smash.Session session, Vec3 direction) {
+        float yaw = (float) (Mth.atan2(-direction.x, direction.z) * (180.0 / Math.PI));
+        var pokemon = session.pokemon;
+        pokemon.setYRot(yaw);
+        pokemon.setYHeadRot(yaw);
+        pokemon.setYBodyRot(yaw);
+        // Keep interpolation from showing a one-frame snap back to the old aim.
+        pokemon.yRotO = yaw;
+        pokemon.yHeadRotO = yaw;
+        pokemon.yBodyRotO = yaw;
     }
 
     public static Vec3 direction(Smash.Session session, LivingEntity target, Vec3 fallback) {

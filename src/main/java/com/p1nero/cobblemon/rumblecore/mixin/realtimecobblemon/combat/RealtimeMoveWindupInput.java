@@ -9,6 +9,7 @@ import com.johnn.realtimecobblemon.moves.MoveInfo;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeSignatureMoves;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -30,6 +31,12 @@ abstract class RealtimeMoveWindupInput {
         if (move.getCurrentPp() > 0) return;
         player.displayClientMessage(Component.translatable("rumble.realtime.no_pp", move.getDisplayName()), true);
         ci.cancel();
+    }
+
+    @WrapOperation(method = "use0", at = @At(value = "INVOKE", target =
+            "Lcom/johnn/realtimecobblemon/moves/MoveRegistry;info(Lcom/cobblemon/mod/common/api/moves/Move;)Lcom/johnn/realtimecobblemon/moves/MoveInfo;"))
+    private static MoveInfo rumble$heldItemMove(Move move, Operation<MoveInfo> original, @Local Smash.Session session) {
+        return RealtimeSignatureMoves.resolve(session.pokemon.getPokemon(), move, original.call(move));
     }
 
     // This is after validation and after the windup; cancelled casts never spend PP.

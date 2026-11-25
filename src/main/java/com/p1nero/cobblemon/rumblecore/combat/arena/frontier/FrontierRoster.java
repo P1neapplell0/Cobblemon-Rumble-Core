@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.combat.arena.frontier;
 
 import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.api.moves.MoveTemplate;
+import com.johnn.realtimecobblemon.moves.MoveRegistry;
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.pokemon.Pokemon;
@@ -74,7 +75,15 @@ public final class FrontierRoster {
     }
 
     public static Set<MoveTemplate> legalMoves(Species species) {
-        return species == null ? Set.of() : species.getStandardForm().getMoves().getAllLegalMoves();
+        if (species == null) return Set.of();
+        var supported = new LinkedHashSet<MoveTemplate>();
+        for (var move : species.getStandardForm().getMoves().getAllLegalMoves()) {
+            // String lookup uses RTC's current server datapack registry; the Move overload invents a fallback.
+            if (!STRUGGLE.getPath().equals(move.getName()) && MoveRegistry.info(move.getName()) != null) {
+                supported.add(move);
+            }
+        }
+        return supported;
     }
 
     private static MoveTemplate legalMove(Species species, String name) {
