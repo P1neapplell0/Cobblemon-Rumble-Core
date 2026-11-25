@@ -22,7 +22,7 @@ public final class ProfessorCatalogue {
     public static Shop create() {
         List<Category> shop = new ArrayList<>();
         add(shop, "balls",
-                200, "poke_ball", 600, "great_ball", 1200, "ultra_ball", 1000, "quick_ball", "dusk_ball", "timer_ball",
+                200, "poke_ball", "cobblemon_rumble_core:pokebrick", 600, "great_ball", 1200, "ultra_ball", 1000, "quick_ball", "dusk_ball", "timer_ball",
                 "repeat_ball", "net_ball", "dive_ball", "nest_ball", "heal_ball", "luxury_ball", "premier_ball");
         add(shop, "gems", 600, "normal_gem", "fire_gem", "water_gem", "electric_gem", "grass_gem", "ice_gem",
                 "fighting_gem", "poison_gem", "ground_gem", "flying_gem", "psychic_gem", "bug_gem", "rock_gem",

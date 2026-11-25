@@ -269,6 +269,19 @@ public final class FrontierRooms {
             notifyClosed(player.server, room, null, "expired");
             return;
         }
+        if ("learnset".equals(action)) {
+            var id = ResourceLocation.tryParse(command.getString("species"));
+            var species = id == null ? null : FrontierRoster.species(id);
+            if (species == null) return;
+            var result = new CompoundTag();
+            var moves = new ListTag();
+            FrontierRoster.legalMoves(species).stream().map(move -> move.getName()).sorted()
+                    .map(StringTag::valueOf).forEach(moves::add);
+            result.putString("learnset", id.toString());
+            result.put("moves", moves);
+            PacketDistributor.sendToPlayer(player, new View(result));
+            return;
+        }
         if ("list".equals(action)) { send(player, false); return; }
         if ("create".equals(action)) {
             var raw = command.getString("stake");

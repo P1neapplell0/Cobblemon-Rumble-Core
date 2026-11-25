@@ -2,5 +2,13 @@
   "pack": {
     "pack_format": 34,
     "description": "Cobblemon Rumble Core – Model Fixes"
+  },
+  "filter": {
+    "block": [
+      {
+        "namespace": "cobblemon",
+        "path": "bedrock/pokemon/resolvers/0774_minior/(0_minior_core|1_minior_meteor)\\.json"
+      }
+    ]
   }
 }

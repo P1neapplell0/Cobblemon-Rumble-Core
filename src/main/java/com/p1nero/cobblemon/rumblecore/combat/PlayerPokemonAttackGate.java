@@ -2,6 +2,8 @@ package com.p1nero.cobblemon.rumblecore.combat;
 
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
+import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
+import com.p1nero.cobblemon.rumblecore.item.PokeBrick;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.EventPriority;
@@ -21,10 +23,20 @@ public final class PlayerPokemonAttackGate {
     @SubscribeEvent(priority = EventPriority.HIGHEST, receiveCanceled = true)
     public static void onAttack(AttackEntityEvent event) {
         // 客户端仍发送攻击请求，由服务端统一拒绝并提示，避免两端重复提示。
-        if (event.getTarget() instanceof PokemonEntity
+        if (event.getTarget() instanceof PokemonEntity target
                 && event.getEntity() instanceof ServerPlayer player) {
+            boolean alreadyCanceled = event.isCanceled();
             // 在近战流程开始前取消，同时阻止击退、附魔着火等攻击副作用。
             event.setCanceled(true);
+            var held = player.getMainHandItem();
+            if (held.is(PokeBrick.ITEM.get())) {
+                if (!alreadyCanceled && WildCapture.tryBrickStun(player, target)) {
+                    held.consume(1, player);
+                } else {
+                    player.displayClientMessage(Component.translatable("rumble.combat.brick_stun_blocked"), true);
+                }
+                return;
+            }
             notifyTrainer(player);
         }
     }

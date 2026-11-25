@@ -51,6 +51,10 @@ public final class ArenaClient {
         var mc = Minecraft.getInstance();
         if (packet.roster().isEmpty()) {
             if (mc.screen instanceof Choose choose && choose.packet.match().equals(packet.match())) mc.setScreen(null);
+        } else if (mc.screen instanceof Choose choose && choose.packet.match().equals(packet.match())
+                && choose.packet.round() == packet.round() && packet.gymDeathsLeft() >= 0
+                && choose.gymDeathsLeft != packet.gymDeathsLeft()) {
+            choose.gymDeathsLeft = packet.gymDeathsLeft();
         } else {
             mc.setScreen(new Choose(packet));
         }
@@ -87,10 +91,12 @@ public final class ArenaClient {
         private final ArenaPackets.Switch packet;
         private BattleSwitchPokemonSelection selection;
         private boolean submitted;
+        private int gymDeathsLeft;
 
         Choose(ArenaPackets.Switch packet) {
             super(Component.translatable("rumble.arena.switch"));
             this.packet = packet;
+            this.gymDeathsLeft = packet.gymDeathsLeft();
         }
 
         @Override protected void init() {
@@ -121,8 +127,40 @@ public final class ArenaClient {
             }
         }
 
+        private int firstTileY() { return selection.getSlotPosition(0).getSecond().intValue(); }
+
+        private int rosterOffset() {
+            return selection == null || gymDeathsLeft < 0 ? 0 : Math.max(0, 35 - firstTileY());
+        }
+
         @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-            if (selection != null) selection.render(graphics, mouseX, mouseY, partialTick);
+            if (selection == null) return;
+            int offset = rosterOffset();
+            var pose = graphics.pose();
+            pose.pushPose();
+            pose.translate(0, offset, 0);
+            selection.render(graphics, mouseX, mouseY - offset, partialTick);
+            pose.popPose();
+            if (gymDeathsLeft < 0) return;
+
+            var title = Component.translatable("rumble.gym.deaths_left", gymDeathsLeft).withStyle(net.minecraft.ChatFormatting.BOLD);
+            int textWidth = font.width(title);
+            float scale = Math.min(2F, (width - 28F) / Math.max(1, textWidth));
+            int halfWidth = (int) Math.ceil(textWidth * scale / 2) + 8;
+            int x = width / 2, tileY = firstTileY() + offset;
+            int top = tileY - (int) Math.ceil(font.lineHeight * scale) - 13;
+            int color = gymDeathsLeft == 1 ? 0xFFFFAE75 : 0xFFFFE6A1;
+            graphics.fill(x - halfWidth, top, x + halfWidth, tileY - 6, 0xE819202D);
+            graphics.fill(x - halfWidth, tileY - 7, x + halfWidth, tileY - 6, color);
+            pose.pushPose();
+            pose.translate(x, top + 3, 0);
+            pose.scale(scale, scale, 1);
+            graphics.drawCenteredString(font, title, 0, 0, color);
+            pose.popPose();
+        }
+
+        @Override public boolean mouseClicked(double mouseX, double mouseY, int button) {
+            return super.mouseClicked(mouseX, mouseY - rosterOffset(), button);
         }
 
         @Override public void onClose() {

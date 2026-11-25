@@ -6,6 +6,10 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(value = Conditions.State.class, remap = false)
 public interface ConditionTimers {
+    @Accessor("status") String rumble$status();
+    @Accessor("status") void rumble$setStatus(String effect);
+
+    @Accessor("nextTick") long rumble$nextTick();
     @Accessor("statusUntil") long rumble$statusUntil();
     @Accessor("statusUntil") void rumble$expireStatus(long time);
     @Accessor("launchedUntil") long rumble$launchedUntil();

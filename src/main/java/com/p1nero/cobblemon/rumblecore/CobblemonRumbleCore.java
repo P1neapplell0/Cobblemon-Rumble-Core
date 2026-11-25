@@ -3,6 +3,9 @@ package com.p1nero.cobblemon.rumblecore;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.InstancePokemonDamage;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindupPacket;
+import com.p1nero.cobblemon.rumblecore.item.PokeBrick;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeImpactPacket;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeBeamClashPacket;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeReleaseAim;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaIntro;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
@@ -57,6 +60,7 @@ public final class CobblemonRumbleCore {
     public CobblemonRumbleCore(IEventBus modBus, ModContainer container) {
         container.registerConfig(ModConfig.Type.COMMON, RumbleConfig.SPEC);
         PhoneItems.register(modBus);
+        PokeBrick.register(modBus);
         MayMegaDevice.register(modBus);
         PersonalDimension.registerItems(modBus);
         PrologueWorld.initialize();
@@ -83,6 +87,8 @@ public final class CobblemonRumbleCore {
         modBus.addListener(MerchantPanels::register);
         modBus.addListener(BattleMusic::register);
         modBus.addListener(RealtimeMoveWindupPacket::register);
+        modBus.addListener(RealtimeImpactPacket::register);
+        modBus.addListener(RealtimeBeamClashPacket::register);
         modBus.addListener(RealtimeReleaseAim::register);
         modBus.addListener(QuestAcceptedNotice::register);
         modBus.addListener(PhoneSync::register);

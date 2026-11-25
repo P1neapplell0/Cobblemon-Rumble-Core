@@ -14,26 +14,26 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = TrainingSimulatorScreen.class, remap = false)
 abstract class SimulatorLessonHighlight extends AbstractContainerScreen<TrainingSimulatorMenu> {
-    @Shadow @Final private static int CARD_WIDTH;
-    @Shadow @Final private static int CARD_HEIGHT;
     @Shadow @Final private static int COLUMNS;
     @Shadow @Final private static int ROW_HEIGHT;
+    @Shadow @Final private static int MAX_SCROLL;
     @Shadow private double scrollOffset;
     @Shadow private double targetScrollOffset;
     @Shadow private int pendingChallenge;
-    @Shadow private int maxScrollPixels() { throw new AssertionError(); }
+    @Shadow private boolean canConfirm() { throw new AssertionError(); }
     @Unique private boolean rumble$positioned;
 
     private SimulatorLessonHighlight(TrainingSimulatorMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
     }
 
-    private boolean rumble$isLesson() {
+    @Unique private boolean rumble$isLesson() {
         return title.getContents() instanceof TranslatableContents content
                 && content.getKey().equals("rumble.simulator_test.lesson_title");
     }
@@ -42,20 +42,27 @@ abstract class SimulatorLessonHighlight extends AbstractContainerScreen<Training
     private void rumble$showRock(CallbackInfo ci) {
         if (!rumble$isLesson() || rumble$positioned) return;
         rumble$positioned = true;
-        scrollOffset = targetScrollOffset = Math.min(maxScrollPixels(), GymType.ROCK.ordinal() / COLUMNS * ROW_HEIGHT);
+        scrollOffset = targetScrollOffset = Math.min(MAX_SCROLL, GymType.ROCK.ordinal() / COLUMNS * ROW_HEIGHT);
     }
 
     @Inject(method = "drawGymCard", at = @At("TAIL"))
-    private void rumble$rock(GuiGraphics g, int index, int x, int y, int mouseX, int mouseY, CallbackInfo ci) {
+    private void rumble$rock(GuiGraphics g, int index, @Coerce Object card, boolean hovered, CallbackInfo ci) {
         if (rumble$isLesson() && pendingChallenge < 0 && index == GymType.ROCK.ordinal())
-            TutorialPulse.render(g, leftPos + x, topPos + y, CARD_WIDTH, CARD_HEIGHT);
+            rumble$pulse(g, card);
     }
 
-    @Inject(method = "drawDialogButton", at = @At("TAIL"))
-    private void rumble$confirm(GuiGraphics g, int x, int y, int width, Component label, boolean enabled,
+    @Inject(method = "drawButton", at = @At("TAIL"))
+    private void rumble$confirm(GuiGraphics g, @Coerce Object button, Component label, @Coerce Object style,
                                 int mouseX, int mouseY, CallbackInfo ci) {
-        if (rumble$isLesson() && enabled && pendingChallenge == GymType.ROCK.ordinal()
-                && label.getContents() instanceof TranslatableContents content && !content.getKey().equals("gui.cancel"))
-            TutorialPulse.render(g, leftPos + x, topPos + y, width, 20);
+        if (pendingChallenge == GymType.ROCK.ordinal() && rumble$isLesson()
+                && label.getContents() instanceof TranslatableContents content
+                && content.getKey().equals("screen.cobblebash_screen.simulator.enter") && canConfirm())
+            rumble$pulse(g, button);
+    }
+
+    @Unique private void rumble$pulse(GuiGraphics g, Object rect) {
+        var bounds = (SimulatorRectAccess) rect;
+        TutorialPulse.render(g, leftPos + bounds.rumble$x(), topPos + bounds.rumble$y(),
+                bounds.rumble$width(), bounds.rumble$height());
     }
 }

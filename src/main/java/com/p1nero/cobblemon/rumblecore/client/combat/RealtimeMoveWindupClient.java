@@ -1,13 +1,12 @@
 package com.p1nero.cobblemon.rumblecore.client.combat;
 
-import net.minecraft.client.KeyMapping;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindupPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.phys.Vec3;
 
 public final class RealtimeMoveWindupClient {
     private static LocalPlayer caster;
@@ -16,20 +15,23 @@ public final class RealtimeMoveWindupClient {
 
     private RealtimeMoveWindupClient() {}
 
-    public static void onWarning(int ticks) {
+    public static void onWarning(int ticks, boolean melee) {
         Minecraft mc = Minecraft.getInstance();
+        if (ticks == RealtimeMoveWindupPacket.RELEASE) {
+            finish();
+            return;
+        }
         if (mc.level == null || mc.player == null) return;
         // Keep the cue non-positional for reliable audibility, while distinguishing our cast from threats.
-        SoundEvent sound = ticks > 0 ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.AMETHYST_BLOCK_CHIME;
-        float pitch = ticks > 0 ? 0.9F : 0.82F;
-        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, 1.1F, pitch));
+        boolean ownCast = ticks > 0;
+        SoundEvent sound = melee ? SoundEvents.IRON_GOLEM_ATTACK
+                : (ownCast ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.AMETHYST_BLOCK_CHIME);
+        float pitch = melee ? (ownCast ? 1.65F : 1.15F) : 1.1F;
+        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, pitch, ownCast ? 0.9F : 0.82F));
         if (ticks > 0) {
             caster = mc.player;
-            caster.setSprinting(false);
-            caster.setDeltaMovement(Vec3.ZERO);
             level = mc.level;
             until = level.getGameTime() + ticks;
-            KeyMapping.releaseAll();
         }
     }
 
@@ -37,8 +39,12 @@ public final class RealtimeMoveWindupClient {
         if (caster == null) return false;
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == caster && mc.level == level && level.getGameTime() < until) return true;
+        finish();
+        return false;
+    }
+
+    private static void finish() {
         caster = null;
         level = null;
-        return false;
     }
 }

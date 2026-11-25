@@ -63,6 +63,7 @@ val playerDataJar = layout.projectDirectory.file("libs/simple_player_data_manage
 val bundledMods = mapOf(
     "simple_player_data_manager" to playerDataJar.asFile.name,
     "cobbreeding" to "Cobbreeding-neoforge-2.2.2.jar",
+    "virtualloot" to "VirtualLoot-neoforge-0.4.1.jar",
     "fsweep_stackfix" to "fsweep_stackfix-1.0.0.jar",
     "msd_special_move_fix" to "msd_special_move_fix-1.0.0.jar",
 )
@@ -70,7 +71,7 @@ val bundledMods = mapOf(
 val bundledModInputs = bundledMods.mapNotNull { (id, filename) ->
     val source = layout.projectDirectory.file("libs/$filename").asFile
     if (!source.isFile) {
-        check(id != "simple_player_data_manager") { "Missing required build input: $source" }
+        check(id != "simple_player_data_manager" && id != "virtualloot") { "Missing required build input: $source" }
         return@mapNotNull null
     }
     val originalManifest = JarFile(source).use { jar ->
@@ -238,3 +239,12 @@ val frontierRulesCheck by tasks.registering(JavaExec::class) {
 }
 
 tasks.named("check") { dependsOn(frontierRulesCheck) }
+
+val gymReplacementsCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(tasks.testClasses)
+    classpath = files(sourceSets.test.get().output, sourceSets.main.get().output)
+    mainClass.set("com.p1nero.cobblemon.rumblecore.combat.arena.GymReplacementsCheck")
+}
+
+tasks.named("check") { dependsOn(gymReplacementsCheck) }

@@ -2,17 +2,16 @@ package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
-import com.johnn.realtimecobblemon.MoveCombat;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.TypeChart;
 import com.johnn.realtimecobblemon.moves.Anims;
-import com.johnn.realtimecobblemon.moves.Conditions;
 import com.johnn.realtimecobblemon.moves.Fx;
 import com.johnn.realtimecobblemon.moves.Fx3D;
 import com.johnn.realtimecobblemon.moves.MoveInfo;
 import com.johnn.realtimecobblemon.moves.MoveRegistry;
 import com.johnn.realtimecobblemon.moves.MoveStyle;
 import com.johnn.realtimecobblemon.moves.Pops;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeAiDamage;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat.CinemaMoveAccess;
 import com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat.CinemaSoundAccess;
@@ -84,10 +83,11 @@ final class CinemaAi {
             if (now % 5 == 0) pokemon.getNavigation().moveTo(target, 1.1);
         } else if (now >= firstCastAt && !RealtimeMoveWindup.npcCoolingDown(pokemon, now)) {
             var move = available.get(pokemon.getRandom().nextInt(available.size()));
-            if (RealtimeMoveWindup.npcMove(pokemon, level, now, move.info())) {
-                cast = new Cast(move, target, now + RealtimeMoveWindup.TICKS);
+            int ticks = RealtimeMoveWindup.npcMove(pokemon, level, now, move.info());
+            if (ticks > 0) {
+                cast = new Cast(move, target, now + ticks);
                 Anims.send(pokemon, 4);
-                Fx3D.withPalette(pokemon, () -> Fx3D.chargeTint(pokemon, move.info(), RealtimeMoveWindup.TICKS));
+                Fx3D.withPalette(pokemon, () -> Fx3D.chargeTint(pokemon, move.info(), ticks));
             }
         }
     }
@@ -182,12 +182,10 @@ final class CinemaAi {
         var types = StreamSupport.stream(body.getPokemon().getTypes().spliterator(), false).map(ElementalType::getName).toList();
         float effectiveness = TypeChart.multiplier(info.type(), types);
         if (effectiveness == 0) { Pops.word(body, "no_effect", 0xBBBDBB, false); return; }
-        boolean physical = info.isPhysical();
-        double attack = (physical ? user.getAttack() : user.getSpecialAttack())
-                * Conditions.stageMult(Conditions.stage(pokemon, physical ? "atk" : "spa"));
-        // Brawl's native damage pacing, with further reduction for supporting AI against other actors.
-        float damage = MoveCombat.against(user, target, info.power(), !physical, attack,
-                userTypes.contains(info.type()), effectiveness, .85F + level.random.nextFloat() * .15F)
+        boolean crit = RealtimeAiDamage.critical(info, level.random);
+        // Keep supporting actors' pacing, but use the same combat stats and critical rules as Brawl.
+        float damage = RealtimeAiDamage.calculate(pokemon, body, target, info.power() * 1.15, !info.isPhysical(),
+                userTypes.contains(info.type()), effectiveness, .85F + level.random.nextFloat() * .15F, crit)
                 * (session != null ? .85F : .45F);
         var source = level.damageSources().mobAttack(pokemon);
         if (session != null) {

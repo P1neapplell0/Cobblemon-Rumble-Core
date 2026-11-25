@@ -47,6 +47,15 @@ public final class RealtimeDamageFeedback {
             MoveEngine.markTarget(attacker, opponent);
     }
 
+    public static void impact(LivingEntity target, DamageSource source, float lost, float maxHp) {
+        if (!(lost > 0) || !(maxHp > 0) || !(target.level() instanceof ServerLevel)) return;
+        var victim = session(target);
+        var attacker = session(source.getEntity() != null ? source.getEntity() : source.getDirectEntity());
+        float fraction = Math.min(1, lost / maxHp);
+        if (victim != null) Smash.send(victim.player, new RealtimeImpactPacket(fraction, true));
+        if (attacker != null && attacker != victim) Smash.send(attacker.player, new RealtimeImpactPacket(fraction, false));
+    }
+
     private static Smash.Session session(Entity entity) {
         return entity instanceof ServerPlayer player ? Smash.session(player)
                 : entity instanceof PokemonEntity ? Smash.sessionOf(entity) : null;

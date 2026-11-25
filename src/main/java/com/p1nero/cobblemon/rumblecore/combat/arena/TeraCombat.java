@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.config.MegaShowdownConfig;
 import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
 import com.johnn.realtimecobblemon.Smash;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueTraining;
 import io.wispforest.accessories.api.AccessoriesCapability;
@@ -60,6 +61,7 @@ public final class TeraCombat {
     }
 
     static void use(ServerPlayer player) {
+        if (RealtimeMoveWindup.locked(player)) return;
         var session = Smash.session(player);
         if (session == null || !session.pokemon.isAlive() || session.pokemon.getPokemon().isFainted() || !equipped(player)
                 || PrologueTraining.restrict(player) || session.combat.lockedUntil > player.level().getGameTime()) return;

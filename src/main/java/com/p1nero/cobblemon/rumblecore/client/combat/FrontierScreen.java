@@ -13,7 +13,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
@@ -94,6 +96,7 @@ public final class FrontierScreen extends Screen {
     private boolean listContent, draggingScrollbar;
     private static final int PRESET_STRIDE = 64, TEAM_STRIDE = 34;
     private boolean editingPreset, managePresets;
+    private final Map<ResourceLocation, List<String>> syncedLearnsets = new HashMap<>();
     private final List<FrontierRoster.Pick> presets = FrontierPresetStore.load();
     private String inviteQuery = "";
     private final List<Button> inviteButtons = new ArrayList<>();
@@ -118,6 +121,14 @@ public final class FrontierScreen extends Screen {
 
     public static void receive(CompoundTag data) {
         var mc = Minecraft.getInstance();
+        if (data.contains("learnset", Tag.TAG_STRING)) {
+            if (mc.screen instanceof FrontierScreen screen) {
+                var id = ResourceLocation.tryParse(data.getString("learnset"));
+                if (id != null) screen.syncedLearnsets.put(id, data.getList("moves", Tag.TAG_STRING).stream()
+                        .map(Tag::getAsString).toList());
+            }
+            return;
+        }
         FrontierTournamentHud.sync(data);
         if (mc.screen instanceof FrontierScreen screen) {
             if (data.getBoolean("close")) { mc.setScreen(null); return; }
@@ -753,6 +764,12 @@ public final class FrontierScreen extends Screen {
                 moveAnchorY = rowY;
                 moveOffset = 0;
                 moveQuery = "";
+                if (!syncedLearnsets.containsKey(pick.species())) {
+                    var data = new CompoundTag();
+                    data.putString("action", "learnset");
+                    data.putString("species", pick.species().toString());
+                    PacketDistributor.sendToServer(new FrontierRooms.Command(data));
+                }
                 rebuildWidgets();
             });
         }
@@ -788,7 +805,10 @@ public final class FrontierScreen extends Screen {
 
     private List<String> candidates(FrontierRoster.Pick pick) {
         String query = moveQuery.toLowerCase(Locale.ROOT).strip();
-        return FrontierRoster.legalMoves(FrontierRoster.species(pick.species())).stream().map(t -> t.getName())
+        var synced = syncedLearnsets.get(pick.species());
+        var names = synced == null ? FrontierRoster.legalMoves(FrontierRoster.species(pick.species())).stream().map(MoveTemplate::getName)
+                : synced.stream();
+        return names
                 .filter(id -> !id.equals("struggle") && !pick.moves().contains(id))
                 .filter(id -> query.isEmpty() || id.contains(query) || moveName(id).getString().toLowerCase(Locale.ROOT).contains(query))
                 .sorted(Comparator.comparing(id -> moveName(id).getString())).toList();

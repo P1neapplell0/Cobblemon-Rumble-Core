@@ -28,7 +28,7 @@
 
 `HumanEraVillagersIllagers` 的村民模型依赖客户端的 Entity Model Features（EMF）和 Entity Texture Features（ETF）。制作客户端整合包时，两者和该资源包都需一并附带；不装这两个客户端模组时，应关闭该资源包。
 
-Simple Player Data Manager 随核心通过 Jar-in-Jar 分发。本地依赖齐备时，构建产物还附带三项 MIT 模组（Cobbreeding、FSweep Stack Fix、MSD Special Move Fix），三项均已在旧 IncandescentVerityCore 的成品中内置。外置数据包、资源包和其他模组仍单独加载。详见[精简和内置记录](docs/dependency-prune-2026-11-16.md)。
+Simple Player Data Manager 和 VirtualLoot 0.4.1 随核心通过 Jar-in-Jar 分发。升级时，服务端和客户端都移除独立的 VirtualLoot JAR。本地依赖齐备时，构建产物还附带三项 MIT 模组（Cobbreeding、FSweep Stack Fix、MSD Special Move Fix），三项均已在旧 IncandescentVerityCore 的成品中内置。外置数据包、资源包和其他模组仍单独加载。详见[精简和内置记录](docs/dependency-prune-2026-11-16.md)。
 
 传说遗迹汉化沿用 Legendary Monuments CN（LMCN，作者：下次一定能出货）的授权译文和[原许可证](src/main/resources/META-INF/licenses/lmcn.txt)。文本适配和蕾冠王对话由核心重新实现，随 Legendary Monuments 自动启用，不读写 `lmcn.json`。部署时移除独立 LMCN JAR。
 
@@ -46,7 +46,7 @@ Simple Player Data Manager 随核心通过 Jar-in-Jar 分发。本地依赖齐�
 
 - 基础组合为 Real-Time Cobblemon `1.0.0-alpha.1`、Cobblemon `1.8.4`、Mega Showdown `1.3.3+1.8.4+1.21.1-release`。Real-Time 的 JAR 有 Mega Showdown 和 Accessories 兼容逻辑。其余模组来自 `CobblemonEbonyPhantomCore` 的开发依赖及这些依赖和外置包所需的库，不包含参考核心本身、其源码、剧情包和原声。
 - 移除了 Fabric Loader、Loom、CobbleAction 和旧 Fabric 运行依赖。个别 NeoForge 模组内嵌的 Forgified Fabric API 桥接组件随各自 JAR 加载。
-- 未启用 Pokémon Ultra Space、Raid Dens、Rider’s Call 和 Auto-Battle。VirtualLoot 0.4 用于虚拟牧场奖励，Cobblemon Cinematics 1.4.0 用于徽章演出，Structure Rewind Watch 1.0.0 提供神秘商人出售的结构重制怀表。
+- 未启用 Pokémon Ultra Space、Raid Dens、Rider’s Call 和 Auto-Battle。内嵌的 VirtualLoot 0.4.1 用于虚拟牧场奖励，Cobblemon Cinematics 1.4.0 用于徽章演出，Structure Rewind Watch 1.0.0 提供神秘商人出售的结构重制怀表。
 - 启动验证覆盖客户端创建并进入单人世界、专用服务器建档和数据包加载。已在独立开发客户端验证实时对战中文设置界面、能力变化提示，以及 Mega 烈空坐释放「画龙点睛」。部分第三方内容仍有非致命的数据警告，例如 Legendary Monuments 中引用旧物品 ID 的战利品表，以及部分旧刷怪预设。
 
 清单中的 `CobblemonEbonyPhantomCore/` 路径相对于两个项目的共同父目录；`maven:` 条目是可从参考项目的 Gradle 缓存找到的坐标。

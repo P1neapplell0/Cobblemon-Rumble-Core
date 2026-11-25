@@ -33,6 +33,7 @@ abstract class InstanceDirectDamage {
         original.call(mon, health);
         int lost = previous - mon.getCurrentHealth();
         RealtimeDamageFeedback.record(battle.pokemon, source, lost);
+        RealtimeDamageFeedback.impact(battle.pokemon, source, lost, mon.getMaxHealth());
         ArenaMatch.cinemaPlayerHit(battle.pokemon, source, lost);
         InstanceApi.recordCustomDamage(battle.pokemon, source, lost);
         RealtimeProtection.hit(battle.pokemon, source, lost);

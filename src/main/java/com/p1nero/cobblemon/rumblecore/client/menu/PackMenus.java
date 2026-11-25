@@ -64,6 +64,7 @@ public final class PackMenus {
         add(left, font, Component.literal("WorldBlocks Team"), PAPER, 6, wrap, null);
         add(left, font, Component.literal("GENESISVLLGAMER"), PAPER, 6, wrap, null);
         add(left, font, text("thanks_spake"), LINK, 0, wrap, SPAKE);
+        add(left, font, text("thanks_pokebrick", Component.literal("马了还想马")), PAPER, 0, wrap, null);
         space(left);
         for (String thanks : List.of("thanks1", "thanks2", "thanks3")) {
             add(left, font, text(thanks), PAPER, 0, wrap, null);

@@ -6,6 +6,7 @@ import com.johnn.realtimecobblemon.moves.Anims;
 import com.johnn.realtimecobblemon.moves.Conditions;
 import com.johnn.realtimecobblemon.moves.Fx3D;
 import com.johnn.realtimecobblemon.moves.Sounds;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import java.util.Map;
 import java.util.UUID;
 import java.util.WeakHashMap;
@@ -23,7 +24,8 @@ public final class ArenaDefense {
         long now = level.getGameTime();
         var state = REACTIONS.computeIfAbsent(foe, ignored -> new Reaction());
         if (now < state.activeUntil) return true;
-        long strike = Math.max(attacker.combat.chargingUntil, attacker.combat.heavyFireAt);
+        long skillStrike = Math.max(RealtimeMoveWindup.playerWindupUntil(attacker.player), attacker.combat.chargingUntil);
+        long strike = Math.max(skillStrike, attacker.combat.heavyFireAt);
         if (strike <= now) return false;
         if (strike != state.strike || !attacker.player.getUUID().equals(state.attacker)) {
             state.strike = strike;
@@ -56,7 +58,9 @@ public final class ArenaDefense {
                 return true;
             }
         }
-        state.activeUntil = strike + 3;
+        // A missed dodge opportunity should not almost always become a guard on a skill cast.
+        if (strike == skillStrike && foe.getRandom().nextFloat() >= .10f) return false;
+        state.activeUntil = Math.max(now + 6, strike + 3);
         state.guard = true;
         foe.setDeltaMovement(0, foe.getDeltaMovement().y, 0);
         Vec3 center = foe.getBoundingBox().getCenter();

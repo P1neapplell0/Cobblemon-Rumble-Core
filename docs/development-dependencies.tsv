@@ -15,7 +15,7 @@ libs/chipped-neoforge-1.21.1-4.0.2.jar	chipped	18ac6fd6b30db4922ccc6ee8bea5b113f
 libs/cloth-config-15.0.140-neoforge.jar	cloth_config	65e722e0d98431a07c45f8bdd8d529a217cc8c175fde1740248bd5c1b4f3c0d4	CobblemonEbonyPhantomCore/libs/cloth-config-15.0.140-neoforge.jar
 libs/CobbleBadges-neoforge-4.0.0+Beta-1+1.21.1.jar	cobblebadges	eb2c4746c41b4ee6b42d56948027eb8d74dcd36bb293d12002e57a5febf2d18f	CobblemonEbonyPhantomCore/libs/CobbleBadges-neoforge-4.0.0+Beta-1+1.21.1.jar
 libs/cobblebash-0.2.0.jar	cobblebash	ff929b9e1669b5437a7f2f42cb68912691f245201347d2941e2a436c27876972	.gradle/migration/upgrades/cobblebash-0.2.0.jar
-libs/cobblebash_screen-0.1.3.jar	cobblebash_screen	ed25ded31a684272adbaf21d36ac511d0ebea873428a5d67797b31c63fc41cce	CobbleBash/build/libs/cobblebash_screen-0.1.3.jar
+libs/cobblebash_screen-1.0.4.jar	cobblebash_screen	720fdbaf4360eb7dc7de37c0210a7c0f5e52d33694514e0c0ac3cf42496156c3	CobbleBash/build/libs/cobblebash_screen-1.0.4.jar
 libs/cobbledex-rei-emi-jei-neoforge-2.32.14.jar	cobbledex_rei_emi_jei	3de5e7ca9c2ece9bdbfa4f0a07fe0f8834be8751ffe37180924762e2a3c76410	https://cdn.modrinth.com/data/qekxLrOP/versions/bxd0xXZI/cobbledex-rei-emi-jei-neoforge-2.32.14.jar
 libs/CobbleDollars-neoforge-2.0.0+Beta-6.1+1.21.1.jar	cobbledollars	423e28b49846cc40b2bc5ee2d526d66fadc74dfeb170d1c80fdc71b4f23f97f2	https://cdn.modrinth.com/data/s7N7AsqL/versions/Iqiqjfsi/CobbleDollars-neoforge-2.0.0%2BBeta-6.1%2B1.21.1.jar
 libs/cobbledollars-villagers-overhaul-rca-neoforge-0.5.0.jar	cobbledollars_villagers_overhaul_rca	256830ce8064fd9a081047b4b4dba2c938eaeb544312d5854b8835291b05a41f	https://cdn.modrinth.com/data/NHRD1VOt/versions/YwfhX9k3/cobbledollars-villagers-overhaul-rca-neoforge-0.5.0.jar
@@ -110,7 +110,7 @@ libs/SoulHome-Mod-1.21.1-21.1.172-b14.jar	soulhome	114add87438ae87b6cdf80d50077a
 libs/Sparkweave-NeoForge-0.510.0.jar	sparkweave	a19fafd9d5480e4a55d2c1d933d8355232d62353c396ed2b0c270f0051a12474	CobblemonEbonyPhantomCore/libs/Sparkweave-NeoForge-0.510.0.jar
 libs/structure_rewind_watch-neoforge1.21.1-1.0.0.jar	structure_rewind_watch	49feb03c191774d560975ecdd461f7e9310476f65d1f72e60835ebde6954713b	CobblemonEbonyPhantomCore/libs/structure_rewind_watch-neoforge1.21.1-1.0.0.jar
 libs/TerraBlender-neoforge-1.21.1-4.1.0.8.jar	terrablender	0c49b5ef447a7f09100e9a210888a7347fbda0aa75322063991f6063b25fe3f9	CobblemonEbonyPhantomCore/libs/TerraBlender-neoforge-1.21.1-4.1.0.8.jar
-libs/VirtualLoot-neoforge-0.4.jar	virtualloot	3a2b88e8cbe6835582f7b143edebddde6f16c5b954a15d7bfa88231c55275c8b	VirtualLoot/neoforge/build/libs/VirtualLoot-neoforge-0.4.jar
+libs/VirtualLoot-neoforge-0.4.1.jar	virtualloot	4518934c830cdacfb54b9b678738f055f8903ecb25c16e8ab16e7e413ac27121	VirtualLoot/neoforge/build/libs/VirtualLoot-neoforge-0.4.1.jar
 libs/waystones-245755-8450087.jar	waystones	f7864120e9474519140beb6f136314d0a3d9a5e8ab45b5951359e22049d0a14b	maven:curse.maven:waystones-245755:8450087
 libs/XaeroClaims-1.3.0.jar	xaeroclaims	ae2b68dabbf08ed914f175d2bda7c5dec5b6cc6d497e7325fb3f972f5773a7f9	CobblemonEbonyPhantomCore/libs-mit/XaeroClaims-1.3.0.jar
 libs/xaeros-minimap-263420-9067173.jar	xaerominimap	d3398221b2262abfe2d394b588122e5b3fd2e4d8c4bf66a5fd357352fcf51b2e	maven:curse.maven:xaeros-minimap-263420:9067173

@@ -73,10 +73,7 @@ public final class WildCapture {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onDefeat(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof PokemonEntity target) || !(target.level() instanceof ServerLevel level)
-                || stunned(target) || !target.getPokemon().isWild() || target.getBattleId() != null || target.isBusy()
-                || Decoys.isDecoy(target) || PrologueTraining.target(target)
-                || !UncatchableProperty.INSTANCE.isCatchable(target)
-                || event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
+                || !canStartWindow(target) || event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
         boolean legendary = ArenaMatch.isLegendaryFoe(target);
         var source = event.getSource().getEntity();
         Smash.Session session;
@@ -94,6 +91,28 @@ public final class WildCapture {
 
         event.setCanceled(true);
         if (session != null) target.getPersistentData().putUUID(WINNER, session.player.getUUID());
+        startStun(target, level);
+        // RTC's after-hit test only sees a living target. Preserve its normal XP and wallet hooks once.
+        if (legendary) ArenaMatch.legendaryStunned(target);
+        else Experience.knockedOut(session, target);
+    }
+
+    public static boolean tryBrickStun(ServerPlayer player, PokemonEntity target) {
+        if (!(target.level() instanceof ServerLevel level) || player.level() != level
+                || !player.isAlive() || player.isSpectator() || PrologueTraining.restrict(player)
+                || ArenaMatch.isArena(level) || ArenaMatch.inArena(player) != null || Duels.groupOf(player) != null
+                || !target.isAlive() || target.isInvulnerable() || !canStartWindow(target)) return false;
+        startStun(target, level);
+        return true;
+    }
+
+    private static boolean canStartWindow(PokemonEntity target) {
+        return !stunned(target) && target.getPokemon().isWild() && target.getBattleId() == null && !target.isBusy()
+                && !Decoys.isDecoy(target) && !PrologueTraining.target(target)
+                && UncatchableProperty.INSTANCE.isCatchable(target);
+    }
+
+    private static void startStun(PokemonEntity target, ServerLevel level) {
         resetWindow(target);
         target.setHealth(Math.max(.01f, target.getMaxHealth() * .01f));
         target.getPokemon().setCurrentHealth(Math.max(1, Math.round(target.getPokemon().getMaxHealth() * .01f)));
@@ -102,9 +121,6 @@ public final class WildCapture {
         target.getNavigation().stop();
         target.setDeltaMovement(Vec3.ZERO);
         target.hurtMarked = true;
-        // RTC's after-hit test only sees a living target. Preserve its normal XP and wallet hooks once.
-        if (legendary) ArenaMatch.legendaryStunned(target);
-        else Experience.knockedOut(session, target);
         level.sendParticles(ParticleTypes.CRIT, target.getX(), target.getY() + target.getBbHeight() * .85,
                 target.getZ(), 12, .28, .15, .28, .10);
         level.playSound(null, target, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.NEUTRAL, .9f, .65f);

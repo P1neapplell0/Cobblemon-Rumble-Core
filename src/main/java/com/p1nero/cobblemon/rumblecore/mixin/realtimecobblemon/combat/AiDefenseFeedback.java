@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 abstract class AiDefenseFeedback {
     @ModifyExpressionValue(method = "parries", at = @At(value = "FIELD",
             target = "Lcom/johnn/realtimecobblemon/moves/Brawl$Difficulty;parry:F"))
-    private static float rumble$lessParry(float chance) { return chance * .35f; }
+    private static float rumble$lessParry(float chance) { return chance * (RealtimeLandingMove.rumble$landing() == null ? .35F : .10F); }
 
     @ModifyExpressionValue(method = "tick", at = @At(value = "FIELD",
             target = "Lcom/johnn/realtimecobblemon/moves/Brawl$Difficulty;dodge:F"))

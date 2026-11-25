@@ -8,16 +8,18 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
-public record RealtimeMoveWindupPacket(int ticks) implements CustomPacketPayload {
+public record RealtimeMoveWindupPacket(int ticks, boolean melee) implements CustomPacketPayload {
+    public static final int RELEASE = -1;
     private static final Type<RealtimeMoveWindupPacket> TYPE = new Type<>(PrologueWorld.id("realtime_move_windup"));
     private static final StreamCodec<RegistryFriendlyByteBuf, RealtimeMoveWindupPacket> CODEC = StreamCodec.composite(
-            ByteBufCodecs.VAR_INT, RealtimeMoveWindupPacket::ticks, RealtimeMoveWindupPacket::new);
+            ByteBufCodecs.VAR_INT, RealtimeMoveWindupPacket::ticks,
+            ByteBufCodecs.BOOL, RealtimeMoveWindupPacket::melee, RealtimeMoveWindupPacket::new);
 
     @Override public Type<RealtimeMoveWindupPacket> type() { return TYPE; }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("1").playToClient(TYPE, CODEC,
-                (packet, context) -> RealtimeMoveWindupClient.onWarning(packet.ticks()));
+        event.registrar("2").playToClient(TYPE, CODEC,
+                (packet, context) -> RealtimeMoveWindupClient.onWarning(packet.ticks(), packet.melee()));
     }
 
 }

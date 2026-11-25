@@ -8,6 +8,8 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.Share;
+import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaMatch;
 import java.util.List;
@@ -55,15 +57,18 @@ abstract class RealtimeMoveWindupAi {
 
     @Inject(method = "startMove", at = @At("HEAD"), cancellable = true)
     private static void rumble$warnBeforeAiMove(@Coerce Object foe, Smash.Session target,
-            ServerLevel level, long now, @Coerce Object pick, CallbackInfo ci) {
+            ServerLevel level, long now, @Coerce Object pick, CallbackInfo ci,
+            @Share("windupTicks") LocalIntRef windupTicks) {
         var pokemon = ((BrawlFoeAccess) foe).rumble$mon();
         var move = ((BrawlPickAccess) pick).rumble$move();
-        if (!RealtimeMoveWindup.npcMove(pokemon, level, now, move)) ci.cancel();
+        int ticks = RealtimeMoveWindup.npcMove(pokemon, level, now, move);
+        if (ticks == 0) ci.cancel();
+        else windupTicks.set(ticks);
     }
 
     @ModifyExpressionValue(method = "startMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;clamp(III)I"))
-    private static int rumble$halfSecondWindup(int original) {
-        return RealtimeMoveWindup.TICKS;
+    private static int rumble$useWarningDuration(int original, @Share("windupTicks") LocalIntRef windupTicks) {
+        return windupTicks.get();
     }
 
     // The first read is AI tracking during the windup. The second actually launches the attack.

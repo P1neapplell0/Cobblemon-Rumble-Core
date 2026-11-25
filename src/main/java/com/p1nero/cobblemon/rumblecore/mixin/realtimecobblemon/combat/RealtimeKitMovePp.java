@@ -17,6 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 abstract class RealtimeKitMovePp {
     @Unique private static final Map<Pokemon, Map<Move, Move>> rumble$kitCopies = new WeakHashMap<>();
 
+    @Inject(method = "moves(Lcom/cobblemon/mod/common/pokemon/Pokemon;Z)Ljava/util/List;", at = @At("HEAD"), cancellable = true)
+    private static void rumble$useEquippedMoves(Pokemon pokemon, boolean duel, CallbackInfoReturnable<List<Move>> cir) {
+        var learned = pokemon.getMoveSet().getMoves();
+        if (pokemon.getOwnerUUID() != null && !learned.isEmpty()) cir.setReturnValue(learned);
+    }
+
     @Inject(method = "moves(Lcom/cobblemon/mod/common/pokemon/Pokemon;Z)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     private static void rumble$kitPpPerPokemon(Pokemon pokemon, boolean duel, CallbackInfoReturnable<List<Move>> cir) {
         if (duel) return;

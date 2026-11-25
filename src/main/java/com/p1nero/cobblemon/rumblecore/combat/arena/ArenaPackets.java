@@ -56,11 +56,14 @@ public final class ArenaPackets {
     }
 
     /** An empty roster closes only the switch screen for the named match. */
-    public record Switch(UUID match, int round, List<Option> roster) implements CustomPacketPayload {
+    public record Switch(UUID match, int round, List<Option> roster, int gymDeathsLeft) implements CustomPacketPayload {
+        public Switch(UUID match, int round, List<Option> roster) { this(match, round, roster, -1); }
+
         static final Type<Switch> TYPE = new Type<>(PrologueWorld.id("arena_switch"));
         static final StreamCodec<RegistryFriendlyByteBuf, Switch> CODEC = StreamCodec.composite(
                 UUIDUtil.STREAM_CODEC, Switch::match, ByteBufCodecs.VAR_INT, Switch::round,
-                Option.CODEC.apply(ByteBufCodecs.list(6)), Switch::roster, Switch::new);
+                Option.CODEC.apply(ByteBufCodecs.list(6)), Switch::roster,
+                ByteBufCodecs.VAR_INT, Switch::gymDeathsLeft, Switch::new);
         @Override public Type<Switch> type() { return TYPE; }
     }
 
@@ -72,7 +75,7 @@ public final class ArenaPackets {
     }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        var net = event.registrar("2");
+        var net = event.registrar("3");
         net.playToServer(UseTera.TYPE, UseTera.CODEC, (p, ctx) -> TeraCombat.use((ServerPlayer) ctx.player()));
         net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> PrologueClient.teraUsed(p.used()));
         net.playToServer(UseHeld.TYPE, UseHeld.CODEC, (p, ctx) -> ArenaMatch.useHeld((ServerPlayer) ctx.player()));

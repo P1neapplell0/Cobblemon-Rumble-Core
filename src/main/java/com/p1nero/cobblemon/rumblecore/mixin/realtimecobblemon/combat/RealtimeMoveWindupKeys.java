@@ -13,7 +13,13 @@ abstract class RealtimeMoveWindupKeys {
     @Inject(method = "handleKeybinds", at = @At("HEAD"), cancellable = true)
     private void rumble$lockKeybinds(CallbackInfo ci) {
         if (RealtimeMoveWindupClient.active()) {
-            KeyMapping.releaseAll();
+            var options = ((Minecraft) (Object) this).options;
+            // Only drain queued clicks. KeyboardInput still reads the held movement keys normally.
+            for (KeyMapping key : options.keyMappings) {
+                if (key == options.keyUp || key == options.keyDown || key == options.keyLeft || key == options.keyRight
+                        || key == options.keyJump || key == options.keyShift || key == options.keySprint) continue;
+                while (key.consumeClick()) { }
+            }
             ci.cancel();
         }
     }

@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.moves.Move;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.network.chat.Component;
 import com.johnn.realtimecobblemon.moves.MoveEngine;
+import com.johnn.realtimecobblemon.moves.MoveInfo;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
@@ -41,9 +42,9 @@ abstract class RealtimeMoveWindupInput {
     @Inject(method = "use0", at = @At(value = "INVOKE", target =
             "Lcom/johnn/realtimecobblemon/moves/MoveRegistry;style(Lcom/johnn/realtimecobblemon/moves/MoveInfo;)Lcom/johnn/realtimecobblemon/moves/MoveStyle;"),
             cancellable = true)
-    private static void rumble$windUpValidatedMove(ServerPlayer player, int slot, float charge, CallbackInfo ci) {
+    private static void rumble$windUpValidatedMove(ServerPlayer player, int slot, float charge, CallbackInfo ci, @Local MoveInfo move) {
         if (RealtimeMoveWindup.releasingPlayerMove(player)) return;
-        RealtimeMoveWindup.playerMove(player, () -> MoveEngine.use(player, slot, charge));
+        RealtimeMoveWindup.playerMove(player, move, () -> MoveEngine.use(player, slot, charge));
         ci.cancel();
     }
 

@@ -55,7 +55,11 @@ public final class RealtimeKnockout {
     }
 
     private static void showToCombatants(PokemonEntity body, Smash.Session attacker, Smash.Session victim) {
-        if (ArenaMatch.onKnockoutLaunch(body) || PrologueTraining.target(body)) return;
+        // The cinematic cue is an arena-instance presentation.  Outside an arena the
+        // realtime knockback remains authoritative, but the world keeps its normal KO
+        // audio/overlay/camera behaviour disabled.
+        if (!ArenaMatch.isArena(body.level() instanceof net.minecraft.server.level.ServerLevel level ? level : null)
+                || PrologueTraining.target(body)) return;
         var players = new HashSet<ServerPlayer>();
         if (attacker != null) players.add(attacker.player);
         if (victim != null) players.add(victim.player);

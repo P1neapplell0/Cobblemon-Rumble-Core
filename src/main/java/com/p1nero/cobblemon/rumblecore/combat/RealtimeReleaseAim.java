@@ -41,12 +41,18 @@ public record RealtimeReleaseAim(int targetId) implements CustomPacketPayload {
     }
 
     public static Vec3 direction(Smash.Session session, Vec3 eye, Vec3 fallback) {
+        var target = lockedTarget(session);
+        if (target == null) return fallback;
+        Vec3 to = target.getBoundingBox().getCenter().subtract(eye);
+        return to.lengthSqr() > 1e-6 && to.lengthSqr() <= MAX_LOCK_DISTANCE_SQUARED ? to.normalize() : fallback;
+    }
+
+    static LivingEntity lockedTarget(Smash.Session session) {
         var lock = LOCKS.get(session);
         if (lock == null || lock.level() != session.player.level()
                 || !(lock.level().getEntity(lock.targetId()) instanceof LivingEntity target)
                 || target instanceof ArenaKnockoutVisual visual && visual.rumble$isKnockedOut()
-                || !MoveCombat.canHit(session, target) || !session.player.hasLineOfSight(target)) return fallback;
-        Vec3 to = target.getBoundingBox().getCenter().subtract(eye);
-        return to.lengthSqr() > 1e-6 && to.lengthSqr() <= MAX_LOCK_DISTANCE_SQUARED ? to.normalize() : fallback;
+                || !MoveCombat.canHit(session, target) || !session.player.hasLineOfSight(target)) return null;
+        return target;
     }
 }

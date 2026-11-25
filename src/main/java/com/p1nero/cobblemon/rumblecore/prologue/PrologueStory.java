@@ -4,6 +4,7 @@ import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonItems;
 import com.cobblemon.mod.common.api.storage.player.GeneralPlayerData;
 import com.cobblemon.mod.common.api.storage.player.PlayerInstancedDataStoreTypes;
+import com.p1nero.cobblemon.rumblecore.item.PokeBrick;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.guide.RumbleGuides;
 import com.p1nero.cobblemon.rumblecore.gym.GymStory;
@@ -18,6 +19,7 @@ import java.util.Set;
 import java.util.WeakHashMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -232,7 +234,11 @@ public final class PrologueStory {
     }
 
     private static ItemStack[] catchKit() {
-        return new ItemStack[] {new ItemStack(CobblemonItems.POKEDEX_RED), new ItemStack(CobblemonItems.ULTRA_BALL, 30)};
+        return new ItemStack[] {
+                new ItemStack(CobblemonItems.POKEDEX_RED), new ItemStack(CobblemonItems.ULTRA_BALL, 30),
+                new ItemStack(PokeBrick.ITEM.get()),
+                new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("structure_rewind_watch:structure_rewind_watch")))
+        };
     }
 
     static boolean completed(ServerPlayer player) { return ArcQuestPlayerManager.getOrCreate(player).isQuestCompleted(ID); }

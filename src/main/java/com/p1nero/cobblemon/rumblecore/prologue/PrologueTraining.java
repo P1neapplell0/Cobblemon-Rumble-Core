@@ -152,6 +152,13 @@ public final class PrologueTraining {
         sync(drill, player);
     }
 
+    private static boolean outsideTrainingBounds(PokemonEntity pikachu) {
+        if (pikachu.getY() < TARGET.y - 10 || pikachu.getY() > TARGET.y + 12) return true;
+        double dx = pikachu.getX() - TARGET.x;
+        double dz = pikachu.getZ() - TARGET.z;
+        return dx * dx + dz * dz > 18 * 18;
+    }
+
     private static boolean spawnPikachu(Drill drill) {
         ServerLevel level = drill.getLevel();
         if (drill.pikachu != null && !drill.pikachu.isRemoved()) drill.pikachu.discard();
@@ -177,6 +184,16 @@ public final class PrologueTraining {
             return;
         }
         if (drill.cue == Cue.CLEAR) return;
+        // RTC's KO impulse can carry the training decoy outside the small tutorial
+        // arena.  Keep the lesson recoverable without adding a physical barrier that
+        // would interfere with the player's movement and camera.
+        if (!drill.wonPending && drill.pikachu != null && outsideTrainingBounds(drill.pikachu)) {
+            drill.pikachu.teleportTo(TARGET.x, TARGET.y, TARGET.z);
+            drill.pikachu.setDeltaMovement(Vec3.ZERO);
+            drill.pikachu.hurtMarked = true;
+            drill.pikachu.setNoGravity(true);
+            drill.pikachu.noPhysics = false;
+        }
         // A finishing hit can come from inside the RTC decoy/projectile iterator.
         // End the fight from the instance tick, not in the middle of RTC's damage callback.
         if (drill.wonPending) {

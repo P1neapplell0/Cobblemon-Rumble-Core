@@ -11,6 +11,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.pokemon.properties.UncatchableProperty;
 import com.johnn.realtimecobblemon.MegaEvo;
 import com.johnn.realtimecobblemon.Smash;
+import com.p1nero.cobblemon.rumblecore.combat.RealtimeMoveWindup;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeKnockout;
 import com.johnn.realtimecobblemon.SmashConfig;
 import com.johnn.realtimecobblemon.duel.Duels;
@@ -162,6 +163,7 @@ public final class ArenaMatch extends InstanceSession {
     private final List<Trainer> trainers = new ArrayList<>();
     private Integer introAt;
     private int battleGate, trainerResultAt, gymPreviewUntil;
+    private final GymReplacements gymReplacements = new GymReplacements();
     private boolean pvpResultAnnounced, frontierCombatStarted;
     private boolean frontierResolved;
     private boolean trainerWon, fighting, trainerResolved;
@@ -286,12 +288,6 @@ public final class ArenaMatch extends InstanceSession {
     public static final int GYM_SLOTS = 6;
 
     public static boolean gymTemplate(String id) { return id.startsWith("rumble_gym_"); }
-
-    public int gymRosterLimit(UUID player) {
-        int size = getMembers().size();
-        if (leader == null || size == 0) return 0;
-        return GYM_SLOTS / size + (getOwner().equals(player) ? GYM_SLOTS % size : 0);
-    }
 
     public boolean isGymObserver(ServerPlayer player) {
         var fighter = team.get(player.getUUID());
@@ -640,8 +636,7 @@ public final class ArenaMatch extends InstanceSession {
                         : match.megaTrial != null ? MegaTrials.unlocked(participant) : GymStory.canChallenge(participant, match.leader)))
                     throw new IllegalStateException("Challenge party changed before setup");
                 double lane = laneOffset(index++);
-                var fighter = new Fighter(participant, WEST.add(index == 6 ? 2 : 0, 0, lane), -90,
-                        match.leader == null ? GYM_SLOTS : match.gymRosterLimit(id));
+                var fighter = new Fighter(participant, WEST.add(index == 6 ? 2 : 0, 0, lane), -90);
                 match.team.put(id, fighter);
                 if (!fighter.hasReserve()) throw new IllegalStateException("Gym participant has no usable Pokémon");
                 match.positionAndPrompt(fighter);
@@ -932,18 +927,13 @@ public final class ArenaMatch extends InstanceSession {
         Vec3 replacementAt;
 
         Fighter(ServerPlayer player, Vec3 spawn, float yaw) {
-            this(player, spawn, yaw, GYM_SLOTS);
-        }
-
-        Fighter(ServerPlayer player, Vec3 spawn, float yaw, int limit) {
-            this(player, spawn, yaw, (Pokemon) null);
+            this(player, spawn, yaw, null);
             var original = Cobblemon.INSTANCE.getStorage().getParty(player);
             for (int slot = 0; slot < slotToRoster.length; slot++) {
                 var source = original.get(slot);
                 if (source == null) continue;
-                boolean usable = !source.isFainted() && source.getTetheringId() == null && roster.size() < limit;
-                if (limit == GYM_SLOTS || usable) startingRoster.put(slot, ArenaRoster.pokemon(source));
-                if (!usable) continue;
+                startingRoster.put(slot, ArenaRoster.pokemon(source));
+                if (source.isFainted() || source.getTetheringId() != null) continue;
                 if (source.getEntity() != null) source.recall();
                 var copy = source.clone(true, player.registryAccess());
                 personalCopies.put(source.getUuid(), copy);
@@ -982,6 +972,10 @@ public final class ArenaMatch extends InstanceSession {
             }
             fighter.active = 0;
             return fighter;
+        }
+
+        boolean canSelect(int index) {
+            return index >= 0 && index < roster.size() && !roster.get(index).isFainted();
         }
 
         boolean hasReserve() { return roster.stream().anyMatch(p -> !p.isFainted()); }
@@ -1274,11 +1268,6 @@ public final class ArenaMatch extends InstanceSession {
     @SubscribeEvent
     public static void cinemaActorDamaged(LivingDamageEvent.Post event) {
         cinemaPlayerHit(event.getEntity(), event.getSource(), event.getNewDamage());
-        if (event.getNewDamage() <= 0 || !(event.getEntity() instanceof PokemonEntity target) || Smash.sessionOf(target) != null) return;
-        var attacker = event.getSource().getEntity();
-        var control = attacker == null ? null : Smash.sessionOf(attacker);
-        if (control != null) Smash.send(control.player, new com.johnn.realtimecobblemon.network.SmashPayloads.Shake(
-                ((ArenaKnockoutVisual) target).rumble$isKnockedOut() ? .67F : .24F));
     }
 
     public boolean cinemaRewardEligible(UUID id) {
@@ -1739,7 +1728,7 @@ public final class ArenaMatch extends InstanceSession {
         }
         standing.forEach(this::tickHeld);
         standing.forEach(this::check);
-        boolean teamOut = standing.stream().noneMatch(Fighter::hasReserve);
+        boolean teamOut = standing.stream().noneMatch(f -> !f.eliminated && f.hasReserve());
         if (!teamOut) trainers.forEach(trainer -> trainer.tick(this, getLevel(), now, Brawl.Difficulty.HARD));
         boolean gymOut = trainers.stream().allMatch(Trainer::out);
         if (teamOut || gymOut) {
@@ -1820,6 +1809,27 @@ public final class ArenaMatch extends InstanceSession {
         return !f.player.isAlive() || f.player.hasDisconnected() || f.player.serverLevel() != getLevel();
     }
 
+    private boolean canReplace(Fighter f) {
+        return f.hasReserve() && (leader == null || gymReplacements.available());
+    }
+
+    private void eliminateGymFighter(Fighter f) {
+        boolean exhausted = !gymReplacements.available();
+        f.eliminated = true;
+        closeRoster(f);
+        if (f.body != null) f.body.discard();
+        if (f.current() != null) f.current().recall();
+        f.body = null;
+        f.active = -1;
+        f.replacementAt = null;
+        // The KO path may already have suppressed RTC's empty-state packet while a replacement was available.
+        Smash.send(f.player, new SmashPayloads.State(f.player.getId(), -1, false));
+        if (getStartingTeam().size() > 1) {
+            f.player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
+            if (exhausted) f.player.displayClientMessage(Component.translatable("rumble.gym.no_replacements"), true);
+        }
+    }
+
     private void check(Fighter f) {
         if (f.current() != null && f.current().isFainted()) {
             f.replacementAt = f.player.position();
@@ -1829,20 +1839,24 @@ public final class ArenaMatch extends InstanceSession {
             f.body = null;
             f.megaReady = 0;
             f.active = -1;
-            if (f.hasReserve()) {
+            if (canReplace(f)) {
                 f.round++;
                 f.choosing = true;
                 showRoster(f);
                 f.player.playNotifySound(SoundEvents.NOTE_BLOCK_BELL.value(), SoundSource.PLAYERS, 0.6F, 0.83F);
-            } else if (leader != null && getStartingTeam().size() > 1) {
-                f.eliminated = true;
-                f.player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
+            } else if (leader != null) {
+                eliminateGymFighter(f);
             }
         }
     }
 
     private void sendIn(Fighter f) {
-        if (f.current() == null || f.catching || Smash.active(f.player)) return;
+        if (f.eliminated || f.current() == null || f.current().isFainted() || f.catching || Smash.active(f.player)) return;
+        boolean gymReplacement = leader != null && f.replacementAt != null;
+        if (gymReplacement && !gymReplacements.available()) {
+            eliminateGymFighter(f);
+            return;
+        }
         if (f.body == null || !f.body.isAlive()) f.body = deploy(f, f.replacementAt != null ? f.replacementAt
                 : f.controlled ? f.player.position() : hasTrainers() || legendary != null ? leadPosition(f) : f.spawn);
         if (f.body != null && Smash.start(f.player, f.body) == null) {
@@ -1851,8 +1865,18 @@ public final class ArenaMatch extends InstanceSession {
             f.controlled = true;
             f.recordDeployment();
             closeRoster(f);
+            if (gymReplacement) gymReplacementSucceeded();
         } else if (++f.unsent > 100) {
             throw new IllegalStateException("Could not send in arena Pokémon for " + f.player.getUUID());
+        }
+    }
+
+    private void gymReplacementSucceeded() {
+        gymReplacements.spend();
+        for (var teammate : team.values()) {
+            if (teammate.replacementAt == null || gone(teammate)) continue;
+            if (!gymReplacements.available()) eliminateGymFighter(teammate);
+            else if (teammate.choosing) showRoster(teammate);
         }
     }
 
@@ -1911,8 +1935,9 @@ public final class ArenaMatch extends InstanceSession {
             return true;
         }
         int index = f.slotToRoster[slot];
-        if (index < 0 || f.roster.get(index).isFainted()) return true;
-        boolean recallOnly = f.active == index && f.body != null && f.body.isAlive();
+        boolean activeBody = f.body != null && f.body.isAlive();
+        if (!f.canSelect(index)) return true;
+        boolean recallOnly = f.active == index && activeBody;
         if (f.current() != null) {
             if (f.body != null && f.current().getEntity() != f.body) f.body.recallWithAnimation();
             else f.current().recall();
@@ -1966,7 +1991,8 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     private void tryEnter(Fighter f) {
-        if (!f.startRequested || f.body == null || !f.body.isAlive() || f.body.getBeamMode() != 0) return;
+        if (!f.startRequested || !f.canSelect(f.active) || f.body == null || f.body.getPokemon() != f.current()
+                || !f.body.isAlive() || f.body.getBeamMode() != 0) return;
         f.startRequested = false;
         var bodyStart = f.body.position();
         boolean gymBattle = hasTrainers();
@@ -1992,7 +2018,8 @@ public final class ArenaMatch extends InstanceSession {
             Pokemon mon = f.roster.get(i);
             return new ArenaPackets.Option(i, mon);
         }).toList();
-        PacketDistributor.sendToPlayer(f.player, new ArenaPackets.Switch(getId(), f.round, choices));
+        int remaining = leader == null ? -1 : gymReplacements.remaining();
+        PacketDistributor.sendToPlayer(f.player, new ArenaPackets.Switch(getId(), f.round, choices, remaining));
     }
 
     static void pick(ServerPlayer player, ArenaPackets.Pick packet) {
@@ -2001,7 +2028,11 @@ public final class ArenaMatch extends InstanceSession {
                 || !match.getId().equals(packet.match())) return;
         Fighter f = match.fighter(player);
         if (f == null || !f.choosing || match.trainerResultAt != 0 || f.round != packet.round()) return;
-        if (packet.index() < 0 || packet.index() >= f.roster.size() || f.roster.get(packet.index()).isFainted()) {
+        if (match.leader != null && !match.gymReplacements.available()) {
+            match.eliminateGymFighter(f);
+            return;
+        }
+        if (!f.canSelect(packet.index())) {
             match.showRoster(f);
             return;
         }
@@ -2250,6 +2281,7 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     static void useHeld(ServerPlayer player) {
+        if (RealtimeMoveWindup.locked(player)) return;
         var match = group(player);
         var session = Smash.session(player);
         if (session == null || session.pokemon.getPokemon().isFainted()) return;
@@ -2341,7 +2373,7 @@ public final class ArenaMatch extends InstanceSession {
     public static boolean retainClientControl(ServerPlayer player) {
         ArenaMatch match = group(player);
         Fighter f = match == null ? null : match.fighter(player);
-        return f != null && !match.capturePhase && f.current() != null && f.current().isFainted() && f.hasReserve();
+        return f != null && !match.capturePhase && f.current() != null && f.current().isFainted() && match.canReplace(f);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

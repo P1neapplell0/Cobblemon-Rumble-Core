@@ -10,6 +10,7 @@ import com.p1nero.cobblemon.rumblecore.client.combat.BattleOrbit;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaKnockoutVisual;
 import com.p1nero.cobblemon.rumblecore.combat.RealtimeReleaseAim;
 import net.neoforged.neoforge.network.PacketDistributor;
+import com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveWindupClient;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.prologue.FixedStoryActors;
 import com.p1nero.misc.custom_instances.instance.InstanceManager;
@@ -53,6 +54,7 @@ abstract class StoryActorLockOn {
     @WrapOperation(method = "onTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;consumeClick()Z"))
     private static boolean rumble$cancelPendingLockOnManualInput(KeyMapping mapping, Operation<Boolean> original) {
         boolean clicked = original.call(mapping);
+        if (clicked && RealtimeMoveWindupClient.active()) return false;
         if (clicked && mapping == BattleCamera.LOCK) rumble$clearTrainerLock();
         return clicked;
     }

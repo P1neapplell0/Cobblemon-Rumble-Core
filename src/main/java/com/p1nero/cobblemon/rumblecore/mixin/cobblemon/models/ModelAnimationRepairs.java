@@ -39,18 +39,20 @@ abstract class ModelAnimationRepairs {
     @Shadow @Final private static Map<String, BedrockAnimationGroup> animationGroups;
 
     @Unique private static final String RUMBLE_MSD = "mod/mega_showdown";
+    @Unique private static final String RUMBLE_COBBLEMON = "mod/cobblemon";
     @Unique private static final String RUMBLE_CCC = "file/CCCwLegendSpawns_2.1.zip";
 
     @WrapOperation(method = "loadAnimations", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/server/packs/resources/Resource;open()Ljava/io/InputStream;"))
-    private InputStream rumble$fixTruncatedExpressions(Resource resource, Operation<InputStream> original,
+    private InputStream rumble$repairAnimationJson(Resource resource, Operation<InputStream> original,
                                                        @Local ResourceLocation id) throws IOException {
         InputStream stream = original.call(resource);
         if (!"cobblemon".equals(id.getNamespace())) return stream;
         String path = id.getPath();
         boolean mew = path.equals("bedrock/pokemon/animations/mew/mew.animation.json");
         boolean talonflame = path.equals("bedrock/pokemon/animations/0663_talonflame/talonflame_unite.animation.json");
-        if (!mew && !talonflame) return stream;
+        boolean cramorant = path.equals("bedrock/pokemon/animations/0845_cramorant/cramorant_pikachu.animation.json");
+        if (!mew && !talonflame && !cramorant) return stream;
         try (stream) {
             String json = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
             try {
@@ -63,9 +65,14 @@ abstract class ModelAnimationRepairs {
                         rumble$replaceRotation(bones, "foot_right", 0, "-2.5+math.cos((query.anim_time - 0.2) * 90) *", -2.5);
                         rumble$replaceRotation(bones, "foot_left", 0, "-5+math.cos((query.anim_time - 0.2) * 90) *", -5);
                     }
-                } else {
+                } else if (talonflame) {
                     var bones = rumble$animationBones(animations, "animation.talonflame_unite.ride_jump");
                     rumble$replaceRotation(bones, "wing_open_right5", 1, "5-", 5);
+                } else if (animations != null && animations.get("animation.cramorant_pikachu.ground_idle") instanceof JsonObject idle
+                        && (!idle.has("loop") || JsonPrimitive.class.isInstance(idle.get("loop"))
+                        && idle.getAsJsonPrimitive("loop").isBoolean() && !idle.get("loop").getAsBoolean())) {
+                    // Both prey-carrying forms use this finite clip as a continuous idle.
+                    idle.addProperty("loop", true);
                 }
                 json = animationFile.toString();
             } catch (RuntimeException ex) {
@@ -99,6 +106,12 @@ abstract class ModelAnimationRepairs {
         rumble$repairGroup(resources, "0670_floette", "floette_eternal_mega", "floette_eternal_mega", Set.of("cry", "recoil"));
         rumble$repairGroup(resources, "0373_salamence", "salamencemega", "salamence_mega",
                 Set.of("ground_idle", "ground_walk", "battle_idle", "air_idle", "air_fly"));
+        rumble$repairGroup(resources, "0668_pyroar", "pyroar_male", "pyroar_male", Set.of("ground_idle"));
+        rumble$repairGroup(resources, "0668_pyroar", "pyroar_mega", "pyroar_mega",
+                Set.of("ground_idle", "ground_walk", "battle_idle"));
+        rumble$repairGroup(resources, "0774_minior", "minior", "minior",
+                Set.of("cry", "shell_break", "shell_reform", "battle_cry_core", "battle_cry_meteor",
+                        "faint_meteor", "status_core", "status_meteor", "special_core", "special_meteor"));
     }
 
     @Unique
@@ -132,8 +145,10 @@ abstract class ModelAnimationRepairs {
                     });
                     animationGroups.put(groupName, new BedrockAnimationGroup(group.getFormatVersion(), clips));
                 }
-            } else if (RUMBLE_MSD.equals(animationPack) && (RUMBLE_MSD.equals(geometryPack)
-                    || ("salamence_mega".equals(groupName) && RUMBLE_CCC.equals(geometryPack)))) {
+            } else if ((RUMBLE_MSD.equals(animationPack) && (RUMBLE_MSD.equals(geometryPack)
+                    || ("salamence_mega".equals(groupName) && RUMBLE_CCC.equals(geometryPack))))
+                    || ("pyroar_male".equals(groupName) && RUMBLE_COBBLEMON.equals(animationPack)
+                    && RUMBLE_COBBLEMON.equals(geometryPack))) {
                 try (var reader = geometry.openAsReader()) {
                     var bones = new HashSet<String>();
                     var definition = JsonParser.parseReader(reader).getAsJsonObject().getAsJsonArray("minecraft:geometry");

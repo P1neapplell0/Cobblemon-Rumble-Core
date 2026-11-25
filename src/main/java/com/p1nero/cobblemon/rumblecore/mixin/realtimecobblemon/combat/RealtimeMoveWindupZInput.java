@@ -20,7 +20,7 @@ abstract class RealtimeMoveWindupZInput {
             "Lcom/johnn/realtimecobblemon/moves/ZMoves$State;used:Z", opcode = Opcodes.PUTFIELD), cancellable = true)
     private static void rumble$warnBeforeZScene(ServerPlayer player, CallbackInfoReturnable<Boolean> cir) {
         if (!RealtimeMoveWindup.releasingPlayerMove(player)) {
-            cir.setReturnValue(RealtimeMoveWindup.playerMove(player, () -> ZMoves.activate(player)));
+            cir.setReturnValue(RealtimeMoveWindup.playerMove(player, null, () -> ZMoves.activate(player)));
         }
     }
 }
