@@ -1,11 +1,14 @@
 package com.p1nero.cobblemon.rumblecore.prologue.client;
 
+import com.cobblemon.mod.common.client.CobblemonClient;
 import com.cobblemon.mod.common.client.keybind.keybinds.PartySendBinding;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.client.BattleCamera;
 import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.p1nero.cobblemon.rumblecore.combat.arena.TeraCombat;
+import com.p1nero.cobblemon.rumblecore.combat.arena.MegaCombat;
+import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import java.util.Arrays;
 import java.util.Locale;
@@ -27,7 +30,7 @@ import static com.p1nero.cobblemon.rumblecore.prologue.ProloguePackets.Cue;
 
 final class TrainingHud {
     private static final ResourceLocation PORTRAIT = PrologueWorld.id("textures/gui/prof_p1nero_prologue.png");
-    private static final ResourceLocation GIOVANNI = PrologueWorld.id("textures/entity/npc/ground_leader.png");
+    private static final ResourceLocation GIOVANNI = GymCatalog.leaderTexture(GymCatalog.Gym.GROUND);
     private static final ResourceLocation MAY = PrologueWorld.id("textures/entity/npc/xiao_yao.png");
     private static final TagKey<Item> MEGA_STONES = TagKey.create(
             Registries.ITEM, ResourceLocation.parse("mega_showdown:mega_stone"));
@@ -112,14 +115,22 @@ final class TrainingHud {
         var items = BuiltInRegistries.ITEM;
         var item = items.getKey(stack.getItem()).toString();
         boolean held = stack.is(MEGA_STONES) || item.equals("cobblemon:sitrus_berry") || item.equals("cobblemon:oran_berry");
+        var party = CobblemonClient.INSTANCE.getStorage().getParty();
+        var known = party == null ? null : party.findByUUID(body.getPokemon().getUuid());
+        boolean mega = !stack.is(MEGA_STONES) && !body.getAspects().contains("mega")
+                && (MegaCombat.canMegaWithoutStone(body.getPokemon()) || known != null && MegaCombat.canMegaWithoutStone(known));
         boolean tera = mc.player != null && TeraCombat.equipped(mc.player);
-        if (!held && !tera) return;
+        if (!held && !mega && !tera) return;
         // RTC's top move row starts 63 px above the bottom. Keep a gap above it.
         int right = g.guiWidth() - 12;
         int y = g.guiHeight() - 63 - 8 - 22;
         if (tera) {
             var orb = items.get(TeraCombat.ORB).getDefaultInstance();
             right = drawBattleItem(g, right, y, orb, PrologueClient.TERA, PrologueClient.teraSpent(body)) - 6;
+        }
+        if (mega) {
+            var megaItem = items.get(ResourceLocation.parse("mega_showdown:mega_bracelet")).getDefaultInstance();
+            right = drawBattleItem(g, right, y, megaItem, PrologueClient.HELD, false) - 6;
         }
         if (held) drawBattleItem(g, right, y, stack, PrologueClient.HELD, false);
     }

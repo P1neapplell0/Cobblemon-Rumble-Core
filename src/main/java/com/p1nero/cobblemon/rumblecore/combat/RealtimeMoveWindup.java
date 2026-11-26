@@ -35,6 +35,7 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 public final class RealtimeMoveWindup {
     private static final int STANDARD_TICKS = 10;
     private static final int MELEE_TICKS = 4;
+    public static final int MELEE_IMPACT_TICKS = 4;
     private static final double WARNING_RADIUS = 96.0;
     private static final int MAX_KNOCKBACK_AIR_TICKS = 40;
     private static final Map<Entity, Knockback> KNOCKBACKS = new WeakHashMap<>();
@@ -141,19 +142,10 @@ public final class RealtimeMoveWindup {
         return true;
     }
 
-    public static boolean npcHasPp(PokemonEntity pokemon, MoveInfo info) {
-        var learned = npcLearnedMove(pokemon, info);
-        return learned == null || learned.getCurrentPp() > 0;
-    }
-
-    private static com.cobblemon.mod.common.api.moves.Move npcLearnedMove(PokemonEntity pokemon, MoveInfo info) {
-        return pokemon.getPokemon().getMoveSet().getMoves().stream()
-                .filter(move -> RealtimeSignatureMoves.usesSlot(pokemon.getPokemon(), move, info)).findFirst().orElse(null);
-    }
-
     /** Returns the duration to schedule the cast for, or zero if the cast was rejected. */
     public static int npcMove(PokemonEntity pokemon, ServerLevel level, long now, MoveInfo move) {
-        if (npcCoolingDown(pokemon, now) || locked(pokemon) || crowdControlled(pokemon) || !npcHasPp(pokemon, move)) return 0;
+        // AI is limited by cooldown and control effects, not by PP.
+        if (npcCoolingDown(pokemon, now) || locked(pokemon) || crowdControlled(pokemon)) return 0;
         boolean melee = isMelee(move);
         int ticks = melee ? MELEE_TICKS : STANDARD_TICKS;
         LOCKS.put(pokemon, new Lock(level.dimension(), now + ticks));
@@ -163,7 +155,7 @@ public final class RealtimeMoveWindup {
         return ticks;
     }
 
-    private static boolean isMelee(MoveInfo move) {
+    public static boolean isMelee(MoveInfo move) {
         // DASH uses the standard warning, even when the move makes contact.
         return move != null && MoveRegistry.style(move).shape() == MoveStyle.Shape.MELEE;
     }
@@ -176,8 +168,6 @@ public final class RealtimeMoveWindup {
         MoveInfo move = NPC_PENDING_MOVES.remove(pokemon);
         if (move == null) return;
         LOCKS.remove(pokemon);
-        var learned = npcLearnedMove(pokemon, move);
-        if (learned != null) learned.setCurrentPp(Math.max(0, learned.getCurrentPp() - 1));
         int cooldown = MoveCombat.cooldownTicks(move.power(), move.pp(), move.isStatus(), SmashConfig.get(SmashConfig.COOLDOWN_SCALE));
         if (move.priority() > 0) cooldown = (int) (cooldown * 0.75);
         if (move.isStatus() && move.has("heal")) {
@@ -208,15 +198,19 @@ public final class RealtimeMoveWindup {
 
     private static void warn(ServerLevel level, PokemonEntity pokemon, ServerPlayer caster, int ticks, boolean melee) {
         Vec3 at = pokemon.position().add(0.0, pokemon.getBbHeight() + 0.2, 0.0);
-        var pop = new SmashPayloads.Pop(pokemon.getId(), at.x, at.y, at.z, "!", 0xFFD43B, Pops.WORD_BIG, ticks);
+        // Red is the urgent contact cue; blue is the ranged/projectile cue.
+        int warningColor = melee ? 0xFF3030 : 0x3388FF;
+        var pop = new SmashPayloads.Pop(pokemon.getId(), at.x, at.y, at.z, "!", warningColor, Pops.WORD_BIG, ticks);
         var arena = caster == null ? null : ArenaMatch.pvpWarningGroup(caster);
         var duel = caster == null || arena != null ? null : Duels.groupOf(caster);
         for (ServerPlayer viewer : level.players()) {
-            boolean nearby = viewer == caster || viewer.distanceToSqr(pokemon) <= WARNING_RADIUS * WARNING_RADIUS;
+            boolean nearby = viewer == caster || RealtimeSoundDistance.forPlayer(viewer, pokemon.getX(), pokemon.getY(), pokemon.getZ())
+                    <= WARNING_RADIUS * WARNING_RADIUS;
             if (nearby) Smash.send(viewer, pop);
             if (nearby || (arena != null && ArenaMatch.pvpWarningGroup(viewer) == arena)
                     || (duel != null && Duels.groupOf(viewer) == duel)) {
-                Smash.send(viewer, new RealtimeMoveWindupPacket(viewer == caster ? ticks : 0, melee));
+                int cue = viewer == caster ? ticks : ArenaMatch.alliedWindup(viewer, pokemon) ? RealtimeMoveWindupPacket.ALLY : 0;
+                Smash.send(viewer, new RealtimeMoveWindupPacket(cue, melee));
             }
         }
     }

@@ -86,7 +86,11 @@ public final class SquadQuest {
 
     /** Called after Cobblemon reports a successful thrown-ball capture. */
     public static void captured(ServerPlayer player) {
-        if (player.level().dimension() == Level.OVERWORLD) advance(player, CAPTURE, 1);
+        if (player.level().dimension() != Level.OVERWORLD) return;
+        var quest = ArcQuestPlayerManager.getOrCreate(player).getActiveQuest(ID.toString());
+        if (quest == null || !quest.isPhaseActive(CAPTURE)) return;
+        advance(player, CAPTURE, 1);
+        OpeningTutorial.startCaptureSkills(player);
     }
 
     private static void advance(ServerPlayer player, String phase, int amount) {

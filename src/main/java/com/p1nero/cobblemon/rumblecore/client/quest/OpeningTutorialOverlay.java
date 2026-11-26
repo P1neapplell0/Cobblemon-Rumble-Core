@@ -1,11 +1,20 @@
 package com.p1nero.cobblemon.rumblecore.client.quest;
 
 import com.cobblemon.mod.common.CobblemonSounds;
+import com.cobblemon.mod.common.CobblemonItems;
+import com.cobblemon.mod.common.client.CobblemonClient;
+import com.cobblemon.mod.common.client.gui.interact.partyselect.PartySelectGUI;
+import com.cobblemon.mod.common.client.gui.summary.Summary;
+import com.cobblemon.mod.common.client.gui.summary.widgets.screens.SummaryTab;
+import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.MoveSwapScreen;
+import net.minecraft.client.gui.components.AbstractWidget;
+import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.MovesWidget;
 import com.johnn.realtimecobblemon.client.ClientSmash;
 import com.nbp.cobblemon_smartphone.client.gui.PokeInfoDetailScreen;
 import com.nbp.cobblemon_smartphone.client.gui.PokeInfoScreen;
 import com.nbp.cobblemon_smartphone.client.gui.SmartphoneScreen;
 import com.nbp.cobblemon_smartphone.item.SmartphoneItem;
+import com.cobblemon.mod.common.client.keybind.CobblemonKeyBinds;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.TutorialPulse;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
@@ -39,10 +48,12 @@ import org.arcadia.arc_quest.quest.registry.QuestRegistry;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, value = Dist.CLIENT)
 public final class OpeningTutorialOverlay {
     private static final long READ_MS = 1500, RETRY_MS = 700, INTRO_MS = 2200;
+    private static final long CANDY_NOTICE_MS = 5000, CANDY_FADE_MS = 450;
     private static final int GOLD = 0xfff9df94, PAPER = 0xfff9f5e8;
     private static Step step = Step.INACTIVE;
     private static long shownAt, sentAt, actedAt, mainGroupSeen;
-    private static boolean acted;
+    private static boolean acted, candyNotice;
+    private static long candyNoticeUntil;
     private static Screen observed;
     private static Target target;
 
@@ -122,7 +133,26 @@ public final class OpeningTutorialOverlay {
     }
 
     @SubscribeEvent
-    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) { sync(Step.INACTIVE.ordinal()); }
+    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {
+        candyNotice = false;
+        candyNoticeUntil = 0;
+        sync(Step.INACTIVE.ordinal());
+    }
+
+    public static void candyComplete() {
+        candyNotice = true;
+        candyNoticeUntil = 0; // Start when the player can see the HUD, not while the selector is closing.
+    }
+
+    public static void pointMoveControl(Summary summary, int x, int y, int w, int h) {
+        if (target == null) point(Step.CAPTURE_SKILLS, summary, x, y, w, h);
+    }
+
+    @SubscribeEvent
+    public static void beforeScreen(ScreenEvent.Render.Pre event) {
+        // The native move rows report their actual bounds during this render pass.
+        if (step == Step.CAPTURE_SKILLS && event.getScreen() instanceof Summary) target = null;
+    }
 
     @SubscribeEvent
     public static void tick(ClientTickEvent.Post event) {
@@ -151,6 +181,9 @@ public final class OpeningTutorialOverlay {
             case OPEN_PHONE -> mainHand && screen instanceof SmartphoneScreen;
             case CLOUD, WAYSTONES, DISTRIBUTION -> acted && actedAt != 0 && now - actedAt >= INTRO_MS;
             case POKEMON_INFO -> screen instanceof PokeInfoScreen || screen instanceof PokeInfoDetailScreen;
+            // These follow-ups complete only from their authoritative server events:
+            // BenchMoveHandler.exchangeMove and EXPERIENCE_CANDY_USE_POST.
+            case CAPTURE_SKILLS, CANDY -> false;
             default -> false;
         };
         long duration = step == Step.JOURNAL || step == Step.HOLD_PHONE ? INTRO_MS : READ_MS;
@@ -163,7 +196,18 @@ public final class OpeningTutorialOverlay {
     @SubscribeEvent
     public static void hud(RenderGuiEvent.Post event) {
         var mc = Minecraft.getInstance();
-        if (mc.screen == null && available(mc)) draw(event.getGuiGraphics(), null);
+        if (mc.screen != null) return;
+        if (candyNotice && hudAvailable(mc)) {
+            long now = Util.getMillis();
+            if (candyNoticeUntil == 0) candyNoticeUntil = now + CANDY_NOTICE_MS;
+            long remaining = candyNoticeUntil - now;
+            if (remaining > 0) {
+                drawCandyNotice(event.getGuiGraphics(), Math.min(1F, remaining / (float) CANDY_FADE_MS));
+                return;
+            }
+            candyNotice = false;
+        }
+        if (available(mc)) draw(event.getGuiGraphics(), null);
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -172,8 +216,37 @@ public final class OpeningTutorialOverlay {
     }
 
     private static boolean available(Minecraft mc) {
-        return isActive() && mc.player != null && mc.getOverlay() == null && !mc.options.hideGui && !ClientSmash.active()
+        return isActive() && hudAvailable(mc) && (step == Step.CAPTURE_SKILLS || !ClientSmash.active());
+    }
+
+    private static boolean hudAvailable(Minecraft mc) {
+        return mc.player != null && mc.getOverlay() == null && !mc.options.hideGui
                 && ClientDialogueCache.INSTANCE.getCurrentSession() == null;
+    }
+
+    private static void drawCandyNotice(GuiGraphics graphics, float alpha) {
+        var font = Minecraft.getInstance().font;
+        var title = text("candy_title");
+        // Keep the banner in the middle third, clear of the side chat and party HUDs.
+        int wrapWidth = Math.max(1, Math.min(210, graphics.guiWidth() / 3 - 12));
+        var lines = font.split(text("candy_opened"), wrapWidth);
+        int w = Math.max(font.width(title), lines.stream().mapToInt(font::width).max().orElse(0)) + 20;
+        int h = 25 + lines.size() * 11;
+        int x = (graphics.guiWidth() - w) / 2;
+        int y = Math.max(6, graphics.guiHeight() * 2 / 3 - h);
+        graphics.pose().pushPose();
+        graphics.pose().translate(x, y, 480);
+        graphics.fill(0, 0, w, h, fade(0xe91a202a, alpha));
+        graphics.hLine(0, w - 1, 0, fade(GOLD, alpha));
+        if (alpha >= 0.02F) {
+            graphics.drawString(font, title, 10, 7, fade(GOLD, alpha));
+            for (int i = 0; i < lines.size(); i++) graphics.drawString(font, lines.get(i), 10, 20 + i * 11, fade(PAPER, alpha));
+        }
+        graphics.pose().popPose();
+    }
+
+    private static int fade(int argb, float alpha) {
+        return (argb & 0xffffff) | (Math.round((argb >>> 24) * alpha) << 24);
     }
 
     private static void draw(GuiGraphics graphics, Screen screen) {
@@ -181,10 +254,35 @@ public final class OpeningTutorialOverlay {
         var mc = Minecraft.getInstance();
         boolean reopenJournal = screen == null && (step == Step.MAIN_GROUP || step == Step.MAIN_QUEST || step == Step.TRACK);
         boolean explaining = acted && (step == Step.CLOUD || step == Step.WAYSTONES || step == Step.DISTRIBUTION);
-        boolean reopenPhone = screen == null && step.ordinal() >= Step.CLOUD.ordinal() && !explaining;
+        boolean reopenPhone = screen == null && step.ordinal() >= Step.CLOUD.ordinal()
+                && step.ordinal() <= Step.DISTRIBUTION.ordinal() && !explaining;
         KeyMapping key = step == Step.JOURNAL || reopenJournal ? ClientEventHandler.KEY_OPEN_JOURNAL
                 : step == Step.OPEN_PHONE || reopenPhone ? mc.options.keyUse : null;
         String message = reopenJournal ? "journal" : reopenPhone ? "reopen_phone" : step.name().toLowerCase(Locale.ROOT);
+        if (step == Step.CAPTURE_SKILLS) {
+            if (ClientSmash.active() || CobblemonClient.INSTANCE.getBattle() != null) message = "capture_leave_battle";
+            else if (screen instanceof Summary summary) {
+                if (summary.getSideScreen() instanceof MoveSwapScreen swap && swap.getReplacedMove() != null) {
+                    message = "capture_pick_move";
+                } else if (summary.children().stream().anyMatch(MovesWidget.class::isInstance)) {
+                    message = target != null ? "capture_replace_move" : "capture_no_moves";
+                } else {
+                    message = "capture_open_moves";
+                    // Cobblemon 1.8.4: identify the native Moves tab by its icon, not by translated text or index.
+                    summary.children().stream().filter(SummaryTab.class::isInstance).map(SummaryTab.class::cast)
+                            .filter(tab -> tab.getIcon().getPath().endsWith("/summary_tab_icon_moves.png"))
+                            .findFirst().ifPresent(tab -> pointWidget(summary, tab));
+                }
+            } else {
+                key = CobblemonKeyBinds.INSTANCE.getSUMMARY();
+            }
+        } else if (step == Step.CANDY) {
+            if (screen instanceof PartySelectGUI) message = "candy_choose";
+            else if (mc.player.getMainHandItem().is(CobblemonItems.EXPERIENCE_CANDY_S)) {
+                message = "candy_use";
+                key = mc.options.keyUse;
+            }
+        }
         if (explaining) {
             message += "_opened";
             if (actedAt == 0) actedAt = Util.getMillis();
@@ -197,7 +295,11 @@ public final class OpeningTutorialOverlay {
         }
         Component binding = key == null ? Component.empty() : key.getTranslatedKeyMessage();
         var lines = mc.font.split(text(message, binding), Math.max(1, Math.min(210, graphics.guiWidth() - 32)));
-        var title = text(step.ordinal() <= Step.CLOSE_JOURNAL.ordinal() ? "journal_title" : "phone_title");
+        var title = text(switch (step) {
+            case CAPTURE_SKILLS -> "capture_title";
+            case CANDY -> "candy_title";
+            default -> step.ordinal() <= Step.CLOSE_JOURNAL.ordinal() ? "journal_title" : "phone_title";
+        });
         int w = Math.max(mc.font.width(title) + 20, lines.stream().mapToInt(mc.font::width).max().orElse(0) + 20);
         if (key != null) w = Math.max(w, mc.font.width(binding) + 32);
         int h = 25 + lines.size() * 11 + (key == null ? 0 : 22);
@@ -207,7 +309,10 @@ public final class OpeningTutorialOverlay {
         Target mark = !explaining && target != null && target.screen() == screen && Util.getMillis() - target.seen() < 250 ? target : null;
         int x = (graphics.guiWidth() - boxW) / 2;
         int y = screen == null ? Math.max(6, graphics.guiHeight() * 2 / 3 - boxH) : 6;
-        if (mark != null) {
+        // The native summary uses the top edge for tabs; keep the tutorial beneath its panel.
+        boolean nativeMoves = screen instanceof Summary && step == Step.CAPTURE_SKILLS;
+        if (nativeMoves) y = graphics.guiHeight() - boxH - 6;
+        if (mark != null && !nativeMoves) {
             if (mark.x() + mark.w() + boxW + 17 <= graphics.guiWidth()) {
                 x = mark.x() + mark.w() + 11;
                 y = mark.y() + mark.h() / 2 - boxH / 2;
@@ -220,13 +325,16 @@ public final class OpeningTutorialOverlay {
         }
         y = Math.max(6, Math.min(y, graphics.guiHeight() - boxH - 6));
         graphics.pose().pushPose();
-        graphics.pose().translate(0, 0, 480);
+        // Summary draws its panels and the move tooltip above the normal HUD depth.
+        graphics.pose().translate(0, 0, nativeMoves ? 1200 : 480);
         if (mark != null) {
             TutorialPulse.render(graphics, mark.x(), mark.y(), mark.w(), mark.h());
-            int mx = mark.x() + mark.w() / 2, my = mark.y() + mark.h() / 2;
-            int px = Math.clamp(mx, x, x + boxW), py = Math.clamp(my, y, y + boxH);
-            graphics.hLine(Math.min(mx, px), Math.max(mx, px), my, 0xccf9df94);
-            graphics.vLine(px, Math.min(my, py), Math.max(my, py), 0xccf9df94);
+            if (!nativeMoves) {
+                int mx = mark.x() + mark.w() / 2, my = mark.y() + mark.h() / 2;
+                int px = Math.clamp(mx, x, x + boxW), py = Math.clamp(my, y, y + boxH);
+                graphics.hLine(Math.min(mx, px), Math.max(mx, px), my, 0xccf9df94);
+                graphics.vLine(px, Math.min(my, py), Math.max(my, py), 0xccf9df94);
+            }
         }
         graphics.pose().translate(x, y, 0);
         graphics.pose().scale(scale, scale, 1);
@@ -250,6 +358,10 @@ public final class OpeningTutorialOverlay {
         graphics.pose().popPose();
     }
 
+    private static void pointWidget(Summary summary, AbstractWidget widget) {
+        pointMoveControl(summary, widget.getX(), widget.getY(), widget.getWidth(), widget.getHeight());
+    }
+
     private static boolean showOn(Screen screen) {
         if (acted && (step == Step.CLOUD || step == Step.WAYSTONES || step == Step.DISTRIBUTION)) return true;
         return switch (step) {
@@ -260,6 +372,8 @@ public final class OpeningTutorialOverlay {
             case CLOUD, WAYSTONES -> screen == null || screen instanceof SmartphoneScreen;
             case POKEMON_INFO, DISTRIBUTION -> screen == null || screen instanceof SmartphoneScreen
                     || screen instanceof PokeInfoScreen || screen instanceof PokeInfoDetailScreen;
+            case CAPTURE_SKILLS -> screen == null || screen instanceof Summary;
+            case CANDY -> screen == null || screen instanceof PartySelectGUI;
             default -> false;
         };
     }

@@ -5,7 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 
 public final class RealtimeMoveWindupClient {
@@ -22,13 +21,13 @@ public final class RealtimeMoveWindupClient {
             return;
         }
         if (mc.level == null || mc.player == null) return;
-        // Keep the cue non-positional for reliable audibility, while distinguishing our cast from threats.
-        boolean ownCast = ticks > 0;
-        SoundEvent sound = melee
-                ? (ownCast ? SoundEvents.IRON_GOLEM_ATTACK : SoundEvents.NOTE_BLOCK_SNARE.value())
-                : (ownCast ? SoundEvents.NOTE_BLOCK_PLING.value() : SoundEvents.NOTE_BLOCK_BELL.value());
-        float pitch = melee && ownCast ? 1.65F : ownCast ? 1.1F : 0.9F;
-        mc.getSoundManager().play(SimpleSoundInstance.forUI(sound, pitch, ownCast ? 0.9F : 1.0F));
+        boolean friendly = ticks > 0 || ticks == RealtimeMoveWindupPacket.ALLY;
+        // Melee is higher-pitched than ranged; reserve the louder anvil cue for threats.
+        // UI playback keeps both cues audible regardless of camera distance.
+        float pitch = friendly ? (melee ? 1.75F : 1.30F) : (melee ? 1.35F : 1.00F);
+        mc.getSoundManager().play(SimpleSoundInstance.forUI(
+                friendly ? SoundEvents.NOTE_BLOCK_BELL.value() : SoundEvents.ANVIL_LAND,
+                pitch, friendly ? 0.9F : 0.72F));
         if (ticks > 0) {
             caster = mc.player;
             level = mc.level;

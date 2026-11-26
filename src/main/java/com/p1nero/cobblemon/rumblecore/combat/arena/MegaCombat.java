@@ -35,6 +35,10 @@ public final class MegaCombat {
         return available() && pokemon.heldItem().is(MegaShowdownTags.Items.MEGA_STONE) && canMega(pokemon);
     }
 
+    public static boolean canMegaWithoutStone(Pokemon pokemon) {
+        return canMega(pokemon) && !pokemon.heldItem().is(MegaShowdownTags.Items.MEGA_STONE);
+    }
+
     public static boolean canMega(Pokemon pokemon) {
         if (!available() || !MegaShowdownConfig.mega || MegaGimmick.isMega(pokemon)) return false;
         // Mega Showdown assumes four occupied move slots for Rayquaza.

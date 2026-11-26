@@ -48,7 +48,7 @@
       "aspects": ["rumble-gym-ground-leader"],
       "poser": "cobblemon_rumble_core:story_trainer",
       "model": "cobblemon_rumble_core:rumble_trainer_steve.geo",
-      "texture": "cobblemon_rumble_core:textures/entity/npc/ground_leader.png",
+      "texture": "rctmod:textures/trainers/single/leader_giovanni_015e.png",
       "layers": []
     },
     {

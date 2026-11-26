@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.gym;
 
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.mojang.logging.LogUtils;
+import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 /** Attendant placements and scripts from the original Trial Hall. */
@@ -50,6 +52,14 @@ public final class GymCatalog {
     static List<Encounter> forGym(Gym gym) { return ALL.stream().filter(e -> e.gym() == gym).toList(); }
     public static Encounter leader(Gym gym) {
         return ALL.stream().filter(e -> e.gym() == gym && e.leader()).findFirst().orElseThrow();
+    }
+
+    public static ResourceLocation leaderTexture(Gym gym) {
+        return switch (gym) {
+            case ROCK -> ResourceLocation.parse("rctmod:textures/trainers/single/leader_brock_0038.png");
+            case GROUND -> ResourceLocation.parse("rctmod:textures/trainers/single/leader_giovanni_015e.png");
+            default -> PrologueWorld.id("textures/entity/npc/" + gym.path() + "_leader.png");
+        };
     }
 
     private static Actor a(String id, int x, int y, int z) {

@@ -10,6 +10,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 public record RealtimeMoveWindupPacket(int ticks, boolean melee) implements CustomPacketPayload {
     public static final int RELEASE = -1;
+    public static final int ALLY = -2;
     private static final Type<RealtimeMoveWindupPacket> TYPE = new Type<>(PrologueWorld.id("realtime_move_windup"));
     private static final StreamCodec<RegistryFriendlyByteBuf, RealtimeMoveWindupPacket> CODEC = StreamCodec.composite(
             ByteBufCodecs.VAR_INT, RealtimeMoveWindupPacket::ticks,

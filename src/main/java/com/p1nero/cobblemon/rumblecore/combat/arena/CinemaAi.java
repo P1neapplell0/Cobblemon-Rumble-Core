@@ -38,6 +38,7 @@ final class CinemaAi {
     private final List<Move> moves;
     private final List<Shot> shots = new ArrayList<>();
     private Cast cast;
+    private Cast meleeImpact;
     private long firstCastAt = -1;
 
     CinemaAi(PokemonEntity pokemon) {
@@ -60,6 +61,16 @@ final class CinemaAi {
         if (RealtimeMoveWindup.crowdControlled(pokemon) || pokemon.isNoAi()) {
             cancel();
             return;
+        }
+        if (meleeImpact != null && now >= meleeImpact.releaseAt()) {
+            var pending = meleeImpact;
+            meleeImpact = null;
+            var victim = pending.target();
+            if (valid(victim, opponents) && inRange(pending.move(), victim, pokemon.distanceTo(victim)) && pokemon.hasLineOfSight(victim)) {
+                var center = victim.getBoundingBox().getCenter();
+                Fx3D.withPalette(pokemon, () -> impact(level, pending.move(), victim, center,
+                        center.subtract(pokemon.getBoundingBox().getCenter()).normalize(), playerHit));
+            }
         }
         if (cast != null) {
             if (!valid(cast.target(), opponents)) { cancel(); return; }
@@ -97,6 +108,7 @@ final class CinemaAi {
     private void cancel() {
         if (cast != null) RealtimeMoveWindup.npcInterrupted(pokemon);
         cast = null;
+        meleeImpact = null;
     }
 
     private void face(Entity target) { pokemon.getLookControl().setLookAt(target, 30, 30); }
@@ -121,6 +133,7 @@ final class CinemaAi {
         Fx3D.cast(level, move.info(), pokemon.position(), direction, Math.max(0.8F, pokemon.getBbHeight()));
         CinemaSoundAccess.rumble$move(level, move.info(), false, from);
         switch (move.style().shape()) {
+            case MELEE -> meleeImpact = new Cast(move, target, level.getGameTime() + RealtimeMoveWindup.MELEE_IMPACT_TICKS);
             case PROJECTILE -> {
                 double speed = Math.clamp(move.style().speed(), 0.6, 1.5);
                 shots.add(new Shot(move, target, from, direction.scale(speed), move.range() + target.getBbWidth(), pokemon.getRandom().nextInt()));

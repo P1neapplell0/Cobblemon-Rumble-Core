@@ -2,12 +2,18 @@ package com.p1nero.cobblemon.rumblecore.mixin.cobblemon.client;
 
 import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.MoveSlotWidget;
+import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.MoveSwapScreen;
+import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.SwapMoveButton;
+import com.p1nero.cobblemon.rumblecore.client.quest.OpeningTutorialOverlay;
+import com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial.Step;
 import com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveShapeTooltip;
 import com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveShapeUi;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.MutableComponent;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
@@ -22,6 +28,9 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
  */
 @Mixin(value = MoveSlotWidget.class, remap = false)
 abstract class MoveSlotWidgetRealtimeShape {
+    // Cobblemon 1.8.4: use the native switch control hitbox; re-check the field name on update.
+    @Shadow @Final private SwapMoveButton switchMoveButton;
+
     @Redirect(method = "renderWidget", at = @At(value = "INVOKE",
             target = "Lcom/cobblemon/mod/common/api/moves/Move;getDisplayName()Lnet/minecraft/network/chat/MutableComponent;"))
     private MutableComponent rumble$appendRealtimeShape(Move move) {
@@ -41,6 +50,16 @@ abstract class MoveSlotWidgetRealtimeShape {
                                             float partialTick, CallbackInfo ci) {
         MoveSlotWidget slot = (MoveSlotWidget) (Object) this;
         Move move = slot.getMove();
+        if (move != null && OpeningTutorialOverlay.at(Step.CAPTURE_SKILLS)) {
+            var summary = switchMoveButton.getMovesWidget().getSummary();
+            var pokemon = summary.getSelectedPokemon$common();
+            boolean replacing = summary.getSideScreen() instanceof MoveSwapScreen swap && swap.getReplacedMove() != null;
+            if (!replacing && switchMoveButton.visible && switchMoveButton.active
+                    && pokemon.getRelearnableMoves().iterator().hasNext()) {
+                OpeningTutorialOverlay.pointMoveControl(summary, switchMoveButton.getX(), switchMoveButton.getY(),
+                        switchMoveButton.getWidth(), switchMoveButton.getHeight());
+            }
+        }
         if (move != null && slot.isHovered()) {
             RealtimeMoveShapeTooltip.capture(Minecraft.getInstance().screen, move.getTemplate(), mouseX, mouseY);
         }

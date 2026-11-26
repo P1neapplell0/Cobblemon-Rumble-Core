@@ -25,8 +25,10 @@ abstract class RealtimeMoveWindupInput {
         if (RealtimeMoveWindup.playerCastBlocked(player)) ci.cancel();
     }
 
+    // RTC 1.0.3alpha.1: the first level() access is after slot lookup and before control/cooldown checks.
+    // Leave existing wisp detonation ahead of this hook: it reuses an already-paid cast.
     @Inject(method = "use0", at = @At(value = "INVOKE", target =
-            "Lcom/johnn/realtimecobblemon/moves/MoveRegistry;info(Lcom/cobblemon/mod/common/api/moves/Move;)Lcom/johnn/realtimecobblemon/moves/MoveInfo;"), cancellable = true)
+            "Lnet/minecraft/server/level/ServerPlayer;level()Lnet/minecraft/world/level/Level;", ordinal = 0), cancellable = true)
     private static void rumble$requirePp(ServerPlayer player, int slot, float charge, CallbackInfo ci, @Local Move move) {
         if (move.getCurrentPp() > 0) return;
         player.displayClientMessage(Component.translatable("rumble.realtime.no_pp", move.getDisplayName()), true);

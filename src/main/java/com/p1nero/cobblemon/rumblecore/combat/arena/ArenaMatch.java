@@ -235,19 +235,10 @@ public final class ArenaMatch extends InstanceSession {
                 InstanceApi.registerSessionFactory(template, (id, definition, dimension, owner, password) ->
                         new ArenaMatch(id, definition, dimension, owner, password, leader, null, null, hard));
                 var actor = leader.actors().getFirst();
-                var portrait = gym == GymCatalog.Gym.ROCK
-                        ? ResourceLocation.parse("rctmod:textures/trainers/single/leader_brock_0038.png")
-                        : PrologueWorld.id("textures/entity/npc/" + actor.id() + ".png");
+                var portrait = GymCatalog.leaderTexture(gym);
                 InstanceApi.registerLobbyPresentation(template, player -> new InstanceApi.LobbyPresentation(
                         actor.key(), portrait, !ArcQuestPlayerManager.getOrCreate(player).hasFlag(PARTY_TUTORIAL)));
             }
-        }
-        for (var gym : GymCatalog.Gym.values()) {
-            var leader = GymCatalog.leader(gym);
-            var actor = leader.actors().getFirst();
-            var portrait = gym == GymCatalog.Gym.ROCK
-                    ? ResourceLocation.parse("rctmod:textures/trainers/single/leader_brock_0038.png")
-                    : PrologueWorld.id("textures/entity/npc/" + actor.id() + ".png");
         }
     }
     public static void registerMegaTrial(MegaTrials.Trial trial) {
@@ -2292,21 +2283,27 @@ public final class ArenaMatch extends InstanceSession {
         if (session == null || session.pokemon.getPokemon().isFainted()) return;
         if (match != null && match.cinema != null) return;
         if (match == null) {
-            if (!PrologueTraining.restrict(player) && !MegaCombat.heal(session.pokemon))
+            if (PrologueTraining.restrict(player) || session.combat.lockedUntil > player.level().getGameTime()) return;
+            var pokemon = session.pokemon.getPokemon();
+            if (MegaCombat.canMega(pokemon) && MegaCombat.equipped(player) && MegaEvo.refusal(player, pokemon) == null)
                 MegaEvo.onKey(player);
+            else if (MegaCombat.heal(session.pokemon)) Smash.sendHud(session);
             return;
         }
         var f = match.fighter(player);
         if (f == null || f.choosing || f.body != session.pokemon || match.trainerResultAt != 0
                 || !match.fighting && (!match.gimmickLesson() || match.teraLesson()) || f.megaReady != 0 || !f.body.isAlive()) return;
-        if (MegaCombat.heal(f.body)) { Smash.sendHud(session); return; }
-        if (f.megaUsed || (match.frontier == null && match.teamGame == null && match.b == null && !MegaCombat.equipped(player)) || !MegaCombat.canMega(f.current())) return;
         long now = match.getLevel().getGameTime();
         if (session.combat.lockedUntil > now) return;
-        f.megaReady = now + RealtimeProtection.MEGA_TICKS;
-        session.combat.lockedUntil = f.megaReady;
-        session.combat.lockReason = "is Mega Evolving!";
-        MegaCombat.begin(match.getLevel(), f.body);
+        if (!f.megaUsed && (match.frontier != null || match.teamGame != null || match.b != null || MegaCombat.equipped(player))
+                && MegaCombat.canMega(f.current())) {
+            f.megaReady = now + RealtimeProtection.MEGA_TICKS;
+            session.combat.lockedUntil = f.megaReady;
+            session.combat.lockReason = "is Mega Evolving!";
+            MegaCombat.begin(match.getLevel(), f.body);
+            return;
+        }
+        if (MegaCombat.heal(f.body)) Smash.sendHud(session);
     }
 
     void useTera(Smash.Session session) {
@@ -2337,6 +2334,20 @@ public final class ArenaMatch extends InstanceSession {
             lessonBattleAt = getLevel().getServer().getTickCount() + 26;
             ProloguePackets.show(f.player, Cue.MEGA_ITEM, f.body.getId(), false, 0, true);
         }
+    }
+
+    public static boolean alliedWindup(ServerPlayer viewer, PokemonEntity pokemon) {
+        var match = group(viewer);
+        if (match == null || group(pokemon) != match) return false;
+        if (match.cinema != null) {
+            int side = match.cinema.factionOf(viewer);
+            return side >= 0 && side == match.cinema.factionOf(pokemon);
+        }
+        var caster = match.combatant(pokemon);
+        var listener = match.fighter(viewer);
+        if (caster == null || listener == null) return false;
+        if (match.teamGame != null) return match.side(caster) == match.side(listener);
+        return match.b == null;
     }
 
     public static boolean friendlyDamage(Smash.Session victim, DamageSource damage) {

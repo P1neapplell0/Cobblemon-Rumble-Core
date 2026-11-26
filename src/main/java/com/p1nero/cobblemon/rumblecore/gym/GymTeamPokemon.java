@@ -92,6 +92,14 @@ public final class GymTeamPokemon {
                 selected.add(candidate.template());
             }
         }
+        if (selected.stream().noneMatch(GymTeamPokemon::isRangedAttack)) {
+            castable.values().stream().filter(candidate -> isRangedAttack(candidate.template()))
+                    .max(Comparator.comparingDouble(ScoredMove::score).thenComparing(candidate -> candidate.template().getName()))
+                    .ifPresent(candidate -> {
+                        if (selected.size() == 4) selected.removeLast();
+                        selected.add(candidate.template());
+                    });
+        }
         boolean basicAttacksOnly = selected.isEmpty();
         if (basicAttacksOnly) {
             // Brawl already supplies close-range attacks for a foe with no castable moves.
@@ -110,6 +118,15 @@ public final class GymTeamPokemon {
         var info = MoveRegistry.info(move.create());
         return hasDamage(info) && !REACTIVE_MOVES.contains(info.id()) && !info.selfdestruct() && !info.ohko()
                 && BRAWL_SHAPES.contains(MoveRegistry.style(info).shape());
+    }
+
+    static boolean isRangedAttack(MoveTemplate move) {
+        if (!isArenaAttack(move)) return false;
+        var style = MoveRegistry.style(MoveRegistry.info(move.create()));
+        return switch (style.shape()) {
+            case PROJECTILE, BEAM, STREAM, BOLT, STRIKE, RAIN, SHOCKWAVE -> Math.max(style.range(), style.radius()) >= 4;
+            default -> false;
+        };
     }
 
     private static boolean hasDamage(MoveInfo info) {

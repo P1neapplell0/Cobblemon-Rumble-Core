@@ -4,6 +4,8 @@ import com.cobblemon.mod.common.api.moves.MoveTemplate;
 import com.cobblemon.mod.common.client.gui.summary.widgets.screens.moves.MoveSwapScreen;
 import com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveShapeTooltip;
 import com.p1nero.cobblemon.rumblecore.client.combat.RealtimeMoveShapeUi;
+import com.p1nero.cobblemon.rumblecore.client.quest.OpeningTutorialOverlay;
+import com.p1nero.cobblemon.rumblecore.prologue.OpeningTutorial.Step;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ObjectSelectionList;
@@ -32,10 +34,16 @@ abstract class MoveSwapRealtimeShape extends ObjectSelectionList.Entry<MoveSwapS
                                             int rowTop, int rowLeft, int rowWidth, int rowHeight,
                                             int mouseX, int mouseY, boolean hovering, float partialTick,
                                             CallbackInfo ci) {
-        if (hovering) {
-            RealtimeMoveShapeTooltip.capture(
-                    Minecraft.getInstance().screen,
-                    ((MoveSwapScreen.MoveSlot) (Object) this).getMove(), mouseX, mouseY);
+        var slot = (MoveSwapScreen.MoveSlot) (Object) this;
+        if (hovering) RealtimeMoveShapeTooltip.capture(Minecraft.getInstance().screen, slot.getMove(), mouseX, mouseY);
+        if (OpeningTutorialOverlay.at(Step.CAPTURE_SKILLS) && slot.getMove() != null) {
+            var pane = slot.getPane();
+            // Cobblemon 1.8.4: keep the highlight inside the visible list when scrolled.
+            int top = Math.max(rowTop, pane.getY());
+            int bottom = Math.min(rowTop + rowHeight, pane.getY() + pane.getHeight());
+            if (pane.getReplacedMove() != null && bottom - top >= rowHeight / 2) {
+                OpeningTutorialOverlay.pointMoveControl(pane.getMovesWidget().getSummary(), rowLeft, top, rowWidth, bottom - top);
+            }
         }
     }
 }

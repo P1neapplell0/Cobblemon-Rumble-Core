@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.server.ServerStartedEvent;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)
 public final class ArenaRosterAudit {
     private final RegistryAccess registries;
-    private int rosters, pokemon, basic, unavailable, failures;
+    private int rosters, pokemon, basic, unavailable, noRanged, failures;
 
     private ArenaRosterAudit(RegistryAccess registries) { this.registries = registries; }
 
@@ -48,8 +48,8 @@ public final class ArenaRosterAudit {
                 check(trial.template() + "/" + side, () -> cast.stream().map(slot -> slot.create(trial.id())).toList(), true);
             }
         }
-        GymCatalog.LOG.info("[ArenaAudit] {} rosters / {} Pokémon; {} basic-attack fallbacks; {} unavailable; {} failed",
-                rosters, pokemon, basic, unavailable, failures);
+        GymCatalog.LOG.info("[ArenaAudit] {} rosters / {} Pokémon; {} basic-attack fallbacks; {} unavailable; {} without legal ranged options; {} failed",
+                rosters, pokemon, basic, unavailable, noRanged, failures);
         if (failures != 0) throw new IllegalStateException("Arena roster audit failed: " + failures);
     }
 
@@ -75,9 +75,17 @@ public final class ArenaRosterAudit {
                     basic++;
                     throw new IllegalStateException("No damaging RTC move for " + mon.getSpecies().getName());
                 }
+                boolean ranged = moves.stream().anyMatch(GymTeamPokemon::isRangedAttack);
+                if (!ranged) {
+                    if (legal.stream().anyMatch(GymTeamPokemon::isRangedAttack))
+                        throw new IllegalStateException("Lost legal ranged option for " + mon.getSpecies().getName());
+                    noRanged++;
+                    GymCatalog.LOG.warn("[ArenaAudit] {} {} has no legal ranged option", id, mon.getSpecies().getName());
+                }
                 if (preferAuthored) {
                     for (var move : original.getMoveSet().getMoveTemplates()) {
-                        if (legal.contains(move) && GymTeamPokemon.isArenaAttack(move) && !moves.contains(move)) {
+                        if (legal.contains(move) && GymTeamPokemon.isArenaAttack(move) && !moves.contains(move)
+                                && !(ranged && original.getMoveSet().getMoveTemplates().stream().noneMatch(GymTeamPokemon::isRangedAttack))) {
                             throw new IllegalStateException("Lost authored move " + move.getName() + " for " + mon.getSpecies().getName());
                         }
                     }

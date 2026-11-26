@@ -8,5 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(targets = "com.johnn.realtimecobblemon.moves.Brawl$Foe", remap = false)
 public interface BrawlFoeAccess {
     @Accessor("mon") PokemonEntity rumble$mon();
+    @Accessor("windup") int rumble$windup();
+    @Accessor("actAt") long rumble$actAt();
     @Accessor("moves") List<?> rumble$moves();
 }

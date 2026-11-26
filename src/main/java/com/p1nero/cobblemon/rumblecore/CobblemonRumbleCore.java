@@ -83,6 +83,7 @@ public final class CobblemonRumbleCore {
         TrialMerchantEntity.register(modBus);
         MegaSimulator.register(modBus);
         modBus.addListener(ProloguePackets::register);
+        OpeningTutorial.initialize();
         modBus.addListener(OpeningTutorial::register);
         modBus.addListener(MerchantPanels::register);
         modBus.addListener(BattleMusic::register);

@@ -87,6 +87,7 @@ public final class FirstBadgeVisit {
             var data = ArcQuestPlayerManager.getOrCreate(player);
             data.setFlag(TRADE_SHOWN);
             data.setFlag(ProfessorShop.UNLOCKED);
+            OpeningTutorial.startCandy(player);
         }
     }
 
