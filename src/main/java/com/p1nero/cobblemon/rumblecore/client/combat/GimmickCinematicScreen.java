@@ -26,7 +26,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID, value = Dist.CLIENT)
 public final class GimmickCinematicScreen extends Screen {
     private static GimmickCinematicScreen current;
-    private static UUID enqueuingTrainer;
     private final GimmickCinematics.Start scene;
     private final Screen previous;
     private final long started = Util.getMillis();
@@ -48,8 +47,6 @@ public final class GimmickCinematicScreen extends Screen {
         mc.setScreen(screen);
         if (ModList.get().isLoaded("cobblemoncinematics")) screen.rendering = Backend.begin(scene);
     }
-
-    public static UUID enqueuingTrainer() { return enqueuingTrainer; }
 
     public static void finish(UUID id) {
         if (current != null && current.scene.id().equals(id)) close(true);
@@ -145,14 +142,11 @@ public final class GimmickCinematicScreen extends Screen {
                 var name = GimmickCinematics.Kind.values()[scene.kind()].name();
                 Object gimmick = java.util.Arrays.stream(type.getEnumConstants())
                         .filter(entry -> ((Enum<?>) entry).name().equals(name)).findFirst().orElseThrow();
-                enqueuingTrainer = scene.trainer();
                 enqueue.invoke(manager, gimmick, scene.pokemon().getDisplayName(false), scene.pokemon().getUuid(), snapshot);
                 return true;
             } catch (ReflectiveOperationException | RuntimeException | LinkageError e) {
                 failed(e);
                 return false;
-            } finally {
-                enqueuingTrainer = null;
             }
         }
 

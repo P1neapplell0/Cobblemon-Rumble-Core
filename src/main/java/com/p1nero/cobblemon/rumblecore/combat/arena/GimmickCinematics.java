@@ -42,8 +42,10 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 @EventBusSubscriber(modid = CobblemonRumbleCore.MOD_ID)
 public final class GimmickCinematics {
     public enum Kind { MEGA_EVOLUTION, DYNAMAX, Z_MOVE, TERASTALIZATION }
-    public static final int ANIMATION_MS = 5600; // Cinematics 1.4.0.
-    private static final int MIN_TICKS = 112, TIMEOUT_TICKS = 160;
+    // Cinematics 1.4.0: the Pokémon reveal starts at 2020 ms in its 5600 ms timeline.
+    public static final int TRAINER_INTRO_MS = 2020;
+    public static final int ANIMATION_MS = 5600 - TRAINER_INTRO_MS;
+    private static final int MIN_TICKS = (ANIMATION_MS + 49) / 50, TIMEOUT_TICKS = MIN_TICKS + 48;
     private static final Set<UUID> CAPABLE = new HashSet<>(); // Keep the handshake across a vanilla player respawn.
     private static final Map<Entity, Scene> LOCKS = new IdentityHashMap<>();
     private static final Map<ArenaMatch, Scene> ARENAS = new IdentityHashMap<>();

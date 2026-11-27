@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "mega_showdown:kommonium_z", "required": false },
+    { "id": "mega_showdown:lycanium_z", "required": false },
+    { "id": "mega_showdown:mimikium_z", "required": false },
+    { "id": "mega_showdown:tapunium_z", "required": false }
+  ]
+}

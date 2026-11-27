@@ -13,10 +13,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = InstanceEvents.class, remap = false)
 abstract class GymSpectatorMode {
     @Inject(method = "gameMode", at = @At("HEAD"), cancellable = true)
-    private static void rumble$allowGymObserver(PlayerEvent.PlayerChangeGameModeEvent event, CallbackInfo ci) {
+    private static void rumble$allowArenaObserver(PlayerEvent.PlayerChangeGameModeEvent event, CallbackInfo ci) {
         if (event.getNewGameMode() == GameType.SPECTATOR && event.getEntity() instanceof ServerPlayer player) {
             var match = ArenaMatch.inArena(player);
-            if (match != null && match.isGymObserver(player)) ci.cancel();
+            // Other members still obey the instance template's forced adventure mode.
+            if (match != null && (match.isGymObserver(player) || match.isFrontierObserverHost(player))) ci.cancel();
         }
     }
 }

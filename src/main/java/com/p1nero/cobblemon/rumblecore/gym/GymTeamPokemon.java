@@ -123,7 +123,7 @@ public final class GymTeamPokemon {
                 basicAttacksOnly ? " (RTC basic attacks)" : "");
     }
 
-    static boolean isArenaAttack(MoveTemplate move) {
+    public static boolean isArenaAttack(MoveTemplate move) {
         var info = MoveRegistry.info(move.create());
         return hasDamage(info) && !REACTIVE_MOVES.contains(info.id()) && !info.selfdestruct() && !info.ohko()
                 && BRAWL_SHAPES.contains(MoveRegistry.style(info).shape());
@@ -139,7 +139,7 @@ public final class GymTeamPokemon {
     }
 
     /** Movie casts must reach a distant target without bringing the attacker into contact. */
-    static boolean isCinemaRangedAttack(MoveTemplate move) {
+    public static boolean isCinemaRangedAttack(MoveTemplate move) {
         if (!isArenaAttack(move)) return false;
         var style = MoveRegistry.style(MoveRegistry.info(move.create()));
         return switch (style.shape()) {

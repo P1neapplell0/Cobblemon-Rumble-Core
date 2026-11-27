@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -29,14 +30,11 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -64,9 +62,9 @@ import static com.p1nero.cobblemon.rumblecore.client.combat.FrontierConsole.type
 /** Client views of the authoritative room. Closing the editor never implicitly forfeits a match. */
 public final class FrontierScreen extends Screen {
     private static final String KEY = "rumble.frontier.";
-    private enum Page { LOBBY, CREATE, ROOM, PRESETS, PICKER, WAITING, INVITE }
+    private enum Page { LOBBY, CREATE, ROOM, PRESETS, PICKER, WAITING, INVITE, WATCH }
     private enum Kind { SPECIES, HELD }
-    private enum ItemsFilter { ALL, HELD, MEGA }
+    private enum ItemsFilter { ALL, BATTLE, BERRY, FORM, MEGA, CRYSTAL }
     private CompoundTag state;
     private Page page;
     private Kind kind;
@@ -88,31 +86,43 @@ public final class FrontierScreen extends Screen {
     private boolean generationsOpen;
     private enum CreateMenu { MODE, RULE, TIME }
     private CreateMenu createMenu;
-    private boolean createMulti;
+    private enum CreateMode { DUEL, TEAMS, PRACTICE }
+    private CreateMode createMode = CreateMode.DUEL;
     private boolean createTimed = true;
     private int createMinutes = FrontierRules.DEFAULT_TIMED_MINUTES, menuSelected;
     private int roomFilter;
-    private int presetScroll, pickerScroll, teamScroll, draftScroll;
-    private int lastPromptSlot = -1;
+    private int presetScroll, pickerScroll, teamScroll;
     private boolean listContent, draggingScrollbar;
     private static final int PRESET_STRIDE = 64, TEAM_STRIDE = 34;
     private boolean editingPreset, managePresets;
+    private BotPresetTarget botPresetTarget;
     private final Map<ResourceLocation, List<String>> syncedLearnsets = new HashMap<>();
-    private final List<FrontierRoster.Pick> presets = FrontierPresetStore.load();
+    private final List<FrontierRoster.Pick> presets = new ArrayList<>();
+    private final boolean serverPresets;
     private String inviteQuery = "";
     private final List<Button> inviteButtons = new ArrayList<>();
 
     private record Option(Component name, String id, Runnable apply) { }
+    private record BotPresetTarget(UUID id, int slot) { }
 
     private FrontierScreen(CompoundTag state) {
         super(text("title"));
         this.state = state;
+        serverPresets = state.getBoolean("serverPresets");
+        if (serverPresets && state.contains("presets", Tag.TAG_LIST)) {
+            var saved = FrontierRooms.decodePresets(state.getList("presets", Tag.TAG_COMPOUND));
+            if (saved != null) presets.addAll(saved);
+        } else {
+            presets.addAll(FrontierPresetStore.load());
+            if (serverPresets && !presets.isEmpty()) sendPresets("import_presets");
+        }
         page = destination(state);
         updateDialog(state);
     }
 
     private static Page destination(CompoundTag data) {
         if (!data.hasUUID("room")) return Page.LOBBY;
+        if (data.getBoolean("live")) return Page.WATCH;
         return multi(data) ? Page.WAITING : Page.ROOM;
     }
 
@@ -140,13 +150,17 @@ public final class FrontierScreen extends Screen {
         FrontierTournamentHud.sync(data);
         if (mc.screen instanceof FrontierScreen screen) {
             if (data.getBoolean("close")) { mc.setScreen(null); return; }
-            boolean hadRoom = screen.state.hasUUID("room");
+            UUID previousRoom = screen.state.hasUUID("room") ? screen.state.getUUID("room") : null;
+            UUID currentRoom = data.hasUUID("room") ? data.getUUID("room") : null;
             Page before = destination(screen.state), after = destination(data);
             screen.state = data;
             screen.pending = false;
-            if (data.hasUUID("room") != hadRoom || before != after
-                    || screen.page == Page.INVITE && !data.getBoolean("canInvite")) {
+            if (!Objects.equals(previousRoom, currentRoom) || before != after
+                    || screen.page == Page.INVITE && !data.getBoolean("canInvite")
+                    || screen.botPresetTarget != null && !screen.canReplaceBot(screen.botPresetTarget)) {
                 screen.page = after;
+                screen.editingPreset = screen.managePresets = false;
+                screen.botPresetTarget = null;
                 screen.offset = 0;
                 screen.createMenu = null;
                 screen.move = -1;
@@ -154,10 +168,9 @@ public final class FrontierScreen extends Screen {
                 screen.moveOffset = 0;
                 screen.dialogProblem = "";
                 screen.spectatorOffset = 0;
-                screen.teamScroll = screen.draftScroll = 0;
-                screen.lastPromptSlot = -1;
+                screen.teamScroll = 0;
             }
-            if (screen.move >= 0 && (screen.own().getBoolean("ready") ||
+            if (screen.move >= 0 && (!screen.editingPreset && screen.own().getBoolean("ready") ||
                     FrontierRoster.NONE.equals(screen.editingPick(screen.slot).species()))) screen.move = -1;
             screen.updateDialog(data);
             if (screen.page == Page.INVITE && screen.field != null) {
@@ -178,7 +191,7 @@ public final class FrontierScreen extends Screen {
     }
 
     private static boolean ruleDialog(String issue) {
-        return "mega_limit".equals(issue) || "repeat_species".equals(issue);
+        return "mega_limit".equals(issue) || "repeat_species".equals(issue) || "bot_stake".equals(issue) || "bot_limit".equals(issue);
     }
 
     private boolean dialogOpen() { return !dialogProblem.isEmpty(); }
@@ -188,14 +201,15 @@ public final class FrontierScreen extends Screen {
 
     @Override protected void init() {
         int preferredWidth = switch (page) {
-            case CREATE, INVITE -> 320;
+            case CREATE, INVITE, WATCH -> 320;
             case PRESETS -> 336;
             default -> 620;
         };
         int preferredHeight = switch (page) {
             case ROOM -> 334;
             case WAITING -> 350;
-            case CREATE -> createMulti ? 195 : 153;
+            case WATCH -> 160;
+            case CREATE -> createMode == CreateMode.TEAMS ? 195 : 146;
             default -> 300;
         };
         w = Math.min(preferredWidth, width - 14);
@@ -227,6 +241,11 @@ public final class FrontierScreen extends Screen {
             case PICKER -> picker();
             case PRESETS -> presetPanel();
             case WAITING -> waiting();
+            case WATCH -> {
+                btn(x + 9, y + 7, 62, text("back"), () -> request("leave", tag -> {}));
+                btn(x + w / 2 - 52, y + h - 25, 104, text("confirm_watch"), true, Action.PRIMARY,
+                        () -> request("confirm_watch", tag -> {}));
+            }
             case INVITE -> invitation();
         }
         if (page == Page.CREATE || page == Page.PICKER || page == Page.INVITE || page == Page.PRESETS)
@@ -238,7 +257,7 @@ public final class FrontierScreen extends Screen {
     }
 
     @Override public void tick() {
-        if ((page == Page.LOBBY || page == Page.INVITE) && ++refreshTicks >= 40) {
+        if ((page == Page.LOBBY || page == Page.INVITE || page == Page.WATCH) && ++refreshTicks >= 40) {
             refreshTicks = 0;
             if (!pending) request("list", tag -> {});
         }
@@ -255,6 +274,7 @@ public final class FrontierScreen extends Screen {
         if (next != Page.PICKER && next != Page.PRESETS) {
             editingPreset = false;
             managePresets = false;
+            botPresetTarget = null;
         }
         offset = 0;
         rebuildWidgets();
@@ -271,7 +291,7 @@ public final class FrontierScreen extends Screen {
     }
 
     private int createRow(int row) {
-        int last = createMulti && createTimed ? 3 : createMulti ? 2 : 1;
+        int last = createMode == CreateMode.TEAMS && createTimed ? 3 : 2;
         return y + 34 + row * Math.clamp((h - 64) / Math.max(1, last), 21, 27);
     }
     private int createInputX() { return x + Math.min(108, w * 2 / 5); }
@@ -281,7 +301,13 @@ public final class FrontierScreen extends Screen {
         int anchor = createMenuAnchor(), menuHeight = 19 * optionCount();
         return anchor + 20 + menuHeight < height - 4 ? anchor + 20 : Math.max(4, anchor - menuHeight);
     }
-    private int optionCount() { return createMenu == CreateMenu.TIME ? FrontierRules.TIMED_MINUTES.size() : 2; }
+    private int optionCount() {
+        return switch (createMenu) {
+            case MODE -> CreateMode.values().length;
+            case RULE -> 2;
+            case TIME -> FrontierRules.TIMED_MINUTES.size();
+        };
+    }
 
     private void dropdown(CreateMenu menu, int row, int selected) {
         btn(createInputX(), createRow(row), createInputWidth(), createOption(menu, selected).copy().append("  ▾"), () -> {
@@ -291,8 +317,12 @@ public final class FrontierScreen extends Screen {
     }
 
     private void createForm() {
-        dropdown(CreateMenu.MODE, 0, createMulti ? 1 : 0);
-        var stakeBox = edit(createInputX(), createRow(1) + 1, createInputWidth(), stake, value -> stake = value);
+        dropdown(CreateMenu.MODE, 0, createMode.ordinal());
+        boolean createMulti = createMode == CreateMode.TEAMS;
+        boolean practice = createMode == CreateMode.PRACTICE;
+        var stakeBox = edit(createInputX(), createRow(1) + 1, createInputWidth(), practice ? "0" : stake, value -> stake = value);
+        stakeBox.setEditable(!practice);
+        stakeBox.active = !practice;
         stakeBox.setMaxLength(18);
         stakeBox.setFilter(value -> value.matches("[0-9]{0,18}"));
         if (createMulti) {
@@ -300,22 +330,27 @@ public final class FrontierScreen extends Screen {
             if (createTimed) dropdown(CreateMenu.TIME, 3, FrontierRules.TIMED_MINUTES.indexOf(createMinutes));
         }
         btn(createInputX(), y + h - 27, createInputWidth(), text("create"), true, Action.PRIMARY, () -> request("create", tag -> {
-            tag.putString("stake", stake.isBlank() ? "0" : stake);
+            tag.putString("stake", practice || stake.isBlank() ? "0" : stake);
             tag.putBoolean("multi", createMulti);
+            tag.putBoolean("practice", practice);
             tag.putInt("minutes", createMulti && createTimed ? createMinutes : 0);
         }));
     }
 
     private void drawCreateForm(GuiGraphics g) {
         String[] labels = {"create_mode", "stake_label", "create_rule", "create_time"};
-        for (int i = 0; i < (createMulti ? createTimed ? 4 : 3 : 2); i++) {
+        for (int i = 0; i < (createMode == CreateMode.TEAMS ? createTimed ? 4 : 3 : 2); i++) {
             FrontierConsole.text(g, font, text(labels[i]), x + 15, createRow(i) + 6, createInputX() - x - 20, i == 1 ? GOLD : TEXT);
         }
     }
 
     private static Component createOption(CreateMenu menu, int index) {
         return switch (menu) {
-            case MODE -> text(index == 0 ? "mode_solo" : "mode_multi");
+            case MODE -> text(switch (CreateMode.values()[index]) {
+                case DUEL -> "mode_solo";
+                case TEAMS -> "mode_multi";
+                case PRACTICE -> "bot_mode";
+            });
             case RULE -> text(index == 0 ? "timed" : "elimination");
             case TIME -> text("minutes_option", FrontierRules.TIMED_MINUTES.get(index));
         };
@@ -323,7 +358,7 @@ public final class FrontierScreen extends Screen {
 
     private void selectCreateOption(int index) {
         switch (createMenu) {
-            case MODE -> createMulti = index == 1;
+            case MODE -> createMode = CreateMode.values()[index];
             case RULE -> createTimed = index == 0;
             case TIME -> createMinutes = FrontierRules.TIMED_MINUTES.get(index);
         }
@@ -374,7 +409,8 @@ public final class FrontierScreen extends Screen {
             var host = room.getCompound("host");
             var guest = room.getCompound("guest");
             boolean multi = multi(room);
-            boolean open = multi ? (room.getInt("capacity") == 0 || room.getInt("count") < room.getInt("capacity")) : guest.isEmpty();
+            boolean live = room.getBoolean("live");
+            boolean open = !live && (multi ? room.getInt("capacity") == 0 || room.getInt("count") < room.getInt("capacity") : guest.isEmpty());
             int cx = x + 12 + i % columns * span, cy = y + 58 + i / columns * ROOM_STRIDE;
             var label = open ? text("join_room", host.getString("name")) : text("join_watch");
             control(cx, cy, span - 4, ROOM_STRIDE - 4, label, true,
@@ -389,14 +425,15 @@ public final class FrontierScreen extends Screen {
                             center(g, font, text(room.getInt("minutes") > 0 ? "timed_minutes" : "elimination", room.getInt("minutes")),
                                     middle, cy + 39, b.getWidth() - 16, CYAN);
                             center(g, font, money(room), middle, cy + 52, b.getWidth() - 16, GOLD);
-                            center(g, font, text("seats", room.getInt("count"), capacityLabel(room)), middle, cy + 65, b.getWidth() - 8, open ? CYAN : MUTED);
+                            center(g, font, live ? text("live_watch") : text("seats", room.getInt("count"), capacityLabel(room)),
+                                    middle, cy + 65, b.getWidth() - 8, live ? GOLD : open ? CYAN : MUTED);
                             return;
                         }
                         roomSeat(g, host, cx + wing, cy, wing * 2 - 5, CYAN, dt, false);
                         roomSeat(g, guest, cx + b.getWidth() - wing, cy, wing * 2 - 5, PINK, dt, true);
                         center(g, font, Component.literal("VS"), middle, cy + 12, 28, TEXT);
                         center(g, font, money(room), middle, cy + 26, Math.max(38, b.getWidth() - 52), GOLD);
-                        center(g, font, text(open ? "open" : "join_watch"), middle, cy + 65, b.getWidth() - 8, open ? CYAN : GOLD);
+                        center(g, font, text(live ? "live_watch" : open ? "open" : "join_watch"), middle, cy + 65, b.getWidth() - 8, open ? CYAN : GOLD);
                     });
         }
     }
@@ -430,6 +467,7 @@ public final class FrontierScreen extends Screen {
     private CompoundTag rival() { return state.getCompound(watching() || state.getBoolean("owner") ? "guest" : "host"); }
 
     private Component seatLabel(CompoundTag seat) {
+        if (seat.getBoolean("bot")) return Component.literal(seat.getString("name"));
         return text(seat.getBoolean("away") ? "seat_away" : seat.getBoolean("ready") ? "seat_ready" : "seat_edit", seat.getString("name"));
     }
 
@@ -464,7 +502,8 @@ public final class FrontierScreen extends Screen {
             boolean self = seat.getUUID("player").equals(local);
             boolean owner = host.hasUUID("player") && host.getUUID("player").equals(seat.getUUID("player"));
             int portraitX = left + total - 27, avatarX = left + 6;
-            int nameEnd = self ? portraitX - 24 : portraitX;
+            boolean removeBot = seat.getBoolean("bot") && state.getBoolean("owner");
+            int nameEnd = removeBot ? portraitX - 47 : self ? portraitX - 24 : portraitX;
             addContent((g, mx, my, dt) -> {
                 card(g, left, top, total, TEAM_STRIDE - 2, accent, false);
                 g.fill(left + 2, top + 4, left + 4, top + TEAM_STRIDE - 7, seatColor(seat));
@@ -480,6 +519,11 @@ public final class FrontierScreen extends Screen {
                     center(g, font, Component.literal("?"), portraitX + 11, centerY - 4, 16, MUTED);
                 }
             });
+            if (removeBot) control(portraitX - 23, centerY - 9, 20, 19, text("remove_bot"), true, true,
+                    () -> request("remove_bot", tag -> tag.putUUID("target", seat.getUUID("player"))),
+                    (g, b, dt) -> OreUiRenderer.labeledButton(g, font, Component.literal("×"),
+                            b.getX(), b.getY(), b.getWidth(), b.getHeight(), Action.DANGER, b.isHoveredOrFocused(), b.active, 1, accent));
+            if (removeBot) botPresetButton(seat.getUUID("player"), 0, portraitX - 46, centerY - 9, 20, 19, accent);
             if (self) control(portraitX - 23, centerY - 9, 20, 19, text("choose_preset"), !ready, true,
                     this::openPresets, (g, b, dt) -> OreUiRenderer.labeledButton(g, font, Component.literal("⇄"),
                             b.getX(), b.getY(), b.getWidth(), b.getHeight(), Action.SECONDARY, b.isHoveredOrFocused(), b.active, 1, accent));
@@ -489,9 +533,17 @@ public final class FrontierScreen extends Screen {
         inviteButton();
         for (int side = 0; side < 2; side++) {
             int team = side;
-            btn(wingX(side == 0, 10), y + 47, total,
+            int sx = wingX(side == 0, 10), accent = side == 0 ? CYAN : PINK;
+            boolean hostControls = state.getBoolean("owner");
+            btn(sx, y + 47, total - (hostControls ? 26 : 0),
                     text(side == 0 ? "join_blue" : "join_red"), state.getInt("selfSide") != side,
                     () -> request("side", tag -> tag.putInt("side", team)));
+            if (hostControls) control(sx + total - 22, y + 47, 22, 20, text("add_bot"), true, true,
+                    () -> request("add_bot", tag -> tag.putInt("side", team)), (g, b, dt) -> {
+                        OreUiRenderer.labeledButton(g, font, Component.empty(), b.getX(), b.getY(), b.getWidth(), b.getHeight(),
+                                Action.SECONDARY, b.isHoveredOrFocused(), b.active, 1, accent);
+                        FrontierConsole.botIcon(g, b.getX() + 5, b.getY() + 3, 12, accent);
+                    });
         }
         int footer = y + h - 26;
         if (!watching()) btn(x + w - (state.getBoolean("owner") ? 180 : 94), footer, 82, text(ready ? "unready" : "ready"),
@@ -570,8 +622,6 @@ public final class FrontierScreen extends Screen {
         return i >= picks.size() ? FrontierRoster.EMPTY : Objects.requireNonNullElse(FrontierRooms.decode(picks.getCompound(i)), FrontierRoster.EMPTY);
     }
 
-    private int lineupHeight() { return Math.max(48, (scrollBottom() - scrollTop()) / FrontierRoster.TEAM_SIZE); }
-
     private static final int[] SLOT_COLORS = {0xffffcc76, 0xff80dfff, 0xffc8a4ff};
 
     private void lineups() {
@@ -581,23 +631,19 @@ public final class FrontierScreen extends Screen {
         boolean turn = state.getBoolean("draftTurn");
         var selected = FrontierRooms.decode(state.getCompound("pendingPick"));
         boolean canConfirm = turn && selected != null && !selected.equals(FrontierRoster.EMPTY);
-        int rowHeight = lineupHeight();
-        int viewport = scrollBottom() - scrollTop();
-        if (turn && locked != lastPromptSlot) {
-            if (locked * rowHeight < draftScroll) draftScroll = locked * rowHeight;
-            else if ((locked + 1) * rowHeight > draftScroll + viewport) draftScroll = (locked + 1) * rowHeight - viewport;
-        }
-        lastPromptSlot = turn ? locked : -1;
-        draftScroll = Math.clamp(draftScroll, 0, scrollLimit());
+        int rows = FrontierRoster.TEAM_SIZE, viewport = scrollBottom() - scrollTop();
         listContent = true;
         for (boolean left : new boolean[]{true, false}) {
             var seat = left ? own : rival;
             int accent = left ? CYAN : PINK;
-            int cx = teamX(left), cw = teamWidth(), ch = lineupHeight();
-            for (int i = 0; i < FrontierRoster.TEAM_SIZE; i++) {
+            int cx = teamX(left), cw = teamWidth();
+            for (int i = 0; i < rows; i++) {
                 var pick = left && turn && i == locked && selected != null ? selected : get(seat, i);
-                int top = scrollTop() + i * ch - draftScroll;
-                lineupCard(cx, top, cw, ch - 3, i, pick, left, accent, false);
+                int rowStart = i * viewport / rows, top = scrollTop() + rowStart;
+                int ch = (i + 1) * viewport / rows - rowStart;
+                UUID editableBot = !left && state.getBoolean("owner") && seat.getBoolean("bot") && seat.hasUUID("player")
+                        ? seat.getUUID("player") : null;
+                lineupCard(cx, top, cw, ch - 3, i, pick, left, accent, false, editableBot);
                 if (left && turn && i == locked) {
                     control(cx, top, cw, ch - 3, text("choose_preset"), true, true, this::openPresets, (g, b, dt) -> {
                         g.renderOutline(cx, top, cw, ch - 4, CYAN);
@@ -619,13 +665,6 @@ public final class FrontierScreen extends Screen {
         }
         if (state.getBoolean("owner")) btn(middle + 5, footer, 90, text("start"), state.getBoolean("canStart"),
                 Action.PRIMARY, () -> request("start", tag -> {}));
-        var active = state.getCompound(state.getBoolean("hostTurn") ? "host" : "guest");
-        boolean away = own.getBoolean("away") || rival.getBoolean("away");
-        boolean complete = own.getBoolean("ready") && rival.getBoolean("ready");
-        var status = text(!state.contains("guest", Tag.TAG_COMPOUND) ? "waiting" : away ? "waiting_rejoin"
-                : complete ? "draft_locked" : turn ? canConfirm ? "draft_confirm_hint" : "draft_slot" : "draft_opponent",
-                turn ? locked + 1 : active.getString("name"));
-        addRenderableOnly((g, mx, my, dt) -> turnBanner(g, status, middle, y + 64, w - 24, turn ? CYAN : GOLD));
     }
 
     private void turnBanner(GuiGraphics g, Component message, int center, int top, int available, int color) {
@@ -639,10 +678,28 @@ public final class FrontierScreen extends Screen {
     private void openPresets() { openPresets(false); }
 
     private void openPresets(boolean manage) {
+        openPresets(manage, null);
+    }
+
+    private void openPresets(boolean manage, BotPresetTarget target) {
         editingPreset = true;
         managePresets = manage;
+        botPresetTarget = target;
         presetScroll = 0;
         page(Page.PRESETS);
+    }
+
+    private boolean canReplaceBot(BotPresetTarget target) {
+        if (!state.getBoolean("owner")) return false;
+        return state.getList("seats", Tag.TAG_COMPOUND).stream().anyMatch(row -> row instanceof CompoundTag seat
+                && seat.getBoolean("bot") && seat.hasUUID("player") && target.id().equals(seat.getUUID("player")));
+    }
+
+    private void botPresetButton(UUID id, int slot, int x, int y, int w, int h, int accent) {
+        var target = new BotPresetTarget(id, slot);
+        control(x, y, w, h, text("replace_bot_preset"), true, true,
+                () -> openPresets(false, target), (g, b, dt) -> OreUiRenderer.labeledButton(g, font, Component.literal("⇄"),
+                        b.getX(), b.getY(), b.getWidth(), b.getHeight(), Action.SECONDARY, b.isHoveredOrFocused(), b.active, 1, accent));
     }
 
     private FrontierRoster.Pick editingPick(int index) {
@@ -652,34 +709,43 @@ public final class FrontierScreen extends Screen {
     private void presetPanel() {
         int cardW = w - 91;
         presetScroll = Math.clamp(presetScroll, 0, scrollLimit());
-        btn(x + w - 104, y + 7, 94, text("new_preset"), presets.size() < FrontierPresetStore.LIMIT, () -> choose(Kind.SPECIES, presets.size()));
+        btn(x + w - 104, y + 7, 94, text("new_preset"), presets.size() < FrontierRooms.PRESET_LIMIT, () -> choose(Kind.SPECIES, presets.size()));
         if (presets.isEmpty()) addRenderableOnly((g, mx, my, dt) -> center(g, font, text("preset_empty"), x + w / 2, y + h / 2, w - 26, CYAN));
         listContent = true;
         for (int index = presetScroll / PRESET_STRIDE; index < presets.size(); index++) {
             int top = scrollTop() + PRESET_STRIDE * index - presetScroll, which = index;
             if (top >= scrollBottom()) break;
             var pick = presets.get(index);
-            lineupCard(x + 10, top, cardW, PRESET_STRIDE - 4, index, pick, true, CYAN, true);
-            boolean canSelect = multi(state) ? !state.getBoolean("selfReady") : state.getBoolean("draftTurn");
+            lineupCard(x + 10, top, cardW, PRESET_STRIDE - 4, index, pick, true, CYAN, true, null);
+            var target = botPresetTarget;
+            boolean canSelect = target != null ? canReplaceBot(target)
+                    : multi(state) ? !state.getBoolean("selfReady") : state.getBoolean("draftTurn");
             if (!managePresets) btn(x + w - 76, top + 8, 57, text("select_preset"), canSelect, Action.PRIMARY, () -> {
-                request("preset", tag -> tag.put("pick", FrontierRooms.encode(pick)));
+                if (pending) return;
+                request(target == null ? "preset" : "bot_preset", tag -> {
+                    tag.put("pick", FrontierRooms.encode(pick));
+                    if (target != null) {
+                        tag.putUUID("target", target.id());
+                        tag.putInt("slot", target.slot());
+                    }
+                });
                 page(destination(state));
             });
             btn(x + w - 76, top + (managePresets ? 20 : 32), 57, text("delete_preset"), () -> {
                 presets.remove(which);
-                FrontierPresetStore.save(presets);
+                savePresets();
                 move = -1;
                 rebuildWidgets();
             });
         }
         listContent = false;
         addRenderableOnly((g, mx, my, dt) -> center(g, font,
-                text("preset_count", presets.size(), FrontierPresetStore.LIMIT), x + w / 2, y + h - 20, w - 26, GOLD));
+                text("preset_count", presets.size(), FrontierRooms.PRESET_LIMIT), x + w / 2, y + h - 20, w - 26, GOLD));
         if (move >= 0 && slot < presets.size()) moveChooser(presets.get(slot));
     }
 
     private void lineupCard(int cx, int cy, int cw, int ch, int index, FrontierRoster.Pick pick,
-                            boolean left, int accent, boolean edit) {
+                            boolean left, int accent, boolean edit, UUID editableBot) {
         var species = FrontierRoster.species(pick.species());
         int innerY = cy + 4;
         int innerH = ch - 8;
@@ -689,7 +755,11 @@ public final class FrontierScreen extends Screen {
         int portraitW = Math.max(0, Math.min(68, Math.min(cw / 4 + 3, innerH - 2)));
         int badgeW = Math.clamp(Math.min(cw / 7, ch / 2), 17, 28);
         int badgeH = Math.clamp(ch / 3, 12, 19);
-        int badgeSpace = badgeW + 3;
+        int badgeX = cx + (left ? 5 : cw - badgeW - 5);
+        boolean stackBotButton = editableBot != null && innerH >= badgeH + 19;
+        int badgeY = innerY + (innerH - badgeH - (stackBotButton ? 19 : 0)) / 2;
+        int buttonH = Math.min(17, innerH);
+        int badgeSpace = badgeW + 3 + (editableBot != null && !stackBotButton ? 20 : 0);
         int contentX = cx + 5 + (left ? badgeSpace : 0);
         int contentW = Math.max(1, cw - badgeSpace - 10);
         int faceX = left ? contentX : contentX + contentW - portraitW;
@@ -702,7 +772,7 @@ public final class FrontierScreen extends Screen {
         var held = itemStack(pick.held());
         addContent((g, mx, my, dt) -> {
             card(g, cx, cy, cw, ch, accent, false);
-            drawSlotBadge(g, cx + (left ? 5 : cw - badgeW - 5), innerY + (innerH - badgeH) / 2, badgeW, badgeH, index);
+            drawSlotBadge(g, badgeX, badgeY, badgeW, badgeH, index);
             if (species == null) {
                 if (!edit && !(left && state.getBoolean("draftTurn") && index == state.getInt("locked")))
                     center(g, font, text("empty"), contentX + contentW / 2, cy + (ch - 8) / 2, contentW - 6, MUTED);
@@ -711,6 +781,8 @@ public final class FrontierScreen extends Screen {
             if (portraitW > 4) partyFace(g, portraits, pick.species(), Set.of(), faceX, faceY,
                     portraitW, dt, !left, accent);
         });
+        if (editableBot != null) botPresetButton(editableBot, index, stackBotButton ? badgeX : badgeX - 20,
+                stackBotButton ? badgeY + badgeH + 2 : innerY + (innerH - buttonH) / 2, stackBotButton ? badgeW : 18, buttonH, accent);
         if (species == null) {
             if (edit) control(contentX, innerY, contentW, innerH, text("choose_species"), true,
                     () -> choose(Kind.SPECIES, index), (g, b, dt) -> {
@@ -743,14 +815,16 @@ public final class FrontierScreen extends Screen {
     private void lineupMoves(int x, int y, int width, int height, int teamSlot, FrontierRoster.Pick pick,
                              int accent, boolean edit) {
         int count = FrontierRoster.MOVE_SLOTS;
-        // Keep the four moves stacked and center them inside the card.
-        int stride = height / count;
+        int columns = !edit && height < 40 ? 2 : 1;
+        int rows = Math.ceilDiv(count, columns), columnW = width / columns;
+        int stride = height / rows;
         int rowH = stride - (stride >= 13 ? 2 : 1);
         int tool = edit ? Math.clamp(width / 7, 7, 12) : 0;
         int inset = edit ? tool + 2 : 0;
-        int nameW = Math.max(1, width - inset * 2);
+        int nameW = Math.max(1, columnW - inset * 2 - (columns > 1 ? 2 : 0));
         for (int i = 0; i < count; i++) {
-            int index = i, rowY = y + (height - count * stride) / 2 + i * stride, nameX = x + inset;
+            int index = i, rowY = y + (height - rows * stride) / 2 + (i / columns) * stride;
+            int nameX = x + inset + (i % columns) * columnW;
             String id = pick.moves().get(i);
             var template = id.isEmpty() ? null : Moves.getByName(id);
             Component name = template != null ? RealtimeMoveShapeUi.displayNameWithShape(template)
@@ -912,10 +986,10 @@ public final class FrontierScreen extends Screen {
             }
             case HELD -> {
                 for (var id : FrontierRoster.heldItems().stream()
-                        .sorted(Comparator.comparingInt(FrontierScreen::heldGroup).thenComparing(ResourceLocation::getPath)
+                        .sorted(Comparator.comparing(FrontierRoster::heldGroup).thenComparing(ResourceLocation::getPath)
                                 .thenComparing(ResourceLocation::getNamespace)).toList()) {
                     var item = itemStack(id);
-                    if (itemFilter == ItemsFilter.MEGA && !FrontierRoster.isMega(item) || itemFilter == ItemsFilter.HELD && FrontierRoster.isMega(item)) continue;
+                    if (itemFilter != ItemsFilter.ALL && !itemFilter.name().equals(FrontierRoster.heldGroup(id).name())) continue;
                     var label = item.getHoverName();
                     list.add(new Option(label, id.toString(), () -> editPick(new FrontierRoster.Pick(old.species(), id, old.moves()))));
                 }
@@ -924,15 +998,27 @@ public final class FrontierScreen extends Screen {
         options = List.copyOf(list);
     }
 
+    private void savePresets() {
+        if (serverPresets) sendPresets("save_presets");
+        else FrontierPresetStore.save(presets); // Older servers still use the client-only store.
+    }
+
+    private void sendPresets(String action) {
+        var data = new CompoundTag();
+        data.putString("action", action);
+        data.put("presets", FrontierRooms.encodePresets(presets));
+        PacketDistributor.sendToServer(new FrontierRooms.Command(data));
+    }
+
     private void submitPick(int index, FrontierRoster.Pick pick) {
         if (editingPreset) {
             if (pick.equals(FrontierRoster.EMPTY)) return;
             if (index < presets.size()) presets.set(index, pick);
-            else if (index == presets.size() && presets.size() < FrontierPresetStore.LIMIT) {
+            else if (index == presets.size() && presets.size() < FrontierRooms.PRESET_LIMIT) {
                 presets.add(pick);
                 presetScroll = index * PRESET_STRIDE;
             }
-            FrontierPresetStore.save(presets);
+            savePresets();
         } else request("edit", tag -> { tag.putInt("slot", index); tag.put("pick", FrontierRooms.encode(pick)); });
     }
 
@@ -952,7 +1038,7 @@ public final class FrontierScreen extends Screen {
     private int pickerWidth() { return w - 32; }
     private int pickerColumns() { return kind == Kind.SPECIES ? Math.clamp(pickerWidth() / 54, 2, 9) : Math.max(1, pickerWidth() / 22); }
     private int pickerStride() { return kind == Kind.SPECIES ? 49 : 22; }
-    private int pickerTop() { return y + (kind == Kind.HELD ? 87 : 63); }
+    private int pickerTop() { return y + (kind == Kind.HELD ? 108 : 63); }
     private int pickerCellWidth() { return kind == Kind.HELD ? 22 : pickerWidth() / pickerColumns(); }
 
     private void picker() {
@@ -973,7 +1059,7 @@ public final class FrontierScreen extends Screen {
             int tw = (w - 24) / 3;
             for (var category : ItemsFilter.values()) {
                 var label = text("items." + category.name().toLowerCase(Locale.ROOT));
-                btn(x + 12 + category.ordinal() * tw, y + 61, tw - 3, label, itemFilter != category, () -> {
+                btn(x + 12 + category.ordinal() % 3 * tw, y + 60 + category.ordinal() / 3 * 21, tw - 3, label, itemFilter != category, () -> {
                     itemFilter = category;
                     buildOptions();
                     pickerScroll = 0;
@@ -1051,7 +1137,7 @@ public final class FrontierScreen extends Screen {
 
     @Override public boolean mouseScrolled(double mx, double my, double dx, double dy) {
         if (dialogOpen()) return true;
-        if ((page == Page.ROOM || page == Page.WAITING) && dy != 0
+        if ((page == Page.ROOM || page == Page.WAITING || page == Page.WATCH) && dy != 0
                 && inside(mx, my, x + 10, spectatorTop(), w - 20, SPECTATOR_HEIGHT)) {
             spectatorOffset = Math.clamp(spectatorOffset + (dy < 0 ? 1 : -1), 0, spectatorMaxOffset());
             return true;
@@ -1077,18 +1163,17 @@ public final class FrontierScreen extends Screen {
         return true;
     }
 
-    private boolean scrollPage() { return page == Page.ROOM || page == Page.PRESETS || page == Page.WAITING || page == Page.PICKER; }
+    private boolean scrollPage() { return page == Page.PRESETS || page == Page.WAITING || page == Page.PICKER; }
     private int scrollTop() { return y + switch (page) {
         case PICKER -> pickerTop() - y;
         case WAITING -> 72;
-        case ROOM -> 85;
+        case ROOM -> 65;
         default -> 39;
     }; }
     private int scrollBottom() { return page == Page.ROOM || page == Page.WAITING ? spectatorTop() - 3 : y + h - 33; }
     private int scrollbarX() { return x + w - 16; }
-    private int scroll() { return page == Page.ROOM ? draftScroll : page == Page.PRESETS ? presetScroll : page == Page.WAITING ? teamScroll : pickerScroll; }
+    private int scroll() { return page == Page.PRESETS ? presetScroll : page == Page.WAITING ? teamScroll : pickerScroll; }
     private int contentHeight() {
-        if (page == Page.ROOM) return lineupHeight() * FrontierRoster.TEAM_SIZE;
         if (page == Page.PRESETS) return presets.size() * PRESET_STRIDE;
         if (page == Page.WAITING) {
             var seats = state.getList("seats", Tag.TAG_COMPOUND);
@@ -1105,7 +1190,6 @@ public final class FrontierScreen extends Screen {
         if (page == Page.PICKER) pickerScroll = value;
         else {
             if (page == Page.PRESETS) presetScroll = value;
-            else if (page == Page.ROOM) draftScroll = value;
             else teamScroll = value;
             rebuildWidgets();
         }
@@ -1175,15 +1259,6 @@ public final class FrontierScreen extends Screen {
                 OreUiRenderer.labeledButton(g, font, label, x, y, w, 20, style, b.isHoveredOrFocused(), enabled, 1, style == Action.PRIMARY ? 0xff4b8b30 : NEUTRAL));
     }
 
-    private static final TagKey<Item> EVOLUTION_STONES =
-            TagKey.create(Registries.ITEM,
-                    ResourceLocation.fromNamespaceAndPath("cobblemon", "evolution_stones"));
-
-    private static int heldGroup(ResourceLocation id) {
-        var item = itemStack(id);
-        return FrontierRoster.isMega(item) ? 2 : item.is(EVOLUTION_STONES) ? 1 : 0;
-    }
-
     private static ItemStack itemStack(ResourceLocation id) {
         return id == null ? ItemStack.EMPTY : BuiltInRegistries.ITEM.getOptional(id).orElse(Items.AIR).getDefaultInstance();
     }
@@ -1218,23 +1293,36 @@ public final class FrontierScreen extends Screen {
         inspectedMove = null;
         shell(g, x, y, w, h);
         if (page == Page.LOBBY) FrontierConsole.text(g, font, title, x + 13, y + 12, w / 3, CYAN);
-        if (page != Page.LOBBY) center(g, font, text(page == Page.PRESETS && managePresets ? "edit_presets"
-                : page == Page.PICKER ? kind == Kind.SPECIES ? "picker_species" : "picker_held"
-                : "panel." + page.name().toLowerCase(Locale.ROOT)),
-                x + w / 2, y + 12, w / 3, TEXT);
+        if (page != Page.LOBBY) {
+            var heading = text(page == Page.PRESETS && managePresets ? "edit_presets"
+                    : page == Page.PRESETS && botPresetTarget != null ? "replace_bot_preset"
+                    : page == Page.PICKER ? kind == Kind.SPECIES ? "picker_species" : "picker_held"
+                    : "panel." + page.name().toLowerCase(Locale.ROOT));
+            if (page == Page.ROOM || page == Page.WAITING) {
+                int left = x + 177, right = x + w - 110;
+                int headingWidth = Math.max(1, right - left);
+                int textWidth = Math.min(headingWidth, font.width(heading));
+                FrontierConsole.moveLabel(g, font, heading, left + (headingWidth - textWidth) / 2, y + 12, textWidth, TEXT);
+            } else center(g, font, heading, x + w / 2, y + 12, w / 3, TEXT);
+        }
         var balance = text("balance", state.getString("balance"));
         int balanceW = Math.min(w / 3 - 7, font.width(balance));
         if (page == Page.CREATE || page == Page.PICKER) FrontierConsole.text(g, font, balance, x + w - 13 - balanceW, y + 12, balanceW, GOLD);
         switch (page) {
             case CREATE -> drawCreateForm(g);
             case LOBBY -> drawLobby(g);
-            case ROOM -> drawSeats(g);
+            case ROOM -> drawSeats(g, mx, my);
             case PICKER -> drawPicker(g, mx, my, delta);
             case WAITING -> drawWaiting(g);
+            case WATCH -> {
+                var host = state.getCompound("host");
+                center(g, font, text("watch_room_name", host.getString("name")), x + w / 2, y + 39, w - 28, TEXT);
+                center(g, font, text("live_watch"), x + w / 2, y + 57, w - 28, GOLD);
+            }
             case INVITE -> drawInvites(g);
             case PRESETS -> {}
         }
-        if (page == Page.ROOM || page == Page.WAITING) drawSpectators(g, mx, my);
+        if (page == Page.ROOM || page == Page.WAITING || page == Page.WATCH) drawSpectators(g, mx, my);
         super.render(g, mx, my, delta);
         if (scrollPage() && move < 0) drawScrollBar(g, scrollbarX(), scrollTop(), scrollBottom() - scrollTop(), scroll(), scrollLimit(), contentHeight());
         if (page == Page.PICKER && generationsOpen) drawGenerations(g, mx, my);
@@ -1276,7 +1364,7 @@ public final class FrontierScreen extends Screen {
     private void drawDialog() {
         int dw = Math.min(230, width - 16);
         int dx = (width - dw) / 2;
-        var lines = font.split(text("error." + dialogProblem), dw - 28);
+        var lines = font.split(text("error." + dialogProblem, FrontierRooms.TEAM_BOT_LIMIT), dw - 28);
         int dh = 66 + lines.size() * 10;
         int dy = (height - dh) / 2;
         var ok = Button.builder(CommonComponents.GUI_OK, button -> dismissDialog())
@@ -1289,7 +1377,7 @@ public final class FrontierScreen extends Screen {
                 g.pose().translate(0, 0, 400);
                 g.fill(0, 0, width, height, 0xa0000000);
                 OreUiRenderer.panel(g, dx, dy, dw, dh, 1, NEUTRAL);
-                center(g, font, text("mega_limit".equals(dialogProblem) ? "mega_limit_title" : "repeat_species_title"), width / 2, dy + 12, dw - 24, GOLD);
+                center(g, font, text(dialogProblem + "_title"), width / 2, dy + 12, dw - 24, GOLD);
                 for (int i = 0; i < lines.size(); i++) {
                     g.drawCenteredString(font, lines.get(i), width / 2, dy + 30 + i * 10, TEXT);
                 }
@@ -1304,7 +1392,7 @@ public final class FrontierScreen extends Screen {
         return BigIntegerExtensionsKt.formatFull(amount.isEmpty() ? BigInteger.ZERO : new BigInteger(amount), true);
     }
 
-    private void drawSeats(GuiGraphics g) {
+    private void drawSeats(GuiGraphics g, int mouseX, int mouseY) {
         for (boolean left : new boolean[]{true, false}) {
             int sx = teamX(left), ww = teamWidth(), accent = left ? CYAN : PINK;
             var seat = left ? own() : rival();
@@ -1320,10 +1408,35 @@ public final class FrontierScreen extends Screen {
         int middle = x + w / 2, rail = centerRail(), top = scrollTop();
         int railH = scrollBottom() - top - 3;
         card(g, middle - rail / 2, top, rail, railH, GOLD, false);
+        var own = own();
+        var rival = rival();
+        boolean turn = state.getBoolean("draftTurn");
+        var pick = FrontierRooms.decode(state.getCompound("pendingPick"));
+        boolean canConfirm = pick != null && !pick.equals(FrontierRoster.EMPTY);
+        var active = state.getCompound(state.getBoolean("hostTurn") ? "host" : "guest");
+        var status = text(!state.contains("guest", Tag.TAG_COMPOUND) ? "waiting"
+                        : own.getBoolean("away") || rival.getBoolean("away") ? "waiting_rejoin"
+                        : own.getBoolean("ready") && rival.getBoolean("ready") ? "draft_locked"
+                        : turn ? canConfirm ? "draft_confirm_hint" : "draft_slot" : "draft_opponent",
+                turn ? state.getInt("locked") + 1 : active.getString("name")).copy().withStyle(ChatFormatting.BOLD);
+        int statusColor = turn ? CYAN : GOLD;
+        var lines = font.split(status, rail - 12);
+        int lineCount = Math.min(lines.size(), Math.max(1, (railH - 45) / font.lineHeight));
+        int bannerH = lineCount * font.lineHeight + 6;
+        g.fill(middle - rail / 2 + 2, top + 3, middle + rail / 2 - 2, top + 3 + bannerH, 0xff151e22);
+        g.renderOutline(middle - rail / 2 + 2, top + 3, rail - 4, bannerH, statusColor);
+        for (int i = 0; i < lineCount; i++) {
+            g.drawCenteredString(font, lines.get(i), middle, top + 6 + i * font.lineHeight, statusColor);
+        }
+        if (lines.size() > lineCount && inside(mouseX, mouseY, middle - rail / 2, top, rail, bannerH + 3))
+            setTooltipForNextRenderPass(status);
         var vs = Component.literal("VS").withStyle(ChatFormatting.BOLD);
-        float scale = Math.min(4F, (rail - 10) / (float) font.width(vs));
+        int contentTop = top + bannerH + 5;
+        int remaining = top + railH - contentTop;
+        float scale = Math.max(1F, Math.min((remaining - 26) / (float) font.lineHeight,
+                Math.min(4F, (rail - 10) / (float) font.width(vs))));
         int vsHeight = (int) Math.ceil(font.lineHeight * scale);
-        int vsY = top + Math.max(3, (railH - vsHeight - 27) / 2);
+        int vsY = contentTop + Math.max(2, (remaining - vsHeight - 27) / 2);
         int stakeY = vsY + vsHeight + 5;
         g.pose().pushPose();
         try {
@@ -1426,6 +1539,7 @@ public final class FrontierScreen extends Screen {
 
     @Override public void onClose() {
         if (dialogOpen()) { dismissDialog(); return; }
+        if (page == Page.WATCH) { request("leave", tag -> {}); super.onClose(); return; }
         if (createMenu != null) { createMenu = null; return; }
         if (generationsOpen) { generationsOpen = false; rebuildWidgets(); return; }
         if (move >= 0) { move = -1; rebuildWidgets(); return; }

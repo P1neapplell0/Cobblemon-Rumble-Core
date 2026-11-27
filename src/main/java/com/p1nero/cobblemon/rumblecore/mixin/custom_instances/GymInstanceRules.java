@@ -23,8 +23,9 @@ abstract class GymInstanceRules {
     }
 
     @Inject(method = "enforceGameMode", at = @At("HEAD"), cancellable = true)
-    private void rumble$allowEliminatedSpectator(ServerPlayer player, InstanceSession session, CallbackInfo ci) {
-        if (session instanceof ArenaMatch match && match.isGymObserver(player)) {
+    private void rumble$preserveArenaObserver(ServerPlayer player, InstanceSession session, CallbackInfo ci) {
+        // The all-bot Frontier owner is registered only for instance lifecycle and return recovery.
+        if (session instanceof ArenaMatch match && (match.isGymObserver(player) || match.isFrontierObserverHost(player))) {
             if (!player.isSpectator()) player.setGameMode(GameType.SPECTATOR);
             ci.cancel();
         }

@@ -150,7 +150,7 @@ public final class RealtimeMoveWindup {
 
     /** Returns the duration to schedule the cast for, or zero if the cast was rejected. */
     public static int npcMove(PokemonEntity pokemon, ServerLevel level, long now, MoveInfo move) {
-        // AI is limited by cooldown and control effects, not by PP.
+        // Shared windup gate; simulator practice AI accounts for its own move-slot PP.
         if (npcCoolingDown(pokemon, now) || locked(pokemon) || crowdControlled(pokemon)) return 0;
         boolean melee = isMelee(move);
         int ticks = melee ? MELEE_TICKS : STANDARD_TICKS;

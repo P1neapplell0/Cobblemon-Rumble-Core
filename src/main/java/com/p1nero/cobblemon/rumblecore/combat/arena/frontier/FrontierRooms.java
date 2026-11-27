@@ -9,6 +9,7 @@ import com.p1nero.cobblemon.rumblecore.phone.PhoneApp;
 import com.p1nero.cobblemon.rumblecore.phone.PhoneState;
 import com.p1nero.cobblemon.rumblecore.prologue.MegaSimulator;
 import com.p1nero.cobblemon.rumblecore.prologue.PrologueWorld;
+import com.p1nero.misc.custom_instances.instance.InstanceSession;
 import fr.harmex.cobbledollars.common.utils.extensions.PlayerExtensionKt;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
@@ -58,6 +60,11 @@ public final class FrontierRooms {
     private static final ResourceLocation DEPOSITS = PrologueWorld.id("frontier_deposits");
     private static final Map<UUID, Room> ROOMS = new LinkedHashMap<>();
     private static final Map<UUID, Room> MEMBERS = new LinkedHashMap<>();
+    private record LiveRoom(Room room, ArenaMatch match) {
+        boolean active() { return match.getState() == InstanceSession.State.ACTIVE; }
+    }
+    private static final Map<UUID, LiveRoom> LIVE = new LinkedHashMap<>();
+    private static final Map<UUID, LiveRoom> WATCH_SEATS = new HashMap<>();
     private record InviteKey(UUID sender, UUID recipient) {}
     private static final Map<InviteKey, Integer> COOLDOWNS = new HashMap<>();
 
@@ -66,6 +73,7 @@ public final class FrontierRooms {
     private static final class Seat {
         final UUID id;
         final String name;
+        final boolean bot;
         final FrontierRoster.Pick[] picks = {FrontierRoster.EMPTY, FrontierRoster.EMPTY, FrontierRoster.EMPTY};
         boolean ready, away;
         int side, locked;
@@ -74,6 +82,14 @@ public final class FrontierRooms {
         Seat(ServerPlayer player) {
             id = player.getUUID();
             name = player.getGameProfile().getName();
+            bot = false;
+        }
+
+        Seat(int side) {
+            id = UUID.randomUUID();
+            name = FrontierBotDraft.name();
+            bot = true;
+            this.side = side;
         }
 
         List<FrontierRoster.Pick> draft() { return List.copyOf(Arrays.asList(picks)); }
@@ -179,6 +195,7 @@ public final class FrontierRooms {
     @SubscribeEvent
     public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        WATCH_SEATS.remove(player.getUUID());
         var room = MEMBERS.get(player.getUUID());
         if (room == null || room.starting) return;
         var seat = room.seats.get(player.getUUID());
@@ -224,6 +241,8 @@ public final class FrontierRooms {
         for (var room : List.copyOf(ROOMS.values())) if (!room.starting) cancel(event.getServer(), room);
         MEMBERS.clear();
         ROOMS.clear();
+        LIVE.clear();
+        WATCH_SEATS.clear();
         COOLDOWNS.clear();
     }
 
@@ -232,9 +251,12 @@ public final class FrontierRooms {
     }
 
     private static boolean eligible(ServerPlayer player) {
-        return hasAccess(player) && ArenaMatch.available(player) && player.server.isPvpAllowed()
+        return hasAccess(player) && ArenaMatch.available(player)
                 && SmashConfig.<Boolean>get(SmashConfig.ENABLED);
     }
+
+    public static final int PRESET_LIMIT = 10;
+    public static final int TEAM_BOT_LIMIT = 8;
 
     static boolean inWaitingRoom(UUID player) { return MEMBERS.containsKey(player); }
 
@@ -244,7 +266,7 @@ public final class FrontierRooms {
     }
 
     private static void problem(ServerPlayer player, String key) {
-        if (!"repeat_species".equals(key) && !"mega_limit".equals(key))
+        if (!"repeat_species".equals(key) && !"mega_limit".equals(key) && !"bot_stake".equals(key) && !"bot_limit".equals(key))
             player.sendSystemMessage(Component.translatable("rumble.frontier.error." + key));
         send(player, false, key);
     }
@@ -256,13 +278,43 @@ public final class FrontierRooms {
             return;
         }
         Room room = MEMBERS.get(player.getUUID());
+        var watchSeat = WATCH_SEATS.get(player.getUUID());
         if ("resume".equals(action)) {
-            if (room != null && ArenaMatch.available(player)) send(player, true);
+            if ((room != null || watchSeat != null) && ArenaMatch.available(player)) send(player, true);
             else if (room == null) send(player, false);
             return;
         }
-        if ("leave".equals(action)) { leave(player); return; }
+        if ("leave".equals(action)) {
+            if (watchSeat != null) { WATCH_SEATS.remove(player.getUUID()); send(player, false); }
+            else leave(player);
+            return;
+        }
+        if ("save_presets".equals(action) || "import_presets".equals(action)) {
+            // Only edit the sender's private presets. Keep legacy picks even if the current
+            // learnset changed; applying one in a room still runs the full team validator.
+            if (command.get("presets") instanceof ListTag rows) {
+                var picks = decodePresets(rows);
+                if (picks != null) FrontierPresetData.get(player.server).update(player.getUUID(),
+                        picks.stream().map(FrontierRoster::withoutUnsupportedHeld).toList(), "import_presets".equals(action));
+            }
+            return;
+        }
         if (room == null ? !eligible(player) : !ArenaMatch.available(player)) { problem(player, "unavailable"); return; }
+        if (watchSeat != null && !"list".equals(action)) {
+            if (!"confirm_watch".equals(action) || !command.hasUUID("room")
+                    || !watchSeat.room().id.equals(command.getUUID("room"))) { send(player, false); return; }
+            if (!watchSeat.active()) {
+                WATCH_SEATS.remove(player.getUUID());
+                problem(player, "closed");
+                return;
+            }
+            FrontierSpectators.enter(watchSeat.match(), List.of(player.getUUID()));
+            if (FrontierSpectators.isWatching(player, watchSeat.match())) {
+                WATCH_SEATS.remove(player.getUUID());
+                close(player);
+            } else problem(player, "spectator_entry");
+            return;
+        }
         if (room != null && room.starting) return;
         if (room != null && !room.open(player.server.getTickCount())) {
             cancel(player.server, room);
@@ -290,11 +342,17 @@ public final class FrontierRooms {
             if (!raw.matches("[0-9]{1,18}")) { problem(player, "stake"); return; }
             var stake = new BigInteger(raw);
             boolean multi = command.getBoolean("multi");
+            boolean practice = !multi && command.getBoolean("practice");
+            if (practice && stake.signum() != 0) { problem(player, "bot_stake"); return; }
             int minutes = multi ? (command.contains("minutes", Tag.TAG_INT) ? command.getInt("minutes") : FrontierRules.DEFAULT_TIMED_MINUTES) : 0;
             if (!FrontierRules.isValidTeamDuration(minutes)) { problem(player, "minutes"); return; }
             var host = new Seat(player);
             if (!debit(player, stake)) { problem(player, "funds"); return; }
             room = new Room(player, host, stake, multi, minutes);
+            if (practice) {
+                var bot = new Seat(1);
+                room.seats.put(bot.id, bot);
+            }
             ROOMS.put(room.id, room);
             MEMBERS.put(player.getUUID(), room);
             recordDeposits(player.server, room);
@@ -303,7 +361,12 @@ public final class FrontierRooms {
         }
         if ("join".equals(action)) {
             if (room != null || !command.hasUUID("room")) return;
-            join(player, ROOMS.get(command.getUUID("room")), false);
+            UUID id = command.getUUID("room");
+            var live = LIVE.get(id);
+            if (live != null && live.active()) {
+                WATCH_SEATS.put(player.getUUID(), live);
+                send(player, true);
+            } else join(player, ROOMS.get(id), false);
             return;
         }
         if (room == null || !command.hasUUID("room") || !room.id.equals(command.getUUID("room"))) { send(player, false); return; }
@@ -314,6 +377,40 @@ public final class FrontierRooms {
             if (!command.contains("side", Tag.TAG_INT)) { send(player, false); return; }
             int side = command.getInt("side");
             if (side < -1 || side > 1 || !changeSide(player, room, side)) return;
+            room.touch(player);
+            broadcast(player.server, room);
+            return;
+        }
+        if ("bot_preset".equals(action)) {
+            if (!owner || room.stake.signum() != 0 || !command.hasUUID("target")
+                    || !command.contains("slot", Tag.TAG_INT)) { send(player, false); return; }
+            var bot = room.seats.get(command.getUUID("target"));
+            int slot = command.getInt("slot");
+            if (bot == null || !bot.bot || slot < 0 || slot >= (room.multi() ? 1 : FrontierRoster.TEAM_SIZE)) {
+                send(player, false);
+                return;
+            }
+            if (!applyBotPreset(player, bot, slot, command)) return;
+            room.touch(player);
+            broadcast(player.server, room);
+            return;
+        }
+        if (room.multi() && owner && ("add_bot".equals(action) || "remove_bot".equals(action))) {
+            if (room.stake.signum() != 0) { problem(player, "bot_stake"); return; }
+            if ("add_bot".equals(action)) {
+                int side = command.getInt("side");
+                if (!command.contains("side", Tag.TAG_INT) || side < 0 || side > 1) { send(player, false); return; }
+                if (room.seats.values().stream().filter(s -> s.bot).count() >= TEAM_BOT_LIMIT) { problem(player, "bot_limit"); return; }
+                var bot = new Seat(side);
+                var pick = FrontierBotDraft.pick(bot.draft(), FrontierRoster.EMPTY);
+                if (pick == null) { problem(player, "unavailable"); return; }
+                bot.picks[0] = pick;
+                bot.ready = true;
+                room.seats.put(bot.id, bot);
+            } else if (command.hasUUID("target")) {
+                var bot = room.seats.get(command.getUUID("target"));
+                if (bot != null && bot.bot) room.seats.remove(bot.id);
+            }
             room.touch(player);
             broadcast(player.server, room);
             return;
@@ -330,7 +427,7 @@ public final class FrontierRooms {
                     Collections.shuffle(fighters);
                     for (int i = 0; i < fighters.size(); i++) {
                         fighters.get(i).side = i % 2;
-                        fighters.get(i).ready = false;
+                        fighters.get(i).ready = fighters.get(i).bot;
                     }
                 }
                 case "preset" -> { if (!selectPreset(player, seat, command, 0)) return; seat.picks[0] = seat.pendingPick; }
@@ -339,19 +436,21 @@ public final class FrontierRooms {
                     seat.ready = !seat.ready;
                 }
                 case "start" -> {
-                    if (!owner || !teamsReady(player.server, room) || !player.server.isPvpAllowed()) {
+                    if (!owner || !teamsReady(player.server, room) || !canFight(player.server, room)) {
                         send(player, false); return;
                     }
                     var entries = new LinkedHashMap<UUID, ArenaMatch.TeamEntry>();
                     try {
-                        for (var other : room.seats.values()) entries.put(other.id, new ArenaMatch.TeamEntry(other.side, FrontierRoster.create(other.draft())));
+                        for (var other : room.seats.values()) entries.put(other.id, new ArenaMatch.TeamEntry(other.side, FrontierRoster.create(other.draft()), other.bot ? other.name : null));
                     } catch (RuntimeException failure) { problem(player, "unavailable"); return; }
                     room.starting = true;
                     Room active = room;
                     var server = player.server;
-                    var leader = seat != null ? player : server.getPlayerList().getPlayer(entries.keySet().iterator().next());
-                    if (!ArenaMatch.startFrontierTeams(leader, entries, room.minutes, List.copyOf(room.spectators.keySet()),
-                            winner -> settleTeams(server, active, winner))) settleTeams(server, room, -1);
+                    var leader = seat != null ? player : room.seats.values().stream().filter(s -> !s.bot)
+                            .map(s -> server.getPlayerList().getPlayer(s.id)).filter(Objects::nonNull).findFirst().orElse(player);
+                    if (ArenaMatch.startFrontierTeams(leader, entries, room.minutes, List.copyOf(room.spectators.keySet()),
+                            winner -> settleTeams(server, active, winner))) registerLive(room, leader);
+                    else settleTeams(server, room, -1);
                     closeRoom(server, room);
                     return;
                 }
@@ -369,7 +468,17 @@ public final class FrontierRooms {
                     if (!selectPreset(player, seat, command, seat.locked)) return;
                 } else {
                     if (seat.pendingPick.equals(FrontierRoster.EMPTY)) { problem(player, "choose_preset"); return; }
+                    FrontierRoster.Pick counter = null;
+                    if (opponent.bot) {
+                        counter = opponent.picks[opponent.locked];
+                        if (counter.equals(FrontierRoster.EMPTY)) counter = FrontierBotDraft.pick(opponent.draft(), seat.pendingPick);
+                    }
+                    if (opponent.bot && counter == null) { problem(player, "unavailable"); return; }
                     seat.picks[seat.locked++] = seat.pendingPick;
+                    if (opponent.bot) {
+                        opponent.picks[opponent.locked++] = counter;
+                        opponent.ready = opponent.locked == FrontierRoster.TEAM_SIZE;
+                    }
                     seat.pendingPick = FrontierRoster.EMPTY;
                     seat.ready = seat.locked == FrontierRoster.TEAM_SIZE;
                 }
@@ -378,7 +487,7 @@ public final class FrontierRooms {
                 var opponent = room.guest();
                 if (seat != room.host || opponent == null || !room.host.ready || !opponent.ready) { send(player, false); return; }
                 var guest = player.server.getPlayerList().getPlayer(opponent.id);
-                if (!availableInRoom(player.server, opponent) || !player.server.isPvpAllowed()) { problem(player, "player_away"); return; }
+                if (!availableInRoom(player.server, opponent) || !canFight(player.server, room)) { problem(player, "player_away"); return; }
                 if (FrontierRoster.validate(room.host.draft(), true) != FrontierRoster.Issue.NONE
                         || FrontierRoster.validate(opponent.draft(), true) != FrontierRoster.Issue.NONE) {
                     room.host.ready = opponent.ready = false;
@@ -390,8 +499,17 @@ public final class FrontierRooms {
                 var server = player.server;
                 Consumer<UUID> escrow = winner -> settleDuel(server, duel, winner);
                 room.starting = true;
-                if (!ArenaMatch.startFrontier(player, guest, seat::forMatch,
-                        opponent::forMatch, List.copyOf(room.spectators.keySet()), escrow, () -> escrow.accept(null))) escrow.accept(null);
+                if (opponent.bot) {
+                    try {
+                        if (ArenaMatch.startFrontierTeams(player, Map.of(
+                                seat.id, new ArenaMatch.TeamEntry(0, seat.forMatch(), null),
+                                opponent.id, new ArenaMatch.TeamEntry(1, opponent.forMatch(), opponent.name)),
+                                0, List.copyOf(room.spectators.keySet()), winner -> escrow.accept(winner == 0 ? seat.id : null), true)) registerLive(room, player);
+                        else escrow.accept(null);
+                    } catch (RuntimeException failure) { escrow.accept(null); }
+                } else if (ArenaMatch.startFrontier(player, guest, seat::forMatch,
+                        opponent::forMatch, List.copyOf(room.spectators.keySet()), escrow, () -> escrow.accept(null))) registerLive(room, player);
+                else escrow.accept(null);
                 closeRoom(server, room);
                 return;
             }
@@ -406,7 +524,12 @@ public final class FrontierRooms {
                 && room.seats.values().stream().allMatch(s -> s.ready && availableInRoom(server, s));
     }
 
+    private static boolean canFight(MinecraftServer server, Room room) {
+        return server.isPvpAllowed() || room.seats.values().stream().filter(s -> !s.bot).count() <= 1;
+    }
+
     private static boolean availableInRoom(MinecraftServer server, Seat seat) {
+        if (seat.bot) return true;
         var player = server.getPlayerList().getPlayer(seat.id);
         return !seat.away && player != null && !player.hasDisconnected() && ArenaMatch.available(player);
     }
@@ -450,6 +573,22 @@ public final class FrontierRooms {
         return true;
     }
 
+    private static boolean applyBotPreset(ServerPlayer player, Seat bot, int slot, CompoundTag command) {
+        var saved = FrontierPresetData.get(player.server).get(player.getUUID());
+        var selected = decode(command.getCompound("pick"));
+        if (saved == null || selected == null || selected.equals(FrontierRoster.EMPTY) || saved.stream()
+                .map(FrontierRoster::withoutUnsupportedHeld).noneMatch(selected::equals)) {
+            problem(player, "choose_preset");
+            return false;
+        }
+        var next = new ArrayList<>(bot.draft());
+        next.set(slot, selected);
+        if (!validate(player, next, true)) return false;
+        // Future slots reserve their species for auto-drafting, but only confirm advances locked.
+        bot.picks[slot] = selected;
+        return true;
+    }
+
     private static void settleDuel(MinecraftServer server, Room room, UUID winner) {
         if (room.settled) return;
         room.settled = true;
@@ -479,7 +618,7 @@ public final class FrontierRooms {
 
     private static boolean join(ServerPlayer player, Room room, boolean invited) {
         int now = player.server.getTickCount();
-        if (!eligible(player) || MEMBERS.containsKey(player.getUUID()) || room == null || !room.open(now)
+        if (!eligible(player) || MEMBERS.containsKey(player.getUUID()) || WATCH_SEATS.containsKey(player.getUUID()) || room == null || !room.open(now)
                 || invited && room.invites.getOrDefault(player.getUUID(), 0) <= now) {
             problem(player, "closed"); return false;
         }
@@ -535,6 +674,10 @@ public final class FrontierRooms {
         if (now % 100 != 0) return;
         COOLDOWNS.values().removeIf(expiry -> expiry <= now);
         var server = event.getServer();
+        for (var live : List.copyOf(LIVE.values())) {
+            var state = live.match().getState();
+            if (state == InstanceSession.State.ENDING || state == InstanceSession.State.CLOSED) endLive(server, live.match());
+        }
         for (var room : List.copyOf(ROOMS.values())) {
             room.invites.values().removeIf(expiry -> expiry <= now);
             if (!room.starting && !room.open(now)) {
@@ -586,6 +729,21 @@ public final class FrontierRooms {
         }
     }
 
+    private static void registerLive(Room room, ServerPlayer leader) {
+        var match = ArenaMatch.inArena(leader);
+        if (match != null) LIVE.put(room.id, new LiveRoom(room, match));
+    }
+
+    public static void endLive(MinecraftServer server, ArenaMatch match) {
+        if (!LIVE.values().removeIf(live -> live.match() == match)) return;
+        for (var entry : List.copyOf(WATCH_SEATS.entrySet())) {
+            if (entry.getValue().match() != match) continue;
+            WATCH_SEATS.remove(entry.getKey());
+            var player = server.getPlayerList().getPlayer(entry.getKey());
+            if (player != null && !player.hasDisconnected()) problem(player, "closed");
+        }
+    }
+
     private static void remove(Room room) {
         ROOMS.remove(room.id);
         room.members().forEach(id -> MEMBERS.remove(id, room));
@@ -625,23 +783,46 @@ public final class FrontierRooms {
     private static void send(ServerPlayer player, boolean open, String problem, boolean automatic) {
         var data = new CompoundTag();
         data.putBoolean("open", open);
+        if (open) {
+            var picks = FrontierPresetData.get(player.server).get(player.getUUID());
+            data.putBoolean("serverPresets", true);
+            // Preserve old species and moves; only clear equipment retired from simulator play.
+            if (picks != null) data.put("presets", encodePresets(picks.stream().map(FrontierRoster::withoutUnsupportedHeld).toList()));
+        }
         data.putBoolean("automatic", automatic);
         data.putString("problem", problem);
         data.putString("balance", balance(player).toString());
         var room = MEMBERS.get(player.getUUID());
-        if (room == null) {
+        var watchSeat = WATCH_SEATS.get(player.getUUID());
+        if (watchSeat != null) {
+            var live = watchSeat.room();
+            writeListing(data, live);
+            data.putBoolean("live", true);
+            var observers = new ListTag();
+            for (var observer : watchSeat.match().getLevel().players()) {
+                if (FrontierSpectators.isWatching(observer, watchSeat.match()) || watchSeat.match().isFrontierObserverHost(observer))
+                    observers.add(publicSeat(new Seat(observer)));
+            }
+            WATCH_SEATS.forEach((id, seat) -> {
+                if (seat == watchSeat) {
+                    var waiting = player.server.getPlayerList().getPlayer(id);
+                    if (waiting != null) observers.add(publicSeat(new Seat(waiting)));
+                }
+            });
+            data.put("spectators", observers);
+        } else if (room == null) {
             var available = new ListTag();
             for (var entry : ROOMS.values().stream().sorted(Comparator.comparing(Room::multi)).toList()) {
                 if (entry.starting || entry.expires <= player.server.getTickCount()) continue;
                 var row = new CompoundTag();
-                row.putUUID("room", entry.id);
-                row.put("host", publicSeat(entry.host));
-                if (entry.guest() != null) row.put("guest", publicSeat(entry.guest()));
-                row.putInt("capacity", entry.capacity);
-                row.putInt("minutes", entry.minutes);
-                row.putBoolean("multi", entry.multi());
-                row.putInt("count", entry.seats.size());
-                row.putString("stake", entry.stake.toString());
+                writeListing(row, entry);
+                available.add(row);
+            }
+            for (var live : LIVE.values()) {
+                if (!live.active()) continue;
+                var row = new CompoundTag();
+                writeListing(row, live.room());
+                row.putBoolean("live", true);
                 available.add(row);
             }
             data.put("rooms", available);
@@ -649,8 +830,12 @@ public final class FrontierRooms {
             data.putUUID("room", room.id);
             data.putString("stake", room.stake.toString());
             data.putBoolean("owner", room.host.id.equals(player.getUUID()));
+            data.putBoolean("practice", !room.multi() && room.guest() != null && room.guest().bot);
             data.put("host", encode(room.host));
-            if (room.guest() != null) data.put("guest", encode(room.guest()));
+            if (room.guest() != null) {
+                var guest = room.guest();
+                data.put("guest", encode(guest, guest.bot && !room.host.id.equals(player.getUUID()) ? guest.locked : guest.picks.length));
+            }
             data.putInt("capacity", room.capacity);
             data.putBoolean("multi", room.multi());
             data.putInt("count", room.seats.size());
@@ -668,8 +853,8 @@ public final class FrontierRooms {
             if (room.multi() && self != null) data.put("self", encode(self));
             data.putBoolean("selfReady", self != null && self.ready);
             var guest = room.guest();
-            data.putBoolean("canStart", room.multi() ? teamsReady(player.server, room)
-                    : guest != null && room.host.ready && guest.ready && availableInRoom(player.server, room.host) && availableInRoom(player.server, guest));
+            data.putBoolean("canStart", canFight(player.server, room) && (room.multi() ? teamsReady(player.server, room)
+                    : guest != null && room.host.ready && guest.ready && availableInRoom(player.server, room.host) && availableInRoom(player.server, guest)));
             data.putInt("minutes", room.minutes);
             data.putInt("selfSide", watching ? -1 : self.side);
             boolean turn = !watching && !room.multi() && draftTurn(room, self);
@@ -682,6 +867,17 @@ public final class FrontierRooms {
             if (invite) encodeInvites(player, room, data);
         }
         PacketDistributor.sendToPlayer(player, new View(data));
+    }
+
+    private static void writeListing(CompoundTag row, Room room) {
+        row.putUUID("room", room.id);
+        row.put("host", publicSeat(room.host));
+        if (room.guest() != null) row.put("guest", publicSeat(room.guest()));
+        row.putInt("capacity", room.capacity);
+        row.putInt("minutes", room.minutes);
+        row.putBoolean("multi", room.multi());
+        row.putInt("count", room.seats.size());
+        row.putString("stake", room.stake.toString());
     }
 
     private static void encodeInvites(ServerPlayer player, Room room, CompoundTag data) {
@@ -703,6 +899,7 @@ public final class FrontierRooms {
     private static CompoundTag publicSeat(Seat seat) {
         var data = new CompoundTag();
         data.putString("name", seat.name);
+        data.putBoolean("bot", seat.bot);
         data.putUUID("player", seat.id);
         data.putBoolean("ready", seat.ready);
         data.putBoolean("away", seat.away);
@@ -715,17 +912,40 @@ public final class FrontierRooms {
     }
 
     private static CompoundTag encode(Seat seat) {
+        return encode(seat, seat.picks.length);
+    }
+
+    private static CompoundTag encode(Seat seat, int visibleSlots) {
         var data = new CompoundTag();
         data.putString("name", seat.name);
+        data.putBoolean("bot", seat.bot);
         data.putUUID("player", seat.id);
         data.putBoolean("ready", seat.ready);
         data.putBoolean("away", seat.away);
         data.putInt("side", seat.side);
         data.putInt("locked", seat.locked);
         var picks = new ListTag();
-        for (var pick : seat.picks) picks.add(encode(pick));
+        for (int i = 0; i < seat.picks.length; i++) picks.add(encode(i < visibleSlots ? seat.picks[i] : FrontierRoster.EMPTY));
         data.put("picks", picks);
         return data;
+    }
+
+    public static ListTag encodePresets(List<FrontierRoster.Pick> picks) {
+        var rows = new ListTag();
+        picks.stream().limit(PRESET_LIMIT).map(FrontierRooms::encode).forEach(rows::add);
+        return rows;
+    }
+
+    public static List<FrontierRoster.Pick> decodePresets(ListTag rows) {
+        if (rows.size() > PRESET_LIMIT) return null;
+        var picks = new ArrayList<FrontierRoster.Pick>();
+        for (var row : rows) {
+            if (!(row instanceof CompoundTag tag)) return null;
+            var pick = decode(tag);
+            if (pick == null || FrontierRoster.NONE.equals(pick.species())) return null;
+            picks.add(pick);
+        }
+        return List.copyOf(picks);
     }
 
     public static CompoundTag encode(FrontierRoster.Pick pick) {

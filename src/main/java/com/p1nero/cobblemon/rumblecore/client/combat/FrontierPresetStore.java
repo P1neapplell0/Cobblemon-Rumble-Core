@@ -16,8 +16,6 @@ import net.minecraft.nbt.NbtIo;
 import net.minecraft.nbt.Tag;
 
 final class FrontierPresetStore {
-    static final int LIMIT = 10;
-
     private FrontierPresetStore() {}
 
     private static Path file() {
@@ -30,7 +28,7 @@ final class FrontierPresetStore {
             var root = NbtIo.read(file());
             if (root != null) {
                 var data = root.getList("presets", Tag.TAG_COMPOUND);
-                for (int i = 0; i < data.size() && picks.size() < LIMIT; i++) {
+                for (int i = 0; i < data.size() && picks.size() < FrontierRooms.PRESET_LIMIT; i++) {
                     var pick = FrontierRooms.decode(data.getCompound(i));
                     if (pick != null && !pick.equals(FrontierRoster.EMPTY)) picks.add(pick);
                 }
@@ -45,7 +43,7 @@ final class FrontierPresetStore {
             Files.createDirectories(path.getParent());
             var root = new CompoundTag();
             var data = new ListTag();
-            picks.stream().limit(LIMIT).map(FrontierRooms::encode).forEach(data::add);
+            picks.stream().limit(FrontierRooms.PRESET_LIMIT).map(FrontierRooms::encode).forEach(data::add);
             root.put("presets", data);
             NbtIo.write(root, temp);
             Files.move(temp, path, StandardCopyOption.REPLACE_EXISTING);

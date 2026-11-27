@@ -16,6 +16,7 @@ repositories {
 
 neoForge {
     version = providers.gradleProperty("neo_version").get()
+    addModdingDependenciesTo(sourceSets.test.get())
     runs {
         configureEach {
             if (providers.gradleProperty("rumblePacks").orNull == "false") {
@@ -248,3 +249,15 @@ val gymReplacementsCheck by tasks.registering(JavaExec::class) {
 }
 
 tasks.named("check") { dependsOn(gymReplacementsCheck) }
+
+val frontierPresetDataCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(tasks.testClasses)
+    val testWorkDir = layout.buildDirectory.dir("tmp/frontierPresetDataCheck")
+    workingDir(testWorkDir)
+    doFirst { testWorkDir.get().asFile.mkdirs() }
+    classpath = sourceSets.test.get().runtimeClasspath + fileTree(layout.buildDirectory.dir("kotlin-api")) { include("*.jar") }.builtBy(kotlinApi)
+    mainClass.set("com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierPresetDataCheck")
+}
+
+tasks.named("check") { dependsOn(frontierPresetDataCheck) }

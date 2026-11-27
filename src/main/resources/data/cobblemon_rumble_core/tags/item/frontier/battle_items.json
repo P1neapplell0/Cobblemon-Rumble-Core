@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "mega_showdown:adrenaline_orb", "required": false }
+  ]
+}

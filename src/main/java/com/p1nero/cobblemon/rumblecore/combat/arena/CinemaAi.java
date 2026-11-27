@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.combat.arena;
 
 import com.cobblemon.mod.common.api.types.ElementalType;
+import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
 import com.johnn.realtimecobblemon.TypeChart;
@@ -30,25 +31,38 @@ import net.minecraft.world.phys.Vec3;
 
 /** RTC's Brawl is locked to player targets; movie actors need the same cast flow for either kind of target. */
 final class CinemaAi {
-    private record Move(MoveInfo info, MoveStyle style, double range) {}
-    private record Cast(Move move, LivingEntity target, long releaseAt) {}
-    private record Shot(Move move, LivingEntity target, Vec3 position, Vec3 velocity, double remaining, int seed) {}
+    private record Attack(MoveInfo info, MoveStyle style, double range, Move slot) {}
+    private record Cast(Attack move, LivingEntity target, long releaseAt) {}
+    private record Shot(Attack move, LivingEntity target, Vec3 position, Vec3 velocity, double remaining, int seed) {}
 
     private final PokemonEntity pokemon;
-    private final List<Move> moves;
+    private final List<Attack> moves;
     private final List<Shot> shots = new ArrayList<>();
     private Cast cast;
     private Cast meleeImpact;
     private long firstCastAt = -1;
+    private long nextRepositionAt;
+    private int strafeSide = 1;
 
-    CinemaAi(PokemonEntity pokemon) {
+    private final boolean limitedPp;
+    private final Attack basic;
+
+    CinemaAi(PokemonEntity pokemon) { this(pokemon, false); }
+
+    CinemaAi(PokemonEntity pokemon, boolean limitedPp) {
         this.pokemon = pokemon;
+        this.limitedPp = limitedPp;
+        basic = limitedPp ? attack(MoveInfo.basic("tackle", "Tackle", "normal", "physical", 35, 100, 0, "normal"), null) : null;
         moves = pokemon.getPokemon().getMoveSet().getMoves().stream()
-                .map(move -> RealtimeSignatureMoves.resolve(pokemon.getPokemon(), move, MoveRegistry.info(move)))
-                .filter(info -> !info.isStatus() && info.power() > 0).map(info -> {
-                    var style = MoveRegistry.style(info);
-                    return new Move(info, style, Math.max(2, Math.max(style.range(), style.radius())));
-                }).toList();
+                .map(move -> {
+                    var info = RealtimeSignatureMoves.resolve(pokemon.getPokemon(), move, MoveRegistry.info(move));
+                    return info.isStatus() || info.power() <= 0 ? null : attack(info, move);
+                }).filter(java.util.Objects::nonNull).toList();
+    }
+
+    private static Attack attack(MoveInfo info, Move slot) {
+        var style = slot == null ? new MoveStyle(MoveStyle.Shape.MELEE, 2, 0, 0, 1, 0) : MoveRegistry.style(info);
+        return new Attack(info, style, Math.max(2, Math.max(style.range(), style.radius())), slot);
     }
 
     void tick(ServerLevel level, LivingEntity target, BiPredicate<Entity, Entity> opponents, boolean playerHit) {
@@ -78,12 +92,14 @@ final class CinemaAi {
             if (now >= cast.releaseAt()) {
                 var released = cast;
                 cast = null;
+                var slot = released.move().slot();
+                if (limitedPp && slot != null) slot.setCurrentPp(Math.max(0, slot.getCurrentPp() - 1));
                 RealtimeMoveWindup.npcReleased(pokemon, now);
                 Fx3D.withPalette(pokemon, () -> release(level, released, playerHit));
             }
             return;
         }
-        if (!valid(target, opponents) || moves.isEmpty()) {
+        if (!valid(target, opponents) || moves.isEmpty() && basic == null) {
             pokemon.getNavigation().stop();
             return;
         }
@@ -91,18 +107,45 @@ final class CinemaAi {
         if (firstCastAt < 0) firstCastAt = now + pokemon.getRandom().nextInt(13);
         face(target);
         double distance = pokemon.distanceTo(target);
-        var available = moves.stream().filter(move -> inRange(move, target, distance)).toList();
+        var stocked = limitedPp ? moves.stream().filter(move -> move.slot().getCurrentPp() > 0).toList() : moves;
+        if (stocked.isEmpty() && basic != null) stocked = List.of(basic);
+        var available = stocked.stream().filter(move -> inRange(move, target, distance)).toList();
         if (available.isEmpty() || !pokemon.hasLineOfSight(target)) {
             if (now % 5 == 0) pokemon.getNavigation().moveTo(target, 1.1);
         } else if (now >= firstCastAt && !RealtimeMoveWindup.npcCoolingDown(pokemon, now)) {
             var move = available.get(pokemon.getRandom().nextInt(available.size()));
             int ticks = RealtimeMoveWindup.npcMove(pokemon, level, now, move.info());
             if (ticks > 0) {
+                if (limitedPp) pokemon.getNavigation().stop();
                 cast = new Cast(move, target, now + ticks);
                 Anims.send(pokemon, 4);
                 Fx3D.withPalette(pokemon, () -> Fx3D.chargeTint(pokemon, move.info(), ticks));
             }
+        } else if (limitedPp && target instanceof PokemonEntity && meleeImpact == null && now >= nextRepositionAt) {
+            reposition(target, stocked, now);
         }
+    }
+
+    private void reposition(LivingEntity target, List<Attack> stocked, long now) {
+        var delta = pokemon.position().subtract(target.position());
+        var outward = new Vec3(delta.x, 0, delta.z);
+        if (outward.lengthSqr() < .01) {
+            var look = pokemon.getLookAngle();
+            outward = new Vec3(-look.x, 0, -look.z);
+        }
+        outward = outward.normalize();
+        double hitboxes = (pokemon.getBbWidth() + target.getBbWidth()) / 2.0;
+        double attackRange = stocked.stream().mapToDouble(Attack::range).max().orElse(2);
+        double preferred = hitboxes + Math.clamp(attackRange * .65, 1.25, 5);
+        var side = new Vec3(-outward.z, 0, outward.x).scale(1.8 * strafeSide);
+        var forward = outward.scale(Math.clamp(preferred - delta.horizontalDistance(), -1.75, 1.75));
+        var step = pokemon.position().add(forward).add(side);
+        if (!pokemon.getNavigation().moveTo(step.x, step.y, step.z, 1.15)) {
+            strafeSide = -strafeSide;
+            step = step.subtract(side.scale(2));
+            pokemon.getNavigation().moveTo(step.x, step.y, step.z, 1.15);
+        } else if (pokemon.getRandom().nextInt(4) == 0) strafeSide = -strafeSide;
+        nextRepositionAt = now + 8 + pokemon.getRandom().nextInt(7);
     }
 
     private void cancel() {
@@ -119,7 +162,7 @@ final class CinemaAi {
                 && (!(target instanceof ServerPlayer player) || Smash.active(player)) && opponents.test(pokemon, target);
     }
 
-    private boolean inRange(Move move, LivingEntity target, double distance) {
+    private boolean inRange(Attack move, LivingEntity target, double distance) {
         return distance <= move.range() + (pokemon.getBbWidth() + target.getBbWidth()) / 2.0;
     }
 
@@ -182,7 +225,7 @@ final class CinemaAi {
         return block.getType() == HitResult.Type.MISS ? to : block.getLocation();
     }
 
-    private void impact(ServerLevel level, Move move, LivingEntity target, Vec3 position, Vec3 direction, boolean playerHit) {
+    private void impact(ServerLevel level, Attack move, LivingEntity target, Vec3 position, Vec3 direction, boolean playerHit) {
         var info = move.info();
         Fx3D.impact(level, info, position, direction, move.style().size());
         CinemaSoundAccess.rumble$move(level, info, true, position);
@@ -195,13 +238,13 @@ final class CinemaAi {
         var user = pokemon.getPokemon();
         var userTypes = StreamSupport.stream(user.getTypes().spliterator(), false).map(ElementalType::getName).toList();
         var types = StreamSupport.stream(body.getPokemon().getTypes().spliterator(), false).map(ElementalType::getName).toList();
-        float effectiveness = TypeChart.multiplier(info.type(), types);
+        float effectiveness = move.slot() == null ? 1 : TypeChart.multiplier(info.type(), types);
         if (effectiveness == 0) { Pops.word(body, "no_effect", 0xBBBDBB, false); return; }
         boolean crit = RealtimeAiDamage.critical(info, level.random);
         // Keep supporting actors' pacing, but use the same combat stats and critical rules as Brawl.
         float damage = RealtimeAiDamage.calculate(pokemon, body, target, info.power() * 1.15, !info.isPhysical(),
                 userTypes.contains(info.type()), effectiveness, .85F + level.random.nextFloat() * .15F, crit)
-                * (session != null ? .85F : .45F);
+                * (limitedPp ? .85F : session != null ? .85F : .45F);
         var source = level.damageSources().mobAttack(pokemon);
         if (session != null) {
             if (CinemaMoveAccess.rumble$receive(session, source, damage, info) > 0) Anims.send(body, 2);

@@ -25,7 +25,9 @@ import com.p1nero.cobblemon.rumblecore.RumbleConfig;
 import com.p1nero.cobblemon.rumblecore.combat.BattleMusic;
 import com.p1nero.cobblemon.rumblecore.combat.reward.WildCapture;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRules;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRoster;
 import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierSpectators;
+import com.p1nero.cobblemon.rumblecore.combat.arena.frontier.FrontierRooms;
 import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
 import com.p1nero.cobblemon.rumblecore.gym.GymCatalog;
 import com.p1nero.cobblemon.rumblecore.gym.GymLeaderTeams;
@@ -132,8 +134,12 @@ public final class ArenaMatch extends InstanceSession {
     private boolean admittedSpectators;
     private static TeamGame creatingTeamGame;
     private final TeamGame teamGame = creatingTeamGame;
-    public record TeamEntry(int side, List<Pokemon> roster) {}
-    private record TeamGame(Map<UUID, TeamEntry> entries, int minutes, List<UUID> spectators, Consumer<Integer> result) {}
+    public record TeamEntry(int side, List<Pokemon> roster, String botName) {
+        public boolean bot() { return botName != null; }
+    }
+    private record TeamGame(Map<UUID, TeamEntry> entries, int minutes, List<UUID> spectators, Consumer<Integer> result,
+                            boolean practiceDuel, UUID observerHost) {}
+    private final Map<UUID, PracticeBot> practiceBots = new LinkedHashMap<>();
     private final Map<UUID, Integer> respawn = new HashMap<>();
     private final Map<UUID, Integer> teamRecall = new HashMap<>();
     private int teamResultAt, teamWinner;
@@ -287,6 +293,10 @@ public final class ArenaMatch extends InstanceSession {
         return leader != null && fighter != null && fighter.eliminated && player.serverLevel() == getLevel();
     }
 
+    public boolean isFrontierObserverHost(ServerPlayer player) {
+        return teamGame != null && player.getUUID().equals(teamGame.observerHost()) && player.serverLevel() == getLevel();
+    }
+
     public boolean gymPreviewActive() { return gymPreviewUntil != 0; }
 
     @Override public Map<UUID, String> snapshotPlayerDetails() {
@@ -403,22 +413,35 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     public static boolean startFrontierTeams(ServerPlayer host, Map<UUID, TeamEntry> entries, int minutes, List<UUID> spectators, Consumer<Integer> result) {
-        if (!host.server.isPvpAllowed() || !entries.containsKey(host.getUUID())
-                || entries.values().stream().anyMatch(e -> e.roster().size() != 1 || e.side() < 0 || e.side() > 1)
+        return startFrontierTeams(host, entries, minutes, spectators, result, false);
+    }
+
+    public static boolean startFrontierTeams(ServerPlayer host, Map<UUID, TeamEntry> entries, int minutes,
+                                             List<UUID> spectators, Consumer<Integer> result, boolean practiceDuel) {
+        var hostEntry = entries.get(host.getUUID());
+        // Custom Instances needs a real owner, even when every combatant is a bot.
+        boolean hostWatches = hostEntry == null && !practiceDuel && spectators.contains(host.getUUID())
+                && entries.values().stream().allMatch(TeamEntry::bot);
+        if (!available(host) || (!hostWatches && (hostEntry == null || hostEntry.bot()))
+                || !host.server.isPvpAllowed() && entries.values().stream().filter(e -> !e.bot()).count() > 1
+                || practiceDuel && (entries.size() != 2 || minutes != 0 || entries.values().stream().noneMatch(TeamEntry::bot))
+                || entries.values().stream().anyMatch(e -> e.roster().size() != (practiceDuel ? FrontierRoster.TEAM_SIZE : 1) || e.side() < 0 || e.side() > 1)
                 || entries.values().stream().map(TeamEntry::side).distinct().count() != 2
                 || !FrontierRules.isValidTeamDuration(minutes)) return false;
-        var players = entries.keySet().stream().map(host.server.getPlayerList()::getPlayer).toList();
+        var players = entries.entrySet().stream().filter(e -> !e.getValue().bot()).map(e -> host.server.getPlayerList().getPlayer(e.getKey())).toList();
         if (players.stream().anyMatch(p -> p == null || !available(p))) return false;
         var manager = InstanceManager.get(host.server);
         String password = String.format(Locale.ROOT, "%04d", ThreadLocalRandom.current().nextInt(10000));
         try {
             UUID room;
-            creatingTeamGame = new TeamGame(Collections.unmodifiableMap(new LinkedHashMap<>(entries)), minutes, List.copyOf(spectators), result);
+            creatingTeamGame = new TeamGame(Collections.unmodifiableMap(new LinkedHashMap<>(entries)), minutes,
+                    List.copyOf(spectators), result, practiceDuel, hostWatches ? host.getUUID() : null);
             try { room = manager.create(host, TEMPLATE, password); }
             finally { creatingTeamGame = null; }
             for (var player : players) if (player != host) manager.join(player, TEMPLATE, room, password);
             // Joining clears prior readiness in Custom Instances. Set it only once everyone has joined.
             for (var player : players) manager.setReady(player, room, true);
+            if (hostWatches) manager.setReady(host, room, true);
             manager.start(host, TEMPLATE);
             return true;
         } catch (IOException | RuntimeException e) {
@@ -487,7 +510,9 @@ public final class ArenaMatch extends InstanceSession {
             return;
         }
         if (match.teamGame != null) {
-            if (!match.teamGame.entries().containsKey(player.getUUID()) || !available(player)) event.setCanceled(true);
+            var entry = match.teamGame.entries().get(player.getUUID());
+            if (!(player.getUUID().equals(match.teamGame.observerHost()) || entry != null && !entry.bot())
+                    || !available(player)) event.setCanceled(true);
             return;
         }
         if (match.leader == null) {
@@ -608,12 +633,21 @@ public final class ArenaMatch extends InstanceSession {
             return;
         }
         if (match.teamGame != null) {
+            var observer = match.teamGame.observerHost() == null ? null : server.getPlayerList().getPlayer(match.teamGame.observerHost());
+            if (observer != null) {
+                var spawn = match.getSpawn();
+                observer.connection.teleport(spawn.getX() + .5, spawn.getY() + 6, spawn.getZ() + .5, observer.getYRot(), 25);
+            }
             int[] lanes = new int[2];
             for (var entry : match.teamGame.entries().entrySet()) {
-                var player = server.getPlayerList().getPlayer(entry.getKey());
-                if (player == null || !match.getMembers().containsKey(entry.getKey())) throw new IllegalStateException("Frontier team changed during startup");
                 int side = entry.getValue().side();
                 var pos = frontierSpawn(side, lanes[side]++);
+                if (entry.getValue().bot()) {
+                    match.practiceBots.put(entry.getKey(), new PracticeBot(entry.getValue(), pos));
+                    continue;
+                }
+                var player = server.getPlayerList().getPlayer(entry.getKey());
+                if (player == null || !match.getMembers().containsKey(entry.getKey())) throw new IllegalStateException("Frontier team changed during startup");
                 var fighter = Fighter.frontier(player, pos, side == 0 ? -90 : 90, entry.getValue().roster());
                 match.team.put(entry.getKey(), fighter);
                 match.placeFrontier(fighter);
@@ -1379,6 +1413,9 @@ public final class ArenaMatch extends InstanceSession {
             if (cinema != null) cinema.actors.forEach((pokemon, actor) -> {
                 if (actor.side() != cinema.playerSide(viewer.player.getUUID()) && CinemaBattle.alive(pokemon)) actors.add(pokemon.getId());
             });
+            if (teamGame != null) for (var bot : practiceBots.values()) {
+                if (bot.entry.side() != side(viewer) && bot.body != null && bot.removeAt == 0 && !bot.knockedOut) actors.add(bot.body.getId());
+            }
             actors.sort(Integer::compare);
             var update = new ArenaPackets.Opponents(getDimension().location(), List.copyOf(rivals), List.copyOf(actors));
             if (!update.equals(opponents.put(viewer.player.getUUID(), update))) PacketDistributor.sendToPlayer(viewer.player, update);
@@ -1431,6 +1468,89 @@ public final class ArenaMatch extends InstanceSession {
         f.player.connection.teleport(pos.x, pos.y, pos.z, f.yaw, 0);
     }
 
+    private static final class PracticeBot {
+        final TeamEntry entry;
+        final Vec3 spawn;
+        int index, respawnAt, removeAt;
+        boolean knockedOut;
+        PokemonEntity body;
+        CinemaAi ai;
+
+        PracticeBot(TeamEntry entry, Vec3 spawn) { this.entry = entry; this.spawn = spawn; }
+        Pokemon current() { return index < entry.roster().size() ? entry.roster().get(index) : null; }
+        void discardBody() {
+            if (body != null) body.discard();
+            body = null;
+            ai = null;
+        }
+    }
+
+    private int combatSide(Entity entity) {
+        if (entity == null) return -1;
+        for (var bot : practiceBots.values()) if (bot.body == entity) return bot.entry.side();
+        var fighter = combatant(entity);
+        return fighter == null ? -1 : side(fighter);
+    }
+
+    private boolean teamOpponents(Entity a, Entity b) {
+        int first = combatSide(a), second = combatSide(b);
+        return first >= 0 && second >= 0 && first != second;
+    }
+
+    private void tickBotBodies(int now, boolean timed, boolean[] standing) {
+        for (var bot : practiceBots.values()) {
+            int side = bot.entry.side();
+            var mon = bot.current();
+            if (mon == null) continue;
+            if (bot.body != null && (bot.knockedOut || mon.isFainted() || !bot.body.isAlive())) {
+                if (bot.removeAt == 0) {
+                    teamScore[1 - side]++;
+                    bot.removeAt = now + RealtimeKnockout.FLIGHT_TICKS;
+                    bot.respawnAt = now + 100;
+                    if (!timed && bot.index + 1 >= bot.entry.roster().size()) continue;
+                }
+                if (!timed && bot.index + 1 >= bot.entry.roster().size()) {
+                    if (now >= bot.removeAt) { bot.discardBody(); bot.index++; }
+                    continue;
+                }
+                standing[side] = true;
+                if (now < bot.removeAt) continue;
+                bot.discardBody();
+            }
+            if (bot.respawnAt != 0) {
+                standing[side] = true;
+                if (timed && now < bot.respawnAt) continue;
+                if (timed) mon.heal(); else mon = bot.entry.roster().get(++bot.index);
+                bot.removeAt = bot.respawnAt = 0;
+                bot.knockedOut = false;
+            }
+            if (bot.body == null) {
+                UncatchableProperty.INSTANCE.uncatchable().apply(mon);
+                bot.body = mon.sendOut(getLevel(), bot.spawn, null, entity -> {
+                    entity.moveTo(bot.spawn.x, bot.spawn.y, bot.spawn.z, side == 0 ? -90 : 90, 0);
+                    entity.setPersistenceRequired();
+                    return kotlin.Unit.INSTANCE;
+                });
+                if (bot.body == null) throw new IllegalStateException("Could not send in Frontier practice bot");
+                bot.ai = new CinemaAi(bot.body, true);
+            }
+            standing[side] = true;
+        }
+    }
+
+    private void tickBotAttacks() {
+        var targets = new ArrayList<LivingEntity>();
+        for (var fighter : team.values()) if (!gone(fighter) && Smash.active(fighter.player)) targets.add(fighter.player);
+        for (var bot : practiceBots.values()) if (bot.body != null && bot.removeAt == 0) targets.add(bot.body);
+        for (var bot : practiceBots.values()) {
+            if (bot.ai == null || bot.removeAt != 0) continue;
+            if (bot.body.getHealth() < bot.body.getMaxHealth() * .5F && !RealtimeMoveWindup.locked(bot.body)) MegaCombat.heal(bot.body);
+            var target = targets.stream().filter(other -> teamOpponents(bot.body, other))
+                    .min(Comparator.comparingDouble(other -> bot.body.distanceToSqr(other))).orElse(null);
+            bot.ai.tick(getLevel(), target, this::teamOpponents, true);
+        }
+    }
+
     private int side(Fighter fighter) { return teamGame.entries().get(fighter.player.getUUID()).side(); }
 
     private void tickFrontierTeams(InstanceManager manager) {
@@ -1446,6 +1566,10 @@ public final class ArenaMatch extends InstanceSession {
                 teamClock = new net.minecraft.server.level.ServerBossEvent(Component.empty(),
                         net.minecraft.world.BossEvent.BossBarColor.BLUE, net.minecraft.world.BossEvent.BossBarOverlay.PROGRESS);
                 team.values().forEach(fighter -> teamClock.addPlayer(fighter.player));
+                if (teamGame.observerHost() != null) {
+                    var observer = manager.getServer().getPlayerList().getPlayer(teamGame.observerHost());
+                    if (observer != null) teamClock.addPlayer(observer);
+                }
             }
         }
         boolean timed = teamGame.minutes() > 0;
@@ -1469,8 +1593,18 @@ public final class ArenaMatch extends InstanceSession {
                     if (fighter.body != null) fighter.body.discard();
                     fighter.body = null;
                     placeFrontier(fighter);
+                    if (teamGame.practiceDuel() && fighter.active + 1 < fighter.roster.size()) {
+                        fighter.active++;
+                        fighter.replacementAt = fighter.spawn;
+                        respawn.remove(id);
+                        standing[side] = true;
+                        continue;
+                    }
                 }
-                if (!timed) continue;
+                if (!timed) {
+                    if (teamGame.practiceDuel() && fighter.active + 1 < fighter.roster.size()) standing[side] = true;
+                    continue;
+                }
                 if (now % 20 == 0) fighter.player.displayClientMessage(Component.translatable("rumble.frontier.respawn",
                         Math.max(0, (respawn.get(id) - now + 19) / 20)), true);
                 standing[side] = true;
@@ -1485,17 +1619,28 @@ public final class ArenaMatch extends InstanceSession {
             allies.add(new ArenaPackets.Ally(id, fighter.player.getGameProfile().getName(), fighter.player.getId(),
                     Smash.active(fighter.player) && fighter.body != null ? fighter.body.getId() : -1));
         }
+        tickBotBodies(now, timed, standing);
+        if (teamGame.observerHost() == null && team.values().stream().allMatch(this::gone)) {
+            teamWinner = -1;
+            finishFrontierTeams(manager);
+            return;
+        }
         fighting = standing[0] && standing[1];
+        if (fighting) tickBotAttacks();
         frontierCombatStarted |= fighting;
         int seconds = timed ? Math.max(0, (teamDeadline - now + 19) / 20) : -1;
         for (var fighter : team.values()) {
             if (gone(fighter)) continue;
             int side = side(fighter);
-            var friendly = allies.stream().filter(ally -> side(team.get(ally.player())) == side).toList();
+            var friendly = new ArrayList<>(allies.stream().filter(ally -> side(team.get(ally.player())) == side).toList());
             var decoys = new ArrayList<Integer>();
             friendly.forEach(ally -> {
                 var control = Smash.session(team.get(ally.player()).player);
                 if (control != null) control.combat.decoys.forEach(d -> decoys.add(d.getId()));
+            });
+            practiceBots.forEach((id, bot) -> {
+                if (bot.entry.side() == side && bot.body != null && bot.removeAt == 0)
+                    friendly.add(new ArenaPackets.Ally(id, bot.entry.botName(), bot.body.getId(), bot.body.getId()));
             });
             var update = new ArenaPackets.Allies(getDimension().location(), friendly, decoys);
             if (!update.equals(teamAllies.put(fighter.player.getUUID(), update))) PacketDistributor.sendToPlayer(fighter.player, update);
@@ -1514,7 +1659,8 @@ public final class ArenaMatch extends InstanceSession {
         if (!fighting || timed && seconds == 0) {
             fighting = false;
             teamWinner = FrontierRules.winner(timed, standing[0], standing[1], teamScore[0], teamScore[1]);
-            teamResultAt = Math.max(now + 10, teamRecall.values().stream().mapToInt(Integer::intValue).max().orElse(now));
+            teamResultAt = Math.max(Math.max(now + 10, teamRecall.values().stream().mapToInt(Integer::intValue).max().orElse(now)),
+                    practiceBots.values().stream().mapToInt(bot -> bot.removeAt).max().orElse(now));
         }
     }
 
@@ -2062,7 +2208,11 @@ public final class ArenaMatch extends InstanceSession {
     @SubscribeEvent
     public static void ending(InstanceEvent.Ending event) {
         if (event.getSession() instanceof ArenaMatch match) {
-            if (match.getLevel() != null) FrontierSpectators.end(match.getLevel().getServer(), match);
+            if (match.getLevel() != null) {
+                var server = match.getLevel().getServer();
+                FrontierRooms.endLive(server, match);
+                FrontierSpectators.end(server, match);
+            }
             if (match.teamClock != null) match.teamClock.removeAllPlayers();
             if (match.teamGame != null && !match.frontierResolved) {
                 match.frontierResolved = true;
@@ -2079,6 +2229,7 @@ public final class ArenaMatch extends InstanceSession {
             match.clean(match.b);
             match.team.values().forEach(match::clean);
             if (match.cinema != null) match.cinema.clean();
+            match.practiceBots.values().forEach(PracticeBot::discardBody);
             for (var foe : match.wildFoes) if (!foe.isRemoved()) foe.discard();
             // Keep the NPCs alive in the result window so their native win/lose animation can finish.
             for (var trainer : match.trainers) for (Pokemon pokemon : trainer.roster) pokemon.recall();
@@ -2229,6 +2380,7 @@ public final class ArenaMatch extends InstanceSession {
                 || !(InstanceApi.find(level).orElse(null) instanceof ArenaMatch match) || match.getState() != State.ACTIVE) return null;
         if (e instanceof ServerPlayer p) return match.fighter(p) == null ? null : match;
         if (e instanceof PokemonEntity) {
+            if (match.practiceBots.values().stream().anyMatch(bot -> bot.body == e)) return match;
             if (match.trainerOf(e) != null || match.wildFoes.contains(e) || match.cinema != null && match.cinema.actors.containsKey(e)) return match;
             for (var s : Smash.sessions()) if ((s.pokemon == e || s.combat.decoys.contains(e)) && match.fighter(s.player) != null) return match;
         }
@@ -2400,10 +2552,10 @@ public final class ArenaMatch extends InstanceSession {
             int side = match.cinema.factionOf(viewer);
             return side >= 0 && side == match.cinema.factionOf(pokemon);
         }
+        if (match.teamGame != null) return match.combatSide(viewer) == match.combatSide(pokemon);
         var caster = match.combatant(pokemon);
         var listener = match.fighter(viewer);
         if (caster == null || listener == null) return false;
-        if (match.teamGame != null) return match.side(caster) == match.side(listener);
         return match.b == null;
     }
 
@@ -2427,10 +2579,10 @@ public final class ArenaMatch extends InstanceSession {
             return match.cinema.opponents(attacker.player, target);
         }
         if (match.teamGame != null) {
-            var source = match.fighter(attacker.player);
+            if (!match.teamOpponents(attacker.player, target)) return false;
             var other = match.combatant(target);
-            return source != null && other != null && match.side(source) != match.side(other)
-                    && Smash.active(other.player);
+            return other != null ? Smash.active(other.player)
+                    : match.practiceBots.values().stream().anyMatch(bot -> bot.body == target && bot.removeAt == 0 && !bot.knockedOut);
         }
         if (match.b != null) {
             var opponent = attacker.player == match.a.player ? match.b : match.a;
@@ -2461,6 +2613,13 @@ public final class ArenaMatch extends InstanceSession {
         }
         var source = event.getSource().getEntity();
         var by = group(source != null ? source : event.getSource().getDirectEntity());
+        if (arena.teamGame != null && !arena.practiceBots.isEmpty()) {
+            var attacker = source != null ? source : event.getSource().getDirectEntity();
+            if (arena.combatSide(attacker) >= 0 && arena.combatSide(victim) >= 0 && !arena.teamOpponents(attacker, victim)) {
+                event.setCanceled(true);
+                return;
+            }
+        }
         if (arena.leader != null || arena.teamGame != null) {
             var attacker = arena.combatant(source != null ? source : event.getSource().getDirectEntity());
             var defender = arena.combatant(victim);
@@ -2507,7 +2666,8 @@ public final class ArenaMatch extends InstanceSession {
             return;
         }
         var foe = arena.trainerOf(pokemon);
-        if (foe == null && (arena.cinema == null || !arena.cinema.actors.containsKey(pokemon))) {
+        var bot = arena.practiceBots.values().stream().filter(entry -> entry.body == pokemon).findFirst().orElse(null);
+        if (foe == null && bot == null && (arena.cinema == null || !arena.cinema.actors.containsKey(pokemon))) {
             if (arena.wildFoes.contains(pokemon)) RealtimeKnockout.launch(pokemon, source);
             return;
         }
@@ -2516,6 +2676,7 @@ public final class ArenaMatch extends InstanceSession {
         RealtimeKnockout.launch(pokemon, source);
         // Keep the body identifiable as this match's trainer until launch has dispatched the cue.
         if (foe != null) foe.knockedOut = true;
+        if (bot != null) bot.knockedOut = true;
         // Vanilla would run the death animation and remove the body. Preserve it just long enough for recall.
         event.setNewDamage(Math.min(event.getNewDamage(), Math.max(0, pokemon.getHealth() - 0.01F) + pokemon.getAbsorptionAmount()));
     }

@@ -149,8 +149,31 @@ final class FrontierConsole {
         }
     }
 
+    static void botIcon(GuiGraphics g, int x, int y, int size, int accent) {
+        g.pose().pushPose();
+        try {
+            g.pose().translate(x, y, 0);
+            g.pose().scale(size / 12F, size / 12F, 1);
+            g.fill(5, 2, 7, 4, 0xff93a7b8); // Antenna stalk
+            g.fill(5, 1, 7, 2, accent);
+            g.fill(1, 6, 11, 9, accent); // Ear caps
+            g.fill(3, 4, 9, 11, 0xffb4c7d6);
+            g.fill(2, 5, 10, 10, 0xffb4c7d6);
+            g.fill(3, 4, 9, 5, 0xffecf4fb);
+            g.fill(3, 6, 9, 9, 0xff142535); // Visor
+            g.fill(4, 7, 5, 8, accent);
+            g.fill(7, 7, 8, 8, accent);
+            g.fill(5, 10, 7, 11, 0xff637e91);
+        } finally { g.pose().popPose(); }
+    }
+
     static void player(GuiGraphics g, CompoundTag seat, int x, int y, int size, int accent) {
         g.fill(x - 1, y - 1, x + size + 1, y + size + 1, accent);
+        if (seat.getBoolean("bot")) {
+            g.fill(x, y, x + size, y + size, 0xff122131);
+            botIcon(g, x, y, size, accent);
+            return;
+        }
         if (!seat.hasUUID("player")) {
             g.fill(x, y, x + size, y + size, 0xff122131);
             return;
