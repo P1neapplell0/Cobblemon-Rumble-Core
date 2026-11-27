@@ -59,6 +59,7 @@ public final class CobblemonRumbleCore {
 
     public CobblemonRumbleCore(IEventBus modBus, ModContainer container) {
         container.registerConfig(ModConfig.Type.COMMON, RumbleConfig.SPEC);
+        RumbleCreativeTab.register(modBus);
         PhoneItems.register(modBus);
         PokeBrick.register(modBus);
         MayMegaDevice.register(modBus);

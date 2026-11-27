@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
+import com.p1nero.cobblemon.rumblecore.combat.arena.GimmickCinematics;
 import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.Smash;
@@ -51,7 +52,8 @@ abstract class RealtimeMoveWindupAi {
     @WrapOperation(method = "tick", at = @At(value = "INVOKE", target =
             "Lcom/johnn/realtimecobblemon/moves/Conditions;stunned(Lnet/minecraft/world/entity/Entity;)Z"))
     private static boolean rumble$checkAiControl(Entity entity, Operation<Boolean> original) {
-        boolean blocked = original.call(entity) || RealtimeMoveWindup.crowdControlled(entity);
+        boolean blocked = original.call(entity) || RealtimeMoveWindup.crowdControlled(entity)
+                || GimmickCinematics.locked(entity);
         if (blocked && entity instanceof PokemonEntity pokemon) RealtimeMoveWindup.npcInterrupted(pokemon);
         return blocked;
     }

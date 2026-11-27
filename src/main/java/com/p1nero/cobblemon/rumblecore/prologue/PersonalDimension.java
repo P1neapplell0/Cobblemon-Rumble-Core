@@ -49,7 +49,7 @@ public final class PersonalDimension {
     private static final String DELIVER = "deliver_ingot", ENTER = "enter_home", KEY = "rumble.personal_dimension.";
     private static final String SEEDED = KEY + "seeded";
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CobblemonRumbleCore.MOD_ID);
-    private static final Supplier<Item> INGOT = ITEMS.register("space_time_ingot", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> INGOT = ITEMS.register("space_time_ingot", () -> new Item(new Item.Properties()));
 
     private PersonalDimension() {}
 

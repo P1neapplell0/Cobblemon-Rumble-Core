@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
+import com.p1nero.cobblemon.rumblecore.combat.arena.GimmickCinematics;
 import com.johnn.realtimecobblemon.Smash;
 import com.cobblemon.mod.common.api.moves.Move;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -67,6 +68,7 @@ abstract class RealtimeMoveWindupInput {
             at = @At("HEAD"), cancellable = true)
     private static void rumble$blockDamageAndFlinch(Smash.Session source, LivingEntity target, float damage,
             CallbackInfoReturnable<Float> cir) {
-        if (RealtimeMoveWindup.locked(target)) cir.setReturnValue(0.0F);
+        if (RealtimeMoveWindup.locked(target)
+                || GimmickCinematics.locked(source.pokemon)) cir.setReturnValue(0.0F);
     }
 }

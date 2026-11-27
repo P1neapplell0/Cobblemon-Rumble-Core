@@ -66,7 +66,15 @@ public final class TeraCombat {
         if (session == null || !session.pokemon.isAlive() || session.pokemon.getPokemon().isFainted() || !equipped(player)
                 || PrologueTraining.restrict(player) || session.combat.lockedUntil > player.level().getGameTime()) return;
         var match = ArenaMatch.inArena(player);
-        if (match == null) apply(session, true); else match.useTera(session);
+        if (match != null) match.useTera(session);
+        else if (canApply(session) && !GimmickCinematics.start(session, GimmickCinematics.Kind.TERASTALIZATION,
+                () -> apply(session, true))) apply(session, true);
+    }
+
+    static boolean canApply(Smash.Session session) {
+        var body = session.pokemon;
+        var pokemon = body.getPokemon();
+        return body.isAlive() && !pokemon.isFainted() && !ACTIVE.containsKey(pokemon) && pokemon.getTeraType() != null;
     }
 
     static boolean apply(Smash.Session session, boolean audiovisual) {

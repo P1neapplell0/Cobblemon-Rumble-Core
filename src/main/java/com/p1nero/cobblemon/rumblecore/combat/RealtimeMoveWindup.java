@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.combat;
 
+import com.p1nero.cobblemon.rumblecore.combat.arena.GimmickCinematics;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.johnn.realtimecobblemon.MoveCombat;
 import com.johnn.realtimecobblemon.Smash;
@@ -94,6 +95,11 @@ public final class RealtimeMoveWindup {
 
     public static boolean locked(Entity entity) {
         if (!(entity.level() instanceof ServerLevel level)) return false;
+        if (GimmickCinematics.locked(entity)) return true;
+        return windingUp(entity, level);
+    }
+
+    private static boolean windingUp(Entity entity, ServerLevel level) {
         Lock lock = LOCKS.get(entity);
         if (lock == null) return false;
         // Keep protection through the release tick until the cast actually begins.
@@ -105,7 +111,7 @@ public final class RealtimeMoveWindup {
     }
 
     public static long playerWindupUntil(ServerPlayer player) {
-        return locked(player) ? LOCKS.get(player).until() : 0;
+        return windingUp(player, player.serverLevel()) ? LOCKS.get(player).until() : 0;
     }
 
     public static boolean releasingPlayerMove(ServerPlayer player) {

@@ -76,12 +76,14 @@ public final class ArenaPackets {
 
     public static void register(RegisterPayloadHandlersEvent event) {
         var net = event.registrar("3");
+        GimmickCinematics.register(net);
         net.playToServer(UseTera.TYPE, UseTera.CODEC, (p, ctx) -> TeraCombat.use((ServerPlayer) ctx.player()));
         net.playToClient(TeraUsed.TYPE, TeraUsed.CODEC, (p, ctx) -> PrologueClient.teraUsed(p.used()));
         net.playToServer(UseHeld.TYPE, UseHeld.CODEC, (p, ctx) -> ArenaMatch.useHeld((ServerPlayer) ctx.player()));
         net.playToServer(Reply.TYPE, Reply.CODEC, (p, ctx) -> ArenaMatch.reply((ServerPlayer) ctx.player(), p));
         net.playToServer(Pick.TYPE, Pick.CODEC, (p, ctx) -> {
             var player = (ServerPlayer) ctx.player();
+            if (GimmickCinematics.locked(player)) return;
             if (p.round() == WILD_ROUND) com.p1nero.cobblemon.rumblecore.combat.RealtimeBattleEntry.pick(player, p);
             else ArenaMatch.pick(player, p);
         });

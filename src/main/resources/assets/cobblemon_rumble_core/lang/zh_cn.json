@@ -1,4 +1,8 @@
 {
+  "rumble.cinematic.mega_evolution": "超级进化",
+  "rumble.cinematic.dynamax": "极巨化",
+  "rumble.cinematic.z_move": "Z 招式",
+  "rumble.cinematic.terastalization": "太晶化",
   "rumble.frontier.draft_confirm_hint": "%sP 已选好，点击「确定」锁定",
   "rumble.gym.team_dps": "全队 DPS 对比",
   "rumble.gym.no_dps_samples": "这场记录未保存 DPS 曲线。",
@@ -1275,5 +1279,6 @@
   "rumble.opening_tutorial.candy_use": "手持经验糖果 S，按 %s 打开队伍选择。",
   "rumble.opening_tutorial.candy_choose": "选择一只还可以获得经验的宝可梦，把糖果喂给它。",
   "rumble.opening_tutorial.capture_pick_move": "点击右侧列表中高亮的新招式。",
-  "rumble.opening_tutorial.capture_no_moves": "这只宝可梦没有可替换的招式，请换一只队伍成员。"
+  "rumble.opening_tutorial.capture_no_moves": "这只宝可梦没有可替换的招式，请换一只队伍成员。",
+  "itemGroup.cobblemon_rumble_core.main": "方可梦大乱斗核心"
 }

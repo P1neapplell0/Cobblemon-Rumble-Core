@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.combat;
 
+import com.p1nero.cobblemon.rumblecore.combat.arena.GimmickCinematics;
 import com.johnn.realtimecobblemon.MoveCombat;
 import com.johnn.realtimecobblemon.Smash;
 import com.p1nero.cobblemon.rumblecore.combat.arena.ArenaKnockoutVisual;
@@ -28,7 +29,8 @@ public record RealtimeReleaseAim(int targetId) implements CustomPacketPayload {
 
     public static void register(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToServer(TYPE, CODEC, (packet, context) -> {
-            if (context.player() instanceof ServerPlayer player) {
+            if (context.player() instanceof ServerPlayer player
+                    && !GimmickCinematics.locked(player)) {
                 Smash.Session session = Smash.session(player);
                 if (session == null) return;
                 if (packet.targetId() < 0) LOCKS.remove(session);

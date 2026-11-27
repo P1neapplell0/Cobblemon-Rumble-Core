@@ -46,6 +46,14 @@ public final class GymTeamPokemon {
 
     /** Authored encounters keep their legal, castable signature moves before filling missing slots. */
     public static void prepareArenaMoves(Pokemon pokemon, String context, boolean preferAuthored) {
+        prepareMoves(pokemon, context, preferAuthored, false);
+    }
+
+    static void prepareCinemaMoves(Pokemon pokemon, String context) {
+        prepareMoves(pokemon, "cinema/" + context, true, true);
+    }
+
+    private static void prepareMoves(Pokemon pokemon, String context, boolean preferAuthored, boolean cinema) {
         var moveset = pokemon.getMoveSet();
         var authored = moveset.getMoveTemplates();
         var legalNames = new HashSet<String>();
@@ -92,8 +100,9 @@ public final class GymTeamPokemon {
                 selected.add(candidate.template());
             }
         }
-        if (selected.stream().noneMatch(GymTeamPokemon::isRangedAttack)) {
-            castable.values().stream().filter(candidate -> isRangedAttack(candidate.template()))
+        java.util.function.Predicate<MoveTemplate> ranged = cinema ? GymTeamPokemon::isCinemaRangedAttack : GymTeamPokemon::isRangedAttack;
+        if (selected.stream().noneMatch(ranged)) {
+            castable.values().stream().filter(candidate -> ranged.test(candidate.template()))
                     .max(Comparator.comparingDouble(ScoredMove::score).thenComparing(candidate -> candidate.template().getName()))
                     .ifPresent(candidate -> {
                         if (selected.size() == 4) selected.removeLast();
@@ -125,6 +134,16 @@ public final class GymTeamPokemon {
         var style = MoveRegistry.style(MoveRegistry.info(move.create()));
         return switch (style.shape()) {
             case PROJECTILE, BEAM, STREAM, BOLT, STRIKE, RAIN, SHOCKWAVE -> Math.max(style.range(), style.radius()) >= 4;
+            default -> false;
+        };
+    }
+
+    /** Movie casts must reach a distant target without bringing the attacker into contact. */
+    static boolean isCinemaRangedAttack(MoveTemplate move) {
+        if (!isArenaAttack(move)) return false;
+        var style = MoveRegistry.style(MoveRegistry.info(move.create()));
+        return switch (style.shape()) {
+            case PROJECTILE, BEAM, STREAM, BOLT, STRIKE, RAIN -> style.range() >= 8;
             default -> false;
         };
     }

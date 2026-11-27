@@ -108,7 +108,7 @@ dependencies {
         if (it.name.startsWith("Cobblemon-neoforge-") || it.name.startsWith("realtimecobblemon-")
             || it.name.startsWith("custom_instances-") || it == playerDataJar.asFile
             || it.name.startsWith("legendarymonuments-") || it.name.startsWith("CobbleDollars-")
-            || it.name.startsWith("cobbleeffortvr-") || it.name.startsWith("mega_showdown-") || it.name.startsWith("accessories-neoforge-")
+            || it.name.startsWith("cobblemoncinematics-") || it.name.startsWith("cobbleeffortvr-") || it.name.startsWith("mega_showdown-") || it.name.startsWith("accessories-neoforge-")
             || it.name.startsWith("rctmod-") || it.name.startsWith("rctapi-") || it.name.startsWith("cobblebash-")
             || it.name.startsWith("cobblebash_screen-") || it.name.startsWith("cobblesafari-")
             || it.name.startsWith("quark-") || it.name.startsWith("zeta-")

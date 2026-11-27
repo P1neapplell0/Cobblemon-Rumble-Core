@@ -1,5 +1,6 @@
 package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 
+import com.p1nero.cobblemon.rumblecore.combat.arena.GimmickCinematics;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.johnn.realtimecobblemon.Smash;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -20,7 +21,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class InstanceDirectDamage {
     @Inject(method = "hurtPokemon", at = @At("HEAD"), cancellable = true)
     private static void rumble$protectStoryActors(Smash.Session battle, float amount, DamageSource source, CallbackInfo ci) {
-        if (battle.pokemon.getPokemon().isFainted() || ArenaMatch.friendlyDamage(battle, source) || FixedStoryActors.protectedFromCombat(battle.pokemon) || RealtimeProtection.megaProtected(battle.pokemon)) ci.cancel();
+        if (GimmickCinematics.blocksDamage(source)
+                || battle.pokemon.getPokemon().isFainted() || ArenaMatch.friendlyDamage(battle, source) || FixedStoryActors.protectedFromCombat(battle.pokemon) || RealtimeProtection.megaProtected(battle.pokemon)) ci.cancel();
     }
 
     @WrapOperation(method = "hurtPokemon", at = @At(value = "INVOKE",

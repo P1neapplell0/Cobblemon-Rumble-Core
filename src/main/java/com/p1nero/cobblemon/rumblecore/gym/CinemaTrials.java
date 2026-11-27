@@ -25,11 +25,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public final class CinemaTrials {
+    private static final String SCRIPTED_LOADOUT = "rumble_cinema_loadout";
     private static final List<Trial> TRIALS = load();
     private static final GymTeamPokemon.TrainingStats IVS = new GymTeamPokemon.TrainingStats(31, 31, 31, 31, 31, 31);
     private static final GymTeamPokemon.TrainingStats EVS = new GymTeamPokemon.TrainingStats(144, 92, 48, 92, 48, 84);
 
     private CinemaTrials() {}
+
+    public static boolean hasScriptedLoadout(Pokemon pokemon) { return pokemon.getPersistentData().getBoolean(SCRIPTED_LOADOUT); }
 
     public record Cast(String species, String aspect, List<String> moves) {
         public ResourceLocation speciesId() { return ResourceLocation.fromNamespaceAndPath("cobblemon", species); }
@@ -49,6 +52,9 @@ public final class CinemaTrials {
         public Pokemon create(String context) {
             var pokemon = GymTeamPokemon.create(species, null, 80, "hardy", null, new LinkedHashSet<>(moves),
                     IVS, EVS, "", aspects(), context);
+            // A role must have the same real-time loadout whether filled by a player or AI.
+            GymTeamPokemon.prepareCinemaMoves(pokemon, context);
+            pokemon.getPersistentData().putBoolean(SCRIPTED_LOADOUT, true);
             pokemon.heal();
             return pokemon;
         }

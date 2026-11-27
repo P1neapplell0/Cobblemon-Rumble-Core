@@ -2,6 +2,7 @@ package com.p1nero.cobblemon.rumblecore.phone;
 
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import java.util.EnumMap;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -33,8 +34,13 @@ public final class PhoneItems {
 
     private static void creativeTab(BuildCreativeModeTabContentsEvent event) {
         if (!event.getTabKey().equals(CreativeModeTabs.TOOLS_AND_UTILITIES)) return;
-        event.accept(BLANK.get());
-        CARDS.values().forEach(card -> event.accept(card.get()));
+        addCreativeItems(event::accept);
+    }
+
+    /** Shared by the vanilla tools tab and the mod's dedicated creative tab. */
+    public static void addCreativeItems(Consumer<ItemStack> output) {
+        output.accept(new ItemStack(BLANK.get()));
+        CARDS.values().forEach(card -> output.accept(new ItemStack(card.get())));
     }
 
     private static final class AppCard extends Item {

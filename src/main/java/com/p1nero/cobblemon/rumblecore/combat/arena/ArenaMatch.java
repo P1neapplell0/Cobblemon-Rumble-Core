@@ -260,6 +260,8 @@ public final class ArenaMatch extends InstanceSession {
     }
 
     private boolean partyBattle() { return teamGame != null || leader != null || megaTrial != null || legendary != null || cinema != null || champion(); }
+    /** Used by the cinematic bridge to skip presentation-only cutscenes in team matches. */
+    boolean isTeamGame() { return teamGame != null; }
     private boolean hasTrainers() { return champion() || leader != null || megaTrial != null || setup != null && setup.hasTrainers(); }
     private UUID lessonLead() {
         if (setup == null || setup.story() == null) return null;
@@ -814,10 +816,7 @@ public final class ArenaMatch extends InstanceSession {
                         body.getLookControl().setLookAt(target.body, 28, 24);
                 }
                 if (megaAt != 0 && now >= megaAt) {
-                    megaAt = 0;
-                    MegaCombat.evolve(body);
-                    body.setNoAi(false);
-                    Brawl.train(body, difficulty);
+                    finishMega(body, difficulty);
                 } else if (megaAt == 0 && body.getHealth() <= body.getMaxHealth() / 2) MegaCombat.heal(body);
                 return;
             }
@@ -862,8 +861,18 @@ public final class ArenaMatch extends InstanceSession {
                 megaUsed = true;
                 megaAt = now + RealtimeProtection.MEGA_TICKS;
                 body.setNoAi(true);
+                if (GimmickCinematics.start(body, npc, null, GimmickCinematics.Kind.MEGA_EVOLUTION,
+                        () -> finishMega(sent, difficulty))) return;
                 MegaCombat.begin(level, body);
             } else Brawl.train(body, difficulty);
+        }
+
+        private void finishMega(PokemonEntity expected, Brawl.Difficulty difficulty) {
+            if (body != expected || !body.isAlive()) return;
+            megaAt = 0;
+            MegaCombat.evolve(body);
+            body.setNoAi(false);
+            Brawl.train(body, difficulty);
         }
 
         void recallActive(int now) {
@@ -1085,7 +1094,6 @@ public final class ArenaMatch extends InstanceSession {
                         match.team.put(player.getUUID(), fighter);
                         player.connection.teleport(position.x, position.y, position.z, yaw, 0);
                     } else {
-                        GymTeamPokemon.prepareArenaMoves(pokemon, trial.id(), true);
                         UncatchableProperty.INSTANCE.uncatchable().apply(pokemon);
                         var body = pokemon.sendOut(match.getLevel(), position, null, entity -> {
                             entity.moveTo(position.x, position.y, position.z, yaw, 0);
@@ -1267,6 +1275,10 @@ public final class ArenaMatch extends InstanceSession {
 
     @Override protected void onTick(InstanceManager manager) {
         try {
+            if (GimmickCinematics.paused(this)) {
+                if (teamGame != null && teamGame.minutes() > 0 && teamDeadline != 0) teamDeadline++;
+                return;
+            }
             if (!admittedSpectators && (frontier != null || teamGame != null)) {
                 admittedSpectators = true;
                 FrontierSpectators.enter(this, teamGame != null ? teamGame.spectators() : frontier.spectators());
@@ -2187,6 +2199,7 @@ public final class ArenaMatch extends InstanceSession {
     public void beforeLeave(ServerPlayer player) {
         var fighter = fighter(player);
         if (fighter == null) return;
+        GimmickCinematics.leaving(this, player);
         fighter.writeBackHealth();
         if (player.serverLevel() == getLevel() && Smash.active(player)) Smash.end(player, null, false);
     }
@@ -2297,6 +2310,8 @@ public final class ArenaMatch extends InstanceSession {
         if (session.combat.lockedUntil > now) return;
         if (!f.megaUsed && (match.frontier != null || match.teamGame != null || match.b != null || MegaCombat.equipped(player))
                 && MegaCombat.canMega(f.current())) {
+            if (GimmickCinematics.start(session, GimmickCinematics.Kind.MEGA_EVOLUTION,
+                    () -> match.finishHeld(f, session))) return;
             f.megaReady = now + RealtimeProtection.MEGA_TICKS;
             session.combat.lockedUntil = f.megaReady;
             session.combat.lockReason = "is Mega Evolving!";
@@ -2309,9 +2324,19 @@ public final class ArenaMatch extends InstanceSession {
     void useTera(Smash.Session session) {
         if (frontier != null || teamGame != null) return;
         if (cinema != null) return;
+        if (!canUseTera(session)) return;
+        if (!GimmickCinematics.start(session, GimmickCinematics.Kind.TERASTALIZATION, () -> finishTera(session))) finishTera(session);
+    }
+
+    private boolean canUseTera(Smash.Session session) {
         var f = fighter(session.player);
-        if (group(session.player) != this || f == null || f.choosing || f.teraSlot != null || f.body != session.pokemon
-                || trainerResultAt != 0 || !fighting && !teraLesson() || !TeraCombat.apply(session, true)) return;
+        return group(session.player) == this && f != null && !f.choosing && f.teraSlot == null && f.body == session.pokemon
+                && trainerResultAt == 0 && (fighting || teraLesson()) && TeraCombat.canApply(session);
+    }
+
+    private void finishTera(Smash.Session session) {
+        if (!canUseTera(session) || !TeraCombat.apply(session, true)) return;
+        var f = fighter(session.player);
         f.teraSlot = f.current();
         f.recordDeployment();
         PacketDistributor.sendToPlayer(f.player, new ArenaPackets.TeraUsed(true));
@@ -2324,16 +2349,48 @@ public final class ArenaMatch extends InstanceSession {
     private void tickHeld(Fighter f) {
         if (f.megaReady == 0 || getLevel().getGameTime() < f.megaReady) return;
         f.megaReady = 0;
-        var session = Smash.session(f.player);
-        if (session == null || session.pokemon != f.body || f.current().isFainted() || !MegaCombat.evolve(f.body)) return;
+        finishHeld(f, Smash.session(f.player));
+    }
+
+    private void finishHeld(Fighter f, Smash.Session session) {
+        if (session == null || session.pokemon != f.body || f.current().isFainted()) return;
+        if (!MegaCombat.evolve(f.body)) {
+            // A failed form transition must not leave the realtime combat state locked.
+            session.combat.lockedUntil = 0L;
+            session.combat.lockReason = null;
+            Smash.sendHud(session);
+            return;
+        }
         f.megaUsed = true;
         f.recordDeployment();
+        // Mega Showdown updates the Pokémon/form asynchronously. Clear the temporary cinematic
+        // lock after the committed form is visible so the first post-Mega move is accepted.
+        session.combat.lockedUntil = 0L;
+        session.combat.lockReason = null;
         Smash.refreshBody(session);
         Smash.sendHud(session);
         if (gimmickLesson() && !teraLesson() && !fighting && lessonBattleAt == 0) {
             lessonBattleAt = getLevel().getServer().getTickCount() + 26;
             ProloguePackets.show(f.player, Cue.MEGA_ITEM, f.body.getId(), false, 0, true);
         }
+    }
+
+    /** Everyone actively fighting in this instance shares one pause, including opposing players. */
+    void cinematicAudience(Set<Entity> entities, Set<ServerPlayer> viewers) {
+        for (var f : knockoutFighters()) {
+            if (gone(f) || f.eliminated) continue;
+            viewers.add(f.player);
+            entities.add(f.player);
+            if (f.body != null) entities.add(f.body);
+            var session = Smash.session(f.player);
+            if (session != null) entities.addAll(session.combat.decoys);
+        }
+        for (var trainer : trainers) {
+            if (trainer.body != null) entities.add(trainer.body);
+            if (trainer.npc != null) entities.add(trainer.npc);
+        }
+        entities.addAll(wildFoes);
+        if (cinema != null) entities.addAll(cinema.actors.keySet());
     }
 
     public static boolean alliedWindup(ServerPlayer viewer, PokemonEntity pokemon) {

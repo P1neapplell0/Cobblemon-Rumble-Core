@@ -51,8 +51,11 @@ public final class RealtimeWorldInteractions {
         for (int i = 0, steps = Math.max(1, (int) Math.ceil(from.distanceTo(to) * 2)); i <= steps; i++) {
             if (!level.hasChunkAt(BlockPos.containing(from.lerp(to, (double) i / steps)))) return false;
         }
+        // SOURCE_ONLY misses flowing water and the shallow water layer commonly used
+        // as a surface. Ice moves should interact with both source and flowing water;
+        // fire still uses a solid-block trace so it keeps its existing behaviour.
         var hit = level.clip(new ClipContext(from, to, ClipContext.Block.OUTLINE,
-                "ice".equals(type) ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE, source.pokemon));
+                "ice".equals(type) ? ClipContext.Fluid.ANY : ClipContext.Fluid.NONE, source.pokemon));
         if (hit.getType() != HitResult.Type.BLOCK) return false;
         var pos = hit.getBlockPos();
         var state = level.getBlockState(pos);
@@ -65,7 +68,7 @@ public final class RealtimeWorldInteractions {
                 var fire = net.minecraft.world.level.block.BaseFireBlock.getState(level, next);
                 if (fire.canSurvive(level, next)) return replace(level, player, next, fire, hit.getDirection());
             }
-        } else if ("ice".equals(type) && state.is(Blocks.WATER) && state.getFluidState().isSource()
+        } else if ("ice".equals(type) && state.is(Blocks.WATER)
                 && level.isEmptyBlock(pos.above())) {
             if (replace(level, player, pos, Blocks.FROSTED_ICE.defaultBlockState(), hit.getDirection())) {
                 level.scheduleTick(pos, Blocks.FROSTED_ICE, 40);

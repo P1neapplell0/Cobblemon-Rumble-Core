@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(targets = "com.johnn.realtimecobblemon.moves.Brawl$Foe", remap = false)
 public interface BrawlFoeAccess {
+    // RTC 1.0.3alpha.1: current player target, used to collect wild cutscene opponents.
+    @Accessor("player") net.minecraft.server.level.ServerPlayer rumble$player();
     @Accessor("mon") PokemonEntity rumble$mon();
     @Accessor("windup") int rumble$windup();
     @Accessor("actAt") long rumble$actAt();

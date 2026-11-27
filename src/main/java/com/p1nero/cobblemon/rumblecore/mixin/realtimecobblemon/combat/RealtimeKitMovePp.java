@@ -3,6 +3,7 @@ package com.p1nero.cobblemon.rumblecore.mixin.realtimecobblemon.combat;
 import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.johnn.realtimecobblemon.moves.Kits;
+import com.p1nero.cobblemon.rumblecore.gym.CinemaTrials;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,11 @@ abstract class RealtimeKitMovePp {
     @Inject(method = "moves(Lcom/cobblemon/mod/common/pokemon/Pokemon;Z)Ljava/util/List;", at = @At("HEAD"), cancellable = true)
     private static void rumble$useEquippedMoves(Pokemon pokemon, boolean duel, CallbackInfoReturnable<List<Move>> cir) {
         var learned = pokemon.getMoveSet().getMoves();
-        if (pokemon.getOwnerUUID() != null && !learned.isEmpty()) cir.setReturnValue(learned);
+        // Movie rentals use a detached party with no player owner UUID. Do not replace
+        // their scripted moves with RTC 1.0.3alpha.1 species kits when control starts.
+        if (CinemaTrials.hasScriptedLoadout(pokemon) || (pokemon.getOwnerUUID() != null && !learned.isEmpty())) {
+            cir.setReturnValue(learned);
+        }
     }
 
     @Inject(method = "moves(Lcom/cobblemon/mod/common/pokemon/Pokemon;Z)Ljava/util/List;", at = @At("RETURN"), cancellable = true)

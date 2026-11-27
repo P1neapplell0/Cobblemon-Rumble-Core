@@ -137,6 +137,9 @@
     "realtimecobblemon.combat.RealtimeTerrainImpact",
     "realtimecobblemon.combat.RealtimeProjectileTerrainImpact",
     "realtimecobblemon.combat.BrawlFoeAccess",
+    "realtimecobblemon.combat.GimmickBrawlAccess",
+    "realtimecobblemon.combat.GimmickCinematicHooks$Mega",
+    "realtimecobblemon.combat.GimmickCinematicHooks$Max",
     "realtimecobblemon.combat.BrawlPickAccess",
     "realtimecobblemon.combat.PrologueCombatInput$PracticeFoe",
     "realtimecobblemon.combat.PrologueCombatInput$Light",
@@ -166,6 +169,7 @@
     "realtimecobblemon.combat.TenacityKnockback"
   ],
   "client": [
+    "cobblemoncinematics.RealtimeGimmickPresentation",
     "minecraft.KnockoutLocalMovement",
     "minecraft.KnockoutCamera",
     "minecraft.KnockoutCamera$RotationAccess",

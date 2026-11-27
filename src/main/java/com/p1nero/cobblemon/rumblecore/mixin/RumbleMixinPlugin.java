@@ -44,6 +44,9 @@ public final class RumbleMixinPlugin implements IMixinConfigPlugin {
         if (mixinClassName.startsWith(ROOT + "wildfire_gender.")) {
             return FMLLoader.getLoadingModList().getModFileById("wildfire_gender") != null;
         }
+        if (mixinClassName.startsWith(ROOT + "cobblemoncinematics.")) {
+            return FMLLoader.getLoadingModList().getModFileById("cobblemoncinematics") != null;
+        }
         return !mixinClassName.startsWith(MONUMENTS)
                 || FMLLoader.getLoadingModList().getModFileById("legendarymonuments") != null;
     }

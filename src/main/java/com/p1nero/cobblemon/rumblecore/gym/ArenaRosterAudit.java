@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.gym;
 
 import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.johnn.realtimecobblemon.moves.Kits;
 import com.p1nero.cobblemon.rumblecore.CobblemonRumbleCore;
 import java.util.HashSet;
 import java.util.List;
@@ -45,12 +46,35 @@ public final class ArenaRosterAudit {
             if (!trial.supported()) { unavailable(trial.id()); continue; }
             for (int side = 0; side < trial.sides().size(); side++) {
                 var cast = trial.sides().get(side);
-                check(trial.template() + "/" + side, () -> cast.stream().map(slot -> slot.create(trial.id())).toList(), true);
+                for (var slot : cast) checkCinema(trial.template() + "/" + side, slot);
             }
         }
         GymCatalog.LOG.info("[ArenaAudit] {} rosters / {} Pokémon; {} basic-attack fallbacks; {} unavailable; {} without legal ranged options; {} failed",
                 rosters, pokemon, basic, unavailable, noRanged, failures);
         if (failures != 0) throw new IllegalStateException("Arena roster audit failed: " + failures);
+    }
+
+    private void checkCinema(String id, CinemaTrials.Cast cast) {
+        try {
+            // Inspect the actual movie loadout, without the gym audit's extra preparation step.
+            var mon = cast.create(id);
+            var moves = mon.getMoveSet().getMoveTemplates();
+            var actual = moves.stream().map(move -> move.getName()).toList();
+            if (!actual.equals(cast.moves()) || !mon.getForm().getMoves().getAllLegalMoves().containsAll(moves)
+                    || !moves.stream().allMatch(GymTeamPokemon::isArenaAttack)
+                    || moves.stream().noneMatch(GymTeamPokemon::isCinemaRangedAttack)) {
+                throw new IllegalStateException("Invalid movie loadout for " + cast.species() + "/" + cast.aspect()
+                        + ": expected " + cast.moves() + ", got " + actual);
+            }
+            if (!Kits.moves(mon, false).equals(mon.getMoveSet().getMoves())) {
+                throw new IllegalStateException("RTC replaced the scripted movie loadout: " + cast.species());
+            }
+            rosters++;
+            pokemon++;
+        } catch (RuntimeException error) {
+            failures++;
+            GymCatalog.LOG.error("[ArenaAudit] Failed to prepare movie role in {}", id, error);
+        }
     }
 
     private void unavailable(String id) {
