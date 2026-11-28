@@ -13,6 +13,9 @@ public final class RumbleConfig {
     private static final ModConfigSpec.DoubleValue IMPACT_SHAKE_FREQUENCY;
     private static final ModConfigSpec.IntValue IMPACT_SHAKE_DURATION;
 
+    private static final ModConfigSpec.BooleanValue BLOCK_VANILLA_AND_QUARK;
+    private static final ModConfigSpec.BooleanValue DISABLE_BEEHIVES;
+
     static {
         var builder = new ModConfigSpec.Builder();
         builder.comment("Developer shortcuts. Disabled by default.").push("developerMode");
@@ -28,6 +31,12 @@ public final class RumbleConfig {
         IMPACT_SHAKE_FREQUENCY = builder.defineInRange("frequency", 0.055D, 0.001D, 2D);
         IMPACT_SHAKE_DURATION = builder.defineInRange("durationMillis", 260, 20, 2000);
         builder.pop();
+        builder.comment("Entity rules migrated from Ebony Phantom Core.").push("entityControl");
+        BLOCK_VANILLA_AND_QUARK = builder.comment("Block vanilla and Quark living entities except players, villagers, armor stands and the Ender Dragon.")
+                .define("blockVanillaAndQuark", true);
+        DISABLE_BEEHIVES = builder.comment("Disable tree-grown bee nests and stored bee release from nests and hives.")
+                .define("disableBeehives", true);
+        builder.pop();
         SPEC = builder.build();
     }
 
@@ -37,6 +46,9 @@ public final class RumbleConfig {
         return server.isSingleplayer() && !server.isPublished() && server.getPlayerList().getPlayerCount() == 1
                 && SKIP_NPC_BATTLES.get();
     }
+
+    public static boolean blocksVanillaAndQuark() { return BLOCK_VANILLA_AND_QUARK.get(); }
+    public static boolean disablesBeehives() { return DISABLE_BEEHIVES.get(); }
 
     public static boolean hardGymBattles() { return HARD_GYM_BATTLES.get(); }
     public static float impactShakeMin() { return IMPACT_SHAKE_MIN.get().floatValue(); }

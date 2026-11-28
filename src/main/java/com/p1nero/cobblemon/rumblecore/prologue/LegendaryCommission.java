@@ -57,8 +57,9 @@ public final class LegendaryCommission {
         var tree = DialogueTreeBuilder.create(INTRO).npc(DialogueText.translatable(WanderingMerchantQuest.NAME)).repeatable(true);
         tree.node("greeting").say(DialogueText.translatable(KEY + "greeting"), INTRO + "/greeting").delay(2900).autoNext("unlock");
         tree.node("unlock").say(DialogueText.translatable(KEY + "unlocked_notice"), INTRO + "/unlock")
-                .choice("browse", DialogueText.translatable(KEY + "browse"), c -> c.addEvents((p, npc) -> finish(p, true)).close())
-                .choice("later", DialogueText.translatable("rumble.merchant.leave"), c -> c.addEvents((p, npc) -> finish(p, false)).close());
+                .choice("browse", DialogueText.translatable(KEY + "browse"), c -> c.addEvents((p, npc) -> finish(p, () -> MerchantPanels.openLegendary(p))).close())
+                .choice("hoopa", DialogueText.translatable("rumble.hoopa.browse"), c -> c.addEvents((p, npc) -> finish(p, () -> MerchantHoopa.open(p))).close())
+                .choice("later", DialogueText.translatable("rumble.merchant.leave"), c -> c.addEvents((p, npc) -> finish(p, null)).close());
         event.register(tree.build());
     }
 
@@ -67,12 +68,12 @@ public final class LegendaryCommission {
     public static boolean unlocked(ServerPlayer p) { return ArcQuestPlayerManager.getOrCreate(p).isQuestCompleted(ID.toString()); }
     static void talk(ServerPlayer p, TrialMerchantEntity npc) { DialogueSessionManager.INSTANCE.startDialogue(p, npc, INTRO, new DialogueContext()); }
 
-    private static void finish(ServerPlayer player, boolean open) {
+    private static void finish(ServerPlayer player, Runnable open) {
         var session = DialogueSessionManager.INSTANCE.getSession(player);
         if (session == null || !(session.getEntity() instanceof TrialMerchantEntity trader)
                 || !WanderingMerchantQuest.at(player, trader) || !meeting(player)) return;
         QuestProgressHandler.incrementObjective(player, ID.toString(), MEET, 0, 1);
-        if (open) PrologueStory.after(player, () -> MerchantPanels.openLegendary(player));
+        if (open != null) PrologueStory.after(player, open);
     }
 
     public static void acceptTrial(ServerPlayer p, Trial trial) {

@@ -1,6 +1,7 @@
 package com.p1nero.cobblemon.rumblecore.prologue;
 
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.LegendaryDirectoryScreen;
+import com.p1nero.cobblemon.rumblecore.client.ui.ore.HoopaRingScreen;
 import com.p1nero.cobblemon.rumblecore.client.ui.ore.MerchantOddsScreen;
 import com.p1nero.cobblemon.rumblecore.gym.LegendaryTrials;
 import com.p1nero.cobblemon.rumblecore.shop.WanderingCatalogue;
@@ -23,7 +24,7 @@ import org.arcadia.arc_quest.questplayer.ArcQuestPlayerManager;
 public final class MerchantPanels {
     private MerchantPanels() {}
 
-    private static TrialMerchantEntity nearby(ServerPlayer player) {
+    static TrialMerchantEntity nearby(ServerPlayer player) {
         return FixedStoryActors.find(player.serverLevel(), FixedStoryActors.MERCHANT) instanceof TrialMerchantEntity merchant
                 && WanderingMerchantQuest.at(player, merchant) ? merchant : null;
     }
@@ -70,6 +71,10 @@ public final class MerchantPanels {
         PacketDistributor.sendToPlayer(player, new Odds(withRows(rows)));
     }
 
+    static void showHoopa(ServerPlayer player, ListTag rows) {
+        PacketDistributor.sendToPlayer(player, new HoopaDirectory(withRows(rows)));
+    }
+
     private static CompoundTag withRows(ListTag rows) {
         var data = new CompoundTag();
         data.put("rows", rows);
@@ -79,6 +84,8 @@ public final class MerchantPanels {
     public static void register(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar("1");
         registrar.playToClient(Directory.TYPE, Directory.CODEC, (packet, ctx) -> LegendaryDirectoryScreen.open(packet.data()));
+        registrar.playToClient(HoopaDirectory.TYPE, HoopaDirectory.CODEC, (packet, ctx) -> HoopaRingScreen.open(packet.data()));
+        registrar.playToServer(HoopaEntry.TYPE, HoopaEntry.CODEC, (packet, ctx) -> MerchantHoopa.enter((ServerPlayer) ctx.player(), packet.id()));
         registrar.playToClient(Odds.TYPE, Odds.CODEC, (packet, ctx) -> MerchantOddsScreen.open(packet.data()));
         registrar.playToServer(Select.TYPE, Select.CODEC, (packet, ctx) -> select((ServerPlayer) ctx.player(), packet.id()));
     }
@@ -93,6 +100,18 @@ public final class MerchantPanels {
         static final Type<Select> TYPE = new Type<>(PrologueWorld.id("legendary_select"));
         static final StreamCodec<RegistryFriendlyByteBuf, Select> CODEC = StreamCodec.composite(ByteBufCodecs.stringUtf8(64), Select::id, Select::new);
         public Type<Select> type() { return TYPE; }
+    }
+
+    public record HoopaDirectory(CompoundTag data) implements CustomPacketPayload {
+        static final Type<HoopaDirectory> TYPE = new Type<>(PrologueWorld.id("hoopa_directory"));
+        static final StreamCodec<RegistryFriendlyByteBuf, HoopaDirectory> CODEC = StreamCodec.composite(ByteBufCodecs.COMPOUND_TAG, HoopaDirectory::data, HoopaDirectory::new);
+        public Type<HoopaDirectory> type() { return TYPE; }
+    }
+
+    public record HoopaEntry(String id) implements CustomPacketPayload {
+        static final Type<HoopaEntry> TYPE = new Type<>(PrologueWorld.id("hoopa_entry"));
+        static final StreamCodec<RegistryFriendlyByteBuf, HoopaEntry> CODEC = StreamCodec.composite(ByteBufCodecs.stringUtf8(128), HoopaEntry::id, HoopaEntry::new);
+        public Type<HoopaEntry> type() { return TYPE; }
     }
 
     public record Odds(CompoundTag data) implements CustomPacketPayload {

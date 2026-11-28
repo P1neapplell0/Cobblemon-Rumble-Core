@@ -83,7 +83,10 @@ public final class WanderingMerchantQuest {
         quest.node("thirsty").say(text("thirsty"), id + "/thirsty").choice("who", text("who"), c -> c.goTo("who"))
                 .choice("legendary", DialogueText.translatable("rumble.legendary.browse"),
                         c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
-                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openLegendary(p))).close());
+                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openLegendary(p))).close())
+                .choice("hoopa", DialogueText.translatable("rumble.hoopa.browse"),
+                        c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
+                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantHoopa.open(p))).close());
         quest.node("who").say(text("introduce"), id + "/who").choice("tea", DialogueText.of(ctx ->
                 Component.translatable(KEY + "tea").withStyle(ChatFormatting.GOLD)), c -> c.goTo("check"));
         quest.node("check").say(DialogueText.of(ctx -> Component.translatable(KEY + (hasTea(ctx.player(), false) ? "ready" : "unknown"))), id + "/check")
@@ -117,6 +120,9 @@ public final class WanderingMerchantQuest {
                 .choice("legendary", DialogueText.translatable("rumble.legendary.browse"),
                         c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
                                 .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantPanels.openLegendary(p))).close())
+                .choice("hoopa", DialogueText.translatable("rumble.hoopa.browse"),
+                        c -> c.conditionIf((p, npc) -> LegendaryCommission.unlocked(p))
+                                .addEvents((p, npc) -> PrologueStory.after(p, () -> MerchantHoopa.open(p))).close())
                 .choice("leave", text("leave"), c -> c.close());
     }
 
