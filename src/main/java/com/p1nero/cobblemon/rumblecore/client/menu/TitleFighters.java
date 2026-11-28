@@ -9,6 +9,7 @@ import com.cobblemon.mod.common.client.render.models.blockbench.repository.Rende
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.VertexSorting;
 import com.mojang.logging.LogUtils;
 import com.mojang.math.Axis;
@@ -29,6 +30,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.neoforged.fml.ModList;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
@@ -217,8 +219,48 @@ final class TitleFighters {
 
     private static void drawModel(PosableModel model, RenderContext context, PoseStack pose,
                                   MultiBufferSource.BufferSource buffers, RenderType layer) {
-        model.render(context, pose, buffers.getBuffer(layer), LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, -1);
+        var vertices = buffers.getBuffer(layer);
+        if (ModList.get().isLoaded("sodium")) vertices = new TitleVertices(vertices);
+        model.render(context, pose, vertices, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, -1);
         buffers.endBatch(layer);
+    }
+
+    // Keep Sodium's bulk writer hidden so title cubes use vanilla polygon emission.
+    private record TitleVertices(VertexConsumer delegate) implements VertexConsumer {
+        @Override public void addVertex(float x, float y, float z, int color, float u, float v,
+                                        int overlay, int light, float nx, float ny, float nz) {
+            delegate.addVertex(x, y, z, color, u, v, overlay, light, nx, ny, nz);
+        }
+
+        @Override public VertexConsumer addVertex(float x, float y, float z) {
+            delegate.addVertex(x, y, z);
+            return this;
+        }
+
+        @Override public VertexConsumer setColor(int red, int green, int blue, int alpha) {
+            delegate.setColor(red, green, blue, alpha);
+            return this;
+        }
+
+        @Override public VertexConsumer setUv(float u, float v) {
+            delegate.setUv(u, v);
+            return this;
+        }
+
+        @Override public VertexConsumer setUv1(int u, int v) {
+            delegate.setUv1(u, v);
+            return this;
+        }
+
+        @Override public VertexConsumer setUv2(int u, int v) {
+            delegate.setUv2(u, v);
+            return this;
+        }
+
+        @Override public VertexConsumer setNormal(float x, float y, float z) {
+            delegate.setNormal(x, y, z);
+            return this;
+        }
     }
 
     private static float smooth(float value) {
